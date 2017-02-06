@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body class="{% if page.body-class %}{{page.body-class}}{% endif %}" id="{% if page.body-id %}{{ page.body-id }}{% endif %}">
+
+    {{ content }}
+
+    <!-- Scripts -->
+    <script src="{{site.url}}{{site.baseurl}}/assets/js/main.min.js"></script>
+  </body>
+
+</html>

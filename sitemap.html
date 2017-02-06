@@ -1,0 +1,28 @@
+---
+layout: default
+body-class: sitemap
+header-img: photo-1429399068244-018c6f9decb3.jpeg
+sitemap: false
+---
+{% include nav.html %}
+<header>
+  <h1>SITEMAP</h1>
+  <div class="header-bg" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.55)),url({{site.url}}{{site.baseurl}}/assets/img/posts/{{page.header-img}})"></div>
+</header>
+<div class="sitemap-wrapper">
+
+  {% for page in site.pages %}
+  {% if page.sitemap != false %}
+  <div class="url">
+    <a href="{{ site.url }}{{site.baseurl}}{{ page.url }}">{{ page.url }}</a>
+  </div>
+   {% endif %}
+  {% endfor %}
+
+  {% for post in site.posts %}
+  <div class="url">
+    <a href="{{ site.url }}{{site.baseurl}}{{ post.url }}">{{ post.url }}</a>
+  </div>
+  {% endfor %}
+
+</div>

@@ -1,0 +1,65 @@
+/* Navigation */
+nav
+  height: 100vh
+  width: 5em
+  display: flex
+  justify-content: center
+  align-items: center
+  text-align: center
+  z-index: 3
+  top: 0
+  position: absolute
+  transition: 300ms all ease-in-out
+  background: transparent
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)
+    -webkit-backdrop-filter: blur(0px)
+    backdrop-filter: blur(0px)
+
+  .hamburger
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+      background-color: white
+      transition: 300ms all ease-in-out
+    &.scrolled
+      .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after
+        background-color: black
+
+  .links
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    transition: 300ms all ease-in-out
+    position: absolute
+    top: 0
+    left: -20em
+    height: 100vh
+    width: 20em
+    @media (max-width: $break-small)
+      width: 15em
+      left: -15em
+    a
+      font-size: 2em
+      color: white
+      text-decoration: none
+      transition: 300ms all ease-in-out
+      margin: 10px 0
+      &:hover
+        color: $theme-color
+
+  &.open
+    width: 20em
+    @media (max-width: $break-small)
+      width: 15em
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)
+      -webkit-backdrop-filter: blur(10px)
+      backdrop-filter: blur(10px)
+    background-color: rgba(black, 0.5)
+    .links
+      left: 0
+
+  .hammy-container
+    display: flex
+    position: absolute
+    height: 5em
+    top: 0
+    left: 0

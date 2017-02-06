@@ -1,0 +1,14 @@
+---
+sitemap: false
+---
+
+/* TEAM */
+Creator: {{ site.author.name }}
+Contact: {{ site.author.email }}
+Twitter: {{ site.author.twitter }}
+GitHub: {{ site.author.github }}
+
+/* SITE */
+Last update: {{ site.time | date: '%F' }}
+Standards: {{ site.tools.standards }}
+Software: {{ site.tools.software }}

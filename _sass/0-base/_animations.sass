@@ -1,0 +1,24 @@
+.fadeInUp
+  animation-duration: 1s
+  animation-delay: 250ms
+  animation-fill-mode: both
+  animation-name: fadeInUp
+
+.fadeInDown
+  @extend .fadeInUp
+  animation-name: fadeInDown
+
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translate3d(0, 20px, 0)
+  to
+    opacity: 1
+
+@keyframes fadeInDown
+  from
+    opacity: 0
+    transform: translate3d(0, -20px, 0)
+  to
+    opacity: 1
+    transform: none

@@ -1,0 +1,26 @@
+---
+layout: default
+body-class: home
+header-img: photo-1429399068244-018c6f9decb3.jpeg
+---
+{% include nav.html %}
+<header>
+  <h1>Logan McAnsh</h1>
+  <div class="header-bg" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.55)),url({{site.url}}{{site.baseurl}}/assets/img/posts/{{page.header-img}})"></div>
+</header>
+<section>
+  {% for post in site.posts %}
+      <div class="post">
+        <h3>
+          <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        <p>
+          <small>
+            <strong>{{ post.date | date: "%B %e, %Y" }}</strong>
+          </small>
+        </p>
+      </div>
+  {% endfor %}
+</section>
+
+{% include contact.html %}

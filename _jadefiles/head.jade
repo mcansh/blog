@@ -1,0 +1,29 @@
+head
+  title {% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title | escape }}{% endif %}
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  meta(name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}")
+  meta(name="author" content="{{site.baseurl}}/humans.txt")
+  meta(name="contact" content="{{ site.author.email }}")
+
+  link(rel="stylesheet" href="{{site.baseurl}}/assets/css/style.css")
+
+  meta(name="theme-color" content="{{site.theme-color}}")
+  link(rel="shortcut icon" href="{{site.baseurl}}/assets/favicon/ico/favicon.ico")
+  link(rel="mask-icon" href="{{site.baseurl}}/assets/favicon/website_icon.svg" color="{{site.theme-color}}")
+
+  //- Apple Touch Icons 
+  link(rel="shortcut icon" href="{{site.baseurl}}/assets/favicon/png/favicon-32.png" sizes="32x32")
+  link(rel="apple-touch-icon-precomposed" sizes="228x228" href="{{site.baseurl}}/assets/favicon/png/favicon-228.png")
+  link(rel="apple-touch-icon-precomposed" sizes="195x195" href="{{site.baseurl}}/assets/favicon/png/favicon-195.png")
+  link(rel="apple-touch-icon-precomposed" sizes="152x152" href="{{site.baseurl}}/assets/favicon/png/favicon-152.png")
+  link(rel="apple-touch-icon-precomposed" sizes="144x144" href="{{site.baseurl}}/assets/favicon/png/favicon-144.png")
+  link(rel="apple-touch-icon-precomposed" sizes="128x128" href="{{site.baseurl}}/assets/favicon/png/favicon-128.png")
+  link(rel="apple-touch-icon-precomposed" sizes="120x120" href="{{site.baseurl}}/assets/favicon/png/favicon-120.png")
+  link(rel="apple-touch-icon-precomposed" sizes="96x96" href="{{site.baseurl}}/assets/favicon/png/favicon-96.png")
+  link(rel="apple-touch-icon-precomposed" sizes="72x72" href="{{site.baseurl}}/assets/favicon/png/favicon-72.png")
+  link(rel="apple-touch-icon-precomposed" href="{{site.baseurl}}/assets/favicon/png/favicon-57.png")
+
+  //- SEO 
+  {% seo title=false %}

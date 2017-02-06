@@ -1,0 +1,52 @@
+/*
+-----------------------------------
+Emoji - natural display for the web
+-----------------------------------
+
+These font face definitions allows to display emoji glyphs intermingled with
+arbitrary characters outside emoji unicode blocks.
+
+
+Usage
+-----
+
+<p style="font-family: emoji;">
+You can mix text with em😶ji glyphs, like this one 💓,
+WITHOUT wrapping into any HTML tag. 💕
+</p>
+
+Known Limitations
+-----------------
+
+- See https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-range
+  for unicode-range CSS descriptor compatibility.
+
+
+Have fun!
+*/
+
+@font-face {
+  font-family: emoji;
+
+  /* Fonts for text outside emoji blocks */
+  src: local('Droid Sans Mono'),
+       local('Lucida Console'),
+       local('Arial Monospaced'),
+       local(Arial);
+}
+
+@font-face {
+  font-family: emoji;
+
+  src: local('Apple Color Emoji'),
+       local('Android Emoji'),
+       local('Segoe UI'),
+       local(EmojiSymbols),
+       local(Symbola),
+       url('font/Symbola-Emoji.eot?#iefix') format('embedded-opentype'),
+       url('font/Symbola-Emoji.woff') format('woff'),
+       url('font/Symbola-Emoji.ttf') format('truetype');
+
+  /* Emoji unicode blocks */
+  unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
+}

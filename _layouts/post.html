@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body class="{% if page.body-class %}{{page.body-class}}{% endif %}" id="{% if page.body-id %}{{ page.body-id }}{% endif %}">
+    <progress min="0" max="100"></progress>
+
+    {% include nav.html %}
+
+    <div class="post-wrap">
+      <header class="post-header">
+        <div class="header-bg" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0.55)),url({{site.url}}{{site.baseurl}}/assets/img/posts/{{page.header-img}})"></div>
+        <h1>{{ page.title }}</h1>
+        <h2>{{ page.date | date: "%B %e, %Y" }}</h2>
+      </header>
+      <article>
+        {{ content }}
+      </article>
+    </div>
+
+    {% include contact.html %}
+    {% include footer.html %}
+
+    <!-- Scripts -->
+    <script src="{{site.url}}{{site.baseurl}}/assets/js/main.min.js"></script>
+  </body>
+
+</html>

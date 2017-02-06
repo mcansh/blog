@@ -1,0 +1,22 @@
+/* Contact Section */
+#contact
+  background: $theme-color
+  width: 100vw
+  height: 10em
+  +transition()
+  &:hover
+    background: $bg
+  a
+    color: white
+    height: 100%
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    text-decoration: none
+    +transition()
+    font-size: 48px
+    @media (max-width: $break-small)
+      font-size: 36px
+    &:hover
+      color: #635E5A

@@ -1,0 +1,42 @@
+# Site settings
+title: L O G A N M C A N S H
+description: "Logan McAnsh's personal website"
+url: "https://mcansh.github.io"
+baseurl: /blog
+mainurl: "https://mcan.sh"
+
+timezone: America/Detroit
+theme-color: "#E53A40"
+
+# ME
+author:
+  name: Logan McAnsh
+  email: "logan@mcan.sh"
+  twitter: logansmcansh
+  github: mcansh
+
+
+tools:
+  standards: "HTML, SCSS, Jekyll, gulp, git, JavaScript"
+  software: "Atom"
+
+
+# Build settings
+markdown: kramdown
+
+# gems:
+  # - bourbon
+  # - jekyll-sitemap
+  # - octopress-autoprefixer
+  # - jekyll-seo-tag
+  # - jekyll-redirect-from
+
+# Exclude these from _site
+exclude:
+  - node_modules
+  - gulpfile.js
+  - package.json
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - _posts/2016-09-13-test-post.md

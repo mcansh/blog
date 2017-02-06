@@ -1,0 +1,10 @@
+/* TEAM */
+Creator: Logan McAnsh
+Contact: logan@mcan.sh
+Twitter: logansmcansh
+GitHub: mcansh
+
+/* SITE */
+Last update: 2017-02-06
+Standards: HTML, SCSS, Jekyll, gulp, git, JavaScript
+Software: Atom
