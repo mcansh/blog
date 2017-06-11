@@ -43,8 +43,8 @@ function Posts() {
       image_url: 'wesson-wang-110739.jpg'
     },
     {
-      link: 'why-did-you-decide-to-learn-software-development',
-      title: 'Why did you decide to learn software development?',
+      link: 'why-im-learning-software-development',
+      title: "Why I'm Learning Software Development",
       date: 'October 3, 2016',
       image_url: 'wesson-wang-110739.jpg'
     },
