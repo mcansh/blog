@@ -34,7 +34,8 @@ const Header = (props) => {
 
         .header__content {
           color: white;
-          z-index: 1
+          z-index: 1;
+          max-width: 80%;
         }
       `}</style>
     </header>
