@@ -40,7 +40,6 @@ const PostCard = props => (
         .post {
           width: 100%;
           margin: 0 0 10px 0;
-          height: auto;
         }
       }
 
