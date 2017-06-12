@@ -10,13 +10,6 @@
     "comma-dangle": 0,
     "no-console": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "max-len": [
-      "error", {
-        "ignoreStrings": true,
-        "ignoreUrls": true,
-        "ignoreTemplateLiterals": true,
-        "code": 200
-      }
-    ]
+    "max-len": 0
   }
 }
