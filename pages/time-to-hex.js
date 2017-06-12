@@ -18,16 +18,16 @@ const Index = () => (
 
       <P>This is a pretty basic one function website, the function runs every second and takes the time in military time and then outputs that as a hex, while changing the background color to it.</P>
 
-      <script src="https://gist.github.com/mcansh/ffd38259a8f62a70ddb877cef7b3ebad.js?file=setDate.js"></script>
+      <script src="https://gist.github.com/mcansh/ffd38259a8f62a70ddb877cef7b3ebad.js?file=setDate.js" />
 
       <P>Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any time thats less than 10, the hex is only then 3 numbers, which is fine, until you get 4 or 5 digits. So to resolve this you can adjust the function like so:</P>
 
-      <script src="https://gist.github.com/mcansh/ffd38259a8f62a70ddb877cef7b3ebad.js?file=setDate-final.js"></script>
+      <script src="https://gist.github.com/mcansh/ffd38259a8f62a70ddb877cef7b3ebad.js?file=setDate-final.js" />
 
       <P>Now what that’s doing is running a tenerary to see if the time is less than 10 or not, if it is, then it prepends a 0 to the variable. You probably also noticed that we’re never calling <code>setDate()</code>.</P>
 
       <P>Woohoo! You now have a clock that shows you hexadecimal colors. You can even change the android chrome theme color every second.</P>
-      <script src="https://gist.github.com/mcansh/ffd38259a8f62a70ddb877cef7b3ebad.js?file=setThemeColor.js"></script>
+      <script src="https://gist.github.com/mcansh/ffd38259a8f62a70ddb877cef7b3ebad.js?file=setThemeColor.js" />
       <style jsx>{`
         a {
           color: #E53A40;

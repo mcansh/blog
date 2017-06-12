@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import Layout from './Layout';
 import Header from '../components/Header';
@@ -21,11 +20,11 @@ const Index = () => (
 
       <P>To use Rack you must first make a call to a class #call. All this needs to do is return a response that contains status codes, headers, and the body. That can be done with a <code>Rack::Response</code> object:</P>
 
-      <script src="https://gist.github.com/mcansh/dbe2f244d6b2391a77a406abd28dd710.js?file=call.rb"></script>
+      <script src="https://gist.github.com/mcansh/dbe2f244d6b2391a77a406abd28dd710.js?file=call.rb" />
 
       <P>That will run whenever a request is received but you still need to set up a HTTP serve to receive that request. Using config.ru</P>
 
-      <script src="https://gist.github.com/mcansh/dbe2f244d6b2391a77a406abd28dd710.js?file=config.ru"></script>
+      <script src="https://gist.github.com/mcansh/dbe2f244d6b2391a77a406abd28dd710.js?file=config.ru" />
 
       <P>Now running <code>rackup config.ru</code> will start up your application.</P>
 
