@@ -16,6 +16,7 @@ const Document = ({ children }) => (
       <BodyStyles />
     </Head>
     {children}
+    <script src="/static/js/main.js" />
   </div>
 );
 
