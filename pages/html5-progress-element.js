@@ -1,12 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <PostLayout>
+  <div>
     <Head><title>The HTML5 Progress Element is great for blogs</title></Head>
     <Header text="The HTML5 Progress Element is great for blogs" image_url="wesson-wang-110739.jpg" date="October 14, 2016" />
     <PostContainer>
@@ -14,7 +13,7 @@ const Index = () => (
 
       <script src="https://gist.github.com/mcansh/0dec1ed8286a4fe890607d3038a9d152.js" />
     </PostContainer>
-  </PostLayout>
+  </div>
 );
 
 export default Index;

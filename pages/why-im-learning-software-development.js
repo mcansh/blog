@@ -1,12 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <PostLayout>
+  <div>
     <Head><title>{"Why I'm Learning Software Development"}</title></Head>
     <Header text="Why I'm Learning Software Development" image_url="wesson-wang-110739.jpg" date="October 3, 2016" />
     <PostContainer>
@@ -18,7 +17,7 @@ const Index = () => (
 
       <P>— Logan</P>
     </PostContainer>
-  </PostLayout>
+  </div>
 );
 
 export default Index;

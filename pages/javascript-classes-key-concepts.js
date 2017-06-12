@@ -1,12 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <PostLayout>
+  <div>
     <Head><title>Javascript Classes Key Concepts</title></Head>
     <Header text="Javascript Classes Key Concepts" image_url="wesson-wang-110739.jpg" date="November 21, 2016" />
     <PostContainer>
@@ -20,7 +19,7 @@ const Index = () => (
 
       <P>It should be known that the content of a class declaration is executed in strict mode.</P>
     </PostContainer>
-  </PostLayout>
+  </div>
 );
 
 export default Index;

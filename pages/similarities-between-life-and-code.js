@@ -1,12 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <PostLayout>
+  <div>
     <Head><title>Similarities Between Life And Code</title></Head>
     <Header text="Similarities Between Life And Code" image_url="wesson-wang-110739.jpg" date="December 25, 2016" />
     <PostContainer>
@@ -16,7 +15,7 @@ const Index = () => (
 
       <P>Yeah, I know, another short post *sigh*. Who knows maybe I’ll keep this blogging thing up and going and get better. *gasp* The same process can be made with coding and blogging <span role="img" aria-label="Scream Emoji">😱</span>.</P>
     </PostContainer>
-  </PostLayout>
+  </div>
 );
 
 export default Index;

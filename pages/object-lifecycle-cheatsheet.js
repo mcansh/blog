@@ -1,12 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
-import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <PostLayout>
+  <div>
     <Head><title>Object Lifecycle Cheatsheet</title></Head>
     <Header text="Object Lifecycle Cheatsheet" image_url="wesson-wang-110739.jpg" date="November 4, 2016" />
     <PostContainer>
@@ -36,7 +35,7 @@ const Index = () => (
 
       <script src="https://gist.github.com/mcansh/49516fe25bcb4bae1213f2eda906f899.js?file=constructor.js" />
     </PostContainer>
-  </PostLayout>
+  </div>
 );
 
 export default Index;

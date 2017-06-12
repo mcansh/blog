@@ -1,11 +1,11 @@
 import React from 'react';
-import Layout from './Layout';
+// import Layout from './Layout';
 import Header from '../components/Header';
 import Posts from './_posts';
 import PostCard from '../components/PostCard';
 
 const Index = () => (
-  <Layout>
+  <div>
     <Header text="Logan McAnsh" image_url="wesson-wang-110739.jpg" />
     <div className="container">
       {Posts().map(post => (
@@ -37,7 +37,7 @@ const Index = () => (
         }
       }
     `}</style>
-  </Layout>
+  </div>
 );
 
 export default Index;

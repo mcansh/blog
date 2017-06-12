@@ -1,13 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <PostLayout>
+  <div>
     <Head>
       <title>How To Convert The Current Time To A Hexadecimal</title>
       <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/railscasts.css" />
@@ -37,7 +36,7 @@ const Index = () => (
         }
       `}</style>
     </PostContainer>
-  </PostLayout>
+  </div>
 );
 
 export default Index;
