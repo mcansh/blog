@@ -1,7 +1,6 @@
 import React from 'react';
 import flush from 'styled-jsx/server';
 import Document, { Head, Main, NextScript } from 'next/document';
-import Progress from '../components/post/Progress';
 
 export default class MyDocument extends Document {
   static async getInitialProps({ renderPage }) {
@@ -22,7 +21,6 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" href="/static/css/style.css" />
         </Head>
         <body>
-          <Progress />
           <Main />
           <NextScript />
           <script src="/static/js/main.js" />

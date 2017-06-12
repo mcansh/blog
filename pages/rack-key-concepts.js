@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
@@ -9,6 +10,8 @@ const Index = () => (
     <Head><title>Rack Key Concepts</title></Head>
     <Header text="Rack Key Concepts" image_url="wesson-wang-110739.jpg" date="December 7, 2016" />
     <PostContainer>
+      <Progress />
+
       <P>The most important thing to know about Rack and the internet is knowing how the internet works. First you have <code>HEAD</code>, <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, <code>TRACE</code>, <code>OPTIONS</code>, <code>CONNECT</code>, and <code>PATCH</code> requests. 🤔 huh? Let’s run through them.</P>
 
       <P><code>GET</code> requests get a resource. <code>HEAD</code> requests are <code>GET</code> requests without the body of them. <code>POST</code> requests will submit data. <code>PUT</code> will upload data. <code>DELETE</code> will, well, delete a resource. <code>TRACE</code> requests will return the recieved request. <code>OPTIONS</code> will return the HTTP methods that your server supports. <code>CONNECT</code> converts the request to a TCP/IP tunnel, ususally used for SSL. <code>PATCH</code> requests are used for partial modifications to a resource.</P>

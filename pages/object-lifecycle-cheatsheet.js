@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
@@ -9,6 +10,8 @@ const Index = () => (
     <Head><title>Object Lifecycle Cheatsheet</title></Head>
     <Header text="Object Lifecycle Cheatsheet" image_url="wesson-wang-110739.jpg" date="November 4, 2016" />
     <PostContainer>
+      <Progress />
+
       <P>Firstly, I’d like to apolagize for the lack and timing of these posts. I’ve been busy at work and unfortunately haven’t had the time to write them <span role="img" aria-label="Sob Emoji">😭</span>.</P>
 
       <P>A Javascript object is a standalone entity, with properties and types associated with it. Object properties are basically the same as javascript variables except for they’re attached to objects.</P>
