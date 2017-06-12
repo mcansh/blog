@@ -54,12 +54,13 @@ const Header = (props) => {
 };
 
 Header.defaultProps = {
-  date: ''
+  date: '',
+  image_url: 'wesson-wang-110739.jpg'
 };
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
-  image_url: PropTypes.string.isRequired,
+  image_url: PropTypes.string.isNotRequired,
   date: PropTypes.string.isRequired
 };
 
