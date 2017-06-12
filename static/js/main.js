@@ -1,6 +1,6 @@
-const header = document.querySelector('.header__content');
-
 function headerBlur() {
+  const header = document.querySelector('.header__content');
+  if (!header) return;
   const scroll = window.pageYOffset;
   const maxMinBlur = Math.min(100, Math.max(0, scroll / 2));
   const blur = `blur(${maxMinBlur}px`;
