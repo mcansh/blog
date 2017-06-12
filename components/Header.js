@@ -48,6 +48,26 @@ const Header = (props) => {
         h1, h2 {
           max-width: 80%;
         }
+
+        @media (max-width: 410px) {
+          h1,h2 {
+            max-width: 90%;
+          }
+          h1 {
+            font-size: 1.5em;
+          }
+        }
+
+        @media (max-width: 550px) {
+
+        }
+
+        @media (max-width: 500px) {
+          header {
+            min-height: 95vh;
+            height: auto;
+          }
+        }
       `}</style>
     </header>
   );
