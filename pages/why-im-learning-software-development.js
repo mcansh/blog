@@ -1,12 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
-import Layout from './Layout';
+import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <Layout>
+  <PostLayout>
     <Head><title>{"Why I'm Learning Software Development"}</title></Head>
     <Header text="Why I'm Learning Software Development" image_url="wesson-wang-110739.jpg" date="October 3, 2016" />
     <PostContainer>
@@ -17,15 +17,8 @@ const Index = () => (
       <P>This was a short one I know, hopefully the next one will make up for it.</P>
 
       <P>— Logan</P>
-
-      <style jsx>{`
-        a {
-          color: #E53A40;
-          text-decoration-skip: ink;
-        }
-      `}</style>
     </PostContainer>
-  </Layout>
+  </PostLayout>
 );
 
 export default Index;

@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import Layout from './Layout';
+import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <Layout>
+  <PostLayout>
     <Head><title>Sinatra Project</title></Head>
     <Header text="Sinatra Project" image_url="wesson-wang-110739.jpg" date="April 15, 2017" />
     <PostContainer>
@@ -24,7 +24,7 @@ const Index = () => (
         }
       `}</style>
     </PostContainer>
-  </Layout>
+  </PostLayout>
 );
 
 export default Index;

@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import Layout from './Layout';
+import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <Layout>
+  <PostLayout>
     <Head>
       <title>How To Convert The Current Time To A Hexadecimal</title>
       <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/railscasts.css" />
@@ -27,7 +27,9 @@ const Index = () => (
       <P>Now what that’s doing is running a tenerary to see if the time is less than 10 or not, if it is, then it prepends a 0 to the variable. You probably also noticed that we’re never calling <code>setDate()</code>.</P>
 
       <P>Woohoo! You now have a clock that shows you hexadecimal colors. You can even change the android chrome theme color every second.</P>
+
       <script src="https://gist.github.com/mcansh/ffd38259a8f62a70ddb877cef7b3ebad.js?file=setThemeColor.js" />
+
       <style jsx>{`
         a {
           color: #E53A40;
@@ -35,7 +37,7 @@ const Index = () => (
         }
       `}</style>
     </PostContainer>
-  </Layout>
+  </PostLayout>
 );
 
 export default Index;

@@ -1,12 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
-import Layout from './Layout';
+import PostLayout from './PostLayout';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => (
-  <Layout>
+  <PostLayout>
     <Head><title>Rack Key Concepts</title></Head>
     <Header text="Rack Key Concepts" image_url="wesson-wang-110739.jpg" date="December 7, 2016" />
     <PostContainer>
@@ -27,15 +27,8 @@ const Index = () => (
       <script src="https://gist.github.com/mcansh/dbe2f244d6b2391a77a406abd28dd710.js?file=config.ru" />
 
       <P>Now running <code>rackup config.ru</code> will start up your application.</P>
-
-      <style jsx>{`
-        a {
-          color: #E53A40;
-          text-decoration-skip: ink;
-        }
-      `}</style>
     </PostContainer>
-  </Layout>
+  </PostLayout>
 );
 
 export default Index;
