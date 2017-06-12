@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
 import Layout from './Layout';
 import Header from '../components/Header';
