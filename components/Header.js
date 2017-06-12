@@ -35,6 +35,17 @@ const Header = (props) => {
         .header__content {
           color: white;
           z-index: 1;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          backdrop-filter: blur(0px);
+          will-change: backdrop-filter;
+        }
+
+        h1, h2 {
           max-width: 80%;
         }
       `}</style>
