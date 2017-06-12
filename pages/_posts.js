@@ -25,20 +25,20 @@ function Posts() {
       image_url: 'wesson-wang-110739.jpg'
     },
     {
-      link: 'key-concepts-for-variables-and-methods',
-      title: 'What are some of the key concepts in Class Variables and Methods?',
+      link: 'javascript-classes-key-concepts',
+      title: 'Javascript Classes Key Concepts',
       date: 'November 21, 2016',
       image_url: 'wesson-wang-110739.jpg'
     },
     {
       link: 'object-lifecycle-cheatsheet',
-      title: 'Make a cheatsheet for Object Lifecycle. Talk about key concepts, functions, and best practices.',
+      title: 'Object Lifecycle Cheatsheet',
       date: 'November 4, 2016',
       image_url: 'wesson-wang-110739.jpg'
     },
     {
-      link: 'html5',
-      title: "Research HTML5 on the internet and write about something that wasn't discussed in the Learn curriculum.",
+      link: 'html5-progress-element',
+      title: 'The Progress Element is great for blogs',
       date: 'October 14, 2016',
       image_url: 'wesson-wang-110739.jpg'
     },
