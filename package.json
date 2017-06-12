@@ -1,5 +1,5 @@
 {
-  "name": "blog-nextjs",
+  "name": "blog.loganmcansh.com",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start"
+  },
+  "now": {
+    "alias": "blog.loganmcansh.com"
   },
   "keywords": [],
   "author": "",
