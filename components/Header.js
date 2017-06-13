@@ -58,8 +58,11 @@ const Header = (props) => {
           }
         }
 
-        @media (max-width: 550px) {
-
+        @media (max-height: 500px) {
+          header {
+            height: 100vh;
+            min-height: 100vh;
+          }
         }
 
         @media (max-width: 500px) {
