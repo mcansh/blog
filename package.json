@@ -19,7 +19,6 @@
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-highlight.js": "^1.0.5",
     "styled-jsx": "^1.0.4"
   },
   "devDependencies": {

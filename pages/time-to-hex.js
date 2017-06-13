@@ -8,10 +8,7 @@ import P from '../components/post/Paragraph';
 
 const Index = () => (
   <div>
-    <Head>
-      <title>How To Convert The Current Time To A Hexadecimal</title>
-      <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/railscasts.css" />
-    </Head>
+    <Head><title>How To Convert The Current Time To A Hexadecimal</title></Head>
     <Header text="How To Convert The Current Time To A Hexadecimal" image_url="wesson-wang-110739.jpg" date="January 10, 2017" />
     <PostContainer>
       <Progress />
