@@ -6,35 +6,38 @@ import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
-const Index = () => (
-  <div>
-    <Head><title>Javascript Classes Key Concepts</title></Head>
-    <Header text="Javascript Classes Key Concepts" image_url="wesson-wang-110739.jpg" date="November 21, 2016" />
-    <PostContainer>
-      <Progress />
+const Index = () => {
+  const title = 'Javascript Classes Key Concepts';
+  return (
+    <div>
+      <Head><title>{title}</title></Head>
+      <Header text={title} image="markus-spiske-109588.jpg" date="November 21, 2016" />
+      <PostContainer>
+        <Progress />
 
-      <P>The key concept in class variables and methods is how to define them. Classes are realistically just “special functions”. To define a class, you use the keyword class followed by the name you want to give it.</P>
+        <P>The key concept in class variables and methods is how to define them. Classes are realistically just “special functions”. To define a class, you use the keyword class followed by the name you want to give it.</P>
 
-      <Code>{`
-  class myClass {
-    constructor(height, width) {
-      this.height = height;
-      this.width = width;
+        <Code>{`
+    class myClass {
+      constructor(height, width) {
+        this.height = height;
+        this.width = width;
+      }
     }
-  }
-      `}</Code>
+        `}</Code>
 
-      <P>When you’re defining classes make sure they are hoisted or your code will throw errors like</P>
+        <P>When you’re defining classes make sure they are hoisted or your code will throw errors like</P>
 
-      <Code>{`
-  var p = new myClass(); // ReferenceError
+        <Code>{`
+    var p = new myClass(); // ReferenceError
 
-  class myClass {}
-      `}</Code>
+    class myClass {}
+        `}</Code>
 
-      <P>It should be known that the content of a class declaration is executed in strict mode.</P>
-    </PostContainer>
-  </div>
-);
+        <P>It should be known that the content of a class declaration is executed in strict mode.</P>
+      </PostContainer>
+    </div>
+  );
+};
 
 export default Index;
