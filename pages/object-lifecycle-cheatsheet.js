@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Code from '../components/post/Code';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
@@ -18,25 +19,57 @@ const Index = () => (
 
       <P>You define a propterty by defining it a value, for example:</P>
 
-      <script src="https://gist.github.com/mcansh/49516fe25bcb4bae1213f2eda906f899.js?file=newObject.js" />
+      <Code>{`
+  var myCar = new Object();
+  myCar.make = "Ford";
+      `}</Code>
 
       <P>If you define a property but don’t give it a value it becomes undefined, not null. e.g: <code>myCar.color;</code> would return undefined.</P>
 
       <P>You can also use bracket notation to iterate over all the properties of an object. e.g:</P>
 
-      <script src="https://gist.github.com/mcansh/49516fe25bcb4bae1213f2eda906f899.js?file=bracketNotation.js" />
+      <Code>{`
+  function showProps(obj, objName) {
+    var result = "";
+    for (var i in obj) {
+      if (obj.hasOwnProperty(i)) {
+        result += objName + "." + i + " = " + obj[i];
+      }
+    }
+    return result;
+  }
+      `}</Code>
 
       <P>You can also do if else statements with objects:</P>
 
-      <script src="https://gist.github.com/mcansh/49516fe25bcb4bae1213f2eda906f899.js?file=if.js" />
+      <Code>{`
+  if (cond) var x = {greeting: 'howdy'};
+      `}</Code>
 
       <P>You can even have an object inside another object:</P>
 
-      <script src="https://gist.github.com/mcansh/49516fe25bcb4bae1213f2eda906f899.js?file=nestedObjects.js" />
+      <Code>{`
+  const myCar = {
+    color: "red",
+    wheels: 4,
+    engine: {
+      cylinders: 4,
+      size: 2.2
+    }
+  };
+      `}</Code>
 
       <P>Alternatively you can make an object with a constructor function:</P>
 
-      <script src="https://gist.github.com/mcansh/49516fe25bcb4bae1213f2eda906f899.js?file=constructor.js" />
+      <Code>{`
+  function Car(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  const myCar = new Car("Volvo", "S40", 2005);
+      `}</Code>
     </PostContainer>
   </div>
 );
