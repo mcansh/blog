@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <div>
       <Head><title>{title}</title></Head>
-      <Header text={title} image="team-ui8-199275.jpg" date="October 3, 2016" />
+      <Header text={title} image="anthony-delanoix-14635.jpg" date="October 3, 2016" />
       <PostContainer>
         <Progress />
 

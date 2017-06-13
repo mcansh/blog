@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <div>
       <Head><title>{title}</title></Head>
-      <Header text={title} image="markus-spiske-109588.jpg" date="November 21, 2016" />
+      <Header text={title} image="olu-eletu-134760.jpg" date="November 21, 2016" />
       <PostContainer>
         <Progress />
 
