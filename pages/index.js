@@ -6,10 +6,11 @@ import PostCard from '../components/PostCard';
 
 const Index = () => {
   const pageTitle = 'Logan McAnsh';
+  const randomPost = posts[Math.floor(Math.random() * posts.length)];
   return (
     <div>
       <Head><title>{pageTitle}</title></Head>
-      <Header text={pageTitle} image="wesson-wang-110739.jpg" />
+      <Header text={randomPost.title} image={randomPost.image} link={randomPost.link} />
       <div className="container">
         {posts.map(({ image, date, title, link }) => (
           <PostCard key={link} href={link} title={title} image={image} date={date} />

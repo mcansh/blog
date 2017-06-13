@@ -1,5 +1,29 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
+
+function buttonLink(link) {
+  if (!link || link === '') return;
+
+  return (
+    <div>
+      <Link preload href={link}>
+        <a>Read More</a>
+      </Link>
+      <style jsx>{`
+        a {
+          color: currentcolor;
+          text-decoration: none;
+          transition: 300ms all ease-in-out;
+        }
+
+        a:hover {
+          color: #777;
+        }
+      `}</style>
+    </div>
+  );
+}
 
 const Header = (props) => {
   const Date = props.date ? <h2>{props.date}</h2> : '';
@@ -8,6 +32,7 @@ const Header = (props) => {
       <div className="header__bg" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${props.image})` }} />
       <div className="header__content">
         <h1>{props.text}</h1>
+        {buttonLink(props.link)}
         {Date}
       </div>
       <style jsx>{`
@@ -78,13 +103,13 @@ const Header = (props) => {
 
 Header.defaultProps = {
   date: '',
-  image: 'wesson-wang-110739.jpg'
 };
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired
+  date: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired
 };
 
 export default Header;
