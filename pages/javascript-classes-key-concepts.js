@@ -7,7 +7,7 @@ import PostContainer from '../components/post/PostContainer';
 import P from '../components/post/Paragraph';
 
 const Index = () => {
-  const title = 'Javascript Classes Key Concepts';
+  const title = 'JavaScript Classes Key Concepts';
   return (
     <div>
       <Head><title>{title}</title></Head>

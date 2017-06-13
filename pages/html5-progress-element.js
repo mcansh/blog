@@ -8,7 +8,7 @@ import P from '../components/post/Paragraph';
 import Code from '../components/post/Code';
 
 const Index = () => {
-  const title = 'The HTML5 Progress Element is great for blogs';
+  const title = 'The HTML5 Progress Element is Great for Blogs';
   return (
     <div>
       <Head><title>{title}</title></Head>
