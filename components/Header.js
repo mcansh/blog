@@ -5,7 +5,7 @@ const Header = (props) => {
   const Date = props.date ? <h2>{props.date}</h2> : '';
   return (
     <header>
-      <div className="header__bg" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${props.image_url})` }} />
+      <div className="header__bg" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${props.image})` }} />
       <div className="header__content">
         <h1>{props.text}</h1>
         {Date}
@@ -78,12 +78,12 @@ const Header = (props) => {
 
 Header.defaultProps = {
   date: '',
-  image_url: 'wesson-wang-110739.jpg'
+  image: 'wesson-wang-110739.jpg'
 };
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
-  image_url: PropTypes.string.isNotRequired,
+  image: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired
 };
 

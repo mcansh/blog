@@ -7,7 +7,7 @@ const PostCard = props => (
     <Link prefetch href={props.href}>
       <a>
         <div className="post__image--wrapper">
-          <div className="post__image" style={{ backgroundImage: `url(/static/images/${props.image_url})` }} />
+          <div className="post__image" style={{ backgroundImage: `url(/static/images/${props.image})` }} />
         </div>
         <div className="post__meta">
           <p className="date">{props.date}</p>
@@ -97,7 +97,7 @@ PostCard.propTypes = {
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  image_url: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired
 };
 
 export default PostCard;
