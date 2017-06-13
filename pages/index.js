@@ -1,15 +1,16 @@
 import React from 'react';
-// import Layout from './Layout';
+import Head from 'next/head';
 import Header from '../components/Header';
-import Posts from './_posts';
+import { posts } from '../posts.json';
 import PostCard from '../components/PostCard';
 
 const Index = () => (
   <div>
+    <Head><title>Logan McAnsh</title></Head>
     <Header text="Logan McAnsh" image_url="wesson-wang-110739.jpg" />
     <div className="container">
-      {Posts().map(post => (
-        <PostCard key={post.link} href={post.link} title={post.title} image_url={post.image_url} date={post.date} />
+      {posts.map(({ image, date, title, link }) => (
+        <PostCard key={link} href={link} title={title} image={image} date={date} />
       ))}
     </div>
     <style jsx>{`
