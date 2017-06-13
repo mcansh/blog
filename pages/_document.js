@@ -13,16 +13,19 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>Logan McAnsh</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link rel="mask-icon" href="/static/images/website_icon.svg" color="#E53A40" />
           <link rel="shortcut icon" href="/static/images/favicon.png" />
           <link rel="stylesheet" href="/static/css/style.css" />
+          <link href="/atom" type="application/atom+xml" rel="alternate" title="RSS Feed" />
+          <link href="/feed.json" type="application/json" rel="alternate" title="JSON Feed" />
         </Head>
         <body>
           <Main />
-          <NextScript />
+          <div>
+            <NextScript />
+          </div>
           <script src="/static/js/main.js" />
         </body>
       </html>
