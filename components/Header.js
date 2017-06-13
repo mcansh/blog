@@ -15,10 +15,23 @@ function buttonLink(link) {
           color: currentcolor;
           text-decoration: none;
           transition: 300ms all ease-in-out;
+          position: relative;
+        }
+
+        a::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          height: 1px;
+          border-radius: 1px;
+          width: 100%;
+          background: currentcolor;
         }
 
         a:hover {
           color: #777;
+          padding: 0 20px;
         }
       `}</style>
     </div>
@@ -66,8 +79,14 @@ const Header = (props) => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          backdrop-filter: blur(0px);
-          will-change: backdrop-filter;
+        }
+
+        @supports (backdrop-filter: initial) and (-webkit-backdrop-filter: initial) {
+          .header__content {
+            will-change: backdrop-filter;
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+          }
         }
 
         h1, h2 {
@@ -93,7 +112,7 @@ const Header = (props) => {
         @media (max-width: 500px) {
           header {
             min-height: 95vh;
-            height: auto;
+            height: 95vh;
           }
         }
       `}</style>
