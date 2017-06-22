@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Header from '../components/Header';
 import { posts } from '../posts.json';
 import PostCard from '../components/PostCard';
@@ -8,7 +9,7 @@ const Index = () => {
   const pageTitle = 'Logan McAnsh';
   const randomPost = posts[Math.floor(Math.random() * posts.length)];
   return (
-    <div>
+    <Document>
       <Head><title>{pageTitle}</title></Head>
       <Header text={randomPost.title} image={randomPost.image} link={randomPost.link} />
       <div className="container">
@@ -41,7 +42,7 @@ const Index = () => {
           }
         }
       `}</style>
-    </div>
+    </Document>
   );
 };
 

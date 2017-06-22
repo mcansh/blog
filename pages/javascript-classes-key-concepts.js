@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Code from '../components/post/Code';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
@@ -9,7 +10,7 @@ import P from '../components/post/Paragraph';
 const Index = () => {
   const title = 'JavaScript Classes Key Concepts';
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="olu-eletu-134760.jpg" date="November 21, 2016" />
       <PostContainer>
@@ -36,7 +37,7 @@ const Index = () => {
 
         <P>It should be known that the content of a class declaration is executed in strict mode.</P>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 

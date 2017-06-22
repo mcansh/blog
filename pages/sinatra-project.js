@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
@@ -9,7 +10,7 @@ import P from '../components/post/Paragraph';
 const Index = () => {
   const title = 'Sinatra Project';
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="farzad-nazifi-71686.jpg" date="April 15, 2017" />
       <PostContainer>
@@ -28,7 +29,7 @@ const Index = () => {
           }
         `}</style>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 

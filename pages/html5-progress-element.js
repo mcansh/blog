@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import { H1 } from '../components/post/Heading';
@@ -10,7 +11,7 @@ import Code from '../components/post/Code';
 const Index = () => {
   const title = 'The HTML5 Progress Element is Great for Blogs';
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="wesson-wang-110739.jpg" date="October 14, 2016" />
       <PostContainer>
@@ -69,7 +70,7 @@ const Index = () => {
     window.addEventListener('scroll', youReadThisMuch);
         `}</Code>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 

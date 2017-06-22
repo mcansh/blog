@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
@@ -8,7 +9,7 @@ import P from '../components/post/Paragraph';
 const Index = () => {
   const title = "Why I'm Learning Software Development";
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="anthony-delanoix-14635.jpg" date="October 3, 2016" />
       <PostContainer>
@@ -22,7 +23,7 @@ const Index = () => {
 
         <P>— Logan</P>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 

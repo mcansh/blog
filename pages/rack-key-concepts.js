@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Code from '../components/post/Code';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
@@ -9,7 +10,7 @@ import P from '../components/post/Paragraph';
 const Index = () => {
   const title = 'Rack Key Concepts';
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="michail-sapiton-234263.jpg" date="December 7, 2016" />
       <PostContainer>
@@ -49,7 +50,7 @@ const Index = () => {
 
         <P>Now running <code>rackup config.ru</code> will start up your application.</P>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Code from '../components/post/Code';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
@@ -9,7 +10,7 @@ import P from '../components/post/Paragraph';
 const Index = () => {
   const title = 'Object Lifecycle Cheatsheet';
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="farzad-nazifi-71686.jpg" date="November 4, 2016" />
       <PostContainer>
@@ -73,7 +74,7 @@ const Index = () => {
     const myCar = new Car("Volvo", "S40", 2005);
         `}</Code>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 

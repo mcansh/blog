@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
@@ -8,7 +9,7 @@ import P from '../components/post/Paragraph';
 const Index = () => {
   const title = 'Similarities Between Life And Code';
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="markus-spiske-109588.jpg" date="December 25, 2016" />
       <PostContainer>
@@ -20,7 +21,7 @@ const Index = () => {
 
         <P>Yeah, I know, another short post *sigh*. Who knows maybe I’ll keep this blogging thing up and going and get better. *gasp* The same process can be made with coding and blogging <span role="img" aria-label="Scream Emoji">😱</span>.</P>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import Document from '../layouts/Document';
 import Code from '../components/post/Code';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
@@ -10,7 +11,7 @@ import P from '../components/post/Paragraph';
 const Index = () => {
   const title = 'How To Convert The Current Time To A Hexadecimal';
   return (
-    <div>
+    <Document>
       <Head><title>{title}</title></Head>
       <Header text={title} image="team-ui8-199275.jpg" date="January 10, 2017" />
       <PostContainer>
@@ -96,7 +97,7 @@ const Index = () => {
           }
         `}</style>
       </PostContainer>
-    </div>
+    </Document>
   );
 };
 
