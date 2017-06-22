@@ -8,7 +8,7 @@ const Document = ({ children }) => (
     <Meta />
     <Navigation />
     { children }
-    <script src="/static/js/main.js" />
+    {/* <script src="/static/js/main.js" /> */}
   </div>
 );
 
