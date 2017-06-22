@@ -21,7 +21,7 @@ const Index = () => {
         .container {
           margin: 0 auto;
           width: 95%;
-          padding: 90px 0;
+          padding: 90px 0 0 0;
         }
         @media (min-width: 768px) {
           .container {
