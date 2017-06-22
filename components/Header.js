@@ -122,13 +122,12 @@ const Header = (props) => {
 
 Header.defaultProps = {
   date: '',
+  link: ''
 };
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
 };
 
 export default Header;
