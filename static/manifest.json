@@ -1,0 +1,16 @@
+{
+  "name": "Logan McAnsh",
+  "short_name": "Logan McAnsh",
+  "description": "Learn.co wanted me to have a blog",
+  "start_url": "/?homescreen=1",
+  "background_color": "#E53A40",
+  "display": "standalone",
+  "theme_color": "#E53A40",
+  "icons": [
+    {
+      "src": "/static/images/logo/logo.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}
