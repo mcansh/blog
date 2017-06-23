@@ -18,7 +18,7 @@ const Document = ({ children }) => (
       }
     `}</style>
     <Footer />
-    <script src="/static/js/main.js" />
+    {/* <script src="/static/js/main.js" /> */}
   </div>
 );
 
