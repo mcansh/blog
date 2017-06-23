@@ -16,6 +16,7 @@ function buttonLink(link) {
           text-decoration: none;
           transition: 300ms all ease-in-out;
           position: relative;
+          will-change: auto;
         }
 
         a::after {
@@ -104,14 +105,6 @@ class Header extends React.Component {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-          }
-
-          @supports (backdrop-filter: initial) and (-webkit-backdrop-filter: initial) {
-            .header__content {
-              will-change: backdrop-filter;
-              backdrop-filter: blur(0px);
-              -webkit-backdrop-filter: blur(0px);
-            }
           }
 
           h1, h2 {
