@@ -21,11 +21,3 @@ function youReadThisMuch() {
 }
 
 window.addEventListener('scroll', youReadThisMuch);
-
-function toggleNav() {
-  const nav = document.querySelector('nav');
-  if (!nav) return;
-  nav.classList.toggle('open');
-}
-
-document.querySelector('nav').addEventListener('click', toggleNav);
