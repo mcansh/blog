@@ -4,12 +4,12 @@ import Hamburger from './Hamburger';
 
 const Navigation = () => (
   <nav>
+    <Hamburger />
     <ul>
       <li><Link href="/"><a>Home</a></Link></li>
       <li><Link href={`http://github.com/${process.env.GITHUB}`}><a>GitHub</a></Link></li>
       <li><Link href={`http://twitter.com/${process.env.TWITTER}`}><a>Twitter</a></Link></li>
     </ul>
-    <Hamburger />
     <div className="overlay" />
     <style jsx>{`
       .overlay {
@@ -61,12 +61,12 @@ const Navigation = () => (
         color: rgba(255, 255, 255, 0.6)
       }
 
-      nav.open .overlay {
+      button[data-isOpen="true"] .overlay {
         visibility: visible;
         opacity: 1;
       }
 
-      nav.open ul {
+      button[data-isOpen="true"] ul {
         transform: none;
       }
     `}</style>
