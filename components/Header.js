@@ -42,7 +42,7 @@ function buttonLink(link) {
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { blur: 0 };
+    this.state = { blur: 'blur(0px)' };
     this.handleScroll = this.handleScroll.bind(this);
   }
 
@@ -105,6 +105,13 @@ class Header extends React.Component {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+          }
+
+          @supports (backdrop-filter: initial) and (-webkit-backdrop-filter: initial) {
+            .header_content {
+              will-change: backdrop-filter;
+              will-change: webkit-backdrop-filter;
+            }
           }
 
           h1, h2 {
