@@ -14,7 +14,7 @@ class Hamburger extends React.Component {
 
   render() {
     return (
-      <button onClick={this.onClick}>
+      <button onClick={this.onClick} data-isOpen={this.state.open}>
         <span />
         <style jsx>{`
           button {
@@ -27,7 +27,7 @@ class Hamburger extends React.Component {
             background: none;
             border: none;
             padding: 0;
-            z-index: 3;
+            z-index: 4;
             cursor: pointer;
           }
 
@@ -39,6 +39,7 @@ class Hamburger extends React.Component {
             position: relative;
             border-radius: 5px;
             transition: 500ms all ease-in-out;
+            will-change: transform;
           }
 
           button span::before,
@@ -51,6 +52,7 @@ class Hamburger extends React.Component {
             background: white;
             border-radius: 5px;
             transition: 500ms all ease-in-out;
+            will-change: transform;
           }
 
           button span::before {
@@ -61,19 +63,19 @@ class Hamburger extends React.Component {
             top: 10px;
           }
 
-          nav.open button span {
+          button[data-isOpen="true"] span {
             transform: rotate(45deg);
             top: 0
           }
 
-          nav.open button span::before {
+          button[data-isOpen="true"] span::before {
             transform: rotate(-90deg);
-            top: 0
+            top: 0;
           }
 
-          nav.open button span::after {
+          button[data-isOpen="true"] span::after {
+            visibility: hidden;
             top: 0;
-            visibility: hidden;;
           }
         `}</style>
       </button>

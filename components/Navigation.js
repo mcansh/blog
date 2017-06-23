@@ -23,6 +23,7 @@ const Navigation = () => (
         visibility: hidden;
         opacity: 0;
         transition: 500ms all ease-in-out;
+        will-change: opacity;
       }
 
       ul {
@@ -44,6 +45,7 @@ const Navigation = () => (
         justify-content: center;
         transition: 500ms all ease-in-out;
         box-shadow: 4px 0 15px 3px rgba(0, 0, 0, 0.4);
+        will-change: transform;
       }
 
       li {
