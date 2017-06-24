@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production node server"
   },
   "now": {
-    "alias": "blog.loganmcansh.com"
+    "alias": "mcansh.blog"
   },
   "keywords": [],
   "author": "",
