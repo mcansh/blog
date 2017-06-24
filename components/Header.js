@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { H2 } from './post/Heading';
 
 function buttonLink(link) {
   if (!link || link === '') return;
@@ -61,7 +62,7 @@ class Header extends React.Component {
     this.setState({ blur });
   }
   render() {
-    const Date = this.props.date ? <h2>{this.props.date}</h2> : '';
+    const Date = this.props.date ? <H2>{this.props.date}</H2> : '';
     const blurStyles = {
       backdropFilter: `${this.state.blur}`,
       WebkitBackdropFilter: `${this.state.blur}`
