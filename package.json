@@ -9,7 +9,8 @@
     "start": "NODE_ENV=production node server"
   },
   "now": {
-    "alias": "mcansh.blog"
+    "alias": "mcansh.blog",
+    "dotenv": "variables.env"
   },
   "keywords": [],
   "author": "",
