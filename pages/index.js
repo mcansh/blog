@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <Document>
       <Head><title>{pageTitle}</title></Head>
-      <Header text={randomPost.title} image={randomPost.image} link={randomPost.link} />
+      <Header text={randomPost.title} image={randomPost.image} slug={randomPost.slug} />
       <div className="container">
         {posts.map(({ image, date, title, slug }) => (
           <PostCard key={slug} href={slug} title={title} image={image} date={date} />
