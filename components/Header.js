@@ -62,7 +62,6 @@ class Header extends React.Component {
     this.setState({ blur });
   }
   render() {
-    console.log(this.props);
     const Date = this.props.date ? <H2>{this.props.date}</H2> : '';
     const blurStyles = {
       backdropFilter: `${this.state.blur}`,
