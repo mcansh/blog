@@ -9,10 +9,15 @@ import P from '../components/post/Paragraph';
 
 const Index = () => {
   const title = 'Rack Key Concepts';
+  const image = 'michail-sapiton-234263.jpg';
   return (
     <Document>
-      <Head><title>{title}</title></Head>
-      <Header text={title} image="michail-sapiton-234263.jpg" date="December 7, 2016" />
+      <Head>
+        <title>{title}</title>
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:image" content={image} />
+      </Head>
+      <Header text={title} image={image} date="December 7, 2016" />
       <PostContainer>
         <Progress />
 

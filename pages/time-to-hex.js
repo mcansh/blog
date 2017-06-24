@@ -10,10 +10,15 @@ import P from '../components/post/Paragraph';
 
 const Index = () => {
   const title = 'How To Convert The Current Time To A Hexadecimal';
+  const image = 'team-ui8-199275.jpg';
   return (
     <Document>
-      <Head><title>{title}</title></Head>
-      <Header text={title} image="team-ui8-199275.jpg" date="January 10, 2017" />
+      <Head>
+        <title>{title}</title>
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:image" content={image} />
+      </Head>
+      <Header text={title} image={image} date="January 10, 2017" />
       <PostContainer>
         <Progress />
 

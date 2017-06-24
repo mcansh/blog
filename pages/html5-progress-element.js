@@ -10,10 +10,15 @@ import Code from '../components/post/Code';
 
 const Index = () => {
   const title = 'The HTML5 Progress Element is Great for Blogs';
+  const image = 'wesson-wang-110739.jpg';
   return (
     <Document>
-      <Head><title>{title}</title></Head>
-      <Header text={title} image="wesson-wang-110739.jpg" date="October 14, 2016" />
+      <Head>
+        <title>{title}</title>
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:image" content={image} />
+      </Head>
+      <Header text={title} image={image} date="October 14, 2016" />
       <PostContainer>
         <Progress />
 

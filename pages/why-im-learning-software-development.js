@@ -8,10 +8,15 @@ import P from '../components/post/Paragraph';
 
 const Index = () => {
   const title = "Why I'm Learning Software Development";
+  const image = 'anthony-delanoix-14635.jpg';
   return (
     <Document>
-      <Head><title>{title}</title></Head>
-      <Header text={title} image="anthony-delanoix-14635.jpg" date="October 3, 2016" />
+      <Head>
+        <title>{title}</title>
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:image" content={image} />
+      </Head>
+      <Header text={title} image={image} date="October 3, 2016" />
       <PostContainer>
         <Progress />
 

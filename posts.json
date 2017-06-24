@@ -1,49 +1,55 @@
 {
   "posts": [
     {
-      "link": "sinatra-project",
+      "slug": "rails-project",
+      "title": "Rails Project",
+      "date": "June XX, 2017",
+      "image": "alesia-kazantceva-283288.jpg"
+    },
+    {
+      "slug": "sinatra-project",
       "title": "Sinatra Project",
       "date": "April 25, 2017",
       "image": "farzad-nazifi-71686.jpg"
     },
     {
-      "link": "time-to-hex",
+      "slug": "time-to-hex",
       "title": "How To Convert The Current Time To A Hexadecimal",
       "date": "January 10, 2017",
       "image": "team-ui8-199275.jpg"
     },
     {
-      "link": "similarities-between-life-and-code",
+      "slug": "similarities-between-life-and-code",
       "title": "Similarities Between Life And Code",
       "date": "December 25, 2016",
       "image": "markus-spiske-109588.jpg"
     },
     {
-      "link": "rack-key-concepts",
+      "slug": "rack-key-concepts",
       "title": "Rack Key Concepts",
       "date": "December 7, 2016",
       "image": "michail-sapiton-234263.jpg"
     },
     {
-      "link": "javascript-classes-key-concepts",
+      "slug": "javascript-classes-key-concepts",
       "title": "JavaScript Classes Key Concepts",
       "date": "November 21, 2016",
       "image": "olu-eletu-134760.jpg"
     },
     {
-      "link": "object-lifecycle-cheatsheet",
+      "slug": "object-lifecycle-cheatsheet",
       "title": "Object Lifecycle Cheatsheet",
       "date": "November 4, 2016",
       "image": "farzad-nazifi-71686.jpg"
     },
     {
-      "link": "html5-progress-element",
+      "slug": "html5-progress-element",
       "title": "The HTML5 Progress Element is Great for Blogs",
       "date": "October 14, 2016",
       "image": "wesson-wang-110739.jpg"
     },
     {
-      "link": "why-im-learning-software-development",
+      "slug": "why-im-learning-software-development",
       "title": "Why I'm Learning Software Development",
       "date": "October 3, 2016",
       "image": "anthony-delanoix-14635.jpg"

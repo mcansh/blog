@@ -13,8 +13,8 @@ const Index = () => {
       <Head><title>{pageTitle}</title></Head>
       <Header text={randomPost.title} image={randomPost.image} link={randomPost.link} />
       <div className="container">
-        {posts.map(({ image, date, title, link }) => (
-          <PostCard key={link} href={link} title={title} image={image} date={date} />
+        {posts.map(({ image, date, title, slug }) => (
+          <PostCard key={slug} href={slug} title={title} image={image} date={date} />
         ))}
       </div>
       <style jsx>{`

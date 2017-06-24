@@ -4,9 +4,9 @@ import Meta from '../components/Meta';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-const Document = ({ children }) => (
+const Document = ({ children }, props) => (
   <div>
-    <Meta />
+    <Meta title={props.title} image={props.image} />
     <Navigation />
     <div>
       { children }
@@ -22,8 +22,15 @@ const Document = ({ children }) => (
   </div>
 );
 
+Document.defaultProps = {
+  title: 'Logan McAnsh',
+  image: 'https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460'
+};
+
 Document.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  image: PropTypes.string
 };
 
 export default Document;
