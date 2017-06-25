@@ -91,13 +91,6 @@ const Index = () => {
         <Code>{`
     document.querySelector('meta[name="theme-color"]').setAttribute('content', hexTime);
         `}</Code>
-
-        <style jsx>{`
-          a {
-            color: #E53A40;
-            text-decoration-skip: ink;
-          }
-        `}</style>
       </PostContainer>
     </Document>
   );
