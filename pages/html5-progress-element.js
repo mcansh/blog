@@ -40,10 +40,14 @@ const Index = () => {
 
     progress::-webkit-progress-value {
       background-color: salmon;
+      // or you can do gradients 💯
+      background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
     }
 
     progress::-moz-progress-bar {
       background-color: salmon;
+      // or you can do gradients 💯
+      background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
     }
 
     progress {
