@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Code = props => (
   <pre>
-    { props.children }
+    <code>{ props.children }</code>
     <style jsx>{`
       pre {
         overflow-x: scroll;
