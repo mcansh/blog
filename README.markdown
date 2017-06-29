@@ -1,5 +1,7 @@
 # Blog
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mcansh/blog.svg)](https://greenkeeper.io/)
+
 ## Set up locally
 1. `$ git clone https://github.com/mcansh/blog/`
 2. Install dependencies: `$ npm install`
