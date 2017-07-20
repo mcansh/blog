@@ -36,7 +36,6 @@ const Index = () => {
 
         <Code>{`
     var p = new myClass(); // ReferenceError
-
     class myClass {}
         `}</Code>
 

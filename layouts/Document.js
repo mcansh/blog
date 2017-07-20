@@ -18,7 +18,6 @@ const Document = ({ children }, props) => (
       }
     `}</style>
     <Footer />
-    {/* <script src="/static/js/main.js" /> */}
   </div>
 );
 
