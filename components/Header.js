@@ -8,7 +8,7 @@ function buttonLink(slug) {
 
   return (
     <div>
-      <Link preload href={slug}>
+      <Link prefetch href={slug}>
         <a>Read More</a>
       </Link>
       <style jsx>{`
