@@ -43,6 +43,7 @@ module.exports = {
       new webpack.DefinePlugin({
         'process.env.GITHUB': JSON.stringify(process.env.GITHUB),
         'process.env.TWITTER': JSON.stringify(process.env.TWITTER),
+        'process.env.PORT': JSON.stringify(process.env.PORT)
       })
     );
     config.module.rules.push(

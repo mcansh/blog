@@ -8,6 +8,7 @@ const jsonfeed = require('./lib/jsonfeed');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: '.', dev });
+const PORT = process.env.PORT || 3000;
 const handle = app.getRequestHandler();
 
 app.prepare()
@@ -34,8 +35,8 @@ app.prepare()
 
       handle(req, res);
     })
-    .listen(3000, (err) => {
+    .listen(PORT, (err) => {
       if (err) throw err;
-      console.log('> Ready on http://localhost:3000');
+      console.log(`> Ready on http://localhost:${PORT}`);
     });
   });
