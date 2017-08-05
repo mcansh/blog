@@ -4,7 +4,7 @@ const glob = require('glob');
 require('dotenv').config({ path: 'variables.env' });
 
 module.exports = {
-  webpack: (config, { dev }) => {
+  webpack: (config) => {
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env.GITHUB': JSON.stringify(process.env.GITHUB),
