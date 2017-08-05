@@ -20,7 +20,7 @@
     "classnames": "^2.2.5",
     "dotenv": "^4.0.0",
     "glob": "^7.1.2",
-    "next": "beta",
+    "next": "3.0.1-beta.20",
     "postcss-easy-import": "^2.1.0",
     "postcss-loader": "^2.0.6",
     "prop-types": "^15.5.10",
@@ -28,11 +28,11 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "sw-precache-webpack-plugin": "^0.11.4",
-    "webpack": "^3.3.0"
+    "webpack": "^3.4.1"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
-    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.1.0",
