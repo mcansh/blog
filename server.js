@@ -28,11 +28,6 @@ app.prepare()
         return;
       }
 
-      if (req.url === '/sw.js') {
-        res.setHeader('Content-Type', 'application/javascript');
-        app.serveStatic(req, res, path.resolve('./.next/sw.js'));
-      }
-
       handle(req, res);
     })
     .listen(PORT, (err) => {
