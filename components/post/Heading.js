@@ -28,11 +28,11 @@ const H2 = props => (
 );
 
 H1.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 H2.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export { H1, H2 };

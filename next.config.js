@@ -9,20 +9,20 @@ module.exports = {
       new webpack.DefinePlugin({
         'process.env.GITHUB': JSON.stringify(process.env.GITHUB),
         'process.env.TWITTER': JSON.stringify(process.env.TWITTER),
-        'process.env.PORT': JSON.stringify(process.env.PORT)
-      })
+        'process.env.PORT': JSON.stringify(process.env.PORT),
+      }),
     );
     config.module.rules.push(
       {
         test: /\.(css|sass)/,
         loader: 'emit-file-loader',
         options: {
-          name: 'dist/[path][name].[ext]'
-        }
+          name: 'dist/[path][name].[ext]',
+        },
       },
       {
         test: /\.css$/,
-        use: ['babel-loader', 'raw-loader', 'postcss-loader']
+        use: ['babel-loader', 'raw-loader', 'postcss-loader'],
       },
       {
         test: /\.sass$/,
@@ -34,12 +34,12 @@ module.exports = {
               includePaths: ['styles', 'node_modules']
                 .map(d => path.join(__dirname, d))
                 .map(g => glob.sync(g))
-                .reduce((a, c) => a.concat(c), [])
-            }
-          }
-        ]
-      }
+                .reduce((a, c) => a.concat(c), []),
+            },
+          },
+        ],
+      },
     );
     return config;
-  }
+  },
 };

@@ -33,7 +33,9 @@ export default () => (
       <meta name="twitter:title" content="Logan McAnsh" />
       <meta name="twitter:description" content="Learn.co wanted me to have a blog" />
       <meta name="twitter:image" content="https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460" />
-      <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+      <style
+        dangerouslySetInnerHTML={{ __html: stylesheet }} // eslint-disable-line react/no-danger
+      />
     </Head>
   </div>
 );

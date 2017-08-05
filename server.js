@@ -1,6 +1,5 @@
 const { createServer } = require('http');
 const { parse } = require('url');
-const path = require('path');
 const next = require('next');
 
 const atom = require('./lib/atom');
@@ -30,8 +29,8 @@ app.prepare()
 
       handle(req, res);
     })
-    .listen(PORT, (err) => {
-      if (err) throw err;
-      console.log(`> Ready on http://localhost:${PORT}`);
-    });
+      .listen(PORT, (err) => {
+        if (err) throw err;
+        console.log(`> Ready on http://localhost:${PORT}`); // eslint-disable-line no-console
+      });
   });

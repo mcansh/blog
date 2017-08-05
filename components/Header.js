@@ -6,7 +6,7 @@ import { H2 } from './post/Heading';
 function buttonLink(slug) {
   if (!slug || slug === '') return;
 
-  return (
+  return ( // eslint-disable-line consistent-return
     <div>
       <Link prefetch href={slug}>
         <a>Read More</a>
@@ -65,7 +65,7 @@ class Header extends React.Component {
     const Date = this.props.date ? <H2>{this.props.date}</H2> : '';
     const blurStyles = {
       backdropFilter: `${this.state.blur}`,
-      WebkitBackdropFilter: `${this.state.blur}`
+      WebkitBackdropFilter: `${this.state.blur}`,
     };
     return (
       <header>
@@ -149,14 +149,14 @@ class Header extends React.Component {
 
 Header.defaultProps = {
   date: '',
-  slug: ''
+  slug: '',
 };
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   date: PropTypes.string,
-  slug: PropTypes.string
+  slug: PropTypes.string,
 };
 
 

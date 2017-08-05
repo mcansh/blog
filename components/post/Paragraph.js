@@ -15,7 +15,7 @@ const P = props => (
 );
 
 P.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default P;

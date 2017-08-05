@@ -97,7 +97,7 @@ PostCard.propTypes = {
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
 };
 
 export default PostCard;

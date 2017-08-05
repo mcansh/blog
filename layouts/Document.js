@@ -23,13 +23,13 @@ const Document = ({ children }, props) => (
 
 Document.defaultProps = {
   title: 'Logan McAnsh',
-  image: 'https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460'
+  image: 'https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460',
 };
 
 Document.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  image: PropTypes.string
+  image: PropTypes.string,
 };
 
 export default Document;
