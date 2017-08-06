@@ -1,20 +1,9 @@
 import React from 'react';
 
 class Hamburger extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-    this.onClick = this.toggleClass.bind(this);
-  }
-
-  toggleClass() {
-    this.setState({ open: !this.state.open });
-    document.querySelector('nav').classList.toggle('open');
-  }
-
   render() {
     return (
-      <button onClick={this.onClick} data-isOpen={this.state.open}>
+      <button onClick={this.props.onClick} className={this.props.open ? 'open' : ''}>
         <span />
         <style jsx>{`
           button {
