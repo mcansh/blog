@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Hamburger = props => (
   <button onClick={props.onClick} className={props.open ? 'open' : ''}>
@@ -75,5 +76,14 @@ const Hamburger = props => (
     `}</style>
   </button>
 );
+
+Hamburger.defaultProps = {
+  open: '',
+};
+
+Hamburger.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  open: PropTypes.string,
+};
 
 export default Hamburger;
