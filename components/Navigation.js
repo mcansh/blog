@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Hamburger from './Hamburger';
+import Overlay from './Overlay';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Navigation extends React.Component {
           <li><Link href={`http://twitter.com/${process.env.TWITTER}`}><a>Twitter</a></Link></li>
         </ul>
         <Hamburger onClick={this.onClick} open={this.state.open} />
+        <Overlay onClick={this.onClick} visible={this.state.open} />
         <style jsx>{`
           ul {
             height: 100vh;
