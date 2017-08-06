@@ -42,7 +42,7 @@ class Navigation extends React.Component {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: 500ms all ease-in-out;
+            transition: 250ms all ease;
             box-shadow: 4px 0 15px 3px rgba(0, 0, 0, 0.4);
             will-change: transform;
           }
@@ -64,6 +64,7 @@ class Navigation extends React.Component {
 
           nav.open ul {
             transform: none;
+            transition: 350ms all ease-in;
           }
         `}</style>
       </nav>
