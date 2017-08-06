@@ -29,6 +29,7 @@ class Hamburger extends React.Component {
             padding: 0;
             z-index: 4;
             cursor: pointer;
+            overflow: hidden;
           }
 
           button span {
@@ -38,8 +39,9 @@ class Hamburger extends React.Component {
             display: block;
             position: relative;
             border-radius: 5px;
-            transition: 500ms all ease-in-out;
+            transition: 150ms all ease;
             will-change: transform;
+            top: -10px;
           }
 
           button span::before,
@@ -51,30 +53,33 @@ class Hamburger extends React.Component {
             left: 0;
             background: white;
             border-radius: 5px;
-            transition: 500ms all ease-in-out;
+            transition: 150ms all ease;
             will-change: transform;
           }
 
           button span::before {
-            top: -10px;
-          }
-
-          button span::after {
             top: 10px;
           }
 
-          button[data-isOpen="true"] span {
-            transform: rotate(45deg);
-            top: 0
+          button span::after {
+            top: 20px;
           }
 
-          button[data-isOpen="true"] span::before {
-            transform: rotate(-90deg);
+          button.open span {
+            transform: rotate(45deg);
             top: 0;
           }
 
-          button[data-isOpen="true"] span::after {
+          button.open span::before {
             visibility: hidden;
+            opacity: 0;
+            transform: rotate(-45deg);
+            top: 0;
+            left: 0;
+          }
+
+          button.open span::after {
+            transform: rotate(-90deg);
             top: 0;
           }
         `}</style>
