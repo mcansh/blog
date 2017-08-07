@@ -1,25 +1,35 @@
 import React from 'react';
+import Raven from 'raven-js';
 import PropTypes from 'prop-types';
 import Meta from '../components/Meta';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
-const Document = ({ children }, props) => (
-  <div>
-    <Meta title={props.title} image={props.image} />
-    <Navigation />
-    <div>
-      { children }
-    </div>
-    <style jsx>{`
-      div {
-        margin-bottom: 4em;
-        background: #F7F7F7;
-      }
-    `}</style>
-    <Footer />
-  </div>
-);
+class Document extends React.Component {
+  componentDidMount() {
+    Raven
+      .config('https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817')
+      .install();
+  }
+  render() {
+    return (
+      <div>
+        <Meta title={this.props.title} image={this.props.image} />
+        <Navigation />
+        <div>
+          { this.props.children }
+        </div>
+        <style jsx>{`
+          div {
+            margin-bottom: 4em;
+            background: #F7F7F7;
+          }
+        `}</style>
+        <Footer />
+      </div>
+    );
+  }
+}
 
 Document.defaultProps = {
   title: 'Logan McAnsh',
