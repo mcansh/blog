@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "slug": "rails-project",
+      "title": "Rails Project",
+      "date": "August 25, 2017",
+      "image": "1*Wmv8hfi_bTHuHyV5CawnCw.jpg"
+    },
+    {
       "slug": "sinatra-project",
       "title": "Sinatra Project",
       "date": "April 25, 2017",
