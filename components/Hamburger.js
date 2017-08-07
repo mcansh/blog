@@ -78,12 +78,12 @@ const Hamburger = props => (
 );
 
 Hamburger.defaultProps = {
-  open: '',
+  open: false,
 };
 
 Hamburger.propTypes = {
   onClick: PropTypes.func.isRequired,
-  open: PropTypes.string,
+  open: PropTypes.bool,
 };
 
 export default Hamburger;

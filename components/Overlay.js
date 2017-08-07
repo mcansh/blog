@@ -28,12 +28,12 @@ const Overlay = props => (
 );
 
 Overlay.defaultProps = {
-  visible: '',
+  visible: false,
 };
 
 Overlay.propTypes = {
   onClick: PropTypes.func.isRequired,
-  visible: PropTypes.string,
+  visible: PropTypes.bool,
 };
 
 export default Overlay;
