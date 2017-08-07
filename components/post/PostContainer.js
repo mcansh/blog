@@ -33,7 +33,7 @@ const PostContainer = props => (
 );
 
 PostContainer.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default PostContainer;

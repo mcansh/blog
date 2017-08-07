@@ -1,85 +1,89 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class Hamburger extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-    this.onClick = this.toggleClass.bind(this);
-  }
+const Hamburger = props => (
+  <button onClick={props.onClick} className={props.open ? 'open' : ''}>
+    <span />
+    <style jsx>{`
+      button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        appearance: none;
+        height: 40px;
+        width: 40px;
+        background: none;
+        border: none;
+        padding: 0;
+        z-index: 4;
+        cursor: pointer;
+        overflow: hidden;
+      }
 
-  toggleClass() {
-    this.setState({ open: !this.state.open });
-    document.querySelector('nav').classList.toggle('open');
-  }
+      button span {
+        width: 100%;
+        height: 2px;
+        background: white;
+        display: block;
+        position: relative;
+        border-radius: 5px;
+        transition: 150ms all ease;
+        will-change: transform;
+        top: -10px;
+      }
 
-  render() {
-    return (
-      <button onClick={this.onClick} data-isOpen={this.state.open}>
-        <span />
-        <style jsx>{`
-          button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            appearance: none;
-            height: 40px;
-            width: 40px;
-            background: none;
-            border: none;
-            padding: 0;
-            z-index: 4;
-            cursor: pointer;
-          }
+      button span::before,
+      button span::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        background: white;
+        border-radius: 5px;
+        transition: 150ms all ease;
+        will-change: transform;
+      }
 
-          button span {
-            width: 100%;
-            height: 2px;
-            background: white;
-            display: block;
-            position: relative;
-            border-radius: 5px;
-            transition: 500ms all ease-in-out;
-            will-change: transform;
-          }
+      button span::before {
+        top: 10px;
+      }
 
-          button span::before,
-          button span::after {
-            content: '';
-            width: 100%;
-            height: 2px;
-            position: absolute;
-            left: 0;
-            background: white;
-            border-radius: 5px;
-            transition: 500ms all ease-in-out;
-            will-change: transform;
-          }
+      button span::after {
+        top: 20px;
+      }
 
-          button span::before {
-            top: -10px;
-          }
+      button.open span {
+        transform: rotate(45deg);
+        top: 0;
+        transition: 350ms all ease-in;
+      }
 
-          button span::after {
-            top: 10px;
-          }
+      button.open span::before {
+        visibility: hidden;
+        opacity: 0;
+        transform: rotate(-45deg);
+        top: 0;
+        left: 0;
+        transition: 350ms all ease-in;
+      }
 
-          button[data-isOpen="true"] span {
-            transform: rotate(45deg);
-            top: 0
-          }
+      button.open span::after {
+        transform: rotate(-90deg);
+        top: 0;
+        transition: 350ms all ease-in;
+      }
+    `}</style>
+  </button>
+);
 
-          button[data-isOpen="true"] span::before {
-            transform: rotate(-90deg);
-            top: 0;
-          }
+Hamburger.defaultProps = {
+  open: '',
+};
 
-          button[data-isOpen="true"] span::after {
-            visibility: hidden;
-            top: 0;
-          }
-        `}</style>
-      </button>
-    );
-  }
-}
+Hamburger.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  open: PropTypes.string,
+};
+
 export default Hamburger;

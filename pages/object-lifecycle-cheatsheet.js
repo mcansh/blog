@@ -34,17 +34,43 @@ const Index = () => {
 
         <P>If you define a property but don’t give it a value it becomes undefined, not null. e.g: <code>myCar.color;</code> would return undefined.</P>
 
-        <P>You can also use bracket notation to iterate over all the properties of an object. e.g:</P>
+        <P>{"To get an item out of an object you can test to see if it has that property, for example, on a project at work, we used this to get a rule's name out of the object"}</P>
 
         <Code>{`
-    function showProps(obj, objName) {
-      var result = "";
-      for (var i in obj) {
-        if (obj.hasOwnProperty(i)) {
-          result += objName + "." + i + " = " + obj[i];
+    // The Rule itself
+    const rule = {
+      "active":true,
+      "conditions":[{
+        "time":{
+          "day":[1,2,3,4],
+          "at":"17:30"
         }
-      }
-      return result;
+      }],
+      "uuid":"some-rule-uuid",
+      "consequences":{
+        "devices":{
+          "66d5e0ed-5e88-4353-9dd9-318cad3676f9":{
+            "thermostat_setpoint.heat.set": {
+              "value": 77
+            },
+            "thermostat_setpoint.cool.set": {
+              "value": 80
+            }
+          }
+        }
+      },
+      "type":"rule",
+      "priority":1,
+      "name":"test rule"
+    };
+        `}</Code>
+
+        <Code>{`
+    // Return the name from the rule and store it as a variable
+    if (Object.prototype.hasOwnProperty.call(rule, 'name')) { // or the easier but "incorrect" way rule.hasOwnProperty('name')
+      window.ruleName = rule.name;
+    } else {
+      throw 'Unknown Rule Name';
     }
         `}</Code>
 

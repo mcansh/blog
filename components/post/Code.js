@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Code = props => (
   <pre>
-    { props.children }
+    <code>{ props.children }</code>
     <style jsx>{`
       pre {
         overflow-x: scroll;
@@ -14,7 +14,7 @@ const Code = props => (
 );
 
 Code.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Code;

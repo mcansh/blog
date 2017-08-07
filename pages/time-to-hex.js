@@ -40,8 +40,7 @@ const Index = () => {
       const text = document.querySelector('h1');
 
       // group our 3 variables above to make the time with a hash in front
-      // react kept thinking i was trying to run this so sorry for the concatenating this way :(
-      const hexTime = '#' + hours + minutes + seconds;
+      const hexTime = \`#\${hours}\${minutes}\${seconds}\`;
 
       // make the text of the text variable the content of hexTime variable above
       text.textContent = hexTime;
@@ -56,9 +55,7 @@ const Index = () => {
         <P>Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any time thats less than 10, the hex is only then 3 numbers, which is fine, until you get 4 or 5 digits. So to resolve this you can adjust the function like so:</P>
 
         <Code>{`
-
     function setDate() {
-      // react kept thinking i was trying to run this so sorry for the concatenating this way :(
       // get the datetime
       const now = new Date();
       // get hours from our now variable
@@ -75,7 +72,7 @@ const Index = () => {
       const text = document.querySelector('h1');
 
       // group our 3 variables above to make the time with a hash in front
-      const hexTime = '#' + hours + minutes + seconds;
+      const hexTime = \`#\${hours}\${minutes}\${seconds}\`;
 
       // make the text of the text variable the content of hexTime variable above
       text.textContent = hexTime;
@@ -94,13 +91,6 @@ const Index = () => {
         <Code>{`
     document.querySelector('meta[name="theme-color"]').setAttribute('content', hexTime);
         `}</Code>
-
-        <style jsx>{`
-          a {
-            color: #E53A40;
-            text-decoration-skip: ink;
-          }
-        `}</style>
       </PostContainer>
     </Document>
   );

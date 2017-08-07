@@ -3,12 +3,12 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { H2 } from './post/Heading';
 
-function buttonLink(link) {
-  if (!link || link === '') return;
+function buttonLink(slug) {
+  if (!slug || slug === '') return;
 
-  return (
+  return ( // eslint-disable-line consistent-return
     <div>
-      <Link preload href={link}>
+      <Link prefetch href={slug}>
         <a>Read More</a>
       </Link>
       <style jsx>{`
@@ -65,14 +65,14 @@ class Header extends React.Component {
     const Date = this.props.date ? <H2>{this.props.date}</H2> : '';
     const blurStyles = {
       backdropFilter: `${this.state.blur}`,
-      WebkitBackdropFilter: `${this.state.blur}`
+      WebkitBackdropFilter: `${this.state.blur}`,
     };
     return (
       <header>
         <div className="header__bg" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${this.props.image})` }} />
         <div className="header__content" style={blurStyles}>
           <h1>{this.props.text}</h1>
-          {buttonLink(this.props.link)}
+          {buttonLink(this.props.slug)}
           {Date}
         </div>
         <style jsx>{`
@@ -149,14 +149,14 @@ class Header extends React.Component {
 
 Header.defaultProps = {
   date: '',
-  link: ''
+  slug: '',
 };
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   date: PropTypes.string,
-  link: PropTypes.string
+  slug: PropTypes.string,
 };
 
 

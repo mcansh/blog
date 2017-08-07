@@ -40,10 +40,14 @@ const Index = () => {
 
     progress::-webkit-progress-value {
       background-color: salmon;
+      // or you can do gradients 💯
+      background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
     }
 
     progress::-moz-progress-bar {
       background-color: salmon;
+      // or you can do gradients 💯
+      background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
     }
 
     progress {
@@ -73,6 +77,73 @@ const Index = () => {
     }
 
     window.addEventListener('scroll', youReadThisMuch);
+        `}</Code>
+
+        <H1>Setting this up in React is also super simple</H1>
+        <Code>{`
+    class Progress extends React.Component {
+      constructor(props) {
+        super(props);
+        // set the initial state to be 0
+        this.state = { progress: 0 };
+        // set up a event handler
+        this.handleScroll = this.handleScroll.bind(this);
+      }
+
+      // add the listener when the component mounts
+      componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll, true);
+      }
+
+      // remove the listener when the component unmounts
+      componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll, true);
+      }
+
+      handleScroll() {
+        const scroll = window.pageYOffset; // window.scrollY is less supported
+        const bodyHeight = document.body.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrollPercent = (scroll / (bodyHeight - windowHeight)) * 100;
+        const maxMinscroll = Math.min(100, Math.max(0, scrollPercent));
+        this.setState({ progress: maxMinscroll });
+      }
+      render() {
+        return (
+          <progress value={this.state.progress} max="100">
+            // for styling im using style jsx but you should be able to do the same with another css-in-js method
+            <style jsx>{' // this should be a backtick
+            progress::-webkit-progress-bar {
+              background-color: transparent;
+            }
+
+            progress::-webkit-progress-value {
+              /*background-color: #E53A40;*/
+              background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+            }
+
+            progress::-moz-progress-bar {
+              /*background-color: #E53A40;*/
+              background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+            }
+
+            progress {
+              position: fixed;
+              top: 0;
+              right: 0;
+              left: 0;
+              z-index: 2;
+              width: 100%;
+              height: 3px;
+              appearance: none;
+            }
+            // this should be a backtick '}</style>
+          </progress>
+        );
+      }
+    }
+
+    export default Progress;
         `}</Code>
       </PostContainer>
     </Document>
