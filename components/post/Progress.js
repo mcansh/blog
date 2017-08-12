@@ -32,13 +32,11 @@ class Progress extends React.Component {
           }
 
           progress::-webkit-progress-value {
-            /*background-color: #E53A40;*/
-            background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+            background-color: #E53A40;
           }
 
           progress::-moz-progress-bar {
-            /*background-color: #E53A40;*/
-            background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+            background-color: #E53A40;
           }
 
           progress {
