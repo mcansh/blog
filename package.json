@@ -12,8 +12,7 @@
     "alias": "mcansh.blog",
     "dotenv": "variables.env"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
     "babel-plugin-inline-dotenv": "^1.1.1",
