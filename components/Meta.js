@@ -32,6 +32,14 @@ export default () => (
       <meta name="twitter:title" content="Logan McAnsh" />
       <meta name="twitter:description" content="Learn.co wanted me to have a blog" />
       <meta name="twitter:image" content="https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460" />
+      
+      <meta name="og:title" content="Logan McAnsh" />
+      <meta name="og:type" content="website" />
+      <meta name="og:image" content="https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460" />
+      <meta property="og:image:width" content="460" />
+      <meta property="og:image:height" content="460" />
+      <meta name="og:url" content="https://mcansh.blog" />
+      <meta name="og:description" content="Learn.co wanted me to have a blog" />
       <style jsx global>{`
         * {
           box-sizing: border-box;
