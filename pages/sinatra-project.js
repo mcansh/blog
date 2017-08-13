@@ -16,6 +16,7 @@ const Index = () => {
         <title>{title}</title>
         <meta name="twitter:title" content={title} />
         <meta name="twitter:image" content={`/static/images/${image}`} />
+        <meta name="og:image" content={`/static/images/${image}`} />
       </Head>
       <Header text={title} image={image} date="April 15, 2017" />
       <PostContainer>
