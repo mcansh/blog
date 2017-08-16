@@ -32,34 +32,34 @@ export default () => (
       <meta name="twitter:title" content="Logan McAnsh" />
       <meta name="twitter:description" content="Learn.co wanted me to have a blog" />
       <meta name="twitter:image" content="https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460" />
-      <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
-        body {
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-          font-weight: 400;
-          background: #F7F7F7;
-          margin: 0;
-        }
-
-        ::selection {
-          background: #130CB7;
-          color: white;
-        }
-
-        a {
-          color: #130CB7;
-          text-decoration-skip: ink;
-          transition: 300ms all ease-in-out;
-        }
-        a:hover {
-          color: #52E5E7;
-        }
-        a::selection {
-          color: white;
-        }
-      `}</style>
     </Head>
+    <style jsx global>{`
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-weight: 400;
+        background: #F7F7F7;
+        margin: 0;
+      }
+
+      ::selection {
+        background: #130CB7;
+        color: white;
+      }
+
+      a {
+        color: #130CB7;
+        text-decoration-skip: ink;
+        transition: 300ms all ease-in-out;
+      }
+      a:hover {
+        color: #52E5E7;
+      }
+      a::selection {
+        color: white;
+      }
+    `}</style>
   </div>
 );
