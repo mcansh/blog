@@ -2703,9 +2703,9 @@ ncp@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
 
-next@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/next/-/next-3.0.3.tgz#35128ba8359064ffe8d1d5e5543410319c6d66d3"
+next@3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/next/-/next-3.0.4.tgz#857cd3752dbd1f25aef13bc6e30d4bc050ad8a43"
   dependencies:
     ansi-html "0.0.7"
     babel-core "6.25.0"
