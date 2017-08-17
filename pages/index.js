@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Document from '../layouts/Document';
 import Header from '../components/Header';
 import { posts } from '../posts.json';
@@ -9,8 +8,7 @@ const Index = () => {
   const pageTitle = 'Logan McAnsh';
   const randomPost = posts[Math.floor(Math.random() * posts.length)];
   return (
-    <Document>
-      <Head><title>{pageTitle}</title></Head>
+    <Document title={pageTitle}>
       <Header text={randomPost.title} image={randomPost.image} slug={randomPost.slug} />
       <div className="container">
         {posts.map(({ image, date, title, slug }) => (

@@ -1,9 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
-export default () => (
+const Meta = props => (
   <div>
     <Head>
+      <title>{props.title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link rel="mask-icon" href="/static/images/logo/website_icon.svg" color="#E53A40" />
@@ -29,9 +31,9 @@ export default () => (
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@logansmcansh" />
-      <meta name="twitter:title" content="Logan McAnsh" />
+      <meta name="twitter:title" content={props.title} />
       <meta name="twitter:description" content="Learn.co wanted me to have a blog" />
-      <meta name="twitter:image" content="https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460" />
+      <meta name="twitter:image" content={props.image} />
     </Head>
     <style jsx global>{`
       * {
@@ -63,3 +65,14 @@ export default () => (
     `}</style>
   </div>
 );
+
+Meta.defaultProps = {
+  image: 'https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460',
+};
+
+Meta.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string,
+};
+
+export default Meta;

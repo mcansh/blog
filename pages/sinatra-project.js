@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
 import Document from '../layouts/Document';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
@@ -11,12 +10,7 @@ const Index = () => {
   const title = 'Sinatra Project';
   const image = 'farzad-nazifi-71686.jpg';
   return (
-    <Document>
-      <Head>
-        <title>{title}</title>
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:image" content={`/static/images/${image}`} />
-      </Head>
+    <Document title={title} image={`/static/images/${image}`}>
       <Header text={title} image={image} date="April 15, 2017" />
       <PostContainer>
         <Progress />
