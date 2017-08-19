@@ -2,6 +2,13 @@ import React from 'react';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
+import NProgress from 'nprogress';
+import Router from 'next/router';
+
+Router.onRouteChangeStart = () => NProgress.start();
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
+
 const Meta = props => (
   <div>
     <Head>
@@ -56,11 +63,38 @@ const Meta = props => (
         text-decoration-skip: ink;
         transition: 300ms all ease-in-out;
       }
+
       a:hover {
         color: #52E5E7;
       }
+
       a::selection {
         color: white;
+      }
+
+      #nprogress {
+        pointer-events: none;
+      }
+
+      #nprogress .bar {
+        background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+        position: fixed;
+        z-index: 1031;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+      }
+
+      #nprogress .peg {
+        display: block;
+        position: absolute;
+        right: 0px;
+        width: 100px;
+        height: 100%;
+        box-shadow: 0 0 10px #ff9300, 0 0 5px #ff9300;
+        opacity: 1;
+        transform: rotate(3deg) translate(0px, -4px);
       }
     `}</style>
   </div>
