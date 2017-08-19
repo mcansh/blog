@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Hamburger = props => (
-  <button onClick={props.onClick} className={props.open ? 'open' : ''}>
+  <button onClick={props.onClick} className={`${props.open ? 'open' : ''} ${props.hamburgerColor === 'black' ? 'burnt-burger' : ''}`}>
     <span />
     <style jsx>{`
       button {
-        position: absolute;
+        position: fixed;
         top: 20px;
         left: 20px;
         appearance: none;
@@ -73,6 +73,14 @@ const Hamburger = props => (
         top: 0;
         transition: 350ms all ease-in;
       }
+
+      button.burnt-burger span, button.burnt-burger span::before, button.burnt-burger span::after {
+        background: black;
+      }
+
+      button.burnt-burger.open span, button.burnt-burger.open span::before, button.burnt-burger.open span::after {
+        background: white;
+      }
     `}</style>
   </button>
 );
@@ -84,6 +92,7 @@ Hamburger.defaultProps = {
 Hamburger.propTypes = {
   onClick: PropTypes.func.isRequired,
   open: PropTypes.bool,
+  hamburgerColor: PropTypes.string.isRequired,
 };
 
 export default Hamburger;

@@ -6,8 +6,22 @@ import Overlay from './Overlay';
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = { open: false, hamburgerColor: 'white' };
     this.onClick = this.toggleClass.bind(this);
+  }
+
+  componentDidMount() {
+    const header = document.querySelector('header');
+
+    const handleScroll = () => {
+      if (window.scrollY > header.offsetHeight) {
+        this.setState({ hamburgerColor: 'black' });
+      } else {
+        this.setState({ hamburgerColor: 'white' });
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
   }
 
   toggleClass() {
@@ -22,7 +36,7 @@ class Navigation extends React.Component {
           <li><Link href={`http://github.com/${process.env.GITHUB}`}><a>GitHub</a></Link></li>
           <li><Link href={`http://twitter.com/${process.env.TWITTER}`}><a>Twitter</a></Link></li>
         </ul>
-        <Hamburger onClick={this.onClick} open={this.state.open} />
+        <Hamburger onClick={this.onClick} open={this.state.open} hamburgerColor={this.state.hamburgerColor} />
         <Overlay onClick={this.onClick} visible={this.state.open} />
         <style jsx>{`
           ul {
