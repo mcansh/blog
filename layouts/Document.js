@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 import Meta from '../components/Meta';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { version } from '../package.json';
 
 class Document extends React.Component {
   componentDidMount() {
     Raven
-      .config('https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817')
+      .config('https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817', {
+        release: version,
+      })
       .install();
   }
   render() {
