@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Hamburger = props => (
-  <button onClick={props.onClick} className={`${props.open ? 'open' : ''} ${props.hamburgerColor === 'black' ? 'burnt-burger' : ''}`}>
+  <button name="toggle side nav" onClick={props.onClick} className={`${props.open ? 'open' : ''} ${props.hamburgerColor === 'black' ? 'burnt-burger' : ''}`}>
     <span />
     <style jsx>{`
       button {
