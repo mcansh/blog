@@ -6,10 +6,10 @@ import PostCard from '../components/PostCard';
 
 const Index = () => {
   const pageTitle = 'Logan McAnsh';
-  const randomPost = posts[Math.floor(Math.random() * posts.length)];
+  const newestPost = posts[0];
   return (
     <Document title={pageTitle}>
-      <Header text={randomPost.title} image={randomPost.image} slug={randomPost.slug} />
+      <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
       <div className="container">
         {posts.map(({ image, date, title, slug }) => (
           <PostCard key={slug} href={slug} title={title} image={image} date={date} />
