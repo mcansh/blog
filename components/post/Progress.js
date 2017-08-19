@@ -46,7 +46,7 @@ class Progress extends React.Component {
             left: 0;
             z-index: 2;
             width: 100%;
-            height: 3px;
+            height: 2px;
             appearance: none;
           }
         `}</style>
