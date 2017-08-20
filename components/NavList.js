@@ -2,13 +2,19 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
+const NavLinks = [
+  { name: 'Home', slug: '/' },
+  { name: 'GitHub', slug: `http://github.com/${process.env.GITHUB}` },
+  { name: 'Twitter', slug: `http://twitter.com/${process.env.TWITTER}` },
+  { name: 'Email', slug: `mailto:${process.env.EMAIL}` },
+  { name: 'Code', slug: 'https://github.com/mcansh/blog' },
+];
+
 const NavList = props => (
   <ul onClick={props.blockClicks}>
-    <li><Link href="/"><a>Home</a></Link></li>
-    <li><Link href={`http://github.com/${process.env.GITHUB}`}><a>GitHub</a></Link></li>
-    <li><Link href={`http://twitter.com/${process.env.TWITTER}`}><a>Twitter</a></Link></li>
-    <li><Link href={`mailto:${process.env.EMAIL}`}><a>Email</a></Link></li>
-    <li><Link href="https://github.com/mcansh/blog"><a>Code</a></Link></li>
+    {NavLinks.map(link => (
+      <li key={link.name}><Link href={link.slug}><a>{link.name}</a></Link></li>
+    ))}
     <style jsx global>{`
       nav.open ul {
         transform: none;
