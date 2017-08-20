@@ -3,9 +3,9 @@
   "short_name": "Blog",
   "description": "Learn.co wanted me to have a blog",
   "start_url": "/?homescreen=1",
-  "background_color": "#E53A40",
+  "background_color": "#B3315F",
   "display": "standalone",
-  "theme_color": "#E53A40",
+  "theme_color": "#B3315F",
   "icons": [
     {
       "src": "/static/images/logo/logo-32.png",

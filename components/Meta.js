@@ -17,8 +17,8 @@ const Meta = props => (
       <title>{props.title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel="mask-icon" href="/static/images/logo/website_icon.svg" color="#E53A40" />
-      <meta name="theme-color" content="#E53A40" />
+      <link rel="mask-icon" href="/static/images/logo/website_icon.svg" color={colors.primary} />
+      <meta name="theme-color" content={colors.primary} />
       <link rel="manifest" href="/static/manifest.json" />
       <link type="text/plain" rel="author" href="/static/humans.txt" />
       {/* Icons and stuff */}
