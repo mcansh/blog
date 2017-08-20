@@ -1,44 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { H2 } from './post/Heading';
-
-function buttonLink(slug) {
-  if (!slug || slug === '') return;
-
-  return ( // eslint-disable-line consistent-return
-    <div>
-      <Link prefetch href={slug}>
-        <a>Read More</a>
-      </Link>
-      <style jsx>{`
-        a {
-          color: currentcolor;
-          text-decoration: none;
-          transition: 300ms all ease-in-out;
-          position: relative;
-          will-change: auto;
-        }
-
-        a::after {
-          content: '';
-          position: absolute;
-          bottom: -4px;
-          left: 0;
-          height: 1px;
-          border-radius: 1px;
-          width: 100%;
-          background: currentcolor;
-        }
-
-        a:hover {
-          color: #777;
-          padding: 0 20px;
-        }
-      `}</style>
-    </div>
-  );
-}
+import Button from './Button';
 
 class Header extends React.Component {
   constructor(props) {
@@ -72,7 +35,8 @@ class Header extends React.Component {
         <div className="header__bg" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${this.props.image})` }} />
         <div className="header__content" style={blurStyles}>
           <h1>{this.props.text}</h1>
-          {buttonLink(this.props.slug)}
+          {/* {buttonLink(this.props.slug)} */}
+          <Button link={this.props.slug}>Read More</Button>
           {Date}
         </div>
         <style jsx>{`
