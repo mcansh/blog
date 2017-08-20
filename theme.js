@@ -1,7 +1,7 @@
 const colors = {
-  primary: '#130CB7',
-  secondary: '#52E5E7',
-  gradient: 'linear-gradient(135deg, #52E5E7 0%, #130CB7 100%)',
+  primary: '#B3315F',
+  secondary: '#FFAA85',
+  gradient: 'linear-gradient(135deg, #FFAA85 0%, #B3315F 100%)',
 };
 
 export default colors;
