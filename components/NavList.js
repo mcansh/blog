@@ -8,6 +8,7 @@ const NavList = props => (
     <li><Link href={`http://github.com/${process.env.GITHUB}`}><a>GitHub</a></Link></li>
     <li><Link href={`http://twitter.com/${process.env.TWITTER}`}><a>Twitter</a></Link></li>
     <li><Link href={`mailto:${process.env.EMAIL}`}><a>Email</a></Link></li>
+    <li><Link href="https://github.com/mcansh/blog”><a>Code</a></Link></li>
     <style jsx global>{`
       nav.open ul {
         transform: none;
