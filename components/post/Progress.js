@@ -1,4 +1,5 @@
 import React from 'react';
+import colors from '../../theme';
 
 class Progress extends React.Component {
   constructor(props) {
@@ -32,11 +33,11 @@ class Progress extends React.Component {
           }
 
           progress::-webkit-progress-value {
-            background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+            background-image: ${colors.gradient};
           }
 
           progress::-moz-progress-bar {
-            background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+            background-image: ${colors.gradient};
           }
 
           progress {

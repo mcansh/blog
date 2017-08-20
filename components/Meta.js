@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 
+import colors from '../theme';
+
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
@@ -54,18 +56,18 @@ const Meta = props => (
       }
 
       ::selection {
-        background: #130CB7;
+        background: ${colors.primary};
         color: white;
       }
 
       a {
-        color: #130CB7;
+        color: ${colors.primary};
         text-decoration-skip: ink;
         transition: 300ms all ease-in-out;
       }
 
       a:hover {
-        color: #52E5E7;
+        color: ${colors.secondary};
       }
 
       a::selection {
@@ -77,7 +79,7 @@ const Meta = props => (
       }
 
       #nprogress .bar {
-        background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+        background-image: ${colors.gradient};
         position: fixed;
         z-index: 1031;
         top: 0;
