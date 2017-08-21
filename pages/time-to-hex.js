@@ -16,7 +16,7 @@ const Index = () => {
       <PostContainer>
         <Progress />
 
-        <P>It’s actually really easy, <Link rel="noopener external" href="https://mcansh.github.io/WhatColorIsIt/"><a>Demo</a></Link>.</P>
+        <P>It’s actually really easy, <Link href="https://mcansh.github.io/WhatColorIsIt/"><a rel="noopener external" target="_blank">Demo</a></Link>.</P>
 
         <P>This is a pretty basic one function website, the function runs every second and takes the time in military time and then outputs that as a hex, while changing the background color to it.</P>
 
