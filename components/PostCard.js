@@ -43,6 +43,13 @@ const PostCard = props => (
         }
       }
 
+      @supports (display: grid) {
+        .post {
+          width: 100%;
+          margin: 0;
+        }
+      }
+
       .post:hover {
         box-shadow: 0 0 10px 4px rgba(0,0,0,0.2);
       }

@@ -39,6 +39,18 @@ const Index = () => {
             width: auto;
           }
         }
+
+        @supports (display: grid) {
+          .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+          }
+          @media (max-width: 999px) {
+            .container {
+              grid-template-columns: repeat(2, 1fr);
+            }
+        }
       `}</style>
     </Document>
   );
