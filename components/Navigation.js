@@ -11,17 +11,22 @@ class Navigation extends React.Component {
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll, true);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll, true);
+  }
+
+  handleScroll() {
     const header = document.querySelector('header');
-
-    const handleScroll = () => {
-      if (window.scrollY > header.offsetHeight) {
-        this.setState({ hamburgerColor: 'black' });
-      } else {
-        this.setState({ hamburgerColor: 'white' });
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
+    let hamburgerColor;
+    if (window.pageYOffset > header.offsetHeight) {
+      hamburgerColor = 'black';
+    } else {
+      hamburgerColor = 'white';
+    }
+    this.setState({ hamburgerColor });
   }
 
   toggleClass() {
