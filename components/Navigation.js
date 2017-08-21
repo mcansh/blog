@@ -8,6 +8,7 @@ class Navigation extends React.Component {
     this.state = { open: false, hamburgerColor: 'white' };
     this.onClick = this.toggleClass.bind(this);
     this.blockClicks = this.blockClicks.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
