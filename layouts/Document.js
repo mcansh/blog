@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Meta from '../components/Meta';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { version } from '../package.json';
+import { version, author } from '../package.json';
 
 class Document extends React.Component {
   componentDidMount() {
@@ -36,7 +36,7 @@ class Document extends React.Component {
 }
 
 Document.defaultProps = {
-  title: 'Logan McAnsh',
+  title: `${author.name}`,
   image: 'https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460',
 };
 

@@ -6,6 +6,7 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 
 import colors from '../theme';
+import { description } from '../package.json';
 
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
@@ -39,9 +40,9 @@ const Meta = props => (
       <link rel="alternate" href="/feed.json" type="application/json" title="JSON Feed" />
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content="@logansmcansh" />
+      <meta name="twitter:site" content={process.env.TWITTER} />
       <meta name="twitter:title" content={props.title} />
-      <meta name="twitter:description" content="Learn.co wanted me to have a blog" />
+      <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={props.image} />
     </Head>
     <style jsx global>{`

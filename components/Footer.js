@@ -1,11 +1,12 @@
 import React from 'react';
+import { author } from '../package.json';
 
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer>
       <div className="footerContent">
-        <p>&copy; {year} Logan McAnsh</p>
+        <p>&copy; {year} {author.name}</p>
       </div>
       <style jsx>{`
         footer {
