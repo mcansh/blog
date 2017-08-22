@@ -1,7 +1,7 @@
 {
   "name": "mcansh-blog",
   "version": "2.6.6",
-  "description": "",
+  "description": "My blog for learn.co",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -16,7 +16,11 @@
     ],
     "dotenv": "variables.env"
   },
-  "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
+  "author": {
+    "name": "Logan McAnsh",
+    "email": "logan@mcan.sh",
+    "url": "https://mcansh.blog"
+  },
   "license": "MIT",
   "dependencies": {
     "babel-plugin-inline-dotenv": "^1.1.1",
