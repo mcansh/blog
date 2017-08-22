@@ -41,8 +41,8 @@ class Navigation extends React.Component {
   render() {
     return (
       <nav className={this.state.open ? 'open' : ''} onClick={this.onClick}>
-        <NavList blockClicks={this.blockClicks} />
         <Hamburger onClick={this.onClick} open={this.state.open} hamburgerColor={this.state.hamburgerColor} />
+        <NavList blockClicks={this.blockClicks} />
         <style jsx>{`
           nav::before {
             content: '';
