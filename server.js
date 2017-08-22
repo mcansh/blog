@@ -4,6 +4,7 @@ const next = require('next');
 
 const atom = require('./lib/atom');
 const jsonfeed = require('./lib/jsonfeed');
+const humans = require('./lib/humans');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: '.', dev });
@@ -24,6 +25,12 @@ app.prepare()
       if (/^\/feed.json\/?$/.test(pathname)) {
         res.setHeader('Content-Type', 'application/json');
         res.end(jsonfeed());
+        return;
+      }
+
+      if (/^\/humans.txt\/?$/.test(pathname)) {
+        res.setHeader('Content-Type', 'text/plain');
+        res.end(humans());
         return;
       }
 
