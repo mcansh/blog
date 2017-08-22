@@ -9,10 +9,12 @@ class Navigation extends React.Component {
     this.onClick = this.toggleClass.bind(this);
     this.blockClicks = this.blockClicks.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleKey = this.handleKey.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll, true);
+    window.addEventListener('keydown', this.handleKey, true);
   }
 
   componentWillUnmount() {
@@ -28,6 +30,12 @@ class Navigation extends React.Component {
       hamburgerColor = 'white';
     }
     this.setState({ hamburgerColor });
+  }
+
+  handleKey(e) {
+    if (e.keyCode === 27) {
+      this.setState({ open: false });
+    }
   }
 
   toggleClass() {
