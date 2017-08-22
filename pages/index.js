@@ -50,6 +50,7 @@ const Index = () => {
             .container {
               grid-template-columns: repeat(2, 1fr);
             }
+          }
         }
       `}</style>
     </Document>
