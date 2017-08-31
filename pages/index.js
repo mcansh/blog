@@ -4,57 +4,72 @@ import Header from '../components/Header';
 import { posts } from '../posts.json';
 import PostCard from '../components/PostCard';
 
-const Index = () => {
-  const pageTitle = 'Logan McAnsh';
-  const newestPost = posts[0];
-  return (
-    <Document title={pageTitle}>
-      <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
-      <div className="container">
-        {posts.map(({ image, date, title, slug }) => (
-          <PostCard key={slug} href={slug} title={title} image={image} date={date} />
-        ))}
-      </div>
-      <style jsx>{`
-        .container {
-          margin: 0 auto;
-          width: 95%;
-          padding: 90px 0 0 0;
-        }
-        @media (min-width: 768px) {
-          .container {
-            max-width: 750px;
-            width: auto;
-          }
-        }
-        @media (min-width: 992px) {
-          .container {
-            max-width: 970px;
-            width: auto;
-          }
-        }
-        @media (min-width: 1200px) {
-          .container {
-            max-width: 1170px;
-            width: auto;
-          }
-        }
+class Index extends React.Component {
+  componentDidMount() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then((registration) => {
+          console.log('service worker registration successful', registration.active);
+        })
+        .catch((err) => {
+          console.warn('service worker registration failed', err.message);
+        });
+    }
+  }
 
-        @supports (display: grid) {
+  render() {
+    const pageTitle = 'Logan McAnsh';
+    const newestPost = posts[0];
+    return (
+      <Document title={pageTitle}>
+        <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
+        <div className="container">
+          {posts.map(({ image, date, title, slug }) => (
+            <PostCard key={slug} href={slug} title={title} image={image} date={date} />
+          ))}
+        </div>
+        <style jsx>{`
           .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 10px;
+            margin: 0 auto;
+            width: 95%;
+            padding: 90px 0 0 0;
           }
-          @media (max-width: 999px) {
+          @media (min-width: 768px) {
             .container {
-              grid-template-columns: repeat(2, 1fr);
+              max-width: 750px;
+              width: auto;
             }
           }
-        }
-      `}</style>
-    </Document>
-  );
-};
+          @media (min-width: 992px) {
+            .container {
+              max-width: 970px;
+              width: auto;
+            }
+          }
+          @media (min-width: 1200px) {
+            .container {
+              max-width: 1170px;
+              width: auto;
+            }
+          }
+
+          @supports (display: grid) {
+            .container {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              grid-gap: 10px;
+            }
+            @media (max-width: 999px) {
+              .container {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+          }
+        `}</style>
+      </Document>
+    );
+  }
+}
 
 export default Index;
