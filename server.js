@@ -1,6 +1,8 @@
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
+const { createReadStream } = require('fs');
+
 
 const atom = require('./lib/atom');
 const jsonfeed = require('./lib/jsonfeed');
@@ -15,6 +17,13 @@ app.prepare()
   .then(() => {
     createServer((req, res) => {
       const { pathname } = parse(req.url);
+
+      if (/^\/sw.js\/?$/.test(pathname)) {
+        res.setHeader('Content-Type', 'application/javascript');
+        createReadStream('./lib/serviceWorker.js').pipe(res);
+        res.writeHead(200);
+        return;
+      }
 
       if (/^\/atom\/?$/.test(pathname)) {
         res.setHeader('Content-Type', 'text/xml');
