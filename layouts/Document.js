@@ -15,19 +15,11 @@ class Document extends React.Component {
       })
       .install();
 
-    if (process.env.NODE_ENV !== 'development') {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/sw.js')
-          .then((registration) => {
-            // eslint-disable-next-line no-console
-            console.log('service worker registration successful', registration.active);
-          })
-          .catch((err) => {
-            // eslint-disable-next-line no-console
-            console.warn('service worker registration failed', err.message);
-          });
-      }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then(console.log('service worker registration successful')) // eslint-disable-line no-console
+        .catch(err => console.warn(err)); // eslint-disable-line no-console
     }
   }
   render() {
