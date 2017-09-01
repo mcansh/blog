@@ -6,17 +6,19 @@ import PostCard from '../components/PostCard';
 
 class Index extends React.Component {
   componentDidMount() {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then((registration) => {
-          // eslint-disable-next-line no-console
-          console.log('service worker registration successful', registration.active);
-        })
-        .catch((err) => {
-          // eslint-disable-next-line no-console
-          console.warn('service worker registration failed', err.message);
-        });
+    if (process.env.NODE_ENV !== 'development') {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then((registration) => {
+            // eslint-disable-next-line no-console
+            console.log('service worker registration successful', registration.active);
+          })
+          .catch((err) => {
+            // eslint-disable-next-line no-console
+            console.warn('service worker registration failed', err.message);
+          });
+      }
     }
   }
 
