@@ -31,13 +31,14 @@
     "raven-js": "^3.17.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "webpack": "^3.4.1"
+    "sw-precache-webpack-plugin": "^0.11.4",
+    "webpack": "^3.5.5"
   },
   "devDependencies": {
-    "eslint": "^4.4.0",
+    "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-react": "^7.3.0"
   }
 }
