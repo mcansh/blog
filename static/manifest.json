@@ -1,7 +1,7 @@
 {
   "name": "Logan McAnsh",
   "short_name": "Blog",
-  "description": "Learn.co wanted me to have a blog",
+  "description": "My blog for learn.co",
   "start_url": "/?homescreen=1",
   "background_color": "#B3315F",
   "display": "standalone",
