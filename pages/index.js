@@ -51,6 +51,11 @@ const Index = () => {
               grid-template-columns: repeat(2, 1fr);
             }
           }
+          @media (max-width: 550px) {
+            .container {
+              grid-template-columns: 1fr;
+            }
+          }
         }
       `}</style>
     </Document>
