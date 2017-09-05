@@ -1,6 +1,7 @@
 import React from 'react';
 import Raven from 'raven-js';
 import PropTypes from 'prop-types';
+import colors from '../theme';
 import Meta from '../components/Meta';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -35,7 +36,7 @@ class Document extends React.Component {
         <style jsx>{`
           div {
             margin-bottom: 4em;
-            background: #F7F7F7;
+            background: ${colors.background};
           }
         `}</style>
         <Footer />
