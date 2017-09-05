@@ -1,6 +1,7 @@
 import React from 'react';
 import Raven from 'raven-js';
 import PropTypes from 'prop-types';
+import colors from '../theme';
 import Meta from '../components/Meta';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -9,17 +10,19 @@ import { version, author } from '../package.json';
 class Document extends React.Component {
   componentDidMount() {
     Raven
-      .config('https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817', {
+      .config(process.env.SENTRY, {
         release: version,
         environment: process.env.NODE_ENV,
       })
       .install();
 
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .then(console.log('service worker registration successful')) // eslint-disable-line no-console
-        .catch(err => console.warn(err)); // eslint-disable-line no-console
+    if (process.env.NODE_ENV === 'production') {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('/service-worker.js')
+          .then(console.log('service worker registration successful')) // eslint-disable-line no-console
+          .catch(err => console.warn(err)); // eslint-disable-line no-console
+      }
     }
   }
   render() {
@@ -33,7 +36,7 @@ class Document extends React.Component {
         <style jsx>{`
           div {
             margin-bottom: 4em;
-            background: #F7F7F7;
+            background: ${colors.background};
           }
         `}</style>
         <Footer />
