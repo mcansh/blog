@@ -52,7 +52,7 @@ const Meta = props => (
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         font-weight: 400;
-        background: #F7F7F7;
+        background: ${colors.background};
         margin: 0;
       }
 

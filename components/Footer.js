@@ -1,4 +1,5 @@
 import React from 'react';
+import colors from '../theme';
 import { author } from '../package.json';
 
 const Footer = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: #F7F7F7;
+          background: ${colors.background};
           z-index: -1;
         }
 
