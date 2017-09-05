@@ -10,7 +10,7 @@ import { version, author } from '../package.json';
 class Document extends React.Component {
   componentDidMount() {
     Raven
-      .config('https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817', {
+      .config(process.env.SENTRY, {
         release: version,
         environment: process.env.NODE_ENV,
       })
