@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Document from '../layouts/Document';
 import Code from '../components/post/Code';
 import Progress from '../components/post/Progress';
@@ -11,12 +10,7 @@ const Index = () => {
   const title = 'JavaScript Classes Key Concepts';
   const image = 'olu-eletu-134760.jpg';
   return (
-    <Document>
-      <Head>
-        <title>{title}</title>
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:image" content={`/static/images/${image}`} />
-      </Head>
+    <Document title={title} image={`/static/images/${image}`}>
       <Header text={title} image={image} date="November 21, 2016" />
       <PostContainer>
         <Progress />

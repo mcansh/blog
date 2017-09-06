@@ -1,34 +1,44 @@
 {
-  "name": "blog-loganmcansh-com",
-  "version": "2.5.0",
-  "description": "",
+  "name": "mcansh-blog",
+  "version": "2.6.9",
+  "description": "My blog for learn.co",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server"
+    "start": "NODE_ENV=production node server",
+    "test": "eslint ./"
   },
   "now": {
-    "alias": "mcansh.blog",
+    "alias": [
+      "mcansh.blog",
+      "www.mcansh.blog"
+    ],
     "dotenv": "variables.env"
   },
-  "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Logan McAnsh",
+    "email": "logan@mcan.sh",
+    "url": "https://mcansh.blog"
+  },
   "license": "MIT",
   "dependencies": {
+    "babel-plugin-inline-dotenv": "^1.1.1",
     "classnames": "^2.2.5",
-    "dotenv": "^4.0.0",
-    "next": "3.0.1-beta.20",
+    "next": "3.2.1",
+    "nprogress": "^0.2.0",
     "prop-types": "^15.5.10",
+    "raven-js": "^3.17.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "webpack": "^3.4.1"
+    "sw-precache-webpack-plugin": "^0.11.4",
+    "webpack": "^3.5.5"
   },
   "devDependencies": {
-    "eslint": "^4.4.0",
+    "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-react": "^7.3.0"
   }
 }

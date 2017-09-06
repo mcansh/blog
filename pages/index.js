@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Document from '../layouts/Document';
 import Header from '../components/Header';
 import { posts } from '../posts.json';
@@ -7,11 +6,10 @@ import PostCard from '../components/PostCard';
 
 const Index = () => {
   const pageTitle = 'Logan McAnsh';
-  const randomPost = posts[Math.floor(Math.random() * posts.length)];
+  const newestPost = posts[0];
   return (
-    <Document>
-      <Head><title>{pageTitle}</title></Head>
-      <Header text={randomPost.title} image={randomPost.image} slug={randomPost.slug} />
+    <Document title={pageTitle}>
+      <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
       <div className="container">
         {posts.map(({ image, date, title, slug }) => (
           <PostCard key={slug} href={slug} title={title} image={image} date={date} />
@@ -39,6 +37,24 @@ const Index = () => {
           .container {
             max-width: 1170px;
             width: auto;
+          }
+        }
+
+        @supports (display: grid) {
+          .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+          }
+          @media (max-width: 999px) {
+            .container {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
+          @media (max-width: 550px) {
+            .container {
+              grid-template-columns: 1fr;
+            }
           }
         }
       `}</style>
