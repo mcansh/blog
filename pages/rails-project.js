@@ -5,8 +5,7 @@ import Document from '../layouts/Document';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
-import { H1 } from '../components/post/Heading';
-import P from '../components/post/Paragraph';
+import { H1, P } from '../components/post/Typography';
 
 const Index = () => {
   const title = 'Rails Project';

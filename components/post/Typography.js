@@ -27,6 +27,19 @@ const H2 = props => (
   </h2>
 );
 
+const P = props => (
+  <p>
+    {props.children}
+    <style jsx>{`
+      p {
+        margin: 10px 0;
+        line-height: 1.5;
+        font-size: 1.2em
+      }
+    `}</style>
+  </p>
+);
+
 H1.propTypes = {
   children: PropTypes.node.isRequired,
 };
@@ -35,4 +48,8 @@ H2.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { H1, H2 };
+P.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export { H1, H2, P };

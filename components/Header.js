@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { H2 } from './post/Heading';
+import { H2 } from './post/Typography';
 import Button from './Button';
 
 class Header extends React.Component {

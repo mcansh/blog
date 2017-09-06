@@ -4,7 +4,7 @@ import Code from '../components/post/Code';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
 import PostContainer from '../components/post/PostContainer';
-import P from '../components/post/Paragraph';
+import { P } from '../components/post/Typography';
 
 const Index = () => {
   const title = 'Object Lifecycle Cheatsheet';
