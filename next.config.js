@@ -9,6 +9,9 @@ module.exports = {
           cacheId: name,
           minify: true,
           verbose: true,
+          staticFileGlobs: [
+            'static/**/*', // Precache all static files by default
+          ],
           staticFileGlobsIgnorePatterns: [/\.next\//],
           runtimeCaching: [
             {
