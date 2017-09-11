@@ -17,7 +17,7 @@ const Index = () => {
 
         <P>Something I’ve learned that wasn’t included in the Learn curriculum was the <code>{'<progress>'}</code> element. Now what that does is show the progress of a task. In the case of this page. It shows how far down the page a user has scrolled. This can be beneficial to a long webpage such as a blog post. Another reason one could use the <code>{'<progress>'}</code> element is to show a loading bar for something.</P>
 
-        <H1>{"The HTML is pretty simple in itself, just set a max value and you're done"}</H1>
+        <H1>The HTML is pretty simple in itself, just set a max value and {"you're"} done</H1>
         <Code>{`
     <body>
       <progress value="0" max="100"></progress>
