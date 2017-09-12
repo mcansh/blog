@@ -6,7 +6,7 @@ import PostCard from '../components/PostCard';
 
 const Index = () => {
   const pageTitle = 'Logan McAnsh';
-  const newestPost = posts[0];
+  const [newestPost] = posts;
   return (
     <Document title={pageTitle}>
       <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
