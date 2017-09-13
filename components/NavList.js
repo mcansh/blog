@@ -12,8 +12,8 @@ const NavLinks = [
 
 const NavList = props => (
   <ul onClick={props.blockClicks}>
-    {NavLinks.map(link => (
-      <li key={link.name}><Link href={link.slug}><a>{link.name}</a></Link></li>
+    {NavLinks.map(({ name, slug }) => (
+      <li key={name}><Link href={slug}><a>{name}</a></Link></li>
     ))}
     <style jsx global>{`
       nav.open ul {
