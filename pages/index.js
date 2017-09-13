@@ -4,6 +4,14 @@ import Header from '../components/Header';
 import { posts } from '../posts.json';
 import PostCard from '../components/PostCard';
 
+function MonthDayYear(epoch) {
+  const date = new Date(epoch);
+  const month = date.toLocaleString('en-US', { month: 'long' });
+  const day = date.getDate();
+  const year = date.getFullYear();
+  return `${month} ${day}, ${year}`;
+}
+
 const Index = () => {
   const pageTitle = 'Logan McAnsh';
   const pageImage = 'me.png';
@@ -13,7 +21,7 @@ const Index = () => {
       <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
       <div className="container">
         {posts.map(({ image, date, title, slug }) => (
-          <PostCard key={slug} href={slug} title={title} image={image} date={date} />
+          <PostCard key={slug} href={slug} title={title} image={image} date={MonthDayYear(date)} />
         ))}
       </div>
       <style jsx>{`
