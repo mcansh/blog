@@ -7,8 +7,10 @@ cache:
 before_install: 
   - yarn global add greenkeeper-lockfile@1
   - yarn global add now
+  - yarn add -D https://github.com/ebidel/lighthouse-ci
 before_script: greenkeeper-lockfile-update
 after_script: 
   - greenkeeper-lockfile-upload
   - now -t ${NOW_TOKEN}
   - now -t ${NOW_TOKEN} alias staging.mcansh.blog
+  - node node_modules/lighthouse-ci/runlighthouse.js https://staging.mcansh.blog
