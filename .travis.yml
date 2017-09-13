@@ -8,6 +8,6 @@ before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
 after_success: 
-  - now
-  - now alias 'staging.mcansh.blog'
+  - node_modules/now/download/dist/now
+  - node node_modules/now/download/dist/now alias 'staging.mcansh.blog'
   - node node_modules/lighthouse-ci/runlighthouse.js https://staging.mcansh.blog
