@@ -4,6 +4,11 @@ node_js:
 cache:
   directories:
     - node_modules
-before_install: yarn global add greenkeeper-lockfile@1
+before_install: 
+  - yarn global add greenkeeper-lockfile@1
+  - yarn global add now
 before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+after_script: 
+  - greenkeeper-lockfile-upload
+  - now -t ${NOW_TOKEN}
+  - now -t ${NOW_TOKEN} alias staging.mcansh.blog
