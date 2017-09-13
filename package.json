@@ -7,7 +7,6 @@
     "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production node server",
-    "test": "eslint ./",
     "deploy": "node deploy"
   },
   "precommit": [
