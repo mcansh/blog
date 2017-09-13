@@ -1,9 +1,18 @@
 language: node_js
 node_js:
-  - "8"
+  - '8'
 cache:
   directories:
     - node_modules
+
+env:
+  global:
+    - secure: >-
+        qQGXKvu/uEbMDu0fNsz4OYANfHkg99D8Ya3Il0GCVstJN94LMohK6l7RL42+ud1xr/xgj9kMUISL8ITUB7xkGDpwWA7u8vKQrzxwGILkrAcRZczdYI6KuY9Uxtqjh6bAJQbMTIq7qB8mN2utwjpbWPQm/gOL6Ml5boPkcGPwJGrRsCCMbQnPbXHja7flEswBw7dlU9K7wt1MJcXYt8zcl8DbA1U0dYwpTcB+Udzk1JMWsCSOA4uhQpiIJFockAySgDhHJ1mR2AQfkYQP4W2+AgoVnp4pH1EdzSEo+L0/iwtG/6ajeM4IuGJha7BghQdldBEF2KOz6mmnf7k6skRMtYErWEKJtPRozve4hV6/NOEgqpseBr/Ce7uTHZMSazFleVSG8ibc+tXMxbNpjO141GWUpuhPA3+Oz04FJYf8RUrLeSAHx4lw8lLLVK2A8VMMh/8q0WmdkNgJHFxC42xlX7MW9JI375FKWLUKBjtyaTzAml380kBZAfCHN7RSPvTGtM7qXE1fswkOkbgK0qtgi9oSBVKaGsVHOjKH75fM9IXXiLvcfMZKTq2iyxA43lbfVnse6yecEMt03hwD3mBr9sShLAcF9z+MImget3idbMc3Me+cf0EvX+tT2skg7IqUp3i8UHUf3pYCO0LzzxQOaIpVYklzWOOiXUcs0hIcDsY=
+    - secure: >-
+        Ga4/Zgp0pKNfjqszKm76sG4626YmpjkJAZbdZtYYxCnCpBHQrgfDxZKmkajjobOHOLbA2q0gavCZEEBXrFFV3niQBeasIiJ7q0BIWfFjklxTD17H8FyfY761wCdwGIpaUZLFqpUBYCb6RjILgvero5aNYJAlsMwZEqH8vPz2l4NQ7IxwP1rJ2aUm/Q9/7yfqhe96NlahSckDvriRM1riYVSn9FnabAsYpddTAbRXPbZxy8TYzeaqOiPg2un73a1K9565bNznasGi9Zm4ohT0k1TNJav4693qTwlqW8JcZUjMCXqtTRTy8X/b2pNnGrk6eyMzNUgJaKKHkrYk4fv7fNy0K3GPP4mXjNcuMkDmwxF8uNhMwcOmZNIz3poPPhP5yqTMtIe6cqLRfdgt8OZcRiDIjV0fJ9+g0T+Z3Mi7tvuqajTPuJdp+XGxNCKcHYdvvN1oUWM95WRMYSrlMZ3XWOCFIR9Ecc0znxzO7fzbO2yP/xff5Nb/b08CuSvH+lEjfWKAt2U2WcaFaInWylISRkTK9KAHhhEuaLwCW2mhVRfKpI7XGPWtNyMWrtvnZv+kFTFNiztkh9mYqO0PkEo6xTcOlASsYLQZmIXMD0vHnPe1Od++mvE+LFPSNvLSuB6OoIPJ9xSv6IcbyOwCEgGjUcyTEh2XWfJWFkfxeXLXjbY=
 before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+after_script:
+  - greenkeeper-lockfile-upload
+  - NOW_ALIAS=myalias.com node_modules/.bin/now-travis
