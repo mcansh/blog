@@ -10,4 +10,6 @@ before_install:
 before_script: greenkeeper-lockfile-update
 after_script:
   - greenkeeper-lockfile-upload
+  - cd deploy
   - npm run deploy
+  - cd ../
