@@ -7,7 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production node server",
-    "test": "eslint ./"
+    "test": "eslint ./",
+    "deploy": "node deploy"
   },
   "precommit": [
     "test"
@@ -42,6 +43,7 @@
     "eslint-plugin-import": "2.3.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-react": "7.3.0",
-    "pre-commit": "1.2.2"
+    "pre-commit": "1.2.2",
+    "shelljs": "^0.7.8"
   }
 }
