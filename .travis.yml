@@ -8,7 +8,7 @@ before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script:
   - greenkeeper-lockfile-upload
-  - yarn globab add now-pipeline
+  - yarn global add now-pipeline
   - now-pipeline-prune
   - now-pipeline --alias staging.mcansh.blog
   - now-pipeline-list
