@@ -9,7 +9,7 @@ const Index = () => {
   const title = "Why I'm Learning Software Development";
   const image = 'anthony-delanoix-14635.jpg';
   return (
-    <Document title={title} image={`/static/images/${image}`}>
+    <Document title={title} image={image}>
       <Header text={title} image={image} date="October 3, 2016" />
       <PostContainer>
         <Progress />

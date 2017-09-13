@@ -10,7 +10,7 @@ const Index = () => {
   const title = 'Rack Key Concepts';
   const image = 'michail-sapiton-234263.jpg';
   return (
-    <Document title={title} image={`/static/images/${image}`}>
+    <Document title={title} image={image}>
       <Header text={title} image={image} date="December 7, 2016" />
       <PostContainer>
         <Progress />

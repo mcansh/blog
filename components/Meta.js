@@ -12,13 +12,13 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const Meta = props => (
+const Meta = ({ title, image }) => (
   <div>
     <Head>
-      <title>{props.title}</title>
+      <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel="mask-icon" href="/static/images/logo/website_icon.svg" color={colors.primary} />
+      <link rel="mask-icon" href="/static/images/logo/logo.svg" color={colors.primary} />
       <meta name="theme-color" content={colors.primary} />
       <link rel="manifest" href="/static/manifest.json" />
       <link type="text/plain" rel="author" href="/static/humans.txt" />
@@ -41,9 +41,9 @@ const Meta = props => (
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={process.env.TWITTER} />
-      <meta name="twitter:title" content={props.title} />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={props.image} />
+      <meta name="twitter:image" content={image} />
     </Head>
     <style jsx global>{`
       * {
@@ -103,13 +103,9 @@ const Meta = props => (
   </div>
 );
 
-Meta.defaultProps = {
-  image: 'https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460',
-};
-
 Meta.propTypes = {
   title: PropTypes.string.isRequired,
-  image: PropTypes.string,
+  image: PropTypes.string.isRequired,
 };
 
 export default Meta;

@@ -10,7 +10,7 @@ const Index = () => {
   const title = 'Object Lifecycle Cheatsheet';
   const image = 'farzad-nazifi-71686.jpg';
   return (
-    <Document title={title} image={`/static/images/${image}`}>
+    <Document title={title} image={image}>
       <Header text={title} image={image} date="November 4, 2016" />
       <PostContainer>
         <Progress />

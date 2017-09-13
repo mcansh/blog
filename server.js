@@ -16,12 +16,10 @@ const handle = app.getRequestHandler();
 app.prepare()
   .then(() => {
     createServer((req, res) => {
-      // const { pathname } = parse(req.url);
       const parsedUrl = parse(req.url, true);
       const { pathname } = parsedUrl;
 
-      if (pathname === '/service-worker.js') {
-        // res.writeHead(200, { 'Content-Type': 'application/javascript' });
+      if (/^\/service-worker.js\/?$/.test(pathname)) {
         const filePath = join(__dirname, '.next', pathname);
         app.serveStatic(req, res, filePath);
       } else if (/^\/atom\/?$/.test(pathname)) {

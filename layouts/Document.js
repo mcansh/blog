@@ -28,7 +28,7 @@ class Document extends React.Component {
   render() {
     return (
       <div>
-        <Meta title={this.props.title} image={this.props.image} />
+        <Meta title={this.props.title} image={`https://mcansh.blog/static/images/${this.props.image}`} />
         <Navigation />
         <div>
           { this.props.children }
@@ -46,14 +46,13 @@ class Document extends React.Component {
 }
 
 Document.defaultProps = {
-  title: `${author.name}`,
-  image: 'https://avatars1.githubusercontent.com/u/11698668?v=3&amp;s=460',
+  title: author.name,
 };
 
 Document.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.string.isRequired,
 };
 
 export default Document;

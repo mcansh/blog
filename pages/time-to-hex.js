@@ -11,7 +11,7 @@ const Index = () => {
   const title = 'How To Convert The Current Time To A Hexadecimal';
   const image = 'team-ui8-199275.jpg';
   return (
-    <Document title={title} image={`/static/images/${image}`}>
+    <Document title={title} image={image}>
       <Header text={title} image={image} date="January 10, 2017" />
       <PostContainer>
         <Progress />

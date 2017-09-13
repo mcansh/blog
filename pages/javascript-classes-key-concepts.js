@@ -10,7 +10,7 @@ const Index = () => {
   const title = 'JavaScript Classes Key Concepts';
   const image = 'olu-eletu-134760.jpg';
   return (
-    <Document title={title} image={`/static/images/${image}`}>
+    <Document title={title} image={image}>
       <Header text={title} image={image} date="November 21, 2016" />
       <PostContainer>
         <Progress />

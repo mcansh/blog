@@ -10,7 +10,7 @@ const Index = () => {
   const title = 'The HTML5 Progress Element is Great for Blogs';
   const image = 'wesson-wang-110739.jpg';
   return (
-    <Document title={title} image={`/static/images/${image}`}>
+    <Document title={title} image={image}>
       <Header text={title} image={image} date="October 14, 2016" />
       <PostContainer>
         <Progress />
