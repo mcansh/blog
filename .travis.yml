@@ -15,4 +15,4 @@ before_install: yarn global add greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script:
   - greenkeeper-lockfile-upload
-  - NOW_ALIAS=myalias.com node_modules/.bin/now-travis
+  - NOW_ALIAS=staging.mcansh.blog node_modules/.bin/now-travis
