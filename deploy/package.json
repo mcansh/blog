@@ -1,0 +1,22 @@
+{
+  "name": "now-ci",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:mcansh/now-ci.git",
+  "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "now": "8.2.5"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "express-fileupload": "^0.2.0",
+    "jsonwebtoken": "^8.0.1",
+    "mz": "^2.7.0",
+    "uuid": "^3.1.0",
+    "github": "11.0.0"
+  }
+}

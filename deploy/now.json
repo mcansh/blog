@@ -1,0 +1,7 @@
+{
+  "alias": "staging.mcansh.blog",
+  "env": {
+    "ZEIT_TOKEN": "@zeit-token",
+    "GH_KEY": "@gh-key"
+  }
+}
