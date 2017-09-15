@@ -78,7 +78,7 @@ const Index = () => {
     }
         `}</Code>
 
-        <P>Now what that’s doing is running a tenerary to see if the time is less than 10 or not, if it is, then it prepends a 0 to the variable. You probably also noticed that we’re never calling <code>setDate()</code>.</P>
+        <P>Now what that’s doing is running a ternary to see if the time is less than 10 or not, if it is, then it prepends a 0 to the variable. You probably also noticed that we’re never calling <code>setDate()</code>.</P>
 
         <P>Woohoo! You now have a clock that shows you hexadecimal colors. You can even change the android chrome theme color every second.</P>
 
