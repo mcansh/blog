@@ -1,6 +1,6 @@
 {
   "name": "mcansh-blog",
-  "version": "2.7.2",
+  "version": "2.8.0",
   "description": "My blog for learn.co",
   "main": "index.js",
   "scripts": {
@@ -31,8 +31,8 @@
     "nprogress": "0.2.0",
     "prop-types": "15.6.0",
     "raven-js": "3.17.0",
-    "react-dom": "16.0.0",
     "react": "16.0.0",
+    "react-dom": "16.0.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "webpack": "3.6.0"
   },
