@@ -15,7 +15,10 @@ const PostCard = props => (
     <Link prefetch href={props.href}>
       <a>
         <div className="post__image--wrapper">
-          <div className="post__image" style={{ backgroundImage: `url(/static/images/${props.image})` }} />
+          <div
+            className="post__image"
+            style={{ backgroundImage: `url(/static/images/${props.image})` }}
+          />
         </div>
         <div className="post__meta">
           <p className="date">{MonthDayYear(props.date)}</p>
@@ -32,7 +35,7 @@ const PostCard = props => (
         padding: 0px;
         margin: 0 5px 10px 5px;
         overflow: hidden;
-        box-shadow: 0 0 10px 4px rgba(0,0,0,0.02);
+        box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.02);
         vertical-align: top;
         transition: 200ms all ease-in-out;
         line-height: 1.6;
@@ -59,7 +62,7 @@ const PostCard = props => (
       }
 
       .post:hover {
-        box-shadow: 0 0 10px 4px rgba(0,0,0,0.2);
+        box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
       }
 
       .post:hover .post__image {
@@ -95,7 +98,8 @@ const PostCard = props => (
         height: 50%;
       }
 
-      .date, .title {
+      .date,
+      .title {
         font-weight: inherit;
         font-size: inherit;
         margin: 0;

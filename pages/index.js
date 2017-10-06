@@ -10,10 +10,20 @@ const Index = () => {
   const [newestPost] = posts;
   return (
     <Document title={pageTitle} image={pageImage}>
-      <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
+      <Header
+        text={newestPost.title}
+        image={newestPost.image}
+        slug={newestPost.slug}
+      />
       <div className="container">
         {posts.map(({ image, date, title, slug }) => (
-          <PostCard key={slug} href={slug} title={title} image={image} date={date} />
+          <PostCard
+            key={slug}
+            href={slug}
+            title={title}
+            image={image}
+            date={date}
+          />
         ))}
       </div>
       <style jsx>{`
