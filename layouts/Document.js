@@ -9,12 +9,10 @@ import { version, author } from '../package.json';
 
 class Document extends React.Component {
   componentDidMount() {
-    Raven
-      .config(process.env.SENTRY, {
-        release: version,
-        environment: process.env.NODE_ENV,
-      })
-      .install();
+    Raven.config(process.env.SENTRY, {
+      release: version,
+      environment: process.env.NODE_ENV,
+    }).install();
 
     if (process.env.NODE_ENV === 'production') {
       if ('serviceWorker' in navigator) {
@@ -28,11 +26,12 @@ class Document extends React.Component {
   render() {
     return (
       <div>
-        <Meta title={this.props.title} image={`https://mcansh.blog/static/images/${this.props.image}`} />
+        <Meta
+          title={this.props.title}
+          image={`https://mcansh.blog/static/images/${this.props.image}`}
+        />
         <Navigation />
-        <div>
-          { this.props.children }
-        </div>
+        <div>{this.props.children}</div>
         <style jsx>{`
           div {
             margin-bottom: 4em;
