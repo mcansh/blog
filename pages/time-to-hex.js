@@ -31,7 +31,8 @@ const Index = () => {
           hex, while changing the background color to it.
         </P>
 
-        <Code>{`
+        <Code>
+          {`
     function setDate() {
       // get the datetime
       const now = new Date();
@@ -55,7 +56,8 @@ const Index = () => {
 
       setInterval(setDate, 1000);
     }
-        `}</Code>
+          `}
+        </Code>
 
         <P>
           Not so fast, you’re not done yet! Notice when the time is 9:03:03 or
@@ -64,7 +66,8 @@ const Index = () => {
           the function like so:
         </P>
 
-        <Code>{`
+        <Code>
+          {`
     function setDate() {
       // get the datetime
       const now = new Date();
@@ -92,7 +95,8 @@ const Index = () => {
 
       setInterval(setDate, 1000);
     }
-        `}</Code>
+          `}
+        </Code>
 
         <P>
           Now what that’s doing is running a ternary to see if the time is less
@@ -105,9 +109,10 @@ const Index = () => {
           can even change the android chrome theme color every second.
         </P>
 
-        <Code>{`
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', hexTime);
-        `}</Code>
+        <Code>
+          document.querySelector('meta[name="theme-color"]').setAttribute('content',
+          hexTime);
+        </Code>
       </PostContainer>
     </Document>
   );

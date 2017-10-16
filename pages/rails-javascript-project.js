@@ -35,7 +35,7 @@ const Index = () => (
         </Link>. The fetch api allows you to do xmlhttprequest, but with a nicer
         syntax, for example to to get info about my GitHub account, you just
         need to run{' '}
-        <Code>{`
+        <Code inline>{`
       fetch('https://api.github.com/users/mcansh').then(r => r.json())
         `}</Code>{' '}
         will turn the blob of data into JSON as fetch {"doesn't"} assume you

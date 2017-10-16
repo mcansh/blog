@@ -10,7 +10,9 @@ const Footer = () => (
   <footer>
     <div className="footerContent">
       <Link href="/">
-        <a rel="home">&copy; {year} {name}</a>
+        <a rel="home">
+          &copy; {year} {name}
+        </a>
       </Link>
     </div>
     <style jsx>{`

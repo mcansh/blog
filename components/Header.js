@@ -32,7 +32,13 @@ class Header extends React.Component {
     };
     return (
       <header>
-        <div className="header__bg" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${this.props.image})` }} />
+        <div
+          className="header__bg"
+          style={{
+            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${this
+              .props.image})`,
+          }}
+        />
         <div className="header__content" style={blurStyles}>
           <h1>{this.props.text}</h1>
           {/* {buttonLink(this.props.slug)} */}
@@ -79,12 +85,14 @@ class Header extends React.Component {
             }
           }
 
-          h1, h2 {
+          h1,
+          h2 {
             max-width: 80%;
           }
 
           @media (max-width: 410px) {
-            h1,h2 {
+            h1,
+            h2 {
               max-width: 90%;
             }
             h1 {
@@ -122,6 +130,5 @@ Header.propTypes = {
   date: PropTypes.string,
   slug: PropTypes.string,
 };
-
 
 export default Header;

@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Hamburger = props => (
-  <button aria-label="toggle side nav" onClick={props.onClick} className={`${props.open ? 'open' : ''} ${props.hamburgerColor === 'black' ? 'burnt-burger' : ''}`}>
+  <button
+    aria-label="toggle side nav"
+    onClick={props.onClick}
+    className={`${props.open ? 'open' : ''} ${props.hamburgerColor === 'black'
+      ? 'burnt-burger'
+      : ''}`}
+  >
     <span />
     <style jsx>{`
       button {
@@ -74,11 +80,15 @@ const Hamburger = props => (
         transition: 350ms all ease-in;
       }
 
-      button.burnt-burger span, button.burnt-burger span::before, button.burnt-burger span::after {
+      button.burnt-burger span,
+      button.burnt-burger span::before,
+      button.burnt-burger span::after {
         background: black;
       }
 
-      button.burnt-burger.open span, button.burnt-burger.open span::before, button.burnt-burger.open span::after {
+      button.burnt-burger.open span,
+      button.burnt-burger.open span::before,
+      button.burnt-burger.open span::after {
         background: white;
       }
     `}</style>

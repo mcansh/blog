@@ -13,7 +13,11 @@ const NavLinks = [
 const NavList = props => (
   <ul onClick={props.blockClicks}>
     {NavLinks.map(({ name, slug }) => (
-      <li key={name}><Link href={slug}><a>{name}</a></Link></li>
+      <li key={name}>
+        <Link href={slug}>
+          <a>{name}</a>
+        </Link>
+      </li>
     ))}
     <style jsx global>{`
       nav.open ul {
@@ -58,7 +62,7 @@ const NavList = props => (
       }
 
       li > a:hover {
-        color: rgba(255, 255, 255, 0.6)
+        color: rgba(255, 255, 255, 0.6);
       }
     `}</style>
   </ul>

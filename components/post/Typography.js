@@ -8,7 +8,7 @@ const H1 = props => (
       h1 {
         margin: 10px 0;
         line-height: 1.5;
-        font-size: 1.2em
+        font-size: 1.2em;
       }
     `}</style>
   </h1>
@@ -21,7 +21,7 @@ const H2 = props => (
       h2 {
         margin: 10px 0;
         line-height: 1.5;
-        font-size: 1.2em
+        font-size: 1.2em;
       }
     `}</style>
   </h2>
@@ -34,7 +34,7 @@ const P = props => (
       p {
         margin: 10px 0;
         line-height: 1.5;
-        font-size: 1.2em
+        font-size: 1.2em;
       }
     `}</style>
   </p>
