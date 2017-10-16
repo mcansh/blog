@@ -9,14 +9,9 @@
     "start": "NODE_ENV=production node server",
     "test": "eslint ./"
   },
-  "precommit": [
-    "test"
-  ],
+  "precommit": ["test"],
   "now": {
-    "alias": [
-      "mcansh.blog",
-      "www.mcansh.blog"
-    ],
+    "alias": ["mcansh.blog", "www.mcansh.blog"],
     "dotenv": "variables.env"
   },
   "author": {
@@ -38,7 +33,7 @@
   },
   "devDependencies": {
     "eslint": "4.9.0",
-    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-airbnb": "15.1.0",
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
