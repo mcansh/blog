@@ -1,6 +1,12 @@
 {
   "posts": [
     {
+      "slug": "rails-javascript-project",
+      "title": "Rails project with javascript",
+      "date": 1508114031530,
+      "image": "joshua-sortino-228788.jpg"
+    },
+    {
       "slug": "rails-project",
       "title": "Rails project",
       "date": 1503633600000,
