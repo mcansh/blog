@@ -2,55 +2,55 @@
   "posts": [
     {
       "slug": "rails-project",
-      "title": "Rails Project",
+      "title": "Rails project",
       "date": 1503633600000,
       "image": "1*Wmv8hfi_bTHuHyV5CawnCw.jpg"
     },
     {
       "slug": "sinatra-project",
-      "title": "Sinatra Project",
+      "title": "Sinatra project",
       "date": 1493092800000,
       "image": "farzad-nazifi-71686.jpg"
     },
     {
       "slug": "time-to-hex",
-      "title": "How To Convert The Current Time To A Hexadecimal",
+      "title": "How to convert the current time to a hexadecimal",
       "date": 1484024400000,
       "image": "team-ui8-199275.jpg"
     },
     {
       "slug": "similarities-between-life-and-code",
-      "title": "Similarities Between Life And Code",
+      "title": "Similarities between life and code",
       "date": 1482624000000,
       "image": "markus-spiske-109588.jpg"
     },
     {
       "slug": "rack-key-concepts",
-      "title": "Rack Key Concepts",
+      "title": "Rack key concepts",
       "date": 1481086800000,
       "image": "michail-sapiton-234263.jpg"
     },
     {
       "slug": "javascript-classes-key-concepts",
-      "title": "JavaScript Classes Key Concepts",
+      "title": "JavaScript classes key concepts",
       "date": 1479686400000,
       "image": "olu-eletu-134760.jpg"
     },
     {
       "slug": "object-lifecycle-cheatsheet",
-      "title": "Object Lifecycle Cheatsheet",
+      "title": "Object lifecycle cheatsheet",
       "date": 1478217600000,
       "image": "farzad-nazifi-71686.jpg"
     },
     {
       "slug": "html5-progress-element",
-      "title": "The HTML5 Progress Element is Great for Blogs",
+      "title": "The HTML5 progress element is underappreciated",
       "date": 1476403200000,
       "image": "wesson-wang-110739.jpg"
     },
     {
       "slug": "why-im-learning-software-development",
-      "title": "Why I'm Learning Software Development",
+      "title": "Why I'm learning software development",
       "date": 1475452800000,
       "image": "anthony-delanoix-14635.jpg"
     }

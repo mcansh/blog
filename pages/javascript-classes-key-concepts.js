@@ -7,7 +7,7 @@ import PostContainer from '../components/post/PostContainer';
 import { P } from '../components/post/Typography';
 
 const Index = () => {
-  const title = 'JavaScript Classes Key Concepts';
+  const title = 'JavaScript classes key concepts';
   const image = 'olu-eletu-134760.jpg';
   return (
     <Document title={title} image={image}>
@@ -15,7 +15,11 @@ const Index = () => {
       <PostContainer>
         <Progress />
 
-        <P>The key concept in class variables and methods is how to define them. Classes are realistically just “special functions”. To define a class, you use the keyword class followed by the name you want to give it.</P>
+        <P>
+          The key concept in class variables and methods is how to define them.
+          Classes are realistically just “special functions”. To define a class,
+          you use the keyword class followed by the name you want to give it.
+        </P>
 
         <Code>{`
     class myClass {
@@ -26,14 +30,20 @@ const Index = () => {
     }
         `}</Code>
 
-        <P>When you’re defining classes make sure they are hoisted or your code will throw errors like</P>
+        <P>
+          When you’re defining classes make sure they are hoisted or your code
+          will throw errors like
+        </P>
 
         <Code>{`
     var p = new myClass(); // ReferenceError
     class myClass {}
         `}</Code>
 
-        <P>It should be known that the content of a class declaration is executed in strict mode.</P>
+        <P>
+          It should be known that the content of a class declaration is executed
+          in strict mode.
+        </P>
       </PostContainer>
     </Document>
   );

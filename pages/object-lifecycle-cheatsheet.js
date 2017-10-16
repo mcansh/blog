@@ -7,7 +7,7 @@ import PostContainer from '../components/post/PostContainer';
 import { P } from '../components/post/Typography';
 
 const Index = () => {
-  const title = 'Object Lifecycle Cheatsheet';
+  const title = 'Object lifecycle cheatsheet';
   const image = 'farzad-nazifi-71686.jpg';
   return (
     <Document title={title} image={image}>
@@ -15,9 +15,20 @@ const Index = () => {
       <PostContainer>
         <Progress />
 
-        <P>Firstly, I’d like to apolagize for the lack and timing of these posts. I’ve been busy at work and unfortunately haven’t had the time to write them <span role="img" aria-label="Sob Emoji">😭</span>.</P>
+        <P>
+          Firstly, I’d like to apolagize for the lack and timing of these posts.
+          I’ve been busy at work and unfortunately haven’t had the time to write
+          them{' '}
+          <span role="img" aria-label="Sob Emoji">
+            😭
+          </span>.
+        </P>
 
-        <P>A Javascript object is a standalone entity, with properties and types associated with it. Object properties are basically the same as javascript variables except for they’re attached to objects.</P>
+        <P>
+          A Javascript object is a standalone entity, with properties and types
+          associated with it. Object properties are basically the same as
+          javascript variables except for they’re attached to objects.
+        </P>
 
         <P>You define a propterty by defining it a value, for example:</P>
 
@@ -26,9 +37,17 @@ const Index = () => {
     myCar.make = "Ford";
         `}</Code>
 
-        <P>If you define a property but don’t give it a value it becomes undefined, not null. e.g: <code>myCar.color;</code> would return undefined.</P>
+        <P>
+          If you define a property but don’t give it a value it becomes
+          undefined, not null. e.g: <code>myCar.color;</code> would return
+          undefined.
+        </P>
 
-        <P>{"To get an item out of an object you can test to see if it has that property, for example, on a project at work, we used this to get a rule's name out of the object"}</P>
+        <P>
+          {
+            "To get an item out of an object you can test to see if it has that property, for example, on a project at work, we used this to get a rule's name out of the object"
+          }
+        </P>
 
         <Code>{`
     // The Rule itself
