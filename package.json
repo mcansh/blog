@@ -1,6 +1,6 @@
 {
   "name": "mcansh-blog",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "My blog for learn.co",
   "main": "index.js",
   "scripts": {
