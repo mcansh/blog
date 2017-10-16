@@ -34,12 +34,14 @@ const Index = () => (
           <a>fetch browser api</a>
         </Link>. The fetch api allows you to do xmlhttprequest, but with a nicer
         syntax, for example to to get info about my GitHub account, you just
-        need to run{' '}
-        <Code inline>{`
-      fetch('https://api.github.com/users/mcansh').then(r => r.json())
-        `}</Code>{' '}
-        will turn the blob of data into JSON as fetch {"doesn't"} assume you
-        want JSON.
+        need to run the following
+      </P>
+      <Code>{`
+  fetch('https://api.github.com/users/mcansh').then(r => r.json())
+      `}</Code>
+      <P>
+        The above will turn the blob of data into JSON as fetch {"doesn't"}{' '}
+        assume you want JSON.
       </P>
     </PostContainer>
   </Document>

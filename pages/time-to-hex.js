@@ -109,10 +109,9 @@ const Index = () => {
           can even change the android chrome theme color every second.
         </P>
 
-        <Code>
-          document.querySelector('meta[name="theme-color"]').setAttribute('content',
-          hexTime);
-        </Code>
+        <Code>{`
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', hexTime);
+        `}</Code>
       </PostContainer>
     </Document>
   );
