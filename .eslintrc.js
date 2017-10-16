@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     node: true,
   },
+  plugins: ['prettier'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'max-len': 0,
