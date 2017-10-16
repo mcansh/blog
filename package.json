@@ -1,6 +1,6 @@
 {
   "name": "mcansh-blog",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "My blog for learn.co",
   "main": "index.js",
   "scripts": {
@@ -9,9 +9,14 @@
     "start": "NODE_ENV=production node server",
     "test": "eslint ./"
   },
-  "precommit": ["test"],
+  "precommit": [
+    "test"
+  ],
   "now": {
-    "alias": ["mcansh.blog", "www.mcansh.blog"],
+    "alias": [
+      "mcansh.blog",
+      "www.mcansh.blog"
+    ],
     "dotenv": "variables.env"
   },
   "author": {
