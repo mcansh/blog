@@ -1,6 +1,6 @@
 {
   "name": "mcansh-blog",
-  "version": "2.8.2",
+  "version": "2.8.3",
   "description": "My blog for learn.co",
   "main": "index.js",
   "scripts": {
@@ -9,9 +9,14 @@
     "start": "NODE_ENV=production node server",
     "test": "eslint ./"
   },
-  "precommit": ["test"],
+  "precommit": [
+    "test"
+  ],
   "now": {
-    "alias": ["mcansh.blog", "www.mcansh.blog"],
+    "alias": [
+      "mcansh.blog",
+      "www.mcansh.blog"
+    ],
     "dotenv": "variables.env"
   },
   "author": {
@@ -33,9 +38,9 @@
   },
   "devDependencies": {
     "babel-eslint": "8.0.1",
-    "eslint-config-prettier": "2.6.0",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "2.6.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-prettier": "2.3.1",
