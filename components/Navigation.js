@@ -6,10 +6,6 @@ class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: false, hamburgerColor: 'white' };
-    this.onClick = this.toggleClass.bind(this);
-    this.blockClicks = this.blockClicks.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
-    this.handleKey = this.handleKey.bind(this);
   }
 
   componentDidMount() {
@@ -19,9 +15,10 @@ class Navigation extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll, true);
+    window.removeEventListener('keydown', this.handleKey, true);
   }
 
-  handleScroll() {
+  handleScroll = () => {
     const header = document.querySelector('header');
     let hamburgerColor;
     if (window.pageYOffset > header.offsetHeight) {
@@ -30,27 +27,27 @@ class Navigation extends React.Component {
       hamburgerColor = 'white';
     }
     this.setState({ hamburgerColor });
-  }
+  };
 
-  handleKey(e) {
+  handleKey = e => {
     if (e.keyCode === 27) {
       this.setState({ open: false });
     }
-  }
+  };
 
-  toggleClass() {
+  toggleClass = () => {
     this.setState({ open: !this.state.open });
-  }
+  };
 
-  blockClicks(e) {
+  blockClicks = e => {
     e.stopPropagation();
-  }
+  };
 
   render() {
     return (
-      <nav className={this.state.open ? 'open' : ''} onClick={this.onClick}>
+      <nav className={this.state.open ? 'open' : ''} onClick={this.toggleClass}>
         <Hamburger
-          onClick={this.onClick}
+          onClick={this.toggleClass}
           open={this.state.open}
           hamburgerColor={this.state.hamburgerColor}
         />
