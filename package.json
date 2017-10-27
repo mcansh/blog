@@ -7,10 +7,11 @@
     "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production node server",
-    "test": "eslint ./"
+    "lint": "eslint ./",
+    "test": "yarn lint && bundlesize"
   },
   "precommit": [
-    "test"
+    "lint"
   ],
   "now": {
     "alias": [
@@ -27,7 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-plugin-inline-dotenv": "1.1.1",
-    "next": "4.1.0",
+    "next": "^4.1.4-canary.2",
     "nprogress": "0.2.0",
     "prop-types": "15.6.0",
     "raven-js": "3.19.1",
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "babel-eslint": "8.0.1",
+    "bundlesize": "^0.15.3",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "2.6.0",
@@ -46,5 +48,10 @@
     "eslint-plugin-prettier": "2.3.1",
     "eslint-plugin-react": "7.4.0",
     "pre-commit": "1.2.2"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./pages/**/*.js"
+    }
+  ]
 }
