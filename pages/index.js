@@ -1,20 +1,23 @@
 import React from 'react';
 import Document from '../layouts/Document';
 import Header from '../components/Header';
-import { posts } from '../posts.json';
-import PostCard from '../components/PostCard';
+// import { posts } from '../posts.json';
+import withData from '../lib/withData';
+import AllPosts from '../components/AllPosts';
 
 const Index = () => {
   const pageTitle = 'Logan McAnsh';
   const pageImage = 'me.png';
-  const [newestPost] = posts;
+  // const [newestPost] = posts;
   return (
     <Document title={pageTitle} image={pageImage}>
-      <Header text={newestPost.title} image={newestPost.image} slug={newestPost.slug} />
+      {/* <Header
+        text={newestPost.title}
+        image={newestPost.image}
+        slug={newestPost.slug}
+      /> */}
       <div className="container">
-        {posts.map(({ image, date, title, slug }) => (
-          <PostCard key={slug} href={slug} title={title} image={image} date={date} />
-        ))}
+        <AllPosts />
       </div>
       <style jsx>{`
         .container {
@@ -63,4 +66,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default withData(Index);
