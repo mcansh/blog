@@ -9,12 +9,12 @@ import { version, author } from '../package.json';
 
 class Document extends React.Component {
   componentDidMount() {
-    Raven.config(process.env.SENTRY, {
-      release: version,
-      environment: process.env.NODE_ENV,
-    }).install();
-
     if (process.env.NODE_ENV === 'production') {
+      Raven.config(process.env.SENTRY, {
+        release: version,
+        environment: process.env.NODE_ENV,
+      }).install();
+
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
           .register('/service-worker.js')
