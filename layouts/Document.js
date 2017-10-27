@@ -9,12 +9,12 @@ import { version, author } from '../package.json';
 
 class Document extends React.Component {
   componentDidMount() {
-    Raven.config(process.env.SENTRY, {
-      release: version,
-      environment: process.env.NODE_ENV,
-    }).install();
-
     if (process.env.NODE_ENV === 'production') {
+      Raven.config(process.env.SENTRY, {
+        release: version,
+        environment: process.env.NODE_ENV,
+      }).install();
+
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
           .register('/service-worker.js')
@@ -24,14 +24,16 @@ class Document extends React.Component {
     }
   }
   render() {
+    const { image, title, children } = this.props;
+
     return (
       <div>
         <Meta
-          title={this.props.title}
-          image={`https://mcansh.blog/static/images/${this.props.image}`}
+          title={title}
+          image={`https://mcansh.blog/static/images/${image}`}
         />
         <Navigation />
-        <div>{this.props.children}</div>
+        <div>{children}</div>
         <style jsx>{`
           div {
             margin-bottom: 4em;
@@ -46,12 +48,13 @@ class Document extends React.Component {
 
 Document.defaultProps = {
   title: author.name,
+  image: 'me.png',
 };
 
 Document.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
 };
 
 export default Document;

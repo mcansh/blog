@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
 import Document from '../layouts/Document';
 import Progress from '../components/post/Progress';
 import Header from '../components/Header';
@@ -12,12 +11,7 @@ const title = 'Rails project with javascript';
 const image = 'joshua-sortino-228788.jpg';
 
 const Index = () => (
-  <Document>
-    <Head>
-      <title>{title}</title>
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:image" content={image} />
-    </Head>
+  <Document title={title} image={image}>
     <Header text={title} image={image} date="October 15, 2017" />
     <PostContainer>
       <Progress />
