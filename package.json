@@ -7,16 +7,12 @@
     "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production node server",
-    "test": "eslint ./"
+    "lint": "eslint ./",
+    "test": "yarn lint && bundlesize"
   },
-  "precommit": [
-    "test"
-  ],
+  "precommit": ["lint"],
   "now": {
-    "alias": [
-      "mcansh.blog",
-      "www.mcansh.blog"
-    ],
+    "alias": ["mcansh.blog", "www.mcansh.blog"],
     "dotenv": "variables.env"
   },
   "author": {
@@ -38,6 +34,7 @@
   },
   "devDependencies": {
     "babel-eslint": "8.0.1",
+    "bundlesize": "^0.15.3",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "2.6.0",
@@ -46,5 +43,10 @@
     "eslint-plugin-prettier": "2.3.1",
     "eslint-plugin-react": "7.4.0",
     "pre-commit": "1.2.2"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./pages/**/*.js"
+    }
+  ]
 }
