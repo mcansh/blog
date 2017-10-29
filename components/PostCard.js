@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-
-function MonthDayYear(epoch) {
-  const date = new Date(epoch);
-  const month = date.toLocaleString('en-US', { month: 'long' });
-  const day = date.getDate();
-  const year = date.getFullYear();
-  return `${month} ${day}, ${year}`;
-}
+import makeDate from '../lib/makeDate';
 
 const PostCard = props => (
   <article className="post" key={props.href}>
@@ -21,7 +14,7 @@ const PostCard = props => (
           />
         </div>
         <div className="post__meta">
-          <p className="date">{MonthDayYear(props.date)}</p>
+          <p className="date">{makeDate(props.date)}</p>
           <h1 className="title">{props.title}</h1>
         </div>
       </a>

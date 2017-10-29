@@ -11,7 +11,7 @@ const image = '1*Wmv8hfi_bTHuHyV5CawnCw.jpg';
 
 const Index = () => (
   <Document title={title} image={image}>
-    <Header text={title} image={image} date="August 10, 2017" />
+    <Header text={title} image={image} date={1503633600000} />
     <PostContainer>
       <Progress />
       <P>{"You're"} Probably wondering where that Rails project is eh?</P>

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { H2 } from './post/Typography';
 import Button from './Button';
+import makeDate from '../lib/makeDate';
 
 class Header extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Header extends React.Component {
     this.setState({ blur });
   }
   render() {
-    const Date = this.props.date ? <H2>{this.props.date}</H2> : '';
+    const Date = this.props.date ? <H2>{makeDate(this.props.date)}</H2> : '';
     const blurStyles = {
       backdropFilter: `${this.state.blur}`,
       WebkitBackdropFilter: `${this.state.blur}`,
@@ -41,7 +42,6 @@ class Header extends React.Component {
         />
         <div className="header__content" style={blurStyles}>
           <h1>{this.props.text}</h1>
-          {/* {buttonLink(this.props.slug)} */}
           <Button link={this.props.slug}>Read More</Button>
           {Date}
         </div>
@@ -120,14 +120,14 @@ class Header extends React.Component {
 }
 
 Header.defaultProps = {
-  date: '',
-  slug: '',
+  date: null,
+  slug: null,
 };
 
 Header.propTypes = {
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  date: PropTypes.string,
+  date: PropTypes.number,
   slug: PropTypes.string,
 };
 

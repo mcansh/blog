@@ -10,7 +10,7 @@ const Index = () => {
   const image = 'markus-spiske-109588.jpg';
   return (
     <Document title={title} image={image}>
-      <Header text={title} image={image} date="December 25, 2016" />
+      <Header text={title} image={image} date={1482624000000} />
       <PostContainer>
         <Progress />
 
