@@ -8,7 +8,7 @@ import PostContainer from '../components/post/PostContainer';
 import { P } from '../components/post/Typography';
 
 const Index = () => {
-  const title = 'The HTML5 progress element is underappreciated';
+  const title = 'How to convert the current time to a hexadecimal';
   const image = 'team-ui8-199275.jpg';
   return (
     <Document title={title} image={image}>
