@@ -1,134 +1,76 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { H2 } from './post/Typography';
+import format from 'date-fns/format';
+import findPost from '../lib/findPost';
 import Button from './Button';
-import makeDate from '../lib/makeDate';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { blur: 'blur(0px)' };
-    this.handleScroll = this.handleScroll.bind(this);
-  }
+const Header = props => {
+  const post = findPost(props.id);
+  const { title, date, image: { imageUrl } } = post;
+  return (
+    <header>
+      <div>
+        <h1>{props.title || title}</h1>
+        {!props.link && date && <h2>{format(date, 'MMMM DD, YYYY')}</h2>}
+        {props.link && <Button text="Read More" link={props.id} />}
+      </div>
+      <style jsx>{`
+        header {
+          height: 50vh;
+          min-height: 500px;
+          max-height: 800px;
+          background: ${imageUrl
+            ? `url(/static/images/posts/${imageUrl})`
+            : 'url(/static/images/posts/brevite-434280.jpg)'};
+          background-size: cover;
+          background-position: center;
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, true);
-  }
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          position: relative;
+        }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll, true);
-  }
+        header::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.6);
+        }
 
-  handleScroll() {
-    const scroll = window.pageYOffset;
-    const maxMinBlur = Math.min(100, Math.max(0, scroll / 3));
-    const blur = `blur(${maxMinBlur}px)`;
-    this.setState({ blur });
-  }
-  render() {
-    const Date = this.props.date ? <H2>{makeDate(this.props.date)}</H2> : '';
-    const blurStyles = {
-      backdropFilter: `${this.state.blur}`,
-      WebkitBackdropFilter: `${this.state.blur}`,
-    };
-    return (
-      <header>
-        <div
-          className="header__bg"
-          style={{
-            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.74902), rgba(0, 0, 0, 0.74902)), url(/static/images/${this
-              .props.image})`,
-          }}
-        />
-        <div className="header__content" style={blurStyles}>
-          <h1>{this.props.text}</h1>
-          <Button link={this.props.slug}>Read More</Button>
-          {Date}
-        </div>
-        <style jsx>{`
-          header {
-            height: 50vh;
-            min-height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            font-size: 1.7em;
-            text-align: center;
-          }
+        div {
+          z-index: 1;
+          text-align: center;
+          max-width: 80vw;
+        }
 
-          .header__bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-position: center;
-            background-size: cover;
-          }
+        h1 {
+          font-size: 5rem;
+          margin-bottom: 2rem;
+        }
 
-          .header__content {
-            color: white;
-            z-index: 1;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          }
-
-          @supports (backdrop-filter: initial) and (-webkit-backdrop-filter: initial) {
-            .header_content {
-              will-change: backdrop-filter;
-              will-change: webkit-backdrop-filter;
-            }
-          }
-
-          h1,
-          h2 {
-            max-width: 80%;
-          }
-
-          @media (max-width: 410px) {
-            h1,
-            h2 {
-              max-width: 90%;
-            }
-            h1 {
-              font-size: 1.5em;
-            }
-          }
-
-          @media (max-height: 500px) {
-            header {
-              height: 100vh;
-              min-height: 100vh;
-            }
-          }
-
-          @media (max-width: 500px) {
-            header {
-              min-height: 95vh;
-              height: 95vh;
-            }
-          }
-        `}</style>
-      </header>
-    );
-  }
-}
+        h2 {
+          font-size: 3rem;
+        }
+      `}</style>
+    </header>
+  );
+};
 
 Header.defaultProps = {
-  date: null,
-  slug: null,
+  link: null,
+  id: null,
+  title: null,
 };
 
 Header.propTypes = {
-  text: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  date: PropTypes.number,
-  slug: PropTypes.string,
+  title: PropTypes.string,
+  link: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default Header;

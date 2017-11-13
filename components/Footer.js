@@ -1,33 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import colors from '../theme';
-import { author } from '../package.json';
-
-const { name } = author;
-const year = new Date().getFullYear();
 
 const Footer = () => (
   <footer>
-    <div className="footerContent">
-      <Link href="/">
-        <a rel="home">
-          &copy; {year} {name}
-        </a>
-      </Link>
-    </div>
+    <Link href="/">
+      <a rel="home">&copy; {new Date().getFullYear()} Logan McAnsh</a>
+    </Link>
     <style jsx>{`
       footer {
-        height: 4em;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        height: 8rem;
         background: ${colors.background};
-        z-index: -1;
-      }
-
-      .footerContent {
-        height: 100%;
+        font-size: 1.4rem;
         display: flex;
         justify-content: center;
         align-items: center;
