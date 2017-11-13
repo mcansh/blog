@@ -5,9 +5,15 @@ import findPost from '../lib/findPost';
 import { description } from '../package.json';
 
 const suffix = 'Logan McAnsh';
+const defaultImage = 'https://mcansh.blog/static/me.png';
+
+const foundPost = id => {
+  if (!id) return { image: {} };
+  return findPost(id);
+};
 
 const Meta = ({ id }) => {
-  const post = findPost(id);
+  const post = foundPost(id);
   const { title, image: { imageUrl } } = post;
   return (
     <Head>
@@ -19,7 +25,7 @@ const Meta = ({ id }) => {
         content={title ? `${title} — ${suffix}` : suffix}
       />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image" content={imageUrl || defaultImage} />
     </Head>
   );
 };

@@ -3,12 +3,14 @@ import Page from '../components/layouts/Page';
 import PostCard from '../components/PostCard';
 import posts from '../posts.json';
 import Header from '../components/Header';
+import Meta from '../components/Meta';
 
 const [latest] = posts;
 const { id: latestid } = latest;
 
 const Index = () => (
   <Page>
+    <Meta />
     <Header id={latestid} link={latestid} />
     <div>
       {posts.map(({ image, date, title, id }) => (
