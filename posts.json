@@ -1,16 +1,5 @@
 [
   {
-    "id": "rails-javascript-project",
-    "title": "Rails project with javascript",
-    "date": 1508114031530,
-    "image": {
-      "imageUrl": "joshua-sortino-228788.jpg",
-      "name": "Joshua Sortino",
-      "url":
-        "https://unsplash.com/photos/71vAb1FXB6g?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog"
-    }
-  },
-  {
     "id": "rails-project",
     "title": "Rails project",
     "date": 1503633600000,
@@ -47,9 +36,10 @@
     "title": "Similarities between life and code",
     "date": 1482624000000,
     "image": {
-      "imageUrl": "",
-      "name": "",
-      "url": ""
+      "imageUrl": "joshua-sortino-228788.jpg",
+      "name": "Joshua Sortino",
+      "url":
+        "https://unsplash.com/photos/71vAb1FXB6g?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog"
     }
   },
   {
@@ -57,9 +47,10 @@
     "title": "Rack key concepts",
     "date": 1481086800000,
     "image": {
-      "imageUrl": "",
-      "name": "",
-      "url": ""
+      "imageUrl": "derek-liang-239062.jpg",
+      "name": "Derek Liang",
+      "url":
+        "https://unsplash.com/photos/2h_i_BB_X2E?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog"
     }
   },
   {
