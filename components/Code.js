@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SyntaxHighlighter, {
   registerLanguage,
 } from 'react-syntax-highlighter/dist/light';
-import { github } from 'react-syntax-highlighter/dist/styles';
+import { github } from 'react-syntax-highlighter/dist/styles/lowlight';
 
 const Code = ({ language, syntax, children }) => {
   if (!language || !syntax) {
