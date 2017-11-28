@@ -14,9 +14,9 @@ const Hamburger = props => (
       button {
         position: fixed;
         top: 20px;
-        left: 20px;
         left: constant(safe-area-inset-left);
         left: env(safe-area-inset-left);
+        left: 20px;
         appearance: none;
         height: 40px;
         width: 40px;
