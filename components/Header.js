@@ -42,6 +42,14 @@ const Header = props => {
           background: rgba(0, 0, 0, 0.6);
         }
 
+        @media screen and (orientation: landscape) {
+          header {
+            height: 100vh;
+            min-height: auto;
+            max-height: none;
+          }
+        }
+
         div {
           z-index: 1;
           text-align: center;
