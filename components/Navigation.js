@@ -67,7 +67,6 @@ class Navigation extends React.Component {
             transition: 500ms all ease-in-out;
             will-change: opacity;
           }
-
           nav.open::before {
             visibility: visible;
             opacity: 1;

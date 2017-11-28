@@ -5,9 +5,9 @@ const Hamburger = props => (
   <button
     aria-label="toggle side nav"
     onClick={props.onClick}
-    className={`${props.open ? 'open' : ''} ${props.hamburgerColor === 'black'
-      ? 'burnt-burger'
-      : ''}`}
+    className={`${props.open ? 'open' : ''} ${
+      props.hamburgerColor === 'black' ? 'burnt' : ''
+    }`}
   >
     <span />
     <style jsx>{`
@@ -15,6 +15,8 @@ const Hamburger = props => (
         position: fixed;
         top: 20px;
         left: 20px;
+        left: constant(safe-area-inset-left);
+        left: env(safe-area-inset-left);
         appearance: none;
         height: 40px;
         width: 40px;
@@ -25,7 +27,6 @@ const Hamburger = props => (
         cursor: pointer;
         overflow: hidden;
       }
-
       button span {
         width: 100%;
         height: 2px;
@@ -37,7 +38,6 @@ const Hamburger = props => (
         will-change: transform;
         top: -10px;
       }
-
       button span::before,
       button span::after {
         content: '';
@@ -50,21 +50,17 @@ const Hamburger = props => (
         transition: 150ms all ease;
         will-change: transform;
       }
-
       button span::before {
         top: 10px;
       }
-
       button span::after {
         top: 20px;
       }
-
       button.open span {
         transform: rotate(45deg);
         top: 0;
         transition: 350ms all ease-in;
       }
-
       button.open span::before {
         visibility: hidden;
         opacity: 0;
@@ -73,22 +69,19 @@ const Hamburger = props => (
         left: 0;
         transition: 350ms all ease-in;
       }
-
       button.open span::after {
         transform: rotate(-90deg);
         top: 0;
         transition: 350ms all ease-in;
       }
-
-      button.burnt-burger span,
-      button.burnt-burger span::before,
-      button.burnt-burger span::after {
+      button.burnt span,
+      button.burnt span::before,
+      button.burnt span::after {
         background: black;
       }
-
-      button.burnt-burger.open span,
-      button.burnt-burger.open span::before,
-      button.burnt-burger.open span::after {
+      button.burnt.open span,
+      button.burnt.open span::before,
+      button.burnt.open span::after {
         background: white;
       }
     `}</style>
