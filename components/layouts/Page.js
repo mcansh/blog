@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Navigation from '../Navigation';
 import Document from './Document';
 
 const Page = ({ children }) => (
   <Document>
+    <Navigation />
     {children}
     <style jsx global>{`
       ._markdown_ {
