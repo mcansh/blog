@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SyntaxHighlighter, {
   registerLanguage,
-} from 'react-syntax-highlighter/dist/light';
-import { github } from 'react-syntax-highlighter/dist/styles/lowlight';
+} from 'react-syntax-highlighter/light';
+import { github } from 'react-syntax-highlighter/styles/hljs';
 
 const Code = ({ language, syntax, children }) => {
   if (!language || !syntax) {

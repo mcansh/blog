@@ -1,8 +1,8 @@
 import React from 'react';
 import markdown from 'markdown-in-js';
-import javascript from 'highlight.js/lib/languages/javascript';
-import css from 'highlight.js/lib/languages/css';
-import html from 'highlight.js/lib/languages/htmlbars';
+import javascript from 'react-syntax-highlighter/languages/hljs/javascript';
+import css from 'react-syntax-highlighter/languages/hljs/css';
+import htmlbars from 'react-syntax-highlighter/languages/hljs/htmlbars';
 import withOptions from '../components/layouts/withOptions';
 import components from '../components';
 import { InlineCode, Code } from '../components/Code';
@@ -17,7 +17,7 @@ export default withOptions({
   # The HTML is pretty simple in itself, just set a max value and you're done
 
   ${(
-    <Code syntax={html} language="html">{`
+    <Code syntax={htmlbars} language="html">{`
 <body>
   <progress value="0" max="100"></progress>
   { content }
