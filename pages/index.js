@@ -22,6 +22,10 @@ const Index = () => (
         margin: 0 auto;
         width: 95%;
         padding: 90px 0 0 0;
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-left: constant(safe-area-inset-left);
+        padding-right: constant(safe-area-inset-right);
       }
       @media (min-width: 768px) {
         div {

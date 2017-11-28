@@ -15,6 +15,8 @@ const Hamburger = props => (
         position: fixed;
         top: 20px;
         left: 20px;
+        left: constant(safe-area-inset-left);
+        left: env(safe-area-inset-left);
         appearance: none;
         height: 40px;
         width: 40px;
