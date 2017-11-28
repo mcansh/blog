@@ -12,6 +12,7 @@ const Page = ({ children }) => (
         margin: 3rem auto 0 auto;
         max-width: 900px;
         width: 95%;
+        min-height: calc(100vh - 500px);
       }
     `}</style>
   </Document>
