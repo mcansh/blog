@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Hamburger = props => (
+const Hamburger = ({ onClick, open }) => (
   <button
     aria-label="toggle side nav"
-    onClick={props.onClick}
-    className={`${props.open ? 'open' : ''} ${
-      props.hamburgerColor === 'black' ? 'burnt' : ''
-    }`}
+    onClick={onClick}
+    className={`${open ? 'open' : ''}`}
   >
     <span />
     <style jsx>{`
       button {
-        position: fixed;
+        position: absolute;
         top: 20px;
         left: constant(safe-area-inset-left);
         left: env(safe-area-inset-left);
@@ -74,16 +72,6 @@ const Hamburger = props => (
         top: 0;
         transition: 350ms all ease-in;
       }
-      button.burnt span,
-      button.burnt span::before,
-      button.burnt span::after {
-        background: black;
-      }
-      button.burnt.open span,
-      button.burnt.open span::before,
-      button.burnt.open span::after {
-        background: white;
-      }
     `}</style>
   </button>
 );
@@ -95,7 +83,6 @@ Hamburger.defaultProps = {
 Hamburger.propTypes = {
   onClick: PropTypes.func.isRequired,
   open: PropTypes.bool,
-  hamburgerColor: PropTypes.string.isRequired,
 };
 
 export default Hamburger;

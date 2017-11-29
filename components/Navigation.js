@@ -5,29 +5,16 @@ import NavList from './NavList';
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false, hamburgerColor: 'white' };
+    this.state = { open: false };
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, true);
     window.addEventListener('keydown', this.handleKey, true);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll, true);
     window.removeEventListener('keydown', this.handleKey, true);
   }
-
-  handleScroll = () => {
-    const header = document.querySelector('header');
-    let hamburgerColor;
-    if (window.pageYOffset > header.offsetHeight) {
-      hamburgerColor = 'black';
-    } else {
-      hamburgerColor = 'white';
-    }
-    this.setState({ hamburgerColor });
-  };
 
   handleKey = e => {
     if (e.keyCode === 27) {
@@ -44,13 +31,10 @@ class Navigation extends React.Component {
   };
 
   render() {
+    const { open } = this.state;
     return (
-      <nav className={this.state.open ? 'open' : ''} onClick={this.toggleClass}>
-        <Hamburger
-          onClick={this.toggleClass}
-          open={this.state.open}
-          hamburgerColor={this.state.hamburgerColor}
-        />
+      <nav className={open ? 'open' : ''} onClick={this.toggleClass}>
+        <Hamburger onClick={this.toggleClass} open={open} />
         <NavList blockClicks={this.blockClicks} />
         <style jsx>{`
           nav::before {
