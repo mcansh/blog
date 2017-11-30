@@ -3,29 +3,29 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { format } from 'date-fns';
 
-const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
+const PostCard = ({
+  supportsWebp,
+  id,
+  image: { imageUrl, name, url },
+  date,
+  title,
+}) => {
   const imageRegex = /png|jpg/;
   const imageWebp = imageUrl.replace(imageRegex, 'webp');
-  const [imageExt] = imageUrl.match(imageRegex);
+
   return (
     <Link prefetch href={id}>
       <a>
         <article className="post" key={id}>
-          <picture>
-            <source
-              srcSet={`/static/images/posts/webp/${imageWebp}`}
-              type="image/webp"
-            />
-            <source
-              srcSet={`/static/images/posts/${imageUrl}`}
-              type={`image/${imageExt}`}
-            />
-            <img
-              src="img/creakyOldJPEG.jpg"
-              alt={name ? `Taken by ${name}` : ''}
-              data-source-url={url || ''}
-            />
-          </picture>
+          <img
+            src={
+              supportsWebp
+                ? `/static/images/posts/webp/${imageWebp}`
+                : `/static/images/posts/${imageUrl}`
+            }
+            alt={name ? `Taken by ${name}` : ''}
+            data-source-url={url || ''}
+          />
           <div className="post__meta">
             <p className="date">{format(date, 'MMMM DD, YYYY')}</p>
             <h1 className="title">{title}</h1>
@@ -87,14 +87,10 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
             padding: 10px 0;
           }
 
-          picture {
+          img {
             width: 100%;
             height: 50%;
             display: block;
-          }
-          picture img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
           }
         `}</style>
@@ -112,6 +108,7 @@ PostCard.propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
+  supportsWebp: PropTypes.bool.isRequired,
 };
 
 export default PostCard;
