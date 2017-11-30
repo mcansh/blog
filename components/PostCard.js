@@ -3,86 +3,105 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { format } from 'date-fns';
 
-const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
-  <Link prefetch href={id}>
-    <a>
-      <article className="post" key={id}>
-        <img
-          src={`/static/images/posts/${imageUrl}`}
-          alt={name ? `Taken by ${name}` : ''}
-          data-source-url={url || ''}
-        />
-        <div className="post__meta">
-          <p className="date">{format(date, 'MMMM DD, YYYY')}</p>
-          <h1 className="title">{title}</h1>
-        </div>
-      </article>
-      <style jsx>{`
-        article {
-          background: white;
-          display: inline-block;
-          width: calc(33.3333% - 10px);
-          height: 400px;
-          padding: 0px;
-          margin: 0 5px 10px 5px;
-          overflow: hidden;
-          box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.02);
-          vertical-align: top;
-          transition: 200ms all ease-in-out;
-          line-height: 1.6;
-          font-size: 1.6rem;
-        }
-        @media (max-width: 999px) {
-          .post {
-            width: calc(50% - 10px);
+const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
+  const imageRegex = /png|jpg/;
+  const imageWebp = imageUrl.replace(imageRegex, 'webp');
+  const [imageExt] = imageUrl.match(imageRegex);
+  return (
+    <Link prefetch href={id}>
+      <a>
+        <article className="post" key={id}>
+          <picture>
+            <source
+              srcSet={`/static/images/posts/webp/${imageWebp}`}
+              type="image/webp"
+            />
+            <source
+              srcSet={`/static/images/posts/${imageUrl}`}
+              type={`image/${imageExt}`}
+            />
+            <img
+              src="img/creakyOldJPEG.jpg"
+              alt={name ? `Taken by ${name}` : ''}
+              data-source-url={url || ''}
+            />
+          </picture>
+          <div className="post__meta">
+            <p className="date">{format(date, 'MMMM DD, YYYY')}</p>
+            <h1 className="title">{title}</h1>
+          </div>
+        </article>
+        <style jsx>{`
+          article {
+            background: white;
+            display: inline-block;
+            width: calc(33.3333% - 10px);
+            height: 400px;
+            padding: 0px;
+            margin: 0 5px 10px 5px;
+            overflow: hidden;
+            box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.02);
+            vertical-align: top;
+            transition: 200ms all ease-in-out;
+            line-height: 1.6;
+            font-size: 1.6rem;
           }
-        }
-        @media (max-width: 650px) {
-          .post {
-            width: 100%;
-            margin: 0 0 10px 0;
+          @media (max-width: 999px) {
+            .post {
+              width: calc(50% - 10px);
+            }
           }
-        }
-        @supports (display: grid) {
-          .post {
-            width: 100%;
+          @media (max-width: 650px) {
+            .post {
+              width: 100%;
+              margin: 0 0 10px 0;
+            }
+          }
+          @supports (display: grid) {
+            .post {
+              width: 100%;
+              margin: 0;
+            }
+          }
+          .post:hover {
+            box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+          }
+          a {
+            text-decoration: none;
+            color: #777;
+            font-size: 1em;
+          }
+          .post__meta {
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 50%;
+          }
+          .date,
+          .title {
+            font-weight: inherit;
+            font-size: inherit;
             margin: 0;
           }
-        }
-        .post:hover {
-          box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
-        }
-        a {
-          text-decoration: none;
-          color: #777;
-          font-size: 1em;
-        }
-        .post__meta {
-          max-width: 90%;
-          margin-left: auto;
-          margin-right: auto;
-          height: 50%;
-        }
-        .date,
-        .title {
-          font-weight: inherit;
-          font-size: inherit;
-          margin: 0;
-        }
-        .date {
-          padding: 10px 0;
-        }
+          .date {
+            padding: 10px 0;
+          }
 
-        img {
-          width: 100%;
-          height: 50%;
-          object-fit: cover;
-          display: block;
-        }
-      `}</style>
-    </a>
-  </Link>
-);
+          picture {
+            width: 100%;
+            height: 50%;
+            display: block;
+          }
+          picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        `}</style>
+      </a>
+    </Link>
+  );
+};
 
 PostCard.propTypes = {
   id: PropTypes.string.isRequired,
