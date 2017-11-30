@@ -2,16 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { format } from 'date-fns';
+import webp from '../lib/webp';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
   <Link prefetch href={id}>
     <a>
       <article className="post" key={id}>
-        <img
-          src={`/static/images/posts/${imageUrl}`}
-          alt={name ? `Taken by ${name}` : ''}
-          data-source-url={url || ''}
-        />
+        <picture>
+          <source
+            srcSet={`/static/images/posts/webp/${webp(imageUrl).url}`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`/static/images/posts/${imageUrl}`}
+            type={`image/${webp(imageUrl).type}`}
+          />
+          <img
+            src={`/static/images/posts/${imageUrl}`}
+            alt={name ? `Taken by ${name}` : ''}
+            data-source-url={url || ''}
+          />
+        </picture>
         <div className="post__meta">
           <p className="date">{format(date, 'MMMM DD, YYYY')}</p>
           <h1 className="title">{title}</h1>
@@ -73,11 +84,16 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
           padding: 10px 0;
         }
 
-        img {
+        picture {
           width: 100%;
           height: 50%;
-          object-fit: cover;
           display: block;
+        }
+        picture img,
+        picture source {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       `}</style>
     </a>

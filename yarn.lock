@@ -5643,6 +5643,10 @@ watchpack@^1.4.0:
     chokidar "^1.7.0"
     graceful-fs "^4.1.2"
 
+webp-converter@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/webp-converter/-/webp-converter-2.1.6.tgz#90318c28382df90128ec8bb46f5420850047d8d5"
+
 webpack-dev-middleware@1.12.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-1.12.0.tgz#d34efefb2edda7e1d3b5dbe07289513219651709"
