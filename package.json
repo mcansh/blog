@@ -10,13 +10,9 @@
     "lint": "eslint ./",
     "test": "bundlesize && yarn lint"
   },
-  "precommit": [
-    "lint"
-  ],
+  "precommit": ["lint"],
   "now": {
-    "alias": [
-      "mcansh.blog"
-    ],
+    "alias": ["mcansh.blog"],
     "dotenv": "variables.env"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",

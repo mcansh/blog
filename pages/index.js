@@ -12,7 +12,7 @@ const { id: latestid } = latest;
 const Index = ({ supportsWebp }) => (
   <Page>
     <Meta />
-    <Header id={latestid} link={latestid} />
+    <Header id={latestid} link={latestid} supportsWebp={supportsWebp} />
     <div>
       {posts.map(({ image, date, title, id }) => (
         <PostCard
