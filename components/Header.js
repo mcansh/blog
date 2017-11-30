@@ -4,6 +4,17 @@ import format from 'date-fns/format';
 import findPost from '../lib/findPost';
 import Button from './Button';
 
+const image = (supportsWebp, imageUrl) => {
+  const imageRegex = /png|jpg/;
+  const imageWebp = imageUrl.replace(imageRegex, 'webp');
+  if (imageUrl && supportsWebp) {
+    return `/static/images/posts/webp/${imageWebp}`;
+  } else if (imageUrl && !supportsWebp) {
+    return `/static/images/posts/${imageUrl}`;
+  }
+  return '/static/images/posts/brevite-434280.jpg';
+};
+
 const Header = props => {
   const post = findPost(props.id);
   const { title, date, image: { imageUrl } } = post;
@@ -19,9 +30,7 @@ const Header = props => {
           height: 50vh;
           min-height: 500px;
           max-height: 800px;
-          background: ${imageUrl
-            ? `url(/static/images/posts/${imageUrl})`
-            : 'url(/static/images/posts/brevite-434280.jpg)'};
+          background: ${`url(${image(props.supportsWebp, imageUrl)})`};
           background-size: cover;
           background-position: center;
 
@@ -71,6 +80,7 @@ Header.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
   id: PropTypes.string,
+  supportsWebp: PropTypes.bool.isRequired,
 };
 
 export default Header;

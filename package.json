@@ -10,13 +10,9 @@
     "lint": "eslint ./",
     "test": "bundlesize && yarn lint"
   },
-  "precommit": [
-    "lint"
-  ],
+  "precommit": ["lint"],
   "now": {
-    "alias": [
-      "mcansh.blog"
-    ],
+    "alias": ["mcansh.blog"],
     "dotenv": "variables.env"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
@@ -47,7 +43,8 @@
     "eslint-plugin-prettier": "2.3.1",
     "eslint-plugin-react": "7.5.1",
     "pre-commit": "1.2.2",
-    "prettier": "^1.8.2"
+    "prettier": "^1.8.2",
+    "webp-converter": "^2.1.6"
   },
   "bundlesize": [
     {

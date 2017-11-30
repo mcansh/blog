@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Page from '../components/layouts/Page';
 import PostCard from '../components/PostCard';
 import posts from '../posts.json';
@@ -8,13 +9,20 @@ import Meta from '../components/Meta';
 const [latest] = posts;
 const { id: latestid } = latest;
 
-const Index = () => (
+const Index = ({ supportsWebp }) => (
   <Page>
     <Meta />
-    <Header id={latestid} link={latestid} />
+    <Header id={latestid} link={latestid} supportsWebp={supportsWebp} />
     <div>
       {posts.map(({ image, date, title, id }) => (
-        <PostCard key={id} image={image} date={date} title={title} id={id} />
+        <PostCard
+          key={id}
+          image={image}
+          date={date}
+          title={title}
+          id={id}
+          supportsWebp={supportsWebp}
+        />
       ))}
     </div>
     <style jsx>{`
@@ -65,5 +73,16 @@ const Index = () => (
     `}</style>
   </Page>
 );
+
+Index.getInitialProps = async ({ req }) => {
+  const { headers: { accept } } = req;
+  const webp = 'image/webp';
+  const supportsWebp = accept.includes(webp);
+  return { supportsWebp };
+};
+
+Index.propTypes = {
+  supportsWebp: PropTypes.bool.isRequired,
+};
 
 export default Index;
