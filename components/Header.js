@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import format from 'date-fns/format';
 import findPost from '../lib/findPost';
 import Button from './Button';
+import webp from '../lib/webp';
 
 const Header = props => {
   const post = findPost(props.id);
@@ -20,8 +21,11 @@ const Header = props => {
           min-height: 500px;
           max-height: 800px;
           background: ${imageUrl
-            ? `url(/static/images/posts/${imageUrl})`
-            : 'url(/static/images/posts/brevite-434280.jpg)'};
+              ? `url(/static/images/posts/webp/${webp(imageUrl).url})`
+              : `url(/static/images/posts/webp/brevite-434280.webp)`},
+            ${imageUrl
+              ? `url(/static/images/posts/${imageUrl})`
+              : 'url(/static/images/posts/brevite-434280.jpg)'};
           background-size: cover;
           background-position: center;
 
