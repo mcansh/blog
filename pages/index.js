@@ -78,7 +78,6 @@ Index.getInitialProps = async ({ req }) => {
   const { headers: { accept } } = req;
   const webp = 'image/webp';
   const supportsWebp = accept.includes(webp);
-  console.log(supportsWebp);
   return { supportsWebp };
 };
 
