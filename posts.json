@@ -1,5 +1,16 @@
 [
   {
+    "id": "ruby-project",
+    "title": "Ruby project",
+    "date": 10,
+    "image": {
+      "imageUrl": "stacy-wyss-702.jpg",
+      "name": "Stacy Wyss",
+      "url":
+        "https://unsplash.com/photos/-aDl1z8_nGY?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog"
+    }
+  },
+  {
     "id": "rails-project",
     "title": "Rails project",
     "date": 1503633600000,
