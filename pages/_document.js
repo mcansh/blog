@@ -21,7 +21,7 @@ class Page extends Document {
           />
           <meta name="theme-color" content={colors.primary} />
           {/* Icons and stuff */}
-          <link rel="shortcut icon" href="/static/images/favicon.png" />
+          <link rel="shortcut icon" href="/static/images/logo.png" />
           <link rel="shortcut icon" href="/static/images/logo/logo.ico" />
           <link
             rel="apple-touch-icon-precomposed"
