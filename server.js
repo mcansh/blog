@@ -5,7 +5,6 @@ import { join } from 'path';
 
 import atom from './lib/atom';
 import jsonfeed from './lib/jsonfeed';
-import humans from './lib/humans';
 import manifest from './lib/manifest';
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -30,9 +29,6 @@ app.prepare().then(() => {
     } else if (/^\/feed.json\/?$/.test(pathname)) {
       res.setHeader('Content-Type', 'application/json');
       res.end(jsonfeed());
-    } else if (/^\/humans.txt\/?$/.test(pathname)) {
-      res.setHeader('Content-Type', 'text/plain');
-      res.end(humans());
     } else {
       // handle(req, res);
       handle(req, res, parsedUrl);
