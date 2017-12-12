@@ -12,7 +12,7 @@ class Page extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width, viewport-fit=cover"
           />
-          <link rel="manifest" href="/static/manifest.json" />
+          <link rel="manifest" href="/manifest.json" />
           <link type="text/plain" rel="author" href="/static/humans.txt" />
           <link
             rel="mask-icon"
@@ -20,7 +20,6 @@ class Page extends Document {
             color={colors.primary}
           />
           <meta name="theme-color" content={colors.primary} />
-          {/* Icons and stuff */}
           <link rel="shortcut icon" href="/static/images/logo.png" />
           <link rel="shortcut icon" href="/static/images/logo/logo.ico" />
           <link
@@ -72,7 +71,6 @@ class Page extends Document {
             href="/static/images/logo/logo-32.png"
             sizes="32x32"
           />
-          {/* FEEEEEEEDS */}
           <link
             rel="alternate"
             href="/atom"
