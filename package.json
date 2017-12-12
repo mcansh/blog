@@ -1,28 +1,31 @@
 {
   "name": "mcansh-blog",
+  "productName": "Logan McAnsh",
+  "productShortName": "Blog",
   "version": "3.1.4",
   "description": "My blog for learn.co",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "prebuild": "yarn webp",
     "webp": "node convertToWebp.js",
-    "start": "NODE_ENV=production node server",
+    "start": "NODE_ENV=production node -r @std/esm server",
     "lint": "eslint ./",
-    "test": "bundlesize && yarn lint"
+    "test": "bundlesize && yarn lint",
+    "build:docker": "docker build -t blog .",
+    "start:docker": "docker run -p 3000:3000 blog"
   },
-  "precommit": [
-    "lint"
-  ],
+  "precommit": ["lint"],
   "now": {
-    "alias": [
-      "mcansh.blog"
-    ],
+    "name": "blog",
+    "alias": ["mcansh.blog"],
     "dotenv": "variables.env"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
+    "@std/esm": "^0.18.0",
     "babel-plugin-inline-dotenv": "1.1.1",
     "date-fns": "^1.29.0",
     "highlight.js": "^9.12.0",
@@ -52,6 +55,10 @@
     "prettier": "^1.8.2",
     "read-chunk": "^2.1.0",
     "webp-converter": "^2.1.6"
+  },
+  "@std/esm": {
+    "esm": "all",
+    "cjs": true
   },
   "bundlesize": [
     {

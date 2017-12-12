@@ -1,12 +1,11 @@
-const { createServer } = require('http');
-const { parse } = require('url');
-const next = require('next');
-// const { createReadStream } = require('fs');
-const { join } = require('path');
+import { createServer } from 'http';
+import { parse } from 'url';
+import next from 'next';
+import { join } from 'path';
 
-const atom = require('./lib/atom');
-const jsonfeed = require('./lib/jsonfeed');
-const humans = require('./lib/humans');
+import atom from './lib/atom';
+import jsonfeed from './lib/jsonfeed';
+import humans from './lib/humans';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dir: '.', dev });
