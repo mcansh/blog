@@ -1,0 +1,6 @@
+node_modules
+.eslintrc.js
+.travis.yml
+README.markdown
+LICENSE
+CODE_OF_CONDUCT.md
