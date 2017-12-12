@@ -16,7 +16,7 @@ class Page extends Document {
           <link type="text/plain" rel="author" href="/static/humans.txt" />
           <link
             rel="mask-icon"
-            href="/static/images/logo/logo.svg"
+            href="/static/images/logo/safari.svg"
             color={colors.primary}
           />
           <meta name="theme-color" content={colors.primary} />
