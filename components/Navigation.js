@@ -27,7 +27,9 @@ class Navigation extends React.Component {
   };
 
   blockClicks = e => {
-    e.stopPropagation();
+    if (e.target.tagName !== 'A') {
+      e.stopPropagation();
+    }
   };
 
   render() {
