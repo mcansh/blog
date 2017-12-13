@@ -1,15 +1,18 @@
+sudo: false
 language: node_js
 node_js:
-  - "8"
+  - "9"
 cache:
   directories:
     - node_modules
-before_install: 
+services:
+  - docker
+before_install:
   - yarn global add greenkeeper-lockfile@1
   - yarn global add now
   - yarn add -D https://github.com/ebidel/lighthouse-ci
 before_script: greenkeeper-lockfile-update
-after_script: 
+after_script:
   - greenkeeper-lockfile-upload
   - now -t ${NOW_TOKEN}
   - now -t ${NOW_TOKEN} alias staging.mcansh.blog
