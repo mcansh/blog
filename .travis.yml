@@ -1,19 +1,22 @@
 sudo: false
 language: node_js
 node_js:
-  - "9"
+- '9'
 cache:
   directories:
-    - node_modules
+  - node_modules
 services:
-  - docker
+- docker
 before_install:
-  - yarn global add greenkeeper-lockfile@1
-  - yarn global add now
-  - yarn add -D https://github.com/ebidel/lighthouse-ci
+- yarn global add greenkeeper-lockfile@1
+- yarn global add now
+- yarn add -D https://github.com/ebidel/lighthouse-ci
 before_script: greenkeeper-lockfile-update
 after_script:
-  - greenkeeper-lockfile-upload
-  - now -t ${NOW_TOKEN}
-  - now -t ${NOW_TOKEN} alias staging.mcansh.blog
-  - node node_modules/lighthouse-ci/runlighthouse.js https://staging.mcansh.blog
+- greenkeeper-lockfile-upload
+- now -t ${NOW_TOKEN}
+- now -t ${NOW_TOKEN} alias staging.mcansh.blog
+- node node_modules/lighthouse-ci/runlighthouse.js https://staging.mcansh.blog
+env:
+  global:
+    secure: b1QTun/HOgOSAXS/qG2PHUlvRG4K5y3EtoYecyFMjbOzWX+Y30Urrhy8cdCP+wXRPzZgiFb6BYdeiggtyvcwqtRaPsVkbizRHOi0LCHYmga3ouFwolCzTF5Ly4uBadc7DzUOmzRnY0O/lqI6g/7rG2KBHxiaGceArB9bbmVcv8R7qjCPzPuqPclzNp36Q8VhdU1GG8B72l19pCHZ1iD1dJXLC5t1ivlWb/8zyKL3goEDlTndA2de0Xra4N0WKlIovbfplOmxIzBlsVafgwfv6RbVVg+I/OTTzXJIX9wFzvaft0GONeeNK0RN1IDwqpVV8BbcydoIrnAvxMU/WJJxR0XW8dbNlDrlZDYdOMtva/Jzh7qfdWbbmzgQm2w5eYmRn9/ZkCbFrFVwE3vrFn7qBjCXBmlq4Gp8ZWHW+AKZpZx5yA59R2mixfId8bPUXWQzuesp6aQ6S97Zdtais8qePjJnMueeW+l7zeUKNN+cZOdmTwz1Q/CHeD1TUL8I3InFgR1x6vYVAJwNYG2zhBla1fBCcKC1QlpUK1+qE+uyePZJXmuumebrshQUeVRFUnlWZaQMsRc0KrU42ZlKrm5LHEKcIJ0ZIaQhFc2HdJ60RNJ4HIemBDwjW2WH1EQ8vL+Lr1QHU2qkxM9JdN9bJjlYSUztUu2wYvdVCB/mcPjxD+0=
