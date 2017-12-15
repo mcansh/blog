@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 3000
 
-CMD node -r @std/esm ./server.js
+RUN yarn build
+
+CMD NODE_ENV=production node -r @std/esm ./server.js
