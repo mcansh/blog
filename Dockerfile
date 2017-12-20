@@ -1,15 +1,10 @@
-FROM node:latest
-
+FROM node:alpine
+RUN mkdir -p /app
 WORKDIR /app
-
 COPY yarn.lock package.json ./
-
-RUN yarn install
-
+RUN npm install -gs --no-progress yarn && yarn
 COPY . .
-
-EXPOSE 3000
-
 RUN yarn build
-
+RUN yarn cache clean
+EXPOSE 3000
 CMD NODE_ENV=production node -r @std/esm ./server.js
