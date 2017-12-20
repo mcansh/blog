@@ -15,11 +15,11 @@ fs.readdirSync(imagesFolder).forEach(file => {
       const fileNoExtension = file.replace(type.ext, '');
       webp.cwebp(
         `${imagesFolder}/${file}`,
-        `${imagesFolder}/webp/${fileNoExtension}webp`,
+        `${imagesFolder}/${fileNoExtension}webp`,
         '-q 80',
         status => {
           console.log(status); // eslint-disable-line no-console
-        },
+        }
       );
     }
   }

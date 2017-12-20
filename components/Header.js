@@ -21,8 +21,8 @@ const Header = props => {
           min-height: 500px;
           max-height: 800px;
           background: ${imageUrl
-              ? `url(/static/images/posts/webp/${webp(imageUrl).url})`
-              : `url(/static/images/posts/webp/brevite-434280.webp)`},
+              ? `url(/static/images/posts/${webp(imageUrl).url})`
+              : `url(/static/images/posts/brevite-434280.webp)`},
             ${imageUrl
               ? `url(/static/images/posts/${imageUrl})`
               : 'url(/static/images/posts/brevite-434280.jpg)'};
@@ -68,13 +68,13 @@ const Header = props => {
 Header.defaultProps = {
   link: null,
   id: null,
-  title: null,
+  title: null
 };
 
 Header.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default Header;

@@ -10,7 +10,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
       <article className="post" key={id}>
         <picture>
           <source
-            srcSet={`/static/images/posts/webp/${webp(imageUrl).url}`}
+            srcSet={`/static/images/posts/${webp(imageUrl).url}`}
             type="image/webp"
           />
           <source
@@ -107,8 +107,8 @@ PostCard.propTypes = {
   image: PropTypes.shape({
     image_url: PropTypes.string,
     name: PropTypes.string,
-    url: PropTypes.string,
-  }).isRequired,
+    url: PropTypes.string
+  }).isRequired
 };
 
 export default PostCard;
