@@ -34,7 +34,7 @@ class Navigation extends React.Component {
   render() {
     const { open } = this.state;
     return (
-      <nav className={open ? 'open' : ''} onClick={this.toggleClass}>
+      <nav onClick={this.toggleClass}>
         <Hamburger onClick={this.toggleClass} open={open} />
         <NavList blockClicks={this.blockClicks} />
         <style jsx>{`
@@ -47,14 +47,10 @@ class Navigation extends React.Component {
             width: 100%;
             height: 100%;
             z-index: 2;
-            visibility: hidden;
-            opacity: 0;
+            visibility: ${open ? 'visible' : 'hidden'};
+            opacity: ${open ? '1' : '0'};
             transition: 500ms all ease-in-out;
             will-change: opacity;
-          }
-          nav.open::before {
-            visibility: visible;
-            opacity: 1;
           }
         `}</style>
       </nav>
