@@ -36,7 +36,7 @@ class Navigation extends React.Component {
     return (
       <nav onClick={this.toggleClass}>
         <Hamburger onClick={this.toggleClass} open={open} />
-        <NavList blockClicks={this.blockClicks} />
+        {open && <NavList blockClicks={this.blockClicks} open={open} />}
         <style jsx>{`
           nav::before {
             content: '';
