@@ -13,6 +13,7 @@
     "start": "NODE_ENV=production node -r @std/esm server",
     "lint": "eslint ./",
     "test": "bundlesize && yarn lint",
+    "prebuild:docker": "yarn webp",
     "build:docker": "docker build -t blog .",
     "start:docker": "docker run -p 3000:3000 blog"
   },
