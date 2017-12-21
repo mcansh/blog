@@ -8,14 +8,16 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "prebuild": "yarn webp",
     "webp": "node convertToWebp.js",
     "start": "NODE_ENV=production node -r @std/esm server",
     "lint": "eslint ./",
     "test": "bundlesize && yarn lint",
+    "prebuild": "yarn webp",
     "prebuild:docker": "yarn webp",
+    "predeploy": "yarn webp",
     "build:docker": "docker build -t blog .",
-    "start:docker": "docker run -p 3000:3000 blog"
+    "start:docker": "docker run -p 3000:3000 blog",
+    "deploy": "now --docker && now alias"
   },
   "precommit": [
     "lint"
