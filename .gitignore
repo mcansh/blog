@@ -1,12 +1,5 @@
-# Build output
-dist
 .next
-
-# Dependencies
 node_modules
-
-# Logs
 *.log
-
-# macOS
 .DS_Store
+static/images/posts/*.webp
