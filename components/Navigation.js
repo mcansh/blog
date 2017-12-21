@@ -3,10 +3,9 @@ import Hamburger from './Hamburger';
 import NavList from './NavList';
 
 class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-  }
+  state = {
+    open: false
+  };
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKey, true);
