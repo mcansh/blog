@@ -32,7 +32,7 @@
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
-    "@std/esm": "^0.18.0",
+    "@std/esm": "^0.19.1",
     "babel-plugin-inline-dotenv": "^1.1.1",
     "date-fns": "^1.29.0",
     "highlight.js": "^9.12.0",
