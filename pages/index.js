@@ -26,6 +26,9 @@ const Index = () => (
         padding-right: env(safe-area-inset-right);
         padding-left: constant(safe-area-inset-left);
         padding-right: constant(safe-area-inset-right);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 10px;
       }
       @media (min-width: 768px) {
         div {
@@ -43,23 +46,6 @@ const Index = () => (
         div {
           max-width: 1170px;
           width: auto;
-        }
-      }
-      @supports (display: grid) {
-        div {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-gap: 10px;
-        }
-        @media (max-width: 999px) {
-          div {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 550px) {
-          div {
-            grid-template-columns: 1fr;
-          }
         }
       }
     `}</style>
