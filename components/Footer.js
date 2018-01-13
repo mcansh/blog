@@ -1,11 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import { injectIntl, intlShape } from 'react-intl';
 import colors from '../theme';
 
-const Footer = () => (
+const Footer = ({ intl: { formatDate } }) => (
   <footer>
     <Link href="/">
-      <a rel="home">&copy; {new Date().getFullYear()} Logan McAnsh</a>
+      <a rel="home">
+        &copy; {formatDate(new Date(), { year: 'numeric' })} Logan McAnsh
+      </a>
     </Link>
     <style jsx>{`
       footer {
@@ -25,4 +28,8 @@ const Footer = () => (
   </footer>
 );
 
-export default Footer;
+Footer.propTypes = {
+  intl: intlShape.isRequired, // eslint-disable-line react/no-typos
+};
+
+export default injectIntl(Footer);

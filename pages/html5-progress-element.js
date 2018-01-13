@@ -3,6 +3,7 @@ import markdown from 'markdown-in-js';
 import javascript from 'react-syntax-highlighter/languages/hljs/javascript';
 import css from 'react-syntax-highlighter/languages/hljs/css';
 import htmlbars from 'react-syntax-highlighter/languages/hljs/htmlbars';
+import colors from '../theme';
 import withOptions from '../components/layouts/withOptions';
 import components from '../components';
 import { InlineCode, Code } from '../components/Code';
@@ -34,13 +35,13 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #6c16c7;
+  background-color: ${colors.primary};
   // or you can do gradients 💯
   background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
 }
 
 progress::-moz-progress-bar {
-  background-color: #6c16c7;
+  background-color: ${colors.primary};
   // or you can do gradients 💯
   background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
 }

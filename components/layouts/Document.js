@@ -61,6 +61,7 @@ class Document extends Component {
               'Segoe UI Emoji', 'Segoe UI Symbol';
             font-weight: 400;
             margin: 0;
+            background: #f7f7f7;
           }
 
           ::selection {
