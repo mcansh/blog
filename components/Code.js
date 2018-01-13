@@ -36,21 +36,18 @@ const Code = ({ language, syntax, children }) => {
 const InlineCode = ({ children }) => (
   <code>
     {children}
-
-    <style jsx>
-      {`
-        code {
-          background: #f3f3f3;
-          padding: 2px 4px;
-          border-radius: 3px;
-          font-size: 0.85em;
-          color: #3a3a3a;
-          hyphens: none;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            Courier New, monospace, serif;
-        }
-      `}
-    </style>
+    <style jsx>{`
+      code {
+        font-size: 0.85em;
+        padding: 0.125rem 0.25rem;
+        background: rgba(85, 85, 86, 0.05);
+        color: #df0050;
+        box-shadow: 0 0 0 1px rgba(85, 85, 86, 0.2);
+        border-radius: 2px;
+        font-family: native, menlo, monospace;
+        hyphens: none;
+      }
+    `}</style>
   </code>
 );
 
