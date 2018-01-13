@@ -22,7 +22,7 @@ const PostDate = ({ date }) => {
 };
 
 PostDate.propTypes = {
-  date: PropTypes.number.isRequired
+  date: PropTypes.number.isRequired,
 };
 
 const Header = props => {
@@ -84,13 +84,13 @@ const Header = props => {
 Header.defaultProps = {
   link: null,
   id: null,
-  title: null
+  title: null,
 };
 
 Header.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
 };
 
 export default Header;

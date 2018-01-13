@@ -107,8 +107,8 @@ PostCard.propTypes = {
   image: PropTypes.shape({
     image_url: PropTypes.string,
     name: PropTypes.string,
-    url: PropTypes.string
-  }).isRequired
+    url: PropTypes.string,
+  }).isRequired,
 };
 
 export default PostCard;

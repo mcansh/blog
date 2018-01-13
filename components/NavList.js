@@ -6,7 +6,7 @@ const NavLinks = [
   { name: 'Home', slug: '/' },
   { name: 'GitHub', slug: `http://github.com/${process.env.GITHUB}` },
   { name: 'Twitter', slug: `http://twitter.com/${process.env.TWITTER}` },
-  { name: 'Email', slug: `mailto:${process.env.EMAIL}` }
+  { name: 'Email', slug: `mailto:${process.env.EMAIL}` },
 ];
 
 const NavList = ({ blockClicks }) => (
@@ -70,7 +70,7 @@ const NavList = ({ blockClicks }) => (
 );
 
 NavList.propTypes = {
-  blockClicks: PropTypes.func.isRequired
+  blockClicks: PropTypes.func.isRequired,
 };
 
 export default NavList;

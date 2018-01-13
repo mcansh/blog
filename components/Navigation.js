@@ -4,7 +4,7 @@ import NavList from './NavList';
 
 class Navigation extends React.Component {
   state = {
-    open: false
+    open: false,
   };
 
   componentDidMount() {
