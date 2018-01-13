@@ -1,9 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import format from 'date-fns/format';
+import formatDistance from 'date-fns/formatDistance';
 import findPost from '../lib/findPost';
 import Button from './Button';
 import webp from '../lib/webp';
+
+const PostDate = ({ date }) => {
+  const distance = formatDistance(date, new Date(), { addSuffix: true });
+  const dateString = format(date, 'MMMM D, YYYY');
+  return (
+    <h2 title={dateString}>
+      Posted {distance}
+      <style jsx>{`
+        h2 {
+          font-size: 3rem;
+        }
+      `}</style>
+    </h2>
+  );
+};
+
+PostDate.propTypes = {
+  date: PropTypes.number.isRequired
+};
 
 const Header = props => {
   const post = findPost(props.id);
@@ -12,7 +32,7 @@ const Header = props => {
     <header>
       <div>
         <h1>{props.title || title}</h1>
-        {!props.link && date && <h2>{format(date, 'MMMM DD, YYYY')}</h2>}
+        {!props.link && date && <PostDate date={date} />}
         {props.link && <Button text="Read More" link={props.id} />}
       </div>
       <style jsx>{`
@@ -55,10 +75,6 @@ const Header = props => {
         h1 {
           font-size: 5rem;
           margin-bottom: 2rem;
-        }
-
-        h2 {
-          font-size: 3rem;
         }
       `}</style>
     </header>
