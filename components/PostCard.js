@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { injectIntl, intlShape } from 'react-intl';
 import Link from 'next/link';
-import { format } from 'date-fns';
 import webp from '../lib/webp';
 
-const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
+const PostCard = ({
+  id,
+  image: { imageUrl, name, url },
+  date,
+  title,
+  intl: { formatDate },
+}) => (
   <Link prefetch href={id}>
     <a>
       <article className="post" key={id}>
@@ -24,7 +30,13 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
           />
         </picture>
         <div className="post__meta">
-          <p className="date">{format(date, 'MMMM DD, YYYY')}</p>
+          <p className="date">
+            {formatDate(date, {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+            })}
+          </p>
           <h1 className="title">{title}</h1>
         </div>
       </article>
@@ -109,6 +121,7 @@ PostCard.propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
+  intl: intlShape.isRequired, // eslint-disable-line react/no-typos
 };
 
-export default PostCard;
+export default injectIntl(PostCard);

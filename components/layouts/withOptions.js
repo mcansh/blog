@@ -1,12 +1,12 @@
 import React from 'react';
-import Page from './Page';
+import Post from './Post';
 import Meta from '../Meta';
 import Header from '../Header';
 
 export default options => content => () => (
-  <Page>
+  <Post>
     <Meta {...options} />
     <Header {...options} />
     {content}
-  </Page>
+  </Post>
 );
