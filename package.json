@@ -14,19 +14,16 @@
     "test": "bundlesize && yarn lint",
     "prebuild": "yarn webp",
     "prebuild:docker": "yarn webp",
-    "predeploy": "yarn webp",
     "build:docker": "docker build -t blog .",
     "start:docker": "docker run -p 3000:3000 blog",
-    "deploy": "now --docker && now alias"
+    "predeploy": "yarn webp",
+    "deploy": "now --docker",
+    "postdeploy": "now alias"
   },
-  "precommit": [
-    "lint"
-  ],
+  "precommit": ["lint"],
   "now": {
     "name": "blog",
-    "alias": [
-      "mcansh.blog"
-    ],
+    "alias": "mcansh.blog",
     "dotenv": "variables.env"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
