@@ -8,7 +8,7 @@ const Footer = ({ intl: { formatDate } }) => (
   <footer>
     <Link href="/">
       <a rel="home">
-        &copy; {formatDate(new Date(), { year: 'numeric' })} ${name}
+        &copy; {formatDate(new Date(), { year: 'numeric' })} {name}
       </a>
     </Link>
     <style jsx>{`
