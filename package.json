@@ -2,7 +2,7 @@
   "name": "mcansh-blog",
   "productName": "Logan McAnsh",
   "productShortName": "Blog",
-  "version": "3.1.13",
+  "version": "3.1.14",
   "private": false,
   "description": "My blog for learn.co",
   "repository": "git@github.com:mcansh/blog.git",
@@ -23,7 +23,9 @@
     "deploy": "now --docker",
     "postdeploy": "now alias"
   },
-  "precommit": ["lint"],
+  "precommit": [
+    "lint"
+  ],
   "now": {
     "name": "blog",
     "alias": "mcansh.blog",
@@ -76,6 +78,8 @@
     }
   ],
   "nodemon": {
-    "watch": ["server.js"]
+    "watch": [
+      "server.js"
+    ]
   }
 }
