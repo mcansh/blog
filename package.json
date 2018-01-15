@@ -6,12 +6,13 @@
   "private": false,
   "description": "My blog for learn.co",
   "repository": "git@github.com:mcansh/blog.git",
+  "homepage": "https://mcansh.blog",
   "scripts": {
     "dev": "next",
     "dev:server": "nodemon -r @std/esm server",
     "build": "next build",
     "webp": "node convertToWebp.js",
-    "start": "NODE_ENV=production node -r @std/esm server",
+    "start": "node -r @std/esm server",
     "lint": "eslint ./",
     "test": "bundlesize && yarn lint",
     "prebuild": "yarn webp",
@@ -22,9 +23,7 @@
     "deploy": "now --docker",
     "postdeploy": "now alias"
   },
-  "precommit": [
-    "lint"
-  ],
+  "precommit": ["lint"],
   "now": {
     "name": "blog",
     "alias": "mcansh.blog",
@@ -77,8 +76,6 @@
     }
   ],
   "nodemon": {
-    "watch": [
-      "server.js"
-    ]
+    "watch": ["server.js"]
   }
 }
