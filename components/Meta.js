@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import findPost from '../lib/findPost';
-import { description } from '../package.json';
+import { description, homepage } from '../package.json';
+import { name } from '../lib/authorInfo';
 
-const suffix = 'Logan McAnsh';
-const defaultImage = 'https://mcansh.blog/static/me.png';
+const suffix = name;
+const defaultImage = `${homepage}/static/me.png`;
 
 const foundPost = id => {
   if (!id) return { image: {} };

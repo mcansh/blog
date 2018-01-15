@@ -2,12 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import { injectIntl, intlShape } from 'react-intl';
 import colors from '../theme';
+import { name } from '../lib/authorInfo';
 
 const Footer = ({ intl: { formatDate } }) => (
   <footer>
     <Link href="/">
       <a rel="home">
-        &copy; {formatDate(new Date(), { year: 'numeric' })} Logan McAnsh
+        &copy; {formatDate(new Date(), { year: 'numeric' })} ${name}
       </a>
     </Link>
     <style jsx>{`
