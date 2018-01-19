@@ -30,6 +30,15 @@ PostDate.propTypes = {
 const Header = props => {
   const post = findPost(props.id);
   const { title, date, image: { imageUrl } } = post;
+  const fallbackbg = imageUrl
+    ? `url(/static/images/posts/${imageUrl})`
+    : 'url(/static/images/posts/brevite-434280.jpg)';
+
+  const webpbg = imageUrl
+    ? `url(/static/images/posts/${webp(imageUrl).url})`
+    : 'url(/static/images/posts/brevite-434280.webp)';
+
+  const background = `${webpbg}, ${fallbackbg}`;
   return (
     <header>
       <div>
@@ -42,12 +51,7 @@ const Header = props => {
           height: 50vh;
           min-height: 500px;
           max-height: 800px;
-          background: ${imageUrl
-              ? `url(/static/images/posts/${webp(imageUrl).url})`
-              : `url(/static/images/posts/brevite-434280.webp)`},
-            ${imageUrl
-              ? `url(/static/images/posts/${imageUrl})`
-              : 'url(/static/images/posts/brevite-434280.jpg)'};
+          background: ${background};
           background-size: cover;
           background-position: center;
 
