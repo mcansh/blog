@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Raven from 'raven-js';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import PropTypes from 'prop-types';
+import withSentry from './withSentry';
 import colors from '../../theme';
 import Footer from '../Footer';
 import { version } from '../../package.json';
@@ -25,11 +25,6 @@ if (global.document) {
 class Document extends Component {
   componentDidMount() {
     if (process.env.NODE_ENV === 'production') {
-      Raven.config(process.env.SENTRY, {
-        release: version,
-        environment: process.env.NODE_ENV,
-      }).install();
-
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
           .register('/service-worker.js')
@@ -141,4 +136,4 @@ class Document extends Component {
 
 Document.propTypes = { children: PropTypes.node.isRequired };
 
-export default Document;
+export default withSentry(Document);
