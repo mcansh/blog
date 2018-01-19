@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Page from './Page';
-import PageWithIntl from './PageWithIntl';
 
 const Post = ({ children }) => (
   <Page>
@@ -24,4 +23,4 @@ Post.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default PageWithIntl(Post);
+export default Post;
