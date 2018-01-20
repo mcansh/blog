@@ -5,7 +5,7 @@ import { version } from '../../package.json';
 const { SENTRY } = process.env;
 
 const withSentry = Child =>
-  class WrappedComponent extends React.Component {
+  class Sentry extends React.Component {
     static getInitialProps(ctx) {
       if (Child.getInitialProps) {
         return Child.getInitialProps(ctx);
