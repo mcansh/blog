@@ -3,19 +3,7 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import colors from '../theme';
 
 class Page extends Document {
-  static async getInitialProps(context) {
-    const props = await super.getInitialProps(context);
-    const { req: { locale, localeDataScript } } = context;
-    return {
-      ...props,
-      locale,
-      localeDataScript,
-    };
-  }
   render() {
-    const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${
-      this.props.locale
-    }`;
     return (
       <html lang="en">
         <Head>
@@ -98,7 +86,6 @@ class Page extends Document {
         </Head>
         <body>
           <Main />
-          <script src={polyfill} />
           <NextScript />
         </body>
       </html>
