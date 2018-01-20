@@ -22,13 +22,12 @@ const Code = ({ language, syntax, children }) => {
     lineHeight: '1.5',
     WebkitOverflowScrolling: 'touch',
     background: '#f8f8f8',
-    fontFamily:
-      'Menlo, Monaco, Lucida Console, Liberation Mono, Courier New, monospace, serif',
+    fontFamily: 'native, menlo, monospace',
   };
 
   return (
     <SyntaxHighlighter language={language} style={github} customStyle={styles}>
-      {children}
+      {children.trim()}
     </SyntaxHighlighter>
   );
 };
@@ -53,7 +52,7 @@ const InlineCode = ({ children }) => (
 
 Code.propTypes = {
   language: PropTypes.string.isRequired,
-  syntax: PropTypes.string.isRequired,
+  syntax: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };
 
