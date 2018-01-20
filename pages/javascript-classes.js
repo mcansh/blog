@@ -2,7 +2,7 @@ import React from 'react';
 import markdown from 'markdown-in-js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import withOptions from '../components/layouts/withOptions';
-import components from '../components';
+import components, { P } from '../components';
 import { Code } from '../components/Code';
 
 export default withOptions({
@@ -21,7 +21,12 @@ class myClass {
     `}</Code>
   )}
 
-  When you’re defining classes make sure they are hoisted or your code will throw errors like
+  ${(
+    <P>
+      When you’re defining classes make sure they are hoisted or your code will
+      throw errors like
+    </P>
+  )}
 
   ${(
     <Code language="javascript" syntax={javascript}>
@@ -32,5 +37,10 @@ class myClass {}
     </Code>
   )}
 
-It should be known that the content of a class declaration is executed in strict mode.
+  ${(
+    <P>
+      It should be known that the content of a class declaration is executed in
+      strict mode.
+    </P>
+  )}
 `);

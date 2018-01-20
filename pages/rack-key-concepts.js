@@ -2,7 +2,7 @@ import React from 'react';
 import markdown from 'markdown-in-js';
 import ruby from 'highlight.js/lib/languages/ruby';
 import withOptions from '../components/layouts/withOptions';
-import components from '../components';
+import components, { P } from '../components';
 import { Code } from '../components/Code';
 
 export default withOptions({
@@ -32,7 +32,12 @@ end
     `}</Code>
   )}
 
-  That will run whenever a request is received but you still need to set up a HTTP serve to receive that request. Using config.ru
+  ${(
+    <P>
+      That will run whenever a request is received but you still need to set up
+      a HTTP serve to receive that request. Using config.ru
+    </P>
+  )}
 
   ${(
     <Code syntax={ruby} language="ruby">{`
@@ -43,5 +48,5 @@ run Application.new
     `}</Code>
   )}
 
-  Now running rackup config.ru will start up your application.
+  ${<P>Now running rackup config.ru will start up your application.</P>}
 `);

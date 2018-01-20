@@ -3,7 +3,7 @@ import markdown from 'markdown-in-js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
 import withOptions from '../components/layouts/withOptions';
-import components from '../components';
+import components, { P } from '../components';
 import { Code } from '../components/Code';
 
 export default withOptions({
@@ -22,9 +22,21 @@ myCar.make = "Ford";
     `}</Code>
   )}
 
-  If you define a property but don’t give it a value it becomes undefined, not null. e.g: myCar.color; would return undefined.
+  ${(
+    <P>
+      If you define a property but {"don't"} give it a value it becomes
+      undefined, not null. e.g: myCar.color; would return undefined.
+    </P>
+  )}
 
-  To get an item out of an object you can test to see if it has that property, for example, on a project at work, we used this to get a rule's name out of the object
+  ${(
+    <P>
+      To get an item out of an object you can test to see if it has that
+      property, for example, on a project at work, we used this to get a{' '}
+      {"rule's"}
+      name out of the object
+    </P>
+  )}
 
   ${(
     <Code language="javascript" syntax={json}>{`
@@ -59,7 +71,7 @@ const rule = {
     `}</Code>
   )}
 
-  You can also do if else statements with objects:
+  ${<P>You can also do if else statements with objects:</P>}
 
   ${(
     <Code language="javascript" syntax={javascript}>{`
@@ -67,7 +79,7 @@ if (cond) var x = {greeting: 'howdy'};
     `}</Code>
   )}
 
-  You can even have an object inside another object:
+  ${<P>You can even have an object inside another object:</P>}
 
   ${(
     <Code language="javascript" syntax={javascript}>{`
@@ -82,7 +94,7 @@ const myCar = {
     `}</Code>
   )}
 
-  Alternatively you can make an object with a constructor function:
+  ${<P>Alternatively you can make an object with a constructor function:</P>}
 
   ${(
     <Code language="javascript" syntax={javascript}>{`
