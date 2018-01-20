@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import PropTypes from 'prop-types';
+import Navigation from '../Navigation';
 import withSentry from './withSentry';
 import colors from '../../theme';
 import Footer from '../Footer';
@@ -38,6 +39,7 @@ class Document extends Component {
     const { children } = this.props;
     return (
       <div>
+        <Navigation />
         {children}
         <Footer />
         <style jsx global>{`
