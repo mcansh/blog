@@ -23,9 +23,7 @@
     "deploy": "now --docker",
     "postdeploy": "now alias"
   },
-  "precommit": [
-    "lint"
-  ],
+  "precommit": "lint",
   "now": {
     "name": "blog",
     "alias": "mcansh.blog",
@@ -77,8 +75,6 @@
     }
   ],
   "nodemon": {
-    "watch": [
-      "server.js"
-    ]
+    "watch": "server.js"
   }
 }
