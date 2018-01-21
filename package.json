@@ -55,7 +55,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.5.1",
-    "file-type": "^7.4.0",
+    "file-type": "^7.5.0",
     "nodemon": "^1.14.11",
     "pre-commit": "^1.2.2",
     "prettier": "^1.10.2",
