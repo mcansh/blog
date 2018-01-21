@@ -1,7 +1,12 @@
 {
   "presets": ["next/babel"],
-  "plugins": [
-    "markdown-in-js/babel",
-    ["inline-dotenv", { "path": "variables.env" }]
-  ]
+  "plugins": ["markdown-in-js/babel"],
+  "env": {
+    "development": {
+      "plugins": [["inline-dotenv", { "path": ".env.dev" }]]
+    },
+    "production": {
+      "plugins": [["inline-dotenv"]]
+    }
+  }
 }

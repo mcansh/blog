@@ -7,6 +7,7 @@ import withSentry from './withSentry';
 import colors from '../../theme';
 import Footer from '../Footer';
 import { version } from '../../package.json';
+import { initGA, logPageView } from '../../lib/analytics';
 
 NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = () => NProgress.start();
@@ -32,6 +33,11 @@ class Document extends Component {
           .then(console.log('service worker registration successful')) // eslint-disable-line no-console
           .catch(err => console.warn(err)); // eslint-disable-line no-console
       }
+      if (!window.GA_INITIALIZED) {
+        initGA();
+        window.GA_INITIALIZED = true;
+      }
+      logPageView();
     }
   }
 
