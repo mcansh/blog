@@ -23,7 +23,7 @@
   "now": {
     "name": "blog",
     "alias": "mcansh.blog",
-    "dotenv": "variables.env"
+    "dotenv": ".env"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
