@@ -4942,9 +4942,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-polka@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/polka/-/polka-0.2.3.tgz#23ed1a590a690a1e7e48bce37b1e28f0a01c556c"
+polka@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/polka/-/polka-0.3.0.tgz#afe5967a5bb9d7e195b63e7ced3123f587608515"
   dependencies:
     parseurl "^1.3.2"
     trouter "^1.0.0"
