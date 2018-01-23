@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'unistore/react';
 import Hamburger from './Hamburger';
 import NavList from './NavList';
+import { actions } from '../store';
 
 class Navigation extends React.Component {
-  state = {
-    open: false,
+  static propTypes = {
+    toggleNav: PropTypes.func.isRequired,
+    navOpen: PropTypes.bool.isRequired,
   };
 
   componentDidMount() {
@@ -16,29 +20,24 @@ class Navigation extends React.Component {
   }
 
   handleKey = e => {
-    if (e.keyCode === 27) {
-      this.setState({ open: false });
-    }
-  };
-
-  toggleClass = () => {
-    this.setState({ open: !this.state.open });
-  };
-
-  blockClicks = e => {
-    if (e.target.tagName !== 'A') {
-      e.stopPropagation();
+    if (
+      (this.props.navOpen && e.keyCode === 27) ||
+      (this.props.navOpen && e.key === 'Escape') ||
+      (this.props.navOpen && e.code === 'Escape')
+    ) {
+      this.props.toggleNav();
     }
   };
 
   render() {
-    const { open } = this.state;
+    const { navOpen } = this.props;
     return (
-      <nav onClick={this.toggleClass}>
-        <Hamburger onClick={this.toggleClass} open={open} />
-        {open && <NavList blockClicks={this.blockClicks} open={open} />}
+      <nav>
+        <Hamburger />
+        {/* {navOpen && <NavList open={navOpen} />} */}
+        {navOpen && <NavList />}
         <style jsx>{`
-          nav::before {
+          nav::after {
             content: '';
             background: rgba(0, 0, 0, 0.4);
             position: fixed;
@@ -47,8 +46,8 @@ class Navigation extends React.Component {
             width: 100%;
             height: 100%;
             z-index: 2;
-            visibility: ${open ? 'visible' : 'hidden'};
-            opacity: ${open ? '1' : '0'};
+            visibility: ${navOpen ? 'visible' : 'hidden'};
+            opacity: ${navOpen ? '1' : '0'};
             transition: 500ms all ease-in-out;
             will-change: opacity;
           }
@@ -58,4 +57,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation;
+export default connect('navOpen', actions)(Navigation);
