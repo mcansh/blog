@@ -2,7 +2,7 @@
   "name": "mcansh-blog",
   "productName": "Logan McAnsh",
   "productShortName": "Blog",
-  "version": "3.1.19",
+  "version": "3.2.0",
   "private": false,
   "description": "My blog for learn.co",
   "repository": "git@github.com:mcansh/blog.git",
@@ -43,6 +43,7 @@
     "react-ga": "^2.4.1",
     "react-syntax-highlighter": "^6.1.2",
     "sw-precache-webpack-plugin": "^0.11.4",
+    "unistore": "https://github.com/developit/unistore",
     "webpack": "^3.10.0"
   },
   "devDependencies": {
