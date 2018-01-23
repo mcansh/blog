@@ -1,6 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
+import Router from 'next/router';
 import PropTypes from 'prop-types';
+import { connect } from 'unistore/react';
+import { actions } from '../store';
 
 const NavLinks = [
   { name: 'Home', slug: '/' },
@@ -9,13 +11,19 @@ const NavLinks = [
   { name: 'Email', slug: `mailto:${process.env.EMAIL}` },
 ];
 
-const NavList = ({ blockClicks }) => (
-  <ul onClick={blockClicks}>
+const NavList = ({ toggleNav }) => (
+  <ul>
     {NavLinks.map(({ name, slug }) => (
       <li key={name}>
-        <Link href={slug}>
-          <a>{name}</a>
-        </Link>
+        <a
+          href={slug}
+          onClick={() => {
+            toggleNav();
+            Router.push(slug);
+          }}
+        >
+          {name}
+        </a>
       </li>
     ))}
     <style jsx>{`
@@ -70,7 +78,7 @@ const NavList = ({ blockClicks }) => (
 );
 
 NavList.propTypes = {
-  blockClicks: PropTypes.func.isRequired,
+  toggleNav: PropTypes.func.isRequired,
 };
 
-export default NavList;
+export default connect('navOpen', actions)(NavList);

@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'unistore/react';
+import { actions } from '../store';
 
-const Hamburger = ({ onClick, open }) => (
-  <button
-    aria-label="toggle side nav"
-    onClick={onClick}
-    className={`${open ? 'open' : ''}`}
-  >
+const Hamburger = ({ toggleNav, navOpen }) => (
+  <button aria-label="toggle side nav" onClick={toggleNav}>
     <span />
     <style jsx>{`
       button {
@@ -32,9 +30,10 @@ const Hamburger = ({ onClick, open }) => (
         display: block;
         position: relative;
         border-radius: 5px;
-        transition: 150ms all ease;
+        transition: ${navOpen ? '350ms all ease-in' : '150ms all ease'};
         will-change: transform;
-        top: -10px;
+        top: ${navOpen ? 0 : '-10px'};
+        transform: ${navOpen ? 'rotate(45deg)' : 'none'};
       }
       button span::before,
       button span::after {
@@ -49,40 +48,24 @@ const Hamburger = ({ onClick, open }) => (
         will-change: transform;
       }
       button span::before {
-        top: 10px;
+        top: ${navOpen ? 0 : '10px'};
+        visibility: ${navOpen ? 'hidden' : 'visible'};
+        opacity: ${navOpen ? 0 : 1};
+        transform: ${navOpen ? 'rotate(-45deg)' : 'none'};
+        transition: ${navOpen ? '350ms all ease-in' : '150ms all ease'};
       }
       button span::after {
-        top: 20px;
-      }
-      button.open span {
-        transform: rotate(45deg);
-        top: 0;
-        transition: 350ms all ease-in;
-      }
-      button.open span::before {
-        visibility: hidden;
-        opacity: 0;
-        transform: rotate(-45deg);
-        top: 0;
-        left: 0;
-        transition: 350ms all ease-in;
-      }
-      button.open span::after {
-        transform: rotate(-90deg);
-        top: 0;
-        transition: 350ms all ease-in;
+        top: ${navOpen ? 0 : '20px'};
+        transition: ${navOpen ? '350ms all ease-in' : '150ms all ease'};
+        transform: ${navOpen ? 'rotate(-90deg)' : 'none'};
       }
     `}</style>
   </button>
 );
 
-Hamburger.defaultProps = {
-  open: false,
-};
-
 Hamburger.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  open: PropTypes.bool,
+  toggleNav: PropTypes.func.isRequired,
+  navOpen: PropTypes.bool.isRequired,
 };
 
-export default Hamburger;
+export default connect('navOpen', actions)(Hamburger);
