@@ -41,7 +41,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-ga": "^2.4.1",
-    "react-syntax-highlighter": "^6.1.2",
+    "react-syntax-highlighter": "^7.0.0",
     "sw-precache-webpack-plugin": "^0.11.4",
     "unistore": "https://github.com/developit/unistore",
     "webpack": "^3.10.0"
