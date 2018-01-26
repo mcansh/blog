@@ -21,7 +21,7 @@ const Code = ({ language, syntax, children }) => {
     fontSize: '1.6rem',
     lineHeight: '1.5',
     WebkitOverflowScrolling: 'touch',
-    background: '#f8f8f8',
+    background: 'white',
     fontFamily: 'native, menlo, monospace',
   };
 
