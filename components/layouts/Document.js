@@ -148,4 +148,6 @@ class Document extends Component {
 
 Document.propTypes = { children: PropTypes.node.isRequired };
 
-export default withSentry(Document);
+export default (process.env.NODE_ENV === 'development'
+  ? Document
+  : withSentry(Document));
