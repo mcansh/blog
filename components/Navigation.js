@@ -34,7 +34,6 @@ class Navigation extends React.Component {
     return (
       <nav>
         <Hamburger />
-        {/* {navOpen && <NavList open={navOpen} />} */}
         {navOpen && <NavList />}
         <style jsx>{`
           nav::after {
