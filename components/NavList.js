@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { connect } from 'unistore/react';
 import { actions } from '../store';
+import isExternal from '../lib/isExternal';
 
 const NavLinks = [
   { name: 'Home', slug: '/' },
@@ -18,7 +19,7 @@ const NavList = ({ closeNav }) => {
     <ul>
       {NavLinks.map(({ name, slug }) => (
         <li key={name}>
-          <Link href={slug} prefetch={!/http(s?)/.test(slug)}>
+          <Link href={slug} prefetch={!isExternal(slug)}>
             <a>{name}</a>
           </Link>
         </li>
