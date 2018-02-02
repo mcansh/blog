@@ -18,7 +18,7 @@ const NavList = ({ closeNav }) => {
     <ul>
       {NavLinks.map(({ name, slug }) => (
         <li key={name}>
-          <Link href={slug} prefetch={slug.match(/http(s?)/)}>
+          <Link href={slug} prefetch={!/http(s?)/.test(slug)}>
             <a>{name}</a>
           </Link>
         </li>
