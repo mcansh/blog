@@ -2,5 +2,7 @@
 node_modules
 *.log
 .DS_Store
-static/images/posts/*.webp
 .env*
+server.crt
+server.csr
+server.key
