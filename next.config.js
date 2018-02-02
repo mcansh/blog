@@ -1,9 +1,11 @@
+const webpack = require('webpack');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const { name } = require('./package.json');
 
 module.exports = {
-  webpack: (config) => {
+  webpack: config => {
     if (process.env.NODE_ENV === 'production') {
+      config.plugins.push(new webpack.optimize.UglifyJsPlugin());
       config.plugins.push(
         new SWPrecacheWebpackPlugin({
           cacheId: name,
@@ -19,7 +21,7 @@ module.exports = {
               urlPattern: /^https?.*/,
             },
           ],
-        }),
+        })
       );
     }
     return config;
