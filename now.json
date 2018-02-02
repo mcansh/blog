@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "alias": "mcansh.blog",
+  "dotenv": ".env",
+  "files": [
+    "components",
+    "lib",
+    "pages",
+    "static",
+    ".babelrc",
+    ".env",
+    "Dockerfile",
+    "next.config.js",
+    "package.json",
+    "posts.json",
+    "server.js",
+    "store.js",
+    "theme.js",
+    "yarn.lock"
+  ]
+}

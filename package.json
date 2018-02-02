@@ -20,11 +20,6 @@
     "postdeploy": "now alias"
   },
   "precommit": "lint",
-  "now": {
-    "name": "blog",
-    "alias": "mcansh.blog",
-    "dotenv": ".env"
-  },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
