@@ -28,13 +28,13 @@ const Button = ({
           user-select: none;
           position: relative;
           background: ${background};
-          border-width: 2px;
+          border-width: 0.2rem;
           border-style: solid;
           border-color: ${background};
           border-image: initial;
           overflow: hidden;
           transition: border 200ms, background 200ms, color 200ms ease-out;
-          border-radius: 5px;
+          border-radius: 0.5rem;
           justify-content: center;
           align-items: center;
         }

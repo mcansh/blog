@@ -21,14 +21,14 @@ const Index = () => (
       div {
         margin: 0 auto;
         width: 95%;
-        padding: 90px 0 0 0;
+        padding: 9rem 0 0 0;
         padding-left: env(safe-area-inset-left);
         padding-right: env(safe-area-inset-right);
         padding-left: constant(safe-area-inset-left);
         padding-right: constant(safe-area-inset-right);
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        grid-gap: 1rem;
       }
       @media (min-width: 768px) {
         div {

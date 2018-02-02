@@ -49,8 +49,8 @@ const Header = props => {
       <style jsx>{`
         header {
           height: 50vh;
-          min-height: 500px;
-          max-height: 800px;
+          min-height: 50rem;
+          max-height: 80rem;
           background: ${background};
           background-size: cover;
           background-position: center;

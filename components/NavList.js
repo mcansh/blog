@@ -40,7 +40,7 @@ const NavList = ({ closeNav }) => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          box-shadow: 4px 0 1.5rem 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 0.4rem 0 1.5rem 0.3rem rgba(0, 0, 0, 0.4);
           will-change: transform;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;

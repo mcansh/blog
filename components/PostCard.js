@@ -32,12 +32,12 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
         article {
           background: white;
           display: inline-block;
-          width: calc(33.3333% - 10px);
-          height: 400px;
-          padding: 0px;
-          margin: 0 5px 10px 5px;
+          width: calc(33.3333% - 1rem);
+          height: 40rem;
+          padding: 0;
+          margin: 0 0.5rem 1rem 0.5rem;
           overflow: hidden;
-          box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.02);
+          box-shadow: 0 0 1rem 0.4rem rgba(0, 0, 0, 0.02);
           vertical-align: top;
           transition: 200ms all ease-in-out;
           line-height: 1.6;
@@ -45,13 +45,13 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
         }
         @media (max-width: 999px) {
           .post {
-            width: calc(50% - 10px);
+            width: calc(50% - 1rem);
           }
         }
         @media (max-width: 650px) {
           .post {
             width: 100%;
-            margin: 0 0 10px 0;
+            margin: 0 0 1rem 0;
           }
         }
         @supports (display: grid) {
@@ -61,12 +61,12 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
           }
         }
         .post:hover {
-          box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 1rem 0.4rem rgba(0, 0, 0, 0.2);
         }
         a {
           text-decoration: none;
           color: #777;
-          font-size: 1em;
+          font-size: 1rem;
         }
         .post__meta {
           max-width: 90%;
@@ -81,7 +81,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
           margin: 0;
         }
         .date {
-          padding: 10px 0;
+          padding: 1rem 0;
         }
 
         picture {

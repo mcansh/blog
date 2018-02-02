@@ -14,7 +14,7 @@ const Code = ({ language, syntax, children }) => {
   const styles = {
     margin: '3rem 0',
     padding: '1.4rem',
-    borderRadius: '4px',
+    borderRadius: '0.4rem',
     width: '100%',
     boxSizing: 'border-box',
     wordWrap: 'normal',
@@ -41,8 +41,8 @@ const InlineCode = ({ children }) => (
         padding: 0.125rem 0.25rem;
         background: rgba(85, 85, 86, 0.05);
         color: #df0050;
-        box-shadow: 0 0 0 1px rgba(85, 85, 86, 0.2);
-        border-radius: 2px;
+        box-shadow: 0 0 0 0.1rem rgba(85, 85, 86, 0.2);
+        border-radius: 0.2rem;
         font-family: native, menlo, monospace;
         hyphens: none;
       }
