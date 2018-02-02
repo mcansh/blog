@@ -2,5 +2,5 @@
 node_modules
 *.log
 .DS_Store
-#static/images/posts/*.webp
+static/images/posts/*.webp
 .env*
