@@ -8,7 +8,7 @@ import { name } from '../lib/authorInfo';
 import FormattedDate from '../lib/FormattedDate';
 
 const suffix = name;
-const defaultImage = `${homepage}/static/images/me.png`;
+const defaultImage = `${homepage}/static/images/me.jpg`;
 
 const foundPost = id => {
   if (!id) return { image: {} };
