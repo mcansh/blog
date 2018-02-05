@@ -3,6 +3,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    es6: true,
   },
   parser: 'babel-eslint',
   plugins: ['react', 'jsx-a11y', 'import', 'prettier'],
@@ -16,5 +17,12 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'comma-dangle': [2, 'always-multiline'],
     'jsx-a11y/label-has-for': 0,
-  },
+    'prettier/prettier': [
+      'error',
+      {
+        trailingComma: 'es5',
+        singleQuote: true
+      }
+    ]
+  }
 };
