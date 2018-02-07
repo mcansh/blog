@@ -2,7 +2,7 @@ FROM node:alpine
 RUN mkdir -p /app
 WORKDIR /app
 COPY yarn.lock package.json ./
-RUN npm install -gs --no-progress yarn && yarn
+RUN yarn
 COPY . .
 RUN yarn build
 RUN yarn cache clean
