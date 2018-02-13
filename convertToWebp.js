@@ -11,7 +11,7 @@ fs.readdirSync(imagesFolder).forEach(file => {
   if (!isDirectory) {
     const buffer = readChunk.sync(`${imagesFolder}/${file}`, 0, 4100);
     const type = fileType(buffer);
-    if (type && type.mime !== 'image/webp' && type.mime.startsWith('image/')) {
+    if (type && /image\/(?!webp)/.test(type.mime)) {
       const fileNoExtension = file.replace(type.ext, '');
       webp.cwebp(
         `${imagesFolder}/${file}`,
