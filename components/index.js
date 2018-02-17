@@ -1,13 +1,7 @@
 import P from './Paragraph';
 import { H1, H2, H3, H4 } from './Heading';
 
-export {
-  P,
-  H1,
-  H2,
-  H3,
-  H4,
-}
+export { P, H1, H2, H3, H4 };
 
 const components = {
   p: P,
@@ -17,4 +11,4 @@ const components = {
   h4: H4,
 };
 
-export default components
+export default components;

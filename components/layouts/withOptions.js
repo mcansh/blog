@@ -4,11 +4,11 @@ import Meta from '../Meta';
 import Header from '../Header';
 
 const withOptions = options => content => () => (
-<Post>
+  <Post>
     <Meta {...options} />
     <Header {...options} />
     {content}
   </Post>
-)
+);
 
-export default withOptions
+export default withOptions;

@@ -40,7 +40,14 @@ function setDate() {
     `}</Code>
   )}
 
-  ${<P>Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any time {"that's"} less than 10, the hex is only then 3 numbers, which is fine, until you get 4 or 5 digits. So to resolve this you can adjust the function like so:</P>}
+  ${(
+    <P>
+      Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any
+      time {"that's"} less than 10, the hex is only then 3 numbers, which is
+      fine, until you get 4 or 5 digits. So to resolve this you can adjust the
+      function like so:
+    </P>
+  )}
 
   Now what that’s doing is running a ternary to see if the time is less than 10 or not, if it is, then it prepends a 0 to the variable.
 
@@ -73,7 +80,12 @@ function setDate() {
     `}</Code>
   )}
 
-  ${<P>Woohoo! You now have a clock that shows you hexadecimal colors. You can even change the android chrome theme color every second:</P>}
+  ${(
+    <P>
+      Woohoo! You now have a clock that shows you hexadecimal colors. You can
+      even change the android chrome theme color every second:
+    </P>
+  )}
 
   ${(
     <Code language="javascript" syntax={javascript}>
