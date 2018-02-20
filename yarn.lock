@@ -62,9 +62,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@std/esm@^0.21.0":
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.21.0.tgz#3936747787c7b360c1713ed87c66ea4ac3b0603f"
+"@std/esm@^0.22.0":
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.22.0.tgz#042b6f77ea98c2ad25769084420ced851a15b74e"
 
 "@zeit/check-updates@1.1.0":
   version "1.1.0"
