@@ -1,9 +1,9 @@
 FROM node:alpine
 RUN mkdir -p /app
 WORKDIR /app
-COPY yarn.lock package.json ./
+COPY yarn.lock package.json /app/
 RUN yarn
-COPY . .
+COPY . /app
 RUN yarn build
 RUN yarn cache clean
 EXPOSE 3000
