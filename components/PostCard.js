@@ -20,7 +20,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
           <img
             src={`/static/images/posts/${imageUrl}`}
             alt={name ? `Taken by ${name}` : ''}
-            data-source-url={url || ''}
+            data-source-url={`${url}?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog` || ''}
           />
         </picture>
         <div className="post__meta">
