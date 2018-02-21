@@ -31,7 +31,7 @@ class Document extends Component {
     if (process.env.NODE_ENV === 'production') {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-          .register('/service-worker.js')
+          .register('/sw.js')
           .then(console.log('service worker registration successful')) // eslint-disable-line no-console
           .catch(err => console.warn(err)); // eslint-disable-line no-console
       }

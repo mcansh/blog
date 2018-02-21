@@ -23,6 +23,7 @@
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
+    "@pwa/next-workbox-webpack-plugin": "^0.4.1",
     "@std/esm": "^0.22.0",
     "babel-plugin-inline-dotenv": "^1.1.1",
     "date-fns": "^2.0.0-alpha.7",

@@ -15,11 +15,12 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = polka();
 
-  server.get('/service-worker.js', (req, res) => {
-    const parsedUrl = parse(req.url, true);
-    const { pathname } = parsedUrl;
-    const filePath = join(__dirname, '.next', pathname);
-    app.serveStatic(req, res, filePath);
+  server.get('/sw.js', (req, res) => {
+    app.serveStatic(req, res, join(root, `./static/workbox/${req.url}`));
+  });
+
+  server.get('/static/workbox/:file', (req, res) => {
+    app.serveStatic(req, res, join(root, `.${req.url}`));
   });
 
   server.get('/manifest.json', (req, res) => {
