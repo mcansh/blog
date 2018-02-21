@@ -16,11 +16,11 @@ app.prepare().then(() => {
   const server = polka();
 
   server.get('/sw.js', (req, res) => {
-    app.serveStatic(req, res, join(root, `./static/workbox/${req.url}`));
-  });
+    const parsedUrl = parse(req.url, true);
+    const { pathname } = parsedUrl;
+    const filePath = join(__dirname, 'static', 'workbox', pathname);
 
-  server.get('/static/workbox/:file', (req, res) => {
-    app.serveStatic(req, res, join(root, `.${req.url}`));
+    app.serveStatic(req, res, filePath);
   });
 
   server.get('/manifest.json', (req, res) => {
