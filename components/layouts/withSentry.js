@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Raven from 'raven-js';
 import { version } from '../../package.json';
 
 const { SENTRY } = process.env;
 
 const withSentry = Child =>
-  class Sentry extends React.Component {
+  class Sentry extends Component {
     static getInitialProps(ctx) {
       if (Child.getInitialProps) {
         return Child.getInitialProps(ctx);
