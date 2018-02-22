@@ -9,6 +9,7 @@ const Code = ({ language, syntax, children }) => {
   if (!language || !syntax) {
     throw new Error('Please define a `language` and `syntax`.');
   }
+
   registerLanguage(language, syntax);
 
   const styles = {

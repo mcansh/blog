@@ -15,10 +15,11 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = polka();
 
-  server.get('/service-worker.js', (req, res) => {
+  server.get('/sw.js', (req, res) => {
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
-    const filePath = join(__dirname, '.next', pathname);
+    const filePath = join(__dirname, 'static', 'workbox', pathname);
+
     app.serveStatic(req, res, filePath);
   });
 
