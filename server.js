@@ -11,9 +11,6 @@ import atom from './lib/atom';
 import jsonfeed from './lib/jsonfeed';
 import manifest from './lib/manifest';
 
-Intl.NumberFormat = IntlPolyfill.NumberFormat;
-Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
-
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const PORT = process.env.PORT || 3000;
@@ -31,6 +28,12 @@ const getLocaleDataScript = locale => {
   }
   return localeDataCache.get(lang);
 };
+
+Intl.NumberFormat = IntlPolyfill.NumberFormat;
+Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+
+// eslint-disable-next-line import/no-dynamic-require, global-require
+const getMessages = locale => require(`./lang/${locale}.json`);
 
 app.prepare().then(() => {
   const server = polka();
@@ -63,6 +66,7 @@ app.prepare().then(() => {
     const locale = accept.language(dev ? ['en'] : languages);
     req.locale = locale;
     req.localeDataScript = getLocaleDataScript(locale);
+    req.messages = dev ? {} : getMessages(locale);
 
     handle(req, res);
   });
