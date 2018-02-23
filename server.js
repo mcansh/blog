@@ -1,8 +1,11 @@
 import polka from 'polka';
 import { parse } from 'url';
 import next from 'next';
-import { join } from 'path';
+import { join, basename } from 'path';
 import IntlPolyfill from 'intl';
+import glob from 'glob';
+import accepts from 'accepts';
+import { readFileSync } from 'fs';
 
 import atom from './lib/atom';
 import jsonfeed from './lib/jsonfeed';
@@ -15,6 +18,19 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const PORT = process.env.PORT || 3000;
 const handle = app.getRequestHandler();
+
+const languages = glob.sync('./lang/*.json').map(f => basename(f, '.json'));
+
+const localeDataCache = new Map();
+const getLocaleDataScript = locale => {
+  const lang = locale.split('-')[0];
+  if (!localeDataCache.has(lang)) {
+    const localeDataFile = require.resolve(`react-intl/locale-data/${lang}`);
+    const localeDataScript = readFileSync(localeDataFile, 'utf8');
+    localeDataCache.set(lang, localeDataScript);
+  }
+  return localeDataCache.get(lang);
+};
 
 app.prepare().then(() => {
   const server = polka();
@@ -42,7 +58,14 @@ app.prepare().then(() => {
     res.end(jsonfeed());
   });
 
-  server.get('*', (req, res) => handle(req, res));
+  server.get('*', (req, res) => {
+    const accept = accepts(req);
+    const locale = accept.language(dev ? ['en'] : languages);
+    req.locale = locale;
+    req.localeDataScript = getLocaleDataScript(locale);
+
+    handle(req, res);
+  });
 
   server
     .listen(PORT)
