@@ -2,7 +2,7 @@
   "name": "mcansh-blog",
   "productName": "Logan McAnsh",
   "productShortName": "Blog",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "private": false,
   "description": "My blog for learn.co",
   "repository": "git@github.com:mcansh/blog.git",
