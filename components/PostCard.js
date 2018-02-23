@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import format from 'date-fns/format';
 import Link from 'next/link';
 import webp from '../lib/webp';
-
-const unsplashParams =
-  '?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog';
+import { unsplashParams } from '../theme';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
   <Link prefetch href={id}>
@@ -23,11 +21,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
           <img
             src={`/static/images/posts/${imageUrl}`}
             alt={name ? `Taken by ${name}` : ''}
-            data-source-url={
-              url.includes('unsplash.com')
-                ? `${url}${unsplashParams}`
-                : url || ''
-            }
+            data-source-url={unsplashParams(url)}
           />
         </picture>
         <div className="post__meta">

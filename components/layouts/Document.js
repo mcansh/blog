@@ -10,6 +10,7 @@ import colors from '../../theme';
 import Footer from '../Footer';
 import { version } from '../../package.json';
 import { initGA, logPageView } from '../../lib/analytics';
+import withIntl from './withIntl';
 
 NProgress.configure({ showSpinner: false });
 Router.onRouteChangeStart = () => NProgress.start();
@@ -150,5 +151,5 @@ class Document extends Component {
 Document.propTypes = { children: PropTypes.node.isRequired };
 
 export default (process.env.NODE_ENV === 'development'
-  ? Document
-  : withSentry(Document));
+  ? withIntl(Document)
+  : withIntl(withSentry(Document)));
