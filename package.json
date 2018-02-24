@@ -2,7 +2,7 @@
   "name": "mcansh-blog",
   "productName": "Logan McAnsh",
   "productShortName": "Blog",
-  "version": "3.3.4",
+  "version": "3.3.5",
   "private": false,
   "description": "My blog for learn.co",
   "repository": "git@github.com:mcansh/blog.git",
@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@pwa/next-workbox-webpack-plugin": "0.4.1",
-    "@std/esm": "0.22.0",
+    "@std/esm": "0.23.0",
     "accepts": "1.3.4",
     "babel-plugin-inline-dotenv": "1.1.2",
     "babel-plugin-react-intl": "2.4.0",
@@ -42,7 +42,7 @@
     "react-dom": "16.3.0-alpha.1",
     "react-ga": "2.4.1",
     "react-intl": "2.4.0",
-    "react-syntax-highlighter": "7.0.0",
+    "react-syntax-highlighter": "7.0.1",
     "sw-precache-webpack-plugin": "0.11.4",
     "unistore": "3.0.4",
     "webpack": "3.11.0"
