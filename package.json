@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "next",
     "dev:server": "nodemon -r @std/esm server",
-    "build": "next build",
+    "build": "next build && node ./scripts/default-lang",
     "webp": "node convertToWebp.js",
     "start": "node -r @std/esm server",
     "lint": "eslint ./",
