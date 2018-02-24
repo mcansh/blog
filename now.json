@@ -6,7 +6,9 @@
   "files": [
     "components",
     "lib",
+    "lang",
     "pages",
+    "scripts",
     "static",
     ".babelrc",
     ".env",
