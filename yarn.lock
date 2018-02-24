@@ -87,9 +87,9 @@
     md5-file "^3.2.3"
     workbox-build "^3.0.0-beta.0"
 
-"@std/esm@0.22.0":
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.22.0.tgz#042b6f77ea98c2ad25769084420ced851a15b74e"
+"@std/esm@0.23.0":
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.23.0.tgz#5165ccf829efb51663cd94ad53577966198933d3"
 
 "@zeit/check-updates@1.1.0":
   version "1.1.0"
