@@ -2,24 +2,5 @@
   "name": "blog",
   "alias": "mcansh.blog",
   "dotenv": ".env",
-  "type": "docker",
-  "files": [
-    "components",
-    "lib",
-    "lang",
-    "pages",
-    "scripts",
-    "static",
-    "utils",
-    ".babelrc",
-    ".env",
-    "Dockerfile",
-    "next.config.js",
-    "package.json",
-    "posts.json",
-    "server.js",
-    "store.js",
-    "theme.js",
-    "yarn.lock"
-  ]
+  "type": "docker"
 }
