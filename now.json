@@ -10,6 +10,7 @@
     "pages",
     "scripts",
     "static",
+    "utils",
     ".babelrc",
     ".env",
     "Dockerfile",
