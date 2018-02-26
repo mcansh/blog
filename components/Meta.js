@@ -5,7 +5,7 @@ import { withRouter } from 'next/router';
 import findPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
-import FormattedDate from '../utils/FormattedDate';
+import FormattedDate from '../utils/Dates';
 
 const suffix = name;
 const defaultImage = `${homepage}/static/images/me.jpg`;
