@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import findPost from '../lib/findPost';
-import Button from './Button';
-import Image from './Header/Image';
-import Date from './Header/Date';
+import findPost from '../../utils/findPost';
+import Button from '../Button';
+import Image from '../Header/Image';
+import Date from '../Header/Date';
 
 const Header = props => {
   const post = findPost(props.id);
