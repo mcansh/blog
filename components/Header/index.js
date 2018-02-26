@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import findPost from '../../utils/findPost';
 import Button from '../Button';
-import Image from '../Header/Image';
-import Date from '../Header/Date';
+import Image from './Image';
+import Date from './Date';
 
 const messages = defineMessages({
   readMore: {
