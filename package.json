@@ -44,7 +44,7 @@
     "react-intl": "2.4.0",
     "react-syntax-highlighter": "7.0.1",
     "unistore": "3.0.4",
-    "webpack": "4.0.0"
+    "webpack": "4.0.1"
   },
   "devDependencies": {
     "babel-eslint": "8.2.2",
