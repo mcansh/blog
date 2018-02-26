@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { IntlProvider, addLocaleData, injectIntl } from 'react-intl';
 
 // Register React Intl's locale data for the user's locale in the browser. This
@@ -34,12 +34,7 @@ export default Page => {
       const { locale, messages, now, ...props } = this.props;
 
       return (
-        <IntlProvider
-          locale={locale}
-          messages={messages}
-          initialNow={now}
-          textComponent={Fragment}
-        >
+        <IntlProvider locale={locale} messages={messages} initialNow={now}>
           <IntlPage {...props} />
         </IntlProvider>
       );

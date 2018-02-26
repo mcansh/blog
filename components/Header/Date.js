@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedRelative } from 'react-intl';
-import { expandedString } from '../../utils/Dates';
+import { injectIntl, intlShape, FormattedRelative } from 'react-intl';
 
-const Date = ({ date }) => (
-  <h2 title={expandedString(date)}>
+const Date = ({ date, intl: { formatDate } }) => (
+  <h2
+    title={formatDate(date, {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })}
+  >
     Posted <FormattedRelative value={date} />
     <style jsx>{`
       h2 {
@@ -16,6 +21,7 @@ const Date = ({ date }) => (
 
 Date.propTypes = {
   date: PropTypes.number.isRequired,
+  intl: intlShape.isRequired,
 };
 
-export default Date;
+export default injectIntl(Date);
