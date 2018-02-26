@@ -17,7 +17,7 @@
     "test": "bundlesize && yarn lint",
     "predeploy": "yarn webp",
     "deploy": "now --docker",
-    "postdeploy": "now alias && now rm blog --safe -y"
+    "postdeploy": "now alias && now rm blog --safe -y && now scale mcansh.blog 1"
   },
   "precommit": "lint",
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
