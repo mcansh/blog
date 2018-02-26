@@ -21,7 +21,7 @@ if (global.document) {
   const info = [
     `Version: ${version}`,
     'You can find the code here: https://github.com/mcansh/blog',
-    'Have a great day! 😄',
+    'Thanks for stopping by 🤙',
   ];
   // eslint-disable-next-line no-console
   info.forEach(message => console.log(message));
