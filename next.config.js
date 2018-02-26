@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const NextWorkboxWebpackPlugin = require('@pwa/next-workbox-webpack-plugin');
 
 module.exports = {
@@ -10,9 +9,6 @@ module.exports = {
           buildId,
         })
       );
-    }
-    if (!dev) {
-      config.plugins.push(new webpack.optimize.UglifyJsPlugin());
     }
     return config;
   },
