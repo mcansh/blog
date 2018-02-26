@@ -24,7 +24,7 @@ const NavLinks = [
     name: (
       <FormattedMessage id="NavList.instagram" defaultMessage="Instagram" />
     ),
-    slug: `https://twitter.com/${process.env.INSTAGRAM}`,
+    slug: `https://instagram.com/${process.env.INSTAGRAM}`,
   },
   {
     name: <FormattedMessage id="NavList.email" defaultMessage="Email" />,
