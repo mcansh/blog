@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import colors from '../theme';
-import { name } from '../lib/authorInfo';
+import { name } from '../utils/authorInfo';
 
 const Footer = () => (
   <footer>

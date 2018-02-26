@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { connect } from 'unistore/react';
 import { actions } from '../store';
-import isExternal from '../lib/isExternal';
+import isExternal from '../utils/isExternal';
 
 const NavLinks = [
   { name: 'Home', slug: '/' },

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import webp from '../../lib/webp';
+import webp from '../../utils/webp';
 import { unsplashParams } from '../../theme';
 
 const HeaderImage = ({ post: { image: { imageUrl, name, url } } }) => {

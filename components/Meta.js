@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
-import findPost from '../lib/findPost';
+import findPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
-import { name } from '../lib/authorInfo';
-import FormattedDate from '../lib/FormattedDate';
+import { name } from '../utils/authorInfo';
+import FormattedDate from '../utils/FormattedDate';
 
 const suffix = name;
 const defaultImage = `${homepage}/static/images/me.jpg`;

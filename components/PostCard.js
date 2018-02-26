@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import format from 'date-fns/format';
 import Link from 'next/link';
-import webp from '../lib/webp';
+import webp from '../utils/webp';
 import { unsplashParams } from '../theme';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
