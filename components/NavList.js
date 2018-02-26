@@ -2,15 +2,34 @@ import React from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { connect } from 'unistore/react';
 import { actions } from '../store';
 import isExternal from '../utils/isExternal';
 
 const NavLinks = [
-  { name: 'Home', slug: '/' },
-  { name: 'GitHub', slug: `https://github.com/${process.env.GITHUB}` },
-  { name: 'Twitter', slug: `https://twitter.com/${process.env.TWITTER}` },
-  { name: 'Email', slug: `mailto:${process.env.EMAIL}` },
+  {
+    name: <FormattedMessage id="NavList.home" defaultMessage="Home" />,
+    slug: '/',
+  },
+  {
+    name: <FormattedMessage id="NavList.github" defaultMessage="GitHub" />,
+    slug: `https://github.com/${process.env.GITHUB}`,
+  },
+  {
+    name: <FormattedMessage id="NavList.twitter" defaultMessage="Twitter" />,
+    slug: `https://twitter.com/${process.env.TWITTER}`,
+  },
+  {
+    name: (
+      <FormattedMessage id="NavList.instagram" defaultMessage="Instagram" />
+    ),
+    slug: `https://twitter.com/${process.env.INSTAGRAM}`,
+  },
+  {
+    name: <FormattedMessage id="NavList.email" defaultMessage="Email" />,
+    slug: `mailto:${process.env.EMAIL}`,
+  },
 ];
 
 const NavList = ({ closeNav }) => {

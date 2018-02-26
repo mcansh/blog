@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import findPost from '../../utils/findPost';
 import Button from '../Button';
 import Image from '../Header/Image';
 import Date from '../Header/Date';
+
+const messages = defineMessages({
+  readMore: {
+    id: 'Header.readMore',
+    defaultMessage: 'Read More',
+  },
+});
 
 const Header = props => {
   const post = findPost(props.id);
@@ -13,7 +21,12 @@ const Header = props => {
       <div>
         <h1>{props.title || title}</h1>
         {!props.link && date && <Date date={date} />}
-        {props.link && <Button text="Read More" link={props.id} />}
+        {props.link && (
+          <Button
+            text={props.intl.formatMessage(messages.readMore)}
+            link={props.id}
+          />
+        )}
       </div>
       <Image post={post} />
       <style jsx>{`
@@ -53,6 +66,7 @@ Header.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
   id: PropTypes.string,
+  intl: intlShape.isRequired,
 };
 
-export default Header;
+export default injectIntl(Header);

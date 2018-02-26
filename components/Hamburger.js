@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import { connect } from 'unistore/react';
 import { actions } from '../store';
 
-const Hamburger = ({ toggleNav, navOpen }) => (
-  <button aria-label="toggle side nav" onClick={toggleNav}>
+const messages = defineMessages({
+  label: {
+    id: 'Hamburger.label',
+    defaultMessage: 'Toggle Side Nav',
+  },
+});
+
+const Hamburger = ({ toggleNav, navOpen, intl: { formatMessage } }) => (
+  <button aria-label={formatMessage(messages.label)} onClick={toggleNav}>
     <span />
     <style jsx>{`
       button {
@@ -76,6 +84,7 @@ const Hamburger = ({ toggleNav, navOpen }) => (
 Hamburger.propTypes = {
   toggleNav: PropTypes.func.isRequired,
   navOpen: PropTypes.bool.isRequired,
+  intl: intlShape.isRequired,
 };
 
-export default connect('navOpen', actions)(Hamburger);
+export default connect('navOpen', actions)(injectIntl(Hamburger));
