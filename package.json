@@ -11,11 +11,11 @@
     "dev": "next",
     "dev:server": "nodemon -r @std/esm server",
     "build": "next build && node ./scripts/default-lang",
-    "webp": "node convertToWebp.js",
+    "compress": "node ./scripts/compress.js",
     "start": "node -r @std/esm server",
     "lint": "eslint ./",
     "test": "bundlesize && yarn lint",
-    "predeploy": "yarn webp",
+    "predeploy": "yarn compress",
     "deploy": "now --docker",
     "postdeploy": "now alias && now rm blog --safe -y && now scale mcansh.blog 1"
   },
@@ -56,12 +56,13 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-prettier": "2.6.0",
     "eslint-plugin-react": "7.7.0",
-    "file-type": "7.6.0",
+    "imagemin": "5.3.1",
+    "imagemin-mozjpeg": "7.0.0",
+    "imagemin-pngquant": "5.0.1",
+    "imagemin-webp": "4.1.0",
     "nodemon": "1.15.1",
     "pre-commit": "1.2.2",
-    "prettier": "1.10.2",
-    "read-chunk": "2.1.0",
-    "webp-converter": "2.1.6"
+    "prettier": "1.10.2"
   },
   "@std/esm": {
     "esm": "js",
