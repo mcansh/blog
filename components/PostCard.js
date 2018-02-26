@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import format from 'date-fns/format';
 import Link from 'next/link';
 import webp from '../utils/webp';
 import { unsplashParams } from '../theme';
-import { expanded } from '../utils/Dates';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
   <Link prefetch href={id}>
@@ -25,7 +25,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => (
           />
         </picture>
         <div className="post__meta">
-          <p className="date">{expanded(date)}</p>
+          <p className="date">{format(date, 'MMMM D, YYYY')}</p>
           <h1 className="title">{title}</h1>
         </div>
       </article>
