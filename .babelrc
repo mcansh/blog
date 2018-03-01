@@ -2,26 +2,40 @@
   "presets": [
     "next/babel"
   ],
-  "plugins": [
-    "markdown-in-js/babel",
-    "react-intl"
-  ],
   "env": {
     "development": {
       "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": true,
+            "preprocess": false
+          }
+        ],
         [
           "inline-dotenv",
           {
             "path": ".env.dev"
           }
-        ]
+        ],
+        "markdown-in-js/babel",
+        "react-intl"
       ]
     },
     "production": {
       "plugins": [
         [
-          "inline-dotenv"
-        ]
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": true,
+            "preprocess": false
+          }
+        ],
+        "inline-dotenv",
+        "markdown-in-js/babel",
+        "react-intl"
       ]
     }
   }

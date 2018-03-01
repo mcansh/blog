@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import webp from '../../utils/webp';
 import { unsplashParams } from '../../theme';
 
-const HeaderImage = ({ post: { image: { imageUrl, name, url } } }) => {
+const HeaderImage = ({ image: { imageUrl, name, url } }) => {
   const image = `/static/images/posts/${imageUrl}`;
 
   const webpbg = `/static/images/posts/${webp(imageUrl).url}`;
@@ -49,12 +49,10 @@ const HeaderImage = ({ post: { image: { imageUrl, name, url } } }) => {
 };
 
 HeaderImage.propTypes = {
-  post: PropTypes.shape({
-    image: PropTypes.shape({
-      imageUrl: PropTypes.string,
-      name: PropTypes.string,
-      url: PropTypes.string,
-    }),
+  image: PropTypes.shape({
+    imageUrl: PropTypes.string,
+    name: PropTypes.string,
+    url: PropTypes.string,
   }).isRequired,
 };
 

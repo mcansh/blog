@@ -37,7 +37,7 @@ const NavList = ({ closeNav }) => {
   return (
     <ul>
       {NavLinks.map(({ name, slug }) => (
-        <li key={name}>
+        <li key={name.props.defaultMessage}>
           <Link href={slug} prefetch={!isExternal(slug)}>
             <a>{name}</a>
           </Link>
