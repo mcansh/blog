@@ -1,22 +1,32 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 import colors from '../theme';
 
 class Page extends Document {
   static async getInitialProps(context) {
+    // styled-components
+    const { renderPage } = context;
+    const sheet = new ServerStyleSheet();
+    const page = renderPage(App => props =>
+      sheet.collectStyles(<App {...props} />)
+    );
+    const styleTags = sheet.getStyleElement();
+    // react-intl
     const props = await super.getInitialProps(context);
     const { req: { locale, localeDataScript } } = context;
     return {
+      ...page,
       ...props,
+      styleTags,
       locale,
       localeDataScript,
     };
   }
 
   render() {
-    const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${
-      this.props.locale
-    }`;
+    const { locale, styleTags } = this.props;
+    const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${locale}`;
 
     return (
       <html lang="en">
@@ -97,6 +107,7 @@ class Page extends Document {
             type="application/json"
             title="JSON Feed"
           />
+          {styleTags}
         </Head>
         <body>
           <Main />

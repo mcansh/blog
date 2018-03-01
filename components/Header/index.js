@@ -13,22 +13,16 @@ const messages = defineMessages({
   },
 });
 
-const Header = props => {
-  const post = findPost(props.id);
-  const { title, date } = post;
+const Header = ({ image, title, link, id, intl: { formatMessage } }) => {
+  const post = findPost(id);
   return (
     <header>
       <div>
-        <h1>{props.title || title}</h1>
-        {!props.link && date && <Date date={date} />}
-        {props.link && (
-          <Button
-            text={props.intl.formatMessage(messages.readMore)}
-            link={props.id}
-          />
-        )}
+        <h1>{title || post.title}</h1>
+        {!link && post && post.date && <Date date={post.date} />}
+        {link && <Button text={formatMessage(messages.readMore)} link={id} />}
       </div>
-      <Image post={post} />
+      <Image image={image || post.image} />
       <style jsx>{`
         header {
           height: 50vh;
@@ -60,6 +54,7 @@ Header.defaultProps = {
   link: null,
   id: null,
   title: null,
+  image: null,
 };
 
 Header.propTypes = {
@@ -67,6 +62,11 @@ Header.propTypes = {
   link: PropTypes.string,
   id: PropTypes.string,
   intl: intlShape.isRequired,
+  image: PropTypes.shape({
+    imageUrl: PropTypes.string,
+    url: PropTypes.string,
+    name: PropTypes.string,
+  }),
 };
 
 export default injectIntl(Header);
