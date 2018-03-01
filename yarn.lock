@@ -5259,9 +5259,9 @@ neo-async@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.0.tgz#76b1c823130cca26acfbaccc8fbaf0a2fa33b18f"
 
-next@5.0.1-canary.9:
-  version "5.0.1-canary.9"
-  resolved "https://registry.yarnpkg.com/next/-/next-5.0.1-canary.9.tgz#8271f04321f3bf6b808d5e44e7a77ea6a992890a"
+next@5.0.1-canary.10:
+  version "5.0.1-canary.10"
+  resolved "https://registry.yarnpkg.com/next/-/next-5.0.1-canary.10.tgz#923f9071506676383ac23d31299ffae8fa321dec"
   dependencies:
     "@zeit/check-updates" "1.1.0"
     "@zeit/source-map-support" "0.6.2"
