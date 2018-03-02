@@ -30,6 +30,12 @@ const NavLinks = [
     name: <FormattedMessage id="NavList.email" defaultMessage="Email" />,
     slug: `mailto:${process.env.EMAIL}`,
   },
+  {
+    name: (
+      <FormattedMessage id="NavList.changelog" defaultMessage="Changelog" />
+    ),
+    slug: '/changelog',
+  },
 ];
 
 const NavList = ({ closeNav }) => {
