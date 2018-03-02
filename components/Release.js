@@ -29,7 +29,6 @@ const H3 = styled.h3`
 const H1 = styled.h1`
   margin-bottom: 1rem;
   display: flex;
-  justify-content: space-between;
 `;
 
 const PreRelease = styled.span`
@@ -41,6 +40,7 @@ const PreRelease = styled.span`
   line-height: 1;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  margin-left: 2rem;
 `;
 
 const Release = ({
