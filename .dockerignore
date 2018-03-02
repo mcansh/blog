@@ -1,8 +1,9 @@
 node_modules
 .eslintrc.js
 .travis.yml
-README.markdown
+readme.markdown
 LICENSE
-CODE_OF_CONDUCT.md
+code_of_conduct.markdown
 logo.sketch
 .next
+scripts/compress
