@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Raven from 'raven-js';
 import { version } from '../../package.json';
 
-const { SENTRY } = process.env;
-
 const withSentry = Child =>
   class Sentry extends Component {
     static getInitialProps(ctx) {
@@ -19,7 +17,7 @@ const withSentry = Child =>
         error: null,
       };
 
-      Raven.config(SENTRY, {
+      Raven.config(process.env.SENTRY, {
         release: version,
         environment: process.env.NODE_ENV || 'development',
       }).install();

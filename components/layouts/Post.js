@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Page from './Page';
+import Document from './Document';
 
 const Post = ({ children }) => (
-  <Page>
+  <Document>
     {children}
     <style jsx global>{`
       ._markdown_ {
@@ -16,7 +16,7 @@ const Post = ({ children }) => (
           constant(safe-area-inset-left);
       }
     `}</style>
-  </Page>
+  </Document>
 );
 
 Post.propTypes = {

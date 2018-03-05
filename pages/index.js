@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from '../components/layouts/Page';
+import Document from '../components/layouts/Document';
 import PostCard from '../components/PostCard';
 import posts from '../posts.json';
 import Header from '../components/Header';
@@ -9,7 +9,7 @@ const [latest] = posts;
 const { id: latestid } = latest;
 
 const Index = () => (
-  <Page>
+  <Document>
     <Meta />
     <Header id={latestid} link={latestid} />
     <div>
@@ -49,7 +49,7 @@ const Index = () => (
         }
       }
     `}</style>
-  </Page>
+  </Document>
 );
 
 export default Index;
