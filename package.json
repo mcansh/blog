@@ -5,7 +5,7 @@
   "version": "3.5.1",
   "private": false,
   "description": "My blog for learn.co",
-  "repository": "git@github.com:mcansh/blog.git",
+  "repository": "mcansh/blog",
   "homepage": "https://mcansh.blog",
   "scripts": {
     "dev": "next",
@@ -13,7 +13,7 @@
     "build": "next build && node ./scripts/default-lang",
     "compress": "node ./scripts/compress.js",
     "start": "node -r @std/esm server",
-    "lint": "eslint ./",
+    "lint": "eslint ./ --quiet",
     "test": "bundlesize && yarn lint",
     "predeploy": "yarn compress",
     "deploy": "now --docker",
