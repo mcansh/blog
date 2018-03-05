@@ -2,7 +2,7 @@ import React from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import withData from '../lib/withData';
-import Page from '../components/layouts/Page';
+import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';
 import Header from '../components/Header';
 import Release from '../components/Release';
@@ -26,7 +26,7 @@ const allReleasesQuery = gql`
 `;
 
 const Changelog = () => (
-  <Page>
+  <Document>
     <Meta />
     <Header
       title="Changelog"
@@ -52,7 +52,7 @@ const Changelog = () => (
         ));
       }}
     </Query>
-  </Page>
+  </Document>
 );
 
 export default withData(Changelog);
