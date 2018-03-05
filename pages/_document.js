@@ -36,7 +36,9 @@ class Page extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width, viewport-fit=cover"
           />
-          <link rel="manifest" href="/manifest.json" />
+          {process.env.NODE_ENV !== 'development' && (
+            <link rel="manifest" href="/manifest.json" />
+          )}
           <link type="text/plain" rel="author" href="/static/humans.txt" />
           <link
             rel="mask-icon"
