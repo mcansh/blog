@@ -6171,9 +6171,9 @@ react-intl@2.4.0:
     intl-relativeformat "^2.0.0"
     invariant "^2.1.1"
 
-react-syntax-highlighter@7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-7.0.1.tgz#14eb6e669da6c4e4da3b2f86ff5e3b9b522aa473"
+react-syntax-highlighter@7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-7.0.2.tgz#674036d4803183f3a33202defc35e5ba83d992f5"
   dependencies:
     babel-runtime "^6.18.0"
     highlight.js "~9.12.0"
