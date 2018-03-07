@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Router from 'next/router';
-import { Provider } from 'unistore/react';
 import NProgress from 'nprogress';
 import PropTypes from 'prop-types';
-import { store } from '../../store';
+import { Provider } from 'unstated';
 import Navigation from '../Navigation';
 import withSentry from './withSentry';
 import colors from '../../theme';
@@ -47,7 +46,7 @@ class Document extends Component {
   render() {
     const { children } = this.props;
     return (
-      <Provider store={store}>
+      <Provider>
         <Fragment>
           <Navigation />
           {children}
