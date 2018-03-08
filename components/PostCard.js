@@ -17,14 +17,16 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
     <Link prefetch href={id}>
       <a>
         <article className="post" key={id}>
-          <ProgressiveImage
-            placeholder={thumbImage}
-            fullImage={fullImage}
-            webpImage={webpImage}
-            mimeType={mimeType}
-            alt={name ? `Taken by ${name}` : ''}
-            data-source-url={unsplashParams(url)}
-          />
+          <div className="post__image">
+            <ProgressiveImage
+              placeholder={thumbImage}
+              fullImage={fullImage}
+              webpImage={webpImage}
+              mimeType={mimeType}
+              alt={name ? `Taken by ${name}` : ''}
+              data-source-url={unsplashParams(url)}
+            />
+          </div>
           <div className="post__meta">
             <p className="date">{format(date, 'MMMM D, YYYY')}</p>
             <h1 className="title">{title}</h1>
@@ -92,6 +94,11 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
 
           .date {
             padding: 1rem 0;
+          }
+
+          .post__image {
+            height: 50%;
+            overflow: hidden;
           }
         `}</style>
       </a>
