@@ -18,9 +18,12 @@ readdirSync(imageDir).forEach(file => {
   // if (reg.test(fileType)) {
   sharp(fullFile)
     .resize(150)
-    .toFile(`${imageDir}/thumb/${fileName}.${fileExtension}`, (err, info) => {
-      console.log('err: ', err);
-      console.log('info: ', info);
+    .toFile(`${imageDir}/thumb/${fileName}.${fileExtension}`, error => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(`${file} converted successfully`);
+      }
     });
   // }
 });
@@ -28,9 +31,13 @@ readdirSync(imageDir).forEach(file => {
 // compress and convert post images to webp
 imagemin(['static/images/posts/*.{jpg,png}'], 'static/images/posts', {
   plugins: [imageminWebp(), imageminMozjpeg(), imageminPngquant()],
-}).then(files => console.log(files));
+}).then(files =>
+  files.forEach(file => console.log(`${file.path} converted successfully`))
+);
 
 // logos dont need to be webp
 imagemin(['static/images/logo/*.{jpg,png}'], 'static/images/logo', {
   plugins: [imageminMozjpeg(), imageminPngquant()],
-}).then(files => console.log(files));
+}).then(files =>
+  files.forEach(file => console.log(`${file.path} converted successfully`))
+);
