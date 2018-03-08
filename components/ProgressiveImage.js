@@ -15,7 +15,6 @@ const Image = styled.img`
 class ProgressiveImage extends Component {
   static propTypes = {
     placeholder: PropTypes.string.isRequired,
-    full: PropTypes.string.isRequired,
     webpImage: PropTypes.string.isRequired,
     fullImage: PropTypes.string.isRequired,
     mimeType: PropTypes.string.isRequired,
@@ -27,7 +26,7 @@ class ProgressiveImage extends Component {
   };
 
   componentDidMount = () => {
-    this.setState({ source: this.props.full, loading: false });
+    this.setState({ source: this.props.fullImage, loading: false });
   };
 
   render() {
