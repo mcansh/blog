@@ -1,4 +1,4 @@
-const NextWorkboxWebpackPlugin = require('@pwa/next-workbox-webpack-plugin');
+const NextWorkboxWebpackPlugin = require('next-workbox-webpack-plugin');
 
 module.exports = {
   webpack: (config, { isServer, dev, buildId, config: { distDir } }) => {

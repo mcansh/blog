@@ -85,14 +85,6 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@pwa/next-workbox-webpack-plugin@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@pwa/next-workbox-webpack-plugin/-/next-workbox-webpack-plugin-0.4.1.tgz#9594ec39b49babb8eb45026d0406655c22a9062b"
-  dependencies:
-    find-up "^2.1.0"
-    md5-file "^3.2.3"
-    workbox-build "^3.0.0-beta.0"
-
 "@std/esm@0.25.2":
   version "0.25.2"
   resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.25.2.tgz#b71e1545764f96134935fd1cb5f3785e0cb19d15"
@@ -5318,6 +5310,14 @@ negotiator@0.6.1:
 neo-async@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.0.tgz#76b1c823130cca26acfbaccc8fbaf0a2fa33b18f"
+
+next-workbox-webpack-plugin@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/next-workbox-webpack-plugin/-/next-workbox-webpack-plugin-1.0.1.tgz#e98150b205a439da4a20b3a4c662dff99b625806"
+  dependencies:
+    find-up "^2.1.0"
+    md5-file "^3.2.3"
+    workbox-build "^3.0.0-beta.0"
 
 next@5.0.1-canary.10:
   version "5.0.1-canary.10"
