@@ -7,21 +7,27 @@ import webp from '../utils/webp';
 import { unsplashParams } from '../theme';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
-  const webpImage = `/static/images/posts/${webp(imageUrl).url}`;
-  const fullImage = `/static/images/posts/${imageUrl}`;
+  const filePath = '/static/images/posts';
+  const thumbPath = '/static/images/posts/thumb';
+  const webpImage = webp(imageUrl).url;
   const mimeType = `image/${webp(imageUrl).type}`;
   const fileExtension = /[^.]+$/.exec(imageUrl);
   const fileName = imageUrl.replace(`.${fileExtension}`, '');
-  const thumbImage = `/static/images/posts/thumb/${fileName}.${fileExtension}`;
+  const thumbImage = `${fileName}.${fileExtension}`;
   return (
     <Link prefetch href={id}>
       <a>
         <article className="post" key={id}>
           <div className="post__image">
             <ProgressiveImage
-              placeholder={thumbImage}
-              fullImage={fullImage}
-              webpImage={webpImage}
+              placeholder={{
+                webp: `${thumbPath}/${webpImage}`,
+                fallback: `${thumbPath}/${thumbImage}`,
+              }}
+              source={{
+                webp: `${filePath}/${webpImage}`,
+                fallback: `${filePath}/${imageUrl}`,
+              }}
               mimeType={mimeType}
               alt={name ? `Taken by ${name}` : ''}
               data-source-url={unsplashParams(url)}

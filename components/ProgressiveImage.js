@@ -14,29 +14,49 @@ const Image = styled.img`
 
 class ProgressiveImage extends Component {
   static propTypes = {
-    placeholder: PropTypes.string.isRequired,
-    webpImage: PropTypes.string.isRequired,
-    fullImage: PropTypes.string.isRequired,
-    mimeType: PropTypes.string.isRequired,
+    placeholder: PropTypes.shape({
+      webp: PropTypes.string,
+      fallback: PropTypes.string,
+    }).isRequired,
+    source: PropTypes.shape({
+      webp: PropTypes.string,
+      fallback: PropTypes.string,
+    }).isRequired,
+    mimeType: PropTypes.string,
+    alt: PropTypes.string,
+  };
+
+  static defaultProps = {
+    mimeType: 'image/jpg',
+    alt: '',
   };
 
   state = {
-    source: this.props.placeholder,
     loading: true,
   };
 
   componentDidMount = () => {
-    this.setState({ source: this.props.fullImage, loading: false });
+    this.setState({ loading: false });
   };
 
   render() {
-    const { webpImage, fullImage, mimeType, ...props } = this.props;
-    const { loading, source } = this.state;
+    const { placeholder, source, mimeType, ...props } = this.props;
+    const { loading } = this.state;
     return (
       <picture>
-        <source srcSet={webpImage} type="image/webp" />
-        <source srcSet={fullImage} type={mimeType} />
-        <Image loading={loading} src={source} {...props} />
+        <source
+          srcSet={loading ? placeholder.webp : source.webp}
+          type="image/webp"
+        />
+        <source
+          srcSet={loading ? placeholder.fallback : source.fallback}
+          type={mimeType}
+        />
+        <Image
+          loading={loading}
+          src={loading ? placeholder.fallback : source.fallback}
+          {...props}
+        />
       </picture>
     );
   }
