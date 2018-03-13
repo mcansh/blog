@@ -7,16 +7,13 @@ cache:
 services:
   - docker
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.3.2
-  - export PATH=$HOME/.yarn/bin:$PATH
   - npm install -g greenkeeper-lockfile@1
-  - yarn global add now
 before_script:
   - greenkeeper-lockfile-update
 after_script:
   - greenkeeper-lockfile-upload
-  - now -t ${NOW_TOKEN}
-  - now -t ${NOW_TOKEN} alias staging.mcansh.blog
+after_success:
+  - npx now-cd
 env:
   global:
     secure: LI2sdIOCBEuS4u5UmfAuwZ/wYvOeurujr8qCWcNE4xTMDcpLg2XeAj+rhtJwb89vazTe3S5vahJfVW20b2sRYDG0uo1HPhP4MoeQDTzb+2R2CcT1Jqb3FQi4qsBjBPWNM+T8h0I08LBU9hXzLdQBD3oEbLvt+1M9rMVsiaGsL0aFphkO0pv3oAuwMvFzvLlpBbfrDREa4dIumVVSz8qvu89IHxpaHQyZBhmsLDmCOkZ2wFDZdnye3l0V9IrSpU+qXnstHO/k2N56MsXTaUHQHUprQdi45VYQ4iaBCAl/DQuRSx2aOvhSLfxG09HVZduMwjqV6WxyHLF4dmHyoHpw5aIvQpoalgSGo6TOMcJuLfkYWZCtINC9Nj1iL9WIPPFuKhsgNPOd+E0BNofqnHofTfzXdk3JFBmgOeadsFu+194VLYFOng9q8pvf2kghh1mBOnd+p72HrZP0r05NlO+E6s7J/0mVeetHTsuYXFbPUD4YBi1tku3V50BDzZKuUidA0PyK1qFKOzpgTj3RDnMfYlqEEHiv1QFvu0mj83AM6nW7E1V71c0MSBewsTBHlo91pOfIHvQaexcIznKRm1syPJRxI2GfC+nnImxBnsmOORQk8nRuK68HRRfSSv6f4FMdU/hIYElEtk1/nP8/8lxtcwMUat3Ix5RbI7qxF7B6PkQ=
