@@ -73,7 +73,7 @@
     "imagemin-pngquant": "5.0.1",
     "imagemin-webp": "4.1.0",
     "mime-types": "2.1.18",
-    "nodemon": "1.17.1",
+    "nodemon": "1.17.2",
     "pre-commit": "1.2.2",
     "prettier": "1.11.1",
     "sharp": "0.20.0"
