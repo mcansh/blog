@@ -305,7 +305,27 @@ apollo-cache@^1.1.5:
   dependencies:
     apollo-utilities "^1.0.9"
 
-apollo-client@2.2.6, apollo-client@^2.2.6:
+apollo-cache@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/apollo-cache/-/apollo-cache-1.1.6.tgz#b953488bcc8244e001b9ab9c8b362a1512e9203f"
+  dependencies:
+    apollo-utilities "^1.0.10"
+
+apollo-client@2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.2.7.tgz#d5adbda81ef1f1c9c105ac71227ca8dc42b5731b"
+  dependencies:
+    "@types/zen-observable" "^0.5.3"
+    apollo-cache "^1.1.6"
+    apollo-link "^1.0.0"
+    apollo-link-dedup "^1.0.0"
+    apollo-utilities "^1.0.10"
+    symbol-observable "^1.0.2"
+    zen-observable "^0.7.0"
+  optionalDependencies:
+    "@types/async" "2.0.47"
+
+apollo-client@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.2.6.tgz#38b5a197976f3c22b63623c455d4c4606e420b66"
   dependencies:
@@ -362,6 +382,10 @@ apollo-link@^1.0.0, apollo-link@^1.0.6, apollo-link@^1.2.1:
 apollo-utilities@^1.0.0, apollo-utilities@^1.0.6, apollo-utilities@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.8.tgz#74d797d38953d2ba35e16f880326e2abcbc8b016"
+
+apollo-utilities@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.10.tgz#0c35696891d4fa28d76768e0f7249d63c6da08b9"
 
 apollo-utilities@^1.0.9:
   version "1.0.9"
