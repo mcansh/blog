@@ -70,7 +70,7 @@
     "eslint-plugin-react": "7.7.0",
     "imagemin": "5.3.1",
     "imagemin-mozjpeg": "7.0.0",
-    "imagemin-pngquant": "5.0.1",
+    "imagemin-pngquant": "5.1.0",
     "imagemin-webp": "4.1.0",
     "mime-types": "2.1.18",
     "nodemon": "1.17.1",
