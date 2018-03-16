@@ -85,10 +85,6 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@std/esm@0.25.2":
-  version "0.25.2"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.25.2.tgz#b71e1545764f96134935fd1cb5f3785e0cb19d15"
-
 "@types/async@2.0.47":
   version "2.0.47"
   resolved "https://registry.yarnpkg.com/@types/async/-/async-2.0.47.tgz#f49ba1dd1f189486beb6e1d070a850f6ab4bd521"
@@ -2785,6 +2781,10 @@ eslint@4.18.2:
     strip-json-comments "~2.0.1"
     table "4.0.2"
     text-table "~0.2.0"
+
+esm@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.6.tgz#0b327fb312e287d9e1a95e728c18b79603fb6d9e"
 
 espree@^3.5.2:
   version "3.5.3"
