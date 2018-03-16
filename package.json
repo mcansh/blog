@@ -23,7 +23,7 @@
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
-    "@std/esm": "0.25.2",
+    "@std/esm": "0.25.3",
     "accepts": "1.3.5",
     "apollo-boost": "0.1.2",
     "apollo-client": "2.2.6",
