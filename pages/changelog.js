@@ -18,7 +18,6 @@ const allReleasesQuery = gql`
           }
           description
           publishedAt
-          isPrerelease
         }
       }
     }
@@ -47,7 +46,6 @@ const Changelog = () => (
             version={release.tag.name}
             notes={release.description}
             date={release.publishedAt}
-            isPrerelease={release.isPrerelease}
           />
         ));
       }}
