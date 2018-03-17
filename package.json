@@ -76,7 +76,7 @@
     "nodemon": "1.17.2",
     "pre-commit": "1.2.2",
     "prettier": "1.11.1",
-    "sharp": "0.20.0"
+    "sharp": "0.20.1"
   },
   "esm": {
     "mode": "auto",
