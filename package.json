@@ -9,10 +9,10 @@
   "homepage": "https://mcansh.blog",
   "scripts": {
     "dev": "next",
-    "dev:server": "nodemon -r @std/esm server",
+    "dev:server": "nodemon -r esm server",
     "build": "next build && node ./scripts/default-lang",
     "compress": "node ./scripts/compress.js",
-    "start": "node -r @std/esm server",
+    "start": "node -r esm server",
     "lint": "eslint ./ --quiet",
     "test": "bundlesize && yarn lint",
     "predeploy": "yarn compress",
