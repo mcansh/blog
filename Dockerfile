@@ -8,4 +8,4 @@ COPY . /app
 RUN yarn build
 RUN yarn cache clean
 EXPOSE 3000
-CMD node -r @std/esm server.js
+CMD node -r esm server.js
