@@ -30,7 +30,7 @@
     "babel-plugin-react-intl": "2.4.0",
     "babel-plugin-styled-components": "1.5.1",
     "date-fns": "2.0.0-alpha.7",
-    "esm": "3.0.8",
+    "esm": "3.0.9",
     "glob": "7.1.2",
     "graphql": "0.13.2",
     "highlight.js": "9.12.0",
