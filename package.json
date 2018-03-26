@@ -44,7 +44,7 @@
     "prop-types": "15.6.1",
     "raven-js": "3.24.0",
     "react": "16.3.0-alpha.1",
-    "react-apollo": "2.1.0",
+    "react-apollo": "2.1.1",
     "react-dom": "16.3.0-alpha.1",
     "react-ga": "2.4.1",
     "react-intl": "2.4.0",
