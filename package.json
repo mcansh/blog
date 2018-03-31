@@ -52,7 +52,7 @@
     "remark-emoji": "2.0.1",
     "remark-github": "7.0.3",
     "remark-react": "4.0.1",
-    "styled-components": "3.2.3",
+    "styled-components": "3.2.5",
     "unstated": "1.2.0",
     "webpack": "4.4.1"
   },
@@ -72,7 +72,7 @@
     "imagemin-pngquant": "5.1.0",
     "imagemin-webp": "4.1.0",
     "mime-types": "2.1.18",
-    "nodemon": "1.17.2",
+    "nodemon": "1.17.3",
     "pre-commit": "1.2.2",
     "prettier": "1.11.1",
     "sharp": "0.20.1"
