@@ -33,30 +33,75 @@ class ProgressiveImage extends Component {
 
   state = {
     loading: true,
+    image: {
+      webp: this.props.placeholder.webp,
+      fallback: this.props.placeholder.fallback,
+    },
   };
 
-  componentDidMount = () => {
-    this.setState({ loading: false });
+  componentDidMount = async () => {
+    this.loadRealImage(await this.supportsWebp());
+  };
+
+  supportsWebp = async () => {
+    if (!window.self.createImageBitmap) return false;
+
+    const webpData =
+      'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+    const blob = await fetch(webpData).then(r => r.blob());
+    return createImageBitmap(blob).then(() => true, () => false);
+  };
+
+  arrayBufferToBase64 = buffer => {
+    let binary = '';
+    const bytes = [].slice.call(new Uint8Array(buffer));
+
+    bytes.forEach(b => (binary += String.fromCharCode(b)));
+
+    return window.btoa(binary);
+  };
+
+  loadRealImage = async supportsWebp => {
+    const { source } = this.props;
+    const base64Flag = 'data:image/jpeg;base64,';
+
+    if (supportsWebp) {
+      const imagePromise = await fetch(source.fallback);
+      const buffer = await imagePromise.arrayBuffer();
+
+      const imageStr = this.arrayBufferToBase64(buffer);
+
+      this.setState(state => ({
+        loading: false,
+        image: {
+          ...state.image,
+          webp: base64Flag + imageStr,
+        },
+      }));
+    } else {
+      const imagePromise = await fetch(source.fallback);
+      const buffer = await imagePromise.arrayBuffer();
+
+      const imageStr = this.arrayBufferToBase64(buffer);
+
+      this.setState(state => ({
+        loading: false,
+        image: {
+          ...state.image,
+          fallback: base64Flag + imageStr,
+        },
+      }));
+    }
   };
 
   render() {
     const { placeholder, source, mimeType, ...props } = this.props;
-    const { loading } = this.state;
+    const { loading, image } = this.state;
     return (
       <picture>
-        <source
-          srcSet={loading ? placeholder.webp : source.webp}
-          type="image/webp"
-        />
-        <source
-          srcSet={loading ? placeholder.fallback : source.fallback}
-          type={mimeType}
-        />
-        <Image
-          loading={loading}
-          src={loading ? placeholder.fallback : source.fallback}
-          {...props}
-        />
+        <source srcSet={image.webp} type="image/webp" />
+        <source srcSet={image.fallback} type={mimeType} />
+        <Image loading={loading} src={image.fallback} {...props} />
       </picture>
     );
   }
