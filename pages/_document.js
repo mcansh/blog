@@ -46,7 +46,7 @@ class Page extends Document {
             color={colors.primary}
           />
           <meta name="theme-color" content={colors.primary} />
-          <link rel="shortcut icon" href="/static/images/logo.png" />
+          <link rel="shortcut icon" href="/static/images/logo/logo.png" />
           <link rel="shortcut icon" href="/static/images/logo/logo.ico" />
           <link
             rel="apple-touch-icon-precomposed"
