@@ -62,9 +62,10 @@ class Document extends Component {
             }
 
             body {
-              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-                'Segoe UI Emoji', 'Segoe UI Symbol';
+              font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+                'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif,
+                'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
               font-weight: 400;
               margin: 0;
               background: #f7f7f7;
