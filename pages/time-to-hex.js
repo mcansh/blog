@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import markdown from 'markdown-in-js';
 import javascript from 'highlight.js/lib/languages/javascript';
 import withOptions from '../components/layouts/withOptions';
@@ -14,7 +14,7 @@ export default withOptions({
 
   ${(
     <Code language="javascript" syntax={javascript}>{`
-function setDate() {
+const setDate = () => {
   // get the datetime
   const now = new Date();
   // get hours from our "now" variable
@@ -23,7 +23,7 @@ function setDate() {
   const minutes = now.getMinutes();
   // get seconds from our "now" variable
   const seconds = now.getSeconds();
-  // select out h1 element
+  // select our h1 element
   const text = document.querySelector('h1');
 
   // group our 3 variables above to make the time with a hash in front
@@ -33,10 +33,10 @@ function setDate() {
   text.textContent = hexTime;
 
   // style the body background color to be the hex color
-  document.querySelector('body').style.background = hexTime;
+  document.body.style.background = hexTime;
 
   setInterval(setDate, 1000);
-}
+};
     `}</Code>
   )}
 
@@ -49,11 +49,9 @@ function setDate() {
     </P>
   )}
 
-  Now what that’s doing is running a ternary to see if the time is less than 10 or not, if it is, then it prepends a 0 to the variable.
-
   ${(
     <Code language="javascript" syntax={javascript}>{`
-function setDate() {
+const setDate = () => {
   // get the datetime
   const now = new Date();
   // get hours from our "now" variable
@@ -63,7 +61,7 @@ function setDate() {
   // get seconds from our "now" variable
   const seconds = (now.getSeconds() < 10) ? '0' + now.getSeconds() : now.getSeconds();
 
-  // select out h1 element
+  // select our h1 element
   const text = document.querySelector('h1');
 
   // group our 3 variables above to make the time with a hash in front
@@ -73,23 +71,30 @@ function setDate() {
   text.textContent = hexTime;
 
   // style the body background color to be the hex color
-  document.querySelector('body').style.background = hexTime;
+  document.body.style.background = hexTime;
 
   setInterval(setDate, 1000);
-}
+};
     `}</Code>
   )}
 
   ${(
-    <P>
-      Woohoo! You now have a clock that shows you hexadecimal colors. You can
-      even change the android chrome theme color every second:
-    </P>
+    <Fragment>
+      <P>
+        Now what that’s doing is running a ternary to see if the time is less
+        than 10 or not if it is, then it prepends a 0 to the variable.
+      </P>
+
+      <P>
+        Woohoo! You now have a clock that shows you hexadecimal colors. You can
+        even change the android chrome theme color every second:
+      </P>
+    </Fragment>
   )}
 
   ${(
     <Code language="javascript" syntax={javascript}>
-      {`document.querySelector('meta[name="theme-color"]').setAttribute('content', hexTime);`}
+      {`document.querySelector('meta[name="theme-color"]').content = hexTime;`}
     </Code>
   )}
 `);
