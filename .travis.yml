@@ -12,5 +12,5 @@ before_script:
   - greenkeeper-lockfile-update
 after_script:
   - greenkeeper-lockfile-upload
-after_success:
-  - npx now-cd
+notifications:
+  email: false
