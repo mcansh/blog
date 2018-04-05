@@ -63,7 +63,7 @@ class ProgressiveImage extends Component {
 
   loadRealImage = async supportsWebp => {
     const { source } = this.props;
-    const base64Flag = 'data:image/jpeg;base64,';
+    const base64Flag = `data:image/${supportsWebp ? 'webp' : 'jpeg'};base64,`;
 
     if (supportsWebp) {
       const imagePromise = await fetch(source.fallback);

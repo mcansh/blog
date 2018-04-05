@@ -16,7 +16,7 @@
     "lint": "eslint ./ --quiet",
     "test": "bundlesize && yarn lint",
     "predeploy": "yarn compress",
-    "deploy": "now --docker",
+    "deploy": "now --regions all",
     "postdeploy": "now alias && now rm blog --safe -y && now scale mcansh.blog 1"
   },
   "precommit": "lint",
