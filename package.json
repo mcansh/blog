@@ -17,7 +17,7 @@
     "test": "bundlesize && yarn lint",
     "predeploy": "yarn compress",
     "deploy": "now --regions all",
-    "postdeploy": "now alias && now rm blog --safe -y && now scale mcansh.blog 1"
+    "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog 1"
   },
   "precommit": "lint",
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
