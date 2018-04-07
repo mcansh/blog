@@ -35,6 +35,14 @@ const Header = ({ image, title, link, id, intl: { formatMessage } }) => {
           position: relative;
         }
 
+        @media (orientation: landscape) and (max-height: 500px) {
+          header {
+            max-height: 100vh;
+            min-height: 100vh;
+            height: 100vh;
+          }
+        }
+
         div {
           z-index: 1;
           text-align: center;
