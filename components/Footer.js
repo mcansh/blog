@@ -1,31 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
-import colors from '../theme';
+import styled from 'styled-components';
 import { name } from '../utils/authorInfo';
 
-const Footer = () => (
-  <footer>
-    <Link href="/">
-      <a rel="home">
-        &copy; {new Date().getFullYear()} {name}
-      </a>
-    </Link>
-    <style jsx>{`
-      footer {
-        height: 8rem;
-        background: ${colors.background};
-        font-size: 1.4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+const Footer = styled.footer`
+  height: 8rem;
+  background: ${props => props.theme.background};
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-      a {
-        color: CurrentColor;
-        text-decoration: none;
-      }
-    `}</style>
-  </footer>
+const StyledLink = styled.a`
+  color: currentColor;
+  text-decoration: none;
+`;
+
+const FooterWrap = () => (
+  <Footer>
+    <Link href="/" prefetch passHref>
+      <StyledLink rel="home">
+        &copy; {new Date().getFullYear()} {name}
+      </StyledLink>
+    </Link>
+  </Footer>
 );
 
-export default Footer;
+export default FooterWrap;
