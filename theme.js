@@ -3,6 +3,12 @@ const colors = {
   background: '#f7f7f7',
 };
 
+export const MMMMDDYYYY = {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+};
+
 export const unsplashParams = url => {
   if (url) {
     return url.includes('unsplash.com')

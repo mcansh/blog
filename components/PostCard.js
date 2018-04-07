@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import format from 'date-fns/format';
 import Link from 'next/link';
+import { injectIntl, intlShape } from 'react-intl';
 import ProgressiveImage from './ProgressiveImage';
 import webp from '../utils/webp';
-import { unsplashParams } from '../theme';
+import { unsplashParams, MMMMDDYYYY } from '../theme';
 
-const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
+const PostCard = ({
+  id,
+  image: { imageUrl, name, url },
+  date,
+  title,
+  intl: { formatDate },
+}) => {
   const filePath = '/static/images/posts';
   const thumbPath = '/static/images/posts/thumb';
   const webpImage = webp(imageUrl).url;
@@ -34,7 +40,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
             />
           </div>
           <div className="post__meta">
-            <p className="date">{format(date, 'MMMM D, YYYY')}</p>
+            <p className="date">{formatDate(date, MMMMDDYYYY)}</p>
             <h1 className="title">{title}</h1>
           </div>
         </article>
@@ -121,6 +127,7 @@ PostCard.propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
+  intl: intlShape.isRequired,
 };
 
-export default PostCard;
+export default injectIntl(PostCard);
