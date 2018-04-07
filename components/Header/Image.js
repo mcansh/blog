@@ -1,7 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import webp from '../../utils/webp';
 import { unsplashParams } from '../../theme';
+
+const Picture = styled.picture`
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+`;
+
+const Image = styled.img`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`;
 
 const HeaderImage = ({ image: { imageUrl, name, url } }) => {
   const image = `/static/images/posts/${imageUrl}`;
@@ -9,42 +35,15 @@ const HeaderImage = ({ image: { imageUrl, name, url } }) => {
   const webpbg = `/static/images/posts/${webp(imageUrl).url}`;
 
   return (
-    <picture>
+    <Picture>
       <source srcSet={webpbg} type="image/webp" />
       <source srcSet={image} type={`image/${webp(imageUrl).type}`} />
-      <img
+      <Image
         src={`/static/images/posts/${imageUrl}`}
         alt={name ? `Taken by ${name}` : ''}
         data-source-url={unsplashParams(url)}
       />
-      <style jsx>{`
-        picture {
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-        }
-
-        picture::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.6);
-        }
-
-        source,
-        img {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
-      `}</style>
-    </picture>
+    </Picture>
   );
 };
 
