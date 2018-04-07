@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import styled from 'styled-components';
 import findPost from '../../utils/findPost';
 import Button from '../Button';
 import Image from './Image';
@@ -13,59 +14,56 @@ const messages = defineMessages({
   },
 });
 
-const Header = ({ image, title, link, id, intl: { formatMessage } }) => {
+const Header = styled.header`
+  height: 50vh;
+  min-height: 50rem;
+  max-height: 80rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+
+  @media (orientation: landscape) and (max-height: 500px) {
+    max-height: 100vh;
+    min-height: 100vh;
+    height: 100vh;
+  }
+`;
+
+const HeaderContent = styled.div`
+  z-index: 1;
+  text-align: center;
+  max-width: 80vw;
+`;
+
+const Title = styled.h1`
+  font-size: 5rem;
+  margin-bottom: 2rem;
+`;
+
+const HeaderWrap = ({ image, title, link, id, intl: { formatMessage } }) => {
   const post = findPost(id);
   return (
-    <header>
-      <div>
-        <h1>{title || post.title}</h1>
+    <Header>
+      <HeaderContent>
+        <Title>{title || post.title}</Title>
         {!link && post && post.date && <Date date={post.date} />}
         {link && <Button text={formatMessage(messages.readMore)} link={id} />}
-      </div>
+      </HeaderContent>
       <Image image={image || post.image} />
-      <style jsx>{`
-        header {
-          height: 50vh;
-          min-height: 50rem;
-          max-height: 80rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          position: relative;
-        }
-
-        @media (orientation: landscape) and (max-height: 500px) {
-          header {
-            max-height: 100vh;
-            min-height: 100vh;
-            height: 100vh;
-          }
-        }
-
-        div {
-          z-index: 1;
-          text-align: center;
-          max-width: 80vw;
-        }
-
-        h1 {
-          font-size: 5rem;
-          margin-bottom: 2rem;
-        }
-      `}</style>
-    </header>
+    </Header>
   );
 };
 
-Header.defaultProps = {
+HeaderWrap.defaultProps = {
   link: null,
   id: null,
   title: null,
   image: null,
 };
 
-Header.propTypes = {
+HeaderWrap.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
   id: PropTypes.string,
@@ -77,4 +75,4 @@ Header.propTypes = {
   }),
 };
 
-export default injectIntl(Header);
+export default injectIntl(HeaderWrap);
