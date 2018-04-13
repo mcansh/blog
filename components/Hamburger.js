@@ -19,9 +19,11 @@ const Hamburger = ({ intl: { formatMessage } }) => (
           button {
             position: ${navOpen ? 'fixed' : 'absolute'};
             top: 2rem;
+            top: constant(safe-area-inset-top);
+            top: env(safe-area-inset-top);
+            left: 2rem;
             left: constant(safe-area-inset-left);
             left: env(safe-area-inset-left);
-            left: 2rem;
             appearance: none;
             height: 4rem;
             width: 4rem;
@@ -36,6 +38,7 @@ const Hamburger = ({ intl: { formatMessage } }) => (
           @supports (padding: max(0rem)) {
             button {
               left: max(2rem, env(safe-area-inset-left));
+              top: max(2rem, env(safe-area-inset-top));
             }
           }
 
