@@ -17,7 +17,11 @@ const foundPost = id => {
 
 const Meta = ({ id, router }) => {
   const post = foundPost(id);
-  const { title, image: { imageUrl }, date } = post;
+  const {
+    title,
+    image: { imageUrl },
+    date,
+  } = post;
   const imageFullUrl =
     imageUrl && `${homepage}/static/images/posts/${imageUrl}`;
 

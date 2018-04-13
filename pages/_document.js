@@ -14,7 +14,9 @@ class Page extends Document {
     const styleTags = sheet.getStyleElement();
     // react-intl
     const props = await super.getInitialProps(context);
-    const { req: { locale, localeDataScript } } = context;
+    const {
+      req: { locale, localeDataScript },
+    } = context;
     return {
       ...page,
       ...props,

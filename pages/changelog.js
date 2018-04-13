@@ -39,7 +39,11 @@ const Changelog = () => (
       {({ loading, error, data }) => {
         if (loading) return <p>Loading...</p>;
         if (error) return <p>Error :(</p>;
-        const { repository: { releases: { nodes } } } = data;
+        const {
+          repository: {
+            releases: { nodes },
+          },
+        } = data;
         return nodes.map(release => (
           <Release
             key={release.tag.name}
