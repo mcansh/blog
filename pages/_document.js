@@ -46,6 +46,10 @@ class Page extends Document {
             color={colors.primary}
           />
           <meta name="theme-color" content={colors.primary} />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
           <link rel="shortcut icon" href="/static/images/logo/logo.png" />
           <link rel="shortcut icon" href="/static/images/logo/logo.ico" />
           <link
