@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import findPost from '../../utils/findPost';
 import Button from '../Button';
@@ -37,19 +37,24 @@ const HeaderContent = styled.div`
   max-width: 80vw;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: 5rem;
   margin-bottom: 2rem;
 `;
 
-const HeaderWrap = ({ image, title, link, id, intl: { formatMessage } }) => {
+const HeaderWrap = ({ image, title, link, id }) => {
   const post = findPost(id);
   return (
     <Header>
       <HeaderContent>
         <Title>{title || post.title}</Title>
         {!link && post && post.date && <Date date={post.date} />}
-        {link && <Button text={formatMessage(messages.readMore)} link={id} />}
+        {link && (
+          <Button
+            text={<FormattedMessage {...messages.readMore} />}
+            link={id}
+          />
+        )}
       </HeaderContent>
       <Image image={image || post.image} />
     </Header>
@@ -67,7 +72,6 @@ HeaderWrap.propTypes = {
   title: PropTypes.string,
   link: PropTypes.string,
   id: PropTypes.string,
-  intl: intlShape.isRequired,
   image: PropTypes.shape({
     imageUrl: PropTypes.string,
     url: PropTypes.string,
@@ -75,4 +79,4 @@ HeaderWrap.propTypes = {
   }),
 };
 
-export default injectIntl(HeaderWrap);
+export default HeaderWrap;

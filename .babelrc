@@ -1,9 +1,9 @@
 {
-  "presets": [
-    "next/babel"
-  ],
   "env": {
     "development": {
+      "presets": [
+        "next/babel"
+      ],
       "plugins": [
         [
           "styled-components",
@@ -24,6 +24,9 @@
       ]
     },
     "production": {
+      "presets": [
+        "next/babel"
+      ],
       "plugins": [
         [
           "styled-components",
@@ -34,6 +37,36 @@
           }
         ],
         "inline-dotenv",
+        "markdown-in-js/babel",
+        "react-intl"
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "next/babel",
+          {
+            "preset-env": {
+              "modules": "commonjs"
+            }
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": true,
+            "preprocess": false
+          }
+        ],
+        [
+          "inline-dotenv",
+          {
+            "path": ".env.dev"
+          }
+        ],
         "markdown-in-js/babel",
         "react-intl"
       ]
