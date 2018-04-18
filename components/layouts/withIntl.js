@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { IntlProvider, addLocaleData, injectIntl } from 'react-intl';
 
 // Register React Intl's locale data for the user's locale in the browser. This
@@ -14,6 +15,18 @@ export default Page => {
   const IntlPage = injectIntl(Page);
 
   return class PageWithIntl extends Component {
+    static propTypes = {
+      locale: PropTypes.string,
+      now: PropTypes.number,
+      messages: PropTypes.shape({}),
+    };
+
+    static defaultProps = {
+      locale: 'en',
+      now: Date.now(),
+      messages: {},
+    };
+
     static async getInitialProps(context) {
       let props;
       if (typeof Page.getInitialProps === 'function') {
@@ -30,7 +43,6 @@ export default Page => {
     }
 
     render() {
-      // eslint-disable-next-line react/prop-types
       const { locale, messages, now, ...props } = this.props;
 
       return (
