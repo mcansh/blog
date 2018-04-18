@@ -14,7 +14,8 @@
     "compress": "node ./scripts/compress.js",
     "start": "node -r esm server",
     "lint": "eslint ./ --quiet",
-    "test": "jest && yarn lint",
+    "test": "jest --onlyChanged && yarn lint",
+    "test:all": "jest",
     "predeploy": "yarn compress",
     "deploy": "now --regions all",
     "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog 1"
