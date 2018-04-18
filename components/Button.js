@@ -56,7 +56,7 @@ Button.defaultProps = {
   hoverBackground: 'transparent',
 };
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   link: PropTypes.string.isRequired,
   color: PropTypes.string,
   background: PropTypes.string,
