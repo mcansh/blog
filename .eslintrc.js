@@ -1,5 +1,6 @@
 module.exports = {
-  extends: ['mcansh'],
+  extends: ['plugin:jest/recommended', 'mcansh'],
+  plugins: ['jest'],
   rules: {
     'jsx-a11y/href-no-hash': "off",
     'jsx-a11y/anchor-is-valid': "off",
