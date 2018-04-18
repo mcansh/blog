@@ -9,7 +9,7 @@
   "homepage": "https://mcansh.blog",
   "scripts": {
     "dev": "next",
-    "dev:server": "nodemon -r esm server",
+    "dev:server": "nodemon -r esm -w server server",
     "build": "next build && node ./scripts/default-lang",
     "compress": "node ./scripts/compress.js",
     "start": "node -r esm server",
@@ -17,8 +17,8 @@
     "test": "jest --onlyChanged && yarn lint",
     "test:all": "jest",
     "predeploy": "yarn compress",
-    "deploy": "now --regions all",
-    "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog 1"
+    "deploy": "now",
+    "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1"
   },
   "precommit": "lint",
   "pre-push": "test",
@@ -89,8 +89,5 @@
     "mode": "auto",
     "cjs": true,
     "await": true
-  },
-  "nodemon": {
-    "watch": "server.js"
   }
 }
