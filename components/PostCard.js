@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { injectIntl, intlShape } from 'react-intl';
+import { FormattedDate } from 'react-intl';
 import styled from 'styled-components';
 import ProgressiveImage from './ProgressiveImage';
 import webp from '../utils/webp';
-import { unsplashParams, MMMMDDYYYY } from '../theme';
+import { unsplashParams } from '../theme';
 
 const Post = styled.a`
   background: white;
@@ -54,26 +54,20 @@ const Meta = styled.div`
   height: 50%;
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-weight: inherit;
   font-size: inherit;
   margin: 0;
 `;
 
-const PostDate = styled.p`
+export const PostDate = styled.p`
   font-weight: inherit;
   font-size: inherit;
   margin: 0;
   padding: 1rem 0;
 `;
 
-const PostCard = ({
-  id,
-  image: { imageUrl, name, url },
-  date,
-  title,
-  intl: { formatDate },
-}) => {
+const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
   const filePath = '/static/images/posts';
   const thumbPath = '/static/images/posts/thumb';
   const webpImage = webp(imageUrl).url;
@@ -100,7 +94,14 @@ const PostCard = ({
           />
         </ImageWrap>
         <Meta>
-          <PostDate>{formatDate(date, MMMMDDYYYY)}</PostDate>
+          <PostDate>
+            <FormattedDate
+              value={date}
+              month="long"
+              day="numeric"
+              year="numeric"
+            />
+          </PostDate>
           <Title>{title}</Title>
         </Meta>
       </Post>
@@ -117,7 +118,6 @@ PostCard.propTypes = {
     name: PropTypes.string,
     url: PropTypes.string,
   }).isRequired,
-  intl: intlShape.isRequired,
 };
 
-export default injectIntl(PostCard);
+export default PostCard;
