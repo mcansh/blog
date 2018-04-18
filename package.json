@@ -14,7 +14,7 @@
     "compress": "node ./scripts/compress.js",
     "start": "node -r esm server",
     "lint": "eslint ./ --quiet",
-    "test": "jest && bundlesize && yarn lint",
+    "test": "jest && yarn lint",
     "predeploy": "yarn compress",
     "deploy": "now --regions all",
     "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog 1"
@@ -65,7 +65,6 @@
   },
   "devDependencies": {
     "babel-eslint": "8.2.3",
-    "bundlesize": "0.17.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-mcansh": "1.0.4",
@@ -90,11 +89,6 @@
     "cjs": true,
     "await": true
   },
-  "bundlesize": [
-    {
-      "path": "./pages/**/*.js"
-    }
-  ],
   "nodemon": {
     "watch": "server.js"
   }
