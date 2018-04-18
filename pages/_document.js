@@ -5,14 +5,13 @@ import colors from '../theme';
 
 class Page extends Document {
   static async getInitialProps(context) {
-    // styled-components
     const { renderPage } = context;
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props =>
       sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
-    // react-intl
+
     const props = await super.getInitialProps(context);
     const {
       req: { locale, localeDataScript },
@@ -38,9 +37,7 @@ class Page extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width, viewport-fit=cover"
           />
-          {process.env.NODE_ENV !== 'development' && (
-            <link rel="manifest" href="/manifest.json" />
-          )}
+          <link rel="manifest" href="/manifest.json" />
           <link type="text/plain" rel="author" href="/static/humans.txt" />
           <link
             rel="mask-icon"
