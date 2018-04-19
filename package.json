@@ -33,7 +33,7 @@
     "date-fns": "2.0.0-alpha.7",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
-    "esm": "3.0.19",
+    "esm": "3.0.20",
     "glob": "7.1.2",
     "graphql": "0.13.2",
     "highlight.js": "9.12.0",
