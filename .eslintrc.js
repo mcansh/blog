@@ -9,7 +9,7 @@ module.exports = {
     'no-return-assign': ['error', 'except-parens'],
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/*.test.js', 'jest.setup.js', 'jest.config.js'] },
+      { devDependencies: ['__tests__/**/*.js', 'jest.setup.js', 'jest.config.js'] },
     ],
   }
 };
