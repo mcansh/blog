@@ -2,6 +2,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import createComponentWithIntl from '../utils/jest';
 
 import Header, { Title } from '../components/Header';
 import posts from '../posts.json';
@@ -45,6 +46,13 @@ describe('Header component with Snapshot Testing', () => {
   //   const tree = component.toJSON();
   //   expect(tree).toMatchSnapshot();
   // });
+
+  it('shows latest post', () => {
+    const component = createComponentWithIntl(<Header id={latest.id} />);
+
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
   it('shows custom text and image', () => {
     const component = renderer.create(

@@ -33,3 +33,46 @@ exports[`Header component with Snapshot Testing shows custom text and image 1`] 
   </picture>
 </header>
 `;
+
+exports[`Header component with Snapshot Testing shows latest post 1`] = `
+<header
+  className="Header-s1qosm5-0 dbhoxp"
+>
+  <div
+    className="Header__HeaderContent-s1qosm5-1 vBaYh"
+  >
+    <h1
+      className="Header__Title-s1qosm5-2 dnbrvZ"
+    >
+      Ruby project
+    </h1>
+    <h2
+      className="Date__H2-s1289xkb-0 fCIcuI"
+      title="December 9, 2017"
+    >
+      Posted 
+      <span>
+        4 months ago
+      </span>
+    </h2>
+  </div>
+  <picture
+    className="Image__Picture-s1ifvl2x-0 elFaZh"
+  >
+    <source
+      srcSet="/static/images/posts/stacy-wyss-702.webp"
+      type="image/webp"
+    />
+    <source
+      srcSet="/static/images/posts/stacy-wyss-702.jpg"
+      type="image/jpg"
+    />
+    <img
+      alt="Taken by Stacy Wyss"
+      className="Image-s1ifvl2x-1 jXqHhq"
+      data-source-url="https://unsplash.com/photos/-aDl1z8_nGY?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog"
+      src="/static/images/posts/stacy-wyss-702.jpg"
+    />
+  </picture>
+</header>
+`;
