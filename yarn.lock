@@ -3061,9 +3061,9 @@ eslint-plugin-import@2.11.0:
     read-pkg-up "^2.0.0"
     resolve "^1.6.0"
 
-eslint-plugin-jest@21.15.0:
-  version "21.15.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.15.0.tgz#645a3f560d3e61d99611b215adc80b4f31e6d896"
+eslint-plugin-jest@21.15.1:
+  version "21.15.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.15.1.tgz#662a3f0888002878f0f388efd09c190a95c33d82"
 
 eslint-plugin-jsx-a11y@6.0.3:
   version "6.0.3"
@@ -3151,9 +3151,9 @@ eslint@4.19.1:
     table "4.0.2"
     text-table "~0.2.0"
 
-esm@3.0.19:
-  version "3.0.19"
-  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.19.tgz#eed937a45baef3653b5192e8f0e64571da819424"
+esm@3.0.20:
+  version "3.0.20"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.20.tgz#6659d3c3ed0342354e7f1eaf6204a01083781426"
 
 espree@^3.5.4:
   version "3.5.4"
@@ -7189,9 +7189,9 @@ range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raven-js@3.24.1:
-  version "3.24.1"
-  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.24.1.tgz#7327e08786248517eedd36205bf50f1047821ffa"
+raven-js@3.24.2:
+  version "3.24.2"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.24.2.tgz#c5cacb363b198812e80cd4c6714e5e478549ebcf"
 
 rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
   version "1.2.2"
@@ -7234,9 +7234,9 @@ react-dom@16.3.2:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-ga@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.4.1.tgz#dfbd5f028ed39a07067f7a8bf57dc0d240000767"
+react-ga@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.0.tgz#fbba2b33d41ce727f7d4cf383d54dbbfbf96c507"
   optionalDependencies:
     prop-types "^15.6.0"
     react "^15.6.2 || ^16.0"
