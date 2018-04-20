@@ -4,16 +4,25 @@ import { Subscribe } from 'unstated';
 import StateContainer from './StateContainer';
 
 const messages = defineMessages({
-  label: {
-    id: 'Hamburger.label',
-    defaultMessage: 'Toggle Side Nav',
+  navOpenLabel: {
+    id: 'Hamburger.label.opened',
+    defaultMessage: 'Close Side Nav',
+  },
+  navClosedLabel: {
+    id: 'Hamburger.label.closed',
+    defaultMessage: 'Open Side Nav',
   },
 });
 
 const Hamburger = ({ intl: { formatMessage } }) => (
   <Subscribe to={[StateContainer]}>
     {({ toggleNav, state: { navOpen } }) => (
-      <button aria-label={formatMessage(messages.label)} onClick={toggleNav}>
+      <button
+        aria-label={formatMessage(
+          navOpen ? messages.navOpenLabel : messages.navClosedLabel
+        )}
+        onClick={toggleNav}
+      >
         <span />
         <style jsx>{`
           button {
