@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 import React from 'react';
 // import renderer from 'react-test-renderer';
 
-import App from '../pages/index';
-import Header from '../components/Header';
-import PostCard from '../components/PostCard';
+import App from '../../pages/index';
+import Header from '../../components/Header';
+import PostCard from '../../components/PostCard';
 
-import posts from '../posts.json';
+import posts from '../../posts.json';
 
 describe('With Enzyme', () => {
   it('App renders', () => {

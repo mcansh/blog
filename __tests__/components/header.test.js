@@ -2,10 +2,10 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import createComponentWithIntl from '../utils/jest';
+import createComponentWithIntl from '../../utils/jest';
 
-import Header, { Title } from '../components/Header';
-import posts from '../posts.json';
+import Header, { Title } from '../../components/Header';
+import posts from '../../posts.json';
 
 const [latest] = posts;
 
