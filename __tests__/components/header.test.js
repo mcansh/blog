@@ -40,13 +40,6 @@ describe('Header Component', () => {
 });
 
 describe('Header component with Snapshot Testing', () => {
-  // it('shows latest post', () => {
-  //   const component = renderer.create(<Header id={latest.id} />);
-
-  //   const tree = component.toJSON();
-  //   expect(tree).toMatchSnapshot();
-  // });
-
   it('shows latest post', () => {
     const component = createComponentWithIntl(<Header id={latest.id} />);
 
