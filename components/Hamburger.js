@@ -1,7 +1,6 @@
 import React from 'react';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
-import { Subscribe } from 'unstated';
-import StateContainer from './StateContainer';
+import { NavigationContext } from './Navigation';
 
 const messages = defineMessages({
   navOpenLabel: {
@@ -15,7 +14,7 @@ const messages = defineMessages({
 });
 
 const Hamburger = ({ intl: { formatMessage } }) => (
-  <Subscribe to={[StateContainer]}>
+  <NavigationContext.Consumer>
     {({ toggleNav, state: { navOpen } }) => (
       <button
         aria-label={formatMessage(
@@ -93,7 +92,7 @@ const Hamburger = ({ intl: { formatMessage } }) => (
         `}</style>
       </button>
     )}
-  </Subscribe>
+  </NavigationContext.Consumer>
 );
 
 Hamburger.propTypes = {
