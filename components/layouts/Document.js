@@ -4,7 +4,6 @@ import NProgress from 'nprogress';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import Navigation from '../Navigation';
-import withSentry from './withSentry';
 import colors from '../../theme';
 import Footer from '../Footer';
 import { version } from '../../package.json';
@@ -150,6 +149,4 @@ class Document extends Component {
 
 Document.propTypes = { children: PropTypes.node.isRequired };
 
-export default (process.env.NODE_ENV === 'development'
-  ? withIntl(Document)
-  : withIntl(withSentry(Document)));
+export default withIntl(Document);
