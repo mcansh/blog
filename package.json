@@ -16,9 +16,9 @@
     "build": "next build && node ./scripts/default-lang",
     "compress": "node ./scripts/compress.js",
     "start": "node -r esm server",
-    "lint": "eslint ./ --quiet",
-    "test": "jest --onlyChanged && yarn lint",
-    "test:all": "jest",
+    "lint": "npx eslint ./ --quiet",
+    "test": "npx jest --onlyChanged && yarn lint",
+    "test:all": "npx jest",
     "predeploy": "yarn compress",
     "deploy": "now",
     "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1"
