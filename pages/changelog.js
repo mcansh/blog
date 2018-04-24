@@ -11,7 +11,7 @@ const allReleasesQuery = gql`
   query allReleases {
     repository(owner: "mcansh", name: "blog") {
       name
-      releases(last: 100, orderBy: { field: CREATED_AT, direction: DESC }) {
+      releases(first: 100, orderBy: { field: CREATED_AT, direction: DESC }) {
         nodes {
           tag {
             name
