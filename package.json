@@ -41,7 +41,7 @@
     "intl": "1.2.5",
     "isomorphic-unfetch": "2.0.0",
     "markdown-in-js": "1.1.4",
-    "next": "6.0.0-canary.6",
+    "next": "6.0.0-canary.7",
     "next-workbox-webpack-plugin": "1.1.0",
     "nprogress": "0.2.0",
     "polka": "0.3.4",
