@@ -34,14 +34,14 @@
     "babel-plugin-react-intl": "2.4.0",
     "babel-plugin-styled-components": "1.5.1",
     "date-fns": "2.0.0-alpha.7",
-    "esm": "3.0.27",
+    "esm": "3.0.28",
     "glob": "7.1.2",
     "graphql": "0.13.2",
     "highlight.js": "9.12.0",
     "intl": "1.2.5",
     "isomorphic-unfetch": "2.0.0",
     "markdown-in-js": "1.1.4",
-    "next": "6.0.0-canary.7",
+    "next": "6.0.0",
     "next-workbox-webpack-plugin": "1.1.0",
     "nprogress": "0.2.0",
     "polka": "0.3.4",
@@ -86,7 +86,7 @@
     "prettier": "1.12.1",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.3.2",
-    "sharp": "0.20.1"
+    "sharp": "0.20.2"
   },
   "esm": {
     "mode": "auto",
