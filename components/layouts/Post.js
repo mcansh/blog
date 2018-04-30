@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Document from './Document';
 
 const Post = ({ children }) => (
-  <Document>
+  <Fragment>
     {children}
     <style jsx global>{`
       ._markdown_ {
@@ -16,7 +15,7 @@ const Post = ({ children }) => (
           constant(safe-area-inset-left);
       }
     `}</style>
-  </Document>
+  </Fragment>
 );
 
 Post.propTypes = {

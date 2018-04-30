@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import withData from '../lib/withData';
-import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';
 import Header from '../components/Header';
 import Release from '../components/Release';
@@ -25,7 +24,7 @@ const allReleasesQuery = gql`
 `;
 
 const Changelog = () => (
-  <Document>
+  <Fragment>
     <Meta />
     <Header
       title="Changelog"
@@ -54,7 +53,7 @@ const Changelog = () => (
         ));
       }}
     </Query>
-  </Document>
+  </Fragment>
 );
 
 export default withData(Changelog);

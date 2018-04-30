@@ -1,5 +1,4 @@
-import React from 'react';
-import Document from '../components/layouts/Document';
+import React, { Fragment } from 'react';
 import PostCard from '../components/PostCard';
 import posts from '../posts.json';
 import Header from '../components/Header';
@@ -9,7 +8,7 @@ const [latest] = posts;
 const { id: latestid } = latest;
 
 const Index = () => (
-  <Document>
+  <Fragment>
     <Meta />
     <Header id={latestid} link={latestid} />
     <div>
@@ -49,7 +48,7 @@ const Index = () => (
         }
       }
     `}</style>
-  </Document>
+  </Fragment>
 );
 
 export default Index;
