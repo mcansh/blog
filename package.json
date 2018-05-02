@@ -54,7 +54,7 @@
     "react-dom": "16.3.2",
     "react-ga": "2.5.0",
     "react-intl": "2.4.0",
-    "react-syntax-highlighter": "7.0.2",
+    "react-syntax-highlighter": "7.0.3",
     "remark": "9.0.0",
     "remark-emoji": "2.0.1",
     "remark-github": "7.0.3",
