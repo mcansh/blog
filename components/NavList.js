@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import isAbsoluteUrl from 'is-absolute-url';
 import { FormattedMessage } from 'react-intl';
-import isExternal from '../utils/isExternal';
 
 const NavLinks = [
   {
@@ -36,13 +36,16 @@ const NavLinks = [
 
 const NavList = () => (
   <ul>
-    {NavLinks.map(({ name, slug }) => (
-      <li key={name.props.defaultMessage}>
-        <Link href={slug} prefetch={!isExternal(slug)}>
-          <a>{name}</a>
-        </Link>
-      </li>
-    ))}
+    {NavLinks.map(({ name, slug }) => {
+      const isExternal = isAbsoluteUrl(slug);
+      return (
+        <li key={name.props.defaultMessage}>
+          <Link href={slug} prefetch={!isExternal}>
+            <a>{name}</a>
+          </Link>
+        </li>
+      );
+    })}
     <style jsx>{`
       ul {
         height: 100vh;
