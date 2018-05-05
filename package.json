@@ -61,7 +61,6 @@
     "webpack": "4.7.0"
   },
   "devDependencies": {
-    "@zeit/eslint-config-base": "0.2.13",
     "@zeit/git-hooks": "0.1.4",
     "babel-eslint": "8.2.3",
     "enzyme": "3.3.0",
