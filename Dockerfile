@@ -1,11 +1,9 @@
-FROM node:alpine
+FROM mhart/alpine-node
+ENV NODE_ENV=production
 RUN mkdir -p /app
 WORKDIR /app
-ENV NODE_ENV production
-COPY yarn.lock package.json /app/
-RUN yarn
-COPY . /app
+COPY . .
+RUN yarn --ignore-engines
 RUN yarn build
-RUN yarn cache clean
 EXPOSE 3000
 CMD node -r esm server.js
