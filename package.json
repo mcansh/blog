@@ -63,7 +63,9 @@
   },
   "devDependencies": {
     "@zeit/git-hooks": "0.1.4",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "8.2.3",
+    "babel-jest": "22.4.3",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.19.1",
