@@ -21,7 +21,8 @@
     "test:all": "npx jest",
     "predeploy": "yarn compress",
     "deploy": "now",
-    "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1"
+    "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1",
+    "git-pre-commit": "yarn lint && yarn test"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
