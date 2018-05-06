@@ -4204,6 +4204,13 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
+humanize-url@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/humanize-url/-/humanize-url-1.0.1.tgz#f4ab99e0d288174ca4e1e50407c55fbae464efff"
+  dependencies:
+    normalize-url "^1.0.0"
+    strip-url-auth "^1.0.0"
+
 iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
@@ -6147,6 +6154,15 @@ normalize-path@^2.0.1, normalize-path@^2.1.1:
   dependencies:
     remove-trailing-separator "^1.0.1"
 
+normalize-url@^1.0.0, normalize-url@^1.0.2:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-1.9.1.tgz#2cc0d66b31ea23036458436e3620d85954c66c3c"
+  dependencies:
+    object-assign "^4.0.1"
+    prepend-http "^1.0.0"
+    query-string "^4.1.0"
+    sort-keys "^1.0.0"
+
 npm-bundled@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.3.tgz#7e71703d973af3370a9591bafe3a63aca0be2308"
@@ -6656,7 +6672,7 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
 
-prepend-http@^1.0.1:
+prepend-http@^1.0.0, prepend-http@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
 
@@ -6813,6 +6829,13 @@ punycode@^1.2.4, punycode@^1.4.1:
 qs@~6.5.1:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+
+query-string@^4.1.0:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
+  dependencies:
+    object-assign "^4.1.0"
+    strict-uri-encode "^1.0.0"
 
 querystring-es3@^0.2.0:
   version "0.2.1"
@@ -7649,6 +7672,13 @@ sntp@2.x.x:
   dependencies:
     hoek "4.x.x"
 
+somebody@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/somebody/-/somebody-2.0.0.tgz#2dc297b703be552d849abedbe884c8f5ffce0786"
+  dependencies:
+    humanize-url "^1.0.1"
+    normalize-url "^1.0.2"
+
 sort-keys-length@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sort-keys-length/-/sort-keys-length-1.0.1.tgz#9cb6f4f4e9e48155a6aa0671edd336ff1479a188"
@@ -7862,6 +7892,10 @@ stream-shift@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/stream-shift/-/stream-shift-1.0.0.tgz#d5c752825e5367e786f78e18e445ea223a155952"
 
+strict-uri-encode@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
+
 string-hash@1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/string-hash/-/string-hash-1.1.3.tgz#e8aafc0ac1855b4666929ed7dd1275df5d6c811b"
@@ -7986,6 +8020,10 @@ strip-outer@^1.0.0:
   resolved "https://registry.yarnpkg.com/strip-outer/-/strip-outer-1.0.1.tgz#b2fd2abf6604b9d1e6013057195df836b8a9d631"
   dependencies:
     escape-string-regexp "^1.0.2"
+
+strip-url-auth@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/strip-url-auth/-/strip-url-auth-1.0.1.tgz#22b0fa3a41385b33be3f331551bbb837fa0cd7ae"
 
 styled-components@3.2.6:
   version "3.2.6"
