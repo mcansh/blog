@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import { shallow } from 'enzyme';
 import React from 'react';
+import 'jest-styled-components';
 
 import PostCard, { Title } from '../../components/PostCard';
 import posts from '../../posts.json';

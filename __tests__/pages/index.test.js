@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import { shallow } from 'enzyme';
 import React from 'react';
+import 'jest-styled-components';
 
 import App from '../../pages/index';
 import Header from '../../components/Header';
