@@ -6,6 +6,7 @@ import IntlPolyfill from 'intl';
 import glob from 'glob';
 import accepts from 'accepts';
 import { readFileSync } from 'fs';
+import favicon from 'serve-favicon';
 
 import atom from './lib/atom';
 import jsonfeed from './lib/jsonfeed';
@@ -37,6 +38,8 @@ const getMessages = locale => require(`./lang/${locale}.json`);
 
 app.prepare().then(() => {
   const server = polka();
+
+  server.use(favicon(join(__dirname, 'static', 'images', 'logo', 'logo.ico')));
 
   server.get('/sw.js', (req, res) => {
     const parsedUrl = parse(req.url, true);
