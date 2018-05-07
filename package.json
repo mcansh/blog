@@ -63,7 +63,7 @@
     "serve-favicon": "2.5.0",
     "somebody": "2.0.0",
     "styled-components": "3.2.6",
-    "webpack": "4.7.0"
+    "webpack": "4.8.1"
   },
   "devDependencies": {
     "@zeit/git-hooks": "0.1.4",
