@@ -22,8 +22,9 @@
     "predeploy": "yarn compress",
     "deploy": "now",
     "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1",
-    "git-pre-commit": "yarn lint && yarn test",
-    "lint:css": "stylelint './components/**/*.js'"
+    "git-pre-commit": "yarn lint:all && yarn test",
+    "lint:css": "stylelint './components/**/*.js'",
+    "lint:all": "yarn lint && yarn lint:css"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
