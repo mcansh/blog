@@ -8,6 +8,7 @@ import accepts from 'accepts';
 import { readFileSync } from 'fs';
 import favicon from 'serve-favicon';
 import renderAndCache from './caching';
+import posts from '../posts.json';
 
 import atom from '../lib/atom';
 import jsonfeed from '../lib/jsonfeed';
@@ -69,6 +70,18 @@ app.prepare().then(() => {
   server.get('/feed.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.end(jsonfeed());
+  });
+
+  posts.forEach(post => {
+    server.get(`/${post.id}`, (req, res) => {
+      renderAndCache({
+        app,
+        req,
+        res,
+        pagePath: `/${post.id}`,
+        queryParams: req.params,
+      });
+    });
   });
 
   server.get('/', (req, res) => {

@@ -2,7 +2,7 @@ import LRUCache from 'lru-cache';
 
 const ssrCache = new LRUCache({
   max: 100,
-  maxAge: 1000 * 60 * 60, // 1hour
+  maxAge: 1000 * 60 * 60, // 1 hour
 });
 
 const getCacheKey = req => `${req.url}`;
