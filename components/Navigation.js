@@ -1,6 +1,7 @@
 import React, { Component, createContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Router from 'next/router';
 import Hamburger from './Hamburger';
 import NavList from './NavList';
 
@@ -10,6 +11,7 @@ class NavigationProvider extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
+
   state = { navOpen: false };
 
   toggleNav = () => {
@@ -21,6 +23,7 @@ class NavigationProvider extends Component {
   };
 
   render() {
+    Router.onRouteChangeComplete = () => this.closeNav();
     return (
       <NavigationContext.Provider
         value={{
