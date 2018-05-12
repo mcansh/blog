@@ -25,15 +25,17 @@ process.on('unhandledRejection', error => {
 
 const languages = glob.sync('../lang/*.json').map(f => basename(f, '.json'));
 
+const parseLocale = locale =>
+  Array.isArray(locale) ? locale[0].split('-')[0] : locale.split('-')[0];
+
 const localeDataCache = new Map();
 const getLocaleDataScript = locale => {
-  const lang = locale.split('-')[0];
-  if (!localeDataCache.has(lang)) {
-    const localeDataFile = require.resolve(`react-intl/locale-data/${lang}`);
+  if (!localeDataCache.has(locale)) {
+    const localeDataFile = require.resolve(`react-intl/locale-data/${locale}`);
     const localeDataScript = readFileSync(localeDataFile, 'utf8');
-    localeDataCache.set(lang, localeDataScript);
+    localeDataCache.set(locale, localeDataScript);
   }
-  return localeDataCache.get(lang);
+  return localeDataCache.get(locale);
 };
 
 Intl.NumberFormat = IntlPolyfill.NumberFormat;
@@ -91,9 +93,10 @@ app.prepare().then(() => {
   server.get('*', (req, res) => {
     const accept = accepts(req);
     const locale = accept.language(dev ? ['en'] : languages);
+    const lang = parseLocale(locale);
     req.locale = locale;
-    req.localeDataScript = getLocaleDataScript(locale);
-    req.messages = dev ? {} : getMessages(locale);
+    req.localeDataScript = getLocaleDataScript(lang);
+    req.messages = dev ? {} : getMessages(lang);
 
     handle(req, res);
   });
