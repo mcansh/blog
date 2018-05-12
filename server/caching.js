@@ -1,6 +1,6 @@
-import LRUCache from 'lru-cache';
+const Cache = require('tmp-cache');
 
-const ssrCache = new LRUCache({
+const cache = new Cache({
   max: 100,
   maxAge: 1000 * 60 * 60, // 1 hour
 });
@@ -11,9 +11,9 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
   const key = getCacheKey(req);
 
   // If we have a page in the cache, let's serve it
-  if (ssrCache.has(key)) {
+  if (cache.has(key)) {
     res.setHeader('x-cache', 'HIT');
-    res.end(ssrCache.get(key));
+    res.end(cache.get(key));
     return;
   }
 
@@ -28,7 +28,7 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
     }
 
     // Let's cache this page
-    ssrCache.set(key, html);
+    cache.set(key, html);
 
     res.setHeader('x-cache', 'MISS');
     res.end(html);
