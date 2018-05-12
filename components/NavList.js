@@ -1,7 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 import isAbsoluteUrl from 'is-absolute-url';
 import { FormattedMessage } from 'react-intl';
+import Link from './LinkWithData';
 
 const NavLinks = [
   {

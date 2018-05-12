@@ -9,7 +9,6 @@ import Header from '../components/Header';
 import Release from '../components/Release';
 
 const Button = styled.button`
-  all: unset;
   border: none;
   color: white;
   padding: 1rem 2rem;
