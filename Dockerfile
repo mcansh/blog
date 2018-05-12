@@ -6,4 +6,4 @@ COPY . .
 RUN yarn --ignore-engines
 RUN yarn build
 EXPOSE 3000
-CMD node -r esm server.js
+CMD node -r esm server/index.js
