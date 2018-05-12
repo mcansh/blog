@@ -40,13 +40,13 @@ const NavList = () => (
       const isExternal = isAbsoluteUrl(slug);
       return (
         <li key={name.props.defaultMessage}>
-          <Link
-            href={slug}
-            prefetch={!isExternal}
-            rel={isExternal ? 'noopener external nofollow' : ''}
-            target={isExternal ? '_blank' : ''}
-          >
-            <a>{name}</a>
+          <Link href={slug} prefetch={!isExternal}>
+            <a
+              rel={isExternal ? 'noopener external nofollow' : ''}
+              target={isExternal ? '_blank' : ''}
+            >
+              {name}
+            </a>
           </Link>
         </li>
       );
