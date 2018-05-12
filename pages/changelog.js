@@ -13,9 +13,9 @@ const Button = styled.button`
   border: none;
   color: white;
   padding: 1rem 2rem;
-  border-radius: 1.2rem;
+  border-radius: 2rem;
   background: ${props => props.theme.primary};
-  margin: 2rem auto;
+  margin: 3rem auto 0;
   display: block;
   font-size: 1.6rem;
   transition: 250ms all ease-in-out;
@@ -23,6 +23,7 @@ const Button = styled.button`
 
   &:hover {
     background: ${props => lighten(0.2, props.theme.primary)};
+    border-radius: 1.2rem;
   }
 `;
 
