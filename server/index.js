@@ -7,15 +7,21 @@ import glob from 'glob';
 import accepts from 'accepts';
 import { readFileSync } from 'fs';
 import favicon from 'serve-favicon';
+import renderAndCache from './caching';
+import posts from '../posts.json';
 
-import atom from './lib/atom';
-import jsonfeed from './lib/jsonfeed';
-import manifest from './lib/manifest';
+import atom from '../lib/atom';
+import jsonfeed from '../lib/jsonfeed';
+import manifest from '../lib/manifest';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const PORT = process.env.PORT || 3000;
 const handle = app.getRequestHandler();
+
+process.on('unhandledRejection', error => {
+  throw error;
+});
 
 const languages = glob.sync('./lang/*.json').map(f => basename(f, '.json'));
 
@@ -39,7 +45,9 @@ const getMessages = locale => require(`./lang/${locale}.json`);
 app.prepare().then(() => {
   const server = polka();
 
-  server.use(favicon(join(__dirname, 'static', 'images', 'logo', 'logo.ico')));
+  server.use(
+    favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))
+  );
 
   server.get('/sw.js', (req, res) => {
     const parsedUrl = parse(req.url, true);
@@ -62,6 +70,22 @@ app.prepare().then(() => {
   server.get('/feed.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.end(jsonfeed());
+  });
+
+  posts.forEach(post => {
+    server.get(`/${post.id}`, (req, res) => {
+      renderAndCache({
+        app,
+        req,
+        res,
+        pagePath: `/${post.id}`,
+        queryParams: req.params,
+      });
+    });
+  });
+
+  server.get('/', (req, res) => {
+    renderAndCache({ app, req, res, pagePath: '/', queryParams: req.params });
   });
 
   server.get('*', (req, res) => {
