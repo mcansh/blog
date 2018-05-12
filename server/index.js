@@ -23,7 +23,7 @@ process.on('unhandledRejection', error => {
   throw error;
 });
 
-const languages = glob.sync('./lang/*.json').map(f => basename(f, '.json'));
+const languages = glob.sync('../lang/*.json').map(f => basename(f, '.json'));
 
 const localeDataCache = new Map();
 const getLocaleDataScript = locale => {
@@ -40,7 +40,7 @@ Intl.NumberFormat = IntlPolyfill.NumberFormat;
 Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 
 // eslint-disable-next-line import/no-dynamic-require, global-require
-const getMessages = locale => require(`./lang/${locale}.json`);
+const getMessages = locale => require(`../lang/${locale}.json`);
 
 app.prepare().then(() => {
   const server = polka();
