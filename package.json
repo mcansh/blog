@@ -83,7 +83,7 @@
     "eslint-plugin-jest": "21.15.1",
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-prettier": "2.6.0",
-    "eslint-plugin-react": "7.8.1",
+    "eslint-plugin-react": "7.8.2",
     "imagemin": "5.3.1",
     "imagemin-mozjpeg": "7.0.0",
     "imagemin-pngquant": "5.1.0",
