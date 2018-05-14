@@ -86,7 +86,7 @@ exports[`Header component with Snapshot Testing shows custom text and image 1`] 
     />
     <source
       srcSet="/static/images/posts/http://localhost:3000/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg"
-      type="image/jpg"
+      type="image/jpeg"
     />
     <img
       alt=""
@@ -197,7 +197,7 @@ exports[`Header component with Snapshot Testing shows latest post 1`] = `
     />
     <source
       srcSet="/static/images/posts/stacy-wyss-702.jpg"
-      type="image/jpg"
+      type="image/jpeg"
     />
     <img
       alt="Taken by Stacy Wyss"
