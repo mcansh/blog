@@ -21,7 +21,7 @@ const Post = styled.a`
   line-height: 1.6;
   font-size: 1.6rem;
   text-decoration: none;
-  color: #777;
+  color: #555;
 
   @media (max-width: 999px) {
     width: calc(50% - 1rem);
