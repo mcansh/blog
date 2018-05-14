@@ -1,9 +1,9 @@
-import { lookup } from 'mime-types';
+const mime = require('mime/lite');
 
 const webp = image => {
   const imageRegex = /png|jpg/;
   const url = image.replace(imageRegex, 'webp');
-  const type = lookup(image);
+  const type = mime.getType(image);
 
   return { url, type };
 };

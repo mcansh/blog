@@ -8,7 +8,7 @@ import { unsplashParams } from '../../theme';
 import { Post, ImageWrap, Meta, Title, PostDate, Image } from './components';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
-  const mimeType = `image/${webp(imageUrl).type}`;
+  const { type } = webp(imageUrl);
 
   return (
     <Link prefetch href={id} passHref>
@@ -21,7 +21,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
             />
             <source
               srcSet={require(`../../static/images/posts/${imageUrl}`)}
-              type={mimeType}
+              type={type}
             />
             <Image
               src={require(`../../static/images/posts/${imageUrl}`)}
