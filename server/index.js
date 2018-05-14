@@ -25,8 +25,12 @@ process.on('unhandledRejection', error => {
 
 const languages = glob.sync('../lang/*.json').map(f => basename(f, '.json'));
 
-const parseLocale = locale =>
-  Array.isArray(locale) ? locale[0].split('-')[0] : locale.split('-')[0];
+const parseLocale = locale => {
+  if ((Array.isArray(locale) && locale[0].includes('*')) || locale === '*') {
+    return 'en';
+  } else if (Array.isArray(locale)) return locale[0].split('-')[0];
+  return locale.split('-')[0];
+};
 
 const localeDataCache = new Map();
 const getLocaleDataScript = locale => {
