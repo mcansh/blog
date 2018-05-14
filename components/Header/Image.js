@@ -33,11 +33,12 @@ const HeaderImage = ({ image: { imageUrl, name, url } }) => {
   const image = `/static/images/posts/${imageUrl}`;
 
   const webpbg = `/static/images/posts/${webp(imageUrl).url}`;
+  const mimetype = `image/${webp(imageUrl).type}`;
 
   return (
     <Picture>
       <source srcSet={webpbg} type="image/webp" />
-      <source srcSet={image} type={`image/${webp(imageUrl).type}`} />
+      <source srcSet={image} type={mimetype} />
       <Image
         src={`/static/images/posts/${imageUrl}`}
         alt={name ? `Taken by ${name}` : ''}

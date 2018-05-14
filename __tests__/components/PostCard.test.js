@@ -3,7 +3,8 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import 'jest-styled-components';
 
-import PostCard, { Title } from '../../components/PostCard';
+import PostCard from '../../components/PostCard';
+import { Title } from '../../components/PostCard/components';
 import posts from '../../posts.json';
 
 describe('PostCard Component', () => {
@@ -18,11 +19,19 @@ describe('PostCard Component', () => {
         id={latest.id}
       />
     );
+
     expect(
       post
         .find(Title)
         .render()
         .text()
     ).toBe(latest.title);
+
+    // expect(
+    //   post
+    //     .find(Image)
+    //     .render()
+    //     .exists()
+    // ).toEqual(true);
   });
 });
