@@ -3,30 +3,6 @@ const imagemin = require('imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
 const imageminWebp = require('imagemin-webp');
-const sharp = require('sharp');
-const { lookup } = require('mime-types');
-const { readdirSync } = require('fs');
-/* eslint-enable import/no-extraneous-dependencies */
-
-const imageDir = 'static/images/posts';
-readdirSync(imageDir).forEach(file => {
-  const fullFile = `${imageDir}/${file}`;
-  const fileType = lookup(fullFile);
-  const fileExtension = /[^.]+$/.exec(file);
-  const fileName = file.replace(`.${fileExtension}`, '');
-  const reg = /image\/jpeg|image\/png|image\/webp/;
-  if (reg.test(fileType)) {
-    sharp(fullFile)
-      .resize(150)
-      .toFile(`${imageDir}/thumb/${fileName}.${fileExtension}`, error => {
-        if (error) {
-          console.log(`${file} was not resized`, error);
-        } else {
-          console.log(`${file} was resized successfully`);
-        }
-      });
-  }
-});
 
 // compress and convert post images to webp
 imagemin(['static/images/posts/*.{jpg,png}'], 'static/images/posts', {
