@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import styled from 'styled-components';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
@@ -50,69 +50,88 @@ const allReleasesQuery = gql`
   }
 `;
 
-const Changelog = () => (
-  <Fragment>
-    <Meta />
-    <Header
-      title="Changelog"
-      image={{
-        imageUrl: 'joshua-earle-234344-unsplash.jpg',
-        url: 'https://unsplash.com/photos/6V19Uy-tUhs',
-        name: 'Joshua Earle',
-      }}
-    />
-    <Query query={allReleasesQuery}>
-      {({ loading, error, fetchMore, data }) => {
-        if (loading) return <p>Loading...</p>;
-        if (error) return <p>Error :(</p>;
-        const {
-          repository: {
-            releases: { edges: releases },
-          },
-        } = data;
+class Changelog extends PureComponent {
+  state = {
+    showButton: true,
+  };
 
-        const loadMoreReleases = () => {
-          const lastRelease = releases[releases.length - 1];
+  hideButton = () => this.setState({ showButton: false });
 
-          fetchMore({
-            variables: {
-              after: lastRelease.cursor,
-            },
-            updateQuery: (prev, { fetchMoreResult }) => {
-              if (!fetchMoreResult) return prev;
+  render() {
+    const { showButton } = this.state;
+    return (
+      <Fragment>
+        <Meta />
+        <Header
+          title="Changelog"
+          image={{
+            imageUrl: 'joshua-earle-234344-unsplash.jpg',
+            url: 'https://unsplash.com/photos/6V19Uy-tUhs',
+            name: 'Joshua Earle',
+          }}
+        />
+        <Query query={allReleasesQuery}>
+          {({ loading, error, fetchMore, data }) => {
+            if (loading) return <p>Loading...</p>;
+            if (error) return <p>Error :(</p>;
+            const {
+              repository: {
+                releases: { edges: releases },
+              },
+            } = data;
 
-              return {
-                repository: {
-                  ...prev.repository,
-                  releases: {
-                    ...prev.repository.releases,
-                    edges: [
-                      ...prev.repository.releases.edges,
-                      ...fetchMoreResult.repository.releases.edges,
-                    ],
-                  },
+            const loadMoreReleases = () => {
+              const lastRelease = releases[releases.length - 1];
+
+              fetchMore({
+                variables: {
+                  after: lastRelease.cursor,
                 },
-              };
-            },
-          });
-        };
+                updateQuery: (prev, { fetchMoreResult }) => {
+                  if (fetchMoreResult.repository.releases.edges.length < 10) {
+                    this.hideButton();
+                  }
 
-        return (
-          <Fragment>
-            {releases.map(({ node: release }) => (
-              <Release
-                key={release.tag.name}
-                version={release.tag.name}
-                notes={release.description}
-                date={release.publishedAt}
-              />
-            ))}
-            <Button onClick={loadMoreReleases}>Load More</Button>
-          </Fragment>
-        );
-      }}
-    </Query>
-  </Fragment>
-);
+                  if (!fetchMoreResult.repository.releases.edges.length) {
+                    return prev;
+                  }
+
+                  return {
+                    repository: {
+                      ...prev.repository,
+                      releases: {
+                        ...prev.repository.releases,
+                        edges: [
+                          ...prev.repository.releases.edges,
+                          ...fetchMoreResult.repository.releases.edges,
+                        ],
+                      },
+                    },
+                  };
+                },
+              });
+            };
+
+            return (
+              <Fragment>
+                {releases.map(({ node: release }) => (
+                  <Release
+                    key={release.tag.name}
+                    version={release.tag.name}
+                    notes={release.description}
+                    date={release.publishedAt}
+                  />
+                ))}
+                {showButton && (
+                  <Button onClick={loadMoreReleases}>Load More</Button>
+                )}
+              </Fragment>
+            );
+          }}
+        </Query>
+      </Fragment>
+    );
+  }
+}
 
 export default withData(Changelog);
