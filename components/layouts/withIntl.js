@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { IntlProvider, addLocaleData, injectIntl } from 'react-intl';
 
@@ -46,7 +46,12 @@ export default Page => {
       const { locale, messages, now, ...props } = this.props;
 
       return (
-        <IntlProvider locale={locale} messages={messages} initialNow={now}>
+        <IntlProvider
+          locale={locale}
+          messages={messages}
+          initialNow={now}
+          tagName={Fragment}
+        >
           <IntlPage {...props} />
         </IntlProvider>
       );

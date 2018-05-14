@@ -59,7 +59,6 @@ app.prepare().then(() => {
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
     const filePath = join(__dirname, '..', 'static', 'workbox', pathname);
-    console.log(filePath);
 
     app.serveStatic(req, res, filePath);
   });
