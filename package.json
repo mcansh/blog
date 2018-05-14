@@ -2,7 +2,7 @@
   "name": "blog",
   "productName": "Logan McAnsh",
   "productShortName": "Blog",
-  "version": "3.8.6",
+  "version": "3.8.7",
   "private": false,
   "description": "My blog for learn.co",
   "repository": "mcansh/blog",
@@ -20,7 +20,6 @@
     "predeploy": "yarn compress",
     "deploy": "now",
     "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1",
-    "git-pre-commit": "yarn lint && yarn test",
     "test": "NODE_ENV=test jest",
     "lint": "eslint ./ --quiet",
     "lint:css": "stylelint './components'"
