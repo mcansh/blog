@@ -26,12 +26,5 @@ describe('PostCard Component', () => {
         .render()
         .text()
     ).toBe(latest.title);
-
-    // expect(
-    //   post
-    //     .find(Image)
-    //     .render()
-    //     .exists()
-    // ).toEqual(true);
   });
 });
