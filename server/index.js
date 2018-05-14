@@ -58,7 +58,8 @@ app.prepare().then(() => {
   server.get('/sw.js', (req, res) => {
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
-    const filePath = join(__dirname, 'static', 'workbox', pathname);
+    const filePath = join(__dirname, '..', 'static', 'workbox', pathname);
+    console.log(filePath);
 
     app.serveStatic(req, res, filePath);
   });
