@@ -10,9 +10,9 @@ import favicon from 'serve-favicon';
 import renderAndCache from './caching';
 import posts from '../posts.json';
 
-import atom from '../lib/atom';
-import jsonfeed from '../lib/jsonfeed';
-import manifest from '../lib/manifest';
+import atom from './atom';
+import jsonfeed from './jsonfeed';
+import manifest from './manifest';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
