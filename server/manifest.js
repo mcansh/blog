@@ -19,6 +19,6 @@ const manifest = () => `
   "display": "standalone",
   "icons": ${JSON.stringify(icons, null, 2)}
 }
-  `;
+`;
 
 export default manifest;
