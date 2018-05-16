@@ -4,13 +4,13 @@ import Raven from 'raven';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
 
-const isDev = process.env.NODE_ENV !== 'development';
+const isDev = process.env.NODE_ENV === 'development';
 
 export default class MyApp extends App {
   constructor(props) {
     super(props);
 
-    if (isDev) {
+    if (!isDev) {
       Raven.config(process.env.SENTRY, {
         release: version,
         environment: process.env.NODE_ENV,
@@ -31,7 +31,7 @@ export default class MyApp extends App {
   componentDidCatch(error, errorInfo) {
     super.componentDidCatch(error, errorInfo);
 
-    if (isDev) {
+    if (!isDev) {
       Raven.captureException(error, { extra: errorInfo });
     } else {
       console.error({ error, errorInfo });
