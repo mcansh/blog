@@ -10,14 +10,14 @@ const icons = iconSizes.map(icon => ({
 
 const manifest = () => `
 {
-  name: "${productName}",
-  short_name: "${productShortName}",
-  description: "${description}",
-  start_url: "/?homescreen=1",
-  background_color: "${colors.primary}",
-  theme_color: "${colors.primary}",
-  display: "standalone",
-  icons: ${JSON.stringify(icons, null, 2)}
+  "name": "${productName}",
+  "short_name": "${productShortName}",
+  "description": "${description}",
+  "start_url": "/?homescreen=1",
+  "background_color": "${colors.primary}",
+  "theme_color": "${colors.primary}",
+  "display": "standalone",
+  "icons": ${JSON.stringify(icons, null, 2)}
 }
   `;
 
