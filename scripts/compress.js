@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const imagemin = require('imagemin');
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const imageminPngquant = require('imagemin-pngquant');
-const imageminWebp = require('imagemin-webp');
+import imagemin from 'imagemin';
+import imageminMozjpeg from 'imagemin-mozjpeg';
+import imageminPngquant from 'imagemin-pngquant';
+import imageminWebp from 'imagemin-webp';
 
 // compress and convert post images to webp
 imagemin(['static/images/posts/*.{jpg,png}'], 'static/images/posts', {

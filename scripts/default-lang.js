@@ -1,9 +1,8 @@
-const { readFileSync, writeFileSync } = require('fs');
-const { resolve } = require('path');
-const glob = require('glob');
+import { readFileSync, writeFileSync } from 'fs';
+import { resolve } from 'path';
+import { sync } from 'glob';
 
-const defaultMessages = glob
-  .sync('./lang/.messages/**/*.json')
+const defaultMessages = sync('./lang/.messages/**/*.json')
   .map(filename => readFileSync(filename, 'utf8'))
   .map(file => JSON.parse(file))
   .reduce((messages, descriptors) => {

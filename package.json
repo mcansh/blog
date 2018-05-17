@@ -13,9 +13,9 @@
   "scripts": {
     "dev": "next",
     "dev:server": "nodemon -r esm -w server server",
-    "compress": "node ./scripts/compress.js",
+    "compress": "node -r esm ./scripts/compress.js",
     "build": "next build",
-    "postbuild": "node ./scripts/default-lang",
+    "postbuild": "node -r esm ./scripts/default-lang",
     "start": "node -r esm server",
     "predeploy": "yarn compress",
     "deploy": "now",
