@@ -55,10 +55,11 @@ app.prepare().then(() => {
     favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))
   );
 
-  server.get('/sw.js', (req, res) => {
+  server.get('/service-worker.js', (req, res) => {
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
-    const filePath = join(__dirname, '..', 'static', 'workbox', pathname);
+
+    const filePath = join(__dirname, '..', '.next', pathname);
 
     app.serveStatic(req, res, filePath);
   });
