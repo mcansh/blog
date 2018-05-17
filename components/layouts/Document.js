@@ -27,19 +27,11 @@ if (global.document) {
 
 class Document extends Component {
   componentDidMount() {
-    if (process.env.NODE_ENV === 'production') {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/sw.js')
-          .then(console.log('service worker registration successful')) // eslint-disable-line no-console
-          .catch(err => console.warn(err)); // eslint-disable-line no-console
-      }
-      if (!window.GA_INITIALIZED) {
-        initGA();
-        window.GA_INITIALIZED = true;
-      }
-      logPageView();
+    if (process.env.NODE_ENV === 'production' && !window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
     }
+    logPageView();
   }
 
   render() {
