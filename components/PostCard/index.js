@@ -8,7 +8,7 @@ import { unsplashParams } from '../../theme';
 import { Post, ImageWrap, Meta, Title, PostDate, Image } from './components';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
-  const { type } = webp(imageUrl);
+  const { type, url: webpImage } = webp(imageUrl);
 
   return (
     <Link prefetch href={id} passHref>
@@ -16,15 +16,18 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
         <ImageWrap>
           <picture>
             <source
-              srcSet={require(`../../static/images/posts/${imageUrl}`)}
+              // srcSet={require(`../../static/images/posts/${imageUrl}`)}
+              srcSet={`../../static/images/posts/${webpImage}`}
               type="image/webp"
             />
             <source
-              srcSet={require(`../../static/images/posts/${imageUrl}`)}
+              // srcSet={require(`../../static/images/posts/${imageUrl}`)}
+              srcSet={`../../static/images/posts/${imageUrl}`}
               type={type}
             />
             <Image
-              src={require(`../../static/images/posts/${imageUrl}`)}
+              // src={require(`../../static/images/posts/${imageUrl}`)}
+              src={`../../static/images/posts/${imageUrl}`}
               alt={name ? `Taken by ${name}` : ''}
               data-source-url={unsplashParams(url)}
             />
