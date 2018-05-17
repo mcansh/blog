@@ -59,6 +59,7 @@
     "react-apollo": "2.1.4",
     "react-dom": "16.3.2",
     "react-ga": "2.5.2",
+    "react-infinite-scroller": "https://github.com/CassetteRocks/react-infinite-scroller",
     "react-intl": "2.4.0",
     "react-syntax-highlighter": "7.0.4",
     "remark": "9.0.0",

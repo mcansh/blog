@@ -1,30 +1,11 @@
 import React, { Fragment, PureComponent } from 'react';
-import styled from 'styled-components';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
-import { lighten } from 'polished';
+import InfiniteScroll from 'react-infinite-scroller';
 import withData from '../lib/withData';
 import Meta from '../components/Meta';
 import Header from '../components/Header';
 import Release from '../components/Release';
-
-const Button = styled.button`
-  border: none;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  background: ${props => props.theme.primary};
-  margin: 3rem auto 0;
-  display: block;
-  font-size: 1.6rem;
-  transition: 250ms all ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    background: ${props => lighten(0.2, props.theme.primary)};
-    border-radius: 1.2rem;
-  }
-`;
 
 const allReleasesQuery = gql`
   query allReleases($after: String) {
@@ -52,13 +33,13 @@ const allReleasesQuery = gql`
 
 class Changelog extends PureComponent {
   state = {
-    showButton: true,
+    hasMore: true,
   };
 
-  hideButton = () => this.setState({ showButton: false });
+  hasNoMore = () => this.setState({ hasMore: false });
 
   render() {
-    const { showButton } = this.state;
+    const { hasMore } = this.state;
     return (
       <Fragment>
         <Meta />
@@ -89,7 +70,7 @@ class Changelog extends PureComponent {
                 },
                 updateQuery: (prev, { fetchMoreResult }) => {
                   if (fetchMoreResult.repository.releases.edges.length < 10) {
-                    this.hideButton();
+                    this.hasNoMore();
                   }
 
                   if (!fetchMoreResult.repository.releases.edges.length) {
@@ -113,19 +94,18 @@ class Changelog extends PureComponent {
             };
 
             return (
-              <Fragment>
-                {releases.map(({ node: release }) => (
-                  <Release
-                    key={release.tag.name}
-                    version={release.tag.name}
-                    notes={release.description}
-                    date={release.publishedAt}
-                  />
-                ))}
-                {showButton && (
-                  <Button onClick={loadMoreReleases}>Load More</Button>
-                )}
-              </Fragment>
+              <InfiniteScroll loadMore={loadMoreReleases} hasMore={hasMore}>
+                <Fragment>
+                  {releases.map(({ node: release }) => (
+                    <Release
+                      key={release.tag.name}
+                      version={release.tag.name}
+                      notes={release.description}
+                      date={release.publishedAt}
+                    />
+                  ))}
+                </Fragment>
+              </InfiniteScroll>
             );
           }}
         </Query>
