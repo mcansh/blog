@@ -4,7 +4,7 @@
   "productShortName": "Blog",
   "version": "3.8.11",
   "private": false,
-  "description": "My blog for learn.co",
+  "description": "My blog for learn.co, but mostly it's a play ground for things I want to build with React 🤷‍♂️",
   "repository": "mcansh/blog",
   "homepage": "https://mcansh.blog",
   "browser": {
