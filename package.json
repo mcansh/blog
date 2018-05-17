@@ -54,7 +54,7 @@
     "prop-types": "15.6.1",
     "prop-types-exact": "1.1.2",
     "raven": "2.6.1",
-    "raven-js": "3.25.1",
+    "raven-js": "3.25.2",
     "react": "16.3.2",
     "react-apollo": "2.1.4",
     "react-dom": "16.3.2",
