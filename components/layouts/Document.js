@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import Navigation from '../Navigation';
 import colors from '../../theme';
 import Footer from '../Footer';
-import { version } from '../../package.json';
+import { version, repository } from '../../package.json';
 import { initGA, logPageView } from '../../lib/analytics';
 import withIntl from './withIntl';
 
@@ -18,7 +18,7 @@ Router.onRouteChangeError = () => NProgress.done();
 if (global.document) {
   const info = [
     `Version: ${version}`,
-    'You can find the code here: https://github.com/mcansh/blog',
+    `You can find the code here: https://github.com/${repository}`,
     'Thanks for stopping by 🤙',
   ];
   // eslint-disable-next-line no-console
