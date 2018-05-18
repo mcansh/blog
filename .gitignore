@@ -6,3 +6,4 @@ node_modules
 static/workbox
 static/images/posts/thumb
 static/images/posts/*.webp
+bundles

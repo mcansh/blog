@@ -23,11 +23,15 @@
     "git-pre-commit": "yarn lint && yarn test",
     "test": "NODE_ENV=test jest",
     "lint": "eslint ./ --quiet",
-    "lint:css": "stylelint './components'"
+    "lint:css": "stylelint './components'",
+    "analyze:server": "BUNDLE_ANALYZE=server yarn build",
+    "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
+    "analyze:both": "BUNDLE_ANALYZE=both yarn build",
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
+    "@zeit/next-bundle-analyzer": "0.1.1",
     "@zeit/next-source-maps": "0.0.2",
     "accepts": "1.3.5",
     "apollo-boost": "0.1.6",
@@ -70,7 +74,8 @@
     "somebody": "2.0.0",
     "styled-components": "3.2.6",
     "tmp-cache": "1.0.0",
-    "webpack": "4.8.3"
+    "webpack": "4.8.3",
+    "webpack-bundle-analyzer": "2.12.0"
   },
   "devDependencies": {
     "@zeit/git-hooks": "0.1.4",
