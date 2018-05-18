@@ -22,7 +22,7 @@
     "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1",
     "git-pre-commit": "yarn lint && yarn test",
     "test": "NODE_ENV=test jest",
-    "lint": "eslint ./ --quiet",
+    "lint": "eslint ./ --quiet --no-ignore .eslintrc.js .size-limit.js",
     "lint:css": "stylelint './components'",
     "analyze:server": "BUNDLE_ANALYZE=server yarn build",
     "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
