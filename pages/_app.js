@@ -6,6 +6,7 @@ import colors from '../theme';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';
+import Error from './_error';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -116,6 +117,11 @@ class MyApp extends App {
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
+      const { statusCode } = pageProps;
+      if (statusCode !== 200) {
+        ctx.res.statusCode = statusCode;
+        return { statusCode };
+      }
     }
 
     return { pageProps };
@@ -132,17 +138,11 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, statusCode } = this.props;
+
     return (
       <Container>
-        <Meta />
-        <Document>
-          <Component {...pageProps} />
-        </Document>
-      </Container>
-    );
-  }
-}
+        <ThemeProvider theme={colors}>
           <Fragment>
             <Meta />
             {statusCode ? (
