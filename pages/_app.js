@@ -3,6 +3,7 @@ import App, { Container } from 'next/app';
 import Raven from 'raven';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
+import Meta from '../components/Meta';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -42,6 +43,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
+        <Meta />
         <Document>
           <Component {...pageProps} />
         </Document>
