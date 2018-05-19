@@ -60,13 +60,7 @@ class Error extends Component {
       );
     }
 
-    // if (statusCode === statusCodes.internalServerError) {
-    // return <InternalServerError statusCode={statusCode} />;
-    // } else if (statusCode === statusCodes.notAuthorized) {
-    //   ErrorToRender = <InternalServerError statusCode={statusCode} />;
-    // }
     return <NextError statusCode={statusCode} />;
-    // }
   }
 }
 
