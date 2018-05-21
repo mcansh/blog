@@ -79,7 +79,7 @@
     "styled-components": "3.2.6",
     "tmp-cache": "1.0.0",
     "webpack": "4.8.3",
-    "webpack-bundle-analyzer": "2.12.0"
+    "webpack-bundle-analyzer": "2.13.0"
   },
   "devDependencies": {
     "@zeit/git-hooks": "0.1.4",
