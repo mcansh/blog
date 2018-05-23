@@ -96,7 +96,7 @@ app.prepare().then(() => {
 
   server.get('*', (req, res) => {
     const accept = accepts(req);
-    const locale = accept.language(languages);
+    const locale = accept.language(dev ? ['en'] : languages);
     const lang = parseLocale(locale);
 
     req.locale = locale;
