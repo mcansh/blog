@@ -26,10 +26,9 @@ process.on('unhandledRejection', error => {
 const languages = glob.sync('../lang/*.json').map(f => basename(f, '.json'));
 
 const parseLocale = locale => {
-  if ((Array.isArray(locale) && locale[0].includes('*')) || locale === '*') {
-    return 'en';
-  } else if (Array.isArray(locale)) return locale[0].split('-')[0];
-  return locale.split('-')[0];
+  const lang = Array.isArray(locale) ? locale[0] : locale;
+  if (languages.includes(lang.split('-')[0])) return lang.split('-')[0];
+  return 'en';
 };
 
 const localeDataCache = new Map();
@@ -97,8 +96,9 @@ app.prepare().then(() => {
 
   server.get('*', (req, res) => {
     const accept = accepts(req);
-    const locale = accept.language(dev ? ['en'] : languages);
+    const locale = accept.language(languages);
     const lang = parseLocale(locale);
+
     req.locale = locale;
     req.localeDataScript = getLocaleDataScript(lang);
     req.messages = dev ? {} : getMessages(lang);
