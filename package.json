@@ -64,7 +64,7 @@
     "raven-js": "3.25.2",
     "react": "16.3.2",
     "react-apollo": "2.1.4",
-    "react-dom": "16.3.2",
+    "react-dom": "16.4.0",
     "react-ga": "2.5.2",
     "react-infinite-scroller": "https://github.com/CassetteRocks/react-infinite-scroller",
     "react-intl": "2.4.0",
