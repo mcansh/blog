@@ -32,6 +32,14 @@ class Document extends Component {
     logPageView();
   }
 
+  componentDidUpdate = () => {
+    if (process.env.NODE_ENV === 'production' && !window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
+  };
+
   render() {
     const { children } = this.props;
     return (
