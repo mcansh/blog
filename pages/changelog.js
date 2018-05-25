@@ -2,7 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
-import withData from '../lib/withData';
+import Raven from 'raven';
 import Meta from '../components/Meta';
 import Header from '../components/Header';
 import Release from '../components/Release';
@@ -54,7 +54,10 @@ class Changelog extends PureComponent {
         <Query query={allReleasesQuery}>
           {({ loading, error, fetchMore, data }) => {
             if (loading) return <p>Loading...</p>;
-            if (error) return <p>Error :(</p>;
+            if (error) {
+              Raven.captureException(error);
+              return <p>Error :(</p>;
+            }
             const {
               repository: {
                 releases: { edges: releases },
@@ -114,4 +117,4 @@ class Changelog extends PureComponent {
   }
 }
 
-export default withData(Changelog);
+export default Changelog;

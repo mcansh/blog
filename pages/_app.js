@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import App, { Container } from 'next/app';
 import Raven from 'raven';
 import { ThemeProvider, injectGlobal } from 'styled-components';
+import { ApolloProvider } from 'react-apollo';
+import withApolloClient from '../lib/withData';
 import colors from '../theme';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
@@ -138,25 +140,27 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, statusCode } = this.props;
+    const { Component, pageProps, apolloClient, statusCode } = this.props;
 
     return (
       <Container>
         <ThemeProvider theme={colors}>
-          <Fragment>
-            <Meta />
-            {statusCode ? (
-              <Error statusCode={statusCode} />
-            ) : (
-              <Document>
-                <Component {...pageProps} />
-              </Document>
-            )}
-          </Fragment>
+          <ApolloProvider client={apolloClient}>
+            <Fragment>
+              <Meta />
+              {statusCode ? (
+                <Error statusCode={statusCode} />
+              ) : (
+                <Document>
+                  <Component {...pageProps} />
+                </Document>
+              )}
+            </Fragment>
+          </ApolloProvider>
         </ThemeProvider>
       </Container>
     );
   }
 }
 
-export default MyApp;
+export default withApolloClient(MyApp);
