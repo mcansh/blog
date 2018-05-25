@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import Hamburger from './Hamburger';
 import NavList from './NavList';
+import { logEvent } from '../lib/analytics';
 
 export const NavigationContext = createContext();
 
@@ -16,6 +17,7 @@ class NavigationProvider extends Component {
 
   toggleNav = () => {
     this.setState({ navOpen: !this.state.navOpen });
+    logEvent({ category: 'general', action: 'toggle nav' });
   };
 
   closeNav = () => {
