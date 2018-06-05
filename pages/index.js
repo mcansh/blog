@@ -15,9 +15,14 @@ const PostsWrapper = styled.div`
   padding-right: env(safe-area-inset-right);
   padding-left: constant(safe-area-inset-left);
   padding-right: constant(safe-area-inset-right);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  grid-gap: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-gap: 2rem;
+  }
 
   @media (min-width: 768px) {
     max-width: 750px;

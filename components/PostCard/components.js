@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Post = styled.a`
   background: white;
   display: inline-block;
-  width: calc(33.3333% - 1rem);
+  width: calc(33.3333% - 2rem);
   height: 40rem;
   padding: 0;
-  margin: 0 0.5rem 1rem 0.5rem;
+  margin: 0 1rem 2rem 1rem;
   overflow: hidden;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.05);
   vertical-align: top;
@@ -19,12 +19,12 @@ export const Post = styled.a`
   border-radius: 0.4rem;
 
   @media (max-width: 999px) {
-    width: calc(50% - 1rem);
+    width: calc(50% - 2rem);
   }
 
   @media (max-width: 650px) {
     width: 100%;
-    margin: 0 0 1rem 0;
+    margin: 0 0 2rem 0;
   }
 
   @supports (display: grid) {
