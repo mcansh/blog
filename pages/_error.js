@@ -25,18 +25,18 @@ const ErrorCode = styled.h1`
 `;
 
 class Error extends Component {
-  static getInitialProps({ res, err }) {
-    if (res) return { statusCode: res.statusCode };
-    else if (err) return { statusCode: err.statusCode };
-    return { statusCode: null };
-  }
-
   static propTypes = {
     statusCode: number,
   };
 
   static defaultProps = {
     statusCode: null,
+  };
+
+  static getInitialProps = ({ res, err }) => {
+    if (res) return { statusCode: res.statusCode };
+    else if (err) return { statusCode: err.statusCode };
+    return { statusCode: null };
   };
 
   render() {
