@@ -8,13 +8,15 @@ export const Post = styled.a`
   padding: 0;
   margin: 0 0.5rem 1rem 0.5rem;
   overflow: hidden;
-  box-shadow: 0 0 1rem 0.4rem rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.05);
   vertical-align: top;
-  transition: 200ms all ease-in-out;
+  transition: all 300ms ease-in-out;
   line-height: 1.6;
   font-size: 1.6rem;
   text-decoration: none;
   color: #555;
+  position: relative;
+  border-radius: 0.4rem;
 
   @media (max-width: 999px) {
     width: calc(50% - 1rem);
@@ -31,7 +33,7 @@ export const Post = styled.a`
   }
 
   &:hover {
-    box-shadow: 0 0 1rem 0.4rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.2rem 2rem rgba(0, 0, 0, 0.18);
   }
 `;
 
