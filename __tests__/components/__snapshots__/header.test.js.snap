@@ -184,7 +184,7 @@ exports[`Header component with Snapshot Testing shows latest post 1`] = `
     >
       Posted 
       <span>
-        5 months ago
+        6 months ago
       </span>
     </h2>
   </div>
