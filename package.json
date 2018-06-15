@@ -36,9 +36,6 @@
     "@zeit/next-source-maps": "0.0.2",
     "accepts": "1.3.5",
     "apollo-boost": "0.1.9",
-    "babel-plugin-inline-dotenv": "1.1.2",
-    "babel-plugin-react-intl": "2.4.0",
-    "babel-plugin-styled-components": "1.5.1",
     "date-fns": "2.0.0-alpha.7",
     "esm": "3.0.51",
     "glob": "7.1.2",
@@ -78,15 +75,16 @@
     "size-limit": "0.18.2",
     "somebody": "2.0.0",
     "styled-components": "3.3.2",
-    "tmp-cache": "1.0.0",
-    "webpack": "4.12.0",
-    "webpack-bundle-analyzer": "2.13.1"
+    "tmp-cache": "1.0.0"
   },
   "devDependencies": {
     "@zeit/git-hooks": "0.1.4",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "8.2.3",
     "babel-jest": "23.0.1",
+    "babel-plugin-inline-dotenv": "1.1.2",
+    "babel-plugin-react-intl": "2.4.0",
+    "babel-plugin-styled-components": "1.5.1",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "4.19.1",
@@ -111,7 +109,9 @@
     "stylelint": "9.3.0",
     "stylelint-config-recommended": "2.1.0",
     "stylelint-config-styled-components": "0.1.1",
-    "stylelint-processor-styled-components": "1.3.1"
+    "stylelint-processor-styled-components": "1.3.1",
+    "webpack": "4.12.0",
+    "webpack-bundle-analyzer": "2.13.1"
   },
   "esm": {
     "mode": "auto",
