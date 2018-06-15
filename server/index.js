@@ -13,6 +13,7 @@ import posts from '../posts.json';
 import atom from './atom';
 import jsonfeed from './jsonfeed';
 import manifest from './manifest';
+import sitemap from './sitemap';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -78,13 +79,26 @@ app.prepare().then(() => {
     res.end(jsonfeed());
   });
 
+  server.get('/sitemap.xml', (req, res) => {
+    sitemap.toXML((err, xml) => {
+      if (err) {
+        res.statusCode = 500;
+        res.end();
+      }
+
+      res.setHeader('Content-Type', 'application/xml');
+      res.end(xml);
+    });
+  });
+
   posts.forEach(post => {
-    server.get(`/${post.id}`, (req, res) => {
+    const slug = `/${post.id}`;
+    server.get(slug, (req, res) => {
       renderAndCache({
         app,
         req,
         res,
-        pagePath: `/${post.id}`,
+        pagePath: slug,
         queryParams: req.params,
       });
     });
