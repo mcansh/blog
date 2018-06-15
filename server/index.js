@@ -14,6 +14,7 @@ import atom from './atom';
 import jsonfeed from './jsonfeed';
 import manifest from './manifest';
 import sitemap from './sitemap';
+import robots from './robots';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -67,6 +68,11 @@ app.prepare().then(() => {
   server.get('/manifest.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.end(manifest());
+  });
+
+  server.get('/robots.txt', (req, res) => {
+    res.setHeader('Content-Type', 'text/plain');
+    res.end(robots());
   });
 
   server.get('/atom', (req, res) => {
