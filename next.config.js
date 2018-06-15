@@ -3,7 +3,6 @@ const optimizedImages = require('next-optimized-images');
 const sourceMaps = require('@zeit/next-source-maps');
 const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); // eslint-disable-line
 
 module.exports = withPlugins(
   [
