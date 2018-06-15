@@ -72,7 +72,7 @@ app.prepare().then(() => {
 
   server.get('/robots.txt', (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
-    res.end(robots());
+    res.end(robots);
   });
 
   server.get('/atom', (req, res) => {
