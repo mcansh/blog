@@ -1,11 +1,18 @@
 {
-  "commitMessages": {
-    "initialBadge": ":memo: Docs: Add Greenkeeper badge",
-    "initialDependencies": ":gem: Upgrade: Update dependencies",
-    "initialBranches": ":tada: Build: Whitelist greenkeeper branches",
-    "dependencyUpdate": ":gem: Upgrade: Update ${dependency} to version ${version}",
-    "devDependencyUpdate": ":gem: Upgrade: Update ${dependency} to version ${version}",
-    "dependencyPin": ":bug: Fix: Pin ${dependency} to ${oldVersion}",
-    "devDependencyPin": ":bug: Fix: Pin ${dependency} to ${oldVersion}"
+  "groups": {
+    "frontend": {
+      "packages": [
+        "package.json"
+      ],
+      "commitMessages": {
+        "initialBadge": ":memo: Docs: Add Greenkeeper badge",
+        "initialDependencies": ":gem: Upgrade: Update dependencies",
+        "initialBranches": ":tada: Build: Whitelist greenkeeper branches",
+        "dependencyUpdate": ":gem: Upgrade: Update ${dependency} to version ${version}",
+        "devDependencyUpdate": ":gem: Upgrade: Update ${dependency} to version ${version}",
+        "dependencyPin": ":bug: Fix: Pin ${dependency} to ${oldVersion}",
+        "devDependencyPin": ":bug: Fix: Pin ${dependency} to ${oldVersion}"
+      }
+    }
   }
 }
