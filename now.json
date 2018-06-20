@@ -1,6 +1,5 @@
 {
   "name": "blog",
   "alias": "mcansh.blog",
-  "dotenv": ".env",
   "type": "docker"
 }
