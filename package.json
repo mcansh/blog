@@ -60,7 +60,7 @@
     "polka": "0.4.0",
     "prop-types": "15.6.2",
     "prop-types-exact": "1.2.0",
-    "raven": "2.6.2",
+    "raven": "2.6.3",
     "raven-js": "3.26.2",
     "react": "16.4.1",
     "react-apollo": "2.1.6",
