@@ -18,6 +18,7 @@ after_script:
   - greenkeeper-lockfile-upload
 before_deploy:
   - npm install now --no-save
+  - yarn compress
 deploy:
   - provider: script
     script: now --token $NOW_TOKEN && now alias canary.mcansh.blog
