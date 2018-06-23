@@ -87,7 +87,7 @@
     "babel-jest": "23.0.1",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
-    "eslint": "4.19.1",
+    "eslint": "5.0.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-mcansh": "1.0.7",
     "eslint-config-prettier": "2.9.0",
