@@ -1,5 +1,8 @@
 {
   "name": "blog",
-  "alias": "mcansh.blog",
+  "alias": [
+    "mcansh.blog",
+    "www.mcansh.blog"
+  ],
   "type": "docker"
 }
