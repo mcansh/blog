@@ -3,7 +3,7 @@ import markdown from 'markdown-in-js';
 import javascript from 'react-syntax-highlighter/languages/hljs/javascript';
 import css from 'react-syntax-highlighter/languages/hljs/css';
 import htmlbars from 'react-syntax-highlighter/languages/hljs/htmlbars';
-import colors from '../theme';
+import colors from '../config';
 import withOptions from '../components/layouts/withOptions';
 import components from '../components';
 import { InlineCode, Code } from '../components/Code';

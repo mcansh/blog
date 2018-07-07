@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape, FormattedRelative } from 'react-intl';
 import styled from 'styled-components';
-import { MMMMDDYYYY } from '../../theme';
+import { MMMMDDYYYY } from '../../config';
 
 const H2 = styled.h2`
   font-size: 3rem;

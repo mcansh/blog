@@ -1,5 +1,5 @@
 import { description, productName, productShortName } from '../package.json';
-import colors from '../theme';
+import colors from '../config';
 
 const iconSizes = [72, 96, 128, 144, 256, 512];
 

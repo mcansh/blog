@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FormattedDate } from 'react-intl';
 import webp from '../../utils/webp';
-import { unsplashParams } from '../../theme';
+import { unsplashParams } from '../../config';
 import { Post, ImageWrap, Meta, Title, PostDate, Image } from './components';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {

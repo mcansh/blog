@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import webp from '../../utils/webp';
-import { unsplashParams } from '../../theme';
+import { unsplashParams } from '../../config';
 
 const Picture = styled.picture`
   display: block;

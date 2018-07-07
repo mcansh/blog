@@ -4,7 +4,7 @@ import Raven from 'raven';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 import { ApolloProvider } from 'react-apollo';
 import withApolloClient from '../lib/withData';
-import colors from '../theme';
+import colors from '../config';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';

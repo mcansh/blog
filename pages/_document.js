@@ -1,7 +1,7 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import colors from '../theme';
+import colors from '../config';
 
 class Page extends Document {
   static async getInitialProps(context) {
