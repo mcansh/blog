@@ -116,6 +116,7 @@ class Page extends Document {
         </Head>
         <body>
           <Main />
+          <div id="portal" />
           <script src={polyfill} />
           <script
             // eslint-disable-next-line react/no-danger

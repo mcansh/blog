@@ -5,6 +5,7 @@ import Router from 'next/router';
 import Hamburger from './Hamburger';
 import NavList from './NavList';
 import { logEvent } from '../lib/analytics';
+import Portal from './Portal';
 
 export const NavigationContext = createContext();
 
@@ -63,7 +64,7 @@ const Navigation = () => (
       {({ state: { navOpen } }) => (
         <Nav navOpen={navOpen}>
           <Hamburger navOpen={navOpen} />
-          {navOpen && <NavList />}
+          <Portal>{navOpen && <NavList />}</Portal>
         </Nav>
       )}
     </NavigationContext.Consumer>
