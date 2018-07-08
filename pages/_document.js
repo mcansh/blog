@@ -3,7 +3,7 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import colors from '../config';
 
-class Page extends Document {
+class MyDocument extends Document {
   static async getInitialProps(context) {
     const { renderPage } = context;
     const sheet = new ServerStyleSheet();
@@ -131,4 +131,4 @@ class Page extends Document {
   }
 }
 
-export default Page;
+export default MyDocument;
