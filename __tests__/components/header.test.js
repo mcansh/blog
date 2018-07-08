@@ -13,6 +13,7 @@ const [latest] = posts;
 describe('Header Component', () => {
   it('shows latest post', () => {
     const header = shallow(<Header id={latest.id} link={latest.id} />);
+
     expect(
       header
         .find(Title)
