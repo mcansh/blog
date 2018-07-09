@@ -17,17 +17,17 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
           <picture>
             <source
               // srcSet={require(`../../static/images/posts/${imageUrl}`)}
-              srcSet={`../../static/images/posts/${webpImage}`}
+              srcSet={`/static/images/posts/${webpImage}`}
               type="image/webp"
             />
             <source
               // srcSet={require(`../../static/images/posts/${imageUrl}`)}
-              srcSet={`../../static/images/posts/${imageUrl}`}
+              srcSet={`/static/images/posts/${imageUrl}`}
               type={type}
             />
             <Image
               // src={require(`../../static/images/posts/${imageUrl}`)}
-              src={`../../static/images/posts/${imageUrl}`}
+              src={`/static/images/posts/${imageUrl}`}
               alt={name ? `Taken by ${name}` : ''}
               data-source-url={unsplashParams(url)}
             />
