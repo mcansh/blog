@@ -16,12 +16,12 @@ const messages = defineMessages({
 
 const MenuButton = styled.button`
   position: ${props => (props.open ? 'fixed' : 'absolute')};
-  top: 2rem;
   top: constant(safe-area-inset-top);
   top: env(safe-area-inset-top);
-  left: 2rem;
+  top: 2rem;
   left: constant(safe-area-inset-left);
   left: env(safe-area-inset-left);
+  left: 2rem;
   appearance: none;
   height: 4rem;
   width: 4rem;
