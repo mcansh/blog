@@ -39,7 +39,6 @@
     "babel-plugin-inline-dotenv": "1.1.2",
     "babel-plugin-react-intl": "2.4.0",
     "babel-plugin-styled-components": "1.5.1",
-    "date-fns": "2.0.0-alpha.7",
     "esm": "3.0.66",
     "glob": "7.1.2",
     "graphql": "0.13.2",
@@ -78,6 +77,7 @@
     "size-limit": "0.18.5",
     "somebody": "2.0.0",
     "styled-components": "3.3.3",
+    "tinydate": "1.0.0",
     "tmp-cache": "1.0.0"
   },
   "devDependencies": {

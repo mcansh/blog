@@ -5,7 +5,7 @@ import { withRouter } from 'next/router';
 import findPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
-import FormattedDate from '../utils/FormattedDate';
+import { YYYYMMDD } from '../utils/Dates';
 
 const suffix = name;
 const defaultImage = `${homepage}/static/images/me.jpg`;
@@ -47,10 +47,7 @@ const Meta = ({ id, router }) => {
       <meta property="og:image" content={imageFullUrl || defaultImage} />
       {post &&
         date && (
-          <meta
-            property="article:published_time"
-            content={FormattedDate(date)}
-          />
+          <meta property="article:published_time" content={YYYYMMDD(date)} />
         )}
       {post && title && <meta property="article:author" content={name} />}
     </Head>

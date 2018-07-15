@@ -1,6 +1,6 @@
 import posts from '../posts.json';
 import { description, homepage } from '../package.json';
-import FormattedDate from '../utils/FormattedDate';
+import { YYYYMMDD } from '../utils/Dates';
 import { name, email } from '../utils/authorInfo';
 
 const imagePath = `${homepage}/static/images/posts`;
@@ -26,7 +26,7 @@ const jsonfeed = () => `
         "id": "${homepage}/${id}",
         "url": "${homepage}/${id}",
         "title": "${title}",
-        "date_published": "${FormattedDate(date)}",
+        "date_published": "${YYYYMMDD(date)}",
         "image": "${imagePath}/${imageUrl}"
       }
     `

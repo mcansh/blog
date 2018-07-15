@@ -1,6 +1,6 @@
 import posts from '../posts.json';
 import { description, homepage } from '../package.json';
-import FormattedDate from '../utils/FormattedDate';
+import { YYYYMMDD } from '../utils/Dates';
 import { name, email } from '../utils/authorInfo';
 
 const [newestPost] = posts;
@@ -12,7 +12,7 @@ const atom = () =>
       <subtitle>${description}</subtitle>
       <link href="${homepage}/atom" rel="self"/>
       <link href="${homepage}"/>
-      <updated>${FormattedDate(newestPost.date)}</updated>
+      <updated>${YYYYMMDD(newestPost.date)}</updated>
       <id>${homepage}</id>
       <author>
         <name>${name}</name>
@@ -25,7 +25,7 @@ const atom = () =>
               <id>${id}</id>
               <title>${title}</title>
               <link href="${homepage}/${id}"/>
-              <updated>${FormattedDate(date)}</updated>
+              <updated>${YYYYMMDD(date)}</updated>
             </entry>
           `
         )
