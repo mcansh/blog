@@ -1,21 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Meta from '../Meta';
+import Header from '../Header';
 
-const Post = ({ children }) => (
-  <Fragment>
-    {children}
-    <style jsx global>{`
-      ._markdown_ {
-        margin: 3rem auto 0 auto;
-        max-width: 90rem;
-        width: 95%;
-        min-height: calc(100vh - 50rem);
-        padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
-        padding: 0 constant(safe-area-inset-right) 0
-          constant(safe-area-inset-left);
-      }
-    `}</style>
-  </Fragment>
+const PostWrap = styled.div`
+  margin: 3rem auto 0 auto;
+  max-width: 90rem;
+  width: 95%;
+  min-height: calc(100vh - 50rem);
+  padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
+  padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
+`;
+
+const Post = ({ children, ...options }) => (
+  <>
+    <Meta {...options} />
+    <Header {...options} />
+    <PostWrap>{children}</PostWrap>
+  </>
 );
 
 Post.propTypes = {
