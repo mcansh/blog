@@ -17,6 +17,7 @@
     "build": "next build",
     "postbuild": "node -r esm ./scripts/default-lang",
     "start": "node -r esm server",
+    "predeploy": "yarn compress",
     "deploy": "now -E .env",
     "postdeploy": "now alias && now rm blog -ys && now scale mcansh.blog sfo1 1",
     "git-pre-commit": "yarn lint && yarn test",
