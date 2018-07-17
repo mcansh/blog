@@ -1,4 +1,4 @@
-FROM node:latest
+FROM mhart/alpine-node
 ENV NODE_ENV=production
 RUN mkdir -p /app
 WORKDIR /app
