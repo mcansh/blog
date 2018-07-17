@@ -104,7 +104,7 @@
     "imagemin-webp": "4.1.0",
     "jest": "23.4.1",
     "jest-styled-components": "5.0.1",
-    "nodemon": "1.18.2",
+    "nodemon": "1.18.3",
     "prettier": "1.13.7",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.4.1",
