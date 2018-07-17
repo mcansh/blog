@@ -6852,11 +6852,12 @@ next-compose-plugins@2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.1.1.tgz#7da0a3ce0c8ce267b5cb4164d2fb6e4aaf61bf86"
 
-next-offline@2.7.3:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/next-offline/-/next-offline-2.7.3.tgz#2f928fce2daa027b52f3b563882d291465e60264"
+next-offline@2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/next-offline/-/next-offline-2.8.0.tgz#76df4aef2011e77da05540272ca36ab3f538fa4c"
   dependencies:
     fs-extra "~5.0.0"
+    minimist "1.2.0"
     webpack "~3.11.0"
     workbox-build "~3.2.0"
     workbox-webpack-plugin "~3.2.0"
@@ -10456,9 +10457,9 @@ webpack@3.10.0:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-webpack@4.16.0:
-  version "4.16.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.16.0.tgz#660dae90890e55b8ed17c6f9d17bebb01dab5b4c"
+webpack@4.16.1:
+  version "4.16.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.16.1.tgz#2c4b89ea648125c3e67bcca6adf49ce2c14b2d31"
   dependencies:
     "@webassemblyjs/ast" "1.5.13"
     "@webassemblyjs/helper-module-context" "1.5.13"
@@ -10471,7 +10472,7 @@ webpack@4.16.0:
     ajv-keywords "^3.1.0"
     chrome-trace-event "^1.0.0"
     enhanced-resolve "^4.1.0"
-    eslint-scope "^3.7.1"
+    eslint-scope "^4.0.0"
     json-parse-better-errors "^1.0.2"
     loader-runner "^2.3.0"
     loader-utils "^1.1.0"
