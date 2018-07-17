@@ -3,12 +3,14 @@ import App, { Container } from 'next/app';
 import Raven from 'raven';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 import { ApolloProvider } from 'react-apollo';
+import { MDXProvider } from '@mdx-js/tag';
 import withApolloClient from '../lib/withData';
 import colors from '../config';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';
 import Error from './_error';
+import components from '../components';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -145,18 +147,20 @@ class MyApp extends App {
     return (
       <Container>
         <ThemeProvider theme={colors}>
-          <ApolloProvider client={apolloClient}>
-            <Fragment>
-              <Meta />
-              {statusCode ? (
-                <Error statusCode={statusCode} />
-              ) : (
-                <Document>
-                  <Component {...pageProps} />
-                </Document>
-              )}
-            </Fragment>
-          </ApolloProvider>
+          <MDXProvider components={components}>
+            <ApolloProvider client={apolloClient}>
+              <Fragment>
+                <Meta />
+                {statusCode ? (
+                  <Error statusCode={statusCode} />
+                ) : (
+                  <Document>
+                    <Component {...pageProps} />
+                  </Document>
+                )}
+              </Fragment>
+            </ApolloProvider>
+          </MDXProvider>
         </ThemeProvider>
       </Container>
     );
