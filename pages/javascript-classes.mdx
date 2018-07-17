@@ -1,0 +1,25 @@
+import { Code } from '../components/Code';
+import Post from '../components/layouts/Post';
+import javascript from 'react-syntax-highlighter/languages/hljs/javascript';
+
+export default ({children}) => <Post id="javascript-classes">{children}</Post>
+
+The key concept in class variables and methods is how to define them. Classes are realistically just “special functions”. To define a class, you use the keyword class followed by the name you want to give it.
+
+<Code language="javascript" syntax={javascript}>{`
+class myClass {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+`}</Code>
+
+When you’re defining classes make sure they are hoisted or your code will throw errors like
+
+<Code language="javascript" syntax={javascript}>{`
+var p = new myClass(); // ReferenceError
+class myClass {}
+`}</Code>
+
+It should be known that the content of a class declaration is executed in strict mode.
