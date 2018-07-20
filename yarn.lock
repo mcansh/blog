@@ -3510,9 +3510,9 @@ eslint@5.1.0:
     table "^4.0.3"
     text-table "^0.2.0"
 
-esm@3.0.71:
-  version "3.0.71"
-  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.71.tgz#3824987412d7d8fd7782d2381e990a621519a993"
+esm@3.0.72:
+  version "3.0.72"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.72.tgz#8f71b3f54b978bbbcbb9788f7f3569a36578c136"
 
 espree@^4.0.0:
   version "4.0.0"
@@ -6766,7 +6766,7 @@ node-emoji@^1.4.1:
   dependencies:
     lodash.toarray "^4.4.0"
 
-node-fetch@^1.0.1, node-fetch@^1.7.1:
+node-fetch@^1.0.1:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
   dependencies:
@@ -7800,9 +7800,9 @@ range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raven-js@3.26.3:
-  version "3.26.3"
-  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.26.3.tgz#0efb49969b5b11ab965f7b0d6da4ca102b763cb0"
+raven-js@3.26.4:
+  version "3.26.4"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.26.4.tgz#32aae3a63a9314467a453c94c89a364ea43707be"
 
 raven@2.6.3:
   version "2.6.3"
