@@ -7,7 +7,11 @@ const cache = new Cache({
   maxAge: 1000 * 60 * 60, // 1 hour
 });
 
+const getCacheKey = req => `${req.url}`;
+
 const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
+  const key = getCacheKey(req);
+
   res.setHeader(
     'Cache-Control',
     `max-age=${cacheTimes.default}, must-revalidate`
