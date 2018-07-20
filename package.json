@@ -42,7 +42,7 @@
     "babel-plugin-inline-dotenv": "1.1.2",
     "babel-plugin-react-intl": "2.4.0",
     "babel-plugin-styled-components": "1.5.1",
-    "esm": "3.0.71",
+    "esm": "3.0.72",
     "glob": "7.1.2",
     "graphql": "0.13.2",
     "highlight.js": "9.12.0",
