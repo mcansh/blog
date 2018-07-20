@@ -25,6 +25,13 @@ process.on('unhandledRejection', error => {
   throw error;
 });
 
+// eslint-disable-next-line import/prefer-default-export
+export const cacheTimes = {
+  week: 604800,
+  day: 86400,
+  default: 600,
+};
+
 const languages = glob.sync('../lang/*.json').map(f => basename(f, '.json'));
 
 const parseLocale = locale => {
@@ -67,21 +74,37 @@ app.prepare().then(() => {
 
   server.get('/manifest.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader(
+      'Cache-Control',
+      `max-age=${cacheTimes.week}, must-revalidate`
+    );
     res.end(manifest());
   });
 
   server.get('/robots.txt', (req, res) => {
     res.setHeader('Content-Type', 'text/plain');
+    res.setHeader(
+      'Cache-Control',
+      `max-age=${cacheTimes.week}, must-revalidate`
+    );
     res.end(robots);
   });
 
   server.get('/atom', (req, res) => {
     res.setHeader('Content-Type', 'text/xml');
+    res.setHeader(
+      'Cache-Control',
+      `max-age=${cacheTimes.week}, must-revalidate`
+    );
     res.end(atom());
   });
 
   server.get('/feed.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader(
+      'Cache-Control',
+      `max-age=${cacheTimes.week}, must-revalidate`
+    );
     res.end(jsonfeed());
   });
 
@@ -93,6 +116,10 @@ app.prepare().then(() => {
       }
 
       res.setHeader('Content-Type', 'application/xml');
+      res.setHeader(
+        'Cache-Control',
+        `max-age=${cacheTimes.week}, must-revalidate`
+      );
       res.end(xml);
     });
   });

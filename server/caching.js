@@ -1,13 +1,21 @@
 import Cache from 'tmp-cache';
 import Raven from 'raven';
+import { cacheTimes } from './';
 
 const cache = new Cache({
-  max: 100,
+  max: process.env.NODE_ENV === 'prodiction' ? 100 : 0,
   maxAge: 1000 * 60 * 60, // 1 hour
 });
 
+const getCacheKey = req => `${req.url}`;
+
 const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
-  const key = req.url;
+  const key = getCacheKey(req);
+
+  res.setHeader(
+    'Cache-Control',
+    `max-age=${cacheTimes.default}, must-revalidate`
+  );
 
   // If we have a page in the cache, let's serve it
   if (cache.has(key)) {
