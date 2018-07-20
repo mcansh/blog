@@ -26,11 +26,11 @@ class MyDocument extends Document {
   }
 
   render() {
-    const { locale, styleTags } = this.props;
+    const { locale = 'en', styleTags } = this.props;
     const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${locale}`;
 
     return (
-      <html lang="en">
+      <html lang={locale}>
         <Head>
           <meta charSet="utf-8" />
           <meta
