@@ -20,6 +20,7 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
   // If we have a page in the cache, let's serve it
   if (cache.has(key)) {
     res.setHeader('x-cache', 'HIT');
+    res.setHeader('Content-Type', 'text/html');
     const page = cache.get(key);
     return res.end(page);
   }
@@ -37,6 +38,7 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
     cache.set(key, html);
 
     res.setHeader('x-cache', 'MISS');
+    res.setHeader('Content-Type', 'text/html');
     return res.end(html);
   } catch (error) {
     Raven.captureException(error);
