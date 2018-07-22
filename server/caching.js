@@ -2,6 +2,35 @@ import Cache from 'tmp-cache';
 import Raven from 'raven';
 import { cacheTimes } from './';
 
+const setHeaders = response => {
+  const headers = [
+    {
+      key: 'Content-Type',
+      value: 'text/html',
+    },
+    {
+      key: 'Referrer-Policy',
+      value: 'no-referrer-when-downgrade',
+    },
+    {
+      key: 'Content-Security-Policy',
+      value:
+        'default-src https:; report-uri https://mcansh.report-uri.com/r/d/csp/enforce',
+    },
+    {
+      key: 'X-XSS-Protection',
+      value: '1; mode=block',
+    },
+    {
+      key: 'Feature-Policy',
+      value:
+        "geolocation 'self'; notifications 'self'; push 'self'; microphone 'self'; camera 'self'",
+    },
+  ];
+
+  return headers.map(({ key, value }) => response.setHeaders(key, value));
+};
+
 const cache = new Cache({
   max: process.env.NODE_ENV === 'prodiction' ? 100 : 0,
   maxAge: 1000 * 60 * 60, // 1 hour
@@ -20,7 +49,7 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
   // If we have a page in the cache, let's serve it
   if (cache.has(key)) {
     res.setHeader('x-cache', 'HIT');
-    res.setHeader('Content-Type', 'text/html');
+    setHeaders(res);
     const page = cache.get(key);
     return res.end(page);
   }
@@ -38,7 +67,7 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
     cache.set(key, html);
 
     res.setHeader('x-cache', 'MISS');
-    res.setHeader('Content-Type', 'text/html');
+    setHeaders(res);
     return res.end(html);
   } catch (error) {
     Raven.captureException(error);
