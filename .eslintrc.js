@@ -14,6 +14,7 @@ module.exports = {
           '__tests__/**/*.js',
           'jest.setup.js',
           'jest.config.js',
+          'scripts/create-post.js',
         ],
       },
     ],
