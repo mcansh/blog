@@ -42,9 +42,11 @@ const Index = () => (
   <Fragment>
     <Header id={latestid} link={latestid} />
     <PostsWrapper>
-      {posts.map(({ image, date, title, id }) => (
-        <PostCard key={id} image={image} date={date} title={title} id={id} />
-      ))}
+      {posts
+        .sort((a, b) => (a.date > b.date ? -1 : 1))
+        .map(({ image, date, title, id }) => (
+          <PostCard key={id} image={image} date={date} title={title} id={id} />
+        ))}
     </PostsWrapper>
   </Fragment>
 );
