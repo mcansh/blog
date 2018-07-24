@@ -101,7 +101,7 @@
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.10.0",
     "fs-extra": "7.0.0",
-    "imagemin": "5.3.1",
+    "imagemin": "6.0.0",
     "imagemin-mozjpeg": "7.0.0",
     "imagemin-pngquant": "6.0.0",
     "imagemin-webp": "4.1.0",
