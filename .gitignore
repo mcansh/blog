@@ -2,7 +2,7 @@
 node_modules
 *.log
 .DS_Store
-.env*
+now-secrets.json
 static/workbox
 static/images/posts/thumb
 static/images/posts/*.webp
