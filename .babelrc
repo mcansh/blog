@@ -27,26 +27,6 @@
     "react-intl"
   ],
   "env": {
-    "development": {
-      "plugins": [
-        [
-          "inline-dotenv",
-          {
-            "path": ".env.dev"
-          }
-        ]
-      ]
-    },
-    "production": {
-      "plugins": [
-        [
-          "inline-dotenv",
-          {
-            "path": ".env"
-          }
-        ]
-      ]
-    },
     "test": {
       "presets": [
         [
@@ -55,14 +35,6 @@
             "preset-env": {
               "modules": "commonjs"
             }
-          }
-        ]
-      ],
-      "plugins": [
-        [
-          "inline-dotenv",
-          {
-            "path": ".env.dev"
           }
         ]
       ]

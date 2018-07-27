@@ -1,8 +1,13 @@
+const webpack = require('webpack');
 const withPlugins = require('next-compose-plugins');
 const sourceMaps = require('@zeit/next-source-maps');
 const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const withMDX = require('@zeit/next-mdx')();
+
+if (process.env.NODE_ENV !== 'production') {
+  require('now-env'); // eslint-disable-line global-require, import/no-extraneous-dependencies
+}
 
 module.exports = withPlugins(
   [
@@ -36,7 +41,19 @@ module.exports = withPlugins(
   ],
   {
     webpack: config => {
-      config.node = { fs: 'empty' };
+      // config.node = { fs: 'empty' };
+      config.plugins.push(
+        new webpack.EnvironmentPlugin([
+          'TWITTER',
+          'GITHUB',
+          'INSTAGRAM',
+          'EMAIL',
+          'SENTRY',
+          'ANALYTICS',
+          'GITHUB_TOKEN',
+        ])
+      );
+      console.log(config.plugins);
       return config;
     },
   }

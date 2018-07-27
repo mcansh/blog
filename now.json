@@ -4,5 +4,15 @@
     "mcansh.blog",
     "www.mcansh.blog"
   ],
-  "type": "docker"
+  "type": "docker",
+  "env": {
+    "NODE_ENV": "production",
+    "TWITTER": "@blog_twitter",
+    "GITHUB": "@blog_github",
+    "INSTAGRAM": "@blog_instagram",
+    "EMAIL": "@blog_email",
+    "SENTRY": "@blog_sentry",
+    "ANALYTICS": "@blog_analytics",
+    "GITHUB_TOKEN": "@blog_github_token"
+  }
 }
