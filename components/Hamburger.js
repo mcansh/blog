@@ -1,7 +1,7 @@
 import React from 'react';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import styled from 'styled-components';
-import NavigationContext from './NavContext';
+import { NavigationContext } from './NavContext';
 
 const messages = defineMessages({
   navOpenLabel: {
