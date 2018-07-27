@@ -1,4 +1,6 @@
-{
+const env = require('./env-config')
+
+module.exports = {
   "presets": [
     [
       "next/babel",
@@ -16,6 +18,7 @@
     ]
   ],
   "plugins": [
+    ['transform-define', env],
     [
       "styled-components",
       {
@@ -24,26 +27,9 @@
         "preprocess": false
       }
     ],
-    "react-intl",
-    "markdown-in-js/babel"
+    "react-intl"
   ],
   "env": {
-    "development": {
-      "plugins": [
-        [
-          "inline-dotenv",
-          {
-            "path": ".env.dev"
-          }
-        ]
-      ]
-    },
-    "production": {
-      "plugins": [
-        "inline-dotenv",
-        "markdown-in-js/babel"
-      ]
-    },
     "test": {
       "presets": [
         [
@@ -54,15 +40,7 @@
             }
           }
         ]
-      ],
-      "plugins": [
-        [
-          "inline-dotenv",
-          {
-            "path": ".env.dev"
-          }
-        ]
       ]
     }
-  },
+  }
 }

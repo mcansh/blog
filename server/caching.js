@@ -1,6 +1,11 @@
 import Cache from 'tmp-cache';
 import Raven from 'raven';
-import { cacheTimes } from './';
+
+export const cacheTimes = {
+  week: 604800,
+  day: 86400,
+  default: 600,
+};
 
 const cache = new Cache({
   max: process.env.NODE_ENV === 'prodiction' ? 100 : 0,

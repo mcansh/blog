@@ -10,8 +10,8 @@ const ErrorWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: ${props => (props.row ? 'row' : 'column')};
-  background: ${props => props.background};
+  flex-direction: ${({ row }) => (row ? 'row' : 'column')};
+  background: ${({ background }) => background};
   color: white;
 `;
 
@@ -35,7 +35,7 @@ class Error extends Component {
 
   static getInitialProps = ({ res, err }) => {
     if (res) return { statusCode: res.statusCode };
-    else if (err) return { statusCode: err.statusCode };
+    if (err) return { statusCode: err.statusCode };
     return { statusCode: null };
   };
 

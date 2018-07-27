@@ -1,7 +1,7 @@
 import React from 'react';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import styled from 'styled-components';
-import { NavigationContext } from './Navigation';
+import { NavigationContext } from './NavContext';
 
 const messages = defineMessages({
   navOpenLabel: {
@@ -15,7 +15,7 @@ const messages = defineMessages({
 });
 
 const MenuButton = styled.button`
-  position: ${props => (props.open ? 'fixed' : 'absolute')};
+  position: ${({ open }) => (open ? 'fixed' : 'absolute')};
   top: constant(safe-area-inset-top);
   top: env(safe-area-inset-top);
   top: 2rem;
@@ -41,13 +41,13 @@ const MenuButton = styled.button`
 const Lines = styled.span`
   width: 100%;
   height: 0.2rem;
-  background: ${props => (props.open ? 'transparent' : 'white')};
+  background: ${({ open }) => (open ? 'transparent' : 'white')};
   display: block;
   position: relative;
   border-radius: 0.5rem;
   transition-property: background;
-  transition-timing-function: ${props => (props.open ? 'ease-in' : 'open')};
-  transition-duration: ${props => (props.open ? '350ms' : '150ms')};
+  transition-timing-function: ${({ open }) => (open ? 'ease-in' : 'open')};
+  transition-duration: ${({ open }) => (open ? '350ms' : '150ms')};
   left: 0;
 
   &::before,
@@ -64,19 +64,19 @@ const Lines = styled.span`
   }
 
   &::before {
-    top: ${props => (props.open ? 0 : '-1rem')};
-    transform: ${props => (props.open ? 'rotate(45deg)' : 'none')};
+    top: ${({ open }) => (open ? 0 : '-1rem')};
+    transform: ${({ open }) => (open ? 'rotate(45deg)' : 'none')};
     transition-property: all;
-    transition-timing-function: ${props => (props.open ? 'ease-in' : 'open')};
-    transition-duration: ${props => (props.open ? '350ms' : '150ms')};
+    transition-timing-function: ${({ open }) => (open ? 'ease-in' : 'open')};
+    transition-duration: ${({ open }) => (open ? '350ms' : '150ms')};
   }
 
   &::after {
-    top: ${props => (props.open ? 0 : '1rem')};
+    top: ${({ open }) => (open ? 0 : '1rem')};
     transition-property: all;
-    transition-timing-function: ${props => (props.open ? 'ease-in' : 'open')};
-    transition-duration: ${props => (props.open ? '350ms' : '150ms')};
-    transform: ${props => (props.open ? 'rotate(-45deg)' : 'none')};
+    transition-timing-function: ${({ open }) => (open ? 'ease-in' : 'open')};
+    transition-duration: ${({ open }) => (open ? '350ms' : '150ms')};
+    transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'none')};
   }
 `;
 

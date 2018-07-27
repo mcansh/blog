@@ -6,4 +6,6 @@ module.exports = {
       '<rootDir>/jest.assetsTransformer.js',
     '\\.(css|less)$': '<rootDir>/jest.assetsTransformer.js',
   },
+  verbose: true,
+  testURL: 'http://localhost/',
 };

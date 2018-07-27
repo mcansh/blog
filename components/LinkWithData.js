@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import { shape, bool, string, element, oneOfType } from 'prop-types';
 import exact from 'prop-types-exact';
 import Link from 'next/link';
