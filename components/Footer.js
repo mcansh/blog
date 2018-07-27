@@ -5,7 +5,7 @@ import { name } from '../utils/authorInfo';
 
 const Footer = styled.footer`
   height: 8rem;
-  background: ${props => props.theme.background};
+  background: ${({ theme }) => theme.background};
   font-size: 1.4rem;
   display: flex;
   justify-content: center;

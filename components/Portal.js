@@ -14,7 +14,9 @@ class Portal extends Component {
   render() {
     if (!this.element) return null;
 
-    return createPortal(this.props.children, this.element);
+    const { children } = this.props;
+
+    return createPortal(children, this.element);
   }
 }
 

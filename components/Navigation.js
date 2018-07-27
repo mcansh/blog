@@ -1,4 +1,4 @@
-import React, { Component, createContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Router from 'next/router';
@@ -6,10 +6,9 @@ import Hamburger from './Hamburger';
 import NavList from './NavList';
 import { logEvent } from '../lib/analytics';
 import Portal from './Portal';
+import NavigationContext from './NavContext';
 
-export const NavigationContext = createContext();
-
-class NavigationProvider extends Component {
+class NavigationProvider extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
@@ -17,7 +16,8 @@ class NavigationProvider extends Component {
   state = { navOpen: false };
 
   toggleNav = () => {
-    this.setState({ navOpen: !this.state.navOpen });
+    const { navOpen } = this.state;
+    this.setState({ navOpen: !navOpen });
     logEvent({ category: 'general', action: 'toggle nav' });
   };
 
@@ -27,6 +27,7 @@ class NavigationProvider extends Component {
 
   render() {
     Router.onRouteChangeComplete = () => this.closeNav();
+    const { children } = this.props;
     return (
       <NavigationContext.Provider
         value={{
@@ -35,7 +36,7 @@ class NavigationProvider extends Component {
           closeNav: this.closeNav,
         }}
       >
-        {this.props.children}
+        {children}
       </NavigationContext.Provider>
     );
   }
@@ -51,8 +52,8 @@ const Nav = styled.nav`
     width: 100%;
     height: 100%;
     z-index: 2;
-    visibility: ${props => (props.navOpen ? 'visible' : 'hidden')};
-    opacity: ${props => (props.navOpen ? '1' : '0')};
+    visibility: ${({ navOpen }) => (navOpen ? 'visible' : 'hidden')};
+    opacity: ${({ navOpen }) => (navOpen ? '1' : '0')};
     transition: 500ms all ease-in-out;
     will-change: opacity;
   }
