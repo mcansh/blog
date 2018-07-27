@@ -53,7 +53,6 @@ module.exports = withPlugins(
           'GITHUB_TOKEN',
         ])
       );
-      console.log(config.plugins);
       return config;
     },
   }
