@@ -24,8 +24,7 @@
         "preprocess": false
       }
     ],
-    "react-intl",
-    "markdown-in-js/babel"
+    "react-intl"
   ],
   "env": {
     "development": {
@@ -40,8 +39,12 @@
     },
     "production": {
       "plugins": [
-        "inline-dotenv",
-        "markdown-in-js/babel"
+        [
+          "inline-dotenv",
+          {
+            "path": ".env"
+          }
+        ]
       ]
     },
     "test": {
@@ -64,5 +67,5 @@
         ]
       ]
     }
-  },
+  }
 }
