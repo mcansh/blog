@@ -2,7 +2,9 @@ const withPlugins = require('next-compose-plugins');
 const sourceMaps = require('@zeit/next-source-maps');
 const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
-const withMDX = require('@zeit/next-mdx')();
+const withMDX = require('@zeit/next-mdx')({
+  extension: /\.mdx?$/,
+});
 
 module.exports = withPlugins(
   [

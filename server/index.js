@@ -7,7 +7,7 @@ import glob from 'glob';
 import accepts from 'accepts';
 import { readFileSync } from 'fs';
 import favicon from 'serve-favicon';
-import renderAndCache from './caching';
+import renderAndCache, { cacheTimes } from './caching';
 import posts from '../posts.json';
 
 import atom from './atom';
@@ -24,13 +24,6 @@ const handle = app.getRequestHandler();
 process.on('unhandledRejection', error => {
   throw error;
 });
-
-// eslint-disable-next-line import/prefer-default-export
-export const cacheTimes = {
-  week: 604800,
-  day: 86400,
-  default: 600,
-};
 
 const languages = glob.sync('../lang/*.json').map(f => basename(f, '.json'));
 
