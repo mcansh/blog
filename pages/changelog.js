@@ -46,18 +46,20 @@ class Changelog extends PureComponent {
         <Header
           title="Changelog"
           image={{
-            imageUrl: 'joshua-earle-234344-unsplash.jpg',
-            url: 'https://unsplash.com/photos/6V19Uy-tUhs',
-            name: 'Joshua Earle',
+            imageUrl: 'justin-mcafee-656012-unsplash.jpg',
+            url: 'https://unsplash.com/photos/QsMXXeeCxoU',
+            name: 'Justin McAfee',
           }}
         />
         <Query query={allReleasesQuery}>
           {({ loading, error, fetchMore, data }) => {
             if (loading) return <p>Loading...</p>;
+
             if (error) {
               Raven.captureException(error);
               return <p>Error :(</p>;
             }
+
             const {
               repository: {
                 releases: { edges: releases },
