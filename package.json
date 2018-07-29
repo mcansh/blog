@@ -110,7 +110,7 @@
     "jest-styled-components": "5.0.1",
     "kleur": "2.0.1",
     "nodemon": "1.18.3",
-    "prettier": "1.13.7",
+    "prettier": "1.14.0",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.4.1",
     "stylelint": "9.4.0",
