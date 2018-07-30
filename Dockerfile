@@ -10,4 +10,4 @@ WORKDIR /app
 ENV NODE_ENV="production"
 COPY --from=base /app .
 EXPOSE 3000
-CMD node -r esm server/index.js
+CMD node -r dotenv/config -r esm server/index.js
