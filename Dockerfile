@@ -3,6 +3,8 @@ WORKDIR /app
 COPY package.json yarn.lock /app/
 RUN yarn
 COPY . .
+RUN touch env-config.js
+RUN echo "module.exports = { 'process.env.NODE_ENV': 'production', 'process.env.TWITTER': '$TWITTER', 'process.env.GITHUB': '$GITHUB', 'process.env.INSTAGRAM': '$INSTAGRAM', 'process.env.EMAIL': '$EMAIL', 'process.env.SENTRY': '$SENTRY', 'process.env.ANALYTICS': '$ANALYTICS', 'process.env.GITHUB_TOKEN': '$GITHUB_TOKEN', }" >> env-config.js
 RUN yarn build && yarn --production
 
 FROM mhart/alpine-node
