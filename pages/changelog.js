@@ -99,7 +99,11 @@ class Changelog extends PureComponent {
             };
 
             return (
-              <InfiniteScroll loadMore={loadMoreReleases} hasMore={hasMore}>
+              <InfiniteScroll
+                loadMore={loadMoreReleases}
+                hasMore={hasMore}
+                threshold={500}
+              >
                 <Fragment>
                   {releases.map(({ node: release }) => (
                     <Release
