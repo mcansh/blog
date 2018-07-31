@@ -6,7 +6,6 @@ import Navigation from '../Navigation';
 import Footer from '../Footer';
 import { version, repository } from '../../package.json';
 import { initGA, logPageView } from '../../lib/analytics';
-import withIntl from './withIntl';
 
 // NProgress.configure({ showSpinner: false });
 // Router.onRouteChangeStart = () => NProgress.start();
@@ -54,4 +53,4 @@ Document.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default withIntl(Document);
+export default Document;
