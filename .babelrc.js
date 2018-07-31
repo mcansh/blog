@@ -12,12 +12,7 @@ module.exports = {
     ],
   ],
   plugins: [
-    [
-      'inline-dotenv',
-      {
-        path: '.env',
-      },
-    ],
+    ['inline-dotenv'],
     [
       'styled-components',
       {
