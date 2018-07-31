@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import App, { Container } from 'next/app';
+import { IntlProvider } from 'react-intl';
 import Raven from 'raven';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 import { ApolloProvider } from 'react-apollo';
@@ -119,6 +120,11 @@ class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
+    const { req } = ctx;
+    // eslint-disable-next-line no-underscore-dangle
+    const { locale, messages } = req || window.__NEXT_DATA__.props;
+    const now = Date.now();
+
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
       const { statusCode } = pageProps;
@@ -128,7 +134,7 @@ class MyApp extends App {
       }
     }
 
-    return { pageProps };
+    return { pageProps, locale, messages, now };
   }
 
   componentDidCatch(error, errorInfo) {
@@ -142,27 +148,37 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, apolloClient, statusCode } = this.props;
+    const {
+      Component,
+      pageProps,
+      locale = 'en',
+      now,
+      messages,
+      apolloClient,
+      statusCode,
+    } = this.props;
 
     return (
-      <Container>
-        <ThemeProvider theme={colors}>
-          <MDXProvider components={components}>
-            <ApolloProvider client={apolloClient}>
-              <Fragment>
-                <Meta />
-                {statusCode ? (
-                  <Error statusCode={statusCode} />
-                ) : (
-                  <Document>
-                    <Component {...pageProps} />
-                  </Document>
-                )}
-              </Fragment>
-            </ApolloProvider>
-          </MDXProvider>
-        </ThemeProvider>
-      </Container>
+      <IntlProvider messages={messages} initialNow={now} locale={locale}>
+        <Container>
+          <ThemeProvider theme={colors}>
+            <MDXProvider components={components}>
+              <ApolloProvider client={apolloClient}>
+                <Fragment>
+                  <Meta />
+                  {statusCode ? (
+                    <Error statusCode={statusCode} />
+                  ) : (
+                    <Document>
+                      <Component {...pageProps} />
+                    </Document>
+                  )}
+                </Fragment>
+              </ApolloProvider>
+            </MDXProvider>
+          </ThemeProvider>
+        </Container>
+      </IntlProvider>
     );
   }
 }

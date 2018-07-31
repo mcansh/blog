@@ -1,46 +1,40 @@
-const env = require('./env-config')
-
 module.exports = {
-  "presets": [
+  presets: [
     [
-      "next/babel",
+      'next/babel',
       {
-        "preset-env": {
-          "targets": {
-            "browsers": [
-              ">0.25%",
-              "not ie 11",
-              "not op_mini all"
-            ]
-          }
-        }
-      }
-    ]
-  ],
-  "plugins": [
-    ['transform-define', env],
-    [
-      "styled-components",
-      {
-        "ssr": true,
-        "displayName": true,
-        "preprocess": false
-      }
+        'preset-env': {
+          targets: {
+            browsers: ['>0.25%', 'not ie 11', 'not op_mini all'],
+          },
+        },
+      },
     ],
-    "react-intl"
   ],
-  "env": {
-    "test": {
-      "presets": [
+  plugins: [
+    ['inline-dotenv'],
+    [
+      'styled-components',
+      {
+        ssr: true,
+        displayName: true,
+        preprocess: false,
+      },
+    ],
+    'react-intl',
+  ],
+  env: {
+    test: {
+      presets: [
         [
-          "next/babel",
+          'next/babel',
           {
-            "preset-env": {
-              "modules": "commonjs"
-            }
-          }
-        ]
-      ]
-    }
-  }
-}
+            'preset-env': {
+              modules: 'commonjs',
+            },
+          },
+        ],
+      ],
+    },
+  },
+};

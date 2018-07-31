@@ -2,7 +2,7 @@
 node_modules
 *.log
 .DS_Store
-env-config.js
+.env
 static/workbox
 static/images/posts/thumb
 static/images/posts/*.webp
