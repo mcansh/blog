@@ -5,6 +5,7 @@ import { join, basename } from 'path';
 import IntlPolyfill from 'intl';
 import glob from 'glob';
 import accepts from 'accepts';
+import send from '@polka/send-type';
 import { readFileSync } from 'fs';
 import favicon from 'serve-favicon';
 import renderAndCache, { cacheTimes } from './caching';
@@ -66,54 +67,43 @@ app.prepare().then(() => {
   });
 
   server.get('/manifest.json', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader(
-      'Cache-Control',
-      `max-age=${cacheTimes.week}, must-revalidate`
-    );
-    res.end(manifest());
+    send(res, 200, manifest(), {
+      'Content-Type': 'application/json',
+      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+    });
   });
 
   server.get('/robots.txt', (req, res) => {
-    res.setHeader('Content-Type', 'text/plain');
-    res.setHeader(
-      'Cache-Control',
-      `max-age=${cacheTimes.week}, must-revalidate`
-    );
-    res.end(robots);
+    send(res, 200, robots, {
+      'Content-Type': 'text/plain',
+      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+    });
   });
 
   server.get('/atom', (req, res) => {
-    res.setHeader('Content-Type', 'text/xml');
-    res.setHeader(
-      'Cache-Control',
-      `max-age=${cacheTimes.week}, must-revalidate`
-    );
-    res.end(atom());
+    send(res, 200, atom(), {
+      'Content-Type': 'text/xml',
+      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+    });
   });
 
   server.get('/feed.json', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.setHeader(
-      'Cache-Control',
-      `max-age=${cacheTimes.week}, must-revalidate`
-    );
-    res.end(jsonfeed());
+    send(res, 200, jsonfeed(), {
+      'Content-Type': 'application/json',
+      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+    });
   });
 
   server.get('/sitemap.xml', (req, res) => {
     sitemap.toXML((err, xml) => {
       if (err) {
-        res.statusCode = 500;
-        res.end();
+        return send(res, 500);
       }
 
-      res.setHeader('Content-Type', 'application/xml');
-      res.setHeader(
-        'Cache-Control',
-        `max-age=${cacheTimes.week}, must-revalidate`
-      );
-      res.end(xml);
+      return send(res, 200, xml, {
+        'Content-Type': 'application/xml',
+        'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+      });
     });
   });
 
