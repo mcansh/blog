@@ -67,7 +67,7 @@
     "raven-js": "3.26.4",
     "react": "16.4.2",
     "react-apollo": "2.1.9",
-    "react-dom": "16.4.1",
+    "react-dom": "16.4.2",
     "react-ga": "2.5.3",
     "react-infinite-scroller": "1.2.0",
     "react-intl": "2.4.0",
