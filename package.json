@@ -106,7 +106,7 @@
     "imagemin-mozjpeg": "7.0.0",
     "imagemin-pngquant": "6.0.0",
     "imagemin-webp": "4.1.0",
-    "inquirer": "6.0.0",
+    "inquirer": "6.1.0",
     "inquirer-path": "1.0.0-beta5",
     "jest": "23.4.2",
     "jest-styled-components": "5.0.1",
