@@ -30,7 +30,7 @@ const questions = [
   },
   {
     type: 'path',
-    message: `Write the path to the hero image (from static/):`,
+    message: `Write the path to the hero image (from static/images/posts):`,
     name: 'heroSrc',
     cwd: './static/images/posts',
     filter: input => {
