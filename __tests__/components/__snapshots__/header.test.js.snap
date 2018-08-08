@@ -53,8 +53,8 @@ exports[`Header component with Snapshot Testing shows custom text and image 1`] 
 }
 
 .c2 {
-  font-size: 5rem;
   margin-bottom: 2rem;
+  font-size: 3rem;
 }
 
 @media (orientation:landscape) and (max-height:500px) {
@@ -62,6 +62,12 @@ exports[`Header component with Snapshot Testing shows custom text and image 1`] 
     max-height: 100vh;
     min-height: 100vh;
     height: 100vh;
+  }
+}
+
+@media (min-width:400px) {
+  .c2 {
+    font-size: 4rem;
   }
 }
 
@@ -155,8 +161,8 @@ exports[`Header component with Snapshot Testing shows latest post 1`] = `
 }
 
 .c2 {
-  font-size: 5rem;
   margin-bottom: 2rem;
+  font-size: 3rem;
 }
 
 @media (orientation:landscape) and (max-height:500px) {
@@ -164,6 +170,12 @@ exports[`Header component with Snapshot Testing shows latest post 1`] = `
     max-height: 100vh;
     min-height: 100vh;
     height: 100vh;
+  }
+}
+
+@media (min-width:400px) {
+  .c2 {
+    font-size: 4rem;
   }
 }
 
