@@ -176,15 +176,15 @@ exports[`Header component with Snapshot Testing shows latest post 1`] = `
     <h1
       className="c2"
     >
-      Ruby project
+      Why I'm learning software development
     </h1>
     <h2
       className="c3"
-      title="December 9, 2017"
+      title="October 2, 2016"
     >
       Posted 
       <span>
-        8 months ago
+        2 years ago
       </span>
     </h2>
   </div>
@@ -192,18 +192,18 @@ exports[`Header component with Snapshot Testing shows latest post 1`] = `
     className="c4"
   >
     <source
-      srcSet="/static/images/posts/stacy-wyss-702.webp"
+      srcSet="/static/images/posts/luke-pamer-5951.webp"
       type="image/webp"
     />
     <source
-      srcSet="/static/images/posts/stacy-wyss-702.jpg"
+      srcSet="/static/images/posts/luke-pamer-5951.jpg"
       type="image/jpeg"
     />
     <img
-      alt="Taken by Stacy Wyss"
+      alt="Taken by Luke Pamer"
       className="c5"
-      data-source-url="https://unsplash.com/photos/-aDl1z8_nGY?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog"
-      src="/static/images/posts/stacy-wyss-702.jpg"
+      data-source-url="https://unsplash.com/photos/oUhr-qMTJoc?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog"
+      src="/static/images/posts/luke-pamer-5951.jpg"
     />
   </picture>
 </header>
