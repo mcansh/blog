@@ -4,7 +4,8 @@ import PostCard from '../components/PostCard';
 import posts from '../posts.json';
 import Header from '../components/Header';
 
-const [latest] = posts;
+const sortedPosts = posts.sort((a, b) => (a.date > b.date ? -1 : 1));
+const [latest] = sortedPosts;
 const { id: latestid } = latest;
 
 const PostsWrapper = styled.div`
@@ -42,11 +43,9 @@ const Index = () => (
   <Fragment>
     <Header id={latestid} link={latestid} />
     <PostsWrapper>
-      {posts
-        .sort((a, b) => (a.date > b.date ? -1 : 1))
-        .map(({ image, date, title, id }) => (
-          <PostCard key={id} image={image} date={date} title={title} id={id} />
-        ))}
+      {sortedPosts.map(({ image, date, title, id }) => (
+        <PostCard key={id} image={image} date={date} title={title} id={id} />
+      ))}
     </PostsWrapper>
   </Fragment>
 );
