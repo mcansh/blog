@@ -34,7 +34,7 @@
   "license": "MIT",
   "dependencies": {
     "@mdx-js/mdx": "0.15.0-2",
-    "@mdx-js/tag": "0.15.0-2",
+    "@mdx-js/tag": "0.15.0-3",
     "@polka/send-type": "0.4.0",
     "@zeit/next-bundle-analyzer": "0.1.1",
     "@zeit/next-mdx": "1.1.0",
