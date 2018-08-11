@@ -74,7 +74,7 @@
     "react-syntax-highlighter": "8.0.1",
     "remark": "9.0.0",
     "remark-emoji": "2.0.1",
-    "remark-github": "7.0.3",
+    "remark-github": "7.0.4",
     "remark-react": "4.0.3",
     "serve-favicon": "2.5.0",
     "sitemap": "1.13.0",
