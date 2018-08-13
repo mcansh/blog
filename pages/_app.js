@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import App, { Container } from 'next/app';
-import { IntlProvider } from 'react-intl';
+import { IntlProvider, addLocaleData } from 'react-intl';
 import Raven from 'raven';
 import { ThemeProvider, injectGlobal } from 'styled-components';
 import { ApolloProvider } from 'react-apollo';
@@ -12,6 +12,15 @@ import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';
 import Error from './_error';
 import components from '../components';
+
+// Register React Intl's locale data for the user's locale in the browser. This
+// locale data was added to the page by `pages/_document.js`. This only happens
+// once, on initial page load in the browser.
+if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
+  Object.keys(window.ReactIntlLocaleData).forEach(lang => {
+    addLocaleData(window.ReactIntlLocaleData[lang]);
+  });
+}
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -120,11 +129,6 @@ class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
-    const { req } = ctx;
-    // eslint-disable-next-line no-underscore-dangle
-    const { locale, messages } = req || window.__NEXT_DATA__.props;
-    const now = Date.now();
-
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
       const { statusCode } = pageProps;
@@ -133,6 +137,14 @@ class MyApp extends App {
         return { statusCode };
       }
     }
+
+    // get `locale` and `messages` from request object on server
+    // on browser, use serialized server values
+    const { req } = ctx;
+    // eslint-disable-next-line no-underscore-dangle
+    const { locale, messages } = req || window.__NEXT_DATA__.props;
+    const now = Date.now();
+    console.log(messages);
 
     return { pageProps, locale, messages, now };
   }
@@ -151,7 +163,7 @@ class MyApp extends App {
     const {
       Component,
       pageProps,
-      locale = 'en',
+      locale,
       now,
       messages,
       apolloClient,

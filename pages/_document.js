@@ -5,6 +5,7 @@ import colors from '../config';
 
 class MyDocument extends Document {
   static async getInitialProps(context) {
+    // styled-components
     const { renderPage } = context;
     const sheet = new ServerStyleSheet();
     const page = renderPage(App => props =>
@@ -12,10 +13,9 @@ class MyDocument extends Document {
     );
     const styleTags = sheet.getStyleElement();
 
+    // react-intl
     const props = await super.getInitialProps(context);
-    const {
-      req: { locale, localeDataScript },
-    } = context;
+    const { locale, localeDataScript } = context.req;
     return {
       ...page,
       ...props,
@@ -26,7 +26,7 @@ class MyDocument extends Document {
   }
 
   render() {
-    const { locale = 'en', styleTags } = this.props;
+    const { locale, styleTags } = this.props;
     const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${locale}`;
 
     return (
