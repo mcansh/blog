@@ -5,10 +5,9 @@ import { join, basename } from 'path';
 import IntlPolyfill from 'intl';
 import glob from 'glob';
 import accepts from 'accepts';
-import send from '@polka/send-type';
 import { readFileSync } from 'fs';
 import favicon from 'serve-favicon';
-import renderAndCache, { cacheTimes } from './caching';
+import renderAndCache from './caching';
 import posts from '../posts.json';
 
 import atom from './atom';
@@ -66,46 +65,15 @@ app.prepare().then(() => {
     app.serveStatic(req, res, filePath);
   });
 
-  server.get('/manifest.json', (req, res) => {
-    send(res, 200, manifest(), {
-      'Content-Type': 'application/json',
-      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
-    });
-  });
+  server.get('/manifest.json', manifest);
 
-  server.get('/robots.txt', (req, res) => {
-    send(res, 200, robots, {
-      'Content-Type': 'text/plain',
-      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
-    });
-  });
+  server.get('/robots.txt', robots);
 
-  server.get('/atom', (req, res) => {
-    send(res, 200, atom(), {
-      'Content-Type': 'text/xml',
-      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
-    });
-  });
+  server.get('/atom', atom);
 
-  server.get('/feed.json', (req, res) => {
-    send(res, 200, jsonfeed(), {
-      'Content-Type': 'application/json',
-      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
-    });
-  });
+  server.get('/feed.json', jsonfeed);
 
-  server.get('/sitemap.xml', (req, res) => {
-    sitemap.toXML((err, xml) => {
-      if (err) {
-        return send(res, 500);
-      }
-
-      return send(res, 200, xml, {
-        'Content-Type': 'application/xml',
-        'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
-      });
-    });
-  });
+  server.get('/sitemap.xml', sitemap);
 
   posts.forEach(post => {
     const slug = `/${post.id}`;

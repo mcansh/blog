@@ -1,30 +1,44 @@
+import send from '@polka/send-type';
 import { createSitemap } from 'sitemap';
 import { homepage } from '../package.json';
 import posts from '../posts.json';
+import { cacheTimes } from './caching';
 
-const sitemap = createSitemap({
+const generateSiteMap = createSitemap({
   hostname: homepage,
   cacheTime: 600000, // 600 sec - cache purge period
 });
 
-sitemap.add({
+generateSiteMap.add({
   url: '/',
   changefreq: 'daily',
   priority: 1,
 });
 
-sitemap.add({
+generateSiteMap.add({
   url: '/changelog',
   changefreq: 'daily',
   priority: 0.3,
 });
 
 posts.forEach(post =>
-  sitemap.add({
+  generateSiteMap.add({
     url: `/${post.id}`,
     changefreq: 'daily',
     priority: 0.9,
   })
 );
+
+const sitemap = async (req, res) => {
+  try {
+    const xml = generateSiteMap.toXML();
+    send(res, 200, xml, {
+      'Content-Type': 'application/xml',
+      'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+    });
+  } catch (error) {
+    send(res, 500);
+  }
+};
 
 export default sitemap;

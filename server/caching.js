@@ -2,9 +2,13 @@ import Cache from 'tmp-cache';
 import Raven from 'raven';
 
 export const cacheTimes = {
+  year: 31536000,
+  month: 2628000,
   week: 604800,
   day: 86400,
-  default: 600,
+  hour: 3600,
+  minute: 60,
+  default: 600, // 10 minutes
 };
 
 const cache = new Cache({
