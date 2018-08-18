@@ -3,12 +3,8 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import 'jest-styled-components';
-import createComponentWithIntl from '../../utils/jest';
 
 import Header, { Title } from '../../components/Header';
-import posts from '../../posts.json';
-
-const [latest] = posts;
 
 describe('Header Component', () => {
   it('shows custom text and image', () => {
@@ -31,13 +27,6 @@ describe('Header Component', () => {
 });
 
 describe('Header component with Snapshot Testing', () => {
-  it('shows latest post', () => {
-    const component = createComponentWithIntl(<Header id={latest.id} />);
-
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('shows custom text and image', () => {
     const component = renderer.create(
       <Header
