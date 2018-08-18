@@ -46,7 +46,7 @@
     "babel-plugin-styled-components": "1.5.1",
     "common-tags": "1.8.0",
     "dotenv": "6.0.0",
-    "esm": "3.0.75",
+    "esm": "3.0.76",
     "glob": "7.1.2",
     "graphql": "0.13.2",
     "highlight.js": "9.12.0",
