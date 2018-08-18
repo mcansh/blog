@@ -26,7 +26,7 @@ class MyDocument extends Document {
   }
 
   render() {
-    const { locale, styleTags } = this.props;
+    const { locale, styleTags, localeDataScript } = this.props;
     const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${locale}`;
 
     return (
@@ -121,7 +121,7 @@ class MyDocument extends Document {
           <script
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: this.props.localeDataScript,
+              __html: localeDataScript,
             }}
           />
           <NextScript />
