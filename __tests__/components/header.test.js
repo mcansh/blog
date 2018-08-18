@@ -11,17 +11,6 @@ import posts from '../../posts.json';
 const [latest] = posts;
 
 describe('Header Component', () => {
-  it('shows latest post', () => {
-    const header = shallow(<Header id={latest.id} link={latest.id} />);
-
-    expect(
-      header
-        .find(Title)
-        .render()
-        .text()
-    ).toBe(latest.title);
-  });
-
   it('shows custom text and image', () => {
     const header = shallow(
       <Header
