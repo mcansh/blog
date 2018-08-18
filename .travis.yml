@@ -9,6 +9,7 @@ cache:
 script:
   - yarn test
 before_install:
+  - export PATH="$(yarn global bin):$PATH"
   - yarn global add greenkeeper-lockfile@1
 before_script:
   - yarn install --production=false
