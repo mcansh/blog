@@ -1,14 +1,14 @@
 import polka from 'polka';
 import { parse } from 'url';
 import next from 'next';
-import { join, basename } from 'path';
+import { join } from 'path';
 import IntlPolyfill from 'intl';
-import glob from 'glob';
 import accepts from 'accepts';
-import { readFileSync } from 'fs';
 import favicon from 'serve-favicon';
 import renderAndCache from './caching';
 import posts from '../posts.json';
+import { version } from '../package.json';
+import { languages, getLocaleDataScript, getMessages } from './intl';
 
 import atom from './atom';
 import jsonfeed from './jsonfeed';
@@ -21,33 +21,12 @@ const app = next({ dev });
 const PORT = process.env.PORT || 3000;
 const handle = app.getRequestHandler();
 
-process.on('unhandledRejection', error => {
-  throw error;
-});
-
-const languages = glob.sync('../lang/*.json').map(f => basename(f, '.json'));
-
-const parseLocale = locale => {
-  const lang = Array.isArray(locale) ? locale[0] : locale;
-  if (languages.includes(lang.split('-')[0])) return lang.split('-')[0];
-  return 'en';
-};
-
-const localeDataCache = new Map();
-const getLocaleDataScript = locale => {
-  if (!localeDataCache.has(locale)) {
-    const localeDataFile = require.resolve(`react-intl/locale-data/${locale}`);
-    const localeDataScript = readFileSync(localeDataFile, 'utf8');
-    localeDataCache.set(locale, localeDataScript);
-  }
-  return localeDataCache.get(locale);
-};
-
 Intl.NumberFormat = IntlPolyfill.NumberFormat;
 Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 
-// eslint-disable-next-line import/no-dynamic-require, global-require
-const getMessages = locale => require(`../lang/${locale}.json`);
+process.on('unhandledRejection', error => {
+  throw error;
+});
 
 app.prepare().then(() => {
   const server = polka();
@@ -94,13 +73,11 @@ app.prepare().then(() => {
 
   server.get('*', (req, res) => {
     const accept = accepts(req);
-    const locale = accept.language(dev ? ['en'] : languages);
-    const lang = parseLocale(locale);
-
+    const locale = accept.language(languages) || 'en';
     req.locale = locale;
-    req.localeDataScript = getLocaleDataScript(lang);
-    req.messages = dev ? {} : getMessages(lang);
-
+    req.localeDataScript = getLocaleDataScript(locale);
+    req.messages = dev ? {} : getMessages(locale);
+    res.setHeader('X-App-Version', version);
     handle(req, res);
   });
 

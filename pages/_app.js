@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { Fragment } from 'react';
 import App, { Container } from 'next/app';
 import { IntlProvider, addLocaleData } from 'react-intl';
@@ -21,8 +22,6 @@ if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
     addLocaleData(window.ReactIntlLocaleData[lang]);
   });
 }
-
-const isDev = process.env.NODE_ENV === 'development';
 
 injectGlobal`
   html {
@@ -115,18 +114,15 @@ injectGlobal`
 `;
 
 class MyApp extends App {
-  constructor(props) {
-    super(props);
-
-    if (!isDev) {
-      Raven.config(process.env.SENTRY, {
-        release: version,
-        environment: process.env.NODE_ENV,
-      }).install();
-    }
+  constructor(...args) {
+    super(...args);
+    Raven.config(process.env.SENTRY, {
+      release: version,
+      environment: process.env.NODE_ENV,
+    }).install();
   }
 
-  static async getInitialProps({ Component, ctx }) {
+  static getInitialProps = async ({ Component, ctx }) => {
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -138,24 +134,17 @@ class MyApp extends App {
       }
     }
 
-    // get `locale` and `messages` from request object on server
-    // on browser, use serialized server values
+    // Get the `locale` and `messages` from the request object on the server.
+    // In the browser, use the same values that the server serialized.
     const { req } = ctx;
-    // eslint-disable-next-line no-underscore-dangle
-    const { locale, messages } = req || window.__NEXT_DATA__.props;
-    const now = Date.now();
+    const { locale, messages } = req || window.__NEXT_DATA__.props.pageProps;
 
-    return { pageProps, locale, messages, now };
-  }
+    return { pageProps, locale, messages };
+  };
 
   componentDidCatch(error, errorInfo) {
+    Raven.captureException(error, { extra: errorInfo });
     super.componentDidCatch(error, errorInfo);
-
-    if (!isDev) {
-      Raven.captureException(error, { extra: errorInfo });
-    } else {
-      console.error({ error, errorInfo });
-    }
   }
 
   render() {
@@ -163,11 +152,12 @@ class MyApp extends App {
       Component,
       pageProps,
       locale,
-      now,
       messages,
       apolloClient,
       statusCode,
     } = this.props;
+
+    const now = Date.now();
 
     return (
       <IntlProvider messages={messages} initialNow={now} locale={locale}>
