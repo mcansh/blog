@@ -14,6 +14,7 @@
     "dev": "next",
     "dev:server": "nodemon -r dotenv/config -r esm -w server server",
     "compress": "node -r esm ./scripts/compress.js",
+    "now-build": "echo 'Built on Travis CI'",
     "build": "next build",
     "postbuild": "node -r esm ./scripts/default-lang",
     "start": "node -r dotenv/config -r esm server",
