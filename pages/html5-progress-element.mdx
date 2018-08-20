@@ -1,7 +1,4 @@
 import Post from '../components/layouts/Post';
-import javascript from 'react-syntax-highlighter/languages/hljs/javascript';
-import css from 'react-syntax-highlighter/languages/hljs/css';
-import htmlbars from 'react-syntax-highlighter/languages/hljs/htmlbars';
 import { InlineCode, Code } from '../components/Code';
 import colors from '../config';
 
@@ -11,7 +8,7 @@ Something I’ve learned that wasn’t included in the Learn curriculum was the 
 
 # The HTML is pretty simple in itself, just set a max value and you're done
 
-<Code syntax={htmlbars} language="html">{`
+<Code language="html">{`
 <body>
   <progress value="0" max="100"></progress>
   the rest of your content
@@ -20,7 +17,7 @@ Something I’ve learned that wasn’t included in the Learn curriculum was the 
 
 # The CSS is straight forward as well but you have to remember to also clear out some vendor prefixed psuedo elements on the progress bar
 
-<Code syntax={css} language="css">{`
+<Code language="css">{`
 progress::-webkit-progress-bar {
   background-color: transparent;
 }\n
@@ -52,7 +49,7 @@ progress {
 
 # And now the fun part, setting the value based on your scroll distance
 
-<Code syntax={javascript} language="javascript">{`
+<Code  language="javascript">{`
 function youReadThisMuch() {
   const scroll = window.pageYOffset; // window.scrollY isnt supported in IE
   const bodyHeight = document.body.offsetHeight;
@@ -65,7 +62,7 @@ window.addEventListener('scroll', youReadThisMuch);
 
 # Setting this up in React is also super simple
 
-<Code syntax={javascript} language="javascript">{`
+<Code  language="javascript">{`
 class Progress extends React.Component {
   constructor(props) {
     super(props);
@@ -105,8 +102,7 @@ class Progress extends React.Component {
           progress::-moz-progress-bar {
             /* background-color: #E53A40; */
             background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
-          }
-          n
+          }\n\n
           progress {
             position: fixed;
             top: 0;

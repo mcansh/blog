@@ -1,39 +1,73 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SyntaxHighlighter, {
-  registerLanguage,
-} from 'react-syntax-highlighter/light';
-import { github } from 'react-syntax-highlighter/styles/hljs';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import OceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
-const Code = ({ language, syntax, children }) => {
-  if (!language || !syntax) {
-    throw new Error('Please define a `language` and `syntax`.');
-  }
+export const Code = ({ language, children }) => (
+  <Highlight
+    {...defaultProps}
+    code={children}
+    language={language}
+    theme={OceanicNext}
+  >
+    {({ className, style, tokens, getLineProps, getTokenProps }) => (
+      <pre
+        className={className}
+        style={{
+          ...style,
+          margin: '3rem 0',
+          padding: '1.4rem',
+          borderRadius: '0.4rem',
+          width: '100%',
+          boxSizing: 'border-box',
+          wordWrap: 'normal',
+          fontSize: '1.6rem',
+          lineHeight: '1.5',
+          WebkitOverflowScrolling: 'touch',
+          fontFamily: 'native, menlo, monospace',
+        }}
+      >
+        {tokens.map((line, i) => (
+          <div {...getLineProps({ line, key: i })}>
+            {line.map((token, key) => (
+              <span {...getTokenProps({ token, key })} />
+            ))}
+          </div>
+        ))}
+      </pre>
+    )}
+  </Highlight>
+);
 
-  registerLanguage(language, syntax);
+// const Code = ({ language, syntax, children }) => {
+//   if (!language || !syntax) {
+//     throw new Error('Please define a `language` and `syntax`.');
+//   }
 
-  const styles = {
-    margin: '3rem 0',
-    padding: '1.4rem',
-    borderRadius: '0.4rem',
-    width: '100%',
-    boxSizing: 'border-box',
-    wordWrap: 'normal',
-    fontSize: '1.6rem',
-    lineHeight: '1.5',
-    WebkitOverflowScrolling: 'touch',
-    background: 'white',
-    fontFamily: 'native, menlo, monospace',
-  };
+//   registerLanguage(language, syntax);
 
-  return (
-    <SyntaxHighlighter language={language} style={github} customStyle={styles}>
-      {children.trim()}
-    </SyntaxHighlighter>
-  );
-};
+//   const styles = {
+//     margin: '3rem 0',
+//     padding: '1.4rem',
+//     borderRadius: '0.4rem',
+//     width: '100%',
+//     boxSizing: 'border-box',
+//     wordWrap: 'normal',
+//     fontSize: '1.6rem',
+//     lineHeight: '1.5',
+//     WebkitOverflowScrolling: 'touch',
+//     background: 'white',
+//     fontFamily: 'native, menlo, monospace',
+//   };
 
-const InlineCode = ({ children }) => (
+//   return (
+//     <SyntaxHighlighter language={language} style={github} customStyle={styles}>
+//       {children.trim()}
+//     </SyntaxHighlighter>
+//   );
+// };
+
+export const InlineCode = ({ children }) => (
   <code>
     {children}
     <style jsx>{`
@@ -51,14 +85,12 @@ const InlineCode = ({ children }) => (
   </code>
 );
 
-Code.propTypes = {
-  language: PropTypes.string.isRequired,
-  syntax: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-};
+// Code.propTypes = {
+//   language: PropTypes.string.isRequired,
+//   syntax: PropTypes.func.isRequired,
+//   children: PropTypes.node.isRequired,
+// };
 
 InlineCode.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export { Code, InlineCode };
