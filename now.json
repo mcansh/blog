@@ -5,6 +5,9 @@
     "www.mcansh.blog"
   ],
   "type": "docker",
+  "features": {
+    "cloud": "v2"
+  },
   "env": {
     "TWITTER": "@blog_twitter",
     "INSTAGRAM": "@blog_instagram",
