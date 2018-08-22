@@ -61,7 +61,7 @@
     "next-compose-plugins": "2.1.1",
     "next-offline": "2.9.0",
     "nprogress": "0.2.0",
-    "polished": "2.0.0",
+    "polished": "2.0.1",
     "polka": "0.4.0",
     "prism-react-renderer": "0.1.1",
     "prop-types": "15.6.2",
