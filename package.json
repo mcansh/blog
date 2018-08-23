@@ -47,7 +47,7 @@
     "babel-plugin-styled-components": "1.5.1",
     "common-tags": "1.8.0",
     "dotenv": "6.0.0",
-    "esm": "3.0.79",
+    "esm": "3.0.80",
     "glob": "7.1.2",
     "graphql": "0.13.2",
     "hoist-non-react-statics": "3.0.1",
