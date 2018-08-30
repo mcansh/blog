@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Post = styled.a`
+export const Post = styled.a.attrs({ className: 'postcard' })`
   background: white;
   display: inline-block;
   width: calc(33.3333% - 2rem);
