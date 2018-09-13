@@ -68,7 +68,7 @@
     "prop-types-exact": "1.2.0",
     "raven": "2.6.4",
     "raven-js": "3.27.0",
-    "react": "16.5.0",
+    "react": "16.5.1",
     "react-apollo": "2.1.11",
     "react-dom": "16.5.0",
     "react-ga": "2.5.3",
