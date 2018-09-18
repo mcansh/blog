@@ -859,9 +859,9 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
 
-"@polka/send-type@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@polka/send-type/-/send-type-0.4.0.tgz#15c134afd5828358453770d58dab660019af0df3"
+"@polka/send-type@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@polka/send-type/-/send-type-0.5.0.tgz#ced804fa06d9619ab3ea5c5093da193aea48fa9a"
 
 "@types/async@2.0.49":
   version "2.0.49"
