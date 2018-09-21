@@ -8121,9 +8121,9 @@ pngquant-bin@^5.0.0:
     execa "^0.10.0"
     logalot "^2.0.0"
 
-polished@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-2.0.3.tgz#54bb5f474bebe149e760d4015ed04207817fd38e"
+polished@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-2.1.0.tgz#2c34f3c3699cb4de16fb90c5776f84d8bd0a5c10"
 
 polished@^1.0.0:
   version "1.9.3"
