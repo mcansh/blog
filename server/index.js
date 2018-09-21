@@ -45,8 +45,6 @@ app.prepare().then(() => {
     favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))
   );
 
-  server.use(configureIntl);
-
   server.get('/service-worker.js', (req, res) => {
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
@@ -83,7 +81,7 @@ app.prepare().then(() => {
     renderAndCache({ app, req, res, pagePath: '/', queryParams: req.params });
   });
 
-  server.get('*', handle);
+  server.get('*', configureIntl, handle);
 
   server.listen(PORT, err => {
     if (err) throw err;
