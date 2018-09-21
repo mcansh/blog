@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import colors from '../config';
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -19,22 +18,22 @@ const GlobalStyles = createGlobalStyle`
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     font-weight: 400;
     margin: 0;
-    background: ${colors.background};
+    background: ${props => props.background};
   }
 
   ::selection {
-    background: ${colors.primary};
+    background: ${props => props.primary};
     color: white;
   }
 
   a {
-    color: ${colors.primary};
+    color: ${props => props.primary};
     text-decoration-skip: ink;
     transition: 300ms all ease-in-out;
   }
 
   a:hover {
-    color: ${colors.secondary};
+    color: ${props => props.secondary};
   }
 
   a::selection {
@@ -46,21 +45,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #nprogress .bar {
-    background: ${colors.primary};
-    position: fixed;
-    z-index: 1031;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0.2rem;
-  }
-
-  #nprogress {
-    pointer-events: none;
-  }
-
-  #nprogress .bar {
-    background: ${colors.primary};
+    background: ${props => props.primary};
     position: fixed;
     z-index: 1031;
     top: 0;
@@ -75,7 +60,8 @@ const GlobalStyles = createGlobalStyle`
     right: 0;
     width: 10rem;
     height: 100%;
-    box-shadow: 0 0 1rem ${colors.primary}, 0 0 0.5rem ${colors.primary};
+    box-shadow: 0 0 1rem ${props => props.primary}, 0 0 0.5rem ${props =>
+  props.primary};
     opacity: 1;
     transform: rotate(3deg) translate(0, -0.4rem);
   }

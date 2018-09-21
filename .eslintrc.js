@@ -2,6 +2,7 @@ module.exports = {
   extends: ['plugin:jest/recommended', 'mcansh'],
   plugins: ['jest'],
   rules: {
+    'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',

@@ -1,5 +1,6 @@
-/* eslint-disable no-underscore-dangle */
 import React, { Fragment } from 'react';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import App, { Container } from 'next/app';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import Raven from 'raven';
@@ -14,6 +15,11 @@ import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';
 import Error from './_error';
 import components from '../components';
+
+NProgress.configure({ showSpinner: false });
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens

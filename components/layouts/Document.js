@@ -1,16 +1,9 @@
 import React, { Component, Fragment } from 'react';
-// import Router from 'next/router';
-// import NProgress from 'nprogress';
 import PropTypes from 'prop-types';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
 import { version, repository } from '../../package.json';
 import { initGA, logPageView } from '../../lib/analytics';
-
-// NProgress.configure({ showSpinner: false });
-// Router.onRouteChangeStart = () => NProgress.start();
-// Router.onRouteChangeComplete = () => NProgress.done();
-// Router.onRouteChangeError = () => NProgress.done();
 
 if (global.document) {
   const info = [
