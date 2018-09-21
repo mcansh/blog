@@ -1,6 +1,6 @@
 import polka from 'polka';
 import { parse } from 'url';
-import next from 'next';
+import nextjs from 'next';
 import { join } from 'path';
 import IntlPolyfill from 'intl';
 import accepts from 'accepts';
@@ -17,7 +17,7 @@ import sitemap from './sitemap';
 import robots from './robots';
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = nextjs({ dev });
 const PORT = process.env.PORT || 3000;
 const handle = app.getRequestHandler();
 
@@ -28,12 +28,24 @@ process.on('unhandledRejection', error => {
   throw error;
 });
 
+const configureIntl = (req, res, next) => {
+  const accept = accepts(req);
+  const locale = accept.language(languages) || 'en';
+  req.locale = locale;
+  req.localeDataScript = getLocaleDataScript(locale);
+  req.messages = dev ? {} : getMessages(locale);
+  res.setHeader('X-App-Version', version);
+  next();
+};
+
 app.prepare().then(() => {
   const server = polka();
 
   server.use(
     favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))
   );
+
+  server.use(configureIntl);
 
   server.get('/service-worker.js', (req, res) => {
     const parsedUrl = parse(req.url, true);
@@ -71,17 +83,10 @@ app.prepare().then(() => {
     renderAndCache({ app, req, res, pagePath: '/', queryParams: req.params });
   });
 
-  server.get('*', (req, res) => {
-    const accept = accepts(req);
-    const locale = accept.language(languages) || 'en';
-    req.locale = locale;
-    req.localeDataScript = getLocaleDataScript(locale);
-    req.messages = dev ? {} : getMessages(locale);
-    res.setHeader('X-App-Version', version);
-    handle(req, res);
-  });
+  server.get('*', handle);
 
-  server
-    .listen(PORT)
-    .then(() => console.log(`> Ready on http://localhost:${PORT}`)); // eslint-disable-line no-console
+  server.listen(PORT, err => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${PORT}`);
+  });
 });
