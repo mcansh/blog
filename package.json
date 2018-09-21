@@ -83,7 +83,7 @@
     "sitemap": "2.0.1",
     "size-limit": "0.20.0",
     "somebody": "2.0.0",
-    "styled-components": "4.0.0-beta.0",
+    "styled-components": "4.0.0-beta.8",
     "tinydate": "1.0.0",
     "tmp-cache": "1.0.0"
   },
