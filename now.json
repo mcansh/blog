@@ -5,12 +5,9 @@
     "www.mcansh.blog"
   ],
   "type": "docker",
-  "features": {
-    "cloud": "v2"
-  },
   "scale": {
     "all": {
-      "min": 0,
+      "min": 1,
       "max": 1
     }
   },

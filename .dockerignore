@@ -14,3 +14,4 @@ jest.config.js
 jest.setup.js
 logo.sketch
 sample.env
+Dockerfile
