@@ -1,15 +1,14 @@
 const withPlugins = require('next-compose-plugins');
 const sourceMaps = require('@zeit/next-source-maps');
-const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/,
 });
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 module.exports = withPlugins(
   [
     [sourceMaps],
-    [withOffline],
     [
       withMDX,
       {
@@ -37,8 +36,31 @@ module.exports = withPlugins(
     ],
   ],
   {
-    webpack: config => {
+    webpack: (config, { dev }) => {
       config.node = { fs: 'empty' };
+
+      if (!dev) {
+        config.plugins.push(
+          new SWPrecacheWebpackPlugin({
+            filename: 'service-worker.js',
+            minify: true,
+            staticFileGlobsIgnorePatterns: [/\.next\//],
+            staticFileGlobs: ['static/**/*'],
+            forceDelete: true,
+            runtimeCaching: [
+              {
+                handler: 'fastest',
+                urlPattern: /[.](webp|png|jpg)/,
+              },
+              {
+                handler: 'networkFirst',
+                urlPattern: /^http.*/,
+              },
+            ],
+          })
+        );
+      }
+
       return config;
     },
   }
