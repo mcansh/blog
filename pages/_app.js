@@ -3,7 +3,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import App, { Container } from 'next/app';
 import { IntlProvider, addLocaleData } from 'react-intl';
-import Raven from 'raven';
+import Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
 import { ApolloProvider } from 'react-apollo';
 import { MDXProvider } from '@mdx-js/tag';
@@ -33,10 +33,12 @@ if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
 class MyApp extends App {
   constructor(...args) {
     super(...args);
-    Raven.config(process.env.SENTRY, {
+    Sentry.init({
+      dsn: process.env.SENTRY,
       release: version,
       environment: process.env.NODE_ENV,
-    }).install();
+      serverName: process.env.NOW ? 'now.sh' : 'localhost',
+    });
   }
 
   static getInitialProps = async ({ Component, ctx }) => {
@@ -60,7 +62,7 @@ class MyApp extends App {
   };
 
   componentDidCatch(error, errorInfo) {
-    Raven.captureException(error, { extra: errorInfo });
+    Sentry.captureException(error, { extra: errorInfo });
     super.componentDidCatch(error, errorInfo);
   }
 

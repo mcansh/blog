@@ -1,6 +1,8 @@
 import polka from 'polka';
 import { parse } from 'url';
 import nextjs from 'next';
+import Sentry from '@sentry/node';
+import send from '@polka/send-type';
 import { join } from 'path';
 import IntlPolyfill from 'intl';
 import accepts from 'accepts';
@@ -40,6 +42,17 @@ const configureIntl = (req, res, next) => {
 
 app.prepare().then(() => {
   const server = polka();
+
+  server.use(Sentry.Handlers.errorHandler());
+
+  server.use((err, req, res, next) => {
+    /*
+    * The error id is attached to `res.sentry` to be returned
+    * and optionally displayed to the user for support.
+    */
+    send(res, 500, res.sentry);
+    next();
+  });
 
   server.use(
     favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))

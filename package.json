@@ -8,7 +8,7 @@
   "repository": "mcansh/blog",
   "homepage": "https://mcansh.blog",
   "browser": {
-    "raven": "raven-js"
+    "@sentry/node": "@sentry/browser"
   },
   "scripts": {
     "dev": "next",
@@ -36,6 +36,8 @@
     "@mdx-js/mdx": "0.15.3",
     "@mdx-js/tag": "0.15.0",
     "@polka/send-type": "0.5.0",
+    "@sentry/browser": "4.0.4",
+    "@sentry/node": "4.0.3",
     "@zeit/next-bundle-analyzer": "0.1.2",
     "@zeit/next-mdx": "1.2.0",
     "@zeit/next-source-maps": "0.0.3",
@@ -66,8 +68,6 @@
     "prism-react-renderer": "0.1.4",
     "prop-types": "15.6.2",
     "prop-types-exact": "1.2.0",
-    "raven": "2.6.4",
-    "raven-js": "3.27.0",
     "react": "16.5.2",
     "react-apollo": "2.1.11",
     "react-dom": "16.5.2",
@@ -88,6 +88,7 @@
     "tmp-cache": "1.0.0"
   },
   "devDependencies": {
+    "@sentry/webpack-plugin": "1.6.1",
     "@zeit/git-hooks": "0.1.4",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",

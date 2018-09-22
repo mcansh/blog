@@ -1,5 +1,5 @@
 import Cache from 'tmp-cache';
-import Raven from 'raven';
+import Sentry from '@sentry/node';
 
 export const cacheTimes = {
   year: 31536000,
@@ -50,7 +50,7 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
     res.setHeader('Content-Type', 'text/html');
     return res.end(html);
   } catch (error) {
-    Raven.captureException(error);
+    Sentry.captureException(error);
     return app.renderError(error, req, res, pagePath, queryParams);
   }
 };

@@ -2,7 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
-import Raven from 'raven';
+import Sentry from '@sentry/browser';
 import Meta from '../components/Meta';
 import Header from '../components/Header';
 import Release from '../components/Release';
@@ -56,7 +56,7 @@ class Changelog extends PureComponent {
             if (loading) return <p>Loading...</p>;
 
             if (error) {
-              Raven.captureException(error);
+              Sentry.captureException(error);
               return <p>Error :(</p>;
             }
 
