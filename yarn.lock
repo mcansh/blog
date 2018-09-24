@@ -824,9 +824,9 @@
   dependencies:
     "@mdx-js/tag" "^0.15.0"
 
-"@mdx-js/mdx@0.15.3":
-  version "0.15.3"
-  resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-0.15.3.tgz#8ab4968b7d9f447ecc39285872c16f79dcd7c25b"
+"@mdx-js/mdx@0.15.4":
+  version "0.15.4"
+  resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-0.15.4.tgz#fb1799158e63eacd0dbdecb649b13cea55377ee8"
   dependencies:
     change-case "^3.0.2"
     mdast-util-to-hast "^3.0.0"
@@ -1833,9 +1833,9 @@ babel-plugin-polished@1.1.0:
   dependencies:
     polished "^1.0.0"
 
-babel-plugin-react-intl@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-react-intl/-/babel-plugin-react-intl-3.0.0.tgz#ea2152b1fe0a36be33b89f8cc8b961b8fd4cfaf8"
+babel-plugin-react-intl@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-intl/-/babel-plugin-react-intl-3.0.1.tgz#4abc7fff04a7bbbb7034aec0a675713f2e52181c"
   dependencies:
     "@babel/runtime" "^7.0.0"
     intl-messageformat-parser "^1.2.0"
@@ -7275,9 +7275,9 @@ next-compose-plugins@2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.1.1.tgz#7da0a3ce0c8ce267b5cb4164d2fb6e4aaf61bf86"
 
-next-offline@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/next-offline/-/next-offline-3.0.0.tgz#16096486a067181f334bbfdfabc4e21838cba8ae"
+next-offline@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/next-offline/-/next-offline-3.0.1.tgz#c4dd43cb3a30201ee26d4f8be34b0644aab306ec"
   dependencies:
     clean-webpack-plugin "^0.1.19"
     copy-webpack-plugin "~4.5.2"
