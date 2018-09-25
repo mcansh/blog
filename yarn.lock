@@ -863,13 +863,13 @@
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-0.5.0.tgz#b21510597fd601e5d7c95008b76bf0d254ebfd31"
 
-"@sentry/browser@4.0.4":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-4.0.4.tgz#6dfe05099d9ce23d7e9becaa905af5406520d448"
+"@sentry/browser@4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-4.0.5.tgz#8881227fe7b711b5724ccfdc4bb2a8b54fbfd473"
   dependencies:
-    "@sentry/core" "4.0.3"
+    "@sentry/core" "4.0.5"
     "@sentry/types" "4.0.1"
-    "@sentry/utils" "4.0.1"
+    "@sentry/utils" "4.0.5"
     md5 "2.2.1"
 
 "@sentry/core@4.0.3":
@@ -881,6 +881,15 @@
     "@sentry/types" "4.0.1"
     "@sentry/utils" "4.0.1"
 
+"@sentry/core@4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-4.0.5.tgz#2ed158e5df5eec7acd4527ed91ed0baa234737ba"
+  dependencies:
+    "@sentry/hub" "4.0.5"
+    "@sentry/minimal" "4.0.5"
+    "@sentry/types" "4.0.1"
+    "@sentry/utils" "4.0.5"
+
 "@sentry/hub@4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-4.0.1.tgz#01870cede195029ae32d763199ff6c3e4edf99d1"
@@ -888,12 +897,26 @@
     "@sentry/types" "4.0.0"
     "@sentry/utils" "4.0.1"
 
+"@sentry/hub@4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-4.0.5.tgz#6d9b559fc61e691d4c1111c5aa975b83d6912814"
+  dependencies:
+    "@sentry/types" "4.0.1"
+    "@sentry/utils" "4.0.5"
+
 "@sentry/minimal@4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@sentry/minimal/-/minimal-4.0.1.tgz#c51a2af81eba48977fb54ab187e0c0eb0ad12c15"
   dependencies:
     "@sentry/hub" "4.0.1"
     "@sentry/types" "4.0.0"
+
+"@sentry/minimal@4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@sentry/minimal/-/minimal-4.0.5.tgz#78cc548ef4bf272b8529bc35f38b7187cd371bbe"
+  dependencies:
+    "@sentry/hub" "4.0.5"
+    "@sentry/types" "4.0.1"
 
 "@sentry/node@4.0.3":
   version "4.0.3"
@@ -921,6 +944,12 @@
   resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-4.0.1.tgz#5690058fb030c23d46ea056aa3e8ebebb8105d45"
   dependencies:
     "@sentry/types" "4.0.0"
+
+"@sentry/utils@4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-4.0.5.tgz#0c855433d39d9befe434e5b691f86d638cf48b2a"
+  dependencies:
+    "@sentry/types" "4.0.1"
 
 "@types/async@2.0.49":
   version "2.0.49"
