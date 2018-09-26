@@ -69,7 +69,7 @@
     "prop-types": "15.6.2",
     "prop-types-exact": "1.2.0",
     "react": "16.5.2",
-    "react-apollo": "2.1.11",
+    "react-apollo": "2.2.0",
     "react-dom": "16.5.2",
     "react-ga": "2.5.3",
     "react-infinite-scroller": "1.2.1",
