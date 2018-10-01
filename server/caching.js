@@ -1,5 +1,5 @@
 import Cache from 'tmp-cache';
-import Sentry from '@sentry/node';
+import * as Sentry from '@sentry/node';
 
 export const cacheTimes = {
   year: 31536000,

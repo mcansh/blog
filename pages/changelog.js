@@ -2,7 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
-import Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/browser';
 import Meta from '../components/Meta';
 import Header from '../components/Header';
 import Release from '../components/Release';

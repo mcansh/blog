@@ -3,7 +3,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import App, { Container } from 'next/app';
 import { IntlProvider, addLocaleData } from 'react-intl';
-import Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
 import { ApolloProvider } from 'react-apollo';
 import { MDXProvider } from '@mdx-js/tag';
