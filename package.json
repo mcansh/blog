@@ -33,7 +33,7 @@
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",
   "dependencies": {
-    "@mdx-js/mdx": "0.15.4",
+    "@mdx-js/mdx": "0.15.5",
     "@mdx-js/tag": "0.15.0",
     "@polka/send-type": "0.5.0",
     "@sentry/browser": "4.0.4",
