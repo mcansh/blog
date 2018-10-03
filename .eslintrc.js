@@ -16,6 +16,7 @@ module.exports = {
           'jest.setup.js',
           'jest.config.js',
           'scripts/create-post.js',
+          'utils/renderWithIntl.js',
         ],
       },
     ],
