@@ -118,7 +118,7 @@
     "prettier": "1.14.3",
     "react-addons-test-utils": "15.6.2",
     "react-test-renderer": "16.5.2",
-    "react-testing-library": "5.1.0",
+    "react-testing-library": "5.1.1",
     "stylelint": "9.6.0",
     "stylelint-config-recommended": "2.1.0",
     "stylelint-config-styled-components": "0.1.1",
