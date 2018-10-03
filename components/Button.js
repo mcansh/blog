@@ -1,6 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import styled from 'styled-components';
+
+const StyledLink = styled.a`
+  margin: 3rem 0 0 0;
+  color: ${props => props.color};
+  display: inline-flex;
+  width: 20rem;
+  height: 5rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  position: relative;
+  background: ${props => props.background};
+  border-width: 0.2rem;
+  border-style: solid;
+  border-color: ${props => props.background};
+  border-image: initial;
+  overflow: hidden;
+  transition: border 200ms, background 200ms, color 200ms ease-out;
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    color: ${props => props.hoverColor};
+    border-color: ${props => props.hoverColor};
+    border-image: initial;
+    background: ${props => props.hoverBackground};
+  }
+`;
 
 const Button = ({
   text,
@@ -10,42 +43,15 @@ const Button = ({
   hoverColor,
   hoverBackground,
 }) => (
-  <Link href={link} prefetch>
-    <a>
+  <Link href={link} prefetch passHref>
+    <StyledLink
+      background={background}
+      hoverBackground={hoverBackground}
+      hoverColor={hoverColor}
+      color={color}
+    >
       {text}
-      <style jsx>{`
-        a {
-          margin: 3rem 0 0 0;
-          color: ${color};
-          display: inline-flex;
-          width: 20rem;
-          height: 5rem;
-          font-size: 1.2rem;
-          text-transform: uppercase;
-          text-decoration: none;
-          cursor: pointer;
-          text-align: center;
-          user-select: none;
-          position: relative;
-          background: ${background};
-          border-width: 0.2rem;
-          border-style: solid;
-          border-color: ${background};
-          border-image: initial;
-          overflow: hidden;
-          transition: border 200ms, background 200ms, color 200ms ease-out;
-          border-radius: 0.5rem;
-          justify-content: center;
-          align-items: center;
-        }
-        a:hover {
-          color: ${hoverColor};
-          border-color: ${hoverColor};
-          border-image: initial;
-          background: ${hoverBackground};
-        }
-      `}</style>
-    </a>
+    </StyledLink>
   </Link>
 );
 
