@@ -14,7 +14,7 @@ const messages = defineMessages({
   },
 });
 
-const Header = styled.header`
+const Header = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
   min-height: 50rem;
   max-height: 80rem;

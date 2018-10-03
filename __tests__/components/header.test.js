@@ -1,26 +1,30 @@
 /* eslint-env jest */
-import { shallow } from 'enzyme';
 import React from 'react';
 import 'jest-styled-components';
-
-import Header, { Title } from '../../components/Header';
+import { render } from '../../utils/renderWithIntl';
+import Header from '../../components/Header';
 
 describe('Header Component', () => {
   it('shows custom text and image', () => {
-    const header = shallow(
+    const { getByTestId } = render(
       <Header
         title="BLOG"
         image={{
-          imageUrl:
-            'http://localhost:3000/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg',
+          imageUrl: '1*Wmv8hfi_bTHuHyV5CawnCw.jpg',
         }}
       />
     );
-    expect(
-      header
-        .find(Title)
-        .render()
-        .text()
-    ).toBe('BLOG');
+
+    const header = getByTestId('header');
+
+    expect(header.textContent).toEqual('BLOG');
+
+    expect(header.querySelector('img').src).toEqual(
+      'http://localhost:3000/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
+    );
+
+    expect(header.querySelector('source').srcset).toEqual(
+      '/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.webp'
+    );
   });
 });
