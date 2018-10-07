@@ -5,6 +5,7 @@ const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/,
 });
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const nanoid = require('nanoid');
 
 module.exports = withPlugins(
   [
@@ -38,7 +39,8 @@ module.exports = withPlugins(
   {
     generateBuildId: async () => {
       if (process.env.SIZE_LIMIT) return 'blog';
-      return undefined;
+      // next.js uses nanoid internally for generating buildId
+      return nanoid();
     },
     webpack: (config, { dev }) => {
       config.node = { fs: 'empty' };
