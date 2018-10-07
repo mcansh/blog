@@ -72,7 +72,7 @@ class MyApp extends App {
       pageProps,
       locale,
       messages,
-      apolloClient,
+      apollo,
       statusCode,
     } = this.props;
 
@@ -83,7 +83,7 @@ class MyApp extends App {
         <Container>
           <ThemeProvider theme={colors}>
             <MDXProvider components={components}>
-              <ApolloProvider client={apolloClient}>
+              <ApolloProvider client={apollo}>
                 <GlobalStyles />
                 <Fragment>
                   <Meta />

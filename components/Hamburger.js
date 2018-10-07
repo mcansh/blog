@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
 import styled from 'styled-components';
-import { NavigationContext } from './NavContext';
 
 const messages = defineMessages({
   navOpenLabel: {
@@ -80,24 +80,22 @@ const Lines = styled.span`
   }
 `;
 
-const Hamburger = ({ intl: { formatMessage } }) => (
-  <NavigationContext.Consumer>
-    {({ toggleNav, state: { navOpen } }) => (
-      <MenuButton
-        aria-label={formatMessage(
-          navOpen ? messages.navOpenLabel : messages.navClosedLabel
-        )}
-        onClick={toggleNav}
-        open={navOpen}
-      >
-        <Lines open={navOpen} />
-      </MenuButton>
+const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }) => (
+  <MenuButton
+    aria-label={formatMessage(
+      navOpen ? messages.navOpenLabel : messages.navClosedLabel
     )}
-  </NavigationContext.Consumer>
+    onClick={onClick}
+    open={navOpen}
+  >
+    <Lines open={navOpen} />
+  </MenuButton>
 );
 
 Hamburger.propTypes = {
   intl: intlShape.isRequired,
+  navOpen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default injectIntl(Hamburger);
