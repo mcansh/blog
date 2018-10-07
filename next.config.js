@@ -36,6 +36,10 @@ module.exports = withPlugins(
     ],
   ],
   {
+    generateBuildId: async () => {
+      if (process.env.SIZE_LIMIT) return 'blog';
+      return undefined;
+    },
     webpack: (config, { dev }) => {
       config.node = { fs: 'empty' };
 
