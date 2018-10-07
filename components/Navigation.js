@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import Router from 'next/router';
 import styled from 'styled-components';
 import { Query, Mutation } from 'react-apollo';
@@ -38,14 +39,26 @@ const TOGGLE_NAV_MUTATION = gql`
   }
 `;
 
-/* eslint-disable */
+const ToggleNav = ({ render }) => (
+  <Mutation mutation={TOGGLE_NAV_MUTATION}>{render}</Mutation>
+);
+
+ToggleNav.propTypes = {
+  render: PropTypes.func.isRequired,
+};
+
+const LocalState = ({ render }) => (
+  <Query query={LOCAL_STATE_QUERY}>{render}</Query>
+);
+
+LocalState.propTypes = {
+  render: PropTypes.func.isRequired,
+};
+
 const Composed = adopt({
-  toggleNav: ({ render }) => (
-    <Mutation mutation={TOGGLE_NAV_MUTATION}>{render}</Mutation>
-  ),
-  localState: ({ render }) => <Query query={LOCAL_STATE_QUERY}>{render}</Query>,
+  toggleNav: ToggleNav,
+  localState: LocalState,
 });
-/* eslint-enable */
 
 // Router.onRouteChangeComplete = () => closeNav();
 const Navigation = () => (
