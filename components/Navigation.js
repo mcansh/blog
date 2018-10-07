@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Router from 'next/router';
+import Router from 'next/router';
 import styled from 'styled-components';
 import { Query, Mutation } from 'react-apollo';
 import { gql } from 'apollo-boost';
@@ -34,8 +34,8 @@ const LOCAL_STATE_QUERY = gql`
 `;
 
 const TOGGLE_NAV_MUTATION = gql`
-  mutation {
-    toggleNav @client
+  mutation TOGGLE_NAV_MUTATION($open: Boolean) {
+    toggleNav(open: $open) @client
   }
 `;
 
@@ -60,11 +60,11 @@ const Composed = adopt({
   localState: LocalState,
 });
 
-// Router.onRouteChangeComplete = () => closeNav();
 const Navigation = () => (
   <Composed>
     {({ toggleNav, localState }) => {
       const { navOpen } = localState.data;
+      Router.onRouteChangeComplete = () => toggleNav();
       return (
         <Nav navOpen={navOpen}>
           <Hamburger

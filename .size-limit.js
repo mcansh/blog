@@ -3,7 +3,7 @@ const { readdir } = require('mz/fs');
 const pages = '.next/static/blog/pages';
 
 const fileSizeOverrides = [
-  { file: '_app.js', limit: '101521 B' },
+  { file: '_app.js', limit: '100 KB' },
   { file: '_error.js', limit: '4079 B' },
   { file: 'index.js', limit: '1592 B' },
   { file: 'html5-progress-element.js', limit: '31131 B' },
