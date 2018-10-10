@@ -36,7 +36,7 @@
     "@mdx-js/mdx": "0.15.5",
     "@mdx-js/tag": "0.15.0",
     "@polka/send-type": "0.5.0",
-    "@sentry/browser": "4.0.6",
+    "@sentry/browser": "4.1.0",
     "@sentry/node": "4.0.6",
     "@zeit/next-bundle-analyzer": "0.1.2",
     "@zeit/next-mdx": "1.2.0",
