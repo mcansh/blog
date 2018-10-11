@@ -60,7 +60,7 @@
     "mime": "2.3.1",
     "mz": "2.7.0",
     "nanoid": "1.2.6",
-    "next": "7.0.1",
+    "next": "7.0.2",
     "next-compose-plugins": "2.1.1",
     "next-offline": "3.0.2",
     "next-with-apollo": "3.2.0",
