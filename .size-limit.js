@@ -6,7 +6,7 @@ const readdir = promisify(fs.readdir);
 const pages = '.next/static/blog/pages';
 
 const fileSizeOverrides = [
-  { file: '_app.js', limit: '100 KB' },
+  { file: '_app.js', limit: '105 KB' },
   { file: '_error.js', limit: '4079 B' },
   { file: 'index.js', limit: '1592 B' },
   { file: 'html5-progress-element.js', limit: '31131 B' },
@@ -14,7 +14,7 @@ const fileSizeOverrides = [
   { file: 'object-lifecycle-cheatsheet.js', limit: '30694 B' },
   { file: 'rack-key-concepts.js', limit: '29.88 KB' },
   { file: 'time-to-hex.js', limit: '30642 B' },
-  { file: 'changelog.js', limit: '136.88 KB' },
+  { file: 'changelog.js', limit: '140 KB' },
 ];
 
 const getPageSize = async () => {
