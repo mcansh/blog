@@ -1,5 +1,5 @@
 const withPlugins = require('next-compose-plugins');
-const sourceMaps = require('@zeit/next-source-maps');
+const withSourceMaps = require('@zeit/next-source-maps');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/,
@@ -9,7 +9,7 @@ const nanoid = require('nanoid');
 
 module.exports = withPlugins(
   [
-    [sourceMaps],
+    [withSourceMaps],
     [
       withMDX,
       {

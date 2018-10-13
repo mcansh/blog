@@ -1,4 +1,7 @@
-const { readdir } = require('mz/fs');
+const fs = require('fs');
+const { promisify } = require('util');
+
+const readdir = promisify(fs.readdir);
 
 const pages = '.next/static/blog/pages';
 
@@ -18,11 +21,6 @@ const getPageSize = async () => {
   try {
     const files = await readdir(pages);
     return files.map(file => {
-      const checkForMap = file.replace('.js.map', '.map');
-      const extension = checkForMap.split('.');
-
-      if (extension === 'map') return undefined;
-
       const config = {
         path: `${pages}/${file}`,
         webpack: false,

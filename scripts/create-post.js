@@ -1,10 +1,15 @@
-import { readJsonSync, writeFileSync, createFileSync } from 'fs-extra';
+import fs from 'fs';
+import { promisify } from 'util';
 import { resolve, join } from 'path';
 import kleur from 'kleur';
 import inquirer from 'inquirer';
 import { PathPrompt } from 'inquirer-path';
 import { format } from 'prettier';
 import { stripIndent } from 'common-tags';
+import slugify from '@sindresorhus/slugify';
+
+const readFile = promisify(fs.readFile);
+const writeFile = promisify(fs.writeFile);
 
 inquirer.registerPrompt('path', PathPrompt);
 
@@ -22,6 +27,7 @@ const questions = [
     validate: input =>
       Boolean(input) ||
       'Please specify a slug! We use the slug for the post url.',
+    default: input => slugify(input.title),
   },
   {
     type: 'input',
@@ -40,45 +46,48 @@ const questions = [
   },
 ];
 
-inquirer.prompt(questions).then(async answers => {
-  const { title, slug, description, heroSrc } = answers;
-  const date = Date.now();
-  const postsPath = 'posts.json';
+inquirer
+  .prompt(questions)
+  .then(async answers => {
+    const { title, slug, description, heroSrc } = answers;
+    const date = Date.now();
+    const postsPath = 'posts.json';
 
-  const posts = readJsonSync(postsPath);
+    const postsString = await readFile(postsPath, 'utf-8');
+    const posts = JSON.parse(postsString);
 
-  posts.push({
-    id: slug,
-    title,
-    description,
-    date,
-    image: {
-      imageUrl: heroSrc,
-    },
-  });
+    posts.push({
+      id: slug,
+      title,
+      description,
+      date,
+      image: {
+        imageUrl: heroSrc,
+      },
+    });
 
-  const json = JSON.stringify(posts);
+    const json = JSON.stringify(posts);
 
-  const prettyJSON = format(json, { parser: 'json' });
+    const prettyJSON = format(json, { parser: 'json' });
 
-  writeFileSync(postsPath, prettyJSON);
+    writeFile(postsPath, prettyJSON);
 
-  const relativePathToMDX = `./pages/${slug}.mdx`;
-  const pathToMDX = join(__dirname, '..', relativePathToMDX);
-  createFileSync(pathToMDX);
-  writeFileSync(
-    pathToMDX,
-    stripIndent`
+    const relativePathToMDX = `./pages/${slug}.mdx`;
+    const pathToMDX = join(__dirname, '..', relativePathToMDX);
+    await writeFile(
+      pathToMDX,
+      stripIndent`
       import Post from '../components/layouts/Post';
 
       export default ({children}) => <Post id="${slug}">{children}</Post>
     `
-  );
+    );
 
-  console.log(kleur.green`Bootstrapping your blogpost...`);
-  console.log(
-    `Done! Go ahead and edit ${kleur.cyan(
-      relativePathToMDX
-    )} to complete the post.`
-  );
-});
+    console.log(kleur.green`Bootstrapping your blogpost...`);
+    console.log(
+      `Done! Go ahead and edit ${kleur.cyan(
+        relativePathToMDX
+      )} to complete the post.`
+    );
+  })
+  .catch(error => console.error(error.stack));
