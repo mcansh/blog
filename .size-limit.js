@@ -7,7 +7,7 @@ const pages = '.next/static/blog/pages';
 
 const fileSizeOverrides = [
   { file: '_app.js', limit: '105 KB' },
-  { file: '_error.js', limit: '4079 B' },
+  { file: '_error.js', limit: '4 KB' },
   { file: 'index.js', limit: '1592 B' },
   { file: 'html5-progress-element.js', limit: '31131 B' },
   { file: 'javascript-classes.js', limit: '29.42 KB' },
