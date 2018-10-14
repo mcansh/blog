@@ -11,7 +11,7 @@ const fileSizeOverrides = [
   { file: 'index.js', limit: '1592 B' },
   { file: 'html5-progress-element.js', limit: '31131 B' },
   { file: 'javascript-classes.js', limit: '29.42 KB' },
-  { file: 'object-lifecycle-cheatsheet.js', limit: '30694 B' },
+  { file: 'object-lifecycle-cheatsheet.js', limit: '30 KB' },
   { file: 'rack-key-concepts.js', limit: '29.88 KB' },
   { file: 'time-to-hex.js', limit: '30642 B' },
   { file: 'changelog.js', limit: '140 KB' },
