@@ -34,8 +34,14 @@ const LOCAL_STATE_QUERY = gql`
 `;
 
 const TOGGLE_NAV_MUTATION = gql`
-  mutation TOGGLE_NAV_MUTATION($open: Boolean) {
-    toggleNav(open: $open) @client
+  mutation TOGGLE_NAV_MUTATION {
+    toggleNav @client
+  }
+`;
+
+const CLOSE_NAV_MUTATION = gql`
+  mutation CLOSE_NAV_MUTATION {
+    closeNav @client
   }
 `;
 
@@ -43,28 +49,35 @@ const ToggleNav = ({ render }) => (
   <Mutation mutation={TOGGLE_NAV_MUTATION}>{render}</Mutation>
 );
 
-ToggleNav.propTypes = {
+const QueryMutationProps = {
   render: PropTypes.func.isRequired,
 };
+
+ToggleNav.propTypes = QueryMutationProps;
+
+const CloseNav = ({ render }) => (
+  <Mutation mutation={CLOSE_NAV_MUTATION}>{render}</Mutation>
+);
+
+CloseNav.propTypes = QueryMutationProps;
 
 const LocalState = ({ render }) => (
   <Query query={LOCAL_STATE_QUERY}>{render}</Query>
 );
 
-LocalState.propTypes = {
-  render: PropTypes.func.isRequired,
-};
+LocalState.propTypes = QueryMutationProps;
 
 const Composed = adopt({
   toggleNav: ToggleNav,
+  closeNav: CloseNav,
   localState: LocalState,
 });
 
 const Navigation = () => (
   <Composed>
-    {({ toggleNav, localState }) => {
+    {({ closeNav, toggleNav, localState }) => {
       const { navOpen } = localState.data;
-      Router.onRouteChangeComplete = () => toggleNav();
+      Router.onRouteChangeComplete = () => closeNav();
       return (
         <Nav navOpen={navOpen}>
           <Hamburger
@@ -81,5 +94,5 @@ const Navigation = () => (
   </Composed>
 );
 
-export { LOCAL_STATE_QUERY, TOGGLE_NAV_MUTATION };
+export { LOCAL_STATE_QUERY, TOGGLE_NAV_MUTATION, CLOSE_NAV_MUTATION };
 export default Navigation;

@@ -12,8 +12,8 @@ module.exports = {
     ],
   ],
   plugins: [
-    ['polished'],
-    ['inline-dotenv'],
+    'polished',
+    'inline-dotenv',
     [
       'styled-components',
       {
