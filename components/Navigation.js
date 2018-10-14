@@ -79,7 +79,18 @@ const Navigation = () => (
       const { navOpen } = localState.data;
       Router.onRouteChangeComplete = () => closeNav();
       return (
-        <Nav navOpen={navOpen}>
+        <Nav
+          navOpen={navOpen}
+          onKeyDown={event => {
+            if (
+              event.key === 'Escape' ||
+              event.code === 'Escape' ||
+              event.which === 27
+            ) {
+              closeNav();
+            }
+          }}
+        >
           <Hamburger
             onClick={() => {
               logEvent({ category: 'general', action: 'toggle nav' });
