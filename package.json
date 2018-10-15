@@ -85,7 +85,7 @@
     "sitemap": "2.0.1",
     "size-limit": "0.20.1",
     "somebody": "2.0.0",
-    "styled-components": "4.0.0-beta.9",
+    "styled-components": "4.0.0",
     "sw-precache-webpack-plugin": "0.11.5",
     "tinydate": "1.0.0",
     "tmp-cache": "1.0.0"
