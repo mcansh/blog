@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FormattedDate } from 'react-intl';
 import webp from '../../utils/webp';
 import { unsplashParams } from '../../config';
-import { Post, ImageWrap, Meta, Title, PostDate, Image } from './components';
+import { Post, ImageWrap, Meta, Title, PostDate } from './components';
 
 const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
   const { type, url: webpImage } = webp(imageUrl);
@@ -20,7 +20,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
               type="image/webp"
             />
             <source srcSet={`/static/images/posts/${imageUrl}`} type={type} />
-            <Image
+            <img
               src={`/static/images/posts/${imageUrl}`}
               alt={name ? `Taken by ${name}` : ''}
               data-source-url={unsplashParams(url)}
@@ -28,6 +28,7 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
           </picture>
         </ImageWrap>
         <Meta>
+          <Title>{title}</Title>
           <PostDate>
             <FormattedDate
               value={date}
@@ -36,7 +37,6 @@ const PostCard = ({ id, image: { imageUrl, name, url }, date, title }) => {
               year="numeric"
             />
           </PostDate>
-          <Title>{title}</Title>
         </Meta>
       </Post>
     </Link>

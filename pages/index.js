@@ -22,7 +22,7 @@ const PostsWrapper = styled.div`
   @supports (display: grid) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    grid-gap: 2rem;
+    grid-gap: 3.6rem;
   }
 
   @media (min-width: 768px) {
