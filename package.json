@@ -8,7 +8,8 @@
   "repository": "mcansh/blog",
   "homepage": "https://mcansh.blog",
   "browser": {
-    "@sentry/node": "@sentry/browser"
+    "@sentry/node": "@sentry/browser",
+    "path": "isomorphic-path"
   },
   "scripts": {
     "dev": "next",
@@ -55,6 +56,7 @@
     "http-status-codes": "1.3.0",
     "intl": "1.2.5",
     "is-absolute-url": "2.1.0",
+    "isomorphic-path": "0.0.5",
     "isomorphic-unfetch": "3.0.0",
     "mime": "2.3.1",
     "nanoid": "1.3.1",
