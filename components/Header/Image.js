@@ -38,19 +38,20 @@ type Props = {
 };
 
 const HeaderImage = ({ image }: Props) => {
-  const imgUrl = `/static/images/posts/${image.imageUrl}`;
+  const imagePath = '/static/images/posts';
+  const imgUrl = `${imagePath}/${image.imageUrl}`;
   const { url: webpImage, type } = webp(image.imageUrl);
 
-  const webpbg = `/static/images/posts/${webpImage}`;
+  const webpbg = `${imagePath}/${webpImage}`;
 
   return (
     <Picture>
       <source srcSet={webpbg} type="image/webp" />
-      <source srcSet={image} type={type} />
+      <source srcSet={imgUrl} type={type} />
       <Image
-        src={`/static/images/posts/${image.imageUrl}`}
+        src={imgUrl}
         alt={image.name ? `Taken by ${image.name}` : ''}
-        data-source-url={unsplashParams(imgUrl)}
+        data-source-url={unsplashParams(image.url)}
       />
     </Picture>
   );
