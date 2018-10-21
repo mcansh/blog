@@ -1,5 +1,5 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
 import findPost from '../utils/findPost';
@@ -10,20 +10,20 @@ import { YYYYMMDD } from '../utils/Dates';
 const suffix = name;
 const defaultImage = `${homepage}/static/images/me.jpg`;
 
-const foundPost = id => {
-  if (!id) return { image: {} };
-  return findPost(id);
+type Props = {
+  id?: string,
+  router: {
+    pathname: string,
+  },
 };
 
-const Meta = ({ id, router }) => {
-  const post = foundPost(id);
-  const {
-    title,
-    image: { imageUrl },
-    date,
-  } = post;
+const Meta = ({ id, router }: Props) => {
+  const post = findPost(id) || {};
+  const { title, image, date } = post;
   const imageFullUrl =
-    imageUrl && `${homepage}/static/images/posts/${imageUrl}`;
+    image &&
+    image.imageUrl &&
+    `${homepage}/static/images/posts/${image.imageUrl}`;
 
   const pageTitle = title ? `${title} — ${suffix}` : suffix;
 
@@ -45,10 +45,9 @@ const Meta = ({ id, router }) => {
       />
       <meta property="og:url" content={`${homepage}/${router.pathname}`} />
       <meta property="og:image" content={imageFullUrl || defaultImage} />
-      {post &&
-        date && (
-          <meta property="article:published_time" content={YYYYMMDD(date)} />
-        )}
+      {post && date ? (
+        <meta property="article:published_time" content={YYYYMMDD(date)} />
+      ) : null}
       {post && title && <meta property="article:author" content={name} />}
     </Head>
   );
@@ -56,13 +55,6 @@ const Meta = ({ id, router }) => {
 
 Meta.defaultProps = {
   id: null,
-};
-
-Meta.propTypes = {
-  id: PropTypes.string,
-  router: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
 };
 
 export default withRouter(Meta);

@@ -1,6 +1,6 @@
+// @flow
 import React, { Component } from 'react';
 import NextError from 'next/error';
-import { number } from 'prop-types';
 import statusCodes from 'http-status-codes';
 import styled from 'styled-components';
 import Button from '../components/Button';
@@ -24,15 +24,16 @@ const ErrorCode = styled.h1`
   margin-bottom: 1rem;
 `;
 
-class Error extends Component {
-  static propTypes = {
-    statusCode: number,
-  };
+type Props = {
+  statusCode?: number,
+};
 
+class Error extends Component<Props> {
   static defaultProps = {
     statusCode: null,
   };
 
+  // $FlowIssue
   static getInitialProps = ({ res, err }) => {
     if (res) return { statusCode: res.statusCode };
     if (err) return { statusCode: err.statusCode };

@@ -20,7 +20,7 @@ const StyledLink = styled.a`
 const FooterWrap = () => (
   <Footer>
     <Link href="/" prefetch passHref>
-      <StyledLink rel="home">
+      <StyledLink rel="home" aria-label="go home">
         &copy; {new Date().getFullYear()} {name}
       </StyledLink>
     </Link>

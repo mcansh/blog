@@ -1,6 +1,8 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
-import { defineMessages, injectIntl, intlShape } from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
+import type { $npm$ReactIntl$IntlShape } from 'react-intl';
 import styled from 'styled-components';
 
 const messages = defineMessages({
@@ -80,7 +82,14 @@ const Lines = styled.span`
   }
 `;
 
-const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }) => (
+type Props = {
+  intl: $npm$ReactIntl$IntlShape,
+  navOpen: boolean,
+  // $FlowIssue
+  onClick: Function,
+};
+
+const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }: Props) => (
   <MenuButton
     aria-label={formatMessage(
       navOpen ? messages.navOpenLabel : messages.navClosedLabel
@@ -91,11 +100,5 @@ const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }) => (
     <Lines open={navOpen} />
   </MenuButton>
 );
-
-Hamburger.propTypes = {
-  intl: intlShape.isRequired,
-  navOpen: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
 
 export default injectIntl(Hamburger);

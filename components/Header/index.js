@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { defineMessages, FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import findPost from '../../utils/findPost';
@@ -46,19 +47,36 @@ export const Title = styled.h1`
   }
 `;
 
-const HeaderWrap = ({ image, title, link, id }) => {
+type Props = {
+  image?: {
+    imageUrl: string,
+    name: string,
+    url?: string,
+  },
+  title?: string,
+  link?: string,
+  id?: string,
+};
+
+const HeaderWrap = ({ image, title, link, id }: Props) => {
   const post = findPost(id);
+
+  const hasPost = post != null;
+  const headerTitle = hasPost ? post.title : title;
+  const showLink = link != null;
+  const showDate = link == null && hasPost && post.date;
+
   return (
     <Header>
       <HeaderContent>
-        <Title>{title || post.title}</Title>
-        {!link && post && post.date && <Date date={post.date} />}
-        {link && (
+        <Title>{headerTitle}</Title>
+        {showDate ? <Date date={post.date} /> : null}
+        {showLink ? (
           <Button
             text={<FormattedMessage {...messages.readMore} />}
             link={id}
           />
-        )}
+        ) : null}
       </HeaderContent>
       <Image image={image || post.image} />
     </Header>
@@ -70,17 +88,6 @@ HeaderWrap.defaultProps = {
   id: null,
   title: null,
   image: null,
-};
-
-HeaderWrap.propTypes = {
-  title: PropTypes.string,
-  link: PropTypes.string,
-  id: PropTypes.string,
-  image: PropTypes.shape({
-    imageUrl: PropTypes.string,
-    url: PropTypes.string,
-    name: PropTypes.string,
-  }),
 };
 
 export default HeaderWrap;

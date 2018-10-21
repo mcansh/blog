@@ -11,21 +11,21 @@ const NavLinks = [
   },
   {
     name: <FormattedMessage id="NavList.github" defaultMessage="GitHub" />,
-    slug: `https://github.com/${process.env.GITHUB}`,
+    slug: `https://github.com/mcansh`,
   },
   {
     name: <FormattedMessage id="NavList.twitter" defaultMessage="Twitter" />,
-    slug: `https://twitter.com/${process.env.TWITTER}`,
+    slug: `https://twitter.com/loganmcansh`,
   },
   {
     name: (
       <FormattedMessage id="NavList.instagram" defaultMessage="Instagram" />
     ),
-    slug: `https://instagram.com/${process.env.INSTAGRAM}`,
+    slug: `https://instagram.com/loganmcansh`,
   },
   {
     name: <FormattedMessage id="NavList.email" defaultMessage="Email" />,
-    slug: `mailto:${process.env.EMAIL}`,
+    slug: `mailto:logan@mcan.sh`,
   },
   {
     name: (

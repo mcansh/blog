@@ -1,12 +1,11 @@
-/* eslint-disable react/destructuring-assignment */
-import { shape, bool, string, element, oneOfType } from 'prop-types';
-import exact from 'prop-types-exact';
+// @flow
+import type { Node } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import { execOnce, warn } from 'next/dist/lib/utils';
 import { format, resolve, parse } from 'url';
 
-export const prefetch = async href => {
+// $FlowIssue
+export const prefetch = async (href: string | Object) => {
   // if  we're running server side do nothing
   if (typeof window === 'undefined') return;
 
@@ -28,34 +27,23 @@ export const prefetch = async href => {
   }
 };
 
+type Props = {
+  withData?: boolean, // our custom prop
+  // $FlowIssue
+  href: string | Object,
+  // $FlowIssue
+  as: string | Object,
+  prefetch?: boolean,
+  replace?: boolean,
+  shallow?: boolean,
+  passHref?: boolean,
+  scroll?: boolean,
+  children: Node,
+};
+
 // extend default next/link to customize the prefetch behaviour
-export default class LinkWithData extends Link {
-  // re defined Link propTypes to add `withData`
-  static propTypes = exact({
-    href: oneOfType([string, shape({})]).isRequired,
-    as: oneOfType([string, shape({})]),
-    prefetch: bool,
-    replace: bool,
-    shallow: bool,
-    passHref: bool,
-    scroll: bool,
-    children: oneOfType([
-      element,
-      (props, propName) => {
-        const value = props[propName];
-
-        if (typeof value === 'string') {
-          execOnce(warn)(
-            `Warning: You're using a string directly inside <Link>. This usage has been deprecated. Please add an <a> tag as child of <Link>`
-          );
-        }
-
-        return null;
-      },
-    ]).isRequired,
-    withData: bool, // our custom prop
-  });
-
+// $FlowIssue
+class LinkWithData extends Link<Props> {
   // our custom prefetch method
   async prefetch() {
     // if the prefetch prop is not defined do nothing
@@ -67,7 +55,10 @@ export default class LinkWithData extends Link {
     if (this.props.withData) {
       prefetch(this.props.href);
     } else {
+      // $FlowIssue
       super.prefetch();
     }
   }
 }
+
+export default LinkWithData;

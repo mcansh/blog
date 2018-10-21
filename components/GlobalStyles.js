@@ -18,22 +18,22 @@ const GlobalStyles = createGlobalStyle`
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     font-weight: 400;
     margin: 0;
-    background: ${props => props.background};
+    background: ${props => props.theme.background};
   }
 
   ::selection {
-    background: ${props => props.primary};
+    background: ${props => props.theme.primary};
     color: white;
   }
 
   a {
-    color: ${props => props.primary};
+    color: ${props => props.theme.primary};
     text-decoration-skip: ink;
     transition: 300ms all ease-in-out;
   }
 
   a:hover {
-    color: ${props => props.secondary};
+    color: ${props => props.theme.secondary};
   }
 
   a::selection {
@@ -45,7 +45,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #nprogress .bar {
-    background: ${props => props.primary};
+    background: ${props => props.theme.primary};
     position: fixed;
     z-index: 1031;
     top: 0;
@@ -60,7 +60,7 @@ const GlobalStyles = createGlobalStyle`
     right: 0;
     width: 10rem;
     height: 100%;
-    box-shadow: 0 0 1rem ${props => props.primary}, 0 0 0.5rem ${props =>
+    box-shadow: 0 0 1rem ${props => props.theme.primary}, 0 0 0.5rem ${props =>
   props.primary};
     opacity: 1;
     transform: rotate(3deg) translate(0, -0.4rem);

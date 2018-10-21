@@ -1,9 +1,13 @@
+// @flow
+
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import colors from '../config';
+import { colors } from '../config';
 
+// $FlowIssue
 class MyDocument extends Document {
+  // $FlowIssue
   static async getInitialProps(context) {
     // styled-components
     const { renderPage } = context;

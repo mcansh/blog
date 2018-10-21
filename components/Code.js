@@ -1,10 +1,33 @@
+// @flow
+
 import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import styled, { type ReactComponentStyled } from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import OceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
-export const Code = ({ language, children }) => (
+type CodeProps = {
+  language: string,
+  children: Node,
+};
+
+type InlineCodeProps = {
+  children: Node,
+};
+
+const CodeStyles = styled.pre`
+  margin: 3rem 0;
+  padding: 1.4rem;
+  border-radius: 0.4rem;
+  width: 100%;
+  word-wrap: normal;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  webkit-overflow-scrolling: touch;
+  font-family: 'SF Mono', menlo, monospace;
+  ${props => props.additionalStyles};
+`;
+
+export const Code = ({ language, children }: CodeProps) => (
   <Highlight
     {...defaultProps}
     code={children}
@@ -12,22 +35,7 @@ export const Code = ({ language, children }) => (
     theme={OceanicNext}
   >
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <pre
-        className={className}
-        style={{
-          ...style,
-          margin: '3rem 0',
-          padding: '1.4rem',
-          borderRadius: '0.4rem',
-          width: '100%',
-          boxSizing: 'border-box',
-          wordWrap: 'normal',
-          fontSize: '1.6rem',
-          lineHeight: '1.5',
-          WebkitOverflowScrolling: 'touch',
-          fontFamily: 'native, menlo, monospace',
-        }}
-      >
+      <CodeStyles className={className} additionalStyles={style}>
         {tokens.map((line, i) => (
           <div {...getLineProps({ line, key: i })}>
             {line.map((token, key) => (
@@ -35,27 +43,18 @@ export const Code = ({ language, children }) => (
             ))}
           </div>
         ))}
-      </pre>
+      </CodeStyles>
     )}
   </Highlight>
 );
 
-export const InlineCode = styled.code`
+export const InlineCode: ReactComponentStyled<InlineCodeProps> = styled.code`
   font-size: 0.85em;
   padding: 0.125rem 0.25rem;
   background: rgba(85, 85, 86, 0.05);
   color: #df0050;
   box-shadow: 0 0 0 0.1rem rgba(85, 85, 86, 0.2);
   border-radius: 0.2rem;
-  font-family: native, menlo, monospace;
+  font-family: 'SF Mono', menlo, monospace;
   hyphens: none;
 `;
-
-Code.propTypes = {
-  language: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
-
-InlineCode.propTypes = {
-  children: PropTypes.node.isRequired,
-};

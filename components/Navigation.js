@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import Router from 'next/router';
 import styled from 'styled-components';
 import { Query, Mutation } from 'react-apollo';
@@ -9,6 +10,11 @@ import Hamburger from './Hamburger';
 import NavList from './NavList';
 import Portal from './Portal';
 import { logEvent } from '../lib/analytics';
+
+type MutationProps = {
+  // $FlowIssue
+  render: Function,
+};
 
 const Nav = styled.nav`
   &::after {
@@ -45,27 +51,17 @@ const CLOSE_NAV_MUTATION = gql`
   }
 `;
 
-const ToggleNav = ({ render }) => (
+const ToggleNav = ({ render }: MutationProps) => (
   <Mutation mutation={TOGGLE_NAV_MUTATION}>{render}</Mutation>
 );
 
-const QueryMutationProps = {
-  render: PropTypes.func.isRequired,
-};
-
-ToggleNav.propTypes = QueryMutationProps;
-
-const CloseNav = ({ render }) => (
+const CloseNav = ({ render }: MutationProps) => (
   <Mutation mutation={CLOSE_NAV_MUTATION}>{render}</Mutation>
 );
 
-CloseNav.propTypes = QueryMutationProps;
-
-const LocalState = ({ render }) => (
+const LocalState = ({ render }: MutationProps) => (
   <Query query={LOCAL_STATE_QUERY}>{render}</Query>
 );
-
-LocalState.propTypes = QueryMutationProps;
 
 const Composed = adopt({
   toggleNav: ToggleNav,
@@ -77,7 +73,7 @@ const Navigation = () => (
   <Composed>
     {({ closeNav, toggleNav, localState }) => {
       const { navOpen } = localState.data;
-      Router.onRouteChangeComplete = () => closeNav();
+      Router.events.on('routeChangeComplete', () => closeNav());
       return (
         <Nav
           navOpen={navOpen}

@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+// @flow
+import React from 'react';
 import styled from 'styled-components';
 import PostCard from '../components/PostCard';
 import posts from '../posts.json';
@@ -40,14 +41,14 @@ const PostsWrapper = styled.div`
 `;
 
 const Index = () => (
-  <Fragment>
+  <>
     <Header id={latestid} link={latestid} />
     <PostsWrapper>
       {sortedPosts.map(({ image, date, title, id }) => (
         <PostCard key={id} image={image} date={date} title={title} id={id} />
       ))}
     </PostsWrapper>
-  </Fragment>
+  </>
 );
 
 export default Index;

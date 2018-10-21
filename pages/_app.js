@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import App, { Container } from 'next/app';
@@ -9,12 +9,12 @@ import { ApolloProvider } from 'react-apollo';
 import { MDXProvider } from '@mdx-js/tag';
 import GlobalStyles from '../components/GlobalStyles';
 import withApolloClient from '../lib/withData';
-import colors from '../config';
+import { colors } from '../config';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
 import Meta from '../components/Meta';
+import Paragraph from '../components/Paragraph';
 import Error from './_error';
-import components from '../components';
 
 NProgress.configure({ showSpinner: false });
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -37,7 +37,8 @@ class MyApp extends App {
       dsn: process.env.SENTRY,
       release: version,
       environment: process.env.NODE_ENV,
-      serverName: process.env.NOW ? 'now.sh' : 'localhost',
+      serverName:
+        typeof process.env.NOW !== 'undefined' ? 'now.sh' : 'localhost',
     });
   }
 
@@ -82,10 +83,10 @@ class MyApp extends App {
       <IntlProvider messages={messages} initialNow={now} locale={locale}>
         <Container>
           <ThemeProvider theme={colors}>
-            <MDXProvider components={components}>
+            <MDXProvider components={{ p: Paragraph }}>
               <ApolloProvider client={apollo}>
                 <GlobalStyles />
-                <Fragment>
+                <>
                   <Meta />
                   {statusCode ? (
                     <Error statusCode={statusCode} />
@@ -94,7 +95,7 @@ class MyApp extends App {
                       <Component {...pageProps} />
                     </Document>
                   )}
-                </Fragment>
+                </>
               </ApolloProvider>
             </MDXProvider>
           </ThemeProvider>

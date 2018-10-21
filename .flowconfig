@@ -1,6 +1,7 @@
 [ignore]
 .*/node_modules/*
 .*/.next/.*
+.*/__tests__/*
 
 [include]
 
@@ -20,3 +21,4 @@ sketchy-null
 [options]
 all=true
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
+esproposal.optional_chaining=enable

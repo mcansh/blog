@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
 import { version, repository } from '../../package.json';
@@ -16,7 +17,7 @@ if (global.document) {
   info.forEach(message => console.log(message));
 }
 
-class Document extends Component {
+class Document extends React.Component<{ children: React.Node }> {
   componentDidMount = () => {
     this.analytics();
     this.serviceWorker();
@@ -52,17 +53,13 @@ class Document extends Component {
   render() {
     const { children } = this.props;
     return (
-      <Fragment>
+      <>
         <Navigation />
         {children}
         <Footer />
-      </Fragment>
+      </>
     );
   }
 }
-
-Document.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Document;

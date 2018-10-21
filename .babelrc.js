@@ -1,6 +1,12 @@
 module.exports = {
   presets: ['next/babel', '@babel/flow'],
-  plugins: ['polished', 'inline-dotenv', 'styled-components', 'react-intl'],
+  plugins: [
+    'styled-components',
+    'polished',
+    'inline-dotenv',
+    'react-intl',
+    '@babel/plugin-proposal-optional-chaining',
+  ],
   env: {
     test: {
       presets: [

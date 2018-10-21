@@ -1,5 +1,5 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import webp from '../../utils/webp';
 import { unsplashParams } from '../../config';
@@ -29,9 +29,17 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-const HeaderImage = ({ image: { imageUrl, name, url } }) => {
-  const image = `/static/images/posts/${imageUrl}`;
-  const { url: webpImage, type } = webp(imageUrl);
+type Props = {
+  image: {
+    imageUrl: string,
+    name: string,
+    url?: string,
+  },
+};
+
+const HeaderImage = ({ image }: Props) => {
+  const imgUrl = `/static/images/posts/${image.imageUrl}`;
+  const { url: webpImage, type } = webp(image.imageUrl);
 
   const webpbg = `/static/images/posts/${webpImage}`;
 
@@ -40,20 +48,12 @@ const HeaderImage = ({ image: { imageUrl, name, url } }) => {
       <source srcSet={webpbg} type="image/webp" />
       <source srcSet={image} type={type} />
       <Image
-        src={`/static/images/posts/${imageUrl}`}
-        alt={name ? `Taken by ${name}` : ''}
-        data-source-url={unsplashParams(url)}
+        src={`/static/images/posts/${image.imageUrl}`}
+        alt={image.name ? `Taken by ${image.name}` : ''}
+        data-source-url={unsplashParams(imgUrl)}
       />
     </Picture>
   );
-};
-
-HeaderImage.propTypes = {
-  image: PropTypes.shape({
-    imageUrl: PropTypes.string,
-    name: PropTypes.string,
-    url: PropTypes.string,
-  }).isRequired,
 };
 
 export default HeaderImage;
