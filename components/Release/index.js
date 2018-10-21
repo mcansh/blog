@@ -24,9 +24,9 @@ const Release = ({ version, notes, date }: Props) => (
         <a>Version {version}</a>
       </Link>
     </h1>
-    <h2>
+    <time dateTime={date}>
       <FormattedRelative value={date} />
-    </h2>
+    </time>
     {
       remark()
         .use(reactRenderer, {

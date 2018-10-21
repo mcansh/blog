@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import styled from 'styled-components';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -7,6 +8,13 @@ import * as Sentry from '@sentry/browser';
 import Meta from '../components/Meta';
 import Header from '../components/Header';
 import Release from '../components/Release';
+
+const QueryErrorStyles = styled.div`
+  height: 50vh;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+`;
 
 const allReleasesQuery = gql`
   query allReleases($after: String) {
@@ -58,11 +66,20 @@ class Changelog extends React.PureComponent<null, State> {
         />
         <Query query={allReleasesQuery}>
           {({ loading, error, fetchMore, data }) => {
-            if (loading) return <p>Loading...</p>;
+            if (loading)
+              return (
+                <QueryErrorStyles>
+                  <p>Loading...</p>
+                </QueryErrorStyles>
+              );
 
             if (error) {
               Sentry.captureException(error);
-              return <p>Error :(</p>;
+              return (
+                <QueryErrorStyles>
+                  <p>Error :(</p>
+                </QueryErrorStyles>
+              );
             }
 
             const {
