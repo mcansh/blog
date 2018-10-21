@@ -57,7 +57,7 @@
     "is-absolute-url": "2.1.0",
     "isomorphic-unfetch": "3.0.0",
     "mime": "2.3.1",
-    "nanoid": "1.3.0",
+    "nanoid": "1.3.1",
     "next": "7.0.2",
     "next-compose-plugins": "2.1.1",
     "next-offline": "3.0.2",
