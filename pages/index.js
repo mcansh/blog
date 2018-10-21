@@ -1,22 +1,21 @@
-// @flow
 import React from 'react';
 import styled from 'styled-components';
 import PostCard from '../components/PostCard';
 import posts from '../posts.json';
 import Header from '../components/Header';
 
-const sortedPosts = posts.sort((a, b) => (a.date > b.date ? -1 : 1));
+const sortedPosts = posts.sort((a, b) => {
+  if (a.date > b.date) return -1;
+  if (a.date < b.date) return 1;
+  return 0;
+});
+
 const [latest] = sortedPosts;
-const { id: latestid } = latest;
 
 const PostsWrapper = styled.div`
   margin: 0 auto;
   width: 95%;
-  padding: 9rem 0 0 0;
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  padding-left: constant(safe-area-inset-left);
-  padding-right: constant(safe-area-inset-right);
+  padding-top: 9rem;
   display: flex;
   flex-flow: row wrap;
 
@@ -42,10 +41,16 @@ const PostsWrapper = styled.div`
 
 const Index = () => (
   <>
-    <Header id={latestid} link={latestid} />
+    <Header id={latest.id} link={latest.id} />
     <PostsWrapper>
-      {sortedPosts.map(({ image, date, title, id }) => (
-        <PostCard key={id} image={image} date={date} title={title} id={id} />
+      {sortedPosts.map(post => (
+        <PostCard
+          key={post.id}
+          id={post.id}
+          image={post.image}
+          date={post.date}
+          title={post.title}
+        />
       ))}
     </PostsWrapper>
   </>
