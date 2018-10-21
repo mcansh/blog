@@ -1,6 +1,5 @@
 // @flow
-import React, { Fragment, PureComponent } from 'react';
-import type { Node } from 'react';
+import * as React from 'react';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -37,17 +36,17 @@ type State = {
   hasMore: boolean,
 };
 
-class Changelog extends PureComponent<null, State> {
+class Changelog extends React.PureComponent<null, State> {
   state = {
     hasMore: true,
   };
 
   hasNoMore = () => this.setState({ hasMore: false });
 
-  render(): Node {
+  render() {
     const { hasMore } = this.state;
     return (
-      <Fragment>
+      <>
         <Meta />
         <Header
           title="Changelog"
@@ -110,7 +109,7 @@ class Changelog extends PureComponent<null, State> {
                 hasMore={hasMore}
                 threshold={500}
               >
-                <Fragment>
+                <>
                   {releases.map(({ node: release }) => (
                     <Release
                       key={release.tag.name}
@@ -119,12 +118,12 @@ class Changelog extends PureComponent<null, State> {
                       date={release.publishedAt}
                     />
                   ))}
-                </Fragment>
+                </>
               </InfiniteScroll>
             );
           }}
         </Query>
-      </Fragment>
+      </>
     );
   }
 }

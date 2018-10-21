@@ -3,6 +3,9 @@
 .*/.next/.*
 .*/__tests__/*
 .*/server/*
+.*/utils/jest.js
+.*/utils/renderWithIntl.js
+.*/lib/withIntl.js
 
 [include]
 

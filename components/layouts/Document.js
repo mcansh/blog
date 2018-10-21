@@ -26,12 +26,13 @@ class Document extends React.Component<{ children: React.Node }> {
   componentDidUpdate = () => this.analytics();
 
   serviceWorker = () => {
+    // $FlowIssue
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker
           .register('/service-worker.js')
           .then(() => {
-            console.log('SW registered: ');
+            console.log('SW registered');
           })
           .catch(registrationError => {
             console.log('SW registration failed: ', registrationError);

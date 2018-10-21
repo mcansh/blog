@@ -1,7 +1,10 @@
 // @flow
 import React from 'react';
-import { injectIntl, FormattedRelative } from 'react-intl';
-import type { $npm$ReactIntl$IntlShape } from 'react-intl';
+import {
+  injectIntl,
+  FormattedRelative,
+  type $npm$ReactIntl$IntlShape,
+} from 'react-intl';
 import styled from 'styled-components';
 import { MMMMDDYYYY } from '../../config';
 

@@ -38,7 +38,7 @@ module.exports = withPlugins(
   ],
   {
     generateBuildId: async () => {
-      if (process.env.SIZE_LIMIT) return 'blog';
+      if (process.env.SIZE_LIMIT != null) return 'blog';
       // next.js uses nanoid internally for generating buildId
       return nanoid();
     },

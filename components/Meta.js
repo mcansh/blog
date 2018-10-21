@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import Head from 'next/head';
-import { withRouter } from 'next/router';
+import { withRouter, type Router } from 'next/router';
 import findPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
@@ -12,9 +12,7 @@ const defaultImage = `${homepage}/static/images/me.jpg`;
 
 type Props = {
   id?: string,
-  router: {
-    pathname: string,
-  },
+  router: Router,
 };
 
 const Meta = ({ id, router }: Props) => {
@@ -32,7 +30,7 @@ const Meta = ({ id, router }: Props) => {
       <title>{pageTitle}</title>
       <meta name="description" content={description} />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:site" content={process.env.TWITTER} />
+      <meta name="twitter:site" content="loganmcansh" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageFullUrl || defaultImage} />

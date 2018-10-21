@@ -51,11 +51,11 @@ type Props = {
   image?: {
     imageUrl: string,
     name: string,
-    url?: string,
-  },
-  title?: string,
-  link?: string,
-  id?: string,
+    url?: string | null,
+  } | null,
+  title?: string | null,
+  link?: string | null,
+  id?: string | null,
 };
 
 const HeaderWrap = ({ image, title, link, id }: Props) => {
@@ -71,12 +71,12 @@ const HeaderWrap = ({ image, title, link, id }: Props) => {
       <HeaderContent>
         <Title>{headerTitle}</Title>
         {showDate ? <Date date={post.date} /> : null}
-        {showLink ? (
+        {showLink && (
           <Button
             text={<FormattedMessage {...messages.readMore} />}
             link={id}
           />
-        ) : null}
+        )}
       </HeaderContent>
       <Image image={image || post.image} />
     </Header>

@@ -4,7 +4,7 @@ import { resolve, join } from 'path';
 import kleur from 'kleur';
 import inquirer from 'inquirer';
 import { PathPrompt } from 'inquirer-path';
-import { format } from 'prettier';
+import prettier from 'prettier';
 import { stripIndent } from 'common-tags';
 import slugify from '@sindresorhus/slugify';
 
@@ -12,7 +12,6 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 inquirer.registerPrompt('path', PathPrompt);
-
 const questions = [
   {
     type: 'input',
@@ -68,7 +67,7 @@ inquirer
 
     const json = JSON.stringify(posts);
 
-    const prettyJSON = format(json, { parser: 'json' });
+    const prettyJSON = prettier.format(json, { parser: 'json' });
 
     writeFile(postsPath, prettyJSON);
 

@@ -85,8 +85,8 @@ class MyApp extends App {
           <ThemeProvider theme={colors}>
             <MDXProvider components={{ p: Paragraph }}>
               <ApolloProvider client={apollo}>
-                <GlobalStyles />
                 <>
+                  <GlobalStyles />
                   <Meta />
                   {statusCode ? (
                     <Error statusCode={statusCode} />

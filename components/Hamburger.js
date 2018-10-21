@@ -1,8 +1,11 @@
 // @flow
 
 import React from 'react';
-import { defineMessages, injectIntl } from 'react-intl';
-import type { $npm$ReactIntl$IntlShape } from 'react-intl';
+import {
+  defineMessages,
+  injectIntl,
+  type $npm$ReactIntl$IntlShape,
+} from 'react-intl';
 import styled from 'styled-components';
 
 const messages = defineMessages({
