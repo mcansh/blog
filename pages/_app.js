@@ -1,31 +1,31 @@
 // $FlowFixMe StrictMode isn't typed yet
-import React, { StrictMode } from "react";
-import Router from "next/router";
-import NProgress from "nprogress";
-import App, { Container } from "next/app";
-import { IntlProvider, addLocaleData } from "react-intl";
-import * as Sentry from "@sentry/browser";
-import { ThemeProvider } from "styled-components";
-import { ApolloProvider } from "react-apollo";
-import { MDXProvider } from "@mdx-js/tag";
-import GlobalStyles from "../components/GlobalStyles";
-import withApolloClient from "../lib/withData";
-import { colors } from "../config";
-import { version } from "../package.json";
-import Document from "../components/layouts/Document";
-import Meta from "../components/Meta";
-import Paragraph from "../components/Paragraph";
-import Error from "./_error";
+import React, { StrictMode } from 'react';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+import App, { Container } from 'next/app';
+import { IntlProvider, addLocaleData } from 'react-intl';
+import * as Sentry from '@sentry/browser';
+import { ThemeProvider } from 'styled-components';
+import { ApolloProvider } from 'react-apollo';
+import { MDXProvider } from '@mdx-js/tag';
+import GlobalStyles from '../components/GlobalStyles';
+import withApolloClient from '../lib/withData';
+import { colors } from '../config';
+import { version } from '../package.json';
+import Document from '../components/layouts/Document';
+import Meta from '../components/Meta';
+import Paragraph from '../components/Paragraph';
+import Error from './_error';
 
 NProgress.configure({ showSpinner: false });
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
 // once, on initial page load in the browser.
-if (typeof window !== "undefined" && window.ReactIntlLocaleData) {
+if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
   Object.keys(window.ReactIntlLocaleData).forEach(lang => {
     addLocaleData(window.ReactIntlLocaleData[lang]);
   });
@@ -38,7 +38,7 @@ class MyApp extends App {
       dsn: process.env.SENTRY,
       release: version,
       environment: process.env.NODE_ENV,
-      serverName: process.env.NOW != null ? "now.sh" : "localhost"
+      serverName: process.env.NOW != null ? 'now.sh' : 'localhost',
     });
   }
 
@@ -74,7 +74,7 @@ class MyApp extends App {
       locale,
       messages,
       apollo,
-      statusCode
+      statusCode,
     } = this.props;
 
     const now = Date.now();
