@@ -38,8 +38,7 @@ class MyApp extends App {
       dsn: process.env.SENTRY,
       release: version,
       environment: process.env.NODE_ENV,
-      serverName:
-        typeof process.env.NOW !== "undefined" ? "now.sh" : "localhost"
+      serverName: process.env.NOW != null ? "now.sh" : "localhost"
     });
   }
 
