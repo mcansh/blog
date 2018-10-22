@@ -29,7 +29,7 @@
     "size": "SIZE_LIMIT=true yarn build && size-limit",
     "blog": "node -r esm scripts/create-post",
     "flow": "flow",
-    "postinstall": "yarn flow-typed install"
+    "install:types": "yarn flow-typed install"
   },
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "license": "MIT",

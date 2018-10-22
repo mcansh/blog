@@ -1,7 +1,7 @@
 FROM mhart/alpine-node as base
 WORKDIR /usr/src
 COPY package.json yarn.lock /usr/src/
-RUN yarn --ignore-scripts
+RUN yarn
 COPY . .
 RUN yarn build
 
