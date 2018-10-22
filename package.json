@@ -156,9 +156,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn run flow focus-check",
-      "yarn run test",
-      "yarn run lint:css",
+      "yarn flow focus-check",
       "prettier --write",
       "git add"
     ]

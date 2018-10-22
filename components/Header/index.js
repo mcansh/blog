@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import FindPost from '../../utils/findPost';
-import Button from '../Button';
-import Image from './Image';
-import Date from './Date';
+// @flow
+import React from "react";
+import styled from "styled-components";
+import FindPost from "../../utils/findPost";
+import Button from "../Button";
+import Image from "./Image";
+import Date from "./Date";
 
-const Header = styled.header.attrs({ 'data-testid': 'header' })`
+const Header = styled.header.attrs({ "data-testid": "header" })`
   height: 50vh;
   min-height: 50rem;
   max-height: 80rem;
@@ -37,7 +38,20 @@ export const Title = styled.h1`
   }
 `;
 
-const HeaderWrap = ({ image, title, link, id }) => (
+export type ImageTypes = {
+  imageUrl: string,
+  name?: string | null,
+  url?: string | null
+};
+
+type Props = {
+  title?: string | null,
+  link?: string | null,
+  id?: string | null,
+  image?: ImageTypes | null
+};
+
+const HeaderWrap = ({ image, title, link, id }: Props) => (
   <FindPost id={id}>
     {post => {
       const headerTitle = title != null ? title : post.title;
@@ -62,6 +76,7 @@ HeaderWrap.defaultProps = {
   link: null,
   id: null,
   title: null,
+  image: null
 };
 
 export default HeaderWrap;

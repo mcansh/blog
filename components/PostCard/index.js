@@ -1,12 +1,21 @@
+// @flow
 /* eslint-disable global-require, import/no-dynamic-require */
-import React from 'react';
-import Link from 'next/link';
-import { FormattedDate } from 'react-intl';
-import webp from '../../utils/webp';
-import { unsplashParams } from '../../config';
-import { Post, ImageWrap, Meta, Title, PostDate } from './components';
+import React from "react";
+import Link from "next/link";
+import { FormattedDate } from "react-intl";
+import webp from "../../utils/webp";
+import { unsplashParams } from "../../config";
+import { Post, ImageWrap, Meta, Title, PostDate } from "./components";
+import { type ImageTypes } from "../Header";
 
-const PostCard = ({ id, image, date, title }) => {
+export type PostTypes = {
+  image: ImageTypes,
+  id: string,
+  date: number,
+  title: string
+};
+
+const PostCard = ({ id, image, date, title }: PostTypes) => {
   const { type, url: webpImage } = webp(image.imageUrl);
 
   return (
@@ -24,7 +33,7 @@ const PostCard = ({ id, image, date, title }) => {
             />
             <img
               src={`/static/images/posts/${image.imageUrl}`}
-              alt={image.name ? `Taken by ${image.name}` : ''}
+              alt={image.name != null ? `Taken by ${image.name}` : ""}
               data-source-url={unsplashParams(image.url)}
             />
           </picture>

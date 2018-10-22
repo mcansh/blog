@@ -1,14 +1,21 @@
-import posts from '../posts.json';
+// @flow
+import posts from "../posts.json";
 
-const findPost = (id: string) => posts.find(post => post.id === id);
+const findPost = (id?: string | null) => posts.find(post => post.id === id);
 
-const FindPost = ({ id, children }) => {
+type Props = {
+  id?: string | null,
+  // $FlowFixMe properly type this
+  children: Function
+};
+
+const FindPost = ({ id, children }: Props) => {
   const post = findPost(id) || {};
   return children(post);
 };
 
 FindPost.defaultProps = {
-  id: null,
+  id: null
 };
 
 export { findPost };

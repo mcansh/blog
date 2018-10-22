@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import NextError from 'next/error';
-import styled from 'styled-components';
-import Button from '../components/Button';
+// @flow
+import React, { Component } from "react";
+// $FlowFixMe flow-typed doesn't have types for next/error
+import NextError from "next/error";
+import styled from "styled-components";
+import Button from "../components/Button";
 
 const ErrorWrapper = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: ${({ row }) => (row ? 'row' : 'column')};
+  flex-direction: ${({ row }) => (row ? "row" : "column")};
   background: ${({ background }) => background};
   color: white;
 `;
@@ -22,12 +24,16 @@ const ErrorCode = styled.h1`
   margin-bottom: 1rem;
 `;
 
-class Error extends Component {
+type Props = {
+  statusCode?: number
+};
+
+class Error extends Component<Props> {
   static defaultProps = {
-    statusCode: null,
+    statusCode: null
   };
 
-  // $FlowIssue
+  // $FlowFixMe
   static getInitialProps = ({ res, err }) => {
     if (res) return { statusCode: res.statusCode };
     if (err) return { statusCode: err.statusCode };

@@ -1,15 +1,22 @@
-import React from 'react';
-import Link from 'next/link';
-import remark from 'remark';
-import github from 'remark-github';
-import emoji from 'remark-emoji';
-import reactRenderer from 'remark-react';
-import { FormattedRelative } from 'react-intl';
-import ReleaseWrap from './wrap';
-import List from './list';
-import ListItem from './item';
+// @flow
+import React from "react";
+import Link from "next/link";
+import remark from "remark";
+import github from "remark-github";
+import emoji from "remark-emoji";
+import reactRenderer from "remark-react";
+import { FormattedRelative } from "react-intl";
+import ReleaseWrap from "./wrap";
+import List from "./list";
+import ListItem from "./item";
 
-const Release = ({ version, notes, date }) => (
+type Props = {
+  version: string,
+  notes: string,
+  date: string
+};
+
+const Release = ({ version, notes, date }: Props) => (
   <ReleaseWrap>
     <h1>
       <Link href={`https://github.com/mcansh/blog/releases/${version}`}>
@@ -24,11 +31,11 @@ const Release = ({ version, notes, date }) => (
         .use(reactRenderer, {
           remarkReactComponents: {
             ul: List,
-            li: ListItem,
-          },
+            li: ListItem
+          }
         })
         .use(github, {
-          repository: 'mcansh/blog',
+          repository: "mcansh/blog"
         })
         .use(emoji)
         .processSync(notes).contents

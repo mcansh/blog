@@ -1,7 +1,8 @@
-import mime from 'mime/lite';
-import path from 'path';
+// @flow
+import mime from "mime/lite";
+import path from "path";
 
-const webp = image => {
+const webp = (image: string): { url: string, type: string | null } => {
   const { name } = path.parse(image);
 
   const type = mime.getType(image);

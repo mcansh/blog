@@ -1,12 +1,18 @@
-import React from 'react';
-import Head from 'next/head';
-import { withRouter } from 'next/router';
-import FindPost from '../utils/findPost';
-import { description, homepage } from '../package.json';
-import { name } from '../utils/authorInfo';
-import { YYYYMMDD } from '../utils/Dates';
+// @flow
+import React from "react";
+import Head from "next/head";
+import { withRouter, type Router } from "next/router";
+import FindPost from "../utils/findPost";
+import { description, homepage } from "../package.json";
+import { name } from "../utils/authorInfo";
+import { YYYYMMDD } from "../utils/Dates";
 
-const Meta = withRouter(({ id, router }) => (
+type Props = {
+  id?: string,
+  router: Router
+};
+
+const Meta = ({ id, router }: Props) => (
   <FindPost id={id}>
     {post => {
       const pageTitle = post?.title ? `${post.title} — ${name}` : name;
@@ -27,7 +33,7 @@ const Meta = withRouter(({ id, router }) => (
           <meta property="og:description" content={description} />
           <meta
             property="og:type"
-            content={post?.title ? 'article' : 'website'}
+            content={post?.title ? "article" : "website"}
           />
           <meta property="og:url" content={`${homepage}/${router.pathname}`} />
           <meta property="og:image" content={fullImageUrl} />
@@ -42,10 +48,10 @@ const Meta = withRouter(({ id, router }) => (
       );
     }}
   </FindPost>
-));
+);
 
 Meta.defaultProps = {
-  id: null,
+  id: null
 };
 
-export default Meta;
+export default withRouter(Meta);

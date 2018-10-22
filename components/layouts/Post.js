@@ -1,7 +1,8 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import Meta from '../Meta';
-import Header from '../Header';
+// @flow
+import React, { type Node } from "react";
+import styled from "styled-components";
+import Meta from "../Meta";
+import Header from "../Header";
 
 const PostWrap = styled.div`
   margin: 3rem auto 0 auto;
@@ -12,8 +13,16 @@ const PostWrap = styled.div`
   padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
 `;
 
-const Post = ({ children, ...options }) => (
+type Props = {
+  children: Node,
+  options: {
+    id: string
+  }
+};
+
+const Post = ({ children, ...options }: Props) => (
   <>
+    {/* $FlowFixMe not sure how to tell flow that Meta is wrapped in withRouter */}
     <Meta {...options} />
     <Header {...options} />
     <PostWrap>{children}</PostWrap>

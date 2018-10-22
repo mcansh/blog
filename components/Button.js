@@ -1,6 +1,7 @@
-import * as React from 'react';
-import Link from 'next/link';
-import styled from 'styled-components';
+// @flow
+import React from "react";
+import Link from "next/link";
+import styled from "styled-components";
 
 const StyledLink = styled.a`
   margin: 3rem 0 0 0;
@@ -34,14 +35,23 @@ const StyledLink = styled.a`
   }
 `;
 
+type Props = {
+  text: string,
+  link: string,
+  color?: string,
+  background?: string,
+  hoverColor?: string,
+  hoverBackground?: string
+};
+
 const Button = ({
   text,
   link,
   color,
   background,
   hoverColor,
-  hoverBackground,
-}) => (
+  hoverBackground
+}: Props) => (
   <Link href={link} prefetch passHref>
     <StyledLink
       background={background}
@@ -55,10 +65,10 @@ const Button = ({
 );
 
 Button.defaultProps = {
-  color: 'white',
-  background: 'black',
-  hoverColor: 'white',
-  hoverBackground: 'transparent',
+  color: "white",
+  background: "black",
+  hoverColor: "white",
+  hoverBackground: "transparent"
 };
 
 export default Button;
