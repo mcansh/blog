@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import webp from '../../utils/webp';
-import { unsplashParams } from '../../config';
+import unsplashParams from '../../utils';
 import type { ImageTypes } from './index';
 
 const Picture = styled.picture`

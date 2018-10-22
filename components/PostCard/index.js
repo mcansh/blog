@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FormattedDate } from 'react-intl';
 import webp from '../../utils/webp';
-import { unsplashParams } from '../../config';
+import unsplashParams from '../../utils';
 import { Post, ImageWrap, Meta, Title, PostDate } from './components';
 import { type ImageTypes } from '../Header';
 

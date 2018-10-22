@@ -2,7 +2,7 @@ import send from '@polka/send-type';
 import { stripIndent } from 'common-tags';
 import posts from '../posts.json';
 import { description, homepage } from '../package.json';
-import { YYYYMMDD } from '../utils/Dates';
+import { YYYYMMDD } from './dates';
 import { name, email } from '../utils/authorInfo';
 import { cacheTimesInSeconds } from './caching';
 

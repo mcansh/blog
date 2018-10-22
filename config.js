@@ -1,4 +1,3 @@
-// @flow
 const colors = {
   primary: '#6c16c7',
   background: '#f7f7f7',
@@ -10,12 +9,5 @@ const MMMMDDYYYY = {
   year: 'numeric',
 };
 
-const unsplashParams = (url?: string | null): string => {
-  if (url == null) return '';
-  return url.includes('unsplash.com')
-    ? `${url}?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog`
-    : url;
-};
-
-export { colors, MMMMDDYYYY, unsplashParams };
+export { colors, MMMMDDYYYY };
 export default colors;

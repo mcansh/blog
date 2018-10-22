@@ -5,7 +5,7 @@ import { withRouter, type Router } from 'next/router';
 import FindPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
-import { YYYYMMDD } from '../utils/Dates';
+import { YYYYMMDD } from '../utils/dates';
 
 type Props = {
   id?: string,
