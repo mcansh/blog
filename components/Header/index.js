@@ -1,10 +1,8 @@
-// @flow
-
 import React from 'react';
 import styled from 'styled-components';
 import FindPost from '../../utils/findPost';
 import Button from '../Button';
-import Image, { type Props as ImageProps } from './Image';
+import Image from './Image';
 import Date from './Date';
 
 const Header = styled.header.attrs({ 'data-testid': 'header' })`
@@ -39,14 +37,7 @@ export const Title = styled.h1`
   }
 `;
 
-type Props = {
-  image: ImageProps,
-  title?: string | null,
-  link?: string | null,
-  id?: string | null,
-};
-
-const HeaderWrap = ({ image, title, link, id }: Props) => (
+const HeaderWrap = ({ image, title, link, id }) => (
   <FindPost id={id}>
     {post => {
       const headerTitle = title != null ? title : post.title;

@@ -1,18 +1,12 @@
-// @flow
 import React from 'react';
 import Head from 'next/head';
-import { withRouter, type Router } from 'next/router';
+import { withRouter } from 'next/router';
 import FindPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
 import { YYYYMMDD } from '../utils/Dates';
 
-type Props = {
-  id?: string,
-  router: Router,
-};
-
-const Meta = withRouter(({ id, router }: Props) => (
+const Meta = withRouter(({ id, router }) => (
   <FindPost id={id}>
     {post => {
       const pageTitle = post?.title ? `${post.title} — ${name}` : name;

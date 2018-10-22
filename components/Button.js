@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -36,15 +34,6 @@ const StyledLink = styled.a`
   }
 `;
 
-type Props = {
-  text: string | React.Node,
-  link: string,
-  color?: string,
-  background?: string,
-  hoverColor?: string,
-  hoverBackground?: string,
-};
-
 const Button = ({
   text,
   link,
@@ -52,7 +41,7 @@ const Button = ({
   background,
   hoverColor,
   hoverBackground,
-}: Props): React.Node => (
+}) => (
   <Link href={link} prefetch passHref>
     <StyledLink
       background={background}

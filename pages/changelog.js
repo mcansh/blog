@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react';
 import styled from 'styled-components';
 import { gql } from 'apollo-boost';
@@ -40,11 +39,7 @@ const allReleasesQuery = gql`
   }
 `;
 
-type State = {
-  hasMore: boolean,
-};
-
-class Changelog extends React.PureComponent<null, State> {
+class Changelog extends React.PureComponent {
   state = {
     hasMore: true,
   };
@@ -83,9 +78,7 @@ class Changelog extends React.PureComponent<null, State> {
             }
 
             const {
-              // $FlowIssue
               repository: {
-                // $FlowIssue
                 releases: { edges: releases },
               },
             } = data;
@@ -98,12 +91,10 @@ class Changelog extends React.PureComponent<null, State> {
                   after: lastRelease.cursor,
                 },
                 updateQuery: (prev, { fetchMoreResult }) => {
-                  // $FlowIssue
                   if (fetchMoreResult.repository.releases.edges.length < 10) {
                     this.hasNoMore();
                   }
 
-                  // $FlowIssue
                   if (!fetchMoreResult.repository.releases.edges.length) {
                     return prev;
                   }
@@ -114,9 +105,7 @@ class Changelog extends React.PureComponent<null, State> {
                       releases: {
                         ...prev.repository.releases,
                         edges: [
-                          // $FlowIssue
                           ...prev.repository.releases.edges,
-                          // $FlowIssue
                           ...fetchMoreResult.repository.releases.edges,
                         ],
                       },

@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import styled from 'styled-components';
 import webp from '../../utils/webp';
@@ -29,15 +28,7 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-export type Props = {
-  image: {
-    imageUrl: string,
-    name?: string | null,
-    url?: string | null,
-  },
-};
-
-const HeaderImage = ({ image }: Props) => {
+const HeaderImage = ({ image }) => {
   const imagePath = '/static/images/posts';
   const imgUrl = `${imagePath}/${image.imageUrl}`;
   const { url: webpImage, type } = webp(image.imageUrl);

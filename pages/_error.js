@@ -1,7 +1,5 @@
-// @flow
 import React, { Component } from 'react';
 import NextError from 'next/error';
-import statusCodes from 'http-status-codes';
 import styled from 'styled-components';
 import Button from '../components/Button';
 
@@ -24,11 +22,7 @@ const ErrorCode = styled.h1`
   margin-bottom: 1rem;
 `;
 
-type Props = {
-  statusCode?: number,
-};
-
-class Error extends Component<Props> {
+class Error extends Component {
   static defaultProps = {
     statusCode: null,
   };
@@ -43,13 +37,11 @@ class Error extends Component<Props> {
   render() {
     const { statusCode } = this.props;
 
-    const statusText = statusCodes.getStatusText(statusCode);
-
-    if (statusCode === statusCodes.NOT_FOUND) {
+    if (statusCode === 404) {
       return (
         <ErrorWrapper background="black">
           <ErrorCode>{statusCode}</ErrorCode>
-          <ErrorText>{statusText}</ErrorText>
+          <ErrorText>Not Found</ErrorText>
           <Button
             link="/"
             prefetch

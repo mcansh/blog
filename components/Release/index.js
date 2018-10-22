@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import Link from 'next/link';
 import remark from 'remark';
@@ -11,13 +9,7 @@ import ReleaseWrap from './wrap';
 import List from './list';
 import ListItem from './item';
 
-type Props = {
-  version: string,
-  notes: string,
-  date: string,
-};
-
-const Release = ({ version, notes, date }: Props) => (
+const Release = ({ version, notes, date }) => (
   <ReleaseWrap>
     <h1>
       <Link href={`https://github.com/mcansh/blog/releases/${version}`}>

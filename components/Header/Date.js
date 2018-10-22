@@ -1,11 +1,5 @@
-// @flow
-
 import React from 'react';
-import {
-  injectIntl,
-  FormattedRelative,
-  type $npm$ReactIntl$IntlShape,
-} from 'react-intl';
+import { injectIntl, FormattedRelative } from 'react-intl';
 import styled from 'styled-components';
 import { MMMMDDYYYY } from '../../config';
 
@@ -13,12 +7,7 @@ const H2 = styled.h2`
   font-size: 3rem;
 `;
 
-type Props = {
-  date: number,
-  intl: $npm$ReactIntl$IntlShape,
-};
-
-const DateHeading = ({ date, intl: { formatDate } }: Props) => (
+const DateHeading = ({ date, intl: { formatDate } }) => (
   <H2 title={formatDate(date, MMMMDDYYYY)}>
     Posted <FormattedRelative value={date} />
   </H2>

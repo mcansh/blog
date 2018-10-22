@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
@@ -10,11 +8,6 @@ import Hamburger from './Hamburger';
 import NavList from './NavList';
 import Portal from './Portal';
 import { logEvent } from '../lib/analytics';
-
-type MutationProps = {
-  // $FlowIssue
-  render: Function,
-};
 
 const Nav = styled.nav`
   &::after {
@@ -51,15 +44,15 @@ const CLOSE_NAV_MUTATION = gql`
   }
 `;
 
-const ToggleNav = ({ render }: MutationProps) => (
+const ToggleNav = ({ render }) => (
   <Mutation mutation={TOGGLE_NAV_MUTATION}>{render}</Mutation>
 );
 
-const CloseNav = ({ render }: MutationProps) => (
+const CloseNav = ({ render }) => (
   <Mutation mutation={CLOSE_NAV_MUTATION}>{render}</Mutation>
 );
 
-const LocalState = ({ render }: MutationProps) => (
+const LocalState = ({ render }) => (
   <Query query={LOCAL_STATE_QUERY}>{render}</Query>
 );
 

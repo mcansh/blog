@@ -1,22 +1,12 @@
-// @flow
-
 /* eslint-disable global-require, import/no-dynamic-require */
 import React from 'react';
 import Link from 'next/link';
 import { FormattedDate } from 'react-intl';
 import webp from '../../utils/webp';
 import { unsplashParams } from '../../config';
-import type { Props as ImageProps } from '../Header/Image';
 import { Post, ImageWrap, Meta, Title, PostDate } from './components';
 
-export type PostTypes = {
-  id: string,
-  title: string,
-  date: number,
-  image: ImageProps,
-};
-
-const PostCard = ({ id, image, date, title }: PostTypes) => {
+const PostCard = ({ id, image, date, title }) => {
   const { type, url: webpImage } = webp(image.imageUrl);
 
   return (

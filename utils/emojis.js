@@ -1,5 +1,3 @@
-// @flow
-
 const emojis = [
   '😁',
   '🤙',
@@ -25,7 +23,7 @@ const emojis = [
   '💰',
 ];
 
-function randomEmoji(): string {
+function randomEmoji() {
   return emojis[Math.floor(Math.random() * emojis.length)];
 }
 

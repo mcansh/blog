@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react';
 import styled from 'styled-components';
 import Meta from '../Meta';
@@ -14,10 +12,10 @@ const PostWrap = styled.div`
   padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
 `;
 
-const Post = ({ children, ...options }: { children: React.Node }) => (
+const Post = ({ children, ...options }) => (
   <>
-    <Meta id={options.id} />
-    <Header id={options.id} />
+    <Meta {...options} />
+    <Header {...options} />
     <PostWrap>{children}</PostWrap>
   </>
 );

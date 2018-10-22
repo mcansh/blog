@@ -1,11 +1,8 @@
-// @flow
-import type { Node } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { format, resolve, parse } from 'url';
 
-// $FlowIssue
-export const prefetch = async (href: string | Object) => {
+export const prefetch = async href => {
   // if  we're running server side do nothing
   if (typeof window === 'undefined') return;
 
@@ -27,23 +24,8 @@ export const prefetch = async (href: string | Object) => {
   }
 };
 
-type Props = {
-  withData?: boolean, // our custom prop
-  // $FlowIssue
-  href: string | Object,
-  // $FlowIssue
-  as: string | Object,
-  prefetch?: boolean,
-  replace?: boolean,
-  shallow?: boolean,
-  passHref?: boolean,
-  scroll?: boolean,
-  children: Node,
-};
-
 // extend default next/link to customize the prefetch behaviour
-// $FlowIssue
-class LinkWithData extends Link<Props> {
+class LinkWithData extends Link {
   // our custom prefetch method
   async prefetch() {
     // if the prefetch prop is not defined do nothing
@@ -55,7 +37,6 @@ class LinkWithData extends Link<Props> {
     if (this.props.withData) {
       prefetch(this.props.href);
     } else {
-      // $FlowIssue
       super.prefetch();
     }
   }

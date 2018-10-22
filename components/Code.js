@@ -1,18 +1,7 @@
-// @flow
-
 import React from 'react';
-import styled, { type ReactComponentStyled } from 'styled-components';
+import styled from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import OceanicNext from 'prism-react-renderer/themes/oceanicNext';
-
-type CodeProps = {
-  language: string,
-  children: Node,
-};
-
-type InlineCodeProps = {
-  children: Node,
-};
 
 const CodeStyles = styled.pre`
   margin: 3rem 0;
@@ -27,7 +16,7 @@ const CodeStyles = styled.pre`
   ${props => props.additionalStyles};
 `;
 
-export const Code = ({ language, children }: CodeProps) => (
+export const Code = ({ language, children }) => (
   <Highlight
     {...defaultProps}
     code={children}
@@ -48,7 +37,7 @@ export const Code = ({ language, children }: CodeProps) => (
   </Highlight>
 );
 
-export const InlineCode: ReactComponentStyled<InlineCodeProps> = styled.code`
+export const InlineCode = styled.code`
   font-size: 0.85em;
   padding: 0.125rem 0.25rem;
   background: rgba(85, 85, 86, 0.05);

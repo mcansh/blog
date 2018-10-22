@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
@@ -17,7 +15,7 @@ if (global.document) {
   info.forEach(message => console.log(message));
 }
 
-class Document extends React.Component<{ children: React.Node }> {
+class Document extends React.Component {
   componentDidMount = () => {
     this.analytics();
     this.serviceWorker();

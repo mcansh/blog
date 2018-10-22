@@ -1,11 +1,5 @@
-// @flow
-
 import React from 'react';
-import {
-  defineMessages,
-  injectIntl,
-  type $npm$ReactIntl$IntlShape,
-} from 'react-intl';
+import { defineMessages, injectIntl } from 'react-intl';
 import styled from 'styled-components';
 
 const messages = defineMessages({
@@ -85,14 +79,7 @@ const Lines = styled.span`
   }
 `;
 
-type Props = {
-  intl: $npm$ReactIntl$IntlShape,
-  navOpen: boolean,
-  // $FlowIssue
-  onClick: Function,
-};
-
-const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }: Props) => (
+const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }) => (
   <MenuButton
     aria-label={formatMessage(
       navOpen ? messages.navOpenLabel : messages.navClosedLabel
