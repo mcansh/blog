@@ -2,7 +2,7 @@ import send from '@polka/send-type';
 import { stripIndent } from 'common-tags';
 import posts from '../posts.json';
 import { description, homepage } from '../package.json';
-import { YYYYMMDD } from './dates';
+import formatDate from './dates';
 import { name, email } from '../utils/authorInfo';
 import { cacheTimesInSeconds } from './caching';
 
@@ -17,7 +17,7 @@ const atom = (req, res) => {
       <subtitle>${description}</subtitle>
       <link href="${homepage}/atom" rel="self"/>
       <link href="${homepage}"/>
-      <updated>${YYYYMMDD(latest.date)}</updated>
+      <updated>${formatDate(latest.date)}</updated>
       <id>${homepage}</id>
       <author>
         <name>${name}</name>
@@ -30,7 +30,7 @@ const atom = (req, res) => {
           <id>${id}</id>
           <title>${title}</title>
           <link href="${homepage}/${id}"/>
-          <updated>${YYYYMMDD(date)}</updated>
+          <updated>${formatDate(date)}</updated>
         </entry>
       `
         )

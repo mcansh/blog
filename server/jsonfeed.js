@@ -2,7 +2,7 @@ import send from '@polka/send-type';
 import { stripIndent } from 'common-tags';
 import posts from '../posts.json';
 import { description, homepage } from '../package.json';
-import { YYYYMMDD } from './dates';
+import formatDate from './dates';
 import { name, email } from '../utils/authorInfo';
 import { cacheTimesInSeconds } from './caching';
 
@@ -14,7 +14,7 @@ const jsonfeed = (req, res) => {
     id: `${homepage}/${post.id}`,
     url: `${homepage}/${post.id}`,
     title: `${post.title}`,
-    date_published: `${YYYYMMDD(post.date)}`,
+    date_published: `${formatDate(post.date)}`,
     image: `${imagePath}/${post.image.imageUrl}`,
   }));
 
