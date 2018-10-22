@@ -1,6 +1,6 @@
 import send from '@polka/send-type';
 import { description, productName, productShortName } from '../package.json';
-import colors from '../config';
+import { colors } from '../config';
 import { cacheTimes } from './caching';
 
 const manifest = (req, res) => {

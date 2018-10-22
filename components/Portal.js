@@ -1,14 +1,14 @@
-import { Component, type Node } from "react";
-import { createPortal } from "react-dom";
+import { Component, type Node } from 'react';
+import { createPortal } from 'react-dom';
 
 type Props = {
-  children: Node
+  children: Node,
 };
 
 class Portal extends Component<Props> {
   componentDidMount = () => {
     // $FlowFixMe
-    this.element = document.getElementById("portal");
+    this.element = document.getElementById('portal');
   };
 
   render() {

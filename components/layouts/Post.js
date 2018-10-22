@@ -1,8 +1,8 @@
 // @flow
-import React, { type Node } from "react";
-import styled from "styled-components";
-import Meta from "../Meta";
-import Header from "../Header";
+import React, { type Node } from 'react';
+import styled from 'styled-components';
+import Meta from '../Meta';
+import Header from '../Header';
 
 const PostWrap = styled.div`
   margin: 3rem auto 0 auto;
@@ -16,8 +16,8 @@ const PostWrap = styled.div`
 type Props = {
   children: Node,
   options: {
-    id: string
-  }
+    id: string,
+  },
 };
 
 const Post = ({ children, ...options }: Props) => (

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
@@ -44,15 +45,20 @@ const CLOSE_NAV_MUTATION = gql`
   }
 `;
 
-const ToggleNav = ({ render }) => (
+type QueryMutationTypes = {
+  // $FlowFixMe
+  render: Function,
+};
+
+const ToggleNav = ({ render }: QueryMutationTypes) => (
   <Mutation mutation={TOGGLE_NAV_MUTATION}>{render}</Mutation>
 );
 
-const CloseNav = ({ render }) => (
+const CloseNav = ({ render }: QueryMutationTypes) => (
   <Mutation mutation={CLOSE_NAV_MUTATION}>{render}</Mutation>
 );
 
-const LocalState = ({ render }) => (
+const LocalState = ({ render }: QueryMutationTypes) => (
   <Query query={LOCAL_STATE_QUERY}>{render}</Query>
 );
 

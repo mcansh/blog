@@ -1,16 +1,16 @@
 // @flow
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // $FlowFixMe flow-typed doesn't have types for next/error
-import NextError from "next/error";
-import styled from "styled-components";
-import Button from "../components/Button";
+import NextError from 'next/error';
+import styled from 'styled-components';
+import Button from '../components/Button';
 
 const ErrorWrapper = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: ${({ row }) => (row ? "row" : "column")};
+  flex-direction: ${({ row }) => (row ? 'row' : 'column')};
   background: ${({ background }) => background};
   color: white;
 `;
@@ -25,12 +25,12 @@ const ErrorCode = styled.h1`
 `;
 
 type Props = {
-  statusCode?: number
+  statusCode?: number,
 };
 
 class Error extends Component<Props> {
   static defaultProps = {
-    statusCode: null
+    statusCode: null,
   };
 
   // $FlowFixMe

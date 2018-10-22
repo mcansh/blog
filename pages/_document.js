@@ -1,7 +1,7 @@
-import React from "react";
-import Document, { Head, Main, NextScript } from "next/document";
-import { ServerStyleSheet } from "styled-components";
-import { colors } from "../config";
+import React from 'react';
+import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
+import { colors } from '../config';
 
 // $FlowFixMe
 class MyDocument extends Document {
@@ -23,7 +23,7 @@ class MyDocument extends Document {
       ...props,
       styleTags,
       locale,
-      localeDataScript
+      localeDataScript,
     };
   }
 
@@ -123,7 +123,7 @@ class MyDocument extends Document {
           <script
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: localeDataScript
+              __html: localeDataScript,
             }}
           />
           <NextScript />

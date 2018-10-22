@@ -1,19 +1,19 @@
 // @flow
-import Link, { type URLObject, type Props as LinkProps } from "next/link";
-import Router from "next/router";
-import { format, resolve, parse } from "url";
+import Link, { type URLObject, type Props as LinkProps } from 'next/link';
+import Router from 'next/router';
+import { format, resolve, parse } from 'url';
 
 export const prefetch = async (href: URLObject) => {
   // if  we're running server side do nothing
-  if (typeof window === "undefined") return;
+  if (typeof window === 'undefined') return;
 
-  const url = typeof href !== "string" ? format(href) : href;
+  const url = typeof href !== 'string' ? format(href) : href;
 
   const { pathname } = window.location;
 
   const parsedHref = resolve(pathname, url);
 
-  const { query } = typeof href !== "string" ? href : parse(url, true);
+  const { query } = typeof href !== 'string' ? href : parse(url, true);
 
   const Component = await Router.prefetch(parsedHref);
 

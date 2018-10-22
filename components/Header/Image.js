@@ -1,9 +1,9 @@
 // @flow
-import React from "react";
-import styled from "styled-components";
-import webp from "../../utils/webp";
-import { unsplashParams } from "../../config";
-import type { ImageTypes } from "./index";
+import React from 'react';
+import styled from 'styled-components';
+import webp from '../../utils/webp';
+import { unsplashParams } from '../../config';
+import type { ImageTypes } from './index';
 
 const Picture = styled.picture`
   display: block;
@@ -14,7 +14,7 @@ const Picture = styled.picture`
   width: 100%;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -31,11 +31,11 @@ const Image = styled.img`
 `;
 
 type Props = {
-  image: ImageTypes
+  image: ImageTypes,
 };
 
 const HeaderImage = ({ image }: Props) => {
-  const imagePath = "/static/images/posts";
+  const imagePath = '/static/images/posts';
   const imgUrl = `${imagePath}/${image.imageUrl}`;
   const { url: webpImage, type } = webp(image.imageUrl);
 
@@ -47,7 +47,7 @@ const HeaderImage = ({ image }: Props) => {
       <source srcSet={imgUrl} type={type} />
       <Image
         src={imgUrl}
-        alt={image.name != null ? `Taken by ${image.name}` : ""}
+        alt={image.name != null ? `Taken by ${image.name}` : ''}
         data-source-url={image.url != null && unsplashParams(image.url)}
       />
     </Picture>

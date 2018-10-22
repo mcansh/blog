@@ -1,15 +1,15 @@
 // @flow
-import React from "react";
-import Head from "next/head";
-import { withRouter, type Router } from "next/router";
-import FindPost from "../utils/findPost";
-import { description, homepage } from "../package.json";
-import { name } from "../utils/authorInfo";
-import { YYYYMMDD } from "../utils/Dates";
+import React from 'react';
+import Head from 'next/head';
+import { withRouter, type Router } from 'next/router';
+import FindPost from '../utils/findPost';
+import { description, homepage } from '../package.json';
+import { name } from '../utils/authorInfo';
+import { YYYYMMDD } from '../utils/Dates';
 
 type Props = {
   id?: string,
-  router: Router
+  router: Router,
 };
 
 const Meta = ({ id, router }: Props) => (
@@ -33,7 +33,7 @@ const Meta = ({ id, router }: Props) => (
           <meta property="og:description" content={description} />
           <meta
             property="og:type"
-            content={post?.title ? "article" : "website"}
+            content={post?.title ? 'article' : 'website'}
           />
           <meta property="og:url" content={`${homepage}/${router.pathname}`} />
           <meta property="og:image" content={fullImageUrl} />
@@ -51,7 +51,7 @@ const Meta = ({ id, router }: Props) => (
 );
 
 Meta.defaultProps = {
-  id: null
+  id: null,
 };
 
 export default withRouter(Meta);

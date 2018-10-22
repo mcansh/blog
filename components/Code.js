@@ -1,8 +1,8 @@
 // @flow
-import * as React from "react";
-import styled from "styled-components";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import OceanicNext from "prism-react-renderer/themes/oceanicNext";
+import * as React from 'react';
+import styled from 'styled-components';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import OceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
 const CodeStyles = styled.pre`
   margin: 3rem 0;
@@ -13,13 +13,13 @@ const CodeStyles = styled.pre`
   font-size: 1.6rem;
   line-height: 1.5;
   webkit-overflow-scrolling: touch;
-  font-family: "SF Mono", menlo, monospace;
+  font-family: 'SF Mono', menlo, monospace;
   ${props => props.additionalStyles};
 `;
 
 type CodeProps = {
   language: string,
-  children: React.Node
+  children: React.Node,
 };
 
 export const Code = ({ language, children }: CodeProps) => (
@@ -50,6 +50,6 @@ export const InlineCode = styled.code`
   color: #df0050;
   box-shadow: 0 0 0 0.1rem rgba(85, 85, 86, 0.2);
   border-radius: 0.2rem;
-  font-family: "SF Mono", menlo, monospace;
+  font-family: 'SF Mono', menlo, monospace;
   hyphens: none;
 `;
