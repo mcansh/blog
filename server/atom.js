@@ -4,7 +4,7 @@ import posts from '../posts.json';
 import { description, homepage } from '../package.json';
 import { YYYYMMDD } from '../utils/Dates';
 import { name, email } from '../utils/authorInfo';
-import { cacheTimes } from './caching';
+import { cacheTimesInSeconds } from './caching';
 
 const sortedPosts = posts.sort((a, b) => (a.date > b.date ? -1 : 1));
 const [latest] = sortedPosts;
@@ -40,7 +40,7 @@ const atom = (req, res) => {
 
   return send(res, 200, xml, {
     'Content-Type': 'text/xml',
-    'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+    'Cache-Control': `max-age=${cacheTimesInSeconds.week}, must-revalidate`,
   });
 };
 

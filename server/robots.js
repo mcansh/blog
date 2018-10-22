@@ -1,7 +1,7 @@
 import send from '@polka/send-type';
 import { stripIndents } from 'common-tags';
 import { homepage } from '../package.json';
-import { cacheTimes } from './caching';
+import { cacheTimesInSeconds } from './caching';
 
 const robots = (req, res) => {
   const txt = stripIndents`
@@ -11,7 +11,7 @@ const robots = (req, res) => {
 
   send(res, 200, txt, {
     'Content-Type': 'text/plain',
-    'Cache-Control': `max-age=${cacheTimes.week}, must-revalidate`,
+    'Cache-Control': `max-age=${cacheTimesInSeconds.week}, must-revalidate`,
   });
 };
 

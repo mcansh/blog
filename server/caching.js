@@ -1,7 +1,7 @@
 import Cache from 'tmp-cache';
 import * as Sentry from '@sentry/node';
 
-export const cacheTimes = {
+export const cacheTimesInSeconds = {
   year: 31536000,
   month: 2628000,
   week: 604800,
@@ -23,7 +23,7 @@ const renderAndCache = async ({ app, req, res, pagePath, queryParams }) => {
 
   res.setHeader(
     'Cache-Control',
-    `max-age=${cacheTimes.default}, must-revalidate`
+    `max-age=${cacheTimesInSeconds.default}, must-revalidate`
   );
 
   // If we have a page in the cache, let's serve it
