@@ -1,19 +1,11 @@
 // @flow
 
 import React from 'react';
-import { defineMessages, FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
-import findPost from '../../utils/findPost';
+import FindPost from '../../utils/findPost';
 import Button from '../Button';
-import Image from './Image';
+import Image, { type Props as ImageProps } from './Image';
 import Date from './Date';
-
-const messages = defineMessages({
-  readMore: {
-    id: 'Header.readMore',
-    defaultMessage: 'Read More',
-  },
-});
 
 const Header = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
@@ -48,46 +40,37 @@ export const Title = styled.h1`
 `;
 
 type Props = {
-  image?: {
-    imageUrl: string,
-    name: string,
-    url?: string | null,
-  } | null,
+  image: ImageProps,
   title?: string | null,
   link?: string | null,
   id?: string | null,
 };
 
-const HeaderWrap = ({ image, title, link, id }: Props) => {
-  const post = findPost(id);
-
-  const hasPost = post != null;
-  const headerTitle = hasPost ? post.title : title;
-  const showLink = link != null;
-  const showDate = link == null && hasPost && post.date;
-
-  return (
-    <Header>
-      <HeaderContent>
-        <Title>{headerTitle}</Title>
-        {showDate ? <Date date={post.date} /> : null}
-        {showLink && (
-          <Button
-            text={<FormattedMessage {...messages.readMore} />}
-            link={id}
-          />
-        )}
-      </HeaderContent>
-      <Image image={image || post.image} />
-    </Header>
-  );
-};
+const HeaderWrap = ({ image, title, link, id }: Props) => (
+  <FindPost id={id}>
+    {post => {
+      const headerTitle = title != null ? title : post.title;
+      const headerImage = image != null ? image : post.image;
+      const showDate = link == null && post?.date;
+      const showLink = link != null && post?.id;
+      return (
+        <Header>
+          <HeaderContent>
+            <Title>{headerTitle}</Title>
+            {showDate && <Date date={post.date} />}
+            {showLink && <Button text="Read More" link={post.id} />}
+          </HeaderContent>
+          <Image image={headerImage} />
+        </Header>
+      );
+    }}
+  </FindPost>
+);
 
 HeaderWrap.defaultProps = {
   link: null,
   id: null,
   title: null,
-  image: null,
 };
 
 export default HeaderWrap;

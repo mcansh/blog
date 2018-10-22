@@ -6,6 +6,7 @@
 .*/utils/jest.js
 .*/utils/renderWithIntl.js
 .*/lib/withIntl.js
+.*/jest.*.js
 
 [include]
 

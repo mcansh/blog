@@ -29,11 +29,11 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-type Props = {
+export type Props = {
   image: {
     imageUrl: string,
-    name: string,
-    url?: string,
+    name?: string | null,
+    url?: string | null,
   },
 };
 
@@ -50,8 +50,8 @@ const HeaderImage = ({ image }: Props) => {
       <source srcSet={imgUrl} type={type} />
       <Image
         src={imgUrl}
-        alt={image.name ? `Taken by ${image.name}` : ''}
-        data-source-url={unsplashParams(image.url)}
+        alt={image.name != null ? `Taken by ${image.name}` : ''}
+        data-source-url={image.url != null && unsplashParams(image.url)}
       />
     </Picture>
   );
