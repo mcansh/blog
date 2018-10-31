@@ -12,7 +12,7 @@
 !utils/findPost.js
 !utils/index.js
 !utils/webp.js
-!.babelrc
+!.babelrc.js
 !.env
 !config.js
 !next.config.js
