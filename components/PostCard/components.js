@@ -32,7 +32,8 @@ export const PostDate = styled.p`
 
 export const Post = styled.a.attrs({ className: 'postcard' })`
   background: white;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   width: calc(33.3333% - 2rem);
   padding: 0;
   margin: 0 1rem 2rem 1rem;

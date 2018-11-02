@@ -26,19 +26,20 @@ class Document extends Component<Props, null> {
   componentDidUpdate = () => this.analytics();
 
   serviceWorker = () => {
-    // $FlowFixMe
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        // $FlowFixMe
-        navigator.serviceWorker
-          .register('/service-worker.js')
-          .then(() => {
-            console.log('SW registered');
-          })
-          .catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
-      });
+    if (process.env.NODE_ENV === 'production') {
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // $FlowFixMe
+          navigator.serviceWorker
+            .register('/service-worker.js')
+            .then(() => {
+              console.log('SW registered');
+            })
+            .catch(registrationError => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
     }
   };
 

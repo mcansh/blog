@@ -54,4 +54,5 @@ Meta.defaultProps = {
   id: null,
 };
 
+// $FlowFixMe
 export default withRouter(Meta);

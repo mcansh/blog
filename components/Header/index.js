@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
+import { Spring, animated } from 'react-spring';
 import FindPost from '../../utils/findPost';
 import Button from '../Button';
 import Image from './Image';
@@ -38,6 +39,8 @@ export const Title = styled.h1`
   }
 `;
 
+const AnimatedTitle = animated(Title);
+
 export type ImageTypes = {
   imageUrl: string,
   name?: string | null,
@@ -61,7 +64,16 @@ const HeaderWrap = ({ image, title, link, id }: Props) => (
       return (
         <Header>
           <HeaderContent>
-            <Title>{headerTitle}</Title>
+            <Spring
+              native
+              from={{ opacity: 0, transform: 'translateY(-50px)' }}
+              to={{ opacity: 1, transform: 'translateY(0px)' }}
+              config={{ duration: 400 }}
+            >
+              {props => (
+                <AnimatedTitle style={props}>{headerTitle}</AnimatedTitle>
+              )}
+            </Spring>
             {showDate && <Date date={post.date} />}
             {showLink && <Button text="Read More" link={post.id} />}
           </HeaderContent>
