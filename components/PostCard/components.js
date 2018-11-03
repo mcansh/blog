@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ImageWrap = styled.div`
   overflow: hidden;
-
+  height: 200px;
   img {
     height: 100%;
     width: 100%;
@@ -12,7 +12,6 @@ export const ImageWrap = styled.div`
 `;
 
 export const Meta = styled.div`
-  height: 50%;
   padding: 1.8rem 1.8rem 2.7rem 1.8rem;
 `;
 
@@ -32,8 +31,6 @@ export const PostDate = styled.p`
 
 export const Post = styled.a.attrs({ className: 'postcard' })`
   background: white;
-  display: inline-flex;
-  flex-direction: column;
   width: calc(33.3333% - 2rem);
   padding: 0;
   margin: 0 1rem 2rem 1rem;
