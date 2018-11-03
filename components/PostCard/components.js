@@ -6,7 +6,7 @@ export const ImageWrap = styled.div`
   img {
     height: 100%;
     width: 100%;
-    transition: all 1s;
+    transition: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     object-fit: cover;
   }
 `;
@@ -63,8 +63,7 @@ export const Post = styled.a.attrs({ className: 'postcard' })`
       text-decoration: underline;
     }
     ${ImageWrap} img {
-      transform: scale(2);
-      transition-duration: 10s;
+      transform: scale(1.5);
     }
   }
 `;
