@@ -1,20 +1,17 @@
 import polka from 'polka';
-import { parse } from 'url';
 import nextjs from 'next';
 import { join } from 'path';
 import IntlPolyfill from 'intl';
-import accepts from 'accepts';
 import favicon from 'serve-favicon';
-import renderAndCache from './caching';
-import posts from '../posts.json';
-import { version } from '../package.json';
-import { languages, getLocaleDataScript, getMessages } from './intl';
+import configureIntl from './intl';
 
+// routes
 import atom from './atom';
 import jsonfeed from './jsonfeed';
 import manifest from './manifest';
 import sitemap from './sitemap';
 import robots from './robots';
+import serviceWorker from './serviceWorker';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = nextjs({ dev });
@@ -28,16 +25,6 @@ process.on('unhandledRejection', error => {
   throw error;
 });
 
-const configureIntl = (req, res, next) => {
-  const accept = accepts(req);
-  const locale = accept.language(languages) || 'en';
-  req.locale = locale;
-  req.localeDataScript = getLocaleDataScript(locale);
-  req.messages = dev ? {} : getMessages(locale);
-  res.setHeader('X-App-Version', version);
-  next();
-};
-
 app.prepare().then(() => {
   const server = polka();
 
@@ -45,14 +32,7 @@ app.prepare().then(() => {
     favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))
   );
 
-  server.get('/service-worker.js', (req, res) => {
-    const parsedUrl = parse(req.url, true);
-    const { pathname } = parsedUrl;
-
-    const filePath = join(__dirname, '..', '.next', pathname);
-
-    app.serveStatic(req, res, filePath);
-  });
+  server.get('/service-worker.js', serviceWorker);
 
   server.get('/manifest.json', manifest);
 
@@ -63,23 +43,6 @@ app.prepare().then(() => {
   server.get('/feed.json', jsonfeed);
 
   server.get('/sitemap.xml', sitemap);
-
-  posts.forEach(post => {
-    const slug = `/${post.id}`;
-    server.get(slug, (req, res) => {
-      renderAndCache({
-        app,
-        req,
-        res,
-        pagePath: slug,
-        queryParams: req.params,
-      });
-    });
-  });
-
-  server.get('/', (req, res) => {
-    renderAndCache({ app, req, res, pagePath: '/', queryParams: req.params });
-  });
 
   server.get('*', configureIntl, handle);
 

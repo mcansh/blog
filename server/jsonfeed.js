@@ -4,7 +4,6 @@ import posts from '../posts.json';
 import { description, homepage } from '../package.json';
 import formatDate from './dates';
 import { name, email } from '../utils/authorInfo';
-import { cacheTimesInSeconds } from './caching';
 
 const jsonfeed = (req, res) => {
   const imagePath = `${homepage}/static/images/posts`;
@@ -34,10 +33,7 @@ const jsonfeed = (req, res) => {
     }
   `;
 
-  send(res, 200, json, {
-    'Content-Type': 'application/json',
-    'Cache-Control': `max-age=${cacheTimesInSeconds.week}, must-revalidate`,
-  });
+  send(res, 200, json);
 };
 
 export default jsonfeed;

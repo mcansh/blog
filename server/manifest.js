@@ -1,7 +1,6 @@
 import send from '@polka/send-type';
 import { description, productName, productShortName } from '../package.json';
 import { colors } from '../config';
-import { cacheTimesInSeconds } from './caching';
 
 const manifest = (req, res) => {
   const iconSizes = [72, 96, 128, 144, 256, 512];
@@ -24,10 +23,7 @@ const manifest = (req, res) => {
     }
   `;
 
-  send(res, 200, json, {
-    'Content-Type': 'application/json',
-    'Cache-Control': `max-age=${cacheTimesInSeconds.week}, must-revalidate`,
-  });
+  send(res, 200, json);
 };
 
 export default manifest;

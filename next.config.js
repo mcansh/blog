@@ -5,7 +5,6 @@ const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/,
 });
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const nanoid = require('nanoid');
 
 module.exports = withPlugins(
   [
@@ -39,33 +38,32 @@ module.exports = withPlugins(
   {
     generateBuildId: async () => {
       if (process.env.SIZE_LIMIT != null) return 'blog';
-      // next.js uses nanoid internally for generating buildId
+      // next.js uses nanoid internally for generating the buildId
+      const nanoid = require('nanoid'); // eslint-disable-line global-require
       return nanoid();
     },
-    webpack: (config, { dev }) => {
+    webpack: config => {
       config.node = { fs: 'empty' };
 
-      if (!dev) {
-        config.plugins.push(
-          new SWPrecacheWebpackPlugin({
-            filename: 'service-worker.js',
-            minify: true,
-            staticFileGlobsIgnorePatterns: [/\.next\//],
-            staticFileGlobs: ['static/**/*'],
-            forceDelete: true,
-            runtimeCaching: [
-              {
-                handler: 'fastest',
-                urlPattern: /[.](webp|png|jpg)/,
-              },
-              {
-                handler: 'networkFirst',
-                urlPattern: /^http.*/,
-              },
-            ],
-          })
-        );
-      }
+      config.plugins.push(
+        new SWPrecacheWebpackPlugin({
+          filename: 'service-worker.js',
+          minify: true,
+          staticFileGlobsIgnorePatterns: [/\.next\//],
+          staticFileGlobs: ['static/**/*'],
+          forceDelete: true,
+          runtimeCaching: [
+            {
+              handler: 'fastest',
+              urlPattern: /[.](webp|png|jpg)/,
+            },
+            {
+              handler: 'networkFirst',
+              urlPattern: /^http.*/,
+            },
+          ],
+        })
+      );
 
       return config;
     },

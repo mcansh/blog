@@ -2,7 +2,6 @@ import send from '@polka/send-type';
 import { createSitemap } from 'sitemap';
 import { homepage } from '../package.json';
 import posts from '../posts.json';
-import { cacheTimesInSeconds } from './caching';
 
 const generateSiteMap = createSitemap({
   hostname: homepage,
@@ -32,10 +31,7 @@ posts.forEach(post =>
 const sitemap = async (req, res) => {
   try {
     const xml = generateSiteMap.toXML();
-    send(res, 200, xml, {
-      'Content-Type': 'application/xml',
-      'Cache-Control': `max-age=${cacheTimesInSeconds.week}, must-revalidate`,
-    });
+    send(res, 200, xml, { 'Content-Type': 'application/xml' });
   } catch (error) {
     send(res, 500);
   }

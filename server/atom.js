@@ -4,7 +4,6 @@ import posts from '../posts.json';
 import { description, homepage } from '../package.json';
 import formatDate from './dates';
 import { name, email } from '../utils/authorInfo';
-import { cacheTimesInSeconds } from './caching';
 
 const sortedPosts = posts.sort((a, b) => (a.date > b.date ? -1 : 1));
 const [latest] = sortedPosts;
@@ -38,10 +37,7 @@ const atom = (req, res) => {
     </feed>
   `;
 
-  return send(res, 200, xml, {
-    'Content-Type': 'text/xml',
-    'Cache-Control': `max-age=${cacheTimesInSeconds.week}, must-revalidate`,
-  });
+  return send(res, 200, xml, { 'Content-Type': 'text/xml' });
 };
 
 export default atom;
