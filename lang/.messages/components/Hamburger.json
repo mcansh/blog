@@ -1,0 +1,10 @@
+[
+  {
+    "id": "Hamburger.label.opened",
+    "defaultMessage": "Close Side Nav"
+  },
+  {
+    "id": "Hamburger.label.closed",
+    "defaultMessage": "Open Side Nav"
+  }
+]

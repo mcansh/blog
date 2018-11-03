@@ -8,14 +8,13 @@ module.exports = {
     '@babel/plugin-proposal-optional-chaining',
   ],
   env: {
-    test: {
-      presets: [
+    production: {
+      presets: ['next/babel'],
+      plugins: [
         [
-          'next/babel',
+          'react-intl',
           {
-            'preset-env': {
-              modules: 'commonjs',
-            },
+            messagesDir: 'lang/.messages/',
           },
         ],
       ],

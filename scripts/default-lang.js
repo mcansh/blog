@@ -1,6 +1,6 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { resolve } from 'path';
-import { sync } from 'glob';
+const { readFileSync, writeFileSync } = require('fs');
+const { resolve } = require('path');
+const { sync } = require('glob');
 
 const defaultMessages = sync('./lang/.messages/**/*.json')
   .map(filename => readFileSync(filename, 'utf8'))
@@ -10,7 +10,7 @@ const defaultMessages = sync('./lang/.messages/**/*.json')
       if (messages.id) {
         throw new Error(`Duplicate message id: ${id}`);
       }
-      messages[id] = defaultMessage;
+      messages[id.toLowerCase()] = defaultMessage;
     });
     return messages;
   }, {});

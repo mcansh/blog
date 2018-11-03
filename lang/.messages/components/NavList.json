@@ -1,0 +1,26 @@
+[
+  {
+    "id": "NavList.home",
+    "defaultMessage": "Home"
+  },
+  {
+    "id": "NavList.github",
+    "defaultMessage": "GitHub"
+  },
+  {
+    "id": "NavList.twitter",
+    "defaultMessage": "Twitter"
+  },
+  {
+    "id": "NavList.instagram",
+    "defaultMessage": "Instagram"
+  },
+  {
+    "id": "NavList.email",
+    "defaultMessage": "Email"
+  },
+  {
+    "id": "NavList.changelog",
+    "defaultMessage": "Changelog"
+  }
+]

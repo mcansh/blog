@@ -1,1 +1,10 @@
-{}
+{
+  "hamburger.label.opened": "Close Side Nav",
+  "hamburger.label.closed": "Open Side Nav",
+  "navlist.home": "Home",
+  "navlist.github": "GitHub",
+  "navlist.twitter": "Twitter",
+  "navlist.instagram": "Instagram",
+  "navlist.email": "Email",
+  "navlist.changelog": "Changelog"
+}
