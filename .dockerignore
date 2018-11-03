@@ -3,7 +3,7 @@
 !lang/
 !lib/
 !pages/
-!scripts/default-lang.js
+!scripts
 !server/
 !static/
 !utils/
