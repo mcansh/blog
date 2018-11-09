@@ -5,10 +5,12 @@ const withMDX = require('@zeit/next-mdx')({
   extension: /\.mdx?$/,
 });
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const withSize = require('next-size');
 
 module.exports = withPlugins(
   [
-    [withSourceMaps],
+    withSize,
+    withSourceMaps,
     [
       withMDX,
       {
@@ -36,12 +38,6 @@ module.exports = withPlugins(
     ],
   ],
   {
-    generateBuildId: async () => {
-      if (process.env.SIZE_LIMIT != null) return 'blog';
-      // next.js uses nanoid internally for generating the buildId
-      const nanoid = require('nanoid'); // eslint-disable-line global-require
-      return nanoid();
-    },
     webpack: config => {
       config.node = { fs: 'empty' };
 
