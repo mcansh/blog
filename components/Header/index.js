@@ -7,7 +7,7 @@ import Button from '../Button';
 import Image from './Image';
 import Date from './Date';
 
-const Header = styled.header.attrs({ 'data-testid': 'header' })`
+const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
   min-height: 50rem;
   max-height: 80rem;
@@ -54,7 +54,7 @@ type Props = {
   image?: ImageTypes | null,
 };
 
-const HeaderWrap = ({ image, title, link, id }: Props) => (
+const Header = ({ image, title, link, id }: Props) => (
   <FindPost id={id}>
     {post => {
       const headerTitle = title != null ? title : post.title;
@@ -62,7 +62,7 @@ const HeaderWrap = ({ image, title, link, id }: Props) => (
       const showDate = link == null && post?.date;
       const showLink = link != null && post?.id;
       return (
-        <Header>
+        <HeaderStyles>
           <HeaderContent>
             <Spring
               native
@@ -78,17 +78,17 @@ const HeaderWrap = ({ image, title, link, id }: Props) => (
             {showLink && <Button text="Read More" link={post.id} />}
           </HeaderContent>
           <Image image={headerImage} />
-        </Header>
+        </HeaderStyles>
       );
     }}
   </FindPost>
 );
 
-HeaderWrap.defaultProps = {
+Header.defaultProps = {
   link: null,
   id: null,
   title: null,
   image: null,
 };
 
-export default HeaderWrap;
+export default Header;

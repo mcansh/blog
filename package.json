@@ -156,6 +156,7 @@
   "lint-staged": {
     "*.js": [
       "yarn flow focus-check",
+      "stylelint",
       "eslint --fix",
       "git add"
     ]
