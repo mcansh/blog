@@ -4,6 +4,7 @@ import { join } from 'path';
 import IntlPolyfill from 'intl';
 import favicon from 'serve-favicon';
 import configureIntl from './intl';
+import renderAndCache from './cache';
 
 // routes
 import atom from './atom';
@@ -28,9 +29,28 @@ process.on('unhandledRejection', error => {
 app.prepare().then(() => {
   const server = polka();
 
-  server.use(
-    favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))
+  const addAppToRequest = (req, res, next) => {
+    req.app = app;
+    next();
+  };
+
+  const iconPath = join(
+    __dirname,
+    '..',
+    'static',
+    'images',
+    'logo',
+    'logo.ico'
   );
+
+  server.use(favicon(iconPath));
+  server.use(addAppToRequest);
+
+  /* serving _next static content using next.js handler */
+  server.get('/_next/*', handle);
+
+  /* serving static folder content using next.js handler */
+  server.get('/static/*', handle);
 
   server.get('/service-worker.js', serviceWorker);
 
@@ -44,7 +64,7 @@ app.prepare().then(() => {
 
   server.get('/sitemap.xml', sitemap);
 
-  server.get('*', configureIntl, handle);
+  server.get('*', configureIntl, renderAndCache);
 
   server.listen(PORT, err => {
     if (err) throw err;
