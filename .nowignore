@@ -1,4 +1,4 @@
-.stylelintrc
+stylelint.config.js
 license.markdown
 readme.markdown
 code_of_conduct.markdown
