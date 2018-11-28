@@ -7,6 +7,7 @@ import App, { Container } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import * as Sentry from '@sentry/browser';
 
+import Navigation from '../components/Navigation';
 import { colors } from '../config';
 import GlobalStyles from '../components/GlobalStyles';
 import Meta from '../components/Meta';
@@ -32,6 +33,9 @@ if (global.document) {
   info.forEach(message => console.log(message));
 }
 
+// $FlowFixMe
+export const NavContext = React.createContext();
+
 class MyApp extends App {
   // $FlowFixMe
   constructor(...args) {
@@ -43,6 +47,18 @@ class MyApp extends App {
       serverName: process.env.NOW != null ? 'now.sh' : 'localhost',
     });
   }
+
+  state = {
+    navOpen: false,
+  };
+
+  toggleNav = (open?: boolean) => {
+    const { navOpen } = this.state;
+    if (open != null) {
+      return this.setState({ navOpen: open });
+    }
+    return this.setState({ navOpen: !navOpen });
+  };
 
   // $FlowFixMe: next hasnt typed this out yet: https://github.com/zeit/next.js/issues/3336
   static getInitialProps = async ({ Component, ctx }) => {
@@ -74,8 +90,7 @@ class MyApp extends App {
     }
   };
 
-  // $FlowFixMe
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: mixed) {
     Sentry.captureException(error, { extra: errorInfo });
     super.componentDidCatch(error, errorInfo);
   }
@@ -88,10 +103,18 @@ class MyApp extends App {
         <Container>
           <ThemeProvider theme={colors}>
             <>
-              <GlobalStyles />
-              <Meta />
-              <Component {...pageProps} />
-              <Footer />
+              <NavContext.Provider
+                value={{
+                  open: this.state.navOpen,
+                  toggleNav: this.toggleNav,
+                }}
+              >
+                <GlobalStyles />
+                <Meta />
+                <Navigation />
+                <Component {...pageProps} />
+                <Footer />
+              </NavContext.Provider>
             </>
           </ThemeProvider>
         </Container>

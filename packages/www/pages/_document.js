@@ -25,6 +25,7 @@ class Document extends Document_ {
         <Head>{this.props.styles}</Head>
         <body>
           <Main />
+          <div id="portal" />
           <NextScript />
         </body>
       </html>
