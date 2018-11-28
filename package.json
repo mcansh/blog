@@ -10,6 +10,9 @@
   "workspaces": [
     "packages/**"
   ],
+  "scripts": {
+    "dev": " yarn workspace @mcansh/blog-www dev -p 4000"
+  },
   "devDependencies": {
     "husky": "1.2.0",
     "lerna": "3.4.3",
