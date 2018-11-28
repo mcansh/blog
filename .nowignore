@@ -1,0 +1,26 @@
+.stylelintrc
+license.markdown
+readme.markdown
+code_of_conduct.markdown
+.gitignore
+node_modules
+__tests__
+logo.sketch
+.yarnrc
+.travis.yml
+*.env*
+# yarn.lock
+lerna.json
+
+packages/www/flow-typed
+packages/www/lib
+packages/www/scripts
+packages/www/static/images
+packages/www/types
+packages/www/.next
+packages/www/.eslintignore
+packages/www/.eslintrc.js
+packages/www/.flowconfig
+packages/www/utils/authorInfo.js
+
+packages/api/.eslintrc.js

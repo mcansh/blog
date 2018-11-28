@@ -1,0 +1,8 @@
+{
+  "name": "@mcansh/blog-api",
+  "version": "3.11.2",
+  "repository": "mcansh/blog",
+  "dependencies": {
+    "@polka/send-type": "0.5.0"
+  }
+}

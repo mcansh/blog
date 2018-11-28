@@ -3,7 +3,5 @@ node_modules
 *.log
 .DS_Store
 .env
-static/workbox
-static/images/posts/thumb
-static/images/posts/*.webp
+packages/www/lib
 bundles

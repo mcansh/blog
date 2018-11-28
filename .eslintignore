@@ -1,4 +1,0 @@
-!.eslintrc.js
-!.babelrc.js
-!.size-limit.js
-flow-typed/**/*.js

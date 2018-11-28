@@ -1,0 +1,4 @@
+flow-typed
+lib
+static/sw.js
+!.*.js

@@ -1,0 +1,17 @@
+{
+  "version": "3.11.2",
+  "packages": [
+    "packages/*"
+  ],
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "exact": true,
+      "message": "%v",
+      "tagVersionPrefix": "",
+      "signGitCommit": true,
+      "signGitTag": true
+    }
+  }
+}

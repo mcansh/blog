@@ -1,23 +1,66 @@
 {
   "name": "blog",
+  "version": 2,
   "alias": [
     "mcansh.blog",
     "www.mcansh.blog"
   ],
-  "type": "docker",
-  "scale": {
-    "all": {
-      "min": 1,
-      "max": 1
+  "builds": [
+    {
+      "src": "/packages/www/package.json",
+      "use": "@now/next@canary",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
+      "src": "/packages/api/*.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "packages/www/static/*",
+      "use": "@now/static"
     }
-  },
-  "env": {
-    "TWITTER": "@blog_twitter",
-    "INSTAGRAM": "@blog_instagram",
-    "GITHUB": "@blog_github",
-    "EMAIL": "@blog_email",
-    "SENTRY": "@blog_sentry",
-    "ANALYTICS": "@blog_analytics",
-    "GITHUB_TOKEN": "@blog_github_token"
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/packages/api/$1"
+    },
+    {
+      "src": "/manifest.json",
+      "methods": [
+        "GET"
+      ],
+      "dest": "/packages/www/static/manifest.json"
+    },
+    {
+      "src": "/feed.json",
+      "methods": [
+        "GET"
+      ],
+      "dest": "/packages/www/static/feed.json"
+    },
+    {
+      "src": "/sitemap.xml",
+      "methods": [
+        "GET"
+      ],
+      "dest": "/packages/www/static/sitemap.xml"
+    },
+    {
+      "src": "/atom",
+      "methods": [
+        "GET"
+      ],
+      "dest": "/packages/www/static/atom.xml"
+    },
+    {
+      "src": "/(.*)",
+      "methods": [
+        "GET"
+      ],
+      "dest": "/packages/www/$1"
+    }
+  ]
 }
