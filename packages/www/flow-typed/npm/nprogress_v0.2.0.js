@@ -1,7 +1,7 @@
 // flow-typed signature: c77c3800e8bd308639c40bf4e12367c7
 // flow-typed version: 00a1319cbd/nprogress_v0.2.0/flow_>=v0.25.x
 
-declare module "nprogress" {
+declare module 'nprogress' {
   declare type NProgressStatic = {
     /**
      * Shows the progress bar and begins trickling progress.
@@ -56,7 +56,7 @@ declare module "nprogress" {
      * Gets whether progress has been started.
      * @returns {boolean} Whether the progress has started.
      */
-    isStarted(): boolean
+    isStarted(): boolean,
   };
 
   declare type NProgressConfigureOptions = {|
@@ -98,7 +98,7 @@ declare module "nprogress" {
     /**
      * The HTML markup inserted for the progress indicator. To keep the progress bar working, keep an element with role='bar' in there.
      */
-    template?: string
+    template?: string,
   |};
 
   declare module.exports: NProgressStatic;

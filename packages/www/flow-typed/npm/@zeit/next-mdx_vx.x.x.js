@@ -23,7 +23,6 @@ declare module '@zeit/next-mdx' {
  * needed.
  */
 
-
 // Filename aliases
 declare module '@zeit/next-mdx/index' {
   declare module.exports: $Exports<'@zeit/next-mdx'>;
