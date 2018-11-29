@@ -90,19 +90,22 @@ const Post = ({ title, date, image, id }: PostType) => {
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   return (
     <Link href={`/${id}`} passHref prefetch>
-      <PostStyles>
+      <PostStyles data-testid="post__link">
         <img
           src={image1x}
           srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
           alt={title}
+          data-testid="post__image"
           data-unsplash-photo={
             hasImageAuthor ? `Taken by ${String(image.name)}` : undefined
           }
           data-image-url={hasImageSrc ? unsplash(String(image.url)) : undefined}
         />
         <div className="meta">
-          <h1>{title}</h1>
-          <time dateTime={date}>{dateFormatter.format(new Date(date))}</time>
+          <h1 data-testid="post__title">{title}</h1>
+          <time dateTime={date} data-testid="post__date">
+            {dateFormatter.format(new Date(date))}
+          </time>
         </div>
       </PostStyles>
     </Link>

@@ -1,9 +1,19 @@
 module.exports = {
   extends: ['mcansh'],
+  plugins: ['jest', 'flowtype'],
+  env: {
+    jest: true,
+  },
   rules: {
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/scripts/*.js', '**/utils/authorInfo.js'] },
+      {
+        devDependencies: [
+          '**/scripts/*.js',
+          '**/utils/authorInfo.js',
+          '**/__tests__/**/*.js',
+        ],
+      },
     ],
     'jsx-a11y/anchor-is-valid': [
       'error',

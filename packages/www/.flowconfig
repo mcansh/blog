@@ -2,6 +2,7 @@
 .*/node_modules/.*
 .*/.next/.*
 .*/next.config.js
+.*/__tests__/.*
 
 [include]
 
