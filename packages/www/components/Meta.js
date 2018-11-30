@@ -97,7 +97,7 @@ const Meta = ({ pageTitle, description, id, router }: Props) => (
             rel="alternate"
             href="/atom"
             type="application/atom+xml"
-            title="RSS Feed"
+            title="Atom Feed"
           />
           <link
             rel="alternate"

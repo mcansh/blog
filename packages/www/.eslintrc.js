@@ -12,6 +12,7 @@ module.exports = {
           '**/scripts/*.js',
           '**/utils/authorInfo.js',
           '**/__tests__/**/*.js',
+          '**/next.config.js'
         ],
       },
     ],

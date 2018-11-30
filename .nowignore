@@ -14,7 +14,6 @@ lerna.json
 
 packages/www/flow-typed
 packages/www/lib
-packages/www/scripts
 packages/www/static/images
 packages/www/types
 packages/www/.next
@@ -22,5 +21,6 @@ packages/www/.eslintignore
 packages/www/.eslintrc.js
 packages/www/.flowconfig
 packages/www/utils/authorInfo.js
+packages/www/jest*
 
 packages/api/.eslintrc.js

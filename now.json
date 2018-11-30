@@ -5,6 +5,9 @@
     "mcansh.blog",
     "www.mcansh.blog"
   ],
+  "regions": [
+    "all"
+  ],
   "builds": [
     {
       "src": "/packages/www/package.json",

@@ -7,4 +7,4 @@ const colors = {
 const cloudinary =
   'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog';
 
-export { cloudinary, colors };
+module.exports = { cloudinary, colors };

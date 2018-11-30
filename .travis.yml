@@ -6,8 +6,8 @@ cache:
   yarn: true
   directories:
     - node_modules
-# script:
-  # - yarn workspace @mcansh/blog-www test
+script:
+  - yarn workspace @mcansh/blog-www test
 before_install:
   - export PATH="$(yarn global bin):$PATH"
   - yarn global add greenkeeper-lockfile@1

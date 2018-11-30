@@ -1,5 +1,5 @@
 // @flow
-import tinydate from 'tinydate';
+const tinydate = require('tinydate');
 
 const formatDate = (date: number): string => {
   const inputDate = new Date(date);
@@ -7,4 +7,4 @@ const formatDate = (date: number): string => {
   return stamp(inputDate);
 };
 
-export default formatDate;
+module.exports = formatDate;
