@@ -1,17 +1,17 @@
-const polka = require('polka')
-const nextjs = require('next')
-const { join } = require('path')
-const IntlPolyfill = require('intl')
-const favicon = require('serve-favicon')
-const configureIntl = require('./intl')
+const polka = require('polka');
+const nextjs = require('next');
+const { join } = require('path');
+const IntlPolyfill = require('intl');
+const favicon = require('serve-favicon');
+const configureIntl = require('./intl');
 
 // routes
-const atom = require('./atom')
-const jsonfeed = require('./jsonfeed')
-const manifest = require('./manifest')
-const sitemap = require('./sitemap')
-const robots = require('./robots')
-const serviceWorker = require('./serviceWorker')
+const atom = require('./atom');
+const jsonfeed = require('./jsonfeed');
+const manifest = require('./manifest');
+const sitemap = require('./sitemap');
+const robots = require('./robots');
+const serviceWorker = require('./serviceWorker');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = nextjs({ dev });
@@ -28,9 +28,28 @@ process.on('unhandledRejection', error => {
 app.prepare().then(() => {
   const server = polka();
 
-  server.use(
-    favicon(join(__dirname, '..', 'static', 'images', 'logo', 'logo.ico'))
+  const addAppToRequest = (req, res, next) => {
+    req.app = app;
+    next();
+  };
+
+  const iconPath = join(
+    __dirname,
+    '..',
+    'static',
+    'images',
+    'logo',
+    'logo.ico'
   );
+
+  server.use(favicon(iconPath));
+  server.use(addAppToRequest);
+
+  /* serving _next static content using next.js handler */
+  server.get('/_next/*', handle);
+
+  /* serving static folder content using next.js handler */
+  server.get('/static/*', handle);
 
   server.get('/service-worker.js', serviceWorker);
 
@@ -44,7 +63,7 @@ app.prepare().then(() => {
 
   server.get('/sitemap.xml', sitemap);
 
-  server.get('*', configureIntl, handle);
+  server.get('*', configureIntl, renderAndCache);
 
   server.listen(PORT, err => {
     if (err) throw err;
