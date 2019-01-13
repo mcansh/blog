@@ -26,7 +26,6 @@
     "analyze:server": "BUNDLE_ANALYZE=server yarn build",
     "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
     "analyze:both": "BUNDLE_ANALYZE=both yarn build",
-    "size": "SIZE_LIMIT=true yarn build && size-limit",
     "blog": "node -r esm scripts/create-post",
     "flow": "flow",
     "flow:install": "yarn flow-typed install"
@@ -59,10 +58,10 @@
     "isomorphic-path": "0.0.5",
     "isomorphic-unfetch": "3.0.0",
     "mime": "2.3.1",
-    "nanoid": "1.3.1",
     "next": "7.0.2",
     "next-compose-plugins": "2.1.1",
     "next-offline": "3.0.3",
+    "next-size": "1.0.1",
     "next-with-apollo": "3.2.1",
     "nprogress": "0.2.0",
     "polished": "2.3.0",
@@ -83,7 +82,6 @@
     "remark-react": "4.0.3",
     "serve-favicon": "2.5.0",
     "sitemap": "2.1.0",
-    "size-limit": "0.21.0",
     "somebody": "2.0.0",
     "styled-components": "4.0.3",
     "styled-reset": "1.6.0",
@@ -158,6 +156,7 @@
   "lint-staged": {
     "*.js": [
       "yarn flow focus-check",
+      "stylelint",
       "eslint --fix",
       "git add"
     ]
