@@ -1,6 +1,6 @@
-import send from '@polka/send-type';
-import { stripIndents } from 'common-tags';
-import { homepage } from '../package.json';
+const send = require('@polka/send-type')
+const { stripIndents } = require('common-tags')
+const { homepage } = require('../package.json')
 
 const robots = (req, res) => {
   const txt = stripIndents`
@@ -11,4 +11,4 @@ const robots = (req, res) => {
   send(res, 200, txt, { 'Content-Type': 'text/plain' });
 };
 
-export default robots;
+module.exports = robots;
