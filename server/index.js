@@ -1,18 +1,17 @@
-import polka from 'polka';
-import nextjs from 'next';
-import { join } from 'path';
-import IntlPolyfill from 'intl';
-import favicon from 'serve-favicon';
-import configureIntl from './intl';
-import renderAndCache from './cache';
+const polka = require('polka');
+const nextjs = require('next');
+const { join } = require('path');
+const IntlPolyfill = require('intl');
+const favicon = require('serve-favicon');
+const configureIntl = require('./intl');
 
 // routes
-import atom from './atom';
-import jsonfeed from './jsonfeed';
-import manifest from './manifest';
-import sitemap from './sitemap';
-import robots from './robots';
-import serviceWorker from './serviceWorker';
+const atom = require('./atom');
+const jsonfeed = require('./jsonfeed');
+const manifest = require('./manifest');
+const sitemap = require('./sitemap');
+const robots = require('./robots');
+const serviceWorker = require('./serviceWorker');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = nextjs({ dev });

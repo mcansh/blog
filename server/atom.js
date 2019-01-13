@@ -1,9 +1,9 @@
-import send from '@polka/send-type';
-import { stripIndent } from 'common-tags';
-import posts from '../posts.json';
-import { description, homepage } from '../package.json';
-import formatDate from './dates';
-import { name, email } from '../utils/authorInfo';
+const send = require('@polka/send-type')
+const { stripIndent } = require('common-tags')
+const posts = require('../posts.json')
+const { description, homepage } = require('../package.json')
+const formatDate = require('./dates')
+const { name, email } = require('../utils/authorInfo')
 
 const sortedPosts = posts.sort((a, b) => (a.date > b.date ? -1 : 1));
 const [latest] = sortedPosts;
@@ -40,4 +40,4 @@ const atom = (req, res) => {
   return send(res, 200, xml, { 'Content-Type': 'text/xml' });
 };
 
-export default atom;
+module.exports = atom;

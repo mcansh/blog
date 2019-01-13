@@ -1,7 +1,7 @@
-import send from '@polka/send-type';
-import { createSitemap } from 'sitemap';
-import { homepage } from '../package.json';
-import posts from '../posts.json';
+const send = require('@polka/send-type')
+const { createSitemap } = require('sitemap')
+const { homepage } = require('../package.json')
+const posts = require('../posts.json')
 
 const generateSiteMap = createSitemap({
   hostname: homepage,
@@ -37,4 +37,4 @@ const sitemap = async (req, res) => {
   }
 };
 
-export default sitemap;
+module.exports = sitemap;

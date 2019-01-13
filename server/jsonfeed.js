@@ -1,9 +1,9 @@
-import send from '@polka/send-type';
-import { stripIndent } from 'common-tags';
-import posts from '../posts.json';
-import { description, homepage } from '../package.json';
-import formatDate from './dates';
-import { name, email } from '../utils/authorInfo';
+const send = require('@polka/send-type')
+const { stripIndent } = require('common-tags')
+const posts = require('../posts.json')
+const { description, homepage } = require('../package.json')
+const formatDate = require('./dates')
+const { name, email } = require('../utils/authorInfo')
 
 const jsonfeed = (req, res) => {
   const imagePath = `${homepage}/static/images/posts`;
@@ -36,4 +36,4 @@ const jsonfeed = (req, res) => {
   send(res, 200, json);
 };
 
-export default jsonfeed;
+module.exports = jsonfeed;
