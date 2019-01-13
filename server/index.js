@@ -4,6 +4,7 @@ const { join } = require('path');
 const IntlPolyfill = require('intl');
 const favicon = require('serve-favicon');
 const configureIntl = require('./intl');
+const renderAndCache = require('./cache');
 
 // routes
 const atom = require('./atom');
