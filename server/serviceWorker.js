@@ -1,7 +1,7 @@
-import send from '@polka/send-type';
-import { createReadStream } from 'fs';
-import { parse } from 'url';
-import { join } from 'path';
+const send = require('@polka/send-type')
+const { createReadStream } = require('fs')
+const { parse } = require('url')
+const { join } = require('path')
 
 const serviceWorker = async (req, res) => {
   const { pathname } = parse(req.url, true);
@@ -10,4 +10,4 @@ const serviceWorker = async (req, res) => {
   send(res, 200, file, { 'Content-Type': 'application/javascript' });
 };
 
-export default serviceWorker;
+module.exports = serviceWorker;

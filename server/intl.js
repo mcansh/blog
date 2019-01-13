@@ -1,8 +1,8 @@
-import glob from 'glob';
-import { basename, join } from 'path';
-import { readFileSync } from 'fs';
-import accepts from 'accepts';
-import { version } from '../package.json';
+const glob = require('glob')
+const { basename, join } = require('path')
+const { readFileSync } = require('fs')
+const accepts = require('accepts')
+const { version } = require('../package.json')
 
 const dev = process.env.NODE_ENV === 'development';
 const langFolder = join(__dirname, '..', 'lang');
@@ -42,5 +42,8 @@ const configureIntl = (req, res, next) => {
   next();
 };
 
-export { languages, localeDataCache, getLocaleDataScript, getMessages };
-export default configureIntl;
+module.languages = languages
+module.localeDataCache = localeDataCache;
+module.getLocaleDataScript = getLocaleDataScript;
+module.getMessages = getMessages;
+module.exports =  configureIntl;

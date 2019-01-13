@@ -1,6 +1,6 @@
-import send from '@polka/send-type';
-import { description, productName, productShortName } from '../package.json';
-import { colors } from '../config';
+const send = require('@polka/send-type')
+const { description, productName, productShortName } = require('../package.json')
+const { colors } = require('../config')
 
 const manifest = (req, res) => {
   const iconSizes = [72, 96, 128, 144, 256, 512];
@@ -26,4 +26,4 @@ const manifest = (req, res) => {
   send(res, 200, json);
 };
 
-export default manifest;
+module.exports = manifest;

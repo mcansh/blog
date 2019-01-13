@@ -1,4 +1,4 @@
-import tinydate from 'tinydate';
+const tinydate = require('tinydate')
 
 const formatDate = date => {
   const inputDate = new Date(date);
@@ -6,4 +6,4 @@ const formatDate = date => {
   return stamp(inputDate);
 };
 
-export default formatDate;
+module.exports = formatDate;
