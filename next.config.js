@@ -6,6 +6,7 @@ const withMDX = require('@zeit/next-mdx')({
 });
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const withSize = require('next-size');
+const withTypescript = require('@zeit/next-typescript');
 
 module.exports = withPlugins(
   [
@@ -36,8 +37,10 @@ module.exports = withPlugins(
         },
       },
     ],
+    [withTypescript],
   ],
   {
+    target: 'serverless',
     webpack: config => {
       config.node = { fs: 'empty' };
 
@@ -51,7 +54,7 @@ module.exports = withPlugins(
           runtimeCaching: [
             {
               handler: 'fastest',
-              urlPattern: /[.](webp|png|jpg)/,
+              urlPattern: /[.](webp|png|jpg|svg|css)/,
             },
             {
               handler: 'networkFirst',

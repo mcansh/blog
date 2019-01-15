@@ -9,5 +9,8 @@ const MMMMDDYYYY = {
   year: 'numeric',
 };
 
-export { colors, MMMMDDYYYY };
+const cloudinary =
+  'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog';
+
+export { colors, MMMMDDYYYY, cloudinary };
 export default colors;

@@ -1,10 +1,37 @@
 {
   "name": "blog",
-  "version": 1,
-  "type": "docker",
-  "alias": [
-    "mcansh.blog",
-    "www.mcansh.blog"
+  "version": 2,
+  "alias": ["www.mcansh.blog", "mcansh.blog"],
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next@canary",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/manifest.json",
+      "dest": "/static/manifest.json"
+    },
+    {
+      "src": "/feed.json",
+      "dest": "/static/feed.json"
+    },
+    {
+      "src": "/sitemap.xml",
+      "dest": "/static/sitemap.xml"
+    },
+    {
+      "src": "/atom",
+      "dest": "/static/atom.xml"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
   ],
   "env": {
     "TWITTER": "@blog_twitter",
