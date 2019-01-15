@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import Router from 'next/router';
 import { UrlObject, format, resolve, parse } from 'url';
 

@@ -8,31 +8,46 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components';
 import { colors } from '../config';
 
-class MyDocument extends Document {
+interface Props {
+  styles: string;
+  locale: string;
+  localeDataScript: string;
+}
+
+class MyDocument extends Document<Props> {
   static async getInitialProps(context: NextDocumentContext) {
     // styled-components
-    const { renderPage } = context;
     const sheet = new ServerStyleSheet();
-    const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />)
-    );
-    const styleTags = sheet.getStyleElement();
 
+    const originalRenderPage = context.renderPage;
+    context.renderPage = () =>
+      originalRenderPage({
+        // @ts-ignore
+        enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+      });
+
+    const initialProps = await Document.getInitialProps(context);
     // react-intl
-    const props = await super.getInitialProps(context);
-    const { locale, localeDataScript } = context.req;
+
+    const {
+      // @ts-ignore
+      req: { locale, localeDataScript },
+    } = context;
+
     return {
-      ...page,
-      ...props,
-      styleTags,
+      ...initialProps,
       locale,
       localeDataScript,
+      // @ts-ignore
+      styles: [...initialProps.styles, ...sheet.getStyleElement()],
     };
   }
 
   render() {
-    const { locale, styleTags, localeDataScript } = this.props;
-    const polyfill = `https://cdn.polyfill.io/v3/polyfill.min.js?features=default,Intl.~locale.${locale}`;
+    const { locale, styles, localeDataScript } = this.props;
+    const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
+    const encodedFeatures = encodeURIComponent(features);
+    const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
 
     return (
       <html lang={locale}>
@@ -117,7 +132,7 @@ class MyDocument extends Document {
             type="application/json"
             title="JSON Feed"
           />
-          {styleTags}
+          {styles}
         </Head>
         <body>
           <Main />

@@ -2,7 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const StyledLink = styled.a`
+interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
+  text: string;
+  link: string;
+  color?: string;
+  background?: string;
+  hoverColor?: string;
+  hoverBackground?: string;
+}
+
+const StyledLink = styled.a<Props>`
   margin: 3rem 0 0 0;
   color: ${props => props.color};
   display: inline-flex;
@@ -33,15 +42,6 @@ const StyledLink = styled.a`
     background: ${props => props.hoverBackground};
   }
 `;
-
-type Props = {
-  text: string;
-  link: string;
-  color?: string;
-  background?: string;
-  hoverColor?: string;
-  hoverBackground?: string;
-};
 
 const Button = ({
   text,

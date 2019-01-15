@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import OceanicNext from 'prism-react-renderer/themes/oceanicNext';
 
-const CodeStyles = styled.pre`
+const CodeStyles = styled.pre<{ additionalStyles: any }>`
   margin: 3rem 0;
   padding: 1.4rem;
   border-radius: 0.4rem;
@@ -32,9 +32,11 @@ export const Code = ({ language, children }: CodeProps) => (
       <CodeStyles className={className} additionalStyles={style}>
         {tokens.map((line, i) => (
           <div {...getLineProps({ line, key: i })}>
-            {line.map((token, key) => (
-              <span {...getTokenProps({ token, key })} />
-            ))}
+            {line.map(
+              (token: { content: string; types: string[] }, key: number) => (
+                <span {...getTokenProps({ token, key })} />
+              )
+            )}
           </div>
         ))}
       </CodeStyles>

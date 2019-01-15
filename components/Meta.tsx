@@ -5,6 +5,7 @@ import FindPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
 import formatDate from '../utils/dates';
+import { PostTypes } from './PostCard';
 
 type Props = {
   id?: string;
@@ -13,7 +14,7 @@ type Props = {
 
 const Meta = ({ id, router }: Props) => (
   <FindPost id={id}>
-    {post => {
+    {(post: PostTypes) => {
       const pageTitle = post && post.title ? `${post.title} — ${name}` : name;
       const fullImageUrl =
         post && post.image && post.image.imageUrl
