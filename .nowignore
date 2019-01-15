@@ -1,0 +1,15 @@
+.next
+.vscode
+__tests__
+jest.*.js
+Dockerfile
+*.markdown
+logo.sketch
+now.json1
+now.json
+sample.env
+.eslintrc.js
+.eslintignore
+.stylelintrc
+.yarnrc
+.travis.yml
