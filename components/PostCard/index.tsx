@@ -13,7 +13,7 @@ export type PostTypes = {
 };
 
 const PostCard = ({ id, image, date, title }: PostTypes) => (
-  <Link prefetch href={id} passHref>
+  <Link prefetch href={`/${id}`} passHref>
     <Post>
       <ImageWrap>
         <img

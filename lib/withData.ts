@@ -8,6 +8,7 @@ function createClient({ headers, initialState }) {
   return new ApolloClient({
     uri: 'https://api.github.com/graphql',
     cache: new InMemoryCache().restore(initialState || {}),
+    // @ts-ignore
     request: operation => {
       operation.setContext({
         headers: {
@@ -19,14 +20,14 @@ function createClient({ headers, initialState }) {
     clientState: {
       resolvers: {
         Mutation: {
-          closeNav(_, variables, { cache }) {
+          closeNav(_, _variables, { cache }) {
             const data = {
               data: { navOpen: false },
             };
             cache.writeData(data);
             return data;
           },
-          toggleNav(_, variables, { cache }) {
+          toggleNav(_, _variables, { cache }) {
             // read the navOpen value from the cache
             const { navOpen } = cache.readQuery({
               query: LOCAL_STATE_QUERY,

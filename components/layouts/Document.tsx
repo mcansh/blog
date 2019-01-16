@@ -5,6 +5,7 @@ import { version, repository } from '../../package.json';
 import { initGA, logPageView } from '../../lib/analytics';
 import randomEmoji from '../../utils/emojis';
 
+// @ts-ignore
 if (global.document) {
   const info = [
     `Version: ${version}`,
@@ -15,8 +16,11 @@ if (global.document) {
   info.forEach(message => console.log(message));
 }
 
-type Props = { children: React.ReactNode };
-class Document extends Component<Props, null> {
+interface Props {
+  children: React.ReactNode;
+}
+
+class Document extends Component<Props> {
   componentDidMount = () => {
     this.analytics();
     this.serviceWorker();
@@ -43,8 +47,10 @@ class Document extends Component<Props, null> {
 
   analytics = () => {
     if (process.env.NODE_ENV === 'production') {
+      // @ts-ignore
       if (!window.GA_INITIALIZED) {
         initGA();
+        // @ts-ignore
         window.GA_INITIALIZED = true;
       }
       logPageView();

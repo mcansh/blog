@@ -3,14 +3,8 @@ const colors = {
   background: '#f7f7f7',
 };
 
-const MMMMDDYYYY = {
-  month: 'long',
-  day: 'numeric',
-  year: 'numeric',
-};
-
 const cloudinary =
   'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog';
 
-export { colors, MMMMDDYYYY, cloudinary };
+export { colors, cloudinary };
 export default colors;

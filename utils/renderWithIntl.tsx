@@ -2,15 +2,18 @@
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
-import { render, cleanup } from 'react-testing-library';
+import { render } from 'react-testing-library';
 import theme from '../config';
 
-afterEach(cleanup);
-
-const renderWithIntl = (children, intlProps = { locale: 'en' }) =>
+const renderWithIntl = (
+  children: React.ReactNode,
+  intlProps = { locale: 'en' }
+) =>
   render(
     <IntlProvider {...intlProps}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <>{children}</>
+      </ThemeProvider>
     </IntlProvider>
   );
 

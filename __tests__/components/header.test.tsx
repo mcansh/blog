@@ -22,9 +22,5 @@ describe('Header Component', () => {
     expect(header.querySelector('img').src).toEqual(
       'http://localhost:3000/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
     );
-
-    expect(header.querySelector('source').srcset).toEqual(
-      '/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.webp'
-    );
   });
 });

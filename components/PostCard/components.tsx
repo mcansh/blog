@@ -15,21 +15,24 @@ export const Meta = styled.div`
   padding: 1.8rem 1.8rem 2.7rem 1.8rem;
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h2.attrs({ 'data-testid': 'post-title' })`
   font-weight: 700;
   font-size: 2.2rem;
   margin: 0 0 1.1rem;
   color: #262626;
 `;
 
-export const PostDate = styled.p`
+export const PostDate = styled.p.attrs({ 'data-testid': 'post-date' })`
   font-weight: 400;
   color: #666666;
   font-size: 1.62rem;
   margin: 0;
 `;
 
-export const Post = styled.a.attrs({ className: 'postcard' })`
+export const Post = styled.a.attrs({
+  className: 'postcard',
+  'data-testid': 'post-link',
+})`
   background: white;
   width: calc(33.3333% - 2rem);
   padding: 0;
