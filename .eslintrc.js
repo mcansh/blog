@@ -12,6 +12,7 @@ module.exports = {
           'jest.config.js',
           'utils/renderWithIntl.tsx',
           'scripts/**/*',
+          'next.config.js',
         ],
       },
     ],

@@ -17,19 +17,39 @@
   "routes": [
     {
       "src": "/manifest.json",
-      "dest": "/static/manifest.json"
+      "dest": "/static/manifest.json",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable"
+      }
     },
     {
       "src": "/feed.json",
-      "dest": "/static/feed.json"
+      "dest": "/static/feed.json",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable"
+      }
     },
     {
       "src": "/sitemap.xml",
-      "dest": "/static/sitemap.xml"
+      "dest": "/static/sitemap.xml",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable"
+      }
     },
     {
       "src": "/atom",
-      "dest": "/static/atom.xml"
+      "dest": "/static/atom.xml",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable"
+      }
+    },
+    {
+      "src": "^/sw.js$",
+      "dest": "/_next/static/sw.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
     },
     {
       "src": "/(.*)",
