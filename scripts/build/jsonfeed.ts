@@ -6,7 +6,7 @@ import { promisify } from 'util';
 // Packages
 import * as prettier from 'prettier';
 import { description, homepage } from '../../package.json';
-import formatDate from '../../utils/dates';
+import iso8601 from '../../utils/dates';
 import * as posts from '../../posts.json';
 import { cloudinary } from '../../config';
 
@@ -21,7 +21,7 @@ const jsonfeed = async () => {
     id: `${homepage}/${post.id}`,
     url: `${homepage}/${post.id}`,
     title: `${post.title}`,
-    date_published: `${formatDate(post.date)}`,
+    date_published: `${iso8601(post.date)}`,
     image: `${cloudinary}/${post.image.imageUrl}`,
   }));
 

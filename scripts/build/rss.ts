@@ -6,7 +6,7 @@ import { promisify } from 'util';
 // Packages
 import * as posts from '../../posts.json';
 import { description, homepage } from '../../package.json';
-import formatDate from '../../utils/dates';
+import iso8601 from '../../utils/dates';
 import { name, email } from '../../utils/authorInfo';
 
 const writeFile = promisify(fs.writeFile);
@@ -21,7 +21,7 @@ const atom = async () => {
       <subtitle>${description}</subtitle>
       <link href="${homepage}/atom" rel="self"/>
       <link href="${homepage}"/>
-      <updated>${formatDate(latest.date)}</updated>
+      <updated>${iso8601(latest.date)}</updated>
       <id>${homepage}</id>
       <author>
         <name>${name}</name>
@@ -34,7 +34,7 @@ const atom = async () => {
           <id>${id}</id>
           <title>${title}</title>
           <link href="${homepage}/${id}"/>
-          <updated>${formatDate(date)}</updated>
+          <updated>${iso8601(date)}</updated>
         </entry>
       `
         )

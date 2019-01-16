@@ -1,8 +1,14 @@
-import Link, { LinkProps } from 'next/link';
+/* eslint-disable react/destructuring-assignment */
+import React from 'react';
+import { LinkProps } from 'next/link';
 import Router from 'next/router';
-import { UrlObject, format, resolve, parse } from 'url';
+import { format, resolve, parse, UrlObject } from 'url';
 
-export const prefetch = async (href: UrlObject) => {
+interface Props extends LinkProps {
+  withData?: boolean;
+}
+
+export const prefetch = async (href: string | UrlObject) => {
   // if  we're running server side do nothing
   if (typeof window === 'undefined') return;
 
@@ -18,28 +24,29 @@ export const prefetch = async (href: UrlObject) => {
 
   // if Component exists and has getInitialProps
   // fetch the component props (the component should save it in cache)
+  // @ts-ignore
   if (Component && Component.getInitialProps) {
     const ctx = { pathname: href, query, isVirtualCall: true };
+    // @ts-ignore
     await Component.getInitialProps(ctx);
   }
 };
 
 // extend default next/link to customize the prefetch behaviour
-class LinkWithData extends Link<LinkProps> {
+export default class LinkWithData extends React.Component<Props> {
   // our custom prefetch method
   async prefetch() {
     // if the prefetch prop is not defined do nothing
-    if (this.props.prefetch == null) return;
+    if (!this.props.prefetch) return;
 
     // if withData prop is defined
     // prefetch with data
     // otherwise just prefetch the page
-    if (this.props.withData != null) {
+    if (this.props.withData) {
       prefetch(this.props.href);
     } else {
+      // @ts-ignore
       super.prefetch();
     }
   }
 }
-
-export default LinkWithData;

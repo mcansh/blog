@@ -1,11 +1,11 @@
-const formatDate = (date: number): string => {
-  const inputDate = new Date(date);
-  const year = inputDate.getFullYear();
-  const month = inputDate.getMonth() + 1;
-  const day = inputDate.getDate();
-  return `${year}-${month >= 10 ? month : `0${month}`}-${
-    day >= 10 ? day : `0${day}`
-  }`;
-};
+const formatter = new Intl.DateTimeFormat('default', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+});
 
-export default formatDate;
+const iso8601 = (date: number): string =>
+  new Date(date).toISOString().slice(0, 10);
+
+export { formatter };
+export default iso8601;

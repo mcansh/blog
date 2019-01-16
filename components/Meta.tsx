@@ -4,7 +4,7 @@ import { withRouter, RouterProps } from 'next/router';
 import FindPost from '../utils/findPost';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
-import formatDate from '../utils/dates';
+import iso8601 from '../utils/dates';
 import { PostTypes } from './PostCard';
 
 type Props = {
@@ -41,7 +41,7 @@ const Meta = ({ id, router }: Props) => (
           {post && post.date && (
             <meta
               property="article:published_time"
-              content={formatDate(post.date)}
+              content={iso8601(post.date)}
             />
           )}
           {post && post.title && (

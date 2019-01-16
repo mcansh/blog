@@ -1,19 +1,8 @@
 import React from 'react';
-import { defineMessages, injectIntl, IntlShape } from 'react-intl';
 import styled from 'styled-components';
 
-const messages = defineMessages({
-  navOpenLabel: {
-    id: 'Hamburger.label.opened',
-    defaultMessage: 'Close Side Nav',
-  },
-  navClosedLabel: {
-    id: 'Hamburger.label.closed',
-    defaultMessage: 'Open Side Nav',
-  },
-});
-
 interface Open {
+  // eslint-disable-next-line no-restricted-globals
   open: boolean;
 }
 
@@ -86,15 +75,11 @@ const Lines = styled.span<Open>`
 type Props = {
   navOpen: boolean;
   onClick: () => void;
-  intl: IntlShape;
 };
 
-const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }: Props) => (
+const Hamburger = ({ navOpen, onClick }: Props) => (
   <MenuButton
-    // @ts-ignore
-    aria-label={formatMessage(
-      navOpen ? messages.navOpenLabel : messages.navClosedLabel
-    )}
+    aria-label={`${navOpen ? 'Close' : 'Open'} Side Nav`}
     onClick={onClick}
     open={navOpen}
   >
@@ -102,4 +87,4 @@ const Hamburger = ({ intl: { formatMessage }, navOpen, onClick }: Props) => (
   </MenuButton>
 );
 
-export default injectIntl(Hamburger);
+export default Hamburger;

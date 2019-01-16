@@ -1,36 +1,31 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import isAbsoluteUrl from 'is-absolute-url';
-import { FormattedMessage } from 'react-intl';
 import Link from './LinkWithData';
 
 const NavLinks = [
   {
-    name: <FormattedMessage id="NavList.home" defaultMessage="Home" />,
+    name: 'Home',
     slug: '/',
   },
   {
-    name: <FormattedMessage id="NavList.github" defaultMessage="GitHub" />,
+    name: 'GitHub',
     slug: 'https://github.com/mcansh',
   },
   {
-    name: <FormattedMessage id="NavList.twitter" defaultMessage="Twitter" />,
+    name: 'Twitter',
     slug: 'https://twitter.com/loganmcansh',
   },
   {
-    name: (
-      <FormattedMessage id="NavList.instagram" defaultMessage="Instagram" />
-    ),
+    name: 'Instagram',
     slug: 'https://instagram.com/loganmcansh',
   },
   {
-    name: <FormattedMessage id="NavList.email" defaultMessage="Email" />,
+    name: 'Email',
     slug: 'mailto:logan@mcan.sh',
   },
   {
-    name: (
-      <FormattedMessage id="NavList.changelog" defaultMessage="Changelog" />
-    ),
+    name: 'Changelog',
     slug: '/changelog',
   },
 ];
@@ -86,7 +81,7 @@ const NavList = () => (
     {NavLinks.map(({ name, slug }) => {
       const isExternal = isAbsoluteUrl(slug);
       return (
-        <li key={name.props.defaultMessage}>
+        <li key={name}>
           <Link href={slug} prefetch={!isExternal}>
             <a
               rel={isExternal ? 'noopener external nofollow' : ''}

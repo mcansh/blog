@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
-import { Query, Mutation } from 'react-apollo';
 import { gql } from 'apollo-boost';
-import { adopt } from 'react-adopt';
-import useKey from 'use-key-hook';
 import { useQuery, useMutation } from 'react-apollo-hooks';
 import Hamburger from './Hamburger';
 import NavList from './NavList';
@@ -45,28 +42,6 @@ const CLOSE_NAV_MUTATION = gql`
     closeNav @client
   }
 `;
-
-type QueryMutationTypes = {
-  render: Function;
-};
-
-const ToggleNav = ({ render }: QueryMutationTypes) => (
-  <Mutation mutation={TOGGLE_NAV_MUTATION}>{render}</Mutation>
-);
-
-const CloseNav = ({ render }: QueryMutationTypes) => (
-  <Mutation mutation={CLOSE_NAV_MUTATION}>{render}</Mutation>
-);
-
-const LocalState = ({ render }: QueryMutationTypes) => (
-  <Query query={LOCAL_STATE_QUERY}>{render}</Query>
-);
-
-const Composed = adopt({
-  toggleNav: ToggleNav,
-  closeNav: CloseNav,
-  localState: LocalState,
-});
 
 const Navigation = () => {
   const toggleNav = useMutation(TOGGLE_NAV_MUTATION);
