@@ -1,7 +1,10 @@
 {
-  "name": "blog",
+  "project": "blog",
   "version": 2,
-  "alias": ["www.mcansh.blog", "mcansh.blog"],
+  "alias": [
+    "www.mcansh.blog",
+    "mcansh.blog"
+  ],
   "builds": [
     {
       "src": "next.config.js",

@@ -16,7 +16,6 @@
     "build": "next build",
     "build:files": "yarn ts-node --project tsconfig.server.json ./scripts/build/",
     "start": "next start",
-    "predeploy": "yarn compress",
     "deploy": "now",
     "postdeploy": "now alias && now rm blog -ys",
     "test": "NODE_ENV=test jest",

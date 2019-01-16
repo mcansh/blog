@@ -13,3 +13,4 @@ sample.env
 .stylelintrc
 .yarnrc
 .travis.yml
+static/images/posts
