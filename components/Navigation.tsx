@@ -3,6 +3,11 @@ import Router from 'next/router';
 import styled from 'styled-components';
 import { gql } from 'apollo-boost';
 import { useQuery, useMutation } from 'react-apollo-hooks';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock';
 import Hamburger from './Hamburger';
 import NavList from './NavList';
 import Portal from './Portal';
@@ -48,13 +53,20 @@ const Navigation = () => {
   const {
     data: { navOpen },
   } = useQuery(LOCAL_STATE_QUERY);
+
   const closeNav = useMutation(CLOSE_NAV_MUTATION);
 
   useEffect(() => {
-    Router.events.on('routeChangeComplete', () => closeNav());
+    Router.events.on('routeChangeComplete', () => {
+      clearAllBodyScrollLocks();
+      closeNav();
+    });
 
     return () => {
-      Router.events.off('routeChangeComplete', () => closeNav());
+      Router.events.off('routeChangeComplete', () => {
+        clearAllBodyScrollLocks();
+        closeNav();
+      });
     };
   });
 
@@ -70,6 +82,14 @@ const Navigation = () => {
       <Hamburger
         onClick={() => {
           logEvent({ category: 'general', action: 'toggle nav' });
+          console.log({ navOpen });
+
+          // toggle body scrolling on click
+          if (navOpen) {
+            enableBodyScroll(document.querySelector('body'));
+          } else {
+            disableBodyScroll(document.querySelector('body'));
+          }
           toggleNav();
         }}
         navOpen={navOpen}
