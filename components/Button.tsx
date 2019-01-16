@@ -2,7 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
+interface Props
+  extends React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > {
   text: string;
   link: string;
   color?: string;
@@ -11,7 +15,12 @@ interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
   hoverBackground?: string;
 }
 
-const StyledLink = styled.a<Props>`
+type StyledLinkProps = Pick<
+  Props,
+  'color' | 'background' | 'hoverColor' | 'hoverBackground'
+>;
+
+const StyledLink = styled.a<StyledLinkProps>`
   margin: 3rem 0 0 0;
   color: ${props => props.color};
   display: inline-flex;
