@@ -6,6 +6,7 @@ import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
 import iso8601 from '../utils/dates';
 import { PostTypes } from './PostCard';
+import getCloudinaryURL from '../utils/getCloudinaryURL';
 
 type Props = {
   id?: string;
@@ -18,7 +19,7 @@ const Meta = ({ id, router }: Props) => (
       const pageTitle = post && post.title ? `${post.title} — ${name}` : name;
       const fullImageUrl =
         post && post.image && post.image.imageUrl
-          ? `${homepage}/static/images/posts/${post.image.imageUrl}`
+          ? getCloudinaryURL(post.image.imageUrl)
           : `${homepage}/static/images/me.jpg`;
       return (
         <Head>

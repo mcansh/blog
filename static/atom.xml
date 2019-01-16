@@ -5,7 +5,7 @@
       <subtitle>My blog for learn.co, but mostly it's a playground for things I want to build with React 🤷‍♂️</subtitle>
       <link href="https://mcansh.blog/atom" rel="self"/>
       <link href="https://mcansh.blog"/>
-      <updated>2018-08-07</updated>
+      <updated>2018-08-08</updated>
       <id>https://mcansh.blog</id>
       <author>
         <name>Logan McAnsh</name>
@@ -16,7 +16,7 @@
           <id>react-project</id>
           <title>Why my react project took me over 6 months to finish</title>
           <link href="https://mcansh.blog/react-project"/>
-          <updated>2018-08-07</updated>
+          <updated>2018-08-08</updated>
         </entry>
       
         <entry>
@@ -51,7 +51,7 @@
           <id>similarities-between-life-and-code</id>
           <title>Similarities between life and code</title>
           <link href="https://mcansh.blog/similarities-between-life-and-code"/>
-          <updated>2016-12-24</updated>
+          <updated>2016-12-25</updated>
         </entry>
       
         <entry>
@@ -65,28 +65,28 @@
           <id>javascript-classes</id>
           <title>JavaScript classes key concepts</title>
           <link href="https://mcansh.blog/javascript-classes"/>
-          <updated>2016-11-20</updated>
+          <updated>2016-11-21</updated>
         </entry>
       
         <entry>
           <id>object-lifecycle-cheatsheet</id>
           <title>Object lifecycle cheatsheet</title>
           <link href="https://mcansh.blog/object-lifecycle-cheatsheet"/>
-          <updated>2016-11-03</updated>
+          <updated>2016-11-04</updated>
         </entry>
       
         <entry>
           <id>html5-progress-element</id>
           <title>The HTML5 progress element</title>
           <link href="https://mcansh.blog/html5-progress-element"/>
-          <updated>2016-10-13</updated>
+          <updated>2016-10-14</updated>
         </entry>
       
         <entry>
           <id>why-im-learning-software-development</id>
           <title>Why I'm learning software development</title>
           <link href="https://mcansh.blog/why-im-learning-software-development"/>
-          <updated>2016-10-02</updated>
+          <updated>2016-10-03</updated>
         </entry>
       
     </feed>

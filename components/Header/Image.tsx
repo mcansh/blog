@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import unsplashParams from '../../utils';
 import { ImageTypes } from './index';
+import getCloudinaryURL from '../../utils/getCloudinaryURL';
 
 const ImageWrap = styled.div`
   display: block;
@@ -33,8 +34,7 @@ type Props = {
 };
 
 const HeaderImage = ({ image }: Props) => {
-  const imagePath = '/static/images/posts';
-  const imgUrl = `${imagePath}/${image.imageUrl}`;
+  const imgUrl = getCloudinaryURL(image.imageUrl);
 
   return (
     <ImageWrap>

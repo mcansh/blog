@@ -19,8 +19,9 @@ describe('Header Component', () => {
 
     expect(header.textContent).toEqual('BLOG');
 
-    expect(header.querySelector('img').src).toEqual(
-      'http://localhost:3000/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
+    expect(header.querySelector('img')).toHaveAttribute(
+      'src',
+      'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
     );
   });
 });

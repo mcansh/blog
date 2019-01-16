@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const ImageWrap = styled.div`
+const imageHeight = 200;
+
+const ImageWrap = styled.div`
   overflow: hidden;
   height: 200px;
   img {
@@ -11,25 +13,25 @@ export const ImageWrap = styled.div`
   }
 `;
 
-export const Meta = styled.div`
+const Meta = styled.div`
   padding: 1.8rem 1.8rem 2.7rem 1.8rem;
 `;
 
-export const Title = styled.h2.attrs({ 'data-testid': 'post-title' })`
+const Title = styled.h2.attrs({ 'data-testid': 'post-title' })`
   font-weight: 700;
   font-size: 2.2rem;
   margin: 0 0 1.1rem;
   color: #262626;
 `;
 
-export const PostDate = styled.p.attrs({ 'data-testid': 'post-date' })`
+const PostDate = styled.p.attrs({ 'data-testid': 'post-date' })`
   font-weight: 400;
   color: #666666;
   font-size: 1.62rem;
   margin: 0;
 `;
 
-export const Post = styled.a.attrs({
+const Post = styled.a.attrs({
   className: 'postcard',
   'data-testid': 'post-link',
 })`
@@ -70,3 +72,5 @@ export const Post = styled.a.attrs({
     }
   }
 `;
+
+export { Post, imageHeight, ImageWrap, Meta, Title, PostDate };

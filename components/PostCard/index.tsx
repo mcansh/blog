@@ -1,9 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import unsplashParams from '../../utils';
-import { Post, ImageWrap, Meta, Title, PostDate } from './components';
+import {
+  Post,
+  ImageWrap,
+  Meta,
+  Title,
+  PostDate,
+  imageHeight,
+} from './components';
 import { ImageTypes } from '../Header';
 import { formatter } from '../../utils/dates';
+import getCloudinaryURL from '../../utils/getCloudinaryURL';
 
 export type PostTypes = {
   image: ImageTypes;
@@ -12,24 +20,35 @@ export type PostTypes = {
   title: string;
 };
 
-const PostCard = ({ id, image, date, title }: PostTypes) => (
-  <Link prefetch href={`/${id}`} passHref>
-    <Post>
-      <ImageWrap>
-        <img
-          src={`/static/images/posts/${image.imageUrl}`}
-          alt={
-            image.photographer != null ? `Taken by ${image.photographer}` : ''
-          }
-          data-source-url={unsplashParams(image.url)}
-        />
-      </ImageWrap>
-      <Meta>
-        <Title>{title}</Title>
-        <PostDate>{formatter.format(date)}</PostDate>
-      </Meta>
-    </Post>
-  </Link>
-);
+const PostCard = ({ id, image, date, title }: PostTypes) => {
+  const hasImageAuthor = image.photographer != null;
+  const hasImageSrc = image.url != null;
+  const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
+  const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
+  const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
+  return (
+    <Link prefetch href={`/${id}`} passHref>
+      <Post>
+        <ImageWrap>
+          <img
+            src={image1x}
+            alt={title}
+            srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
+            data-photo={
+              hasImageAuthor ? `Taken by ${image.photographer}` : undefined
+            }
+            data-source-url={
+              hasImageSrc ? unsplashParams(image.url) : undefined
+            }
+          />
+        </ImageWrap>
+        <Meta>
+          <Title>{title}</Title>
+          <PostDate>{formatter.format(date)}</PostDate>
+        </Meta>
+      </Post>
+    </Link>
+  );
+};
 
 export default PostCard;

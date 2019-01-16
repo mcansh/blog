@@ -42,7 +42,7 @@
   {
     "id": "rack-key-concepts",
     "title": "Rack key concepts",
-    "date": 1481086800000,
+    "date": 1481068800000,
     "image": {
       "imageUrl": "derek-liang-239062.jpg",
       "photographer": "Derek Liang",
@@ -62,7 +62,7 @@
   {
     "id": "time-to-hex",
     "title": "How to convert the current time to a hexadecimal",
-    "date": 1484024400000,
+    "date": 1484006400000,
     "image": {
       "imageUrl": "team-ui8-199275.jpg",
       "photographer": "Team UI8",
@@ -72,7 +72,7 @@
   {
     "id": "sinatra-project",
     "title": "Sinatra project",
-    "date": 1493092800000,
+    "date": 1493078400000,
     "image": {
       "imageUrl": "brevite-434280.jpg",
       "photographer": "Brevitē",
@@ -82,15 +82,15 @@
   {
     "id": "rails-project",
     "title": "Rails project",
-    "date": 1503633600000,
+    "date": 1503619200000,
     "image": {
-      "imageUrl": "1*Wmv8hfi_bTHuHyV5CawnCw.jpg"
+      "imageUrl": "1_Wmv8hfi_bTHuHyV5CawnCw.jpg"
     }
   },
   {
     "id": "ruby-project",
     "title": "Ruby project",
-    "date": 1512843044774,
+    "date": 1512795600000,
     "image": {
       "imageUrl": "stacy-wyss-702.jpg",
       "photographer": "Stacy Wyss",
@@ -100,7 +100,7 @@
   {
     "id": "react-project",
     "title": "Why my react project took me over 6 months to finish",
-    "date": 1533692399498,
+    "date": 1533686400000,
     "image": {
       "imageUrl": "kalen-emsley-99666-unsplash.jpg",
       "photographer": "Kalen Emsley",

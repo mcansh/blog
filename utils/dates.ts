@@ -2,6 +2,7 @@ const formatter = new Intl.DateTimeFormat('default', {
   month: 'long',
   day: 'numeric',
   year: 'numeric',
+  timeZone: 'America/New_York',
 });
 
 const iso8601 = (date: number): string =>

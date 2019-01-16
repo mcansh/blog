@@ -8,8 +8,7 @@ import * as prettier from 'prettier';
 import { description, homepage } from '../../package.json';
 import iso8601 from '../../utils/dates';
 import * as posts from '../../posts.json';
-import { cloudinary } from '../../config';
-
+import getCloudinaryURL from '../../utils/getCloudinaryURL';
 import { name, email } from '../../utils/authorInfo';
 
 const writeFile = promisify(fs.writeFile);
@@ -22,7 +21,7 @@ const jsonfeed = async () => {
     url: `${homepage}/${post.id}`,
     title: `${post.title}`,
     date_published: `${iso8601(post.date)}`,
-    image: `${cloudinary}/${post.image.imageUrl}`,
+    image: getCloudinaryURL(post.image.imageUrl),
   }));
 
   const json = `
