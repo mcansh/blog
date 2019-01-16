@@ -37,7 +37,7 @@ const Release = ({ version, notes, date }: Props) => (
           repository: 'mcansh/blog',
         })
         .use(emoji)
-        .processSync(notes).contents
+        .processSync(notes.replace(/&#39;/g, "'")).contents
     }
   </ReleaseWrap>
 );
