@@ -1,6 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
-import React from 'react';
-import { LinkProps } from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import Router from 'next/router';
 import { format, resolve, parse, UrlObject } from 'url';
 
@@ -8,7 +6,7 @@ interface Props extends LinkProps {
   withData?: boolean;
 }
 
-export const prefetch = async (href: string | UrlObject) => {
+const prefetchPage = async (href: string | UrlObject) => {
   // if  we're running server side do nothing
   if (typeof window === 'undefined') return;
 
@@ -33,20 +31,23 @@ export const prefetch = async (href: string | UrlObject) => {
 };
 
 // extend default next/link to customize the prefetch behaviour
-export default class LinkWithData extends React.Component<Props> {
+class LinkWithData extends Link {
   // our custom prefetch method
   async prefetch() {
+    const { withData, prefetch, href }: Props = this.props;
     // if the prefetch prop is not defined do nothing
-    if (!this.props.prefetch) return;
-
+    if (!prefetch) return;
     // if withData prop is defined
     // prefetch with data
     // otherwise just prefetch the page
-    if (this.props.withData) {
-      prefetch(this.props.href);
+    if (withData) {
+      prefetchPage(href);
     } else {
       // @ts-ignore
       super.prefetch();
     }
   }
 }
+
+export { prefetchPage as prefetch };
+export default LinkWithData;
