@@ -42,7 +42,7 @@ const AnimatedTitle = animated(Title);
 
 export type ImageTypes = {
   imageUrl: string;
-  name?: string | null;
+  photographer?: string | null;
   url?: string | null;
 };
 

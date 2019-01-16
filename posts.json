@@ -5,7 +5,7 @@
     "date": 1475452800000,
     "image": {
       "imageUrl": "luke-pamer-5951.jpg",
-      "name": "Luke Pamer",
+      "photographer": "Luke Pamer",
       "url": "https://unsplash.com/photos/oUhr-qMTJoc"
     }
   },
@@ -15,7 +15,7 @@
     "date": 1476403200000,
     "image": {
       "imageUrl": "matthew-kane-146076.jpg",
-      "name": "Matthew Kane",
+      "photographer": "Matthew Kane",
       "url": "https://unsplash.com/photos/9EM7s13H2I0"
     }
   },
@@ -25,7 +25,7 @@
     "date": 1478217600000,
     "image": {
       "imageUrl": "matthew-henry-49707.jpg",
-      "name": "Matthew Henry",
+      "photographer": "Matthew Henry",
       "url": "https://unsplash.com/photos/VviFtDJakYk"
     }
   },
@@ -35,7 +35,7 @@
     "date": 1479686400000,
     "image": {
       "imageUrl": "mia-baker-322594.jpg",
-      "name": "Mia Baker",
+      "photographer": "Mia Baker",
       "url": "https://unsplash.com/photos/klRB1BB9pV8"
     }
   },
@@ -45,7 +45,7 @@
     "date": 1481086800000,
     "image": {
       "imageUrl": "derek-liang-239062.jpg",
-      "name": "Derek Liang",
+      "photographer": "Derek Liang",
       "url": "https://unsplash.com/photos/2h_i_BB_X2E"
     }
   },
@@ -55,7 +55,7 @@
     "date": 1482624000000,
     "image": {
       "imageUrl": "joshua-sortino-228788.jpg",
-      "name": "Joshua Sortino",
+      "photographer": "Joshua Sortino",
       "url": "https://unsplash.com/photos/71vAb1FXB6g"
     }
   },
@@ -65,7 +65,7 @@
     "date": 1484024400000,
     "image": {
       "imageUrl": "team-ui8-199275.jpg",
-      "name": "Team UI8",
+      "photographer": "Team UI8",
       "url": "https://unsplash.com/photos/z8lfwpQVXJo"
     }
   },
@@ -75,7 +75,7 @@
     "date": 1493092800000,
     "image": {
       "imageUrl": "brevite-434280.jpg",
-      "name": "Brevitē",
+      "photographer": "Brevitē",
       "url": "https://unsplash.com/photos/4qAxSfftA5I"
     }
   },
@@ -93,7 +93,7 @@
     "date": 1512843044774,
     "image": {
       "imageUrl": "stacy-wyss-702.jpg",
-      "name": "Stacy Wyss",
+      "photographer": "Stacy Wyss",
       "url": "https://unsplash.com/photos/-aDl1z8_nGY"
     }
   },
@@ -103,7 +103,7 @@
     "date": 1533692399498,
     "image": {
       "imageUrl": "kalen-emsley-99666-unsplash.jpg",
-      "name": "Kalen Emsley",
+      "photographer": "Kalen Emsley",
       "url": "https://unsplash.com/photos/_LuLiJc1cdo"
     }
   }

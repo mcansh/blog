@@ -60,7 +60,7 @@ class Changelog extends PureComponent<null, State> {
           image={{
             imageUrl: 'justin-mcafee-656012-unsplash.jpg',
             url: 'https://unsplash.com/photos/QsMXXeeCxoU',
-            name: 'Justin McAfee',
+            photographer: 'Justin McAfee',
           }}
         />
         <Query query={allReleasesQuery}>
