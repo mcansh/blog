@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import unsplashParams from '../../utils';
 import {
   Post,
@@ -26,9 +27,17 @@ const PostCard = ({ id, image, date, title }: PostTypes) => {
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
+  const [prefetched, setPrefetched] = useState(false);
   return (
-    <Link prefetch href={`/${id}`} passHref>
-      <Post>
+    <Link href={`/${id}`} passHref>
+      <Post
+        onMouseEnter={() => {
+          if (!prefetched) {
+            Router.prefetch(`/${id}`);
+            setPrefetched(true);
+          }
+        }}
+      >
         <ImageWrap>
           <img
             src={image1x}
