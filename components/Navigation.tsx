@@ -82,8 +82,6 @@ const Navigation = () => {
       <Hamburger
         onClick={() => {
           logEvent({ category: 'general', action: 'toggle nav' });
-          console.log({ navOpen });
-
           // toggle body scrolling on click
           if (navOpen) {
             enableBodyScroll(document.querySelector('body'));
