@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
 
   a:hover {
     color: ${props => props.theme.secondary};
+    text-decoration: none;
   }
 
   a::selection {
