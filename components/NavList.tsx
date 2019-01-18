@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import isAbsoluteUrl from 'is-absolute-url';
+import { Transition, animated } from 'react-spring';
 import Link from './LinkWithData';
 
 const NavLinks = [
@@ -30,15 +31,6 @@ const NavLinks = [
   },
 ];
 
-const openNav = keyframes`
-  0% {
-    transform: translate3d(-100vw, 0, 0);
-  }
-  100% {
-    transform: none;
-  }
-`;
-
 const NavStyles = styled.ul`
   height: 100vh;
   max-width: 40rem;
@@ -59,7 +51,6 @@ const NavStyles = styled.ul`
   will-change: transform;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  animation: ${openNav} 250ms ease;
 
   li {
     margin: 1rem 0;
@@ -76,24 +67,39 @@ const NavStyles = styled.ul`
   }
 `;
 
-const NavList = () => (
-  <NavStyles>
-    {NavLinks.map(({ name, slug }) => {
-      const isExternal = isAbsoluteUrl(slug);
-      return (
-        <li key={name}>
-          <Link href={slug} prefetch={!isExternal}>
-            <a
-              rel={isExternal ? 'noopener external nofollow' : ''}
-              target={isExternal ? '_blank' : ''}
-            >
-              {name}
-            </a>
-          </Link>
-        </li>
-      );
-    })}
-  </NavStyles>
+const AnimatedNavStyles = animated(NavStyles);
+
+const NavList = ({ navOpen }: { navOpen: boolean }) => (
+  <Transition
+    native
+    items={navOpen}
+    from={{ transform: 'translate3d(-100%, 0, 0)' }}
+    enter={{ transform: 'translate3d(0, 0, 0)' }}
+    leave={{ transform: 'translate3d(-100%, 0, 0)' }}
+  >
+    {show =>
+      show &&
+      (props => (
+        <AnimatedNavStyles style={{ ...props }}>
+          {NavLinks.map(({ name, slug }) => {
+            const isExternal = isAbsoluteUrl(slug);
+            return (
+              <li key={name}>
+                <Link href={slug} prefetch={!isExternal}>
+                  <a
+                    rel={isExternal ? 'noopener external nofollow' : ''}
+                    target={isExternal ? '_blank' : ''}
+                  >
+                    {name}
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
+        </AnimatedNavStyles>
+      ))
+    }
+  </Transition>
 );
 
 export default NavList;

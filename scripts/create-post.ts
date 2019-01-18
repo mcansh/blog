@@ -1,12 +1,12 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { promisify } from 'util';
 import { resolve, join } from 'path';
-import kleur from 'kleur';
-import inquirer from 'inquirer';
+import * as kleur from 'kleur';
+import * as inquirer from 'inquirer';
 import { PathPrompt } from 'inquirer-path';
-import prettier from 'prettier';
+import * as prettier from 'prettier';
 import { stripIndent } from 'common-tags';
-import slugify from '@sindresorhus/slugify';
+import * as slugify from '@sindresorhus/slugify';
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
@@ -82,7 +82,7 @@ inquirer
     `
     );
 
-    console.log(kleur.green`Bootstrapping your blogpost...`);
+    console.log(kleur.green(`Bootstrapping your blogpost...`));
     console.log(
       `Done! Go ahead and edit ${kleur.cyan(
         relativePathToMDX
