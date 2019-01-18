@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
 import { version, repository } from '../../package.json';
 import { initGA, logPageView } from '../../lib/analytics';
 import randomEmoji from '../../utils/emojis';
+import { colors } from '../../config';
 
 // @ts-ignore
 if (global.document) {
@@ -59,8 +61,53 @@ class Document extends Component<Props> {
 
   render() {
     const { children } = this.props;
+    const icons = [228, 195, 152, 144, 128, 120, 96, 72, 57, 32];
     return (
       <>
+        <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width, viewport-fit=cover"
+          />
+          <link rel="manifest" href="/manifest.json" />
+          <link type="text/plain" rel="author" href="/static/humans.txt" />
+          <link
+            rel="mask-icon"
+            href="/static/images/logo/safari.svg"
+            color={colors.primary}
+          />
+          <meta name="theme-color" content={colors.primary} />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+          />
+          <link rel="shortcut icon" href="/static/images/logo/logo.png" />
+          <link rel="shortcut icon" href="/static/images/logo/logo.ico" />
+          {icons.map(icon => {
+            const size = `${icon}x${icon}`;
+            return (
+              <link
+                key={size}
+                rel="apple-touch-icon-precomposed"
+                sizes={size}
+                href={`/static/images/logo/logo-${icon}.png`}
+              />
+            );
+          })}
+          <link
+            rel="alternate"
+            href="/atom"
+            type="application/atom+xml"
+            title="RSS Feed"
+          />
+          <link
+            rel="alternate"
+            href="/feed.json"
+            type="application/json"
+            title="JSON Feed"
+          />
+        </Head>
         <Navigation />
         {children}
         <Footer />

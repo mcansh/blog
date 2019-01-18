@@ -73,9 +73,6 @@ const Progress = createGlobalStyle<Props>`
     box-shadow: 0 0 10px ${props => props.color}, 0 0 5px ${props =>
   props.color};
     opacity: 1;
-
-    --webkit-transform: rotate(3deg) translate(0px, -4px);
-    --ms-transform: rotate(3deg) translate(0px, -4px);
     transform: rotate(3deg) translate(0px, -4px);
   }
 
@@ -91,13 +88,10 @@ const Progress = createGlobalStyle<Props>`
     width: 18px;
     height: 18px;
     box-sizing: border-box;
-
     border: solid 2px transparent;
     border-top-color: ${props => props.color};
     border-left-color: ${props => props.color};
     border-radius: 50%;
-
-    --webkit-animation: nprogresss-spinner 400ms linear infinite;
     animation: nprogress-spinner 400ms linear infinite;
   }
 
@@ -111,14 +105,6 @@ const Progress = createGlobalStyle<Props>`
     position: absolute;
   }
 
-  @-webkit-keyframes nprogress-spinner {
-    0% {
-      --webkit-transform: rotate(0deg);
-    }
-    100% {
-      --webkit-transform: rotate(360deg);
-    }
-  }
   @keyframes nprogress-spinner {
     0% {
       transform: rotate(0deg);

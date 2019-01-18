@@ -11,9 +11,10 @@ const CodeStyles = styled.pre<{ additionalStyles: any }>`
   word-wrap: normal;
   font-size: 1.6rem;
   line-height: 1.5;
-  --webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   font-family: 'SF Mono', menlo, monospace;
   ${props => props.additionalStyles};
+  overflow: scroll;
 `;
 
 type CodeProps = {

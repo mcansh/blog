@@ -58,7 +58,7 @@ const NavStyles = styled.ul`
   box-shadow: 0.4rem 0 1.5rem 0.3rem rgba(0, 0, 0, 0.4);
   will-change: transform;
   overflow-y: auto;
-  --webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   animation: ${openNav} 250ms ease;
 
   li {
