@@ -6,6 +6,7 @@ import Document, {
   NextDocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import crypto from 'crypto';
 import { colors } from '../config';
 
 interface Props {
@@ -13,6 +14,12 @@ interface Props {
   locale: string;
   localeDataScript: string;
 }
+
+const cspHashOf = (text: string) => {
+  const hash = crypto.createHash('sha256');
+  hash.update(text);
+  return `'sha256-${hash.digest('base64')}'`;
+};
 
 class MyDocument extends Document<Props> {
   static async getInitialProps(context: NextDocumentContext) {
@@ -48,6 +55,18 @@ class MyDocument extends Document<Props> {
     const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
     const encodedFeatures = encodeURIComponent(features);
     const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
+
+    const cspSettings = [
+      "default-src 'self'",
+      "script-src 'self' https://polyfill.io/v3/polyfill.min.js 'unsafe-eval'",
+      "connect-src 'self' ws://localhost:*",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' https://res.cloudinary.com/dof0zryca/",
+    ];
+
+    const csp = `${cspSettings.join(';')} ${cspHashOf(
+      NextScript.getInlineScriptSource(this.props)
+    )}`;
 
     return (
       <html lang={locale}>
@@ -132,6 +151,7 @@ class MyDocument extends Document<Props> {
             type="application/json"
             title="JSON Feed"
           />
+          <meta httpEquiv="Content-Security-Policy" content={csp} />
           {styles}
         </Head>
         <body>
