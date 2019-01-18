@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
-import { gql } from 'apollo-boost';
-import { useQuery, useMutation } from 'react-apollo-hooks';
+import dynamic from 'next/dynamic';
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
 import Hamburger from './Hamburger';
-import NavList from './NavList';
+// import NavList from './NavList';
 import Portal from './Portal';
 import { logEvent } from '../lib/analytics';
+
+const NavList = dynamic({
+  loader: () => import('./NavList') as any,
+  loading: () => null,
+});
 
 const Nav = styled.nav<{ navOpen: boolean }>`
   &::after {
@@ -24,37 +28,19 @@ const Nav = styled.nav<{ navOpen: boolean }>`
     height: 100%;
     z-index: 2;
     visibility: ${props => (props.navOpen ? 'visible' : 'hidden')};
-    opacity: ${props => (props.navOpen ? '1' : '0')};
+    opacity: ${props => (props.navOpen ? 1 : 0)};
     transition: 500ms all ease-in-out;
     will-change: opacity;
   }
 `;
 
-const LOCAL_STATE_QUERY = gql`
-  query {
-    navOpen @client
-  }
-`;
-
-const TOGGLE_NAV_MUTATION = gql`
-  mutation TOGGLE_NAV_MUTATION {
-    toggleNav @client
-  }
-`;
-
-const CLOSE_NAV_MUTATION = gql`
-  mutation CLOSE_NAV_MUTATION {
-    closeNav @client
-  }
-`;
-
 const Navigation = () => {
-  const toggleNav = useMutation(TOGGLE_NAV_MUTATION);
-  const {
-    data: { navOpen },
-  } = useQuery(LOCAL_STATE_QUERY);
-
-  const closeNav = useMutation(CLOSE_NAV_MUTATION);
+  const [navOpen, setNavOpen] = useState(false);
+  const closeNav = () => {
+    console.log('closeNav');
+    setNavOpen(false);
+  };
+  const toggleNav = () => setNavOpen(old => !old);
 
   useEffect(() => {
     Router.events.on('routeChangeComplete', () => {
@@ -70,6 +56,17 @@ const Navigation = () => {
     };
   });
 
+  const onClick = () => {
+    logEvent({ category: 'general', action: 'toggle nav' });
+
+    if (navOpen) {
+      disableBodyScroll(document.querySelector('body'));
+    } else {
+      enableBodyScroll(document.querySelector('body'));
+    }
+    toggleNav();
+  };
+
   return (
     <Nav
       navOpen={navOpen}
@@ -79,23 +76,12 @@ const Navigation = () => {
         }
       }}
     >
-      <Hamburger
-        onClick={() => {
-          logEvent({ category: 'general', action: 'toggle nav' });
-          // toggle body scrolling on click
-          if (navOpen) {
-            enableBodyScroll(document.querySelector('body'));
-          } else {
-            disableBodyScroll(document.querySelector('body'));
-          }
-          toggleNav();
-        }}
-        navOpen={navOpen}
-      />
-      <Portal>{navOpen && <NavList />}</Portal>
+      <Hamburger onClick={onClick} navOpen={navOpen} />
+      <Portal>
+        <NavList navOpen={navOpen} />
+      </Portal>
     </Nav>
   );
 };
 
-export { LOCAL_STATE_QUERY, TOGGLE_NAV_MUTATION, CLOSE_NAV_MUTATION };
 export default Navigation;
