@@ -1241,6 +1241,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-infinite-scroller@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/@types/react-infinite-scroller/-/react-infinite-scroller-1.2.0.tgz#895d2822bb6e32f024ea258f60e4f75c3fbf37dc"
+  integrity sha512-5TiqZoj3bn+lOctSra4+02T2ma12drNvQOjFicLL3iPWhNREbA9gb/XG9jCDR7f5Bl8k17pbm0nGFa5olnt9rA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-intl@2.3.15":
   version "2.3.15"
   resolved "https://registry.npmjs.org/@types/react-intl/-/react-intl-2.3.15.tgz#4768425b6a9bd680c1076761244b2b96a337dfa7"

@@ -58,7 +58,7 @@ class MyDocument extends Document<Props> {
     const cspSettings = [
       "default-src 'self'",
       "script-src 'self' https://polyfill.io/v3/polyfill.min.js 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com/analytics.js",
-      "connect-src 'self' ws://localhost:*",
+      "connect-src 'self' ws://localhost:* https://api.github.com/graphql",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' https://res.cloudinary.com/dof0zryca/",
     ];
