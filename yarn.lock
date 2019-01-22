@@ -4200,10 +4200,10 @@ eslint-config-airbnb@17.1.0, eslint-config-airbnb@latest:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-mcansh@1.1.0-canary.1:
-  version "1.1.0-canary.1"
-  resolved "https://registry.npmjs.org/eslint-config-mcansh/-/eslint-config-mcansh-1.1.0-canary.1.tgz#76e5b5bff5f2e2a2a9e06ae263083f2fc400788e"
-  integrity sha512-2hOZGZ06qZQcRVekw5cVAcH/POWM2K/SZ1p9PpFoZovexLMCd31/USXm4AKhx7oHOXPlY6VAzLRtKvB+X6GHtA==
+eslint-config-mcansh@1.1.0-canary.2:
+  version "1.1.0-canary.2"
+  resolved "https://registry.npmjs.org/eslint-config-mcansh/-/eslint-config-mcansh-1.1.0-canary.2.tgz#9d09f8c46b28b44526a83d0c04831ddf87fd84c6"
+  integrity sha512-saIrBb2DJe45+f09zxc+vGqg5XEpDa97R0+Wac8NOeuNy5+UXw03cEnCe96p7X9R9+gn5YaHZOBGjxx5VWj8wA==
   optionalDependencies:
     "@typescript-eslint/eslint-plugin" latest
     "@typescript-eslint/parser" latest

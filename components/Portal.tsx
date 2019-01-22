@@ -1,9 +1,9 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-};
+}
 
 class Portal extends React.Component<Props> {
   element = null;

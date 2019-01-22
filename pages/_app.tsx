@@ -29,7 +29,7 @@ if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
 
 interface Props {
   Component: React.Component;
-  pageProps: Object;
+  pageProps: Record<string, any>;
   locale: string;
   messages: Messages;
   apollo: any;

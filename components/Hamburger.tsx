@@ -72,10 +72,10 @@ const Lines = styled.span<Open>`
   }
 `;
 
-type Props = {
+interface Props {
   navOpen: boolean;
   onClick: () => void;
-};
+}
 
 const Hamburger = ({ navOpen, onClick }: Props) => (
   <MenuButton

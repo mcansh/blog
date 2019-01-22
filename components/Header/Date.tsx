@@ -7,9 +7,9 @@ const H2 = styled.h2`
   font-size: 3rem;
 `;
 
-type Props = {
+interface Props {
   date: number;
-};
+}
 
 const DateHeading = ({ date }: Props) => (
   <H2 title={formatter.format(date)}>

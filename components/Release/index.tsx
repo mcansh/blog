@@ -9,11 +9,11 @@ import ReleaseWrap from './wrap';
 import List from './list';
 import ListItem from './item';
 
-type Props = {
+interface Props {
   version: string;
   notes: string;
   date: string;
-};
+}
 
 const Release = ({ version, notes, date }: Props) => (
   <ReleaseWrap>

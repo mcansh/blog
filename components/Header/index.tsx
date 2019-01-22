@@ -40,18 +40,18 @@ export const Title = styled.h1`
 
 const AnimatedTitle = animated(Title);
 
-export type ImageTypes = {
+export interface ImageTypes {
   imageUrl: string;
   photographer?: string | null;
   url?: string | null;
-};
+}
 
-type Props = {
+interface Props {
   title?: string | null;
   link?: string | null;
   id?: string | null;
   image?: ImageTypes | null;
-};
+}
 
 const Header = ({ image, title, link, id }: Props) => (
   <FindPost id={id}>

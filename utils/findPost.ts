@@ -2,10 +2,10 @@ import posts from '../posts.json';
 
 const findPost = (id?: string | null) => posts.find(post => post.id === id);
 
-type Props = {
+interface Props {
   id?: string | null;
   children: Function;
-};
+}
 
 const FindPost = ({ id, children }: Props) => {
   const post = findPost(id) || {};

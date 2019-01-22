@@ -29,9 +29,9 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-type Props = {
+interface Props {
   image: ImageTypes;
-};
+}
 
 const HeaderImage = ({ image }: Props) => {
   const imgUrl = getCloudinaryURL(image.imageUrl);

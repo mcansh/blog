@@ -8,10 +8,10 @@ import iso8601 from '../utils/dates';
 import { PostTypes } from './PostCard';
 import getCloudinaryURL from '../utils/getCloudinaryURL';
 
-type Props = {
+interface Props {
   id?: string;
   router: RouterProps;
-};
+}
 
 const Meta = ({ id, router }: Props) => (
   <FindPost id={id}>

@@ -12,18 +12,18 @@ export const logPageView = () => {
   ReactGA.pageview(pathname);
 };
 
-interface logEventTypes {
+interface LogEventTypes {
   category: string;
   action: string;
 }
 
-export const logEvent = ({ category, action }: logEventTypes) => {
+export const logEvent = ({ category, action }: LogEventTypes) => {
   if (category && action) {
     ReactGA.event({ category, action });
   }
 };
 
-interface logExceptionTypes {
+interface LogExceptionTypes {
   description: string;
   fatal?: boolean;
 }
@@ -31,7 +31,7 @@ interface logExceptionTypes {
 export const logException = ({
   description,
   fatal = false,
-}: logExceptionTypes) => {
+}: LogExceptionTypes) => {
   if (description) {
     ReactGA.exception({ description, fatal });
   }

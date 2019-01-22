@@ -17,10 +17,10 @@ const CodeStyles = styled.pre<{ additionalStyles: any }>`
   overflow: scroll;
 `;
 
-type CodeProps = {
+interface CodeProps {
   language: string;
   children: React.ReactNode;
-};
+}
 
 export const Code = ({ language, children }: CodeProps) => (
   <Highlight

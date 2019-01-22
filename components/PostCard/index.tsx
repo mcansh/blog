@@ -14,12 +14,12 @@ import { ImageTypes } from '../Header';
 import { formatter } from '../../utils/dates';
 import getCloudinaryURL from '../../utils/getCloudinaryURL';
 
-export type PostTypes = {
+export interface PostTypes {
   image: ImageTypes;
   id: string;
   date: number;
   title: string;
-};
+}
 
 const PostCard = ({ id, image, date, title }: PostTypes) => {
   const hasImageAuthor = image.photographer != null;
