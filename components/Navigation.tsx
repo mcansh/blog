@@ -37,10 +37,8 @@ const Nav = styled.nav<{ navOpen: boolean }>`
 const Navigation = () => {
   const [navOpen, setNavOpen] = useState(false);
   const closeNav = () => {
-    console.log('closeNav');
     setNavOpen(false);
   };
-  const toggleNav = () => setNavOpen(old => !old);
 
   useEffect(() => {
     Router.events.on('routeChangeComplete', () => {
@@ -58,13 +56,13 @@ const Navigation = () => {
 
   const onClick = () => {
     logEvent({ category: 'general', action: 'toggle nav' });
-
-    if (navOpen) {
+    const nextNavOpen = !navOpen;
+    setNavOpen(nextNavOpen);
+    if (nextNavOpen) {
       disableBodyScroll(document.querySelector('body'));
     } else {
       enableBodyScroll(document.querySelector('body'));
     }
-    toggleNav();
   };
 
   return (
