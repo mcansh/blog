@@ -2,7 +2,6 @@ module.exports = {
   extends: ['mcansh/typescript'],
   rules: {
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
-    'no-unused-vars': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {
