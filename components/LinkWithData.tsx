@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Link, { LinkProps } from 'next/link';
 import Router from 'next/router';
 import { format, resolve, parse, UrlObject } from 'url';
