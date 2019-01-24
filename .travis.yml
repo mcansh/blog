@@ -1,42 +1,42 @@
-sudo: required
 language: node_js
 node_js:
-  - '10'
+  - 10
+  - 11
 cache:
   yarn: true
   directories:
     - node_modules
-script:
-  - yarn global add codecov
-  - yarn test
 before_install:
   - export PATH="$(yarn global bin):$PATH"
   - yarn global add greenkeeper-lockfile@1
+install:
+  - yarn global add codecov
 before_script:
   - yarn install --production=false
   - greenkeeper-lockfile-update
+script:
+  - yarn test
+  - codecov
 after_script:
   - greenkeeper-lockfile-upload
-before_deploy:
-  - npm install now --no-save
-  - yarn compress
-after_success:
-  - codecov
-deploy:
-  - provider: script
-    script: now --token $NOW_TOKEN && now alias canary.mcansh.blog
-    skip_cleanup: true
-    on:
-      tags: true
-      all_branches: true
-      condition: $TRAVIS_TAG =~ ^canary.*$
-  - provider: script
-    script: now --token $NOW_TOKEN && now alias --token $NOW_TOKEN
-    skip_cleanup: true
-    on:
-      tags: true
-      all_branches: true
-      condition: $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+
+# before_deploy:
+  # - npm install now --no-save
+  # - yarn compress
+# deploy:
+#   - provider: script
+#     script: now --token $NOW_TOKEN && now alias canary.mcansh.blog
+#     skip_cleanup: true
+#     on:
+#       tags: true
+#       all_branches: true
+#       condition: $TRAVIS_TAG =~ ^canary.*$
+#   - provider: script
+#     script: now --token $NOW_TOKEN && now alias --token $NOW_TOKEN
+#     skip_cleanup: true
+#     on:
+#       tags: true
+#       all_branches: true
+#       condition: $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+
 notifications:
   email:
     on_success: never
