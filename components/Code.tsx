@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
-const CodeStyles = styled.pre<{ additionalStyles: any }>`
+interface CoodeStyleProps {
+  css: string;
+}
+
+const CodeStyles = styled.pre<CoodeStyleProps>`
   margin: 3rem 0;
   padding: 1.4rem;
   border-radius: 0.4rem;
@@ -12,8 +16,7 @@ const CodeStyles = styled.pre<{ additionalStyles: any }>`
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-overflow-scrolling: touch;
-  font-family: 'SF Mono', menlo, monospace;
-  ${props => props.additionalStyles};
+  font-family: 'Operator Mono', 'SF Mono', menlo, monospace;
   overflow: scroll;
 `;
 
@@ -30,7 +33,7 @@ export const Code = ({ language, children }: CodeProps) => (
     theme={nightOwl}
   >
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <CodeStyles className={className} additionalStyles={style}>
+      <CodeStyles className={className} css={style}>
         {tokens.map((line, i) => (
           <div {...getLineProps({ line, key: i })}>
             {line.map(
@@ -52,6 +55,6 @@ export const InlineCode = styled.code`
   color: #df0050;
   box-shadow: 0 0 0 0.1rem rgba(85, 85, 86, 0.2);
   border-radius: 0.2rem;
-  font-family: 'SF Mono', menlo, monospace;
+  font-family: 'Operator Mono', 'SF Mono', menlo, monospace;
   hyphens: none;
 `;
