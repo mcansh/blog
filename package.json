@@ -149,7 +149,6 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "yarn type-check",
       "stylelint",
       "eslint --fix",
       "git add"

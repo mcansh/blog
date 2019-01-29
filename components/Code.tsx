@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import OceanicNext from 'prism-react-renderer/themes/oceanicNext';
+import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 const CodeStyles = styled.pre<{ additionalStyles: any }>`
   margin: 3rem 0;
@@ -27,7 +27,7 @@ export const Code = ({ language, children }: CodeProps) => (
     {...defaultProps}
     code={children}
     language={language}
-    theme={OceanicNext}
+    theme={nightOwl}
   >
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
       <CodeStyles className={className} additionalStyles={style}>
