@@ -2202,7 +2202,7 @@ async-limiter@~1.0.0:
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
   integrity sha512-jp/uFnooOiO+L211eZOoSyzpOITMXx1rBITauYykG3BRYPu8h0UcxsPNB04RR5vo4Tyz3+ay17tR6JVf9qzYWg==
 
-async-sema@^2.1.4:
+async-sema@2.1.4:
   version "2.1.4"
   resolved "https://registry.npmjs.org/async-sema/-/async-sema-2.1.4.tgz#3f5aa091d0a763354045ee899a5d17ffb69251af"
   integrity sha512-NKdMgXT9RfmkscybzytzK/6uGF4cL8Mt3PSeO9QHXYKs3oFWkUwIepnAkzLWkqttOdDDFoED3c8kriS8RzP+ow==
@@ -5370,11 +5370,6 @@ html-tags@^2.0.0:
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-2.0.0.tgz#10b30a386085f43cede353cc8fa7cb0deeea668b"
   integrity sha1-ELMKOGCF9Dzt41PMj6fLDe7qZos=
 
-htmlescape@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/htmlescape/-/htmlescape-1.1.1.tgz#3a03edc2214bca3b66424a3e7959349509cb0351"
-  integrity sha1-OgPtwiFLyjtmQko+eVk0lQnLA1E=
-
 htmlparser2@^3.10.0:
   version "3.10.0"
   resolved "https://registry.npmjs.org/htmlparser2/-/htmlparser2-3.10.0.tgz#5f5e422dcf6119c0d983ed36260ce9ded0bee464"
@@ -7522,10 +7517,10 @@ next-offline@3.3.5:
     webpack "^4.19.1"
     workbox-webpack-plugin "3.6.3"
 
-next-server@8.0.0-canary.7, next-server@^8.0.0-canary.7:
-  version "8.0.0-canary.7"
-  resolved "https://registry.npmjs.org/next-server/-/next-server-8.0.0-canary.7.tgz#c80d945fefffeedcf5a8bee69e98b9fdc75525fb"
-  integrity sha512-N7Rj+ZY4elVaeBssPBVJHUaXxpAN8IfEWT06bV2oLbSuDFra90Z+oPsWOHOXANcN+jhM4W9Q/BM+7TRyuLj6CA==
+next-server@8.0.0-canary.17:
+  version "8.0.0-canary.17"
+  resolved "https://registry.npmjs.org/next-server/-/next-server-8.0.0-canary.17.tgz#d229885d2a8c3bd4f1acf9204baecc6c5b64bea0"
+  integrity sha512-NsP7I5MOGJ5paUmUKRKn/OxEEbssbS/rwCUhuiSByIKs6eqpoFXCi7B7vPFn3cI2a1u8xeh6t6RpcUhuogj/Aw==
   dependencies:
     etag "1.8.1"
     find-up "3.0.0"
@@ -7553,10 +7548,10 @@ next-with-apollo@3.3.2:
     react-apollo "^2.3.3"
     react-dom "^16.6.3"
 
-next@8.0.0-canary.7:
-  version "8.0.0-canary.7"
-  resolved "https://registry.npmjs.org/next/-/next-8.0.0-canary.7.tgz#ee5f9438b919acfcd67307b52e4bfe5ab5c2eca1"
-  integrity sha512-7v7tOLQMD0rw/Vp3MBQ1SfjDCCMPhRxZ8c55NmmRf795baVnt8LpqwfkrBysQb3usxSV8CwpXJuoJ5wKHjqtSQ==
+next@8.0.0-canary.17:
+  version "8.0.0-canary.17"
+  resolved "https://registry.npmjs.org/next/-/next-8.0.0-canary.17.tgz#c59f9b894deaa42c65d233538f1707d50b447858"
+  integrity sha512-/kBtkMXpBaoq1tPJFY40H2QVD9zu2gqv3dn4NyD5oOlYIGnlSjKZDl3AEL9OC8fr81DV50RnlgcJwRVmRYrG0Q==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -7569,9 +7564,10 @@ next@8.0.0-canary.7:
     "@babel/runtime" "7.1.2"
     "@babel/runtime-corejs2" "7.1.2"
     "@babel/template" "7.1.2"
+    acorn "^6.0.5"
     ansi-html "0.0.7"
     arg "3.0.0"
-    async-sema "^2.1.4"
+    async-sema "2.1.4"
     autodll-webpack-plugin "0.4.2"
     babel-core "7.0.0-bridge.0"
     babel-loader "8.0.2"
@@ -7586,13 +7582,12 @@ next@8.0.0-canary.7:
     friendly-errors-webpack-plugin "1.7.0"
     glob "7.1.2"
     hoist-non-react-statics "3.2.0"
-    htmlescape "1.1.1"
     http-status "1.0.1"
     launch-editor "2.2.1"
     loader-utils "1.1.0"
     mkdirp-then "1.2.0"
     nanoid "1.2.1"
-    next-server "^8.0.0-canary.7"
+    next-server "8.0.0-canary.17"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "4.0.0"
@@ -7600,12 +7595,12 @@ next@8.0.0-canary.7:
     recursive-copy "2.0.6"
     resolve "1.5.0"
     strip-ansi "3.0.1"
-    styled-jsx "3.1.3"
+    styled-jsx "3.2.0"
     terser-webpack-plugin "1.1.0"
     tty-aware-progress "1.0.3"
     unfetch "3.0.0"
     url "0.11.0"
-    webpack "4.28.2"
+    webpack "4.29.0"
     webpack-dev-middleware "3.4.0"
     webpack-hot-middleware "2.24.3"
     webpack-sources "1.3.0"
@@ -10167,10 +10162,10 @@ styled-components@4.1.3:
     stylis-rule-sheet "^0.0.10"
     supports-color "^5.5.0"
 
-styled-jsx@3.1.3:
-  version "3.1.3"
-  resolved "https://registry.npmjs.org/styled-jsx/-/styled-jsx-3.1.3.tgz#06a00bde452e53d97e6c3d4b1dfccc38df029d83"
-  integrity sha512-35xH+rTOeQq1Si9kMXL5F6TmdoMtwFJNkukox0C6s3ffoA0JgytApIuZ8AT5H7HeBRoECmKue56xOV4oMDiYFg==
+styled-jsx@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/styled-jsx/-/styled-jsx-3.2.0.tgz#356f4e4d00b1e30dbb86da65340bcf6f283a0f73"
+  integrity sha512-jaEzVuNYr8/1wDOyuhcF7XybpIC0iCKGggciI55DBR3E4ZTFhLZfqcBlhcmf85mr/ZOFEXiFV+A5Cs8Kbw56pw==
   dependencies:
     babel-plugin-syntax-jsx "6.18.0"
     babel-types "6.26.0"
@@ -10178,7 +10173,7 @@ styled-jsx@3.1.3:
     loader-utils "1.1.0"
     source-map "0.7.3"
     string-hash "1.1.3"
-    stylis "3.5.3"
+    stylis "3.5.4"
     stylis-rule-sheet "0.0.10"
 
 stylelint-config-recommended@2.1.0:
@@ -10258,7 +10253,12 @@ stylis-rule-sheet@0.0.10, stylis-rule-sheet@^0.0.10:
   resolved "https://registry.yarnpkg.com/stylis-rule-sheet/-/stylis-rule-sheet-0.0.10.tgz#44e64a2b076643f4b52e5ff71efc04d8c3c4a430"
   integrity sha512-nTbZoaqoBnmK+ptANthb10ZRZOGC+EmTLLUxeYIuHNkEKcmKgXX1XWKkUBT2Ac4es3NybooPe0SmvKdhKJZAuw==
 
-stylis@3.5.3, stylis@^3.5.0:
+stylis@3.5.4:
+  version "3.5.4"
+  resolved "https://registry.npmjs.org/stylis/-/stylis-3.5.4.tgz#f665f25f5e299cf3d64654ab949a57c768b73fbe"
+  integrity sha512-8/3pSmthWM7lsPBKv7NXkzn2Uc9W7NotcwGNpJaa3k7WMM1XDCA4MgT5k/8BIexd5ydZdboXtU90XH9Ec4Bv/Q==
+
+stylis@^3.5.0:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.5.3.tgz#99fdc46afba6af4deff570825994181a5e6ce546"
   integrity sha512-TxU0aAscJghF9I3V9q601xcK3Uw1JbXvpsBGj/HULqexKOKlOEzzlIpLFRbKkCK990ccuxfXUqmPbIIo7Fq/cQ==
@@ -11214,36 +11214,6 @@ webpack-sources@^1.2.0:
   dependencies:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
-
-webpack@4.28.2:
-  version "4.28.2"
-  resolved "https://registry.npmjs.org/webpack/-/webpack-4.28.2.tgz#6b534a8bc91a45787ed631dc2e87aec94e9e4db7"
-  integrity sha512-PK3uVg3/NuNVOjPfYleFI6JF7khO7c2kIlksH7mivQm+QDcwiqV1x6+q89dDeOioh5FNxJHr3LKbDu3oSAhl9g==
-  dependencies:
-    "@webassemblyjs/ast" "1.7.11"
-    "@webassemblyjs/helper-module-context" "1.7.11"
-    "@webassemblyjs/wasm-edit" "1.7.11"
-    "@webassemblyjs/wasm-parser" "1.7.11"
-    acorn "^5.6.2"
-    acorn-dynamic-import "^3.0.0"
-    ajv "^6.1.0"
-    ajv-keywords "^3.1.0"
-    chrome-trace-event "^1.0.0"
-    enhanced-resolve "^4.1.0"
-    eslint-scope "^4.0.0"
-    json-parse-better-errors "^1.0.2"
-    loader-runner "^2.3.0"
-    loader-utils "^1.1.0"
-    memory-fs "~0.4.1"
-    micromatch "^3.1.8"
-    mkdirp "~0.5.0"
-    neo-async "^2.5.0"
-    node-libs-browser "^2.0.0"
-    schema-utils "^0.4.4"
-    tapable "^1.1.0"
-    terser-webpack-plugin "^1.1.0"
-    watchpack "^1.5.0"
-    webpack-sources "^1.3.0"
 
 webpack@4.29.0:
   version "4.29.0"
