@@ -4,6 +4,31 @@ import Link from 'next/link';
 import Meta from '~/components/Meta';
 import Header from '~/components/Header';
 import posts from '~/posts.json';
+import useScrollProgress from '~/components/useScrollProgress';
+
+const ScrollProgress = styled.progress`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  height: 3px;
+  appearance: none;
+  border: none;
+  background: none;
+
+  &::-webkit-progress-bar {
+    background-color: transparent;
+  }
+
+  &::-webkit-progress-value {
+    background-image: linear-gradient(135deg, #7fdbca 0%, #82aaff 100%);
+  }
+
+  &::-moz-progress-bar {
+    background-image: linear-gradient(135deg, #7fdbca 0%, #82aaff 100%);
+  }
+`;
 
 const PostWrap = styled.div`
   margin: 3rem auto 0 auto;
@@ -37,12 +62,14 @@ const Post = ({ children, ...options }: Props) => {
   const currentPostIndex = posts.findIndex(post => post.id === options.id);
   const previousPost = posts[currentPostIndex - 1];
   const nextPost = posts[currentPostIndex + 1];
+  const scrollProgress = useScrollProgress();
 
   return (
     <>
       <Meta {...options} />
       <Header {...options} />
       <PostWrap>{children}</PostWrap>
+      <ScrollProgress max={100} value={scrollProgress} />
       <ReadOtherPosts>
         <ul>
           {previousPost && (
