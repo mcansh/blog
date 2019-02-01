@@ -132,10 +132,13 @@ const useScrollProgress = () => {
   }, []); // passing an empty array as the second arg to useEffect will make sure this code is only run on mount  \n
   return scrollProgress;
 };\n
-export default useScrollProgress;\n\n
+export default useScrollProgress;
+`}</Code>
+
+<Code language="javascript">{`
 // Layout.js
-import React from 'react';/n
-import styled from 'styled-componenets';\n\n
+import React from 'react';
+import styled from 'styled-componenets';\n
 const ScrollProgress = styled.progress\`
   position: fixed;
   top: 0;
