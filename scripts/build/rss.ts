@@ -4,10 +4,10 @@ import { join } from 'path';
 import { promisify } from 'util';
 
 // Packages
-import * as posts from '~/posts.json';
-import { description, homepage } from '~/package.json';
-import iso8601 from '~/utils/dates';
-import { name, email } from '~/utils/authorInfo';
+import * as posts from '../../posts.json';
+import { description, homepage } from '../../package.json';
+import iso8601 from '../../utils/dates';
+import { name, email } from '../../utils/authorInfo';
 
 const writeFile = promisify(fs.writeFile);
 

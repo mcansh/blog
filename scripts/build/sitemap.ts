@@ -5,8 +5,8 @@ import { promisify } from 'util';
 
 // Packages
 import { createSitemap } from 'sitemap';
-import { homepage } from '~/package.json';
-import * as posts from '~/posts.json';
+import { homepage } from '../../package.json';
+import * as posts from '../../posts.json';
 
 const writeFile = promisify(fs.writeFile);
 

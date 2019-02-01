@@ -5,8 +5,8 @@ import { promisify } from 'util';
 
 // Packages
 import * as prettier from 'prettier';
-import { description, productName, productShortName } from '~/package.json';
-import { colors } from '~/config';
+import { description, productName, productShortName } from '../../package.json';
+import { colors } from '../../config';
 
 const writeFile = promisify(fs.writeFile);
 
