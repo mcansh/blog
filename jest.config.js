@@ -1,5 +1,9 @@
 module.exports = {
-  setupTestFrameworkScriptFile: '<rootDir>/jest.setup.js',
+  setupFilesAfterEnv: [
+    'jest-dom/extend-expect',
+    'react-testing-library/cleanup-after-each',
+    '<rootDir>/jest.setup.js',
+  ],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx|js|jsx)$',
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   transform: {
