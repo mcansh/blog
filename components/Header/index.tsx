@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spring, animated } from 'react-spring';
-import FindPost from '../../utils/findPost';
+import FindPost from '~/utils/findPost';
 import Button from '../Button';
 import Image from './Image';
 import Date from './Date';
+import Curve from '~/static/images/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
@@ -20,6 +21,17 @@ const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
     max-height: 100vh;
     min-height: 100vh;
     height: 100vh;
+  }
+
+  figure {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(50%);
+    width: 100%;
+    svg {
+      fill: ${props => props.theme.background};
+    }
   }
 `;
 
@@ -76,6 +88,9 @@ const Header = ({ image, title, link, id }: Props) => (
             {showLink && <Button text="Read More" link={post.id} />}
           </HeaderContent>
           <Image image={headerImage} />
+          <figure>
+            <Curve />
+          </figure>
         </HeaderStyles>
       );
     }}

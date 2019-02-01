@@ -3,8 +3,7 @@ import App, { Container, NextAppContext } from 'next/app';
 import { IntlProvider, addLocaleData, Messages } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
+import { ApolloProvider } from 'react-apollo-hooks';
 import { MDXProvider } from '@mdx-js/tag';
 import NProgress from '../components/Styles/NProgress';
 import GlobalStyle from '../components/Styles/GlobalStyle';
@@ -92,20 +91,18 @@ class MyApp extends App<Props> {
             <ThemeProvider theme={colors}>
               <MDXProvider components={{ p: Paragraph }}>
                 <ApolloProvider client={apollo}>
-                  <ApolloHooksProvider client={apollo}>
-                    <>
-                      <NProgress
-                        color={colors.primary}
-                        options={{ trickleSpeed: 50 }}
-                        spinner={false}
-                      />
-                      <GlobalStyle />
-                      <Meta />
-                      <Document>
-                        <Component {...pageProps} />
-                      </Document>
-                    </>
-                  </ApolloHooksProvider>
+                  <>
+                    <NProgress
+                      color={colors.primary}
+                      options={{ trickleSpeed: 50 }}
+                      spinner={false}
+                    />
+                    <GlobalStyle />
+                    <Meta />
+                    <Document>
+                      <Component {...pageProps} />
+                    </Document>
+                  </>
                 </ApolloProvider>
               </MDXProvider>
             </ThemeProvider>
