@@ -22,28 +22,21 @@ progress::-webkit-progress-bar {
   background-color: transparent;
 }\n
 progress::-webkit-progress-value {
-  background-color: ${colors.primary};
-  // or you can do gradients 💯
   background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
 }\n
 progress::-moz-progress-bar {
-  background-color: ${colors.primary};
-  // or you can do gradients 💯
   background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
 }\n
 progress {
-  /* Positioning */
   position: fixed;
   left: 0;
   top: 0;
   z-index: 2;
-  /* Dimensions */
   width: 100%;
   height: 3px;
-  /* Reset the appearance */
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
+  background: none;
+  border: none;
 }
 `}</Code>
 
@@ -64,22 +57,17 @@ window.addEventListener('scroll', youReadThisMuch);
 
 <Code  language="javascript">{`
 class Progress extends React.Component {
-  constructor(props) {
-    super(props);
-    // set the initial state to be 0
-    this.state = { progress: 0 };
-    // set up a event handler
-    this.handleScroll = this.handleScroll.bind(this);
+  state = { progress: 0 };
   }\n
   // add the listener when the component mounts
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, true);
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
   }\n
   // remove the listener when the component unmounts
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll, true);
+    window.removeEventListener('scroll', this.handleScroll);
   }\n
-  handleScroll() {
+  handleScroll = () => {
     const scroll = window.pageYOffset; // window.scrollY is less supported
     const bodyHeight = document.body.offsetHeight;
     const windowHeight = window.innerHeight;
@@ -94,13 +82,11 @@ class Progress extends React.Component {
         <style jsx>{
           progress::-webkit-progress-bar {
             background-color: transparent;
-          }\n
+          }\n\n
           progress::-webkit-progress-value {
-            /* background-color: #E53A40; */
             background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
-          }\n
+          }\n\n
           progress::-moz-progress-bar {
-            /* background-color: #E53A40; */
             background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
           }\n\n
           progress {
@@ -109,9 +95,10 @@ class Progress extends React.Component {
             left: 0;
             width: 100%;
             z-index: 2;
-            width: 100%;
             height: 3px;
             appearance: none;
+            background: none;
+            border: none;
           }
         }</style>
       </progress>
@@ -119,6 +106,64 @@ class Progress extends React.Component {
   }
 }\n
 export default Progress;
+`}</Code>
+
+# Want even more fun? React Hooks!!!!
+
+<Code language="javascript">{`
+// useScrollProgress.js
+import { useState, useEffect } from 'react';\n
+const useScrollProgress = () => {
+  const [scrollProgress, setScrollProgress] = useState(0); // initialize the value\n
+  const handleScroll = () => {
+    const scroll = window.pageYOffset;
+    const bodyHeight = document.body.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const scrollPercent = (scroll / (bodyHeight - windowHeight)) * 100;
+    const maxMinscroll = Math.min(100, Math.max(0, scrollPercent));
+    setScrollProgress(maxMinscroll);
+  };\n
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // call it right away so the scroll position is set on page refresh
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // make sure to remove the listener on umount
+    };
+  }, []); // passing an empty array as the second arg to useEffect will make sure this code is only run on mount  \n
+  return scrollProgress;
+};\n
+export default useScrollProgress;\n\n
+// Layout.js
+import React from 'react';/n
+import styled from 'styled-componenets';\n\n
+const ScrollProgress = styled.progress\`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  height: 3px;
+  appearance: none;
+  border: none;
+  background: none;\n
+  &::-webkit-progress-bar {
+    background-color: transparent;
+  }\n
+  &::-webkit-progress-value {
+    background-image: linear-gradient(135deg, #52e5e7 0%, #130cb7 100%);
+  }\n
+  &::-moz-progress-bar {
+    background-image: linear-gradient(135deg, #52e5e7 0%, #130cb7 100%);
+  }
+\`;\n\n
+const Layout = ({ children }) => {
+  const scrollProgress = useScrollProgress();
+  return (
+    <div>
+      <ScrollProgress value={scrollProgress} max={100} />
+    </div>
+  );
+};
 `}</Code>
 
 
