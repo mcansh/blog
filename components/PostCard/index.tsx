@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import unsplashParams from '../../utils';
+import unsplashParams from '~/utils';
 import {
   Post,
   ImageWrap,
@@ -9,10 +9,10 @@ import {
   Title,
   PostDate,
   imageHeight,
-} from './components';
-import { ImageTypes } from '../Header';
-import { formatter } from '../../utils/dates';
-import getCloudinaryURL from '../../utils/getCloudinaryURL';
+} from '~/components/PostCard/components';
+import { ImageTypes } from '~/components/Header/Image';
+import { formatter } from '~/utils/dates';
+import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
 export interface PostTypes {
   image: ImageTypes;

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface Open {
-  // eslint-disable-next-line no-restricted-globals
   open: boolean;
 }
 

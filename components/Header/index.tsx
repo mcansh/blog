@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Spring, animated } from 'react-spring';
 import FindPost from '~/utils/findPost';
-import Button from '../Button';
-import Image from './Image';
-import Date from './Date';
-import Curve from '~/static/images/curve.svg';
+import Button from '~/components/Button';
+import Image, { ImageTypes } from '~/components/Header/Image';
+import Date from '~/components/Header/Date';
+import Curve from '~/components/icons/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
@@ -51,12 +51,6 @@ export const Title = styled.h1`
 `;
 
 const AnimatedTitle = animated(Title);
-
-export interface ImageTypes {
-  imageUrl: string;
-  photographer?: string | null;
-  url?: string | null;
-}
 
 interface Props {
   title?: string | null;

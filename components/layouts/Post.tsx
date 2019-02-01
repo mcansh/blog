@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
-import Meta from '../Meta';
-import Header from '../Header';
-import posts from '../../posts.json';
+import Meta from '~/components/Meta';
+import Header from '~/components/Header';
+import posts from '~/posts.json';
 
 const PostWrap = styled.div`
   margin: 3rem auto 0 auto;

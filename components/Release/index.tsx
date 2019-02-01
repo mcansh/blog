@@ -5,9 +5,9 @@ import github from 'remark-github';
 import emoji from 'remark-emoji';
 import reactRenderer from 'remark-react';
 import { FormattedRelative } from 'react-intl';
-import ReleaseWrap from './wrap';
-import List from './list';
-import ListItem from './item';
+import ReleaseWrap from '~/components/Release/wrap';
+import List from '~/components/Release/list';
+import ListItem from '~/components/Release/item';
 
 interface Props {
   version: string;

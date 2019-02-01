@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedRelative } from 'react-intl';
 import styled from 'styled-components';
-import { formatter } from '../../utils/dates';
+import { formatter } from '~/utils/dates';
 
 const H2 = styled.h2`
   font-size: 3rem;

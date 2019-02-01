@@ -4,9 +4,9 @@ import { gql } from 'apollo-boost';
 import { useQuery } from 'react-apollo-hooks';
 import InfiniteScroll from 'react-infinite-scroller';
 import * as Sentry from '@sentry/browser';
-import Meta from '../components/Meta';
-import Header from '../components/Header';
-import Release from '../components/Release';
+import Meta from '~/components/Meta';
+import Header from '~/components/Header';
+import Release from '~/components/Release';
 
 const QueryErrorStyles = styled.div`
   height: 50vh;

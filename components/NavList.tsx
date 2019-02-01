@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import isAbsoluteUrl from 'is-absolute-url';
 import { Transition, animated } from 'react-spring';
-import Link from './LinkWithData';
+import Link from '~/components/LinkWithData';
 
 const NavLinks = [
   {

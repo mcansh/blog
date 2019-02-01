@@ -5,14 +5,14 @@ import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
 import { ApolloProvider } from 'react-apollo-hooks';
 import { MDXProvider } from '@mdx-js/tag';
-import NProgress from '../components/Styles/NProgress';
-import GlobalStyle from '../components/Styles/GlobalStyle';
-import withApollo from '../lib/withData';
-import { colors } from '../config';
-import { version } from '../package.json';
-import Document from '../components/layouts/Document';
-import Meta from '../components/Meta';
-import Paragraph from '../components/Paragraph';
+import NProgress from '~/components/Styles/NProgress';
+import GlobalStyle from '~/components/Styles/GlobalStyle';
+import withApollo from '~/lib/withData';
+import { colors } from '~/config';
+import { version } from '~/package.json';
+import Document from '~/components/layouts/Document';
+import Meta from '~/components/Meta';
+import Paragraph from '~/components/Paragraph';
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens

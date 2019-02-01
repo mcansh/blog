@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import PostCard from '../components/PostCard';
-import posts from '../posts.json';
-import Header from '../components/Header';
+import PostCard from '~/components/PostCard';
+import posts from '~/posts.json';
+import Header from '~/components/Header';
 
 const sortedPosts = posts.sort((a, b) => {
   if (a.date > b.date) return -1;

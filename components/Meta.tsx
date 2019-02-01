@@ -1,12 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 import { withRouter, RouterProps } from 'next/router';
-import FindPost from '../utils/findPost';
-import { description, homepage } from '../package.json';
-import { name } from '../utils/authorInfo';
-import iso8601 from '../utils/dates';
-import { PostTypes } from './PostCard';
-import getCloudinaryURL from '../utils/getCloudinaryURL';
+import FindPost from '~/utils/findPost';
+import { description, homepage } from '~/package.json';
+import { name } from '~/utils/authorInfo';
+import iso8601 from '~/utils/dates';
+import { PostTypes } from '~/components/PostCard';
+import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
 interface Props {
   id?: string;

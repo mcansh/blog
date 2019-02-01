@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import unsplashParams from '../../utils';
-import { ImageTypes } from './index';
-import getCloudinaryURL from '../../utils/getCloudinaryURL';
+import unsplashParams from '~/utils';
+import getCloudinaryURL from '~/utils/getCloudinaryURL';
+
+export interface ImageTypes {
+  imageUrl: string;
+  photographer?: string | null;
+  url?: string | null;
+}
 
 const ImageWrap = styled.div`
   display: block;
