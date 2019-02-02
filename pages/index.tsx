@@ -11,7 +11,7 @@ const sortedPosts = posts.sort((a, b) => {
 });
 
 const [latest] = sortedPosts;
-const { url, ...latestPost } = latest;
+const { date, ...latestPost } = latest;
 
 const PostsWrapper = styled.div`
   margin: 0 auto;

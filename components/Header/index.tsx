@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Spring, animated } from 'react-spring';
 import Button from '~/components/Button';
-import Date from '~/components/Header/Date';
+import DateHeading from '~/components/Header/Date';
 import Image, { ImageType } from '~/components/Header/Image';
 import Curve from '~/components/icons/curve.svg';
 
@@ -68,7 +68,7 @@ const Header = ({ title, url, image, date }: Props) => {
         >
           {props => <AnimatedTitle style={props}>{title}</AnimatedTitle>}
         </Spring>
-        {date && <Date date={date} />}
+        {date && <DateHeading date={date} />}
         {url && <Button text="Read More" link={url} />}
       </HeaderContent>
       <Image image={image} />
