@@ -6,7 +6,7 @@ import Paragraph from '../Paragraph';
 import Meta from '../Meta';
 import Header from '../Header';
 import posts from '../../posts';
-import { PostTypes } from '../PostCard';
+import { Post as PostType } from '../PostCard';
 
 const PostWrap = styled.div`
   margin: 3rem auto 0 auto;
@@ -19,7 +19,7 @@ const PostWrap = styled.div`
 
 interface Props {
   children: React.ReactNode;
-  meta: PostTypes;
+  meta: PostType;
 }
 
 const ReadOtherPosts = styled.div`
