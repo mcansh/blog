@@ -1,7 +1,16 @@
 import Post from '../components/layouts/Post';
 import { Code } from '../components/Code';
 
-export default ({ children }) => <Post id="time-to-hex">{children}</Post>
+export const meta = {
+  url: "/time-to-hex",
+  title: "How to convert the current time to a hexadecimal",
+  date: 1484006400000,
+  image: {
+    imageUrl: "team-ui8-199275.jpg",
+    photographer: "Team UI8",
+    url: "https://unsplash.com/photos/z8lfwpQVXJo"
+  }
+};
 
 It’s actually really easy, [Demo](https://whatcolorisit.loganmcansh.com/).
 
@@ -60,3 +69,5 @@ Woohoo! You now have a clock that shows you hexadecimal colors. You can even cha
 <Code language="javascript">{`
   document.querySelector('meta[name="theme-color"]').content = hexTime;
 `}</Code>
+
+export default ({ children }) => <Post meta={meta}>{children}</Post>

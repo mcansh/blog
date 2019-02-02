@@ -1,9 +1,20 @@
 import Post from '../components/layouts/Post';
 
-export default ({ children }) => <Post id="similarities-between-life-and-code">{children}</Post>
+export const meta = {
+  url: "/similarities-between-life-and-code",
+  title: "Similarities between life and code",
+  date: 1482624000000,
+  image: {
+    imageUrl: "joshua-sortino-228788.jpg",
+    photographer: "Joshua Sortino",
+    url: "https://unsplash.com/photos/71vAb1FXB6g"
+  }
+}
 
 Ahhh, this question. Ready? Good, let’s go.
 
 Learning to code is like learning anything in life, it takes practice. At the beginning you may feel uncomfortable or like you don’t think you know what you’re doing. That’s actually somewhat of a good thing. As long as you keep practicing you’ll become great. Practice makes perfect. I’m sure you couldn’t ride a bike on the first attempt either, same thing with coding. After a bit of practice you could ride that bike no problem, same concept applies here. Keep on hacking.
 
 Yeah, I know, another short post *sigh*. Who knows maybe I’ll keep this blogging thing up and going and get better. *gasp* The same process can be made with coding and blogging 😱.
+
+export default ({ children }) => <Post meta={meta}>{children}</Post>

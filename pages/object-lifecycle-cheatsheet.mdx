@@ -1,7 +1,16 @@
 import Post from '../components/layouts/Post';
 import { Code } from '../components/Code';
 
-export default ({ children }) => <Post id="object-lifecycle-cheatsheet">{children}</Post>
+export const meta = {
+  url: '/object-lifecycle-cheatsheet',
+  title: 'Object lifecycle cheatsheet',
+  date: 1478217600000,
+  image: {
+    imageUrl: 'matthew-henry-49707.jpg',
+    photographer: 'Matthew Henry',
+    url: 'https://unsplash.com/photos/VviFtDJakYk',
+  },
+};
 
 Firstly, I’d like to apolagize for the lack and timing of these posts. I’ve been busy at work and unfortunately haven’t had the time to write them 😭.
 
@@ -78,3 +87,5 @@ function Car(make, model, year) {
 }\n
 const myCar = new Car("Volvo", "S40", 2005);
 `}</Code>
+
+export default ({ children }) => <Post meta={meta}>{children}</Post>

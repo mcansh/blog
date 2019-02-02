@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { MDXProvider } from '@mdx-js/tag';
+import Paragraph from '../Paragraph';
 import Meta from '../Meta';
 import Header from '../Header';
-import posts from '../../posts.json';
+import posts from '../../posts';
+import { PostTypes } from '../PostCard';
 
 const PostWrap = styled.div`
   margin: 3rem auto 0 auto;
@@ -16,7 +19,7 @@ const PostWrap = styled.div`
 
 interface Props {
   children: React.ReactNode;
-  id: string;
+  meta: PostTypes;
 }
 
 const ReadOtherPosts = styled.div`
@@ -33,15 +36,16 @@ const ReadOtherPosts = styled.div`
   }
 `;
 
-const Post = ({ children, ...options }: Props) => {
-  const currentPostIndex = posts.findIndex(post => post.id === options.id);
+const Post = ({ children, meta: { url, ...meta } }: Props) => {
+  // for whatever reason the current post is always undefined in the `posts` array
+  const currentPostIndex = posts.findIndex(post => post === undefined);
   const previousPost = posts[currentPostIndex - 1];
   const nextPost = posts[currentPostIndex + 1];
 
   return (
-    <>
-      <Meta {...options} />
-      <Header {...options} />
+    <MDXProvider components={{ p: Paragraph }}>
+      <Meta {...meta} />
+      <Header {...meta} />
       <PostWrap>{children}</PostWrap>
       <ReadOtherPosts>
         <ul>
@@ -61,7 +65,7 @@ const Post = ({ children, ...options }: Props) => {
           )}
         </ul>
       </ReadOtherPosts>
-    </>
+    </MDXProvider>
   );
 };
 

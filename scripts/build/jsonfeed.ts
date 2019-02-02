@@ -7,7 +7,7 @@ import { promisify } from 'util';
 import * as prettier from 'prettier';
 import { description, homepage } from '../../package.json';
 import iso8601 from '../../utils/dates';
-import * as posts from '../../posts.json';
+import * as posts from '../../posts';
 import getCloudinaryURL from '../../utils/getCloudinaryURL';
 import { name, email } from '../../utils/authorInfo';
 

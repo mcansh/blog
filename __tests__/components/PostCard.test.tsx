@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import React from 'react';
 import PostCard from '../../components/PostCard';
-import posts from '../../posts.json';
+import posts from '../../posts';
 import { render } from '../../utils/renderWithIntl';
 
 describe('PostCard Component', () => {

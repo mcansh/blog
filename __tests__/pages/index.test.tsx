@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import React from 'react';
 import App from '../../pages';
-import posts from '../../posts.json';
+import posts from '../../posts';
 import { render } from '../../utils/renderWithIntl';
 
 it('shows all the posts', () => {

@@ -16,12 +16,12 @@ import getCloudinaryURL from '../../utils/getCloudinaryURL';
 
 export interface PostTypes {
   image: ImageTypes;
-  id: string;
+  url: string;
   date: number;
   title: string;
 }
 
-const PostCard = ({ id, image, date, title }: PostTypes) => {
+const PostCard = ({ url, image, date, title }: PostTypes) => {
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
@@ -29,11 +29,11 @@ const PostCard = ({ id, image, date, title }: PostTypes) => {
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   const [prefetched, setPrefetched] = useState(false);
   return (
-    <Link href={`/${id}`} passHref>
+    <Link href={url} passHref>
       <Post
         onMouseEnter={() => {
           if (!prefetched) {
-            Router.prefetch(`/${id}`);
+            Router.prefetch(url);
             setPrefetched(true);
           }
         }}

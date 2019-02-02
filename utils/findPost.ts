@@ -1,4 +1,4 @@
-import posts from '../posts.json';
+import posts from '../posts';
 
 const findPost = (id?: string | null) => posts.find(post => post.id === id);
 
