@@ -5,6 +5,8 @@
   "version": "3.12.3",
   "private": false,
   "description": "My blog for learn.co, but mostly it's a playground for things I want to build with React 🤷‍♂️",
+  "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
+  "license": "MIT",
   "repository": "mcansh/blog",
   "homepage": "https://mcansh.blog",
   "browser": {
@@ -25,8 +27,6 @@
     "blog": "yarn ts-node --project tsconfig.server.json scripts/create-post",
     "type-check": "tsc"
   },
-  "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
-  "license": "MIT",
   "dependencies": {
     "@mdx-js/mdx": "0.16.8",
     "@mdx-js/tag": "0.16.8",
@@ -151,6 +151,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
+      "jest --bail --findRelatedTests",
       "stylelint",
       "eslint --fix",
       "git add"
