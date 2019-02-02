@@ -44,13 +44,7 @@ const Index = () => (
     <Header {...latest} />
     <PostsWrapper>
       {sortedPosts.map(post => (
-        <PostCard
-          key={post.id}
-          id={post.id}
-          image={post.image}
-          date={post.date}
-          title={post.title}
-        />
+        <PostCard key={post.url} {...post} />
       ))}
     </PostsWrapper>
   </>
