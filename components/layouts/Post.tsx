@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 import { MDXProvider } from '@mdx-js/tag';
 import Meta from '~/components/Meta';
 import Header from '~/components/Header';
-import posts from '~/posts';
 import Paragraph from '~/components/Paragraph';
 import { Post as PostType } from '~/components/PostCard';
 import useScrollProgress from '~/components/useScrollProgress';
@@ -47,25 +45,7 @@ interface Props {
   meta: PostType;
 }
 
-const ReadOtherPosts = styled.div`
-  max-width: 90rem;
-  width: 95%;
-  margin: 0 auto;
-  ul {
-    padding: 0;
-    list-style: none;
-    font-size: 2rem;
-  }
-  li {
-    margin: 1rem;
-  }
-`;
-
 const Post = ({ children, meta: { url, ...meta } }: Props) => {
-  // for whatever reason the current post is always undefined in the `posts` array
-  const currentPostIndex = posts.findIndex(post => post === undefined);
-  const previousPost = posts[currentPostIndex - 1];
-  const nextPost = posts[currentPostIndex + 1];
   const scrollProgress = useScrollProgress();
 
   return (
@@ -74,24 +54,6 @@ const Post = ({ children, meta: { url, ...meta } }: Props) => {
       <Header {...meta} />
       <PostWrap>{children}</PostWrap>
       <ScrollProgress max={100} value={scrollProgress} />
-      <ReadOtherPosts>
-        <ul>
-          {previousPost && (
-            <li>
-              <Link href={`/${previousPost.id}`} prefetch>
-                <a>&#x2190; {previousPost.title}</a>
-              </Link>
-            </li>
-          )}
-          {nextPost && (
-            <li>
-              <Link href={`/${nextPost.id}`} prefetch>
-                <a>{nextPost.title} &rarr;</a>
-              </Link>
-            </li>
-          )}
-        </ul>
-      </ReadOtherPosts>
     </MDXProvider>
   );
 };
