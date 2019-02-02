@@ -14,3 +14,6 @@ sample.env
 .yarnrc
 .travis.yml
 static/images/posts
+node_modules
+*.log
+scripts
