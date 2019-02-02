@@ -13,3 +13,5 @@ jest*.js
 static/images/posts
 scripts
 *.log
+tsconfig.server.json
+*.env
