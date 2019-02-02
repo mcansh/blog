@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import unsplashParams from '~/utils';
+import unsplashParams from '~/utils/unsplashParams';
 import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
-export interface ImageTypes {
+export interface ImageType {
   imageUrl: string;
   photographer?: string | null;
   url?: string | null;
@@ -35,7 +35,7 @@ const Image = styled.img`
 `;
 
 interface Props {
-  image: ImageTypes;
+  image: ImageType;
 }
 
 const HeaderImage = ({ image }: Props) => {

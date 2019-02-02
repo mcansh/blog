@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import unsplashParams from '~/utils';
+import unsplashParams from '~/utils/unsplashParams';
 import {
   Post,
   ImageWrap,
@@ -10,18 +10,18 @@ import {
   PostDate,
   imageHeight,
 } from '~/components/PostCard/components';
-import { ImageTypes } from '~/components/Header/Image';
+import { ImageType } from '~/components/Header/Image';
 import { formatter } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
-export interface PostTypes {
-  image: ImageTypes;
-  id: string;
+export interface Post {
+  image: ImageType;
+  url: string;
   date: number;
   title: string;
 }
 
-const PostCard = ({ id, image, date, title }: PostTypes) => {
+const PostCard = ({ url, image, date, title }: Post) => {
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
@@ -29,11 +29,11 @@ const PostCard = ({ id, image, date, title }: PostTypes) => {
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   const [prefetched, setPrefetched] = useState(false);
   return (
-    <Link href={`/${id}`} passHref>
+    <Link href={url} passHref>
       <Post
         onMouseEnter={() => {
           if (!prefetched) {
-            Router.prefetch(`/${id}`);
+            Router.prefetch(url);
             setPrefetched(true);
           }
         }}

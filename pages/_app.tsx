@@ -3,16 +3,12 @@ import App, { Container, NextAppContext } from 'next/app';
 import { IntlProvider, addLocaleData, Messages } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
-import { ApolloProvider } from 'react-apollo-hooks';
-import { MDXProvider } from '@mdx-js/tag';
 import NProgress from '~/components/Styles/NProgress';
 import GlobalStyle from '~/components/Styles/GlobalStyle';
-import withApollo from '~/lib/withData';
 import { colors } from '~/config';
 import { version } from '~/package.json';
 import Document from '~/components/layouts/Document';
 import Meta from '~/components/Meta';
-import Paragraph from '~/components/Paragraph';
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
@@ -31,7 +27,6 @@ interface Props {
   pageProps: Record<string, any>;
   locale: string;
   messages: Messages;
-  apollo: any;
   initialNow: number;
 }
 
@@ -71,14 +66,7 @@ class MyApp extends App<Props> {
   }
 
   render() {
-    const {
-      Component,
-      pageProps,
-      locale,
-      messages,
-      apollo,
-      initialNow,
-    } = this.props;
+    const { Component, pageProps, locale, messages, initialNow } = this.props;
 
     return (
       <StrictMode>
@@ -89,22 +77,18 @@ class MyApp extends App<Props> {
         >
           <Container>
             <ThemeProvider theme={colors}>
-              <MDXProvider components={{ p: Paragraph }}>
-                <ApolloProvider client={apollo}>
-                  <>
-                    <NProgress
-                      color={colors.primary}
-                      options={{ trickleSpeed: 50 }}
-                      spinner={false}
-                    />
-                    <GlobalStyle />
-                    <Meta />
-                    <Document>
-                      <Component {...pageProps} />
-                    </Document>
-                  </>
-                </ApolloProvider>
-              </MDXProvider>
+              <>
+                <NProgress
+                  color={colors.primary}
+                  options={{ trickleSpeed: 50 }}
+                  spinner={false}
+                />
+                <GlobalStyle />
+                <Meta />
+                <Document>
+                  <Component {...pageProps} />
+                </Document>
+              </>
             </ThemeProvider>
           </Container>
         </IntlProvider>
@@ -113,4 +97,4 @@ class MyApp extends App<Props> {
   }
 }
 
-export default withApollo(MyApp);
+export default MyApp;

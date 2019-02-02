@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spring, animated } from 'react-spring';
-import FindPost from '~/utils/findPost';
 import Button from '~/components/Button';
-import Image, { ImageTypes } from '~/components/Header/Image';
 import Date from '~/components/Header/Date';
+import Image, { ImageType } from '~/components/Header/Image';
 import Curve from '~/components/icons/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
@@ -53,49 +52,38 @@ export const Title = styled.h1`
 const AnimatedTitle = animated(Title);
 
 interface Props {
-  title?: string | null;
-  link?: string | null;
-  id?: string | null;
-  image?: ImageTypes | null;
+  title: string;
+  url?: string;
+  image?: ImageType;
+  date?: number;
 }
 
-const Header = ({ image, title, link, id }: Props) => (
-  <FindPost id={id}>
-    {post => {
-      const headerTitle = title != null ? title : post.title;
-      const headerImage = image != null ? image : post.image;
-      const showDate = link == null && post && post.date;
-      const showLink = link != null && post && post.id;
-      return (
-        <HeaderStyles>
-          <HeaderContent>
-            <Spring
-              native
-              from={{ opacity: 0, transform: 'translateY(-50px)' }}
-              to={{ opacity: 1, transform: 'translateY(0px)' }}
-            >
-              {props => (
-                <AnimatedTitle style={props}>{headerTitle}</AnimatedTitle>
-              )}
-            </Spring>
-            {showDate && <Date date={post.date} />}
-            {showLink && <Button text="Read More" link={post.id} />}
-          </HeaderContent>
-          <Image image={headerImage} />
-          <figure>
-            <Curve />
-          </figure>
-        </HeaderStyles>
-      );
-    }}
-  </FindPost>
-);
+const Header = ({ title, url, image, date }: Props) => {
+  return (
+    <HeaderStyles>
+      <HeaderContent>
+        <Spring
+          native
+          from={{ opacity: 0, transform: 'translateY(-50px)' }}
+          to={{ opacity: 1, transform: 'translateY(0px)' }}
+        >
+          {props => <AnimatedTitle style={props}>{title}</AnimatedTitle>}
+        </Spring>
+        {date && <Date date={date} />}
+        {url && <Button text="Read More" link={url} />}
+      </HeaderContent>
+      <Image image={image} />
+      <figure>
+        <Curve />
+      </figure>
+    </HeaderStyles>
+  );
+};
 
 Header.defaultProps = {
-  link: null,
-  id: null,
-  title: null,
+  url: null,
   image: null,
+  date: null,
 };
 
 export default Header;

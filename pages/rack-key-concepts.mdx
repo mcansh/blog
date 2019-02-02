@@ -1,7 +1,16 @@
 import Post from '~/components/layouts/Post';
 import { Code } from '~/components/Code';
 
-export default ({ children }) => <Post id="rack-key-concepts">{children}</Post>
+export const meta = {
+  url: "/rack-key-concepts",
+  title: "Rack key concepts",
+  date: 1481068800000,
+  image: {
+    imageUrl: "derek-liang-239062.jpg",
+    photographer: "Derek Liang",
+    url: "https://unsplash.com/photos/2h_i_BB_X2E"
+  }
+}
 
 The most important thing to know about Rack and the internet is knowing how the internet works. First you have HEAD, GET, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, and PATCH requests. 🤔 huh? Let’s run through them.
 
@@ -34,3 +43,5 @@ run Application.new
 `}</Code>
 
 Now running rackup config.ru will start up your application.
+
+export default ({ children }) => <Post meta={meta}>{children}</Post>;

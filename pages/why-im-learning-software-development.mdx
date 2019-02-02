@@ -1,6 +1,15 @@
 import Post from '~/components/layouts/Post';
 
-export default ({ children }) => <Post id="why-im-learning-software-development">{children}</Post>
+export const meta = {
+  url: '/why-im-learning-software-development',
+  title: "Why I'm learning software development",
+  date: 1475452800000,
+  image: {
+    imageUrl: 'luke-pamer-5951.jpg',
+    photographer: 'Luke Pamer',
+    url: 'https://unsplash.com/photos/oUhr-qMTJoc',
+  },
+}
 
 This is my first attempt at blogging, so I am sorry that this is ~7 days late. To be 100% honest with you, I don’t know my true reason for wanting to learn software development. Something about seeing what you made by typing away on a keyboard brings a warm fuzzy sensation to me. I took a web development class in high school, that was about 3 years ago, and I’ve been hooked ever since. I make a website for anything I possibly can.
 
@@ -9,3 +18,5 @@ This blogging thing is getting easier even after writing one paragraph, maybe I 
 This was a short one I know, hopefully the next one will make up for it.
 
 — Logan
+
+export default ({ children }) => <Post meta={meta}>{children}</Post>

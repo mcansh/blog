@@ -11,7 +11,8 @@ jest*.js
 *.sketch
 .next
 static/images/posts
-scripts
-*.log
 tsconfig.server.json
 *.env
+node_modules
+*.log
+scripts

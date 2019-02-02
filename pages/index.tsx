@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PostCard from '~/components/PostCard';
-import posts from '~/posts.json';
+import posts from '~/posts';
 import Header from '~/components/Header';
 
 const sortedPosts = posts.sort((a, b) => {
@@ -41,16 +41,10 @@ const PostsWrapper = styled.div`
 
 const Index = () => (
   <>
-    <Header id={latest.id} link={latest.id} />
+    <Header {...latest} />
     <PostsWrapper>
       {sortedPosts.map(post => (
-        <PostCard
-          key={post.id}
-          id={post.id}
-          image={post.image}
-          date={post.date}
-          title={post.title}
-        />
+        <PostCard key={post.url} {...post} />
       ))}
     </PostsWrapper>
   </>

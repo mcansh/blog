@@ -1,21 +1,26 @@
 /* eslint-env jest */
 import React from 'react';
-import PostCard from '../../components/PostCard';
-import posts from '../../posts.json';
+import PostCard, { Post } from '../../components/PostCard';
 import { render } from '../../utils/renderWithIntl';
 
+const post: Post = {
+  date: 1549144492819,
+  title: 'React hoooooooooks!',
+  url: '/react-hooks-are-amazing',
+  image: {
+    imageUrl: '/static/images/posts/1_Wmv8hfi_bTHuHyV5CawnCw.jpg',
+  },
+};
+
 describe('PostCard Component', () => {
-  it('shows image, title, and date', () => {
-    const [post] = posts;
+  it('renders a post card', () => {
     const { getByTestId } = render(<PostCard {...post} />);
 
-    expect(getByTestId('post-title')).toHaveTextContent(
-      "Why I'm learning software development"
-    );
-    expect(getByTestId('post-date')).toHaveTextContent('October 2, 2016');
+    expect(getByTestId('post-title')).toHaveTextContent('React hoooooooooks!');
+    expect(getByTestId('post-date')).toHaveTextContent('February 2, 2019');
     expect(getByTestId('post-link')).toHaveAttribute(
       'href',
-      '/why-im-learning-software-development'
+      '/react-hooks-are-amazing'
     );
   });
 });

@@ -16,6 +16,13 @@
   ],
   "routes": [
     {
+      "src": "/changelog",
+      "status": 301,
+      "headers": {
+        "Location": "https://github.com/mcansh/blog/releases"
+      }
+    },
+    {
       "src": "/manifest.json",
       "dest": "/static/manifest.json",
       "headers": {

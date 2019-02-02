@@ -64,6 +64,7 @@ class MyDocument extends Document<Props> {
     ];
 
     const csp = `${cspSettings.join(';')} ${cspHashOf(
+      // @ts-ignore
       NextScript.getInlineScriptSource(this.props)
     )}`;
 
