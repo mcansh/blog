@@ -4,7 +4,7 @@ import { join } from 'path';
 import { promisify } from 'util';
 
 // Packages
-import * as posts from '../../posts';
+import posts from '../../posts';
 import { description, homepage } from '../../package.json';
 import iso8601 from '../../utils/dates';
 import { name, email } from '../../utils/authorInfo';

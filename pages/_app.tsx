@@ -3,11 +3,8 @@ import App, { Container, NextAppContext } from 'next/app';
 import { IntlProvider, addLocaleData, Messages } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
 import NProgress from '../components/Styles/NProgress';
 import GlobalStyle from '../components/Styles/GlobalStyle';
-import withApollo from '../lib/withData';
 import { colors } from '../config';
 import { version } from '../package.json';
 import Document from '../components/layouts/Document';
@@ -30,7 +27,6 @@ interface Props {
   pageProps: Record<string, any>;
   locale: string;
   messages: Messages;
-  apollo: any;
   initialNow: number;
 }
 
@@ -70,14 +66,7 @@ class MyApp extends App<Props> {
   }
 
   render() {
-    const {
-      Component,
-      pageProps,
-      locale,
-      messages,
-      apollo,
-      initialNow,
-    } = this.props;
+    const { Component, pageProps, locale, messages, initialNow } = this.props;
 
     return (
       <StrictMode>
@@ -88,22 +77,18 @@ class MyApp extends App<Props> {
         >
           <Container>
             <ThemeProvider theme={colors}>
-              <ApolloProvider client={apollo}>
-                <ApolloHooksProvider client={apollo}>
-                  <>
-                    <NProgress
-                      color={colors.primary}
-                      options={{ trickleSpeed: 50 }}
-                      spinner={false}
-                    />
-                    <GlobalStyle />
-                    <Meta />
-                    <Document>
-                      <Component {...pageProps} />
-                    </Document>
-                  </>
-                </ApolloHooksProvider>
-              </ApolloProvider>
+              <>
+                <NProgress
+                  color={colors.primary}
+                  options={{ trickleSpeed: 50 }}
+                  spinner={false}
+                />
+                <GlobalStyle />
+                <Meta />
+                <Document>
+                  <Component {...pageProps} />
+                </Document>
+              </>
             </ThemeProvider>
           </Container>
         </IntlProvider>
@@ -112,4 +97,4 @@ class MyApp extends App<Props> {
   }
 }
 
-export default withApollo(MyApp);
+export default MyApp;

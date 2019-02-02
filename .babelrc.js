@@ -5,7 +5,6 @@ const env = {
   'process.env.VERSION': version,
   'process.env.NODE_ENV': process.env.NODE_ENV,
   'process.env.ANALYTICS': process.env.ANALYTICS,
-  'process.env.GITHUB_TOKEN': process.env.GITHUB_TOKEN,
 };
 
 module.exports = {
