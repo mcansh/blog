@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import unsplashParams from '../../utils';
+import unsplashParams from '../../utils/unsplashParams';
 import { ImageTypes } from './index';
 import getCloudinaryURL from '../../utils/getCloudinaryURL';
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import unsplashParams from '../../utils';
+import unsplashParams from '../../utils/unsplashParams';
 import {
   Post,
   ImageWrap,
