@@ -29,7 +29,7 @@ generateSiteMap.add({
 
 posts.forEach(post =>
   generateSiteMap.add({
-    url: `/${post.id}`,
+    url: post.url,
     changefreq: 'daily',
     priority: 0.9,
   })

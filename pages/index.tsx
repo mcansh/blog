@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PostCard, { Post } from '~/components/PostCard';
-import { sortedByDate as posts } from '~/posts';
+import posts from '~/posts';
 import Header from '~/components/Header';
 
 const [latest] = posts;

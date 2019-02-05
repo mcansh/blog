@@ -17,8 +17,8 @@ const jsonfeed = async () => {
   const favicon = `${homepage}/static/images/logo/logo.png`;
 
   const jsonPosts = posts.map(post => ({
-    id: `${homepage}/${post.id}`,
-    url: `${homepage}/${post.id}`,
+    id: `${post.url}`,
+    url: `${homepage}${post.url}`,
     title: `${post.title}`,
     date_published: `${iso8601(post.date)}`,
     image: getCloudinaryURL(post.image.imageUrl),

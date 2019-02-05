@@ -29,11 +29,11 @@ const atom = async () => {
       </author>
       ${posts
         .map(
-          ({ date, title, id }) => `
+          ({ date, title, url }) => `
         <entry>
-          <id>${id}</id>
+          <id>${url}</id>
           <title>${title}</title>
-          <link href="${homepage}/${id}"/>
+          <link href="${homepage}${url}"/>
           <updated>${iso8601(date)}</updated>
         </entry>
       `
