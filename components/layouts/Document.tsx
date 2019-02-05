@@ -61,6 +61,7 @@ class Document extends Component<Props> {
   render() {
     const { children } = this.props;
     const icons = [228, 195, 152, 144, 128, 120, 96, 72, 57, 32];
+    const staticFilePrefix = process.env.NOW ? '' : '/static';
     return (
       <>
         <Head>
@@ -69,8 +70,7 @@ class Document extends Component<Props> {
             name="viewport"
             content="initial-scale=1.0, width=device-width, viewport-fit=cover"
           />
-          <link rel="manifest" href="/manifest.json" />
-          <link type="text/plain" rel="author" href="/static/humans.txt" />
+          <link rel="manifest" href={`${staticFilePrefix}/manifest.json`} />
           <link
             rel="mask-icon"
             href="/static/images/logo/safari.svg"
@@ -96,13 +96,13 @@ class Document extends Component<Props> {
           })}
           <link
             rel="alternate"
-            href="/atom"
+            href={`${staticFilePrefix}/atom${process.env.NOW ? '' : '.xml'}`}
             type="application/atom+xml"
             title="RSS Feed"
           />
           <link
             rel="alternate"
-            href="/feed.json"
+            href={`${staticFilePrefix}/feed.json`}
             type="application/json"
             title="JSON Feed"
           />
