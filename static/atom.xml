@@ -13,70 +13,70 @@
       </author>
       
         <entry>
-          <id>/ruby-project</id>
+          <id>ruby-project</id>
           <title>Ruby project</title>
           <link href="https://mcansh.blog/ruby-project"/>
           <updated>2017-12-09</updated>
         </entry>
       
         <entry>
-          <id>/rails-project</id>
+          <id>rails-project</id>
           <title>Rails project</title>
           <link href="https://mcansh.blog/rails-project"/>
           <updated>2017-08-25</updated>
         </entry>
       
         <entry>
-          <id>/sinatra-project</id>
+          <id>sinatra-project</id>
           <title>Sinatra project</title>
           <link href="https://mcansh.blog/sinatra-project"/>
           <updated>2017-04-25</updated>
         </entry>
       
         <entry>
-          <id>/time-to-hex</id>
+          <id>time-to-hex</id>
           <title>How to convert the current time to a hexadecimal</title>
           <link href="https://mcansh.blog/time-to-hex"/>
           <updated>2017-01-10</updated>
         </entry>
       
         <entry>
-          <id>/similarities-between-life-and-code</id>
+          <id>similarities-between-life-and-code</id>
           <title>Similarities between life and code</title>
           <link href="https://mcansh.blog/similarities-between-life-and-code"/>
           <updated>2016-12-25</updated>
         </entry>
       
         <entry>
-          <id>/rack-key-concepts</id>
+          <id>rack-key-concepts</id>
           <title>Rack key concepts</title>
           <link href="https://mcansh.blog/rack-key-concepts"/>
           <updated>2016-12-07</updated>
         </entry>
       
         <entry>
-          <id>/javascript-classes</id>
+          <id>javascript-classes</id>
           <title>JavaScript classes key concepts</title>
           <link href="https://mcansh.blog/javascript-classes"/>
           <updated>2016-11-21</updated>
         </entry>
       
         <entry>
-          <id>/object-lifecycle-cheatsheet</id>
+          <id>object-lifecycle-cheatsheet</id>
           <title>Object lifecycle cheatsheet</title>
           <link href="https://mcansh.blog/object-lifecycle-cheatsheet"/>
           <updated>2016-11-04</updated>
         </entry>
       
         <entry>
-          <id>/html5-progress-element</id>
+          <id>html5-progress-element</id>
           <title>The HTML5 progress element</title>
           <link href="https://mcansh.blog/html5-progress-element"/>
           <updated>2016-10-14</updated>
         </entry>
       
         <entry>
-          <id>/why-im-learning-software-development</id>
+          <id>why-im-learning-software-development</id>
           <title>Why I'm learning software development</title>
           <link href="https://mcansh.blog/why-im-learning-software-development"/>
           <updated>2016-10-03</updated>

@@ -17,7 +17,7 @@ const jsonfeed = async () => {
   const favicon = `${homepage}/static/images/logo/logo.png`;
 
   const jsonPosts = posts.map(post => ({
-    id: `${post.url}`,
+    id: post.url.slice(1),
     url: `${homepage}${post.url}`,
     title: `${post.title}`,
     date_published: `${iso8601(post.date)}`,

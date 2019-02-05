@@ -31,7 +31,7 @@ const atom = async () => {
         .map(
           ({ date, title, url }) => `
         <entry>
-          <id>${url}</id>
+          <id>${url.slice(1)}</id>
           <title>${title}</title>
           <link href="${homepage}${url}"/>
           <updated>${iso8601(date)}</updated>

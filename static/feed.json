@@ -11,70 +11,70 @@
   },
   "items": [
     {
-      "id": "/ruby-project",
+      "id": "ruby-project",
       "url": "https://mcansh.blog/ruby-project",
       "title": "Ruby project",
       "date_published": "2017-12-09",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/stacy-wyss-702.jpg"
     },
     {
-      "id": "/rails-project",
+      "id": "rails-project",
       "url": "https://mcansh.blog/rails-project",
       "title": "Rails project",
       "date_published": "2017-08-25",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/1_Wmv8hfi_bTHuHyV5CawnCw.jpg"
     },
     {
-      "id": "/sinatra-project",
+      "id": "sinatra-project",
       "url": "https://mcansh.blog/sinatra-project",
       "title": "Sinatra project",
       "date_published": "2017-04-25",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/brevite-434280.jpg"
     },
     {
-      "id": "/time-to-hex",
+      "id": "time-to-hex",
       "url": "https://mcansh.blog/time-to-hex",
       "title": "How to convert the current time to a hexadecimal",
       "date_published": "2017-01-10",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/team-ui8-199275.jpg"
     },
     {
-      "id": "/similarities-between-life-and-code",
+      "id": "similarities-between-life-and-code",
       "url": "https://mcansh.blog/similarities-between-life-and-code",
       "title": "Similarities between life and code",
       "date_published": "2016-12-25",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/joshua-sortino-228788.jpg"
     },
     {
-      "id": "/rack-key-concepts",
+      "id": "rack-key-concepts",
       "url": "https://mcansh.blog/rack-key-concepts",
       "title": "Rack key concepts",
       "date_published": "2016-12-07",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/derek-liang-239062.jpg"
     },
     {
-      "id": "/javascript-classes",
+      "id": "javascript-classes",
       "url": "https://mcansh.blog/javascript-classes",
       "title": "JavaScript classes key concepts",
       "date_published": "2016-11-21",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/mia-baker-322594.jpg"
     },
     {
-      "id": "/object-lifecycle-cheatsheet",
+      "id": "object-lifecycle-cheatsheet",
       "url": "https://mcansh.blog/object-lifecycle-cheatsheet",
       "title": "Object lifecycle cheatsheet",
       "date_published": "2016-11-04",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/matthew-henry-49707.jpg"
     },
     {
-      "id": "/html5-progress-element",
+      "id": "html5-progress-element",
       "url": "https://mcansh.blog/html5-progress-element",
       "title": "The HTML5 progress element",
       "date_published": "2016-10-14",
       "image": "https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/matthew-kane-146076.jpg"
     },
     {
-      "id": "/why-im-learning-software-development",
+      "id": "why-im-learning-software-development",
       "url": "https://mcansh.blog/why-im-learning-software-development",
       "title": "Why I'm learning software development",
       "date_published": "2016-10-03",
