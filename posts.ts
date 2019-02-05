@@ -8,18 +8,51 @@ import { meta as timeToHex } from './pages/time-to-hex.mdx';
 import { meta as sinatraProject } from './pages/sinatra-project.mdx';
 import { meta as railsProject } from './pages/rails-project.mdx';
 import { meta as rubyProject } from './pages/ruby-project.mdx';
+import { Post } from './components/PostCard';
 
 const posts = [
-  learningSoftwareDevelopment,
-  html5Progress,
-  objectLifecycle,
-  javascriptlasses,
-  rackKeyConcepts,
-  lifeAndCode,
-  timeToHex,
-  sinatraProject,
-  railsProject,
-  rubyProject,
+  {
+    ...learningSoftwareDevelopment,
+  },
+  {
+    ...html5Progress,
+  },
+  {
+    ...objectLifecycle,
+  },
+  {
+    ...javascriptlasses,
+  },
+  {
+    ...rackKeyConcepts,
+  },
+  {
+    ...lifeAndCode,
+  },
+  {
+    ...timeToHex,
+  },
+  {
+    ...sinatraProject,
+  },
+  {
+    ...railsProject,
+  },
+  {
+    ...rubyProject,
+  },
 ];
 
+const sortPosts = (postsArray: Post[]) =>
+  postsArray
+    .filter(p => p.url)
+    .sort((a, b) => {
+      if (a.date > b.date) return -1;
+      if (a.date < b.date) return 1;
+      return 0;
+    });
+
+const sortedByDate = sortPosts(posts);
+
+export { sortPosts, sortedByDate };
 export default posts;

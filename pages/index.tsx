@@ -1,16 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import PostCard from '~/components/PostCard';
-import posts from '~/posts';
+import PostCard, { Post } from '~/components/PostCard';
+import { sortedByDate as posts } from '~/posts';
 import Header from '~/components/Header';
 
-const sortedPosts = posts.sort((a, b) => {
-  if (a.date > b.date) return -1;
-  if (a.date < b.date) return 1;
-  return 0;
-});
-
-const [latest] = sortedPosts;
+const [latest] = posts;
 const { date, ...latestPost } = latest;
 
 const PostsWrapper = styled.div`
@@ -46,7 +40,7 @@ const Index = () => (
   <>
     <Header {...latestPost} />
     <PostsWrapper>
-      {sortedPosts.map(post => (
+      {posts.map((post: Post) => (
         <PostCard key={post.url} {...post} />
       ))}
     </PostsWrapper>
