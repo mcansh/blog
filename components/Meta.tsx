@@ -5,12 +5,12 @@ import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
 import iso8601 from '../utils/dates';
 import getCloudinaryURL from '../utils/getCloudinaryURL';
-import { ImageTypes } from './Header';
+import { ImageType } from './Header/Image';
 
 interface Props {
   title?: string;
   date?: number;
-  image?: ImageTypes;
+  image?: ImageType;
   router: RouterProps;
 }
 

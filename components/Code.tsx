@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 interface CoodeStyleProps {
@@ -21,8 +21,8 @@ const CodeStyles = styled.pre<CoodeStyleProps>`
 `;
 
 interface CodeProps {
-  language: string;
-  children: React.ReactNode;
+  language: Language;
+  children: string;
 }
 
 export const Code = ({ language, children }: CodeProps) => (

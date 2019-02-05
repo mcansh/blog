@@ -76,7 +76,7 @@ inquirer
     await writeFile(
       pathToMDX,
       stripIndent`
-      import Post from '../components/layouts/Post';
+      import Post from '~/components/layouts/Post';
 
       export default ({children}) => <Post id="${slug}">{children}</Post>
     `

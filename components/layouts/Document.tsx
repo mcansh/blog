@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
-import Navigation from '../Navigation';
-import Footer from '../Footer';
-import { version, repository } from '../../package.json';
-import { initGA, logPageView } from '../../lib/analytics';
-import randomEmoji from '../../utils/emojis';
-import { colors } from '../../config';
+import Navigation from '~/components/Navigation';
+import Footer from '~/components/Footer';
+import { initGA, logPageView } from '~/lib/analytics';
+import randomEmoji from '~/utils/emojis';
+import { colors } from '~/config';
 
 // @ts-ignore
 if (global.document) {
   const info = [
-    `Version: ${version}`,
-    `You can find the code here: https://github.com/${repository}`,
+    `Version: ${process.env.VERSION}`,
+    `You can find the code here: ${process.env.GITHUB_URL}`,
     `Thanks for stopping by ${randomEmoji()}`,
   ];
   // eslint-disable-next-line no-console

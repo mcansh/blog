@@ -3,12 +3,11 @@ import App, { Container, NextAppContext } from 'next/app';
 import { IntlProvider, addLocaleData, Messages } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
-import NProgress from '../components/Styles/NProgress';
-import GlobalStyle from '../components/Styles/GlobalStyle';
-import { colors } from '../config';
-import { version } from '../package.json';
-import Document from '../components/layouts/Document';
-import Meta from '../components/Meta';
+import NProgress from '~/components/Styles/NProgress';
+import GlobalStyle from '~/components/Styles/GlobalStyle';
+import { colors } from '~/config';
+import Document from '~/components/layouts/Document';
+import Meta from '~/components/Meta';
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
@@ -36,7 +35,7 @@ class MyApp extends App<Props> {
     super(...args);
     Sentry.init({
       dsn: process.env.SENTRY,
-      release: version,
+      release: process.env.VERSION,
       environment: process.env.NODE_ENV,
       // @ts-ignore
       serverName: process.env.NOW != null ? 'now.sh' : 'localhost',

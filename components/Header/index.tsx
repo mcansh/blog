@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Spring, animated } from 'react-spring';
-import Button from '../Button';
-import Image from './Image';
-import Date from './Date';
+import Button from '~/components/Button';
+import DateHeading from '~/components/Header/Date';
+import Image, { ImageType } from '~/components/Header/Image';
+import Curve from '~/components/icons/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
@@ -20,6 +21,17 @@ const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
     min-height: 100vh;
     height: 100vh;
   }
+
+  figure {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(50%);
+    width: 100%;
+    svg {
+      fill: ${props => props.theme.background};
+    }
+  }
 `;
 
 const HeaderContent = styled.div`
@@ -31,7 +43,6 @@ const HeaderContent = styled.div`
 export const Title = styled.h1`
   margin-bottom: 2rem;
   font-size: 3rem;
-
   @media (min-width: 400px) {
     font-size: 4rem;
   }
@@ -39,16 +50,11 @@ export const Title = styled.h1`
 
 const AnimatedTitle = animated(Title);
 
-export interface ImageTypes {
-  imageUrl: string;
-  photographer?: string;
-  url?: string;
-}
-
 interface Props {
   title: string;
   url?: string;
-  image?: ImageTypes;
+  image?: ImageType;
+
   date?: number;
 }
 
@@ -63,10 +69,13 @@ const Header = ({ title, url, image, date }: Props) => {
         >
           {props => <AnimatedTitle style={props}>{title}</AnimatedTitle>}
         </Spring>
-        {date && <Date date={date} />}
+        {date && <DateHeading date={date} />}
         {url && <Button text="Read More" link={url} />}
       </HeaderContent>
       <Image image={image} />
+      <figure>
+        <Curve />
+      </figure>
     </HeaderStyles>
   );
 };
