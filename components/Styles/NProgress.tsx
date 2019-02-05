@@ -54,12 +54,10 @@ const Progress = createGlobalStyle<Props>`
 
   #nprogress .bar {
     background: ${props => props.color};
-
     position: fixed;
     z-index: 1031;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 2px;
   }

@@ -30,10 +30,12 @@ const PostsWrapper = styled.div`
     max-width: 750px;
     width: auto;
   }
+
   @media (min-width: 992px) {
     max-width: 970px;
     width: auto;
   }
+
   @media (min-width: 1200px) {
     max-width: 1170px;
     width: auto;
