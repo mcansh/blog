@@ -47,13 +47,12 @@ interface Props {
 
 const Post = ({ children, meta: { url, ...meta } }: Props) => {
   const scrollProgress = useScrollProgress();
-
   return (
     <MDXProvider components={{ p: Paragraph }}>
       <Meta {...meta} />
       <Header {...meta} />
-      <PostWrap>{children}</PostWrap>
       <ScrollProgress max={100} value={scrollProgress} />
+      <PostWrap>{children}</PostWrap>
     </MDXProvider>
   );
 };

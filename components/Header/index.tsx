@@ -54,6 +54,7 @@ interface Props {
   title: string;
   url?: string;
   image?: ImageType;
+
   date?: number;
 }
 
