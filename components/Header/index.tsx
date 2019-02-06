@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Spring, animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import Button from '~/components/Button';
 import DateHeading from '~/components/Header/Date';
 import Image, { ImageType } from '~/components/Header/Image';
@@ -59,16 +59,16 @@ interface Props {
 }
 
 const Header = ({ title, url, image, date }: Props) => {
+  const props = useSpring({
+    from: { opacity: 0, transform: 'translateY(-50px)' },
+    to: { opacity: 1, transform: 'translateY(0px)' },
+    native: true,
+  });
+
   return (
     <HeaderStyles>
       <HeaderContent>
-        <Spring
-          native
-          from={{ opacity: 0, transform: 'translateY(-50px)' }}
-          to={{ opacity: 1, transform: 'translateY(0px)' }}
-        >
-          {props => <AnimatedTitle style={props}>{title}</AnimatedTitle>}
-        </Spring>
+        <AnimatedTitle style={props}>{title}</AnimatedTitle>
         {date && <DateHeading date={date} />}
         {url && <Button text="Read More" link={url} />}
       </HeaderContent>
