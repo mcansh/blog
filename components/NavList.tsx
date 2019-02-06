@@ -70,12 +70,6 @@ const NavStyles = styled.ul`
 const AnimatedNavStyles = animated(NavStyles);
 
 const NavList = ({ navOpen }: { navOpen: boolean }) => {
-  // const props = useSpring({
-  //   to: { transform: `translate3d(${navOpen ? '0' : '-100%'}, 0, 0)` },
-  //   from: { transform: 'translate3d(-100%, 0, 0)' },
-  //   native: true,
-  // });
-
   const tranitions = useTransition(navOpen, item => item, {
     from: { transform: 'translate3d(-100%, 0, 0)' },
     enter: { transform: 'translate3d(0, 0, 0)' },
@@ -84,11 +78,6 @@ const NavList = ({ navOpen }: { navOpen: boolean }) => {
     reset: true,
     unique: true,
   });
-  // return transitions.map(({ item, key, props }) => (
-  //   <animated.div key={key} style={props}>
-  //     {item}
-  //   </animated.div>
-  // ))
 
   return tranitions.map(({ item, key, props }) => {
     return (
@@ -113,36 +102,6 @@ const NavList = ({ navOpen }: { navOpen: boolean }) => {
       )
     );
   });
-  // <Transition
-  //   native
-  //   items={navOpen}
-  //   from={{ transform: 'translate3d(-100%, 0, 0)' }}
-  //   enter={{ transform: 'translate3d(0, 0, 0)' }}
-  //   leave={{ transform: 'translate3d(-100%, 0, 0)' }}
-  // >
-  //   {show =>
-  //     show &&
-  //     (props => (
-  //       <AnimatedNavStyles style={{ ...props }}>
-  //         {NavLinks.map(({ name, slug }) => {
-  //           const isExternal = isAbsoluteUrl(slug);
-  //           return (
-  //             <li key={name}>
-  //               <Link href={slug} prefetch={!isExternal}>
-  //                 <a
-  //                   rel={isExternal ? 'noopener external nofollow' : ''}
-  //                   target={isExternal ? '_blank' : ''}
-  //                 >
-  //                   {name}
-  //                 </a>
-  //               </Link>
-  //             </li>
-  //           );
-  //         })}
-  //       </AnimatedNavStyles>
-  //     ))
-  //   }
-  // </Transition>
 };
 
 export default NavList;
