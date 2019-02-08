@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isAbsoluteUrl from 'is-absolute-url';
-import { Transition, animated } from 'react-spring';
+import { useTransition, animated } from 'react-spring';
 import Link from '~/components/LinkWithData';
 
 const NavLinks = [
@@ -69,18 +69,20 @@ const NavStyles = styled.ul`
 
 const AnimatedNavStyles = animated(NavStyles);
 
-const NavList = ({ navOpen }: { navOpen: boolean }) => (
-  <Transition
-    native
-    items={navOpen}
-    from={{ transform: 'translate3d(-100%, 0, 0)' }}
-    enter={{ transform: 'translate3d(0, 0, 0)' }}
-    leave={{ transform: 'translate3d(-100%, 0, 0)' }}
-  >
-    {show =>
-      show &&
-      (props => (
-        <AnimatedNavStyles style={{ ...props }}>
+const NavList = ({ navOpen }: { navOpen: boolean }) => {
+  const tranitions = useTransition(navOpen, item => item, {
+    from: { transform: 'translate3d(-100%, 0, 0)' },
+    enter: { transform: 'translate3d(0, 0, 0)' },
+    leave: { transform: 'translate3d(-100%, 0, 0)' },
+    native: true,
+    reset: true,
+    unique: true,
+  });
+
+  return tranitions.map(({ item, key, props }) => {
+    return (
+      item && (
+        <AnimatedNavStyles key={key} style={props}>
           {NavLinks.map(({ name, slug }) => {
             const isExternal = isAbsoluteUrl(slug);
             return (
@@ -97,9 +99,9 @@ const NavList = ({ navOpen }: { navOpen: boolean }) => (
             );
           })}
         </AnimatedNavStyles>
-      ))
-    }
-  </Transition>
-);
+      )
+    );
+  });
+};
 
 export default NavList;
