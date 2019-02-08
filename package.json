@@ -51,7 +51,7 @@
     "react-dom": "16.8.1",
     "react-ga": "2.5.7",
     "react-intl": "2.8.0",
-    "react-spring": "8.0.1",
+    "react-spring": "8.0.4",
     "somebody": "2.0.0",
     "styled-components": "4.1.3"
   },
