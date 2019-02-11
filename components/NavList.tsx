@@ -27,7 +27,7 @@ const NavLinks = [
   },
   {
     name: 'Changelog',
-    slug: process.env.GITHUB_URL,
+    slug: `${process.env.GITHUB_URL}/releases`,
   },
 ];
 
