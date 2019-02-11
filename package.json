@@ -99,6 +99,7 @@
     "inquirer-path": "1.0.0-beta5",
     "jest": "24.1.0",
     "jest-dom": "3.0.2",
+    "jest-in-case": "1.0.2",
     "jest-styled-components": "6.3.1",
     "kleur": "3.0.2",
     "lint-staged": "8.1.3",

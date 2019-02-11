@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedRelative } from 'react-intl';
 import styled from 'styled-components';
 import { differenceInMonths } from 'date-fns';
-import { formatter } from '~/utils/dates';
+import { formatPostDate } from '~/utils/dates';
 
 const H2 = styled.h2`
   font-size: 2.5rem;
@@ -18,10 +18,10 @@ interface Props {
 const DateHeading = ({ date }: Props) => {
   const monthDiff = differenceInMonths(Date.now(), date);
   return (
-    <H2 title={formatter.format(date)}>
+    <H2 title={formatPostDate(date)}>
       Posted{' '}
       {monthDiff > 4 ? (
-        formatter.format(date)
+        formatPostDate(date)
       ) : (
         <FormattedRelative value={date} />
       )}

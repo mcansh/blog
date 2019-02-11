@@ -11,7 +11,7 @@ import {
   imageHeight,
 } from '~/components/PostCard/components';
 import { ImageType } from '~/components/Header/Image';
-import { formatter } from '~/utils/dates';
+import { formatPostDate } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
 export interface Post {
@@ -53,7 +53,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
         </ImageWrap>
         <Meta>
           <Title>{title}</Title>
-          <PostDate>{formatter.format(date)}</PostDate>
+          <PostDate>{formatPostDate(date)}</PostDate>
         </Meta>
       </Post>
     </Link>

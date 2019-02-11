@@ -7149,6 +7149,11 @@ jest-haste-map@^24.0.0:
     micromatch "^3.1.10"
     sane "^3.0.0"
 
+jest-in-case@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/jest-in-case/-/jest-in-case-1.0.2.tgz#56744b5af33222bd0abab70cf919f1d170ab75cc"
+  integrity sha1-VnRLWvMyIr0KurcM+Rnx0XCrdcw=
+
 jest-jasmine2@^24.1.0:
   version "24.1.0"
   resolved "https://registry.npmjs.org/jest-jasmine2/-/jest-jasmine2-24.1.0.tgz#8377324b967037c440f0a549ee0bbd9912055db6"
