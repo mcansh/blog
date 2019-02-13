@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import isAbsoluteUrl from 'is-absolute-url';
 import { useTransition, animated } from 'react-spring';
 import Link from '~/components/LinkWithData';
-import useOnClickOutside from '~/lib/useOnClickOutside';
 
 const NavLinks = [
   {
@@ -70,29 +69,20 @@ const NavStyles = styled.ul`
 
 const AnimatedNavStyles = animated(NavStyles);
 
-const NavList = ({
-  navOpen,
-  closeNav,
-}: {
-  navOpen: boolean;
-  closeNav: () => void;
-}) => {
-  const tranitions = useTransition(navOpen, null, {
+const NavList = ({ navOpen }: { navOpen: boolean }) => {
+  const tranitions = useTransition(navOpen, item => item, {
     from: { transform: 'translate3d(-100%, 0, 0)' },
     enter: { transform: 'translate3d(0, 0, 0)' },
     leave: { transform: 'translate3d(-100%, 0, 0)' },
+    native: true,
     reset: true,
     unique: true,
   });
 
-  const ref = useRef(null);
-  // Call hook passing in the ref and a function to call on outside click
-  useOnClickOutside(ref, () => closeNav());
-
   return tranitions.map(({ item, key, props }) => {
     return (
       item && (
-        <AnimatedNavStyles key={key} style={props} ref={ref}>
+        <AnimatedNavStyles key={key} style={props}>
           {NavLinks.map(({ name, slug }) => {
             const isExternal = isAbsoluteUrl(slug);
             return (

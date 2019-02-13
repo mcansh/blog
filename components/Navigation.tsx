@@ -8,11 +8,11 @@ import {
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
 import Hamburger from '~/components/Hamburger';
+import Portal from '~/components/Portal';
 import { logEvent } from '~/lib/analytics';
 
-// @ts-ignore
 const NavList = dynamic({
-  loader: () => import('~/components/NavList'),
+  loader: () => import('~/components/NavList') as any,
   loading: () => null,
 });
 
@@ -36,7 +36,6 @@ const Nav = styled.nav<{ navOpen: boolean }>`
 const Navigation = () => {
   const [navOpen, setNavOpen] = useState(false);
   const closeNav = () => {
-    logEvent({ category: 'general', action: 'close nav' });
     setNavOpen(false);
   };
 
@@ -59,9 +58,9 @@ const Navigation = () => {
     const nextNavOpen = !navOpen;
     setNavOpen(nextNavOpen);
     if (nextNavOpen) {
-      disableBodyScroll(document.body);
+      disableBodyScroll(document.querySelector('body'));
     } else {
-      enableBodyScroll(document.body);
+      enableBodyScroll(document.querySelector('body'));
     }
   };
 
@@ -75,7 +74,9 @@ const Navigation = () => {
       }}
     >
       <Hamburger onClick={onClick} navOpen={navOpen} />
-      <NavList navOpen={navOpen} closeNav={closeNav} />
+      <Portal>
+        <NavList navOpen={navOpen} />
+      </Portal>
     </Nav>
   );
 };
