@@ -26,12 +26,12 @@ const ImageWrap = styled.div`
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
   }
-`;
 
-const Image = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 `;
 
 interface Props {
@@ -43,10 +43,10 @@ const HeaderImage = ({ image }: Props) => {
 
   return (
     <ImageWrap>
-      <Image
+      <img
         src={imgUrl}
-        alt={image.photographer != null ? `Taken by ${image.photographer}` : ''}
-        data-source-url={image.url != null && unsplashParams(image.url)}
+        alt={image.photographer ? `Taken by ${image.photographer}` : null}
+        data-source-url={image.url && unsplashParams(image.url)}
       />
     </ImageWrap>
   );
