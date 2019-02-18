@@ -60,7 +60,7 @@ class MyDocument extends Document<Props> {
       "script-src 'self' https://polyfill.io/v3/polyfill.min.js 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com/analytics.js",
       "connect-src 'self' ws://localhost:*",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' https://res.cloudinary.com/dof0zryca/",
+      "img-src 'self' https://res.cloudinary.com/dof0zryca/ data:",
     ];
 
     const csp = `${cspSettings.join(';')} ${cspHashOf(
