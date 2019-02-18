@@ -3,11 +3,11 @@ import App, { Container, NextAppContext } from 'next/app';
 import { IntlProvider, addLocaleData, Messages } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
-import NProgress from '~/components/Styles/NProgress';
-import GlobalStyle from '~/components/Styles/GlobalStyle';
+import NProgress from '~/components/styles/nprogress';
+import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
-import Document from '~/components/layouts/Document';
-import Meta from '~/components/Meta';
+import Document from '~/components/layouts/document';
+import Meta from '~/components/meta';
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens

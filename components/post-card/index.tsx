@@ -10,8 +10,8 @@ import {
   Title,
   PostDate,
   imageHeight,
-} from '~/components/PostCard/components';
-import { ImageType } from '~/components/Header/Image';
+} from '~/components/post-card/components';
+import { ImageType } from '~/components/header/image';
 import { formatPostDate } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/getCloudinaryURL';
 

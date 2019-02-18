@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@sindresorhus/slugify": "0.8.0",
+    "@types/body-scroll-lock": "2.6.0",
     "@types/common-tags": "1.8.0",
     "@types/inquirer": "0.0.43",
     "@types/is-absolute-url": "2.1.0",
