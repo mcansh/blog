@@ -41,6 +41,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
       >
         <ImageWrap>
           <SimpleImg
+            height={200}
             src={image1x}
             alt={title}
             srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
