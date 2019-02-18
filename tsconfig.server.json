@@ -7,8 +7,5 @@
       "es2017"
     ],
     "noEmit": false,
-  },
-  "include": [
-    "server/**/*.ts"
-  ]
+  }
 }

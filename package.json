@@ -25,7 +25,6 @@
     "analyze:server": "BUNDLE_ANALYZE=server yarn build",
     "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
     "analyze:both": "BUNDLE_ANALYZE=both yarn build",
-    "blog": "yarn ts-node --project tsconfig.server.json scripts/create-post",
     "type-check": "tsc",
     "validate": "yarn type-check && yarn tsc && yarn lint && yarn lint:css"
   },
