@@ -1,3 +1,4 @@
+// can be removed once https://github.com/FormidableLabs/prism-react-renderer/commit/ab734bbf7cd582b97154eeeb338c927aa1d4a231 is deployed
 declare module 'prism-react-renderer' {
   import * as React from 'react';
 
