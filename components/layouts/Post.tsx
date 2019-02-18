@@ -4,8 +4,9 @@ import { MDXProvider } from '@mdx-js/tag';
 import Meta from '~/components/Meta';
 import Header from '~/components/Header';
 import Paragraph from '~/components/Paragraph';
-import { Post as PostType } from '~/components/PostCard';
+import PostCard, { Post as PostType } from '~/components/PostCard';
 import useScrollProgress from '~/components/useScrollProgress';
+import * as posts from '~/posts';
 
 const ScrollProgress = styled.progress`
   position: fixed;
@@ -46,6 +47,16 @@ interface Props {
 }
 
 const Post = ({ children, meta: { url, ...meta } }: Props) => {
+  console.log(posts.sortedByDate);
+
+  const currentPostIndex = posts.sortedByDate.findIndex(
+    post => post.url === url
+  );
+  const relatedPosts = posts.sortedByDate.slice(
+    currentPostIndex + 1,
+    currentPostIndex + 4
+  );
+
   const scrollProgress = useScrollProgress();
   return (
     <MDXProvider components={{ p: Paragraph }}>
@@ -53,6 +64,9 @@ const Post = ({ children, meta: { url, ...meta } }: Props) => {
       <Header {...meta} />
       <ScrollProgress max={100} value={scrollProgress} />
       <PostWrap>{children}</PostWrap>
+      {relatedPosts.map(post => (
+        <PostCard key={post.url} {...post} />
+      ))}
     </MDXProvider>
   );
 };

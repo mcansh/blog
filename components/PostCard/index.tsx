@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
+import { SimpleImg } from 'react-simple-img';
 import unsplashParams from '~/utils/unsplashParams';
 import {
   Post,
@@ -39,7 +40,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
         }}
       >
         <ImageWrap>
-          <img
+          <SimpleImg
             src={image1x}
             alt={title}
             srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
@@ -50,6 +51,17 @@ const PostCard = ({ url, image, date, title }: Post) => {
               hasImageSrc ? unsplashParams(image.url) : undefined
             }
           />
+          {/* <img
+            src={image1x}
+            alt={title}
+            srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
+            data-photo={
+              hasImageAuthor ? `Taken by ${image.photographer}` : undefined
+            }
+            data-source-url={
+              hasImageSrc ? unsplashParams(image.url) : undefined
+            }
+          /> */}
         </ImageWrap>
         <Meta>
           <Title>{title}</Title>
