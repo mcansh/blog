@@ -4,7 +4,7 @@ import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 interface CoodeStyleProps {
-  css: string;
+  style: React.CSSProperties;
 }
 
 const CodeStyles = styled.pre<CoodeStyleProps>`
@@ -33,7 +33,7 @@ export const Code = ({ language, children }: CodeProps) => (
     theme={nightOwl}
   >
     {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <CodeStyles className={className} css={style}>
+      <CodeStyles className={className} style={style}>
         {tokens.map((line, i) => (
           <div {...getLineProps({ line, key: i })}>
             {line.map(

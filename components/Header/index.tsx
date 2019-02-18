@@ -62,7 +62,6 @@ const Header = ({ title, url, image, date }: Props) => {
   const props = useSpring({
     from: { opacity: 0, transform: 'translateY(-50px)' },
     to: { opacity: 1, transform: 'translateY(0px)' },
-    native: true,
   });
 
   return (
