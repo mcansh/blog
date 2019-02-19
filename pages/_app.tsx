@@ -12,11 +12,8 @@ import Meta from '~/components/meta';
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
 // once, on initial page load in the browser.
-// @ts-ignore
 if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
-  // @ts-ignore
   Object.keys(window.ReactIntlLocaleData).forEach(lang => {
-    // @ts-ignore
     addLocaleData(window.ReactIntlLocaleData[lang]);
   });
 }
@@ -52,7 +49,6 @@ class MyApp extends App<Props> {
     // Get the `locale` and `messages` from the request object on the server.
     // In the browser, use the same values that the server serialized.
     const { req } = ctx;
-    // @ts-ignore
     const { locale, messages } = req || window.__NEXT_DATA__.props.pageProps;
     const initialNow = Date.now();
 
