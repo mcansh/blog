@@ -26,7 +26,7 @@
     "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
     "analyze:both": "BUNDLE_ANALYZE=both yarn build",
     "type-check": "tsc",
-    "validate": "yarn type-check && yarn tsc && yarn lint && yarn lint:css"
+    "validate": "yarn type-check && yarn lint && yarn lint:css"
   },
   "dependencies": {
     "@mdx-js/mdx": "0.17.5",
@@ -39,9 +39,7 @@
     "@zeit/next-typescript": "1.1.1",
     "body-scroll-lock": "2.6.1",
     "date-fns": "2.0.0-alpha.27",
-    "dotenv": "6.2.0",
     "is-absolute-url": "2.1.0",
-    "isomorphic-unfetch": "3.0.0",
     "next": "8.0.1",
     "next-nprogress": "1.4.0",
     "next-server": "8.0.1",
@@ -61,7 +59,6 @@
     "@sindresorhus/slugify": "0.8.0",
     "@types/body-scroll-lock": "2.6.0",
     "@types/common-tags": "1.8.0",
-    "@types/inquirer": "0.0.43",
     "@types/is-absolute-url": "2.1.0",
     "@types/jest": "24.0.6",
     "@types/next": "8.0.1",
@@ -94,8 +91,6 @@
     "eslint-plugin-react": "7.12.4",
     "eslint-plugin-react-hooks": "1.0.2",
     "husky": "1.3.1",
-    "inquirer": "6.2.2",
-    "inquirer-path": "1.0.0-beta5",
     "jest": "24.1.0",
     "jest-dom": "3.1.2",
     "jest-in-case": "1.0.2",
