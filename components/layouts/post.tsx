@@ -75,8 +75,6 @@ interface Props {
 }
 
 const Post = ({ children, meta: { url, ...meta } }: Props) => {
-  console.log(posts.sortedByDate);
-
   const currentPostIndex = posts.sortedByDate.findIndex(
     post => post.url === url
   );
