@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
-import Navigation from '~/components/Navigation';
-import Footer from '~/components/Footer';
+import Navigation from '~/components/navigation';
+import Footer from '~/components/footer';
 import { initGA, logPageView } from '~/lib/analytics';
 import randomEmoji from '~/utils/emojis';
 import { colors } from '~/config';

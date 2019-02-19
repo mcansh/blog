@@ -8,7 +8,7 @@ import { meta as timeToHex } from './pages/time-to-hex.mdx';
 import { meta as sinatraProject } from './pages/sinatra-project.mdx';
 import { meta as railsProject } from './pages/rails-project.mdx';
 import { meta as rubyProject } from './pages/ruby-project.mdx';
-import { Post } from './components/PostCard';
+import { Post } from './components/post-card';
 
 const posts = [
   learningSoftwareDevelopment,

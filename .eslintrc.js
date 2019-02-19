@@ -15,7 +15,7 @@ module.exports = {
           '__tests__/**/*',
           'jest.setup.js',
           'jest.config.js',
-          'utils/renderWithIntl.tsx',
+          'utils/render-with-intl.tsx',
           'scripts/**/*',
           'next.config.js',
         ],

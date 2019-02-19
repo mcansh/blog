@@ -1229,6 +1229,11 @@
   resolved "https://registry.npmjs.org/@types/anymatch/-/anymatch-1.3.0.tgz#d1d55958d1fccc5527d4aba29fc9c4b942f563ff"
   integrity sha512-7WcbyctkE8GTzogDb0ulRAEw7v8oIS54ft9mQTU7PfM0hp5e+8kpa+HeQ7IQrFbKtJXBKcZ4bh+Em9dTw5L6AQ==
 
+"@types/body-scroll-lock@2.6.0":
+  version "2.6.0"
+  resolved "https://registry.npmjs.org/@types/body-scroll-lock/-/body-scroll-lock-2.6.0.tgz#f5b3e9acffc646793633e88aa571999cda8adc5b"
+  integrity sha512-T6ZmLK1CBXURdwsi256hLYSU6SOWQWs2p7X9TL9d95q30SyZrv1FPwUMtS5YE3H4FulCyFLPfNjhsIeSkUb9Hg==
+
 "@types/common-tags@1.8.0":
   version "1.8.0"
   resolved "https://registry.npmjs.org/@types/common-tags/-/common-tags-1.8.0.tgz#79d55e748d730b997be5b7fce4b74488d8b26a6b"
@@ -4187,7 +4192,7 @@ eslint-config-airbnb-base@^13.1.0, eslint-config-airbnb-base@latest:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-airbnb@latest:
+eslint-config-airbnb@17.1.0, eslint-config-airbnb@latest:
   version "17.1.0"
   resolved "https://registry.npmjs.org/eslint-config-airbnb/-/eslint-config-airbnb-17.1.0.tgz#3964ed4bc198240315ff52030bf8636f42bc4732"
   integrity sha512-R9jw28hFfEQnpPau01NO5K/JWMGLi6aymiF6RsnMURjTk+MqZKllCqGK/0tOvHkPi/NWSSOU2Ced/GX++YxLnw==
@@ -4261,12 +4266,17 @@ eslint-plugin-import@2.16.0:
     read-pkg-up "^2.0.0"
     resolve "^1.9.0"
 
+eslint-plugin-jest@22.2.2:
+  version "22.2.2"
+  resolved "https://registry.npmjs.org/eslint-plugin-jest/-/eslint-plugin-jest-22.2.2.tgz#2a80d70a20c27dfb1503a6f32cdcb647fe5476df"
+  integrity sha512-hnWgh9o39VJfz6lJEyQJdTW7dN2yynlGkmPOlU/oMHh+d7WVMsJP1GeDTB520VCDljEdKExCwD5IBpQIUl4mJg==
+
 eslint-plugin-jest@latest:
   version "22.3.0"
   resolved "https://registry.npmjs.org/eslint-plugin-jest/-/eslint-plugin-jest-22.3.0.tgz#a10f10dedfc92def774ec9bb5bfbd2fb8e1c96d2"
   integrity sha512-P1mYVRNlOEoO5T9yTqOfucjOYf1ktmJ26NjwjH8sxpCFQa6IhBGr5TpKl3hcAAT29hOsRJVuMWmTsHoUVo9FoA==
 
-eslint-plugin-jsx-a11y@latest:
+eslint-plugin-jsx-a11y@6.2.1, eslint-plugin-jsx-a11y@latest:
   version "6.2.1"
   resolved "https://registry.npmjs.org/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.2.1.tgz#4ebba9f339b600ff415ae4166e3e2e008831cf0c"
   integrity sha512-cjN2ObWrRz0TTw7vEcGQrx+YltMvZoOEx4hWU8eEERDnBIU00OTq7Vr+jA7DFKxiwLNv4tTh5Pq2GUNEa8b6+w==
@@ -4301,7 +4311,7 @@ eslint-plugin-react-hooks@1.0.2, eslint-plugin-react-hooks@latest:
   resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.0.2.tgz#89d9ab0690a45956696e652368a952fb09f7134d"
   integrity sha512-pY1RSD3CGkGOV+e+rzjfs+JXKRum7VlJKPHznhU0GnFWfDm6zKLmOmg/lKcwNRH3LTSnF2PbfF8x3w90tyHlYw==
 
-eslint-plugin-react@latest:
+eslint-plugin-react@7.12.4, eslint-plugin-react@latest:
   version "7.12.4"
   resolved "https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.12.4.tgz#b1ecf26479d61aee650da612e425c53a99f48c8c"
   integrity sha512-1puHJkXJY+oS1t467MjbqjvX53uQ05HXwjqDgdbGBqf5j9eeydI54G3KwiJmWciQ0HTBacIKw2jgwSBSH3yfgQ==

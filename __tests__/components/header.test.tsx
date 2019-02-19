@@ -1,8 +1,8 @@
 /* eslint-env jest */
 import React from 'react';
 import 'jest-styled-components';
-import { render } from '../../utils/renderWithIntl';
-import Header from '../../components/Header';
+import { render } from '../../utils/render-with-intl';
+import Header from '../../components/header';
 
 describe('Header Component', () => {
   it('shows custom text and image', () => {

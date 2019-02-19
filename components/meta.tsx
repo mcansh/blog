@@ -5,7 +5,7 @@ import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
 import iso8601 from '../utils/dates';
 import getCloudinaryURL from '../utils/getCloudinaryURL';
-import { ImageType } from './Header/Image';
+import { ImageType } from './header/image';
 
 interface Props {
   title?: string;

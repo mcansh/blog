@@ -7,12 +7,13 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
-import Hamburger from '~/components/Hamburger';
-import Portal from '~/components/Portal';
+import Hamburger from '~/components/hamburger';
+import Portal from '~/components/portal';
 import { logEvent } from '~/lib/analytics';
 
+// @ts-ignore
 const NavList = dynamic({
-  loader: () => import('~/components/NavList') as any,
+  loader: () => import('~/components/nav-list'),
   loading: () => null,
 });
 

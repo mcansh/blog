@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
-import Button from '~/components/Button';
-import DateHeading from '~/components/Header/Date';
-import Image, { ImageType } from '~/components/Header/Image';
+import Button from '~/components/button';
+import DateHeading from '~/components/header/date';
+import Image, { ImageType } from '~/components/header/image';
 import Curve from '~/components/icons/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
