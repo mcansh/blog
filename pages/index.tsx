@@ -1,6 +1,6 @@
 import React from 'react';
 import PostsWrapper from '~/components/posts-wrapper';
-import PostCard, { Post } from '~/components/PostCard';
+import PostCard, { Post } from '~/components/post-card';
 import Header from '~/components/Header';
 import * as posts from '~/posts';
 
