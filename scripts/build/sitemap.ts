@@ -7,39 +7,44 @@ import { promisify } from 'util';
 import { createSitemap } from 'sitemap';
 import { homepage } from '../../package.json';
 import posts from '../../posts';
+import { Post } from '../../components/PostCard';
 
 const writeFile = promisify(fs.writeFile);
+const stat = promisify(fs.stat);
 
-const generateSiteMap = createSitemap({
-  hostname: homepage,
-  cacheTime: 600000, // 600 sec - cache purge period
-});
+const generateSiteMap = async () => {
+  const urls = await Promise.all(
+    posts.map(async (post: Post) => {
+      const filePath = join(__dirname, '..', '..', 'pages', `${post.url}.mdx`);
 
-generateSiteMap.add({
-  url: '/',
-  changefreq: 'daily',
-  priority: 1,
-});
+      const { mtime } = await stat(filePath);
 
-generateSiteMap.add({
-  url: '/changelog',
-  changefreq: 'daily',
-  priority: 0.3,
-});
+      return {
+        url: post.url,
+        changefreq: 'daily',
+        priority: 0.9,
+        lastmodISO: new Date(mtime).toISOString(),
+      };
+    })
+  );
 
-posts.forEach(post =>
-  generateSiteMap.add({
-    url: post.url,
-    changefreq: 'daily',
-    priority: 0.9,
-  })
-);
+  return createSitemap({
+    hostname: homepage,
+    cacheTime: 600000, // 600 sec (10 min) cache purge period
+    urls: [
+      {
+        url: '/',
+        changefreq: 'daily',
+        priority: 1,
+      },
+      ...urls,
+    ],
+  }).toXML();
+};
 
 const sitemap = async () => {
-  const xml = generateSiteMap.toXML();
-
+  const xml = await generateSiteMap();
   const path = join(__dirname, '..', '..', 'static/sitemap.xml');
-
   await writeFile(path, xml);
 };
 
