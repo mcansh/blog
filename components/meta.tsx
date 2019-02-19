@@ -6,6 +6,7 @@ import { name } from '../utils/authorInfo';
 import iso8601 from '../utils/dates';
 import getCloudinaryURL from '../utils/getCloudinaryURL';
 import { ImageType } from './header/image';
+import colors, { staticFilePrefix, iconSizes } from '~/config';
 
 interface Props {
   title?: string;
@@ -39,6 +40,47 @@ const Meta = ({ title, date, image, router }: Props) => {
         <meta property="article:published_time" content={iso8601(date)} />
       )}
       {title && <meta property="article:author" content={name} />}
+      <meta charSet="utf-8" />
+      <meta
+        name="viewport"
+        content="initial-scale=1.0, width=device-width, viewport-fit=cover"
+      />
+      <link rel="manifest" href={`${staticFilePrefix}/manifest.json`} />
+      <link
+        rel="mask-icon"
+        href="/static/images/logo/safari.svg"
+        color={colors.primary}
+      />
+      <meta name="theme-color" content={colors.primary} />
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+      />
+      <link rel="shortcut icon" href="/static/images/logo/logo.png" />
+      <link rel="shortcut icon" href="/static/images/logo/logo.ico" />
+      {iconSizes.map(icon => {
+        const size = `${icon}x${icon}`;
+        return (
+          <link
+            key={size}
+            rel="apple-touch-icon-precomposed"
+            sizes={size}
+            href={`/static/images/logo/logo-${icon}.png`}
+          />
+        );
+      })}
+      <link
+        rel="alternate"
+        href={`${staticFilePrefix}/atom${process.env.NOW ? '' : '.xml'}`}
+        type="application/atom+xml"
+        title="RSS Feed"
+      />
+      <link
+        rel="alternate"
+        href={`${staticFilePrefix}/feed.json`}
+        type="application/json"
+        title="JSON Feed"
+      />
     </Head>
   );
 };
