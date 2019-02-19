@@ -1,7 +1,7 @@
 import React from 'react';
 import PostsWrapper from '~/components/posts-wrapper';
 import PostCard, { Post } from '~/components/post-card';
-import Header from '~/components/Header';
+import Header from '~/components/header';
 import * as posts from '~/posts';
 
 const [latest] = posts.sortedByDate;
