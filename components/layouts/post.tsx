@@ -4,37 +4,9 @@ import { MDXProvider } from '@mdx-js/tag';
 import Meta from '~/components/meta';
 import Header from '~/components/header';
 import Paragraph from '~/components/paragraph';
-import PostCard, { Post as PostType } from '~/components/post-card';
+import { Post as PostType } from '~/components/post-card';
 import useScrollProgress from '~/components/use-scroll-progress';
 import * as posts from '~/posts';
-
-const PostsWrapper = styled.div`
-  margin: 0 auto;
-  width: 95%;
-  display: flex;
-  flex-flow: row wrap;
-
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    grid-gap: 3.6rem;
-  }
-
-  @media (min-width: 768px) {
-    max-width: 750px;
-    width: auto;
-  }
-
-  @media (min-width: 992px) {
-    max-width: 970px;
-    width: auto;
-  }
-
-  @media (min-width: 1200px) {
-    max-width: 1170px;
-    width: auto;
-  }
-`;
 
 const ScrollProgress = styled.progress`
   position: fixed;
@@ -75,14 +47,6 @@ interface Props {
 }
 
 const Post = ({ children, meta: { url, ...meta } }: Props) => {
-  const currentPostIndex = posts.sortedByDate.findIndex(
-    post => post.url === url
-  );
-  const relatedPosts = posts.sortedByDate.slice(
-    currentPostIndex + 1,
-    currentPostIndex + 4
-  );
-
   const scrollProgress = useScrollProgress();
   return (
     <MDXProvider components={{ p: Paragraph }}>
@@ -90,11 +54,6 @@ const Post = ({ children, meta: { url, ...meta } }: Props) => {
       <Header {...meta} />
       <ScrollProgress max={100} value={scrollProgress} />
       <PostWrap>{children}</PostWrap>
-      <PostsWrapper>
-        {relatedPosts.map(post => (
-          <PostCard key={post.url} {...post} />
-        ))}
-      </PostsWrapper>
     </MDXProvider>
   );
 };
