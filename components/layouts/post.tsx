@@ -6,7 +6,6 @@ import Header from '~/components/header';
 import Paragraph from '~/components/paragraph';
 import { Post as PostType } from '~/components/post-card';
 import useScrollProgress from '~/components/use-scroll-progress';
-import * as posts from '~/posts';
 
 const ScrollProgress = styled.progress`
   position: fixed;

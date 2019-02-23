@@ -20,9 +20,11 @@ const prefetchPage = async (href: string | UrlObject) => {
 
   const Component = await Router.prefetch(parsedHref);
 
-  // if Component exists and has getInitialProps
-  // fetch the component props (the component should save it in cache)
-  // @ts-ignore
+  /*
+   * if Component exists and has getInitialProps
+   * fetch the component props (the component should save it in cache)
+   * @ts-ignore
+   */
   if (Component && Component.getInitialProps) {
     const ctx = { pathname: href, query, isVirtualCall: true };
     // @ts-ignore
@@ -37,9 +39,11 @@ class LinkWithData extends Link {
     const { withData, prefetch, href }: Props = this.props;
     // if the prefetch prop is not defined do nothing
     if (!prefetch) return;
-    // if withData prop is defined
-    // prefetch with data
-    // otherwise just prefetch the page
+    /*
+     * if withData prop is defined
+     * prefetch with data
+     * otherwise just prefetch the page
+     */
     if (withData) {
       prefetchPage(href);
     } else {
