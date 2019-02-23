@@ -1,16 +1,14 @@
-const formatPostDate = (
-  date: Date | string | number,
-  lang?: string | string[]
-) =>
+type PossibleDates = string | number | Date;
+
+const formatPostDate = (inputDate: PossibleDates, lang?: string | string[]) =>
   new Intl.DateTimeFormat(lang, {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
     timeZone: 'America/New_York',
-  }).format(new Date(date));
+  }).format(new Date(inputDate));
 
-const iso8601 = (date: number): string =>
+const iso8601 = (date: PossibleDates) =>
   new Date(date).toISOString().slice(0, 10);
 
-export { formatPostDate };
-export default iso8601;
+export { iso8601, formatPostDate };

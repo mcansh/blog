@@ -6,6 +6,8 @@ import theme from '../config';
 type ThemeInterface = typeof theme;
 
 declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends ThemeInterface {}
+  interface DefaultTheme extends ThemeInterface {
+    primary: '#6c16c7';
+    background: '#f7f7f7';
+  }
 }

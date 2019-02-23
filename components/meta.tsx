@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { withRouter, RouterProps } from 'next/router';
 import { description, homepage } from '../package.json';
 import { name } from '../utils/authorInfo';
-import iso8601 from '../utils/dates';
+import { iso8601 } from '../utils/dates';
 import getCloudinaryURL from '../utils/getCloudinaryURL';
 import { ImageType } from './header/image';
 import colors, { staticFilePrefix, iconSizes } from '~/config';

@@ -1,6 +1,5 @@
 /* eslint-env jest */
 import React from 'react';
-import 'jest-styled-components';
 import { render } from '../../utils/render-with-intl';
 import Header from '../../components/header';
 
