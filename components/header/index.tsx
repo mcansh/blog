@@ -24,12 +24,14 @@ const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
 
   figure {
     position: absolute;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
-    transform: translateY(50%);
     width: 100%;
+    height: 3.2rem;
     svg {
       fill: ${props => props.theme.background};
+      width: 100%;
+      height: 100%;
     }
   }
 `;
@@ -40,21 +42,18 @@ const HeaderContent = styled.div`
   max-width: 80vw;
 `;
 
-export const Title = styled.h1`
+export const Title = animated(styled.h1`
   margin-bottom: 2rem;
   font-size: 3rem;
   @media (min-width: 400px) {
     font-size: 4rem;
   }
-`;
-
-const AnimatedTitle = animated(Title);
+`);
 
 interface Props {
   title: string;
   url?: string;
   image?: ImageType;
-
   date?: number;
 }
 
@@ -67,7 +66,7 @@ const Header = ({ title, url, image, date }: Props) => {
   return (
     <HeaderStyles>
       <HeaderContent>
-        <AnimatedTitle style={props}>{title}</AnimatedTitle>
+        <Title style={props}>{title}</Title>
         {date && <DateHeading date={date} />}
         {url && <Button text="Read More" link={url} />}
       </HeaderContent>
