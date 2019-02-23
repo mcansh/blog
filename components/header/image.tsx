@@ -47,6 +47,7 @@ const HeaderImage = ({ image }: Props) => {
         src={imgUrl}
         alt={image.photographer ? `Taken by ${image.photographer}` : null}
         data-source-url={image.url && unsplashParams(image.url)}
+        data-testid="header_img"
       />
     </ImageWrap>
   );
