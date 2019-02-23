@@ -4,7 +4,7 @@ import { useSpring, animated } from 'react-spring';
 import Button from '~/components/button';
 import DateHeading from '~/components/header/date';
 import Image, { ImageType } from '~/components/header/image';
-import Curve from '~/components/icons/curve.svg';
+import Curve from '~/static/images/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
