@@ -8,7 +8,6 @@ module.exports = {
       },
     ],
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
-    'multiline-comment-style': ['error', 'starred-block'],
     'import/no-extraneous-dependencies': [
       'error',
       {
