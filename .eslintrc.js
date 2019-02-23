@@ -18,6 +18,7 @@ module.exports = {
           'utils/render-with-intl.tsx',
           'scripts/**/*',
           'next.config.js',
+          'types/jest-dom.d.ts',
         ],
       },
     ],

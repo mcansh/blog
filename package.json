@@ -61,6 +61,7 @@
     "@types/common-tags": "1.8.0",
     "@types/is-absolute-url": "2.1.0",
     "@types/jest": "24.0.6",
+    "@types/jest-in-case": "1.0.1",
     "@types/next": "8.0.1",
     "@types/nprogress": "0.0.29",
     "@types/prettier": "1.16.1",
@@ -94,6 +95,8 @@
     "jest": "24.1.0",
     "jest-dom": "3.1.2",
     "jest-in-case": "1.0.2",
+    "jest-runner-eslint": "0.7.3",
+    "jest-runner-tsc": "1.4.0",
     "jest-styled-components": "6.3.1",
     "kleur": "3.0.2",
     "lint-staged": "8.1.4",
@@ -127,9 +130,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "jest --bail --findRelatedTests",
-      "yarn validate",
       "git add"
     ]
   }

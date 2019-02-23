@@ -1183,7 +1183,15 @@
   resolved "https://registry.npmjs.org/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
   integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
 
-"@types/jest@24.0.6":
+"@types/jest-in-case@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@types/jest-in-case/-/jest-in-case-1.0.1.tgz#712b6ccd1a51fe6e342cf836a99fbb6889a83034"
+  integrity sha512-fADBNWvW40tsitQhPWewmVNTr6oZj7W0FVYlwRrBNQGLyqOznWdM5S1Nnw/3IWdG1Q4edgNYQHX4Et4POKpWiw==
+  dependencies:
+    "@types/jest" "*"
+    "@types/node" "*"
+
+"@types/jest@*", "@types/jest@24.0.6":
   version "24.0.6"
   resolved "https://registry.npmjs.org/@types/jest/-/jest-24.0.6.tgz#ba4c8c7900ce098a82ca99293cbe4192bde4f355"
   integrity sha512-NE7FBG/F4cMDKdCBqgyd+Sa6JZ5GiMOyA5QwJdeS4Ii/Z9a18WgGbFrHbcr48/7I9HdnkaAYP+S2MmQ27qoqJA==
@@ -3432,6 +3440,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+create-jest-runner@^0.4.1, create-jest-runner@~0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/create-jest-runner/-/create-jest-runner-0.4.1.tgz#eeda15bc0f9dc622ef2de5a7fd9a0f1a2c2eb62d"
+  integrity sha512-JOy675JMZ3b05F3VfAAi6Igme3pVBWu7Rt+gbW9ujAiX/Dua7+G47O7IbfiUU/FZjXhtipu/tz930b++UMGQEA==
+  dependencies:
+    jest-worker "^23.2.0"
+    throat "^4.1.0"
+
 create-react-context@^0.2.2:
   version "0.2.3"
   resolved "https://registry.npmjs.org/create-react-context/-/create-react-context-0.2.3.tgz#9ec140a6914a22ef04b8b09b7771de89567cb6f3"
@@ -4307,7 +4323,7 @@ eslint-visitor-keys@^1.0.0:
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
   integrity sha512-qzm/XxIbxm/FHyH341ZrbnMUpe+5Bocte9xkmFMzPMjRaZMcXww+MpBptFvtU+79L362nqiLhekCxCxDPaUMBQ==
 
-eslint@5.14.1:
+eslint@5.14.1, eslint@^5.6.0:
   version "5.14.1"
   resolved "https://registry.npmjs.org/eslint/-/eslint-5.14.1.tgz#490a28906be313685c55ccd43a39e8d22efc04ba"
   integrity sha512-CyUMbmsjxedx8B0mr79mNOqetvkbij/zrXnFeK2zc3pGRn3/tibjiNAv/3UxFEyfMDjh+ZqTrJrEGBFiGfD5Og==
@@ -6417,6 +6433,24 @@ jest-resolve@^24.1.0:
     chalk "^2.0.1"
     realpath-native "^1.0.0"
 
+jest-runner-eslint@0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/jest-runner-eslint/-/jest-runner-eslint-0.7.3.tgz#1dd876115eb2c779c6726d4cc18f0ed526ff9954"
+  integrity sha512-MywU/1Fm+0PisAyYSeJ0MsmSD3oGfWyCbkgvBWu7xEChCIiCMaQ+3Cm3AvAIJZPvVlDtQtKN6lEa2QcMyF3DGQ==
+  dependencies:
+    chalk "^2.4.1"
+    cosmiconfig "^5.0.0"
+    create-jest-runner "^0.4.1"
+    eslint "^5.6.0"
+
+jest-runner-tsc@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/jest-runner-tsc/-/jest-runner-tsc-1.4.0.tgz#0ab8ca28aafc3ef295491202362ae354fee3265d"
+  integrity sha512-TpfU7XZRZZuvnD5IvBhQ4ZdLigNiFzryqppHohJTISynBgsE/+OtoeZuC29oRIZyymMy32hr2b1zlACCA9Yq6g==
+  dependencies:
+    "@babel/code-frame" "^7.0.0"
+    create-jest-runner "~0.4.1"
+
 jest-runner@^24.1.0:
   version "24.1.0"
   resolved "https://registry.npmjs.org/jest-runner/-/jest-runner-24.1.0.tgz#3686a2bb89ce62800da23d7fdc3da2c32792943b"
@@ -6527,6 +6561,13 @@ jest-watcher@^24.0.0:
     chalk "^2.0.1"
     jest-util "^24.0.0"
     string-length "^2.0.0"
+
+jest-worker@^23.2.0:
+  version "23.2.0"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-23.2.0.tgz#faf706a8da36fae60eb26957257fa7b5d8ea02b9"
+  integrity sha1-+vcGqNo2+uYOsmlXJX+ntdjqArk=
+  dependencies:
+    merge-stream "^1.0.1"
 
 jest-worker@^24.0.0:
   version "24.0.0"
@@ -11128,7 +11169,7 @@ text-table@^0.2.0, text-table@~0.2.0:
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
-throat@^4.0.0:
+throat@^4.0.0, throat@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
   integrity sha1-iQN8vJLFarGJJua6TLsgDhVnKmo=
