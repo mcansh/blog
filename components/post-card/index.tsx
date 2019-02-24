@@ -3,16 +3,9 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
 import unsplashParams from '~/utils/unsplashParams';
-import {
-  Post,
-  ImageWrap,
-  Meta,
-  Title,
-  PostDate,
-  imageHeight,
-} from '~/components/post-card/components';
+import Post, { imageHeight } from '~/components/post-card/styles';
 import { ImageType } from '~/components/header/image';
-import { formatPostDate } from '~/utils/dates';
+import { formatPostDate, iso8601 } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
 export interface Post {
@@ -39,7 +32,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
           }
         }}
       >
-        <ImageWrap>
+        <div className="post-card__img-wrapper">
           <SimpleImg
             placeholder={false}
             height={200}
@@ -53,11 +46,19 @@ const PostCard = ({ url, image, date, title }: Post) => {
               hasImageSrc ? unsplashParams(image.url) : undefined
             }
           />
-        </ImageWrap>
-        <Meta>
-          <Title>{title}</Title>
-          <PostDate>{formatPostDate(date)}</PostDate>
-        </Meta>
+        </div>
+        <div className="post-card__meta">
+          <h2 className="post-card__title" data-testid="post-title">
+            {title}
+          </h2>
+          <time
+            className="post-card__date"
+            data-testid="post-date"
+            dateTime={iso8601(date)}
+          >
+            {formatPostDate(date)}
+          </time>
+        </div>
       </Post>
     </Link>
   );
