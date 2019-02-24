@@ -103,7 +103,7 @@
     "next-offline": "3.3.5",
     "nodemon": "1.18.10",
     "prettier": "1.16.4",
-    "react-testing-library": "5.9.0",
+    "react-testing-library": "6.0.0",
     "sitemap": "2.1.0",
     "stylelint": "9.10.1",
     "stylelint-config-recommended": "2.1.0",
