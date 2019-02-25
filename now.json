@@ -59,6 +59,10 @@
       }
     },
     {
+      "src": "/google2b07cf64e0755399.html",
+      "dest": "/static/google2b07cf64e0755399.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }
