@@ -73,7 +73,12 @@ const Header = ({ title, url, image, date }: Props) => {
       <HeaderContent>
         <Title style={props}>{title}</Title>
         {date && <DateHeading date={date} />}
-        {url && <Button text="Read More" link={isAmp ? `${url}?amp=1` : url} />}
+        {url && (
+          <Button
+            text="Read More"
+            link={{ pathname: url, query: isAmp && { amp: 1 } }}
+          />
+        )}
       </HeaderContent>
       <Image image={image} />
       <figure>
