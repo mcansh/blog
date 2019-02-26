@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { UrlLike } from 'next/router';
 
 interface Props
   extends React.DetailedHTMLProps<
@@ -8,7 +9,7 @@ interface Props
     HTMLAnchorElement
   > {
   text: string;
-  link: string;
+  link: string | UrlLike;
   color?: string;
   background?: string;
   hoverColor?: string;

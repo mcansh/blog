@@ -25,7 +25,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   const [prefetched, setPrefetched] = useState(false);
   return (
-    <Link href={isAmp ? `${url}?amp=1` : url} passHref>
+    <Link href={{ pathname: url, query: isAmp && { amp: 1 } }} passHref>
       <Post
         onMouseEnter={() => {
           if (!prefetched) {

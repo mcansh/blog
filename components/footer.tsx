@@ -22,7 +22,11 @@ const FooterWrap = () => {
   const isAmp = useAmp();
   return (
     <Footer>
-      <Link href={isAmp ? '/?amp=1' : '/'} prefetch passHref>
+      <Link
+        href={{ pathname: '/', query: isAmp && { amp: 1 } }}
+        prefetch
+        passHref
+      >
         <StyledLink rel="home" aria-label="go home">
           &copy; {new Date().getFullYear()} {name}
         </StyledLink>
