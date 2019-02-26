@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAmp } from 'next/amp';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { name } from '~/utils/authorInfo.ts';
@@ -17,14 +18,17 @@ const StyledLink = styled.a`
   text-decoration: none;
 `;
 
-const FooterWrap = () => (
-  <Footer>
-    <Link href="/" prefetch passHref>
-      <StyledLink rel="home" aria-label="go home">
-        &copy; {new Date().getFullYear()} {name}
-      </StyledLink>
-    </Link>
-  </Footer>
-);
+const FooterWrap = () => {
+  const isAmp = useAmp();
+  return (
+    <Footer>
+      <Link href={isAmp ? '/?amp=1' : '/'} prefetch passHref>
+        <StyledLink rel="home" aria-label="go home">
+          &copy; {new Date().getFullYear()} {name}
+        </StyledLink>
+      </Link>
+    </Footer>
+  );
+};
 
 export default FooterWrap;
