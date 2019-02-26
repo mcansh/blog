@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAmp } from 'next/amp';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import Button from '~/components/button.tsx';
@@ -58,8 +59,12 @@ interface Props {
 }
 
 const Header = ({ title, url, image, date }: Props) => {
+  const isAmp = useAmp();
   const props = useSpring({
-    from: { opacity: 0, transform: 'translateY(-50px)' },
+    from: {
+      opacity: isAmp ? 1 : 0,
+      transform: isAmp ? 'translateY(0px)' : 'translateY(-50px)',
+    },
     to: { opacity: 1, transform: 'translateY(0px)' },
   });
 
@@ -68,7 +73,7 @@ const Header = ({ title, url, image, date }: Props) => {
       <HeaderContent>
         <Title style={props}>{title}</Title>
         {date && <DateHeading date={date} />}
-        {url && <Button text="Read More" link={url} />}
+        {url && <Button text="Read More" link={isAmp ? `${url}?amp=1` : url} />}
       </HeaderContent>
       <Image image={image} />
       <figure>
