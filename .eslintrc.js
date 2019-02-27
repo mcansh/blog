@@ -1,12 +1,6 @@
 module.exports = {
   extends: ['mcansh/typescript', 'plugin:mdx/recommended'],
   rules: {
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      {
-        ignoreRestSiblings: true,
-      },
-    ],
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
     'import/no-extraneous-dependencies': [
       'error',
