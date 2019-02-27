@@ -1,6 +1,6 @@
 // Native
 import * as fs from 'fs';
-import { join } from 'path';
+import * as path from 'path';
 import { promisify } from 'util';
 
 // Packages
@@ -11,6 +11,9 @@ import { colors } from '../../config';
 const writeFile = promisify(fs.writeFile);
 
 const manifest = async () => {
+  const fileName = 'manifest.json';
+  const targetFolder = path.join(__dirname, '..', '..', 'static');
+
   const iconSizes = [72, 96, 128, 144, 256, 512];
 
   const icons = iconSizes.map(icon => ({
@@ -33,9 +36,16 @@ const manifest = async () => {
 
   const prettyJSON = prettier.format(json, { parser: 'json' });
 
-  const path = join(__dirname, '..', '..', 'static/manifest.json');
+  const writeLocation = `${
+    targetFolder.endsWith('/') ? targetFolder : `${targetFolder}/`
+  }${fileName}`;
 
-  await writeFile(path, prettyJSON);
+  try {
+    await writeFile(writeLocation, prettyJSON);
+    console.log(`${fileName} was written to ${writeLocation}`);
+  } catch (error) {
+    throw error;
+  }
 };
 
 export default manifest;

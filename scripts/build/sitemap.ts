@@ -1,16 +1,17 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs');
-const glob = require('glob');
-const path = require('path');
+import { promisify } from 'util';
+import * as fs from 'fs';
+import * as glob from 'glob';
+import * as path from 'path';
 
-// Set the header
-const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`;
+const writeFile = promisify(fs.writeFile);
 
 // Wrap all pages in <urlset> tags
-const xmlUrlWrapper = nodes => `${xmlHeader}
-${nodes}
-</urlset>`;
+const xmlUrlWrapper = nodes => `
+  <?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    ${nodes}
+  </urlset>
+`;
 
 // Determine and return the nodes for every page
 const xmlUrlNode = (
@@ -28,7 +29,7 @@ const xmlUrlNode = (
   `;
 };
 
-const exportSitemap = async () => {
+const sitemap = async () => {
   const domain = 'https://mcansh.blog';
   const fileName = 'sitemap.xml';
   const targetFolder = path.join(__dirname, '..', '..', 'static');
@@ -54,17 +55,19 @@ const exportSitemap = async () => {
     targetFolder.endsWith('/') ? targetFolder : `${targetFolder}/`
   }${fileName}`;
 
-  const sitemap = `${xmlUrlWrapper(
+  const xml = `${xmlUrlWrapper(
     pages.map(page => xmlUrlNode(domain, page)).filter(Boolean).join(`
   `)
   )}`;
 
-  fs.writeFile(`${writeLocation}`, sitemap, err => {
-    if (err) throw err;
+  try {
+    await writeFile(writeLocation, xml);
     console.log(
-      `sitemap.xml with ${pages.length} entries was written to ${writeLocation}`
+      `${fileName} with ${pages.length} entries was written to ${writeLocation}`
     );
-  });
+  } catch (error) {
+    throw error;
+  }
 };
 
-exportSitemap();
+export default sitemap;
