@@ -29,7 +29,7 @@ interface Props {
 }
 
 class MyApp extends App<Props> {
-  constructor(...args) {
+  private constructor(...args) {
     // @ts-ignore
     super(...args);
     Sentry.init({
@@ -41,7 +41,10 @@ class MyApp extends App<Props> {
     });
   }
 
-  static getInitialProps = async ({ Component, ctx }: NextAppContext) => {
+  public static getInitialProps = async ({
+    Component,
+    ctx,
+  }: NextAppContext) => {
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -59,12 +62,12 @@ class MyApp extends App<Props> {
     return { pageProps, locale, messages, initialNow };
   };
 
-  componentDidCatch(error, errorInfo) {
+  public componentDidCatch(error, errorInfo) {
     Sentry.captureException(error);
     super.componentDidCatch(error, errorInfo);
   }
 
-  render() {
+  public render() {
     const { Component, pageProps, locale, messages, initialNow } = this.props;
 
     return (

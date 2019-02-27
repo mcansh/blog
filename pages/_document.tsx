@@ -21,7 +21,7 @@ const cspHashOf = (text: string) => {
 };
 
 class MyDocument extends Document<Props> {
-  static async getInitialProps(context: NextDocumentContext) {
+  public static async getInitialProps(context: NextDocumentContext) {
     // styled-components
     const sheet = new ServerStyleSheet();
 
@@ -49,7 +49,7 @@ class MyDocument extends Document<Props> {
     };
   }
 
-  render() {
+  public render() {
     const { locale, styles, localeDataScript } = this.props;
     const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
     const encodedFeatures = encodeURIComponent(features);

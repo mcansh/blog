@@ -6,13 +6,13 @@ interface Props {
 }
 
 class Portal extends React.Component<Props> {
-  element = null;
+  private element = null;
 
-  componentDidMount = () => {
+  public componentDidMount = () => {
     this.element = document.getElementById('portal');
   };
 
-  render() {
+  public render() {
     if (this.element == null) return null;
     const { children } = this.props;
     return createPortal(children, this.element);

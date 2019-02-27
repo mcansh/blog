@@ -35,7 +35,7 @@ const prefetchPage = async (href: string | UrlObject) => {
 // extend default next/link to customize the prefetch behaviour
 class LinkWithData extends Link {
   // our custom prefetch method
-  async prefetch() {
+  public async prefetch() {
     const { withData, prefetch, href }: Props = this.props;
     // if the prefetch prop is not defined do nothing
     if (!prefetch) return;
