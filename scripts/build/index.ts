@@ -1,5 +1,5 @@
 import * as kleur from 'kleur';
-import manifest from './manifest';
+import manifest from '~/scripts/build/manifest.ts';
 
 const main = async () => {
   try {

@@ -18,7 +18,7 @@ import { meta as sinatraProject } from './pages/sinatra-project.mdx';
 import { meta as railsProject } from './pages/rails-project.mdx';
 // @ts-ignore
 import { meta as rubyProject } from './pages/ruby-project.mdx';
-import { Post } from './components/post-card';
+import { Post } from '~/components/post-card/index.tsx';
 
 const posts = [
   learningSoftwareDevelopment,

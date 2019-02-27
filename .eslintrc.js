@@ -1,5 +1,10 @@
 module.exports = {
   extends: ['mcansh/typescript', 'plugin:mdx/recommended'],
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import': {},
+    },
+  },
   rules: {
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
     'import/no-extraneous-dependencies': [

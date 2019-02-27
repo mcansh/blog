@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import Navigation from '~/components/navigation';
-import Footer from '~/components/footer';
-import { initGA, logPageView } from '~/lib/analytics';
-import randomEmoji from '~/utils/emojis';
+import Navigation from '~/components/navigation.tsx';
+import Footer from '~/components/footer.tsx';
+import { initGA, logPageView } from '~/lib/analytics.ts';
+import randomEmoji from '~/utils/emojis.ts';
 import { withRouter, RouterProps } from 'next/router';
 
 // @ts-ignore
@@ -40,7 +40,7 @@ const Document = ({ children, router }: Props) => {
     } else {
       console.log('something something serviceWorker');
     }
-  }, []);
+  }, [isProd]);
 
   useEffect(() => {
     if (isProd) {
@@ -52,7 +52,7 @@ const Document = ({ children, router }: Props) => {
     } else {
       console.log('something something google analytics');
     }
-  }, [router.pathname]);
+  }, [isProd, router.pathname]);
 
   return (
     <>

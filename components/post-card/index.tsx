@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
-import unsplashParams from '~/utils/unsplashParams';
-import Post, { imageHeight } from '~/components/post-card/styles';
-import { ImageType } from '~/components/header/image';
-import { formatPostDate, iso8601 } from '~/utils/dates';
-import getCloudinaryURL from '~/utils/getCloudinaryURL';
+import unsplashParams from '~/utils/unsplashParams.ts';
+import Post, { imageHeight } from '~/components/post-card/styles.tsx';
+import { ImageType } from '~/components/header/image.tsx';
+import { formatPostDate, iso8601 } from '~/utils/dates.ts';
+import getCloudinaryURL from '~/utils/getCloudinaryURL.ts';
 
 export interface Post {
   image: ImageType;

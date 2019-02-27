@@ -18,7 +18,7 @@ const useScrollProgress = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   return scrollProgress;
 };

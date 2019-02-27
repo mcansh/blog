@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import React from 'react';
-import PostCard, { Post } from '../../components/post-card';
-import { render } from '../../utils/render-with-intl';
+import PostCard, { Post } from '~/components/post-card/index.tsx';
+import { render } from '~/utils/render-with-intl.tsx';
 
 const post: Post = {
   date: 1549144492819,
