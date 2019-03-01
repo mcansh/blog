@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import React from 'react';
 import Document, {
   Head,
@@ -6,7 +7,6 @@ import Document, {
   NextDocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import crypto from 'crypto';
 
 interface Props {
   styles: string;
