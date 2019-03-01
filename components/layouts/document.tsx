@@ -40,7 +40,7 @@ const Document = ({ children, router }: Props) => {
     } else {
       console.log('something something serviceWorker');
     }
-  }, []);
+  }, [isProd]);
 
   useEffect(() => {
     if (isProd) {
@@ -52,7 +52,7 @@ const Document = ({ children, router }: Props) => {
     } else {
       console.log('something something google analytics');
     }
-  }, [router.pathname]);
+  }, [isProd, router.pathname]);
 
   return (
     <>
