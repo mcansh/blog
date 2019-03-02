@@ -146,7 +146,7 @@ const NProgressContainer = ({
       Router.events.off('routeChangeComplete', routeChangeEnd);
       Router.events.off('routeChangeError', routeChangeEnd);
     };
-  }, []);
+  }, [options, routeChangeEnd, routeChangeStart]);
 
   return <Progress color={color} spinner={spinner} />;
 };

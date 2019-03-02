@@ -3,11 +3,11 @@ import App, { Container, NextAppContext } from 'next/app';
 import { IntlProvider, addLocaleData, Messages } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
-import NProgress from '~/components/styles/nprogress';
-import GlobalStyle from '~/components/styles/global-style';
-import { colors } from '~/config';
-import Document from '~/components/layouts/document';
-import Meta from '~/components/meta';
+import NProgress from '~/components/styles/nprogress.tsx';
+import GlobalStyle from '~/components/styles/global-style.tsx';
+import { colors } from '~/config.ts';
+import Document from '~/components/layouts/document.tsx';
+import Meta from '~/components/meta.tsx';
 
 /*
  * Register React Intl's locale data for the user's locale in the browser. This
@@ -29,7 +29,7 @@ interface Props {
 }
 
 class MyApp extends App<Props> {
-  constructor(...args) {
+  private constructor(...args) {
     // @ts-ignore
     super(...args);
     Sentry.init({
@@ -41,7 +41,10 @@ class MyApp extends App<Props> {
     });
   }
 
-  static getInitialProps = async ({ Component, ctx }: NextAppContext) => {
+  public static getInitialProps = async ({
+    Component,
+    ctx,
+  }: NextAppContext) => {
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -59,12 +62,12 @@ class MyApp extends App<Props> {
     return { pageProps, locale, messages, initialNow };
   };
 
-  componentDidCatch(error, errorInfo) {
+  public componentDidCatch(error, errorInfo) {
     Sentry.captureException(error);
     super.componentDidCatch(error, errorInfo);
   }
 
-  render() {
+  public render() {
     const { Component, pageProps, locale, messages, initialNow } = this.props;
 
     return (

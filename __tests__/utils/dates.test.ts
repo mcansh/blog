@@ -1,5 +1,5 @@
 import cases from 'jest-in-case';
-import { iso8601, formatPostDate } from '../../utils/dates';
+import { iso8601, formatPostDate } from '~/utils/dates.ts';
 
 cases(
   'returns an iso8601 date string',
