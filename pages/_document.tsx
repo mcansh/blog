@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import React from 'react';
 import Document, {
+  Html,
   Head,
   Main,
   NextScript,
@@ -21,7 +22,7 @@ const cspHashOf = (text: string) => {
 };
 
 class MyDocument extends Document<Props> {
-  public static async getInitialProps(context: NextDocumentContext) {
+  static async getInitialProps(context: NextDocumentContext) {
     // styled-components
     const sheet = new ServerStyleSheet();
 
@@ -49,7 +50,7 @@ class MyDocument extends Document<Props> {
     };
   }
 
-  public render() {
+  render() {
     const { locale, styles, localeDataScript } = this.props;
     const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
     const encodedFeatures = encodeURIComponent(features);
@@ -69,7 +70,7 @@ class MyDocument extends Document<Props> {
     )}`;
 
     return (
-      <html lang={locale}>
+      <Html lang={locale}>
         <Head>
           <meta httpEquiv="Content-Security-Policy" content={csp} />
           {styles}
@@ -86,7 +87,7 @@ class MyDocument extends Document<Props> {
           />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
