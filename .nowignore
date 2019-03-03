@@ -15,4 +15,3 @@ tsconfig.server.json
 *.env
 node_modules
 *.log
-scripts

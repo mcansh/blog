@@ -6,12 +6,5 @@
   "background_color": "#6c16c7",
   "theme_color": "#6c16c7",
   "display": "standalone",
-  "icons": [
-    { "src": "/static/images/logo/logo-72.png", "sizes": "72x72" },
-    { "src": "/static/images/logo/logo-96.png", "sizes": "96x96" },
-    { "src": "/static/images/logo/logo-128.png", "sizes": "128x128" },
-    { "src": "/static/images/logo/logo-144.png", "sizes": "144x144" },
-    { "src": "/static/images/logo/logo-256.png", "sizes": "256x256" },
-    { "src": "/static/images/logo/logo-512.png", "sizes": "512x512" }
-  ]
+  "icons": "[{\"src\":\"/static/images/logo/logo-72.png\",\"sizes\":\"72x72\"},{\"src\":\"/static/images/logo/logo-96.png\",\"sizes\":\"96x96\"},{\"src\":\"/static/images/logo/logo-128.png\",\"sizes\":\"128x128\"},{\"src\":\"/static/images/logo/logo-144.png\",\"sizes\":\"144x144\"},{\"src\":\"/static/images/logo/logo-256.png\",\"sizes\":\"256x256\"},{\"src\":\"/static/images/logo/logo-512.png\",\"sizes\":\"512x512\"}]"
 }

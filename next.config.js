@@ -4,6 +4,9 @@ const withMDX = require('@zeit/next-mdx')({
 });
 const withOffline = require('next-offline');
 const withTypescript = require('@zeit/next-typescript');
+const generateStaticFiles = require('./scripts/build');
+
+generateStaticFiles();
 
 const nextConfig = {
   target: 'serverless',
