@@ -8166,10 +8166,10 @@ next-offline@3.3.6:
     webpack "^4.19.1"
     workbox-webpack-plugin "3.6.3"
 
-next-server@8.0.4-canary.4:
-  version "8.0.4-canary.4"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.4-canary.4.tgz#a342b3cfa3732e06c52a5fecf4da165ad535b102"
-  integrity sha512-snTRZ0tru4Bf0imJ2E7nNWfZDHF4I0WkG4UdSW+F7aK74rvaYi+p82z2UOljQkYTeanpM/8OlSaRQGuhlE36/Q==
+next-server@8.0.4-canary.6:
+  version "8.0.4-canary.6"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.4-canary.6.tgz#bfea1f84c8ff3e258caf30c8389bb9540a4d934b"
+  integrity sha512-IBOBBe6BG8XbWpfQbBEHveKp9Fr/BVJ57EtYYic5KaEYMc18QRE/DZqD5it1ef5REDe/ATlwwlKzjYQ4Wqmzwg==
   dependencies:
     etag "1.8.1"
     find-up "3.0.0"
@@ -8179,10 +8179,10 @@ next-server@8.0.4-canary.4:
     send "0.16.1"
     url "0.11.0"
 
-next@8.0.4-canary.4:
-  version "8.0.4-canary.4"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.0.4-canary.4.tgz#732bfe469f13da4c89ad238640fab45d976df38a"
-  integrity sha512-LIWi5jdMavS5AAGbpacP1CCrrTNOlIuyfuqua8/wAY/dSkTVOmPeCtryqOCUjB95iPG3lVvc9dmAbg+xiTtx/A==
+next@8.0.4-canary.6:
+  version "8.0.4-canary.6"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.0.4-canary.6.tgz#0ce130e5c08e35215f5d4c83ac6d627c39cecf0a"
+  integrity sha512-xaTCkHSXSzNCbnS+rPObMHkmKpDA7E2b7jSg6eumNywIP5C69zfWpRWMtjkod1y+wGieWkAl38ptW+SzE7JtpQ==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -8213,7 +8213,7 @@ next@8.0.4-canary.4:
     loader-utils "1.1.0"
     mkdirp "0.5.1"
     nanoid "1.2.1"
-    next-server "8.0.4-canary.4"
+    next-server "8.0.4-canary.6"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "4.0.0"
@@ -8228,7 +8228,6 @@ next@8.0.4-canary.4:
     terser "3.16.1"
     tty-aware-progress "1.0.3"
     unfetch "3.0.0"
-    unistore "3.2.1"
     url "0.11.0"
     webpack "4.29.0"
     webpack-dev-middleware "3.4.0"
@@ -11976,11 +11975,6 @@ unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.3.0:
   integrity sha512-FiGu34ziNsZA3ZUteZxSFaczIjGmksfSgdKqBfOejrrfzyUy5b7YrlzT1Bcvi+djkYDituJDy2XB7tGTeBieKw==
   dependencies:
     unist-util-visit-parents "^2.0.0"
-
-unistore@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/unistore/-/unistore-3.2.1.tgz#26e316c834e39b83b2a301a65f78138f43975a0b"
-  integrity sha512-102VTsu5dcoADsz+NdBE55JeFh1YYLvrEzLenwE+nu3lFWSVZj2MpvXLkBqrx/YTk+L3kzMG5UwHkHoj/9VcaQ==
 
 universal-user-agent@^2.0.0, universal-user-agent@^2.0.1:
   version "2.0.3"
