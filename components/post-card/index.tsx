@@ -36,8 +36,11 @@ const PostCard = ({ url, image, date, title }: Post) => {
       >
         <div className="post-card__img-wrapper">
           {isAmp ? (
-            <img
+            <amp-img
               src={image1x}
+              height={imageHeight}
+              width={imageHeight * 2}
+              layout="responsive"
               alt={title}
               srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
               data-photo={
