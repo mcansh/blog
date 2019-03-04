@@ -8166,10 +8166,10 @@ next-offline@3.3.6:
     webpack "^4.19.1"
     workbox-webpack-plugin "3.6.3"
 
-next-server@8.0.4-canary.6:
-  version "8.0.4-canary.6"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.4-canary.6.tgz#bfea1f84c8ff3e258caf30c8389bb9540a4d934b"
-  integrity sha512-IBOBBe6BG8XbWpfQbBEHveKp9Fr/BVJ57EtYYic5KaEYMc18QRE/DZqD5it1ef5REDe/ATlwwlKzjYQ4Wqmzwg==
+next-server@8.0.4-canary.7:
+  version "8.0.4-canary.7"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.4-canary.7.tgz#3ae143ff90bde7b1bfabe560758ef9894515fd2a"
+  integrity sha512-+DyuYMCkdDt0KGp+GGMRqwlVxt7ieWy1HVdK/0REYx5+r6UxW+45cHQxUNinNOjA+Sw6TIpy+v6QI47phtPCxA==
   dependencies:
     etag "1.8.1"
     find-up "3.0.0"
@@ -8179,10 +8179,10 @@ next-server@8.0.4-canary.6:
     send "0.16.1"
     url "0.11.0"
 
-next@8.0.4-canary.6:
-  version "8.0.4-canary.6"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.0.4-canary.6.tgz#0ce130e5c08e35215f5d4c83ac6d627c39cecf0a"
-  integrity sha512-xaTCkHSXSzNCbnS+rPObMHkmKpDA7E2b7jSg6eumNywIP5C69zfWpRWMtjkod1y+wGieWkAl38ptW+SzE7JtpQ==
+next@8.0.4-canary.7:
+  version "8.0.4-canary.7"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.0.4-canary.7.tgz#978d61078b62ececf69289188d16b8d95d36bef6"
+  integrity sha512-xnw4/lRLEcAAz1ckgCFB9IOW0K7bv7xukqAdLOza2y3PJVw8VZ29fAG+5RwGFRMXD4zO2YuRbxGWIZHMiF4elQ==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -8213,7 +8213,7 @@ next@8.0.4-canary.6:
     loader-utils "1.1.0"
     mkdirp "0.5.1"
     nanoid "1.2.1"
-    next-server "8.0.4-canary.6"
+    next-server "8.0.4-canary.7"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "4.0.0"
@@ -8230,7 +8230,7 @@ next@8.0.4-canary.6:
     unfetch "3.0.0"
     url "0.11.0"
     webpack "4.29.0"
-    webpack-dev-middleware "3.4.0"
+    webpack-dev-middleware "3.6.0"
     webpack-hot-middleware "2.24.3"
     webpack-sources "1.3.0"
     worker-farm "1.5.2"
@@ -12269,12 +12269,12 @@ webpack-bundle-analyzer@2.13.1:
     opener "^1.4.3"
     ws "^4.0.0"
 
-webpack-dev-middleware@3.4.0:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-3.4.0.tgz#1132fecc9026fd90f0ecedac5cbff75d1fb45890"
-  integrity sha512-Q9Iyc0X9dP9bAsYskAVJ/hmIZZQwf/3Sy4xCAZgL5cUkjZmUZLt4l5HpbST/Pdgjn3u6pE7u5OdGd1apgzRujA==
+webpack-dev-middleware@3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.6.0.tgz#71f1b04e52ff8d442757af2be3a658237d53a3e5"
+  integrity sha512-oeXA3m+5gbYbDBGo4SvKpAHJJEGMoekUbHgo1RK7CP1sz7/WOSeu/dWJtSTk+rzDCLkPwQhGocgIq6lQqOyOwg==
   dependencies:
-    memory-fs "~0.4.1"
+    memory-fs "^0.4.1"
     mime "^2.3.1"
     range-parser "^1.0.3"
     webpack-log "^2.0.0"
