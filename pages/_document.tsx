@@ -1,25 +1,18 @@
-import crypto from 'crypto';
 import React from 'react';
 import Document, {
-  Html,
   Head,
   Main,
   NextScript,
   NextDocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import CSP from '~/lib/csp.tsx';
 
 interface Props {
   styles: string;
   locale: string;
   localeDataScript: string;
 }
-
-const cspHashOf = (text: string) => {
-  const hash = crypto.createHash('sha256');
-  hash.update(text);
-  return `'sha256-${hash.digest('base64')}'`;
-};
 
 class MyDocument extends Document<Props> {
   static async getInitialProps(context: NextDocumentContext) {
@@ -56,23 +49,10 @@ class MyDocument extends Document<Props> {
     const encodedFeatures = encodeURIComponent(features);
     const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
 
-    const cspSettings = [
-      "default-src 'self'",
-      "script-src 'self' https://polyfill.io/v3/polyfill.min.js 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://cdn.ampproject.org/v0.js",
-      "connect-src 'self' ws://localhost:*",
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' https://res.cloudinary.com/dof0zryca/ data:",
-    ];
-
-    const csp = `${cspSettings.join(';')} ${cspHashOf(
-      // @ts-ignore
-      NextScript.getInlineScriptSource(this.props)
-    )}`;
-
     return (
-      <Html lang={locale}>
+      <html lang={locale}>
         <Head>
-          <meta httpEquiv="Content-Security-Policy" content={csp} />
+          <CSP {...this.props} />
           {styles}
         </Head>
         <body>
@@ -87,7 +67,7 @@ class MyDocument extends Document<Props> {
           />
           <NextScript />
         </body>
-      </Html>
+      </html>
     );
   }
 }
