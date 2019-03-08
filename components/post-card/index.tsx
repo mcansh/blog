@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
-import unsplashParams from '~/utils/unsplashParams.ts';
+import unsplashParams from '~/utils/unsplash-params';
 import Post, { imageHeight } from '~/components/post-card/styles.tsx';
 import { ImageType } from '~/components/header/image.tsx';
 import { formatPostDate, iso8601 } from '~/utils/dates.ts';
