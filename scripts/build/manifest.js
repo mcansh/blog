@@ -24,12 +24,12 @@ const json = {
   background_color: '#6c16c7',
   theme_color: '#6c16c7',
   display: 'standalone',
-  icons: JSON.stringify(icons),
+  icons,
 };
 
 module.exports = () => {
   fs.writeFileSync(
-    path.join(OUT_DIR, 'manifest.json'),
+    path.join(OUT_DIR, 'manifest.webmanifest'),
     JSON.stringify(json, null, 2)
   );
 };

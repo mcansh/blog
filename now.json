@@ -23,8 +23,16 @@
       }
     },
     {
+      "src": "/manifest.webmanifest",
+      "dest": "/static/manifest.webmanifest",
+      "headers": {
+        "content-type": "application/manifest+json",
+        "cache-control": "public, max-age=43200, immutable"
+      }
+    },
+    {
       "src": "/manifest.json",
-      "dest": "/static/manifest.json",
+      "dest": "/static/manifest.webmanifest",
       "headers": {
         "cache-control": "public, max-age=43200, immutable"
       }
