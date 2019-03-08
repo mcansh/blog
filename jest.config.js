@@ -6,4 +6,6 @@ module.exports = {
     '<rootDir>/test/jest.testing.js',
     // '<rootDir>/test/jest.tsc.js',
   ],
+  coverageDirectory: './coverage/',
+  collectCoverage: true,
 };
