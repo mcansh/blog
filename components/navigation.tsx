@@ -7,9 +7,9 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
-import Hamburger from '~/components/hamburger.tsx';
-import Portal from '~/components/portal.tsx';
-import { logEvent } from '~/lib/analytics.ts';
+import Hamburger from '~/components/hamburger';
+import Portal from '~/components/portal';
+import { logEvent } from '~/lib/analytics';
 
 // @ts-ignore
 const NavList = dynamic({

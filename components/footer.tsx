@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { name } from '~/utils/authorInfo.ts';
+import { name } from '~/utils/authorInfo';
 
 const Footer = styled.footer`
   height: 8rem;
