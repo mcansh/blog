@@ -3,10 +3,10 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
 import unsplashParams from '~/utils/unsplash-params';
-import Post, { imageHeight } from '~/components/post-card/styles.tsx';
-import { ImageType } from '~/components/header/image.tsx';
-import { formatPostDate, iso8601 } from '~/utils/dates.ts';
-import getCloudinaryURL from '~/utils/getCloudinaryURL.ts';
+import Post, { imageHeight } from '~/components/post-card/styles';
+import { ImageType } from '~/components/header/image';
+import { formatPostDate, iso8601 } from '~/utils/dates';
+import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
 export interface Post {
   image: ImageType;

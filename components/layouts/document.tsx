@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import Navigation from '~/components/navigation.tsx';
-import Footer from '~/components/footer.tsx';
-import { initGA, logPageView } from '~/lib/analytics.ts';
-import randomEmoji from '~/utils/emojis.ts';
+import Navigation from '~/components/navigation';
+import Footer from '~/components/footer';
+import { initGA, logPageView } from '~/lib/analytics';
+import randomEmoji from '~/utils/emojis';
 import { withRouter, RouterProps } from 'next/router';
 
 // @ts-ignore

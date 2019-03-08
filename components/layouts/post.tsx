@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MDXProvider } from '@mdx-js/tag';
-import Meta from '~/components/meta.tsx';
-import Header from '~/components/header/index.tsx';
-import Paragraph from '~/components/paragraph.tsx';
-import { Post as PostType } from '~/components/post-card/index.tsx';
-import useScrollProgress from '~/components/use-scroll-progress.tsx';
+import Meta from '~/components/meta';
+import Header from '~/components/header/index';
+import Paragraph from '~/components/paragraph';
+import { Post as PostType } from '~/components/post-card/index';
+import useScrollProgress from '~/components/use-scroll-progress';
 
 const ScrollProgress = styled.progress`
   position: fixed;

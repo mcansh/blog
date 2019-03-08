@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import unsplashParams from '~/utils/unsplash-params';
-import getCloudinaryURL from '~/utils/getCloudinaryURL.ts';
+import getCloudinaryURL from '~/utils/getCloudinaryURL';
 
 export interface ImageType {
   imageUrl: string;

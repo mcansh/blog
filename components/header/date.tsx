@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedRelative } from 'react-intl';
 import styled from 'styled-components';
 import { differenceInMonths } from 'date-fns';
-import { formatPostDate } from '~/utils/dates.ts';
+import { formatPostDate } from '~/utils/dates';
 
 const H2 = styled.h2`
   font-size: 2.5rem;
