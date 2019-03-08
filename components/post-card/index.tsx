@@ -6,7 +6,7 @@ import unsplashParams from '~/utils/unsplash-params';
 import Post, { imageHeight } from '~/components/post-card/styles';
 import { ImageType } from '~/components/header/image';
 import { formatPostDate, iso8601 } from '~/utils/dates';
-import getCloudinaryURL from '~/utils/getCloudinaryURL';
+import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 export interface Post {
   image: ImageType;
@@ -26,6 +26,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
     <Link href={url} passHref>
       <Post
         onMouseEnter={() => {
+          /* istanbul ignore next */
           if (!prefetched) {
             Router.prefetch(url);
             setPrefetched(true);
@@ -34,6 +35,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
       >
         <div className="post-card__img-wrapper">
           <SimpleImg
+            data-testid="post-image"
             placeholder={false}
             height={200}
             src={image1x}

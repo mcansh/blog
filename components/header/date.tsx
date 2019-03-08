@@ -16,6 +16,7 @@ interface Props {
 }
 
 const DateHeading = ({ date }: Props) => {
+  /* istanbul ignore next */
   const monthDiff = differenceInMonths(Date.now(), date);
   return (
     <H2 title={formatPostDate(date)}>
