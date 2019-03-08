@@ -45,7 +45,7 @@ const Meta = ({ title, date, image, router }: Props) => {
         name="viewport"
         content="initial-scale=1.0, width=device-width, viewport-fit=cover"
       />
-      <link rel="manifest" href={`${staticFilePrefix}/manifest.json`} />
+      <link rel="manifest" href={`${staticFilePrefix}/manifest.webmanifest`} />
       <link
         rel="mask-icon"
         href="/static/images/logo/safari.svg"
