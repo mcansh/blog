@@ -8166,10 +8166,10 @@ next-offline@3.3.6:
     webpack "^4.19.1"
     workbox-webpack-plugin "3.6.3"
 
-next-server@8.0.4-canary.7:
-  version "8.0.4-canary.7"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.4-canary.7.tgz#3ae143ff90bde7b1bfabe560758ef9894515fd2a"
-  integrity sha512-+DyuYMCkdDt0KGp+GGMRqwlVxt7ieWy1HVdK/0REYx5+r6UxW+45cHQxUNinNOjA+Sw6TIpy+v6QI47phtPCxA==
+next-server@8.0.4-canary.9:
+  version "8.0.4-canary.9"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.4-canary.9.tgz#a98b24b487c857f5a0dd3209a977564b0f56085f"
+  integrity sha512-GONv9U2Flf6uGQ0lifQTuRAVsREOf1Pi4BJDzYDyKV3xBvHWQCOcF/ARXAiDHYlc1xSQ8UMgnCIWPoTo9aolAA==
   dependencies:
     etag "1.8.1"
     find-up "3.0.0"
@@ -8179,10 +8179,10 @@ next-server@8.0.4-canary.7:
     send "0.16.1"
     url "0.11.0"
 
-next@8.0.4-canary.7:
-  version "8.0.4-canary.7"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.0.4-canary.7.tgz#978d61078b62ececf69289188d16b8d95d36bef6"
-  integrity sha512-xnw4/lRLEcAAz1ckgCFB9IOW0K7bv7xukqAdLOza2y3PJVw8VZ29fAG+5RwGFRMXD4zO2YuRbxGWIZHMiF4elQ==
+next@8.0.4-canary.9:
+  version "8.0.4-canary.9"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.0.4-canary.9.tgz#96127be15e92370310d7691bf91a06554de22130"
+  integrity sha512-7SDmSs7OnBCj5c9oPdAvj4KHCw/1jYTj6DytfvjiILBmPCrr143T0Yulmky7Q9ka5YGoxtony2GvIIzkVGFy4Q==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -8213,15 +8213,14 @@ next@8.0.4-canary.7:
     loader-utils "1.1.0"
     mkdirp "0.5.1"
     nanoid "1.2.1"
-    next-server "8.0.4-canary.7"
+    next-server "8.0.4-canary.9"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "4.0.0"
     react-is "16.6.3"
     recursive-copy "2.0.6"
     resolve "1.5.0"
-    rimraf "2.6.3"
-    serialize-javascript "1.4.0"
+    serialize-javascript "1.6.1"
     source-map "0.6.1"
     strip-ansi "3.0.1"
     styled-jsx "3.2.1"
@@ -9755,15 +9754,15 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@16.8.4:
-  version "16.8.4"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.4.tgz#1061a8e01a2b3b0c8160037441c3bf00a0e3bc48"
-  integrity sha512-Ob2wK7XG2tUDt7ps7LtLzGYYB6DXMCLj0G5fO6WeEICtT4/HdpOi7W/xLzZnR6RCG1tYza60nMdqtxzA8FaPJQ==
+react-dom@16.8.3:
+  version "16.8.3"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.3.tgz#ae236029e66210783ac81999d3015dfc475b9c32"
+  integrity sha512-ttMem9yJL4/lpItZAQ2NTFAbV7frotHk5DZEHXUOws2rMmrsvh1Na7ThGT0dTzUIl6pqTOi5tYREfL8AEna3lA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.4"
+    scheduler "^0.13.3"
 
 react-error-overlay@4.0.0:
   version "4.0.0"
@@ -9818,15 +9817,15 @@ react-testing-library@6.0.0:
     "@babel/runtime" "^7.3.1"
     dom-testing-library "^3.13.1"
 
-react@16.8.4:
-  version "16.8.4"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.8.4.tgz#fdf7bd9ae53f03a9c4cd1a371432c206be1c4768"
-  integrity sha512-0GQ6gFXfUH7aZcjGVymlPOASTuSjlQL4ZtVC5YKH+3JL6bBLCVO21DknzmaPlI90LN253ojj02nsapy+j7wIjg==
+react@16.8.3:
+  version "16.8.3"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.8.3.tgz#c6f988a2ce895375de216edcfaedd6b9a76451d9"
+  integrity sha512-3UoSIsEq8yTJuSu0luO1QQWYbgGEILm+eJl2QN/VLDi7hL+EN18M3q3oVZwmVzzBJ3DkM7RMdRwBmZZ+b4IzSA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.4"
+    scheduler "^0.13.3"
 
 read-cmd-shim@^1.0.1, read-cmd-shim@~1.0.1:
   version "1.0.1"
@@ -10421,7 +10420,7 @@ sax@^1.2.4, sax@~1.2.1:
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-scheduler@^0.13.4:
+scheduler@^0.13.3:
   version "0.13.4"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.4.tgz#8fef05e7a3580c76c0364d2df5e550e4c9140298"
   integrity sha512-cvSOlRPxOHs5dAhP9yiS/6IDmVAVxmk33f0CtTJRkmUWcb1Us+t7b1wqdzoC0REw2muC9V5f1L/w5R5uKGaepA==
@@ -10556,12 +10555,7 @@ sentence-case@^2.1.0:
     no-case "^2.2.0"
     upper-case-first "^1.1.2"
 
-serialize-javascript@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-1.4.0.tgz#7c958514db6ac2443a8abc062dc9f7886a7f6005"
-  integrity sha1-fJWFFNtqwkQ6irwGLcn3iGp/YAU=
-
-serialize-javascript@^1.4.0:
+serialize-javascript@1.6.1, serialize-javascript@^1.4.0:
   version "1.6.1"
   resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-1.6.1.tgz#4d1f697ec49429a847ca6f442a2a755126c4d879"
   integrity sha512-A5MOagrPFga4YaKQSWHryl7AXvbQkEqpw4NNYMTNYUNV51bA8ABHgYFpqKx+YFFrw59xMV1qGH1R4AgoNIVgCw==
