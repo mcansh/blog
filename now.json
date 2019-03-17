@@ -41,13 +41,6 @@
       }
     },
     {
-      "src": "/manifest.webmanifest",
-      "dest": "/static/manifest.json",
-      "headers": {
-        "cache-control": "public, max-age=43200, immutable"
-      }
-    },
-    {
       "src": "/feed.json",
       "dest": "/static/feed.json",
       "headers": {
