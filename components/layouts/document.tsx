@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Navigation from '~/components/navigation.tsx';
 import Footer from '~/components/footer.tsx';
-import { initGA, logPageView } from '~/lib/analytics.ts';
 import randomEmoji from '~/utils/emojis.ts';
 import { withRouter, RouterProps } from 'next/router';
 
@@ -41,18 +40,6 @@ const Document = ({ children, router }: Props) => {
       console.log('something something serviceWorker');
     }
   }, [isProd]);
-
-  useEffect(() => {
-    if (isProd) {
-      if (!window.GA_INITIALIZED) {
-        initGA();
-        window.GA_INITIALIZED = true;
-      }
-      logPageView(router.pathname);
-    } else {
-      console.log('something something google analytics');
-    }
-  }, [isProd, router.pathname]);
 
   return (
     <>

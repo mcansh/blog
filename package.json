@@ -41,6 +41,7 @@
     "date-fns": "2.0.0-alpha.27",
     "is-absolute-url": "2.1.0",
     "next": "8.0.4-canary.11",
+    "next-ga": "2.3.4",
     "next-nprogress": "1.4.0",
     "next-server": "8.0.4-canary.11",
     "nprogress": "0.2.0",
