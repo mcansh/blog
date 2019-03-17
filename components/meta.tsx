@@ -2,11 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import { withRouter, RouterProps } from 'next/router';
 import { description, homepage } from '~/package.json';
-import { name } from '~/utils/authorInfo.ts';
-import { iso8601 } from '~/utils/dates.ts';
-import getCloudinaryURL from '~/utils/getCloudinaryURL.ts';
-import { ImageType } from '~/components/header/image.tsx';
-import { colors, staticFilePrefix, iconSizes } from '~/config.ts';
+import { name } from '~/utils/authorInfo';
+import { iso8601 } from '~/utils/dates';
+import getCloudinaryURL from '~/utils/get-cloudinary-url';
+import { ImageType } from '~/components/header/image';
+import { colors, staticFilePrefix, iconSizes } from '~/config';
 
 interface Props {
   title?: string;
@@ -45,7 +45,7 @@ const Meta = ({ title, date, image, router }: Props) => {
         name="viewport"
         content="initial-scale=1.0, width=device-width, viewport-fit=cover"
       />
-      <link rel="manifest" href={`${staticFilePrefix}/manifest.json`} />
+      <link rel="manifest" href={`${staticFilePrefix}/manifest.webmanifest`} />
       <link
         rel="mask-icon"
         href="/static/images/logo/safari.svg"

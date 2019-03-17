@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import Navigation from '~/components/navigation.tsx';
-import Footer from '~/components/footer.tsx';
-import randomEmoji from '~/utils/emojis.ts';
+import Navigation from '~/components/navigation';
+import Footer from '~/components/footer';
+import randomEmoji from '~/utils/emojis';
 import { withRouter, RouterProps } from 'next/router';
 
 // @ts-ignore
@@ -31,7 +31,7 @@ const serviceWorker = async () => {
   }
 };
 
-const Document = ({ children, router }: Props) => {
+const Document = ({ children }: Props) => {
   const isProd = process.env.NODE_ENV === 'production';
   useEffect(() => {
     if (isProd) {

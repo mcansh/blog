@@ -2,9 +2,9 @@ import React from 'react';
 import { useAmp } from 'next/amp';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
-import Button from '~/components/button.tsx';
-import DateHeading from '~/components/header/date.tsx';
-import Image, { ImageType } from '~/components/header/image.tsx';
+import Button from '~/components/button';
+import DateHeading from '~/components/header/date';
+import Image, { ImageType } from '~/components/header/image';
 import Curve from '~/static/images/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`

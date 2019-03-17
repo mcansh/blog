@@ -5,11 +5,11 @@ import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
 import Router from 'next/router';
 import withGA from 'next-ga';
-import NProgress from '~/components/styles/nprogress.tsx';
-import GlobalStyle from '~/components/styles/global-style.tsx';
-import { colors } from '~/config.ts';
-import Document from '~/components/layouts/document.tsx';
-import Meta from '~/components/meta.tsx';
+import NProgress from '~/components/styles/nprogress';
+import GlobalStyle from '~/components/styles/global-style';
+import { colors } from '~/config';
+import Document from '~/components/layouts/document';
+import Meta from '~/components/meta';
 
 /*
  * Register React Intl's locale data for the user's locale in the browser. This

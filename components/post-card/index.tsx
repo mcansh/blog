@@ -3,11 +3,11 @@ import { useAmp } from 'next/amp';
 import Link from 'next/link';
 import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
-import unsplashParams from '~/utils/unsplashParams.ts';
-import Post, { imageHeight } from '~/components/post-card/styles.tsx';
-import { ImageType } from '~/components/header/image.tsx';
-import { formatPostDate, iso8601 } from '~/utils/dates.ts';
-import getCloudinaryURL from '~/utils/getCloudinaryURL.ts';
+import unsplashParams from '~/utils/unsplash-params';
+import Post, { imageHeight } from '~/components/post-card/styles';
+import { ImageType } from '~/components/header/image';
+import { formatPostDate, iso8601 } from '~/utils/dates';
+import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 export interface Post {
   image: ImageType;
@@ -28,6 +28,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
     <Link href={{ pathname: url, query: isAmp && { amp: 1 } }} passHref>
       <Post
         onMouseEnter={() => {
+          /* istanbul ignore next */
           if (!prefetched) {
             Router.prefetch(url);
             setPrefetched(true);
@@ -35,36 +36,20 @@ const PostCard = ({ url, image, date, title }: Post) => {
         }}
       >
         <div className="post-card__img-wrapper">
-          {isAmp ? (
-            <amp-img
-              src={image1x}
-              height={imageHeight}
-              width={imageHeight * 2}
-              layout="responsive"
-              alt={title}
-              srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
-              data-photo={
-                hasImageAuthor ? `Taken by ${image.photographer}` : undefined
-              }
-              data-source-url={
-                hasImageSrc ? unsplashParams(image.url) : undefined
-              }
-            />
-          ) : (
-            <SimpleImg
-              placeholder={false}
-              height={200}
-              src={image1x}
-              alt={title}
-              srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
-              data-photo={
-                hasImageAuthor ? `Taken by ${image.photographer}` : undefined
-              }
-              data-source-url={
-                hasImageSrc ? unsplashParams(image.url) : undefined
-              }
-            />
-          )}
+          <SimpleImg
+            data-testid="post-image"
+            placeholder={false}
+            height={200}
+            src={image1x}
+            alt={title}
+            srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
+            data-photo={
+              hasImageAuthor ? `Taken by ${image.photographer}` : undefined
+            }
+            data-source-url={
+              hasImageSrc ? unsplashParams(image.url) : undefined
+            }
+          />
         </div>
         <div className="post-card__meta">
           <h2 className="post-card__title" data-testid="post-title">
