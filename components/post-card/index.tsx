@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAmp } from 'next/amp';
 import Link from 'next/link';
 import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
@@ -16,6 +17,7 @@ export interface Post {
 }
 
 const PostCard = ({ url, image, date, title }: Post) => {
+  const isAmp = useAmp();
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
@@ -23,7 +25,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   const [prefetched, setPrefetched] = useState(false);
   return (
-    <Link href={url} passHref>
+    <Link href={{ pathname: url, query: isAmp && { amp: 1 } }} passHref>
       <Post
         onMouseEnter={() => {
           /* istanbul ignore next */

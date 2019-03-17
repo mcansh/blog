@@ -6,7 +6,7 @@ import Document, {
   NextDocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import crypto from 'crypto';
+import CSP from '~/lib/csp.tsx';
 
 interface Props {
   styles: string;
@@ -14,14 +14,8 @@ interface Props {
   localeDataScript: string;
 }
 
-const cspHashOf = (text: string) => {
-  const hash = crypto.createHash('sha256');
-  hash.update(text);
-  return `'sha256-${hash.digest('base64')}'`;
-};
-
 class MyDocument extends Document<Props> {
-  public static async getInitialProps(context: NextDocumentContext) {
+  static async getInitialProps(context: NextDocumentContext) {
     // styled-components
     const sheet = new ServerStyleSheet();
 
@@ -49,29 +43,16 @@ class MyDocument extends Document<Props> {
     };
   }
 
-  public render() {
+  render() {
     const { locale, styles, localeDataScript } = this.props;
     const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
     const encodedFeatures = encodeURIComponent(features);
     const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
 
-    const cspSettings = [
-      "default-src 'self'",
-      "script-src 'self' https://polyfill.io/v3/polyfill.min.js 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com/analytics.js",
-      "connect-src 'self' ws://localhost:*",
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' https://res.cloudinary.com/dof0zryca/ data:",
-    ];
-
-    const csp = `${cspSettings.join(';')} ${cspHashOf(
-      // @ts-ignore
-      NextScript.getInlineScriptSource(this.props)
-    )}`;
-
     return (
       <html lang={locale}>
         <Head>
-          <meta httpEquiv="Content-Security-Policy" content={csp} />
+          <CSP {...this.props} />
           {styles}
         </Head>
         <body>

@@ -3,6 +3,8 @@ import App, { Container, NextAppContext } from 'next/app';
 import { IntlProvider, addLocaleData, Messages } from 'react-intl';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
+import Router from 'next/router';
+import withGA from 'next-ga';
 import NProgress from '~/components/styles/nprogress';
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
@@ -99,4 +101,4 @@ class MyApp extends App<Props> {
   }
 }
 
-export default MyApp;
+export default withGA(process.env.ANALYTICS, Router)(MyApp);

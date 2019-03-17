@@ -5,6 +5,9 @@
     "www.mcansh.blog",
     "mcansh.blog"
   ],
+  "regions": [
+    "all"
+  ],
   "builds": [
     {
       "src": "next.config.js",
@@ -81,7 +84,7 @@
     "GITHUB": "@blog_github",
     "EMAIL": "@blog_email",
     "SENTRY": "@blog_sentry",
-    "ANALYTICS": "@blog_analytics",
+    "ANALYTICS": "UA-87731356-4",
     "GITHUB_TOKEN": "@blog_github_token"
   }
 }
