@@ -9,7 +9,6 @@ import {
 } from 'body-scroll-lock';
 import Hamburger from '~/components/hamburger';
 import Portal from '~/components/portal';
-import { logEvent } from '~/lib/analytics';
 
 // @ts-ignore
 const NavList = dynamic({
@@ -55,7 +54,6 @@ const Navigation = () => {
   });
 
   const onClick = () => {
-    logEvent({ category: 'general', action: 'toggle nav' });
     const nextNavOpen = !navOpen;
     setNavOpen(nextNavOpen);
     if (nextNavOpen) {
