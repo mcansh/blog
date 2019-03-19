@@ -9,15 +9,13 @@ cache:
 before_install:
   - export PATH="$(yarn global bin):$PATH"
   - yarn global add greenkeeper-lockfile@1
-install:
-  - yarn global add codecov
 before_script:
   - yarn install --production=false
   - greenkeeper-lockfile-update
 script:
   - yarn test
   - npx start-server-and-test start http://localhost:3000 cy:run
-  - codecov
+  - npx codecov
 after_script:
   - greenkeeper-lockfile-upload
 notifications:
