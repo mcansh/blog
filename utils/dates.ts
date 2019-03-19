@@ -1,6 +1,9 @@
 type PossibleDates = string | number | Date;
 
-const formatPostDate = (inputDate: PossibleDates, lang?: string | string[]) =>
+const formatPostDate = (
+  inputDate: PossibleDates,
+  lang: string | string[] = 'en'
+) =>
   new Intl.DateTimeFormat(lang, {
     month: 'long',
     day: 'numeric',
