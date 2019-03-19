@@ -5,6 +5,7 @@ cache:
   yarn: true
   directories:
     - node_modules
+    - ~/.cache
 before_install:
   - export PATH="$(yarn global bin):$PATH"
   - yarn global add greenkeeper-lockfile@1
@@ -15,6 +16,7 @@ before_script:
   - greenkeeper-lockfile-update
 script:
   - yarn test
+  - npx start-server-and-test start http://localhost:3000 cy:run
   - codecov
 after_script:
   - greenkeeper-lockfile-upload
