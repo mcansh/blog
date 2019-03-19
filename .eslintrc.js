@@ -8,6 +8,10 @@ module.exports = {
   },
   rules: {
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { ignoreRestSiblings: true, argsIgnorePattern: '^_' },
+    ],
     'import/no-extraneous-dependencies': [
       'error',
       {

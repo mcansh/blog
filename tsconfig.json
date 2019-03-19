@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "types": [
+      "cypress",
+      "../cypress-testing-library/typings"
+    ],
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
