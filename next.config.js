@@ -2,6 +2,7 @@
 const withMDX = require('@zeit/next-mdx')();
 const withOffline = require('next-offline');
 const withTypescript = require('@zeit/next-typescript');
+const withOptimizedImages = require('next-optimized-images');
 const generateStaticFiles = require('./scripts/build');
 
 generateStaticFiles();
@@ -28,4 +29,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(withOffline(withTypescript(nextConfig)));
+module.exports = withOptimizedImages(
+  withMDX(withOffline(withTypescript(nextConfig)))
+);

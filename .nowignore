@@ -10,7 +10,7 @@ __tests__
 jest*.js
 *.sketch
 .next
-static/images/posts
+#static/images/posts
 tsconfig.server.json
 *.env
 node_modules
