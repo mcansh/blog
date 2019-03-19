@@ -28,7 +28,8 @@
     "type-check": "tsc",
     "validate": "yarn type-check && yarn lint && yarn lint:css && yarn test",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:ci": "npx start-server-and-test dev http://localhost:3000 cy:run"
   },
   "dependencies": {
     "@mdx-js/mdx": "1.0.0-alpha.7",
