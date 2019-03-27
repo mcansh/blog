@@ -4,9 +4,10 @@ import Document, {
   Main,
   NextScript,
   NextDocumentContext,
+  Html,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import CSP from '~/lib/csp.tsx';
+import CSP from '~/components/csp';
 
 interface Props {
   styles: string;
@@ -50,7 +51,7 @@ class MyDocument extends Document<Props> {
     const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
 
     return (
-      <html lang={locale}>
+      <Html lang={locale}>
         <Head>
           <CSP {...this.props} />
           {styles}
@@ -67,7 +68,7 @@ class MyDocument extends Document<Props> {
           />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

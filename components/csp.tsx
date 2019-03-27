@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { useAmp } from 'next/amp';
-import { NextScript } from 'next/document';
+import { NextScript, NextDocumentContext } from 'next/document';
 
 const cspHashOf = (text: string) => {
   const hash = crypto.createHash('sha256');
@@ -8,8 +8,10 @@ const cspHashOf = (text: string) => {
   return `'sha256-${hash.digest('base64')}'`;
 };
 
-const CSP = props => {
+const CSP = (props: NextDocumentContext) => {
   const isAmp = useAmp();
+
+  if (isAmp) return null;
 
   const cspSettings = {
     'default-src': ["'self'"],
@@ -19,7 +21,6 @@ const CSP = props => {
       "'unsafe-eval'",
       "'unsafe-inline'",
       'https://www.google-analytics.com/analytics.js',
-      isAmp ? 'https://cdn.ampproject.org/v0.js' : '',
     ],
     'connect-src': ["'self'", 'ws://localhost:*'],
     'style-src': ["'self'", "'unsafe-inline'"],
