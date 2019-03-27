@@ -62,10 +62,10 @@
       }
     },
     {
-      "src": "^/sw.js$",
+      "src": "/sw.js",
       "dest": "/_next/static/sw.js",
       "headers": {
-        "cache-control": "public, max-age=43200, immutable",
+        "cache-control": "max-age=0",
         "Service-Worker-Allowed": "/"
       }
     },
