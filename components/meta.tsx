@@ -43,7 +43,7 @@ const Meta = ({ title, date, image, router }: Props) => {
       <meta charSet="utf-8" />
       <meta
         name="viewport"
-        content="initial-scale=1.0, width=device-width, viewport-fit=cover"
+        content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
       />
       <link rel="manifest" href={`${staticFilePrefix}/manifest.webmanifest`} />
       <link
