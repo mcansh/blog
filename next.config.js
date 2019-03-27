@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const withMDX = require('@zeit/next-mdx')();
+const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
 const withTypescript = require('@zeit/next-typescript');
 const generateStaticFiles = require('./scripts/build');

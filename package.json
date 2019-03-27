@@ -23,12 +23,12 @@
     "validate": "yarn type-check && yarn lint && yarn lint:css && yarn test"
   },
   "dependencies": {
-    "@mdx-js/mdx": "1.0.0-alpha.7",
-    "@mdx-js/tag": "1.0.0-alpha.6",
+    "@mdx-js/loader": "0.20.3",
+    "@mdx-js/tag": "0.20.3",
+    "@next/mdx": "8.0.4-canary.26",
     "@sentry/browser": "4.6.5",
     "@sentry/node": "4.6.5",
     "@zeit/next-bundle-analyzer": "0.1.2",
-    "@zeit/next-mdx": "1.2.0",
     "@zeit/next-source-maps": "0.0.3",
     "@zeit/next-typescript": "1.1.1",
     "body-scroll-lock": "2.6.1",
