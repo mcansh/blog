@@ -12,7 +12,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "prebuild": "yarn ts-node --project tsconfig.server.json ./scripts/build/",
     "start": "next start",
     "test": "NODE_ENV=test jest",
     "lint:css": "stylelint './'",
