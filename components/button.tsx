@@ -10,20 +10,20 @@ interface Props
   > {
   text: string;
   link: string | UrlLike;
-  color?: string;
+  textColor?: string;
   background?: string;
-  hoverColor?: string;
+  hoverTextColor?: string;
   hoverBackground?: string;
 }
 
 type StyledLinkProps = Pick<
   Props,
-  'color' | 'background' | 'hoverColor' | 'hoverBackground'
+  'textColor' | 'background' | 'hoverTextColor' | 'hoverBackground'
 >;
 
 const StyledLink = styled.a<StyledLinkProps>`
   margin: 3rem 0 0 0;
-  color: ${props => props.color};
+  color: ${props => props.textColor};
   display: inline-flex;
   width: 20rem;
   height: 5rem;
@@ -46,8 +46,8 @@ const StyledLink = styled.a<StyledLinkProps>`
   align-items: center;
 
   &:hover {
-    color: ${props => props.hoverColor};
-    border-color: ${props => props.hoverColor};
+    color: ${props => props.hoverTextColor};
+    border-color: ${props => props.hoverTextColor};
     border-image: initial;
     background: ${props => props.hoverBackground};
   }
@@ -56,9 +56,9 @@ const StyledLink = styled.a<StyledLinkProps>`
 const Button = ({
   text,
   link,
-  color,
+  textColor,
   background,
-  hoverColor,
+  hoverTextColor,
   hoverBackground,
 }: Props) => {
   const [prefetched, setPrefetched] = React.useState(false);
@@ -67,8 +67,8 @@ const Button = ({
       <StyledLink
         background={background}
         hoverBackground={hoverBackground}
-        hoverColor={hoverColor}
-        color={color}
+        hoverTextColor={hoverTextColor}
+        textColor={textColor}
         onMouseEnter={() => {
           /* istanbul ignore next */
           if (!prefetched) {
@@ -84,9 +84,9 @@ const Button = ({
 };
 
 Button.defaultProps = {
-  color: 'white',
+  textColor: 'white',
   background: 'black',
-  hoverColor: 'white',
+  hoverTextColor: 'white',
   hoverBackground: 'transparent',
 };
 
