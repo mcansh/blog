@@ -26,6 +26,16 @@ const nextConfig = {
       },
     ],
   },
+
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias['@sentry/node'] = '@sentry/browser';
+      config.resolve.alias['react-spring/renderprops.cjs'] =
+        'react-spring/renderprops';
+    }
+
+    return config;
+  },
 };
 
 module.exports = withMDX(withOffline(withTypescript(nextConfig)));
