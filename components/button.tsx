@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { UrlLike } from 'next/router';
+import Router, { UrlLike } from 'next/router';
 
 interface Props
   extends React.DetailedHTMLProps<
@@ -60,18 +60,28 @@ const Button = ({
   background,
   hoverColor,
   hoverBackground,
-}: Props) => (
-  <Link href={link} prefetch passHref>
-    <StyledLink
-      background={background}
-      hoverBackground={hoverBackground}
-      hoverColor={hoverColor}
-      color={color}
-    >
-      {text}
-    </StyledLink>
-  </Link>
-);
+}: Props) => {
+  const [prefetched, setPrefetched] = React.useState(false);
+  return (
+    <Link href={link} passHref>
+      <StyledLink
+        background={background}
+        hoverBackground={hoverBackground}
+        hoverColor={hoverColor}
+        color={color}
+        onMouseEnter={() => {
+          /* istanbul ignore next */
+          if (!prefetched) {
+            Router.prefetch(link.toString());
+            setPrefetched(true);
+          }
+        }}
+      >
+        {text}
+      </StyledLink>
+    </Link>
+  );
+};
 
 Button.defaultProps = {
   color: 'white',
