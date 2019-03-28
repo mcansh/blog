@@ -26,6 +26,13 @@
       }
     },
     {
+      "src": "/favicon.ico",
+      "dest": "/static/images/logo/logo.ico",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable"
+      }
+    },
+    {
       "src": "/manifest.webmanifest",
       "dest": "/static/manifest.webmanifest",
       "headers": {

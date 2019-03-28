@@ -57,7 +57,7 @@ const Meta = ({ title, date, image, router }: Props) => {
         content="black-translucent"
       />
       <link rel="shortcut icon" href="/static/images/logo/logo.png" />
-      <link rel="shortcut icon" href="/static/images/logo/logo.ico" />
+      <link rel="shortcut icon" href="/logo.ico" />
       {iconSizes.map(icon => {
         const size = `${icon}x${icon}`;
         return (
