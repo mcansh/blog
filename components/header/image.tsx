@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAmp } from 'next/amp';
 import styled from 'styled-components';
 import unsplashParams from '~/utils/unsplash-params';
 import getCloudinaryURL from '~/utils/get-cloudinary-url';
@@ -27,10 +28,15 @@ const ImageWrap = styled.div`
     background: rgba(0, 0, 0, 0.6);
   }
 
-  img {
+  img,
+  amp-img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+
+  amp-img {
+    z-index: -1;
   }
 `;
 
@@ -40,15 +46,26 @@ interface Props {
 
 const HeaderImage = ({ image }: Props) => {
   const imgUrl = getCloudinaryURL(image.imageUrl);
+  const isAmp = useAmp();
 
   return (
     <ImageWrap>
-      <img
-        src={imgUrl}
-        alt={image.photographer ? `Taken by ${image.photographer}` : null}
-        data-source-url={image.url && unsplashParams(image.url)}
-        data-testid="header_img"
-      />
+      {isAmp ? (
+        <amp-img
+          src={imgUrl}
+          alt={image.photographer ? `Taken by ${image.photographer}` : null}
+          data-source-url={image.url && unsplashParams(image.url)}
+          data-testid="header_img"
+          height="500"
+        />
+      ) : (
+        <img
+          src={imgUrl}
+          alt={image.photographer ? `Taken by ${image.photographer}` : null}
+          data-source-url={image.url && unsplashParams(image.url)}
+          data-testid="header_img"
+        />
+      )}
     </ImageWrap>
   );
 };
