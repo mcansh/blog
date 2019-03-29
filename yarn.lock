@@ -8487,10 +8487,10 @@ next-offline@3.3.7:
     webpack "^4.19.1"
     workbox-webpack-plugin "3.6.3"
 
-next-server@8.0.4-canary.25:
-  version "8.0.4-canary.25"
-  resolved "https://registry.npmjs.org/next-server/-/next-server-8.0.4-canary.25.tgz#a37f97803c2799aa75ce92a987ae739563eeb4ac"
-  integrity sha512-n/GoCW4ai7mN0iSYe0Jb9+l7BVAb3628LX37fumzfzltguteUqQ81t1Wt3Bed3bfMDbPph00Xsf3QrBV1yJNhA==
+next-server@8.0.4-canary.26:
+  version "8.0.4-canary.26"
+  resolved "https://registry.npmjs.org/next-server/-/next-server-8.0.4-canary.26.tgz#ed048992fc272c4b1f4a2c904a06eac6f92c7beb"
+  integrity sha512-MkHP7Lj73OsB944hYAmLmFdf2CA6mREau+h7e+1355iEUXCdvxSA1QJhZSJ/8iN/5F+5qbXvQ4ukx3nsYNfnvA==
   dependencies:
     etag "1.8.1"
     find-up "3.0.0"
@@ -8500,10 +8500,10 @@ next-server@8.0.4-canary.25:
     send "0.16.1"
     url "0.11.0"
 
-next@8.0.4-canary.25:
-  version "8.0.4-canary.25"
-  resolved "https://registry.npmjs.org/next/-/next-8.0.4-canary.25.tgz#9709f1a16a95065a8b8f1503f051e4eeec9e9a5f"
-  integrity sha512-5HTR6hUrB+GVus8Gp3w+4qz1ng8kFYgY6AC9zuVHZhqcXkzwOMgG1tcArneg5gFRfIONDtjf14ewgxtEXUs+Tw==
+next@8.0.4-canary.26:
+  version "8.0.4-canary.26"
+  resolved "https://registry.npmjs.org/next/-/next-8.0.4-canary.26.tgz#5525ad0e23749724f2f3b879ee91ba9c64a8f1da"
+  integrity sha512-FkQstzP5svq7BjbQWoCzrkusnYxLM5Hw8DlYvAvv0TtnFvRjBXIAkb+FRuUt2f2W9buZkU8iqw2fr4+4GPjnTg==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -8530,7 +8530,7 @@ next@8.0.4-canary.25:
     launch-editor "2.2.1"
     loader-utils "1.1.0"
     mkdirp "0.5.1"
-    next-server "8.0.4-canary.25"
+    next-server "8.0.4-canary.26"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.4"
@@ -8542,7 +8542,7 @@ next@8.0.4-canary.25:
     styled-jsx "3.2.1"
     terser "3.16.1"
     tty-aware-progress "1.0.3"
-    unfetch "3.0.0"
+    unfetch "4.1.0"
     url "0.11.0"
     webpack "4.29.0"
     webpack-dev-middleware "3.6.0"
@@ -10086,15 +10086,15 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@16.8.5:
-  version "16.8.5"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.8.5.tgz#b3e37d152b49e07faaa8de41fdf562be3463335e"
-  integrity sha512-VIEIvZLpFafsfu4kgmftP5L8j7P1f0YThfVTrANMhZUFMDOsA6e0kfR6wxw/8xxKs4NB59TZYbxNdPCDW34x4w==
+react-dom@16.8.6:
+  version "16.8.6"
+  resolved "https://registry.npmjs.org/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
+  integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.5"
+    scheduler "^0.13.6"
 
 react-error-overlay@5.1.4:
   version "5.1.4"
@@ -10154,15 +10154,15 @@ react-testing-library@6.0.3:
     "@babel/runtime" "^7.4.2"
     dom-testing-library "^3.18.2"
 
-react@16.8.5:
-  version "16.8.5"
-  resolved "https://registry.npmjs.org/react/-/react-16.8.5.tgz#49be3b655489d74504ad994016407e8a0445de66"
-  integrity sha512-daCb9TD6FZGvJ3sg8da1tRAtIuw29PbKZW++NN4wqkbEvxL+bZpaaYb4xuftW/SpXmgacf1skXl/ddX6CdOlDw==
+react@16.8.6:
+  version "16.8.6"
+  resolved "https://registry.npmjs.org/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
+  integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.5"
+    scheduler "^0.13.6"
 
 read-cmd-shim@^1.0.1, read-cmd-shim@~1.0.1:
   version "1.0.1"
@@ -10753,10 +10753,10 @@ sax@^1.2.4, sax@~1.2.1:
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-scheduler@^0.13.5:
-  version "0.13.5"
-  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.13.5.tgz#b7226625167041298af3b98088a9dbbf6d7733a8"
-  integrity sha512-K98vjkQX9OIt/riLhp6F+XtDPtMQhqNcf045vsh+pcuvHq+PHy1xCrH3pq1P40m6yR46lpVvVhKdEOtnimuUJw==
+scheduler@^0.13.6:
+  version "0.13.6"
+  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
+  integrity sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -11582,6 +11582,11 @@ styled-jsx@3.2.1:
     stylis "3.5.4"
     stylis-rule-sheet "0.0.10"
 
+stylelint-config-amp@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/stylelint-config-amp/-/stylelint-config-amp-0.5.0.tgz#206e8f6df9546dc293ff74a65136ba17a10bd67e"
+  integrity sha512-B+gQjfo66XiFiWP4LVe8pxXSpdXHcbMa6yHlDQOb1FMhqA0y+SgJF3XbzR9+OUQqfOt6yxoWoXNTpgs71zIMrQ==
+
 stylelint-config-recommended@2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/stylelint-config-recommended/-/stylelint-config-recommended-2.1.0.tgz#f526d5c771c6811186d9eaedbed02195fee30858"
@@ -12149,10 +12154,10 @@ undefsafe@^2.0.2:
   dependencies:
     debug "^2.2.0"
 
-unfetch@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/unfetch/-/unfetch-3.0.0.tgz#8d1e0513a4ecd0e5ff2d41a6ba77771aae8b6482"
-  integrity sha1-jR4FE6Ts0OX/LUGmund3Gq6LZII=
+unfetch@4.1.0:
+  version "4.1.0"
+  resolved "https://registry.npmjs.org/unfetch/-/unfetch-4.1.0.tgz#6ec2dd0de887e58a4dee83a050ded80ffc4137db"
+  integrity sha512-crP/n3eAPUJxZXM9T80/yv0YhkTEx2K1D3h7D1AJM6fzsWZrxdyRuLN0JH/dkZh1LNH8LxCnBzoPFCPbb2iGpg==
 
 unherit@^1.0.4:
   version "1.1.1"
