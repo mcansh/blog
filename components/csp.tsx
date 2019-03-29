@@ -1,6 +1,5 @@
 import crypto from 'crypto';
-import { useAmp } from 'next/amp';
-import { NextScript, NextDocumentContext } from 'next/document';
+import { NextScript } from 'next/document';
 
 const cspHashOf = (text: string) => {
   const hash = crypto.createHash('sha256');
@@ -8,11 +7,7 @@ const cspHashOf = (text: string) => {
   return `'sha256-${hash.digest('base64')}'`;
 };
 
-const CSP = (props: NextDocumentContext) => {
-  const isAmp = useAmp();
-
-  if (isAmp) return null;
-
+const CSP = props => {
   const cspSettings = {
     'default-src': ["'self'"],
     'script-src': [

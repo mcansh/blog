@@ -13,6 +13,7 @@ interface Props {
   styles: string;
   locale: string;
   localeDataScript: string;
+  amphtml: boolean;
 }
 
 class MyDocument extends Document<Props> {
@@ -45,7 +46,7 @@ class MyDocument extends Document<Props> {
   }
 
   render() {
-    const { locale, styles, localeDataScript } = this.props;
+    const { locale, styles, localeDataScript, amphtml } = this.props;
     const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
     const encodedFeatures = encodeURIComponent(features);
     const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
@@ -53,7 +54,7 @@ class MyDocument extends Document<Props> {
     return (
       <Html lang={locale}>
         <Head>
-          <CSP {...this.props} />
+          {!amphtml && <CSP {...this.props} />}
           {styles}
         </Head>
         <body>
