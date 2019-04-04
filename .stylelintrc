@@ -6,9 +6,6 @@
     "stylelint-config-amp"
   ],
   "rules": {
-    "selector-type-no-unknown": [true, {
-        "ignoreNamespaces": ["/^amp-/]
-      }
-    ]
+    "selector-type-no-unknown": [true, { ignoreTypes: ["/^amp-/"] }]
   }
 }
