@@ -37,6 +37,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
       >
         <div className="post-card__img-wrapper">
           {isAmp ? (
+            // @ts-ignore
             <amp-img
               data-testid="post-image"
               height={200}

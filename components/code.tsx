@@ -48,9 +48,7 @@ export const Code = ({ language, children }: CodeProps) => (
   </Highlight>
 );
 
-export const InlineCode = styled.code.attrs(props => ({
-  isDark: props.isDark || false,
-}))<{ isDark?: boolean }>`
+export const InlineCode = styled.code`
   font-size: 0.85em;
   padding: 0.125rem 0.25rem;
   background: rgba(85, 85, 86, 0.05);

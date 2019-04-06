@@ -40,6 +40,7 @@ const sortPosts = (postsArray: Post[]) =>
     return 0;
   });
 
+// @ts-ignore
 const sortedByDate = sortPosts(posts);
 
 export { sortPosts, sortedByDate };

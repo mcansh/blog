@@ -51,6 +51,7 @@ const HeaderImage = ({ image }: Props) => {
   return (
     <ImageWrap>
       {isAmp ? (
+        // @ts-ignore
         <amp-img
           src={imgUrl}
           alt={image.photographer ? `Taken by ${image.photographer}` : null}

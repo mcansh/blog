@@ -12,7 +12,9 @@ const PostCard = styled.a.attrs({
   margin: 0 1rem 2rem 1rem;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.8rem 0;
-  transition: all 200ms ease;
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
   text-decoration: none;
   position: relative;
   border-radius: 0.5rem;
@@ -68,7 +70,9 @@ const PostCard = styled.a.attrs({
     img {
       height: 100%;
       width: 100%;
-      transition: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+      transition-property: all;
+      transition-duration: 1s;
+      transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
       object-fit: cover;
     }
   }

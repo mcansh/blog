@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAmp } from 'next/amp';
+// @ts-ignore
 import { useRouter, RouterProps } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -7,11 +8,14 @@ import { name } from '~/utils/authorInfo';
 
 const Footer = styled.footer`
   height: 8rem;
-  background: ${({ theme }) => theme.background};
+  background: ${props => props.theme.light.background};
   font-size: 1.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (prefers-color-scheme: dark) {
+    background: ${props => props.theme.dark.background};
+  }
 `;
 
 const StyledLink = styled.a`
