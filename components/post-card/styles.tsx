@@ -14,10 +14,13 @@ const PostCard = styled.a.attrs({
   box-shadow: rgba(0, 0, 0, 0.1) 0 0.3rem 0.8rem 0;
   transition: all 200ms ease;
   text-decoration: none;
-  color: #262626;
   position: relative;
   border-radius: 0.5rem;
   cursor: pointer;
+
+  @media (prefers-color-scheme: dark) {
+    background: #313639;
+  }
 
   @media (max-width: 999px) {
     width: calc(50% - 2rem);
@@ -42,6 +45,10 @@ const PostCard = styled.a.attrs({
     font-size: 2.2rem;
     margin: 0 0 1.1rem;
     color: #262626;
+
+    @media (prefers-color-scheme: dark) {
+      color: ${props => props.theme.dark.text};
+    }
   }
 
   .post-card__date {
@@ -49,6 +56,10 @@ const PostCard = styled.a.attrs({
     color: #666666;
     font-size: 1.62rem;
     margin: 0;
+
+    @media (prefers-color-scheme: dark) {
+      color: #d4d4d4;
+    }
   }
 
   .post-card__img-wrapper {
