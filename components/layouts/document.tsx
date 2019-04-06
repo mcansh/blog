@@ -21,7 +21,10 @@ interface Props {
 }
 
 const serviceWorker = async () => {
-  if ('serviceWorker' in window.navigator) {
+  if (
+    'serviceWorker' in window.navigator &&
+    process.env.NODE_ENV === 'production'
+  ) {
     try {
       await window.navigator.serviceWorker.register('/sw.js');
       console.log(`successfully registered serviceWorker`);
@@ -32,14 +35,9 @@ const serviceWorker = async () => {
 };
 
 const Document = ({ children }: Props) => {
-  const isProd = process.env.NODE_ENV === 'production';
   useEffect(() => {
-    if (isProd) {
-      serviceWorker();
-    } else {
-      console.log('something something serviceWorker');
-    }
-  }, [isProd]);
+    serviceWorker();
+  }, []);
 
   return (
     <>

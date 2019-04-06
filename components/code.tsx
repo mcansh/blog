@@ -48,7 +48,9 @@ export const Code = ({ language, children }: CodeProps) => (
   </Highlight>
 );
 
-export const InlineCode = styled.code`
+export const InlineCode = styled.code.attrs(props => ({
+  isDark: props.isDark || false,
+}))<{ isDark?: boolean }>`
   font-size: 0.85em;
   padding: 0.125rem 0.25rem;
   background: rgba(85, 85, 86, 0.05);
@@ -57,4 +59,10 @@ export const InlineCode = styled.code`
   border-radius: 0.2rem;
   font-family: 'Operator Mono', 'SF Mono', menlo, monospace;
   hyphens: none;
+  @media (prefers-color-scheme: dark) {
+    padding: 0.25rem 0.5rem;
+    background: #313639;
+    color: #dd6a40;
+    box-shadow: 0 0.1rem 0 0 #24292c;
+  }
 `;

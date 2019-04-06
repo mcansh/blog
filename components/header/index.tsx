@@ -30,9 +30,12 @@ const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
     width: 100%;
     height: 3.2rem;
     svg {
-      fill: ${props => props.theme.background};
+      fill: ${props => props.theme.light.background};
       width: 100%;
       height: 100%;
+      @media (prefers-color-scheme: dark) {
+        fill: ${props => props.theme.dark.background};
+      }
     }
   }
 `;

@@ -4,7 +4,14 @@ const staticFilePrefix = process.env.NOW ? '' : '/static';
 
 const colors = {
   primary: '#6c16c7',
-  background: '#f7f7f7',
+  dark: {
+    background: '#1a1e21',
+    text: '#cecfd0',
+  },
+  light: {
+    background: '#f7f7f7',
+    text: '#000',
+  },
 };
 
 export { colors, iconSizes, staticFilePrefix };

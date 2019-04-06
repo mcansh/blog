@@ -19,7 +19,11 @@ const GlobalStyles = createGlobalStyle`
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     font-weight: 400;
     margin: 0;
-    background: ${props => props.theme.background};
+    background: ${props => props.theme.light.background};
+    @media (prefers-color-scheme: dark) {
+      background: ${props => props.theme.dark.background};
+      color: ${props => props.theme.dark.text};
+    }
   }
 
   ::selection {
