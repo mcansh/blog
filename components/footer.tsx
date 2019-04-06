@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAmp } from 'next/amp';
+import { useRouter, RouterProps } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { name } from '~/utils/authorInfo';
@@ -20,6 +21,8 @@ const StyledLink = styled.a`
 
 const FooterWrap = () => {
   const isAmp = useAmp();
+  const router: RouterProps = useRouter();
+  const isHome = router.pathname === '/';
   return (
     <Footer>
       <Link
@@ -27,7 +30,16 @@ const FooterWrap = () => {
         prefetch
         passHref
       >
-        <StyledLink rel="home" aria-label="go home">
+        <StyledLink
+          rel="home"
+          aria-label="go home"
+          onClick={event => {
+            if (isHome) {
+              event.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+        >
           &copy; {new Date().getFullYear()} {name}
         </StyledLink>
       </Link>
