@@ -19,7 +19,7 @@ const nextConfig = {
     runtimeCaching: [
       {
         handler: 'staleWhileRevalidate',
-        urlPattern: /[.](webp|png|jpg|svg|css)/,
+        urlPattern: /[.](webp|png|jpg|svg|css|woff|woff2)/,
       },
       {
         handler: 'networkFirst',
