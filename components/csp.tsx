@@ -15,11 +15,16 @@ const CSP = props => {
       'https://polyfill.io/v3/polyfill.min.js',
       "'unsafe-eval'",
       "'unsafe-inline'",
-      'https://www.google-analytics.com/analytics.js',
+      'www.google-analytics.com',
     ],
     'connect-src': ["'self'", 'ws://localhost:*'],
     'style-src': ["'self'", "'unsafe-inline'"],
-    'img-src': ["'self'", 'https://res.cloudinary.com/dof0zryca/', 'data:'],
+    'img-src': [
+      "'self'",
+      'https://res.cloudinary.com/dof0zryca/',
+      'data:',
+      'www.google-analytics.com',
+    ],
   };
 
   const csp = `${Object.entries(cspSettings)
