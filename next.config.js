@@ -3,6 +3,7 @@ const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
 const withTypescript = require('@zeit/next-typescript');
 const generateStaticFiles = require('./scripts/build');
+const { version, repository } = require('./package.json');
 
 generateStaticFiles();
 
@@ -25,6 +26,17 @@ const nextConfig = {
         urlPattern: /^https?.*/,
       },
     ],
+  },
+
+  env: {
+    TWITTER: 'loganmcansh',
+    INSTAGRAM: 'loganmcansh',
+    GITHUB: 'mcansh',
+    EMAIL: 'logan@mcan.sh',
+    SENTRY: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
+    ANALYTICS: 'UA-87731356-4',
+    GITHUB_URL: `https://github.com/${repository}`,
+    VERSION: version,
   },
 
   webpack: (config, { isServer }) => {
