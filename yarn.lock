@@ -2729,10 +2729,10 @@ babel-plugin-syntax-object-rest-spread@^6.8.0:
   resolved "https://registry.npmjs.org/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
   integrity sha1-/WU28rzhODb/o6VFjEkDpZe7O/U=
 
-babel-plugin-transform-async-to-promises@0.8.7:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-async-to-promises/-/babel-plugin-transform-async-to-promises-0.8.7.tgz#8e9d214f54a0fabba4088dda4c8df214d4698429"
-  integrity sha512-znRrOjUy8gDHs6c40dpqVnYrzvCEWyISnLVS1U1ZJvahX2YF19tI8Rq3tI7u7SFe4bE48oceEVY437pYDnRYpQ==
+babel-plugin-transform-async-to-promises@0.8.9:
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-async-to-promises/-/babel-plugin-transform-async-to-promises-0.8.9.tgz#a214630248c349b2390930d03588b57958fedcfc"
+  integrity sha512-m5wjgvuaycQjDDo1gIywcPyF2IMwgk+c/Ks3ZSyjo2+n2QWbzMT+CoJAvLYHn6wb9of6iSFbsR7UAjDCTvWoQA==
 
 babel-plugin-transform-object-rest-spread@^6.26.0:
   version "6.26.0"
@@ -4568,7 +4568,7 @@ escape-html@~1.0.3:
   resolved "https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
-escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.4, escape-string-regexp@^1.0.5:
+escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.4, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
@@ -5336,15 +5336,6 @@ finalhandler@1.1.1:
     statuses "~1.4.0"
     unpipe "~1.0.0"
 
-find-cache-dir@2.0.0, find-cache-dir@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/find-cache-dir/-/find-cache-dir-2.0.0.tgz#4c1faed59f45184530fb9d7fa123a4d04a98472d"
-  integrity sha512-LDUY6V1Xs5eFskUVYtIwatojt6+9xC9Chnlk/jYOOvn3FAFfSaWddxahDGyNHh0b2dMXa6YW2m0tk8TdVaXHlA==
-  dependencies:
-    commondir "^1.0.1"
-    make-dir "^1.0.0"
-    pkg-dir "^3.0.0"
-
 find-cache-dir@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/find-cache-dir/-/find-cache-dir-1.0.0.tgz#9288e3e9e3cc3748717d39eade17cf71fc30ee6f"
@@ -5353,6 +5344,15 @@ find-cache-dir@^1.0.0:
     commondir "^1.0.1"
     make-dir "^1.0.0"
     pkg-dir "^2.0.0"
+
+find-cache-dir@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/find-cache-dir/-/find-cache-dir-2.0.0.tgz#4c1faed59f45184530fb9d7fa123a4d04a98472d"
+  integrity sha512-LDUY6V1Xs5eFskUVYtIwatojt6+9xC9Chnlk/jYOOvn3FAFfSaWddxahDGyNHh0b2dMXa6YW2m0tk8TdVaXHlA==
+  dependencies:
+    commondir "^1.0.1"
+    make-dir "^1.0.0"
+    pkg-dir "^3.0.0"
 
 find-npm-prefix@^1.0.2:
   version "1.0.2"
@@ -6239,7 +6239,7 @@ import-local@^2.0.0:
     pkg-dir "^3.0.0"
     resolve-cwd "^2.0.0"
 
-imurmurhash@0.1.4, imurmurhash@^0.1.4:
+imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npmjs.org/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -8559,10 +8559,10 @@ next-offline@3.3.7:
     webpack "^4.19.1"
     workbox-webpack-plugin "3.6.3"
 
-next-server@8.0.5-canary.17:
-  version "8.0.5-canary.17"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.5-canary.17.tgz#1adeeadb98da6090783be408058fed66139e4b2a"
-  integrity sha512-9qzW9roOUNK+PUhG1ExqoIOHk+m29PWjKbMXMBqCtFwr4jLvt2rYIg0tyTuevtSFagCGQTna/jxYHexAOgzw1w==
+next-server@8.0.5-canary.32:
+  version "8.0.5-canary.32"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.0.5-canary.32.tgz#4858a4c7a2167d72a88f955fcf52a3db85889168"
+  integrity sha512-/5s7S/2TyCWgO556/u8HGQE+FiyM3+EQJ34G+tjW83bWME78Z1Uuou+oX/7ovB4DRvUGSJqLX7x6+OvWTgr17Q==
   dependencies:
     amp-toolbox-optimizer "0.5.2-beta.6"
     etag "1.8.1"
@@ -8575,10 +8575,10 @@ next-server@8.0.5-canary.17:
     send "0.16.1"
     url "0.11.0"
 
-next@8.0.5-canary.17:
-  version "8.0.5-canary.17"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.0.5-canary.17.tgz#fca9a01bca51585fffb7814a93b1b4658a1a0a32"
-  integrity sha512-SwEhM0E3+z5FxDTAYhhbNbqxJEbdYsObOKplaOGInGa7e4XIe97eLrvaNO+a5IlDP5MxKxPqN0RRDOtT6cVwyw==
+next@8.0.5-canary.32:
+  version "8.0.5-canary.32"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.0.5-canary.32.tgz#5f290ce426168c5049d4fc3d135b626e429adbbf"
+  integrity sha512-adavhOud+R4t1sH1vewylHP1bshFsxrjIEbxwoKplnyfbNa4VSPDKAbZ3Sjm47gf7kJwmVxeJkJCnd/U56v7CA==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -8597,18 +8597,15 @@ next@8.0.5-canary.17:
     babel-loader "8.0.2"
     babel-plugin-dynamic-import-node "2.2.0"
     babel-plugin-react-require "3.0.0"
-    babel-plugin-transform-async-to-promises "0.8.7"
+    babel-plugin-transform-async-to-promises "0.8.9"
     babel-plugin-transform-react-remove-prop-types "0.4.15"
     chalk "2.4.2"
-    escape-string-regexp "1.0.5"
-    find-cache-dir "2.0.0"
     find-up "2.1.0"
     fresh "0.5.2"
-    imurmurhash "0.1.4"
     launch-editor "2.2.1"
     loader-utils "1.1.0"
     mkdirp "0.5.1"
-    next-server "8.0.5-canary.17"
+    next-server "8.0.5-canary.32"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.4"
