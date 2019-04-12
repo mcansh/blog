@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { useAmp } from 'next/amp';
 import { withRouter, RouterProps } from 'next/router';
 import { description, homepage } from '~/package.json';
 import { name } from '~/utils/authorInfo';
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const Meta = ({ title, date, image, router }: Props) => {
+  const isAmp = useAmp();
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl =
     image && image.imageUrl
@@ -45,7 +47,10 @@ const Meta = ({ title, date, image, router }: Props) => {
         name="viewport"
         content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
       />
-      <link rel="manifest" href={`${staticFilePrefix}/manifest.webmanifest`} />
+      <link
+        rel="manifest"
+        href={`${staticFilePrefix}/manifest${isAmp ? '.amp' : ''}.webmanifest`}
+      />
       <link
         rel="mask-icon"
         href="/static/images/logo/safari.svg"
