@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
+import { withAmp } from 'next/amp';
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
-import { withRouter, RouterProps } from 'next/router';
 
 // @ts-ignore
 if (global.document) {
@@ -17,7 +17,6 @@ if (global.document) {
 
 interface Props {
   children: React.ReactNode;
-  router: RouterProps;
 }
 
 const serviceWorker = async () => {
@@ -50,4 +49,4 @@ const Document = ({ children }: Props) => {
   );
 };
 
-export default withRouter(Document);
+export default withAmp(Document, { hybrid: true });
