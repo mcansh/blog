@@ -23,6 +23,10 @@ const Meta = ({ title, date, image, router }: Props) => {
     image && image.imageUrl
       ? getCloudinaryURL(image.imageUrl)
       : `${homepage}/static/images/me.jpg`;
+
+  const manifest = isAmp
+    ? `${staticFilePrefix}/manifest.amp.webmanifest`
+    : `${staticFilePrefix}/manifest.webmanifest`;
   return (
     <Head>
       <title>{pageTitle}</title>
@@ -47,10 +51,7 @@ const Meta = ({ title, date, image, router }: Props) => {
         name="viewport"
         content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
       />
-      <link
-        rel="manifest"
-        href={`${staticFilePrefix}/manifest${isAmp ? '.amp' : ''}.webmanifest`}
-      />
+      <link rel="manifest" key="manifest" href={manifest} />
       <link
         rel="mask-icon"
         href="/static/images/logo/safari.svg"
