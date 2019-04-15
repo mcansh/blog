@@ -3,6 +3,7 @@ import { withAmp } from 'next/amp';
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
+import Meta from '~/components/meta';
 
 // @ts-ignore
 if (global.document) {
@@ -42,6 +43,7 @@ const Document = ({ children }: Props) => {
 
   return (
     <>
+      <Meta />
       <Navigation />
       {children}
       <Footer />

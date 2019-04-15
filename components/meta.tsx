@@ -27,26 +27,35 @@ const Meta = ({ title, date, image, router }: Props) => {
   const manifest = isAmp
     ? `${staticFilePrefix}/manifest.amp.webmanifest`
     : `${staticFilePrefix}/manifest.webmanifest`;
+
   return (
     <Head>
-      <title>{pageTitle}</title>
-      <meta name="description" content={description} />
+      <title key="title">{pageTitle}</title>
+      <meta charSet="utf-8" />
+      <meta key="description" name="description" content={description} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="loganmcansh" />
-      <meta name="twitter:title" content={pageTitle} />
+      <meta key="twitter:title" name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={fullImageUrl} />
+      <meta key="twitter:image" name="twitter:image" content={fullImageUrl} />
 
-      <meta property="og:title" content={pageTitle} />
+      <meta key="og:title" property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content={title ? 'article' : 'website'} />
-      <meta property="og:url" content={`${homepage}/${router.pathname}`} />
-      <meta property="og:image" content={fullImageUrl} />
+      <meta
+        key="og:type"
+        property="og:type"
+        content={title ? 'article' : 'website'}
+      />
+      <meta
+        key="og:url"
+        property="og:url"
+        content={`${homepage}/${router.pathname}`}
+      />
+      <meta key="og:image" property="og:image" content={fullImageUrl} />
       {date && (
         <meta property="article:published_time" content={iso8601(date)} />
       )}
       {title && <meta property="article:author" content={name} />}
-      <meta charSet="utf-8" />
       <meta
         name="viewport"
         content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"

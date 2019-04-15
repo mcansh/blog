@@ -9,7 +9,6 @@ import NProgress from '~/components/styles/nprogress';
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
 import Document from '~/components/layouts/document';
-import Meta from '~/components/meta';
 
 /*
  * Register React Intl's locale data for the user's locale in the browser. This
@@ -88,7 +87,6 @@ class MyApp extends App<Props> {
                   spinner={false}
                 />
                 <GlobalStyle />
-                <Meta />
                 <Document>
                   <Component {...pageProps} />
                 </Document>
