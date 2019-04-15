@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MDXProvider } from '@mdx-js/tag';
+import { MDXProvider } from '@mdx-js/react';
 import Meta from '~/components/meta';
 import Header from '~/components/header/index';
 import Paragraph from '~/components/paragraph';
