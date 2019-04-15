@@ -55,6 +55,11 @@ const setDate = () => {
   // get seconds from our "now" variable
   const seconds = (now.getSeconds() < 10) ? '0' + now.getSeconds() : now.getSeconds();
 
+  // or thanks to string.padStart in es2017, we can shorten this to:
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
   // select our h1 element
   const text = document.querySelector('h1');
 
