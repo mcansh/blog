@@ -18,16 +18,16 @@ A Javascript object is a standalone entity, with properties and types associated
 
 You define a propterty by defining it a value, for example:
 
-<Code language="javascript">{`
+```javascript
 const myCar = new Object();
 myCar.make = "Ford";
-`}</Code>
+```
 
 If you define a property but {"don't"} give it a value it becomes undefined, not null. e.g: myCar.color; would return undefined.
 
 To get an item out of an object you can test to see if it has that property, for example, on a project at work, we used this to get a rule's name out of the object
 
-<Code language="javascript">{`
+```javascript
 // The Rule itself
 const rule = {
   "active": true,
@@ -56,17 +56,17 @@ const rule = {
   "priority":1,
   "name":"test rule"
 };
-`}</Code>
+```
 
 You can also do if else statements with objects:
 
-<Code language="javascript">{`
+```javascript
 if (cond) var x = { greeting: 'howdy' };
-`}</Code>
+```
 
 You can even have an object inside another object:
 
-<Code language="javascript">{`
+```javascript
 const myCar = {
   color: "red",
   wheels: 4,
@@ -75,17 +75,18 @@ const myCar = {
     size: 2.2
   }
 };
-`}</Code>
+```
 
 Alternatively you can make an object with a constructor function:
 
-<Code language="javascript">{`
+```javascript
 function Car(make, model, year) {
   this.make = make;
   this.model = model;
   this.year = year;
-}\n
+}
+
 const myCar = new Car("Volvo", "S40", 2005);
-`}</Code>
+```
 
 export default ({ children }) => <Post meta={meta}>{children}</Post>

@@ -6,8 +6,9 @@ import Header from '~/components/header/index';
 import Paragraph from '~/components/paragraph';
 import { Post as PostType } from '~/components/post-card/index';
 import useScrollProgress from '~/components/use-scroll-progress';
+import { Code } from '~/components/code';
 
-const ScrollProgress = styled.progress`
+const ScrollProgress = styled.progress.attrs({ max: 100, min: 0 })`
   position: fixed;
   top: 0;
   left: 0;
@@ -45,13 +46,18 @@ interface Props {
   meta: PostType;
 }
 
+const components = {
+  code: Code,
+  p: Paragraph,
+};
+
 const Post = ({ children, meta: { url, ...meta } }: Props) => {
   const scrollProgress = useScrollProgress();
   return (
-    <MDXProvider components={{ p: Paragraph }}>
+    <MDXProvider components={components}>
       <Meta {...meta} />
       <Header {...meta} />
-      <ScrollProgress max={100} value={scrollProgress} />
+      <ScrollProgress value={scrollProgress} />
       <PostWrap>{children}</PostWrap>
     </MDXProvider>
   );

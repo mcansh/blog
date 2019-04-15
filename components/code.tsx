@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 interface CoodeStyleProps {
   style: React.CSSProperties;
 }
 
-const CodeStyles = styled.pre<CoodeStyleProps>`
+const CodeStyles = styled.code<CoodeStyleProps>`
   margin: 3rem 0;
   padding: 1.4rem;
   border-radius: 0.4rem;
@@ -18,37 +18,39 @@ const CodeStyles = styled.pre<CoodeStyleProps>`
   -webkit-overflow-scrolling: touch;
   font-family: 'Operator Mono', 'SF Mono', menlo, monospace;
   overflow: scroll;
+  display: block;
 `;
 
 interface CodeProps {
-  language: Language;
+  className: string;
   children: string;
 }
 
-export const Code = ({ language, children }: CodeProps) => (
-  <Highlight
-    {...defaultProps}
-    code={children}
-    language={language}
-    theme={nightOwl}
-  >
-    {({ className, style, tokens, getLineProps, getTokenProps }) => (
-      <CodeStyles className={className} style={style}>
-        {tokens.map((line, i) => (
-          <div {...getLineProps({ line, key: i })}>
-            {line.map(
-              (token: { content: string; types: string[] }, key: number) => (
-                <span {...getTokenProps({ token, key })} />
-              )
-            )}
-          </div>
-        ))}
-      </CodeStyles>
-    )}
-  </Highlight>
-);
+const Code = ({ children, className }: CodeProps) => {
+  const language = className.replace(/language-/, '');
+  return (
+    <Highlight
+      {...defaultProps}
+      code={children}
+      language={language}
+      theme={nightOwl}
+    >
+      {highlight => (
+        <CodeStyles className={className} style={{ ...highlight.style }}>
+          {highlight.tokens.map((line, index) => (
+            <div {...highlight.getLineProps({ line, key: index })}>
+              {line.map((token, key) => (
+                <span {...highlight.getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </CodeStyles>
+      )}
+    </Highlight>
+  );
+};
 
-export const InlineCode = styled.code`
+const InlineCode = styled.code`
   font-size: 0.85em;
   padding: 0.125rem 0.25rem;
   background: rgba(85, 85, 86, 0.05);
@@ -58,3 +60,5 @@ export const InlineCode = styled.code`
   font-family: 'Operator Mono', 'SF Mono', menlo, monospace;
   hyphens: none;
 `;
+
+export { Code, InlineCode };

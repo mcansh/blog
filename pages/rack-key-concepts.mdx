@@ -23,8 +23,9 @@ Now onto Rack itself. Rack is a Ruby gem that provides a minimal interface that 
 To use Rack you must first make a call to a class #call. All this needs to do is return a response that contains status codes, headers, and the body. That can be done with a Rack::Response object:
 
 
-<Code language="ruby">{`
-# call.rb\n
+```ruby
+# call.rb
+
 class Application
   def call(env)
     resp = Rack::Response.new
@@ -32,15 +33,16 @@ class Application
     resp.finish
   end
 end
-`}</Code>
+```
 
 That will run whenever a request is received but you still need to set up a HTTP serve to receive that request. Using config.ru
 
-<Code language="ruby">{`
-# config.ru\n
+```ruby
+# config.ru
+
 require_relative "./application.rb"
 run Application.new
-`}</Code>
+```
 
 Now running rackup config.ru will start up your application.
 
