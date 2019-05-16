@@ -5,18 +5,14 @@ interface Props {
   children: React.ReactNode;
 }
 
-class Portal extends React.Component<Props> {
-  private element = null;
+const Portal = ({ children }: Props) => {
+  const element = React.useRef<HTMLElement | null>(null);
+  React.useEffect(() => {
+    element.current = document.getElementById('portal');
+  }, []);
 
-  public componentDidMount = () => {
-    this.element = document.getElementById('portal');
-  };
-
-  public render() {
-    if (this.element == null) return null;
-    const { children } = this.props;
-    return createPortal(children, this.element);
-  }
-}
+  if (element.current == null) return null;
+  return createPortal(children, element.current);
+};
 
 export default Portal;

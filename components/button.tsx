@@ -2,7 +2,6 @@ import { UrlObject } from 'url';
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Router from 'next/router';
 
 interface Props
   extends React.DetailedHTMLProps<

@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { useAmp } from 'next/amp';
-import { withRouter, RouterProps } from 'next/router';
+import { useRouter } from 'next/router';
 import { description, homepage } from '~/package.json';
 import { name } from '~/utils/authorInfo';
 import { iso8601 } from '~/utils/dates';
@@ -13,10 +13,10 @@ interface Props {
   title?: string;
   date?: number;
   image?: ImageType;
-  router: RouterProps;
 }
 
-const Meta = ({ title, date, image, router }: Props) => {
+const Meta = ({ title, date, image }: Props) => {
+  const router = useRouter();
   const isAmp = useAmp();
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl =
@@ -106,4 +106,4 @@ Meta.defaultProps = {
   image: null,
 };
 
-export default withRouter(Meta);
+export default Meta;

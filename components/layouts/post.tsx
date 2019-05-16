@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
 import Meta from '~/components/meta';
 import Header from '~/components/header/index';

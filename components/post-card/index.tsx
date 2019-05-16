@@ -16,6 +16,14 @@ export interface Post {
   title: string;
 }
 
+export interface PostWithMeta {
+  image: ImageType;
+  url: string;
+  date: number;
+  title: string;
+  meta: Meta;
+}
+
 const PostCard = ({ url, image, date, title }: Post) => {
   const isAmp = useAmp();
   const hasImageAuthor = image.photographer != null;
@@ -24,8 +32,9 @@ const PostCard = ({ url, image, date, title }: Post) => {
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   const [prefetched, setPrefetched] = useState(false);
+  const href = isAmp ? `${url}?amp=1` : url;
   return (
-    <Link href={{ pathname: url, query: isAmp && { amp: 1 } }} passHref>
+    <Link href={href} passHref>
       <Post
         onMouseEnter={() => {
           /* istanbul ignore next */
@@ -37,6 +46,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
       >
         <div className="post-card__img-wrapper">
           {isAmp ? (
+            // @ts-ignore
             <amp-img
               data-testid="post-image"
               height={200}
