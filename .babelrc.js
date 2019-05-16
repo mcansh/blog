@@ -3,7 +3,6 @@ module.exports = {
   plugins: [
     'styled-components',
     'root-import',
-    'react-intl',
     ['inline-react-svg', { svgo: false }],
   ],
 };
