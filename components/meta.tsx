@@ -7,7 +7,7 @@ import { name } from '~/utils/authorInfo';
 import { iso8601 } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/get-cloudinary-url';
 import { ImageType } from '~/components/header/image';
-import { colors, staticFilePrefix, iconSizes } from '~/config';
+import { colors, iconSizes } from '~/config';
 
 interface Props {
   title?: string;
@@ -25,8 +25,8 @@ const Meta = ({ title, date, image }: Props) => {
       : `${homepage}/static/images/me.jpg`;
 
   const manifest = isAmp
-    ? `${staticFilePrefix}/manifest.amp.webmanifest`
-    : `${staticFilePrefix}/manifest.webmanifest`;
+    ? '/manifest.amp.webmanifest'
+    : '/manifest.webmanifest';
 
   return (
     <Head>
@@ -86,13 +86,13 @@ const Meta = ({ title, date, image }: Props) => {
       })}
       <link
         rel="alternate"
-        href={`${staticFilePrefix}/atom${process.env.NOW ? '' : '.xml'}`}
+        href={`/atom${process.env.NOW ? '' : '.xml'}`}
         type="application/atom+xml"
         title="RSS Feed"
       />
       <link
         rel="alternate"
-        href={`${staticFilePrefix}/feed.json`}
+        href="/feed.json"
         type="application/json"
         title="JSON Feed"
       />

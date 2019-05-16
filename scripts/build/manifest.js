@@ -7,7 +7,7 @@ const {
   productShortName,
 } = require('../../package.json');
 
-const OUT_DIR = path.join(__dirname, '..', '..', 'static');
+const OUT_DIR = path.join(__dirname, '..', '..', 'public');
 
 const iconSizes = [72, 96, 128, 144, 256, 512];
 
