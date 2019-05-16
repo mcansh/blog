@@ -17,7 +17,7 @@ const CSP = props => {
       "'unsafe-inline'",
       'www.google-analytics.com',
     ],
-    'connect-src': ["'self'", 'ws://localhost:*'],
+    'connect-src': ["'self'", 'ws://localhost:*', 'https://sentry.io/'],
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': [
       "'self'",
