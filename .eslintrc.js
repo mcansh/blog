@@ -19,7 +19,6 @@ module.exports = {
       {
         devDependencies: [
           '__tests__/**/*',
-          'jest.setup.js',
           'jest.config.js',
           'utils/render-with-intl.tsx',
           'scripts/**/*',

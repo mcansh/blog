@@ -26,7 +26,7 @@ const FooterWrap = () => {
   const href = isAmp ? `/?amp=1` : '/';
   return (
     <Footer>
-      <Link href={href} prefetch passHref>
+      <Link href={href} passHref>
         <StyledLink
           rel="home"
           aria-label="go home"

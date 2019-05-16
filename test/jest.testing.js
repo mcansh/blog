@@ -9,7 +9,6 @@ module.exports = {
     'jest-dom/extend-expect',
     'react-testing-library/cleanup-after-each',
     'jest-styled-components',
-    `${rootDir}/jest.setup.js`,
   ],
   testPathIgnorePatterns: [
     `${rootDir}/.next/`,
