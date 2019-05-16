@@ -51,9 +51,12 @@ const HeaderImage = ({ image }: Props) => {
   return (
     <ImageWrap>
       {isAmp ? (
+        // @ts-ignore
         <amp-img
           src={imgUrl}
-          alt={image.photographer ? `Taken by ${image.photographer}` : null}
+          alt={
+            image.photographer ? `Taken by ${image.photographer}` : undefined
+          }
           data-source-url={image.url && unsplashParams(image.url)}
           data-testid="header_img"
           height="500"
@@ -61,7 +64,9 @@ const HeaderImage = ({ image }: Props) => {
       ) : (
         <img
           src={imgUrl}
-          alt={image.photographer ? `Taken by ${image.photographer}` : null}
+          alt={
+            image.photographer ? `Taken by ${image.photographer}` : undefined
+          }
           data-source-url={image.url && unsplashParams(image.url)}
           data-testid="header_img"
         />

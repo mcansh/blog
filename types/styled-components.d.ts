@@ -7,7 +7,7 @@ type ThemeInterface = typeof theme;
 
 declare module 'styled-components' {
   interface DefaultTheme extends ThemeInterface {
-    primary: '#6c16c7';
-    background: '#f7f7f7';
+    primary: string;
+    background: string;
   }
 }

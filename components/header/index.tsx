@@ -68,17 +68,14 @@ const Header = ({ title, url, image, date }: Props) => {
     to: { opacity: 1, transform: 'translateY(0px)' },
   });
 
+  const buttonLink = isAmp ? `${url}?amp=1` : url;
+
   return (
     <HeaderStyles>
       <HeaderContent>
         <Title style={props}>{title}</Title>
         {date && <DateHeading date={date} />}
-        {url && (
-          <Button
-            text="Read More"
-            link={{ pathname: url, query: isAmp && { amp: 1 } }}
-          />
-        )}
+        {url && <Button text="Read More" link={buttonLink} />}
       </HeaderContent>
       <Image image={image} />
       <figure>
