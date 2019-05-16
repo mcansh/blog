@@ -60,6 +60,7 @@ const HeaderImage = ({ image }: Props) => {
           data-source-url={image.url && unsplashParams(image.url)}
           data-testid="header_img"
           height="500"
+          layout="fill"
         />
       ) : (
         <img
