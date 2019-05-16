@@ -62,7 +62,6 @@ const Button = ({
   hoverTextColor,
   hoverBackground,
 }: Props) => {
-  const [prefetched, setPrefetched] = React.useState(false);
   return (
     <Link href={link} passHref>
       <StyledLink
@@ -70,13 +69,6 @@ const Button = ({
         hoverBackground={hoverBackground}
         hoverTextColor={hoverTextColor}
         textColor={textColor}
-        onMouseEnter={() => {
-          /* istanbul ignore next */
-          if (!prefetched) {
-            Router.prefetch(link.toString());
-            setPrefetched(true);
-          }
-        }}
       >
         {text}
       </StyledLink>
