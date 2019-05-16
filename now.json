@@ -42,7 +42,9 @@
     },
     {
       "src": "^/(favicon.ico|logo.png|feed.json|sitemap.xml)$",
-      "cache-control": "public, max-age=43200, immutable"
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable"
+      }
     },
     {
       "src": "/atom",
