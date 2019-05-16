@@ -24,7 +24,7 @@ const xmlUrlNode = (domain, page) => {
 
 const domain = 'https://mcansh.blog';
 const fileName = 'sitemap.xml';
-const OUT_DIR = path.join(__dirname, '..', '..', 'static');
+const OUT_DIR = path.join(__dirname, '..', '..', 'public');
 
 const xml = `${xmlUrlWrapper(
   posts

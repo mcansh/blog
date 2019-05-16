@@ -26,44 +26,29 @@
       }
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/static/images/logo/logo.ico",
-      "headers": {
-        "cache-control": "public, max-age=43200, immutable"
-      }
-    },
-    {
-      "src": "/manifest.webmanifest",
-      "dest": "/static/manifest.webmanifest",
+      "src": "^/(manifest.webmanifest|manifest.json)$",
+      "dest": "/manifest.webmanifest",
       "headers": {
         "content-type": "application/manifest+json",
         "cache-control": "public, max-age=43200, immutable"
       }
     },
     {
-      "src": "/manifest.json",
-      "dest": "/static/manifest.webmanifest",
+      "src": "/manifest.amp.webmanifest",
       "headers": {
+        "content-type": "application/manifest+json",
         "cache-control": "public, max-age=43200, immutable"
       }
     },
     {
-      "src": "/feed.json",
-      "dest": "/static/feed.json",
-      "headers": {
-        "cache-control": "public, max-age=43200, immutable"
-      }
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "/static/sitemap.xml",
+      "src": "^/(favicon.ico|logo.png|feed.json|sitemap.xml)$",
       "headers": {
         "cache-control": "public, max-age=43200, immutable"
       }
     },
     {
       "src": "/atom",
-      "dest": "/static/atom.xml",
+      "dest": "/atom.xml",
       "headers": {
         "cache-control": "public, max-age=43200, immutable"
       }
@@ -75,10 +60,6 @@
         "cache-control": "max-age=0",
         "Service-Worker-Allowed": "/"
       }
-    },
-    {
-      "src": "/google2b07cf64e0755399.html",
-      "dest": "/static/google2b07cf64e0755399.html"
     },
     {
       "src": "/(.*)",

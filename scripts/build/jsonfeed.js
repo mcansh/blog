@@ -4,7 +4,7 @@ const path = require('path');
 const posts = require('../get-blog-posts');
 const { description, homepage } = require('../../package.json');
 
-const OUT_DIR = path.join(process.cwd(), 'static');
+const OUT_DIR = path.join(process.cwd(), 'public');
 
 const getCloudinaryURL = (image, settings = []) => {
   const base = 'https://res.cloudinary.com/dof0zryca/image/upload';
