@@ -54,7 +54,7 @@ export const Title = animated(styled.h1`
 interface Props {
   title: string;
   url?: string;
-  image?: ImageType;
+  image: ImageType;
   date?: number;
 }
 
@@ -73,12 +73,7 @@ const Header = ({ title, url, image, date }: Props) => {
       <HeaderContent>
         <Title style={props}>{title}</Title>
         {date && <DateHeading date={date} />}
-        {url && (
-          <Button
-            text="Read More"
-            link={{ pathname: url, query: isAmp && { amp: 1 } }}
-          />
-        )}
+        {url && <Button text="Read More" link={isAmp ? `${url}?amp=1` : url} />}
       </HeaderContent>
       <Image image={image} />
       <figure>

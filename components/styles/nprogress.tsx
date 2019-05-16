@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import { createGlobalStyle } from 'styled-components';
@@ -119,19 +119,23 @@ const NProgressContainer = ({
   color,
   spinner,
 }: Props) => {
-  const timer = useRef(null);
+  const timer = React.useRef<number | null>(null);
 
-  const routeChangeStart = () => {
-    clearTimeout(timer.current);
+  const routeChangeStart = React.useCallback(() => {
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
     timer.current = setTimeout(NProgress.start, showAfterMs);
-  };
+  }, [showAfterMs]);
 
-  const routeChangeEnd = () => {
-    clearTimeout(timer.current);
+  const routeChangeEnd = React.useCallback(() => {
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
     NProgress.done();
-  };
+  }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (options) {
       NProgress.configure(options);
     }
@@ -141,7 +145,9 @@ const NProgressContainer = ({
     Router.events.on('routeChangeError', routeChangeEnd);
 
     return () => {
-      clearTimeout(timer.current);
+      if (timer.current) {
+        clearTimeout(timer.current);
+      }
       Router.events.off('routeChangeStart', routeChangeStart);
       Router.events.off('routeChangeComplete', routeChangeEnd);
       Router.events.off('routeChangeError', routeChangeEnd);

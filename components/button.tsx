@@ -1,7 +1,7 @@
+import { UrlObject } from 'url';
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Router, { UrlLike } from 'next/router';
 
 interface Props
   extends React.DetailedHTMLProps<
@@ -9,7 +9,7 @@ interface Props
     HTMLAnchorElement
   > {
   text: string;
-  link: string | UrlLike;
+  link: string | UrlObject;
   textColor?: string;
   background?: string;
   hoverTextColor?: string;
@@ -61,7 +61,6 @@ const Button = ({
   hoverTextColor,
   hoverBackground,
 }: Props) => {
-  const [prefetched, setPrefetched] = React.useState(false);
   return (
     <Link href={link} passHref>
       <StyledLink
@@ -69,13 +68,6 @@ const Button = ({
         hoverBackground={hoverBackground}
         hoverTextColor={hoverTextColor}
         textColor={textColor}
-        onMouseEnter={() => {
-          /* istanbul ignore next */
-          if (!prefetched) {
-            Router.prefetch(link.toString());
-            setPrefetched(true);
-          }
-        }}
       >
         {text}
       </StyledLink>

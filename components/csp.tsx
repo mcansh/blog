@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { NextScript } from 'next/document';
+import { NextScript, DocumentProps } from 'next/document';
 
 const cspHashOf = (text: string) => {
   const hash = crypto.createHash('sha256');
@@ -7,7 +7,7 @@ const cspHashOf = (text: string) => {
   return `'sha256-${hash.digest('base64')}'`;
 };
 
-const CSP = props => {
+const CSP = (props: DocumentProps) => {
   const cspSettings = {
     'default-src': ["'self'"],
     'script-src': [
@@ -17,7 +17,7 @@ const CSP = props => {
       "'unsafe-inline'",
       'www.google-analytics.com',
     ],
-    'connect-src': ["'self'", 'ws://localhost:*'],
+    'connect-src': ["'self'", 'ws://localhost:*', 'https://sentry.io/'],
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': [
       "'self'",
@@ -29,10 +29,7 @@ const CSP = props => {
 
   const csp = `${Object.entries(cspSettings)
     .map(item => `${item[0]} ${item[1].join(' ')}`)
-    .join(';')} ${cspHashOf(
-    // @ts-ignore
-    NextScript.getInlineScriptSource(props)
-  )}`;
+    .join(';')} ${cspHashOf(NextScript.getInlineScriptSource(props))}`;
 
   return <meta httpEquiv="Content-Security-Policy" content={csp} />;
 };

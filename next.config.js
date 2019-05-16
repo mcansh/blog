@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+const withSourceMaps = require('@zeit/next-source-maps');
 const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
-const withTypescript = require('@zeit/next-typescript');
 const generateStaticFiles = require('./scripts/build');
 const { version, repository } = require('./package.json');
 
@@ -50,4 +49,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(withOffline(withTypescript(nextConfig)));
+module.exports = withMDX(withOffline(withSourceMaps(nextConfig)));

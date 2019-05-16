@@ -54,13 +54,14 @@ const Navigation = () => {
   });
 
   const onClick = () => {
-    const nextNavOpen = !navOpen;
-    setNavOpen(nextNavOpen);
-    if (nextNavOpen) {
-      disableBodyScroll(document.querySelector('body'));
-    } else {
-      enableBodyScroll(document.querySelector('body'));
-    }
+    setNavOpen(old => {
+      if (old) {
+        enableBodyScroll(document.body);
+      } else {
+        disableBodyScroll(document.body);
+      }
+      return !old;
+    });
   };
 
   return (

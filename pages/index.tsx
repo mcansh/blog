@@ -2,16 +2,19 @@ import React from 'react';
 import PostsWrapper from '~/components/posts-wrapper';
 import PostCard, { Post } from '~/components/post-card/index';
 import Header from '~/components/header/index';
-import * as posts from '~/posts';
+import posts from '~/posts';
 
-const [latest] = posts.sortedByDate;
+// @ts-ignore
+const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+const [latest] = sorted;
 const { date, ...latestPost } = latest;
 
 const Index = () => (
   <>
     <Header {...latestPost} />
     <PostsWrapper>
-      {posts.sortedByDate.map((post: Post) => (
+      {sorted.map((post: Post) => (
         <PostCard key={post.url} {...post} />
       ))}
     </PostsWrapper>

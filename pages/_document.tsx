@@ -3,11 +3,19 @@ import Document, {
   Head,
   Main,
   NextScript,
-  NextDocumentContext,
-  Html,
+  DocumentContext,
 } from 'next/document';
+import * as Sentry from '@sentry/browser';
 import { ServerStyleSheet } from 'styled-components';
 import CSP from '~/components/csp';
+
+process.on('unhandledRejection', err => {
+  Sentry.captureException(err);
+});
+
+process.on('uncaughtException', err => {
+  Sentry.captureException(err);
+});
 
 interface Props {
   styles: string;
@@ -16,43 +24,39 @@ interface Props {
   amphtml: boolean;
 }
 
+// @ts-ignore
 class MyDocument extends Document<Props> {
-  static async getInitialProps(context: NextDocumentContext) {
-    // styled-components
+  static async getInitialProps(context: DocumentContext) {
     const sheet = new ServerStyleSheet();
-
     const originalRenderPage = context.renderPage;
-    context.renderPage = () =>
-      originalRenderPage({
-        // @ts-ignore
-        enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
-      });
 
-    const initialProps = await Document.getInitialProps(context);
-    // react-intl
+    try {
+      context.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App: any) => (props: any) =>
+            sheet.collectStyles(<App {...props} />),
+        });
 
-    const {
-      // @ts-ignore
-      req: { locale, localeDataScript },
-    } = context;
-
-    return {
-      ...initialProps,
-      locale,
-      localeDataScript,
-      // @ts-ignore
-      styles: [...initialProps.styles, ...sheet.getStyleElement()],
-    };
+      const initialProps = await Document.getInitialProps(context);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {
-    const { locale, styles, localeDataScript, amphtml } = this.props;
-    const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
-    const encodedFeatures = encodeURIComponent(features);
-    const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
+    const { locale, styles, amphtml } = this.props;
 
     return (
-      <Html lang={locale}>
+      <html lang={locale}>
         <Head>
           {!amphtml && <CSP {...this.props} />}
           {styles}
@@ -60,16 +64,9 @@ class MyDocument extends Document<Props> {
         <body>
           <Main />
           <div id="portal" />
-          <script src={polyfill} />
-          <script
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: localeDataScript,
-            }}
-          />
           <NextScript />
         </body>
-      </Html>
+      </html>
     );
   }
 }

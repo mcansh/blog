@@ -5,6 +5,10 @@ import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
 import Meta from '~/components/meta';
 
+if (!global.Intl) {
+  global.Intl = require('intl');
+}
+
 // @ts-ignore
 if (global.document) {
   const info = [
@@ -12,7 +16,6 @@ if (global.document) {
     `You can find the code here: ${process.env.GITHUB_URL}`,
     `Thanks for stopping by ${randomEmoji()}`,
   ];
-  // eslint-disable-next-line no-console
   info.forEach(message => console.log(message));
 }
 

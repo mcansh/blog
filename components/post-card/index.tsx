@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAmp } from 'next/amp';
 import Link from 'next/link';
-import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
 import unsplashParams from '~/utils/unsplash-params';
 import Post, { imageHeight } from '~/components/post-card/styles';
@@ -16,6 +15,14 @@ export interface Post {
   title: string;
 }
 
+export interface PostWithMeta {
+  image: ImageType;
+  url: string;
+  date: number;
+  title: string;
+  meta: Meta;
+}
+
 const PostCard = ({ url, image, date, title }: Post) => {
   const isAmp = useAmp();
   const hasImageAuthor = image.photographer != null;
@@ -23,20 +30,13 @@ const PostCard = ({ url, image, date, title }: Post) => {
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
-  const [prefetched, setPrefetched] = useState(false);
+  const href = isAmp ? `${url}?amp=1` : url;
   return (
-    <Link href={{ pathname: url, query: isAmp && { amp: 1 } }} passHref>
-      <Post
-        onMouseEnter={() => {
-          /* istanbul ignore next */
-          if (!prefetched) {
-            Router.prefetch(url);
-            setPrefetched(true);
-          }
-        }}
-      >
+    <Link href={href} passHref>
+      <Post>
         <div className="post-card__img-wrapper">
           {isAmp ? (
+            // @ts-ignore
             <amp-img
               data-testid="post-image"
               height={200}

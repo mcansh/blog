@@ -6,6 +6,12 @@ module.exports = {
       typescript: {},
     },
   },
+  overrides: {
+    files: ['*.js', '.*.js'],
+    rules: {
+      '@typescript-eslint/no-var-requires': 'off',
+    },
+  },
   rules: {
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
     'import/no-extraneous-dependencies': [
@@ -13,7 +19,6 @@ module.exports = {
       {
         devDependencies: [
           '__tests__/**/*',
-          'jest.setup.js',
           'jest.config.js',
           'utils/render-with-intl.tsx',
           'scripts/**/*',

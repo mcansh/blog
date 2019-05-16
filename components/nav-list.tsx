@@ -86,7 +86,7 @@ const NavList = ({ navOpen }: { navOpen: boolean }) => {
             const isExternal = isAbsoluteUrl(slug);
             return (
               <li key={name}>
-                <Link href={slug} prefetch={!isExternal}>
+                <Link href={slug}>
                   <a
                     rel={isExternal ? 'noopener external nofollow' : ''}
                     target={isExternal ? '_blank' : ''}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
 
 interface CoodeStyleProps {
@@ -32,7 +32,7 @@ const Code = ({ children, className }: CodeProps) => {
     <Highlight
       {...defaultProps}
       code={children}
-      language={language}
+      language={language as Language}
       theme={nightOwl}
     >
       {highlight => (
