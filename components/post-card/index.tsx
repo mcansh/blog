@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAmp } from 'next/amp';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { SimpleImg } from 'react-simple-img';
 import unsplashParams from '~/utils/unsplash-params';
@@ -25,14 +26,14 @@ export interface PostWithMeta {
 
 const PostCard = ({ url, image, date, title }: Post) => {
   const isAmp = useAmp();
+  const { query } = useRouter();
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
-  const href = isAmp ? `${url}?amp=1` : url;
   return (
-    <Link href={href} passHref>
+    <Link href={{ pathname: url, query }} passHref>
       <Post>
         <div className="post-card__img-wrapper">
           {isAmp ? (
