@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAmp } from 'next/amp';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import Button from '~/components/button';
@@ -60,6 +61,7 @@ interface Props {
 
 const Header = ({ title, url, image, date }: Props) => {
   const isAmp = useAmp();
+  const { query } = useRouter();
   const props = useSpring({
     from: {
       opacity: isAmp ? 1 : 0,
@@ -73,7 +75,7 @@ const Header = ({ title, url, image, date }: Props) => {
       <HeaderContent>
         <Title style={props}>{title}</Title>
         {date && <DateHeading date={date} />}
-        {url && <Button text="Read More" link={isAmp ? `${url}?amp=1` : url} />}
+        {url && <Button text="Read More" link={{ pathname: url, query }} />}
       </HeaderContent>
       <Image image={image} />
       <figure>
