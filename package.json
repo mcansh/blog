@@ -102,6 +102,8 @@
     "nodemon": "1.19.0",
     "prettier": "1.17.1",
     "react-testing-library": "7.0.0",
+    "serverless-nextjs-plugin": "2.0.2-alpha.0",
+    "serverless-offline": "4.10.3",
     "stylelint": "10.0.1",
     "stylelint-config-amp": "0.5.0",
     "stylelint-config-recommended": "2.2.0",

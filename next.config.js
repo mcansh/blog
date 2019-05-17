@@ -8,9 +8,7 @@ generateStaticFiles();
 
 const nextConfig = {
   target: 'serverless',
-  experimental: {
-    amp: true,
-  },
+  assetPrefix: 'https://s3.amazonaws.com/logan-mcansh-blog',
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   dontAutoRegisterSw: true,
   workboxOpts: {
