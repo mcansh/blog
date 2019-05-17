@@ -4781,10 +4781,10 @@ eslint-config-mcansh@1.1.1:
     read-pkg-up "^4.0.0"
     semver "^5.6.0"
 
-eslint-config-prettier@4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.2.0.tgz#70b946b629cd0e3e98233fd9ecde4cb9778de96c"
-  integrity sha512-y0uWc/FRfrHhpPZCYflWC8aE0KRJRY04rdZVfl8cL3sEZmOYyaBdhdlQPjKZBnuRMyLVK+JUZr7HaZFClQiH4w==
+eslint-config-prettier@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.3.0.tgz#c55c1fcac8ce4518aeb77906984e134d9eb5a4f0"
+  integrity sha512-sZwhSTHVVz78+kYD3t5pCWSYEdVSBR0PXnwjDRsUs8ytIrK8PLXw+6FKp8r3Z7rx4ZszdetWlXYKOHoUrrwPlA==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -8992,10 +8992,10 @@ next-offline@4.0.0:
     webpack "^4.19.1"
     workbox-webpack-plugin "^4.3.1"
 
-next-server@8.1.1-canary.29:
-  version "8.1.1-canary.29"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.29.tgz#087dc346495ba4787b46146b839a67e92e901fe5"
-  integrity sha512-2isW/U/2Xh3C7iqbcm1JDfMdSyGgQ+IIygPFQrkYWVfx5tU4NzxO1SkFsudx93D3AK4BdRyruMweQUmCcqFOoA==
+next-server@8.1.1-canary.32:
+  version "8.1.1-canary.32"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.32.tgz#27ab14956f3c27924ab27c1e1053a88994b7ac4c"
+  integrity sha512-d75+XvjQuJjh8eanVoW/cIB5ocq465aoDqUf3uFhroBQy0HfG9ucAMBszsHXJgmqS/EQnKOALmwbom+c+1f0jQ==
   dependencies:
     amp-toolbox-optimizer "0.5.3"
     etag "1.8.1"
@@ -9008,10 +9008,10 @@ next-server@8.1.1-canary.29:
     send "0.16.1"
     url "0.11.0"
 
-next@8.1.1-canary.29:
-  version "8.1.1-canary.29"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.29.tgz#5796d7279b941b7c055d74e261c87030e28c6380"
-  integrity sha512-kTRtz/KG+Wp3hdmPINKkAmmLevk5Vt3uuiKIlwOuy9dGmEJG+nJOtZWaucFK+qXZwHNg3RWpxe0C84nPE5l24A==
+next@8.1.1-canary.32:
+  version "8.1.1-canary.32"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.32.tgz#a5909722bf1a5020c23928242322a17be1e1e8c9"
+  integrity sha512-vrzIVQ24nGk1OlQBPQRva4X8wXvIZ8b53Qi1SO/jYxhR535SdjU435sGRNK9AwQByEJRsb08JbZ88IC+P1l1eg==
   dependencies:
     "@babel/core" "7.1.2"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -9039,7 +9039,7 @@ next@8.1.1-canary.29:
     launch-editor "2.2.1"
     loader-utils "1.1.0"
     mkdirp "0.5.1"
-    next-server "8.1.1-canary.29"
+    next-server "8.1.1-canary.32"
     prop-types "15.6.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.4"
@@ -10705,10 +10705,10 @@ react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 
-react-simple-img@2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/react-simple-img/-/react-simple-img-2.1.9.tgz#a530702254c34caca585851be6f6443662e34f9a"
-  integrity sha512-IDBkTenqbK+ph3xNagkL99LRWv4P1sEzuYjMb0M3egrLY9GvzvCDmAlR+Sb0h4PA4XQHKD64R2WXDJ4KraECSg==
+react-simple-img@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-simple-img/-/react-simple-img-2.2.0.tgz#38f0cea01f9abdade072728f6b36c1d275d6ffbc"
+  integrity sha512-luoPsVBi03hdOvG+46uho5zo4mwhXHhZQhkpUgBmavvOKeES1DE9RIyj1+i6ucPDNstyrvl8B4yQyTKi7M51nQ==
   dependencies:
     intersection-observer "^0.5.1"
 
