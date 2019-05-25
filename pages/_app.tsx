@@ -12,7 +12,7 @@ import Document from '~/components/layouts/document';
 
 Sentry.init({
   dsn: process.env.SENTRY,
-  release: process.env.VERSION,
+  release: `blog@${process.env.VERSION}`,
   environment: process.env.NODE_ENV,
 });
 
