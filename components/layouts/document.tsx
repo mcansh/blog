@@ -24,25 +24,22 @@ interface Props {
 }
 
 const serviceWorker = async () => {
-  if ('serviceWorker' in window.navigator) {
-    try {
-      await window.navigator.serviceWorker.register('/sw.js');
-      console.log(`successfully registered serviceWorker`);
-    } catch (error) {
-      console.log(`failed to register serviceWorker`);
+  if (process.env.NODE_ENV === 'production') {
+    if ('serviceWorker' in window.navigator) {
+      try {
+        await window.navigator.serviceWorker.register('/sw.js');
+        console.log(`successfully registered serviceWorker`);
+      } catch (error) {
+        console.log(`failed to register serviceWorker`);
+      }
     }
   }
 };
 
 const Document = ({ children }: Props) => {
-  const isProd = process.env.NODE_ENV === 'production';
   useEffect(() => {
-    if (isProd) {
-      serviceWorker();
-    } else {
-      console.log('something something serviceWorker');
-    }
-  }, [isProd]);
+    serviceWorker();
+  }, []);
 
   return (
     <>
