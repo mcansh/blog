@@ -17,11 +17,11 @@ const nextConfig = {
     swDest: 'static/sw.js',
     runtimeCaching: [
       {
-        handler: 'staleWhileRevalidate',
+        handler: 'StaleWhileRevalidate',
         urlPattern: /[.](webp|png|jpg|svg|css|woff|woff2)/,
       },
       {
-        handler: 'networkFirst',
+        handler: 'NetworkFirst',
         urlPattern: /^https?.*/,
       },
     ],
