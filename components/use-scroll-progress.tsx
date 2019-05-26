@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 
 const useScrollProgress = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
 
-  const handleScroll = () => {
+  const handleScroll = React.useCallback(() => {
     const scroll = window.pageYOffset; // window.scrollY is less supported
     const bodyHeight = document.body.offsetHeight;
     const windowHeight = window.innerHeight;
     const scrollPercent = (scroll / (bodyHeight - windowHeight)) * 100;
     const maxMinscroll = Math.min(100, Math.max(0, scrollPercent));
     setScrollProgress(maxMinscroll);
-  };
+  }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => {
