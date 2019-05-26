@@ -38,19 +38,21 @@ const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   }
 `;
 
+// eslint-disable-next-line clean-styled-components/single-component-per-file
 const HeaderContent = styled.div`
   z-index: 1;
   text-align: center;
   max-width: 80vw;
 `;
 
-export const Title = animated(styled.h1`
+// eslint-disable-next-line clean-styled-components/single-component-per-file
+export const Title = styled(animated.h1)`
   margin-bottom: 2rem;
   font-size: 3rem;
   @media (min-width: 400px) {
     font-size: 4rem;
   }
-`);
+`;
 
 interface Props {
   title: string;

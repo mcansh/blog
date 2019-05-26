@@ -21,6 +21,7 @@ type StyledLinkProps = Pick<
   'textColor' | 'background' | 'hoverTextColor' | 'hoverBackground'
 >;
 
+// eslint-disable-next-line clean-styled-components/single-component-per-file
 const StyledLink = styled.a<StyledLinkProps>`
   margin: 3rem 0 0 0;
   color: ${props => props.textColor};

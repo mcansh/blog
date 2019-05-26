@@ -7,6 +7,7 @@ interface CoodeStyleProps {
   style: React.CSSProperties;
 }
 
+// eslint-disable-next-line clean-styled-components/single-component-per-file
 const CodeStyles = styled.code<CoodeStyleProps>`
   margin: 3rem 0;
   padding: 1.4rem;
@@ -50,6 +51,7 @@ const Code = ({ children, className }: CodeProps) => {
   );
 };
 
+// eslint-disable-next-line clean-styled-components/single-component-per-file
 const InlineCode = styled.code`
   font-size: 0.85em;
   padding: 0.125rem 0.25rem;

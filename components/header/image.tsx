@@ -10,6 +10,7 @@ export interface ImageType {
   url?: string | null;
 }
 
+// eslint-disable-next-line clean-styled-components/single-component-per-file
 const ImageWrap = styled.div`
   display: block;
   position: absolute;

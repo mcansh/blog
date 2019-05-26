@@ -6,6 +6,7 @@ import { formatPostDate } from '~/utils/dates';
 
 const formatRelative = new IntlRelativeFormat('en');
 
+// eslint-disable-next-line clean-styled-components/single-component-per-file
 const H2 = styled.h2`
   font-size: 2.5rem;
   @media screen and (min-width: 450px) {

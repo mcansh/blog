@@ -33,6 +33,7 @@ const ScrollProgress = styled.progress.attrs({ max: 100, min: 0 })`
   }
 `;
 
+// eslint-disable-next-line clean-styled-components/single-component-per-file
 const PostWrap = styled.div`
   margin: 3rem auto 0 auto;
   max-width: 90rem;

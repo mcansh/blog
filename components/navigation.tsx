@@ -1,37 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
-import styled from 'styled-components';
-import dynamic from 'next/dynamic';
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
+import { useTransition, animated } from 'react-spring';
+
+import Nav from '~/components/styles/navigation';
 import Hamburger from '~/components/hamburger';
-import Portal from '~/components/portal';
+import isAbsoluteUrl from 'is-absolute-url';
+import Link from 'next/link';
 
-// @ts-ignore
-const NavList = dynamic({
-  loader: () => import('~/components/nav-list'),
-  loading: () => null,
-});
-
-const Nav = styled.nav<{ navOpen: boolean }>`
-  &::after {
-    content: '';
-    background: rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    visibility: ${props => (props.navOpen ? 'visible' : 'hidden')};
-    opacity: ${props => (props.navOpen ? 1 : 0)};
-    transition: 500ms all ease-in-out;
-    will-change: opacity;
-  }
-`;
+import { navigationLinks } from '~/config';
+import linkAttributes from '~/utils/link-attributes';
 
 const Navigation = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -53,7 +35,7 @@ const Navigation = () => {
     };
   });
 
-  const onClick = () => {
+  const toggleNav = () => {
     setNavOpen(old => {
       if (old) {
         enableBodyScroll(document.body);
@@ -64,6 +46,14 @@ const Navigation = () => {
     });
   };
 
+  const tranitions = useTransition(navOpen, null, {
+    from: { transform: 'translate3d(-105%, 0, 0)' },
+    enter: { transform: 'translate3d(0, 0, 0)' },
+    leave: { transform: 'translate3d(-105%, 0, 0)' },
+    reset: true,
+    unique: true,
+  });
+
   return (
     <Nav
       navOpen={navOpen}
@@ -73,10 +63,26 @@ const Navigation = () => {
         }
       }}
     >
-      <Hamburger onClick={onClick} navOpen={navOpen} />
-      <Portal>
-        <NavList navOpen={navOpen} />
-      </Portal>
+      <Hamburger onClick={toggleNav} navOpen={navOpen} />
+
+      {tranitions.map(({ item, key, props }) => {
+        return (
+          item && (
+            <animated.ul key={key} style={props}>
+              {navigationLinks.map(({ name, slug }) => {
+                const isExternal = isAbsoluteUrl(slug);
+                return (
+                  <li key={name}>
+                    <Link href={slug}>
+                      <a {...linkAttributes(isExternal)}>{name}</a>
+                    </Link>
+                  </li>
+                );
+              })}
+            </animated.ul>
+          )
+        );
+      })}
     </Nav>
   );
 };
