@@ -21,10 +21,6 @@ async function sentryRelease() {
 
   const [version, last, current] = args.sub;
 
-  console.log({ version, last, current });
-
-  process.exit(0);
-
   const { SENTRY_ORG, SENTRY_AUTH_TOKEN } = process.env;
 
   if (!SENTRY_ORG) {
@@ -67,7 +63,9 @@ async function sentryRelease() {
     }
   }
 
-  execSync(`sentry-cli releases deploys ${version} new -e production`);
+  const env = version.includes('canary') ? 'staging' : 'production';
+
+  execSync(`sentry-cli releases deploys ${version} new -e ${env}`);
 }
 
 sentryRelease();
