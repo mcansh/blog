@@ -4,19 +4,26 @@ const { version: PKGVersion } = require('../package.json');
 
 async function sentryRelease() {
   args
-    .option(
-      'version',
-      "The version you'd like to register on Sentry",
-      PKGVersion
-    )
-    .option(
-      'sha',
-      'last commit from release previous sha..last commit from the new release'
-    );
+    .examples([
+      {
+        usage: `node ./scripts/sentry-release.js ${PKGVersion}`,
+        description: 'Let Sentry figure out the commits for the release',
+      },
+      {
+        usage: `node ./scripts/sentry-release.js ${PKGVersion} ac8264c 474721f`,
+        description: 'Explictly tell Sentry the commits for the release',
+      },
+    ])
+    .parse(process.argv, {
+      version: false,
+      name: 'Sentry Releaser',
+    });
 
-  const { sha, version } = args.parse(process.argv, {
-    name: 'Sentry Releaser',
-  });
+  const [version, last, current] = args.sub;
+
+  console.log({ version, last, current });
+
+  process.exit(0);
 
   const { SENTRY_ORG, SENTRY_AUTH_TOKEN } = process.env;
 
@@ -35,7 +42,7 @@ async function sentryRelease() {
     throw new Error(`An error occured creating that release :(`, error);
   }
 
-  if (!sha) {
+  if (!last || !current) {
     console.log(
       `no commit shas were provided, letting sentry figure that out...`
     );
@@ -48,7 +55,6 @@ async function sentryRelease() {
       );
     }
   } else {
-    const [last, current] = sha.split('..');
     try {
       execSync(
         `sentry-cli releases set-commits ${version} --commit "mcansh/blog@${last}..${current}"`
