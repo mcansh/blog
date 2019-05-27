@@ -49,4 +49,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(withOffline(withSourceMaps(nextConfig)));
+module.exports = withSourceMaps(withMDX(withOffline(nextConfig)));
