@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import Router from 'next/router';
 // @ts-ignore
 import withGA from 'next-ga';
-import NProgress from '~/components/styles/nprogress';
+import { NProgress } from '@mcansh/next-nprogress';
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
 import Document from '~/components/layouts/document';

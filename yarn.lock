@@ -1426,6 +1426,18 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@mcansh/next-nprogress@1.1.0-canary.1":
+  version "1.1.0-canary.1"
+  resolved "https://registry.yarnpkg.com/@mcansh/next-nprogress/-/next-nprogress-1.1.0-canary.1.tgz#0674d6faa75adc9c77698a3890f7d89afde2ad47"
+  integrity sha512-9dMiDzAbwfxLO44VfBQxdAY3l2EyvvBXMcc/Qj/zQxWbljCWUWzpB/uPMJPlJQv53WRmnyKaVXWVGSIQrXClCg==
+  dependencies:
+    next "8.1.1-canary.40"
+    next-server "8.1.1-canary.40"
+    nprogress "0.2.0"
+    react "16.8.6"
+    react-dom "16.8.6"
+    styled-components "4.2.0"
+
 "@mdx-js/loader@1.0.20":
   version "1.0.20"
   resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-1.0.20.tgz#8472784c676fb64f5e0fcbd64a569a093f19e4ea"
@@ -1877,10 +1889,10 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/react@16.8.18":
-  version "16.8.18"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.18.tgz#fe66fb748b0b6ca9709d38b87b2d1356d960a511"
-  integrity sha512-lUXdKzRqWR4FebR5tGHkLCqnvQJS4fdXKCBrNGGbglqZg2gpU+J82pMONevQODUotATs9fc9k66bx3/St8vReg==
+"@types/react@16.8.19":
+  version "16.8.19"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.19.tgz#629154ef05e2e1985cdde94477deefd823ad9be3"
+  integrity sha512-QzEzjrd1zFzY9cDlbIiFvdr+YUmefuuRYrPxmkwG0UQv5XF35gFIi7a95m1bNVcFU0VimxSZ5QVGSiBmlggQXQ==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -6734,10 +6746,10 @@ intl-messageformat@^2.0.0:
   dependencies:
     intl-messageformat-parser "1.4.0"
 
-intl-relativeformat@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/intl-relativeformat/-/intl-relativeformat-2.1.0.tgz#010f1105802251f40ac47d0e3e1a201348a255df"
-  integrity sha1-AQ8RBYAiUfQKxH0OPhogE0iiVd8=
+intl-relativeformat@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/intl-relativeformat/-/intl-relativeformat-2.2.0.tgz#6aca95d019ec8d30b6c5653b6629f9983ea5b6c5"
+  integrity sha512-4bV/7kSKaPEmu6ArxXf9xjv1ny74Zkwuey8Pm01NH4zggPP7JHwg2STk8Y3JdspCKRDriwIyLRfEXnj2ZLr4Bw==
   dependencies:
     intl-messageformat "^2.0.0"
 
@@ -8970,10 +8982,10 @@ next-offline@4.0.1:
     webpack "^4.19.1"
     workbox-webpack-plugin "^4.3.1"
 
-next-server@8.1.1-canary.39:
-  version "8.1.1-canary.39"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.39.tgz#1863f122260d329b64cfc4f3f9530c156f6618ca"
-  integrity sha512-/zRZvssrMY38S+KP7KqbgnWO78EzUeFnhHmtvPMjqvzBsv13k9goXPR3mtV5TWbXx+2uojw9gd6XlQls0Ip5PQ==
+next-server@8.1.1-canary.40:
+  version "8.1.1-canary.40"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-8.1.1-canary.40.tgz#75ba5716c7c48597190921a16cce45448e6fbd8f"
+  integrity sha512-PV8fzc+EdcC7c14BQ0zxRBSs+ZwJBL5/qG36EsSkIyw54EqC+XQBI7Ao5Pmo2y/cIfRreqATv9RbvF7ErPljVg==
   dependencies:
     amp-toolbox-optimizer "0.5.3"
     etag "1.8.1"
@@ -8986,10 +8998,10 @@ next-server@8.1.1-canary.39:
     send "0.16.1"
     url "0.11.0"
 
-next@8.1.1-canary.39:
-  version "8.1.1-canary.39"
-  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.39.tgz#3386419383cd539d8c0e952ef6ea896ab357d525"
-  integrity sha512-rTAfYkmhhp0aQ+hC0z6F5EAP0IqsM4OKSTlXUJamrYWK5KRgc7chp2J/+H/5a2wJVKZJnTH9pD4h7B3tTXtUQA==
+next@8.1.1-canary.40:
+  version "8.1.1-canary.40"
+  resolved "https://registry.yarnpkg.com/next/-/next-8.1.1-canary.40.tgz#65c7d8231cd65fa04b3a3fcf146da68d8fbbeafd"
+  integrity sha512-61lPRFvyTLuvyRkKA/JajY0Ku17b/m2icgQqVQe78G/GaqqUKJ8UL8+kwpsaEH+640HGtHaqs1fL2DbSSBrErA==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -9017,7 +9029,7 @@ next@8.1.1-canary.39:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "8.1.1-canary.39"
+    next-server "8.1.1-canary.40"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.6"
@@ -10667,10 +10679,10 @@ react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 
-react-simple-img@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-simple-img/-/react-simple-img-2.2.0.tgz#38f0cea01f9abdade072728f6b36c1d275d6ffbc"
-  integrity sha512-luoPsVBi03hdOvG+46uho5zo4mwhXHhZQhkpUgBmavvOKeES1DE9RIyj1+i6ucPDNstyrvl8B4yQyTKi7M51nQ==
+react-simple-img@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/react-simple-img/-/react-simple-img-2.3.1.tgz#23b7ea34475eced60925a7813c2535d7792aa24f"
+  integrity sha512-ARXTEDJLFQ3/DX6gDYEwOiC94eqiCOSXz/Ggzu8GD2cSqAWqlAPkE1MJbFmgCiHbrD/8rtdCcQmOT9a0AmPwgg==
   dependencies:
     intersection-observer "^0.5.1"
 
