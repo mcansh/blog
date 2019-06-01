@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import theme from '~/config';
 
 const renderWithIntl = (children: React.ReactNode) =>
@@ -11,7 +11,7 @@ const renderWithIntl = (children: React.ReactNode) =>
     </ThemeProvider>
   );
 
-export * from 'react-testing-library';
+export * from '@testing-library/react';
 export { renderWithIntl as render };
 
 export default renderWithIntl;
