@@ -65,5 +65,8 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
