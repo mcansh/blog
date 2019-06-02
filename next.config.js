@@ -9,7 +9,7 @@ generateStaticFiles();
 const nextConfig = {
   target: 'serverless',
   experimental: {
-    amp: true,
+    autoExport: true,
   },
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   dontAutoRegisterSw: true,
