@@ -1,5 +1,5 @@
 import React, { StrictMode } from 'react';
-import App, { Container, AppContext } from 'next/app';
+import App, { Container } from 'next/app';
 import * as Sentry from '@sentry/browser';
 import { ThemeProvider } from 'styled-components';
 import Router from 'next/router';
