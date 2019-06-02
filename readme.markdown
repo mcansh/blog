@@ -1,6 +1,6 @@
 # Blog
 
-[![Build Status](https://travis-ci.org/mcansh/blog.svg?branch=master)](https://travis-ci.org/mcansh/blog) [![Greenkeeper badge](https://badges.greenkeeper.io/mcansh/blog.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/mcansh/blog.svg?branch=master)](https://travis-ci.org/mcansh/blog)
 
 ## Set up locally
 
