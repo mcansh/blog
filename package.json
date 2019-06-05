@@ -36,7 +36,7 @@
     "body-scroll-lock": "2.6.1",
     "date-fns": "2.0.0-alpha.27",
     "intl": "1.2.5",
-    "intl-relativeformat": "6.1.0",
+    "intl-relativeformat": "3.1.0",
     "is-absolute-url": "3.0.0",
     "next": "8.1.1-canary.43",
     "next-ga": "2.3.4",
@@ -65,7 +65,7 @@
     "@types/prettier": "1.16.4",
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
-    "@types/styled-components": "4.1.16",
+    "@types/styled-components": "4.1.15",
     "@typescript-eslint/eslint-plugin": "1.9.0",
     "@typescript-eslint/parser": "1.9.0",
     "args": "5.0.1",
@@ -101,17 +101,17 @@
     "jest-styled-components": "6.3.1",
     "kleur": "3.0.3",
     "lint-staged": "8.1.7",
-    "next-offline": "4.0.2",
+    "next-offline": "4.0.1",
     "nodemon": "1.19.1",
     "prettier": "1.17.1",
     "stylelint": "10.0.1",
-    "stylelint-config-amp": "1.0.0",
+    "stylelint-config-amp": "0.5.0",
     "stylelint-config-recommended": "2.2.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.8.0",
     "ts-node": "8.2.0",
     "typescript": "3.5.1",
-    "webpack": "4.33.0"
+    "webpack": "4.32.2"
   },
   "greenkeeper": {
     "commitMessages": {
