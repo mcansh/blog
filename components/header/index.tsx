@@ -79,7 +79,7 @@ const Header = ({ title, url, image, date }: Props) => {
       </HeaderContent>
       <Image image={image} />
       <figure>
-        <Curve />
+        <Curve role="presentation" />
       </figure>
     </HeaderStyles>
   );
