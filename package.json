@@ -9,6 +9,9 @@
   "license": "MIT",
   "repository": "mcansh/blog",
   "homepage": "https://mcansh.blog",
+  "engines": {
+    "node": ">=10.x"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
