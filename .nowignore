@@ -11,10 +11,9 @@ stylelint.config.js
 static/images/posts/
 *.env
 *.log
-
 .vscode/
 __tests__/
 .next/
 coverage/
 node_modules/
-
+next-env.d.ts

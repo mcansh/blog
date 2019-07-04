@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { withAmp } from 'next/amp';
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
@@ -18,6 +17,8 @@ if (global.document) {
   ];
   info.forEach(message => console.log(message));
 }
+
+export const config = { amp: 'hybrid' };
 
 interface Props {
   children: React.ReactNode;
@@ -51,4 +52,4 @@ const Document = ({ children }: Props) => {
   );
 };
 
-export default withAmp(Document, { hybrid: true });
+export default Document;
