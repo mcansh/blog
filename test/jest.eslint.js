@@ -13,4 +13,7 @@ module.exports = {
     `${rootDir}/node_modules/`,
     `${rootDir}/__tests__`,
   ],
+  cliOptions: {
+    fix: true,
+  },
 };
