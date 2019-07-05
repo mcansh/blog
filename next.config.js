@@ -8,9 +8,6 @@ generateStaticFiles();
 
 const nextConfig = {
   target: 'serverless',
-  experimental: {
-    amp: true,
-  },
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   dontAutoRegisterSw: true,
   workboxOpts: {
