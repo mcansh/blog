@@ -26,6 +26,7 @@
     "validate": "yarn type-check && yarn lint && yarn lint:css && yarn test"
   },
   "dependencies": {
+    "@formatjs/intl-relativetimeformat": "2.4.0",
     "@mcansh/next-nprogress": "1.1.0-canary.4",
     "@mdx-js/loader": "1.0.27",
     "@mdx-js/react": "1.0.27",
@@ -38,7 +39,6 @@
     "body-scroll-lock": "2.6.3",
     "date-fns": "2.0.0-beta.2",
     "intl": "1.2.5",
-    "intl-relativeformat": "3.1.0",
     "is-absolute-url": "3.0.0",
     "next": "9.0.1",
     "next-ga": "2.3.4",
@@ -60,7 +60,6 @@
     "@types/body-scroll-lock": "2.6.0",
     "@types/common-tags": "1.8.0",
     "@types/glob": "7.1.1",
-    "@types/intl-relativeformat": "2.1.1",
     "@types/is-absolute-url": "3.0.0",
     "@types/jest": "24.0.15",
     "@types/jest-in-case": "1.0.1",

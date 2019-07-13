@@ -1,10 +1,11 @@
 import React from 'react';
-import IntlRelativeFormat from 'intl-relativeformat';
+import '@formatjs/intl-relativetimeformat/polyfill';
 import styled from 'styled-components';
-import { differenceInMonths } from 'date-fns';
+import { differenceInMonths, differenceInDays } from 'date-fns';
 import { formatPostDate } from '~/utils/dates';
 
-const formatRelative = new IntlRelativeFormat('en');
+// @ts-ignore
+const formatRelative = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
 
 const H2 = styled.h2`
   font-size: 2.5rem;
@@ -20,12 +21,16 @@ interface Props {
 const DateHeading = ({ date }: Props) => {
   /* istanbul ignore next */
   const monthDiff = differenceInMonths(Date.now(), date);
+
+  if (monthDiff > 4) {
+    return <H2 title={formatPostDate(date)}>Posted {formatPostDate(date)}</H2>;
+  }
+
+  const dayDiff = differenceInDays(date, Date.now());
+
   return (
     <H2 title={formatPostDate(date)}>
-      Posted{' '}
-      {monthDiff > 4
-        ? formatPostDate(date)
-        : formatRelative.format(new Date(date))}
+      Posted {formatRelative.format(dayDiff, 'day')}
     </H2>
   );
 };
