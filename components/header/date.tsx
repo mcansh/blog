@@ -21,17 +21,30 @@ interface Props {
 const DateHeading = ({ date }: Props) => {
   /* istanbul ignore next */
   const monthDiff = differenceInMonths(Date.now(), date);
+  const formatted = formatPostDate(date);
 
   if (monthDiff > 4) {
-    return <H2 title={formatPostDate(date)}>Posted {formatPostDate(date)}</H2>;
+    return <H2 title={formatted}>Posted {formatted}</H2>;
+  }
+
+  if (monthDiff >= 1) {
+    return (
+      <H2 title={formatted}>
+        Posted {formatRelative.format(-monthDiff, 'month')}
+      </H2>
+    );
   }
 
   const dayDiff = differenceInDays(date, Date.now());
 
+  if (dayDiff >= 7) {
+    return (
+      <H2 title={formatted}>Posted {formatRelative.format(dayDiff, 'week')}</H2>
+    );
+  }
+
   return (
-    <H2 title={formatPostDate(date)}>
-      Posted {formatRelative.format(dayDiff, 'day')}
-    </H2>
+    <H2 title={formatted}>Posted {formatRelative.format(dayDiff, 'day')}</H2>
   );
 };
 
