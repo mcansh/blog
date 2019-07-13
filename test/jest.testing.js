@@ -6,7 +6,7 @@ module.exports = {
   rootDir,
   displayName: 'test',
   setupFilesAfterEnv: [
-    'jest-dom/extend-expect',
+    '@testing-library/jest-dom/extend-expect',
     '@testing-library/react/cleanup-after-each',
     'jest-styled-components',
   ],
