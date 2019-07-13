@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
-import dynamic from 'next/dynamic';
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
+import NavList from '~/components/nav-list';
 import Hamburger from '~/components/hamburger';
 import Portal from '~/components/portal';
-
-// @ts-ignore
-const NavList = dynamic({
-  loader: () => import('~/components/nav-list'),
-  loading: () => null,
-});
 
 const Nav = styled.nav<{ navOpen: boolean }>`
   &::after {

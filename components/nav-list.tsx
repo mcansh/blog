@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isAbsoluteUrl from 'is-absolute-url';
-import { useTransition, animated } from 'react-spring';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const NavLinks = [
@@ -11,27 +11,27 @@ const NavLinks = [
   },
   {
     name: 'GitHub',
-    slug: `https://github.com/${process.env.GITHUB}`,
+    slug: 'https://github.com/mcansh',
   },
   {
     name: 'Twitter',
-    slug: `https://twitter.com/${process.env.TWITTER}`,
+    slug: 'https://twitter.com/loganmcansh',
   },
   {
     name: 'Instagram',
-    slug: `https://instagram.com/${process.env.INSTAGRAM}`,
+    slug: 'https://instagram.com/loganmcansh',
   },
   {
     name: 'Email',
-    slug: `mailto:${process.env.EMAIL}`,
+    slug: 'mailto:logan+website@mcan.sh',
   },
   {
     name: 'Changelog',
-    slug: `${process.env.GITHUB_URL}/releases`,
+    slug: 'https://github.com/mcansh/blog/releases',
   },
 ];
 
-const NavStyles = styled.ul`
+const NavStyles = styled(motion.ul)`
   height: 100vh;
   max-width: 40rem;
   width: 95%;
@@ -67,40 +67,36 @@ const NavStyles = styled.ul`
   }
 `;
 
-const AnimatedNavStyles = animated(NavStyles);
+interface NavListProps {
+  navOpen: boolean;
+}
 
-const NavList = ({ navOpen }: { navOpen: boolean }) => {
-  const tranitions = useTransition(navOpen, null, {
-    from: { transform: 'translate3d(-100%, 0, 0)' },
-    enter: { transform: 'translate3d(0, 0, 0)' },
-    leave: { transform: 'translate3d(-100%, 0, 0)' },
-    reset: true,
-    unique: true,
-  });
-
-  return tranitions.map(({ item, key, props }) => {
-    return (
-      item && (
-        <AnimatedNavStyles key={key} style={props}>
-          {NavLinks.map(({ name, slug }) => {
-            const isExternal = isAbsoluteUrl(slug);
-            return (
-              <li key={name}>
-                <Link href={slug}>
-                  <a
-                    rel={isExternal ? 'noopener external nofollow' : ''}
-                    target={isExternal ? '_blank' : ''}
-                  >
-                    {name}
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
-        </AnimatedNavStyles>
-      )
-    );
-  });
+const NavList = ({ navOpen }: NavListProps) => {
+  return (
+    <NavStyles
+      initial={false}
+      animate={{
+        transform: navOpen ? 'translateX(0%)' : 'translateX(-100%)',
+      }}
+      transition={{ duration: 0.3 }}
+    >
+      {NavLinks.map(({ name, slug }) => {
+        const isExternal = isAbsoluteUrl(slug);
+        return (
+          <li key={name}>
+            <Link href={slug}>
+              <a
+                rel={isExternal ? 'noopener external nofollow' : ''}
+                target={isExternal ? '_blank' : ''}
+              >
+                {name}
+              </a>
+            </Link>
+          </li>
+        );
+      })}
+    </NavStyles>
+  );
 };
 
 export default NavList;
