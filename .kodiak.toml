@@ -16,5 +16,5 @@ optimistic_updates = true # default: true
 [merge.message]
 title = "pull_request_title" # default: "github_default"
 body = "pull_request_body" # default: "github_default"
-include_pr_number = false # default: true
+include_pr_number = true # default: true
 body_type = "markdown" # default: "markdown"
