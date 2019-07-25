@@ -1,5 +1,5 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
+import ReactDOM from 'react-dom';
 
 interface Props {
   children: React.ReactNode;
@@ -12,7 +12,7 @@ const Portal = ({ children }: Props) => {
   }, []);
 
   if (element.current == null) return null;
-  return createPortal(children, element.current);
+  return ReactDOM.createPortal(children, element.current);
 };
 
 export default Portal;
