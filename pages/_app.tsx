@@ -36,10 +36,7 @@ class MyApp extends App<Props> {
 
   public componentDidCatch(error: Error, errorInfo: any) {
     Sentry.withScope(scope => {
-      Object.keys(errorInfo).forEach(key => {
-        scope.setExtra(key, errorInfo[key]);
-      });
-
+      scope.setExtras(errorInfo);
       Sentry.captureException(error);
     });
 
