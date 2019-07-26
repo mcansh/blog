@@ -24,16 +24,6 @@ interface Props {
 }
 
 class MyApp extends App<Props> {
-  public static getInitialProps = async ({ Component, ctx }: AppContext) => {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  };
-
   public componentDidCatch(error: Error, errorInfo: any) {
     Sentry.withScope(scope => {
       scope.setExtras(errorInfo);

@@ -10,6 +10,9 @@ generateStaticFiles();
 const nextConfig = {
   target: 'serverless',
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
+  experimental: {
+    modern: true,
+  },
   dontAutoRegisterSw: true,
   workboxOpts: {
     swDest: 'static/sw.js',
