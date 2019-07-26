@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const withSourceMaps = require('@zeit/next-source-maps')();
 const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
@@ -28,19 +29,25 @@ const nextConfig = {
     TWITTER: 'loganmcansh',
     INSTAGRAM: 'loganmcansh',
     GITHUB: 'mcansh',
-    EMAIL: 'logan@mcan.sh',
+    EMAIL: 'logan+website@mcan.sh',
     SENTRY: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
     ANALYTICS: 'UA-87731356-4',
     GITHUB_URL: `https://github.com/${repository}`,
     VERSION: version,
   },
 
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, buildId }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
       config.resolve.alias['react-spring/renderprops.cjs'] =
         'react-spring/renderprops';
     }
+
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.BUILD_ID': JSON.stringify(buildId),
+      })
+    );
 
     return config;
   },
