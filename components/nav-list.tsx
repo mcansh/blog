@@ -11,23 +11,23 @@ const NavLinks = [
   },
   {
     name: 'GitHub',
-    slug: 'https://github.com/mcansh',
+    slug: `https://github.com/${process.env.GITHUB}`,
   },
   {
     name: 'Twitter',
-    slug: 'https://twitter.com/loganmcansh',
+    slug: `https://twitter.com/${process.env.TWITTER}`,
   },
   {
     name: 'Instagram',
-    slug: 'https://instagram.com/loganmcansh',
+    slug: `https://instagram.com/${process.env.INSTAGRAM}`,
   },
   {
     name: 'Email',
-    slug: 'mailto:logan+website@mcan.sh',
+    slug: `mailto:${process.env.EMAIL}`,
   },
   {
     name: 'Changelog',
-    slug: 'https://github.com/mcansh/blog/releases',
+    slug: `${process.env.GITHUB_URL}/releases`,
   },
 ];
 
