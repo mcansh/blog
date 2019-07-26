@@ -1,4 +1,5 @@
 import React from 'react';
+import 'intl-pluralrules';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import styled from 'styled-components';
 import { differenceInMonths, differenceInDays } from 'date-fns';
