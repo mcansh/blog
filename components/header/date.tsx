@@ -2,7 +2,11 @@ import React from 'react';
 import 'intl-pluralrules';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import styled from 'styled-components';
-import { differenceInMonths, differenceInDays } from 'date-fns';
+import {
+  differenceInDays,
+  differenceInMonths,
+  differenceInWeeks,
+} from 'date-fns';
 import { formatPostDate } from '~/utils/dates';
 
 // @ts-ignore
@@ -20,32 +24,28 @@ interface Props {
 }
 
 const DateHeading = ({ date }: Props) => {
-  /* istanbul ignore next */
-  const monthDiff = differenceInMonths(Date.now(), date);
+  const now = Date.now();
   const formatted = formatPostDate(date);
 
-  if (monthDiff > 4) {
+  let unit = 'day';
+  let value = differenceInDays(now, date);
+
+  if (value >= 7) {
+    unit = 'week';
+    value = differenceInWeeks(now, date);
+  }
+
+  if (value >= 4) {
+    unit = 'month';
+    value = differenceInMonths(now, date);
+  }
+
+  if (value >= 4) {
     return <H2 title={formatted}>Posted {formatted}</H2>;
   }
 
-  if (monthDiff >= 1) {
-    return (
-      <H2 title={formatted}>
-        Posted {formatRelative.format(-monthDiff, 'month')}
-      </H2>
-    );
-  }
-
-  const dayDiff = differenceInDays(date, Date.now());
-
-  if (dayDiff >= 7) {
-    return (
-      <H2 title={formatted}>Posted {formatRelative.format(dayDiff, 'week')}</H2>
-    );
-  }
-
   return (
-    <H2 title={formatted}>Posted {formatRelative.format(dayDiff, 'day')}</H2>
+    <H2 title={formatted}>Posted {formatRelative.format(-value, unit)}</H2>
   );
 };
 
