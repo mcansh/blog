@@ -16,6 +16,7 @@ module.exports = {
   ],
   rules: {
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'import/no-extraneous-dependencies': [
       'error',
       {
