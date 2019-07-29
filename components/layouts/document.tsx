@@ -15,6 +15,7 @@ if (typeof window !== 'undefined') {
     `You can find the code here: ${process.env.GITHUB_URL}`,
     `Thanks for stopping by ${randomEmoji()}`,
   ];
+  // eslint-disable-next-line no-console
   info.forEach(message => console.log(message));
 }
 
@@ -29,8 +30,10 @@ const serviceWorker = async () => {
     if ('serviceWorker' in window.navigator) {
       try {
         await window.navigator.serviceWorker.register('/sw.js');
+        // eslint-disable-next-line no-console
         console.log(`successfully registered serviceWorker`);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(`failed to register serviceWorker`);
       }
     }
