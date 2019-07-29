@@ -3,9 +3,10 @@ module.exports = {
   extends: [
     'stylelint-config-recommended',
     'stylelint-config-styled-components',
-    'stylelint-config-amp',
   ],
   rules: {
     'selector-type-no-unknown': [true, { ignoreTypes: ['/^amp-/'] }],
+    'selector-max-type': [0, { ignoreTypes: '/^((?!^i-amp-).)*$/' }],
+    'selector-class-pattern': '^((?!^-amp-).)*$',
   },
 };
