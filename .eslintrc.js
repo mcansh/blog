@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
     'no-console': ['error', { allow: ['warn', 'error'] }],
+    '@typescript-eslint/explicit-member-accessibility': 'error',
     'import/no-extraneous-dependencies': [
       'error',
       {

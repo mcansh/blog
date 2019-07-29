@@ -26,7 +26,7 @@ interface Props {
 
 // @ts-ignore
 class MyDocument extends Document<Props> {
-  static async getInitialProps(context: DocumentContext) {
+  public static async getInitialProps(context: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = context.renderPage;
 
@@ -52,7 +52,7 @@ class MyDocument extends Document<Props> {
     }
   }
 
-  render() {
+  public render() {
     const { locale, styles, amphtml } = this.props;
 
     return (
