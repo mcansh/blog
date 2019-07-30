@@ -28,28 +28,21 @@ interface Props {
 class MyDocument extends Document<Props> {
   public static async getInitialProps(context: DocumentContext) {
     const sheet = new ServerStyleSheet();
+
     const originalRenderPage = context.renderPage;
+    context.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+      });
 
-    try {
-      context.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: (App: any) => (props: any) =>
-            sheet.collectStyles(<App {...props} />),
-        });
-
-      const initialProps = await Document.getInitialProps(context);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
-      };
-    } finally {
-      sheet.seal();
-    }
+    const initialProps = await Document.getInitialProps(context);
+    return {
+      ...initialProps,
+      styles: [
+        ...(Array.isArray(initialProps.styles) ? initialProps.styles : []),
+        ...sheet.getStyleElement(),
+      ],
+    };
   }
 
   public render() {

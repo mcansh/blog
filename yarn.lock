@@ -1838,6 +1838,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/gtag.js@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.1.tgz#3d8cc6fac8c2adb8b612281eb355a99e5186fe52"
+  integrity sha512-TAXDQ18Ilro3oiBPcR1rfPSzyGCn9Siu9P8dMdNx0t9XpPehUAwk430Ws1pVU+1SZ6dwzd/rqHiMAgFRxfB1Xg==
+
 "@types/is-absolute-url@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/is-absolute-url/-/is-absolute-url-3.0.0.tgz#a9ec8e203051f9766f4f41e0f2d33f93d3624b9d"
@@ -4447,10 +4452,10 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@2.0.0-beta.2:
-  version "2.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-beta.2.tgz#ccd556df832ef761baa88c600f53d2e829245999"
-  integrity sha512-4cicZF707RNerr3/Q3CcdLo+3OHMCfrRXE7h5iFgn7AMvX07sqKLxSf8Yp+WJW5bvKr2cy9/PkctXLv4iFtOaA==
+date-fns@2.0.0-beta.3:
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-beta.3.tgz#2e28f5af945930f774ddd778e184d68227101d55"
+  integrity sha512-z5O262BvHPhwUvA1weXH+AZodygnZUcORERw8hjwBUrRPGrAo2e/rjXfC8Ykf1OGJZGDuLnK/WXbEZBIc0exGQ==
 
 date-fns@^1.27.2:
   version "1.30.1"
@@ -9168,14 +9173,6 @@ nerf-dart@^1.0.0:
   resolved "https://registry.npmjs.org/nerf-dart/-/nerf-dart-1.0.0.tgz#e6dab7febf5ad816ea81cf5c629c5a0ebde72c1a"
   integrity sha1-5tq3/r9a2Bbqgc9cYpxaDr3nLBo=
 
-next-ga@2.3.4:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/next-ga/-/next-ga-2.3.4.tgz#0bec23e7c2eea35485af0b342e7794bbbdb61d04"
-  integrity sha512-mIol83ehPCz9Z+QtK6ig1w9Db4ShoyhjS6NgDnTIVJuBQ1iobiZap2xXn6KtYWBc+AH5DdTCBtZRF8PP5yJAVA==
-  dependencies:
-    debug "^4.0.0"
-    react-ga "^2.5.3"
-
 next-offline@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/next-offline/-/next-offline-4.0.2.tgz#fd21890d016e64757016c5b821676988c6fc8c15"
@@ -9204,10 +9201,10 @@ next-server@8.1.1-canary.40:
     send "0.16.1"
     url "0.11.0"
 
-next-server@9.0.3-canary.3:
-  version "9.0.3-canary.3"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-9.0.3-canary.3.tgz#69d7a56361ccca930858980fc2ac3f4e9111731b"
-  integrity sha512-glX1bRoKJ0xE666bVlqG9ySF3H78POWb4LRuygQr7oaF4pZoqWEimwT5tJ1sN3Di40OLdLBy3zeB/ub62ygpkg==
+next-server@9.0.3-canary.5:
+  version "9.0.3-canary.5"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-9.0.3-canary.5.tgz#06212096ec37a423f55b044a367688591f825d5a"
+  integrity sha512-EEwe66YKYGoV3bQaiWZTbx7tL4WHPj9FJlEOLrOJWhDzJAx9Q2zCQr4aMPuwSG/ekOC+uFf+pgAj2/wEPO0iNg==
   dependencies:
     amp-toolbox-optimizer "1.2.0-alpha.1"
     content-type "1.0.4"
@@ -9276,10 +9273,10 @@ next@8.1.1-canary.40:
     webpack-sources "1.3.0"
     worker-farm "1.7.0"
 
-next@9.0.3-canary.3:
-  version "9.0.3-canary.3"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.0.3-canary.3.tgz#a05e3bea8336e3c7f5441b2809e702ba68fdda06"
-  integrity sha512-Qly0H6acu8xI9pgMtOTi7xEWj3Lz3Ve7U3nGS5c2k8X992MWsO/DesFTZ0i8TryZqgCvzE3SJjtBVNtSCd1pKw==
+next@9.0.3-canary.5:
+  version "9.0.3-canary.5"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.0.3-canary.5.tgz#705961f2a2ed1a8d3e4d1c8a6e7c69e6d7d743d0"
+  integrity sha512-FTHtYHAK/6ivr46ySKxEnE3AS+X0W5Ha38gmM33NsBIsadRHLY1kUWrgTJuvc4KIp9aqlLevyU0x5rjz9+Bu2Q==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -9307,7 +9304,7 @@ next@9.0.3-canary.3:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "9.0.3-canary.3"
+    next-server "9.0.3-canary.5"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.6"
@@ -9322,7 +9319,7 @@ next@9.0.3-canary.3:
     unfetch "4.1.0"
     url "0.11.0"
     watchpack "2.0.0-beta.5"
-    webpack "4.35.3"
+    webpack "4.38.0"
     webpack-dev-middleware "3.7.0"
     webpack-hot-middleware "2.25.0"
     webpack-sources "1.3.0"
@@ -10968,10 +10965,10 @@ react-error-overlay@5.1.6:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha512-X1Y+0jR47ImDVr54Ab6V9eGk0Hnu7fVWGeHQSOXHf/C2pF9c6uy3gef8QUeuUiWlNb0i08InPSE5a/KJzNzw1Q==
 
-react-ga@^2.5.3:
-  version "2.5.7"
-  resolved "https://registry.npmjs.org/react-ga/-/react-ga-2.5.7.tgz#1c80a289004bf84f84c26d46f3a6a6513081bf2e"
-  integrity sha512-UmATFaZpEQDO96KFjB5FRLcT6hFcwaxOmAJZnjrSiFN/msTqylq9G+z5Z8TYzN/dbamDTiWf92m6MnXXJkAivQ==
+react-ga@2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.6.0.tgz#c3fe830ead2ad25117e1d33280d9698de9b28496"
+  integrity sha512-GWHBWZDFjDGMkIk1LzroIn0mNTygKw3adXuqvGvheFZvlbpqMPbHsQsTdQBIxRRdXGQM/Zq+dQLRPKbwIHMTaw==
 
 react-is@16.8.6:
   version "16.8.6"
@@ -13766,35 +13763,6 @@ webpack@4.32.2:
     "@webassemblyjs/wasm-parser" "1.8.5"
     acorn "^6.0.5"
     acorn-dynamic-import "^4.0.0"
-    ajv "^6.1.0"
-    ajv-keywords "^3.1.0"
-    chrome-trace-event "^1.0.0"
-    enhanced-resolve "^4.1.0"
-    eslint-scope "^4.0.0"
-    json-parse-better-errors "^1.0.2"
-    loader-runner "^2.3.0"
-    loader-utils "^1.1.0"
-    memory-fs "~0.4.1"
-    micromatch "^3.1.8"
-    mkdirp "~0.5.0"
-    neo-async "^2.5.0"
-    node-libs-browser "^2.0.0"
-    schema-utils "^1.0.0"
-    tapable "^1.1.0"
-    terser-webpack-plugin "^1.1.0"
-    watchpack "^1.5.0"
-    webpack-sources "^1.3.0"
-
-webpack@4.35.3:
-  version "4.35.3"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.35.3.tgz#66bc35ef215a7b75e8790f84d560013ffecf0ca3"
-  integrity sha512-xggQPwr9ILlXzz61lHzjvgoqGU08v5+Wnut19Uv3GaTtzN4xBTcwnobodrXE142EL1tOiS5WVEButooGzcQzTA==
-  dependencies:
-    "@webassemblyjs/ast" "1.8.5"
-    "@webassemblyjs/helper-module-context" "1.8.5"
-    "@webassemblyjs/wasm-edit" "1.8.5"
-    "@webassemblyjs/wasm-parser" "1.8.5"
-    acorn "^6.2.0"
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
     chrome-trace-event "^1.0.0"

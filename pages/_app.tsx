@@ -1,14 +1,14 @@
 import React, { StrictMode } from 'react';
-import App, { Container, AppContext } from 'next/app';
+import App, { Container } from 'next/app';
 import * as Sentry from '@sentry/browser';
-import { ThemeProvider } from 'styled-components';
 import Router from 'next/router';
-// @ts-ignore
-import withGA from 'next-ga';
+import { ThemeProvider } from 'styled-components';
 import { NProgress } from '@mcansh/next-nprogress';
+
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
 import Document from '~/components/layouts/document';
+import { initGA, logPageView } from '~/lib/gtag';
 
 Sentry.init({
   dsn: process.env.SENTRY,
@@ -33,7 +33,15 @@ class MyApp extends App<Props> {
     super.componentDidCatch(error, errorInfo);
   }
 
+  public componentDidMount() {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+  }
+
   public render() {
+    Router.events.on('routeChangeComplete', (url: string) => logPageView(url));
     const { Component, pageProps } = this.props;
 
     return (
@@ -58,4 +66,4 @@ class MyApp extends App<Props> {
   }
 }
 
-export default withGA(process.env.ANALYTICS, Router)(MyApp);
+export default MyApp;
