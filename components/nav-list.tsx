@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isAbsoluteUrl from 'is-absolute-url';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 const NavLinks = [
@@ -73,29 +73,32 @@ interface NavListProps {
 
 const NavList = ({ navOpen }: NavListProps) => {
   return (
-    <NavStyles
-      initial={false}
-      animate={{
-        transform: navOpen ? 'translateX(0%)' : 'translateX(-100%)',
-      }}
-      transition={{ duration: 0.3 }}
-    >
-      {NavLinks.map(({ name, slug }) => {
-        const isExternal = isAbsoluteUrl(slug);
-        return (
-          <li key={name}>
-            <Link href={slug} prefetch={!isExternal}>
-              <a
-                rel={isExternal ? 'noopener external nofollow' : ''}
-                target={isExternal ? '_blank' : ''}
-              >
-                {name}
-              </a>
-            </Link>
-          </li>
-        );
-      })}
-    </NavStyles>
+    <AnimatePresence>
+      {navOpen && (
+        <NavStyles
+          initial={{ transform: 'translateX(-100%)' }}
+          animate={{ transform: 'translateX(0%)' }}
+          exit={{ transform: 'translateX(-100%)' }}
+          transition={{ duration: 0.3 }}
+        >
+          {NavLinks.map(({ name, slug }) => {
+            const isExternal = isAbsoluteUrl(slug);
+            return (
+              <li key={name}>
+                <Link href={slug} prefetch={!isExternal}>
+                  <a
+                    rel={isExternal ? 'noopener external nofollow' : ''}
+                    target={isExternal ? '_blank' : ''}
+                  >
+                    {name}
+                  </a>
+                </Link>
+              </li>
+            );
+          })}
+        </NavStyles>
+      )}
+    </AnimatePresence>
   );
 };
 
