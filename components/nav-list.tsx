@@ -85,10 +85,10 @@ const NavList = ({ navOpen }: NavListProps) => {
             const isExternal = isAbsoluteUrl(slug);
             return (
               <li key={name}>
-                <Link href={slug} prefetch={!isExternal}>
+                <Link href={slug} prefetch={isExternal ? false : undefined}>
                   <a
-                    rel={isExternal ? 'noopener external nofollow' : ''}
-                    target={isExternal ? '_blank' : ''}
+                    rel={isExternal ? 'noopener external nofollow' : undefined}
+                    target={isExternal ? '_blank' : undefined}
                   >
                     {name}
                   </a>
@@ -103,3 +103,4 @@ const NavList = ({ navOpen }: NavListProps) => {
 };
 
 export default NavList;
+export { NavLinks };

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
@@ -23,7 +23,7 @@ interface Props {
   children: React.ReactNode;
 }
 const Document = ({ children }: Props) => {
-  useEffect(() => {
+  React.useEffect(() => {
     const serviceWorker = async () => {
       if (process.env.NODE_ENV === 'production') {
         if ('serviceWorker' in window.navigator) {

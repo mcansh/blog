@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Router from 'next/router';
+import Link from 'next/link';
+import { useAmp } from 'next/amp';
 import styled from 'styled-components';
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
-import NavList from '~/components/nav-list';
+import isAbsoluteUrl from 'is-absolute-url';
+
+import NavList, { NavLinks } from '~/components/nav-list';
 import Hamburger from '~/components/hamburger';
 import Portal from '~/components/portal';
 
@@ -28,12 +32,13 @@ const Nav = styled.nav<{ navOpen: boolean }>`
 `;
 
 const Navigation = () => {
-  const [navOpen, setNavOpen] = useState(false);
+  const isAmp = useAmp();
+  const [navOpen, setNavOpen] = React.useState(false);
   const closeNav = () => {
     setNavOpen(false);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     Router.events.on('routeChangeComplete', () => {
       clearAllBodyScrollLocks();
       closeNav();
@@ -58,7 +63,55 @@ const Navigation = () => {
     });
   };
 
-  return (
+  return isAmp ? (
+    <ul
+      css={`
+        display: flex;
+        flex-flow: row wrap;
+        list-style: none;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        justify-content: center;
+        width: 100%;
+        @media (max-width: 403px) {
+          width: 75%;
+          margin: 0 12.5%;
+        }
+
+        li {
+          margin: 1rem;
+        }
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 1.4rem;
+          &:hover {
+            color: ${(props: any) => props.theme.primary};
+          }
+        }
+      `}
+    >
+      {NavLinks.map(link => {
+        const isExternal = isAbsoluteUrl(link.slug);
+        return (
+          <li key={link.name}>
+            <Link href={link.slug} prefetch={isExternal ? false : undefined}>
+              <a
+                rel={isExternal ? 'noopener external nofollow' : undefined}
+                target={isExternal ? '_blank' : undefined}
+              >
+                {link.name}
+              </a>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  ) : (
     <Nav
       navOpen={navOpen}
       onKeyDown={(event: React.KeyboardEvent) => {

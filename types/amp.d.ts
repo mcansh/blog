@@ -13,6 +13,7 @@ declare namespace JSX {
       | 'nodisplay'
       | 'responsive';
   }
+
   interface IntrinsicElements {
     'amp-img': AmpImg;
   }
