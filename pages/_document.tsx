@@ -1,5 +1,6 @@
 import React from 'react';
 import Document, {
+  Html,
   Head,
   Main,
   NextScript,
@@ -46,20 +47,17 @@ class MyDocument extends Document<Props> {
   }
 
   public render() {
-    const { locale, styles, amphtml } = this.props;
+    const { locale, inAmpMode } = this.props;
 
     return (
-      <html lang={locale}>
-        <Head>
-          {!amphtml && <CSP {...this.props} />}
-          {styles}
-        </Head>
+      <Html lang={locale}>
+        <Head>{!inAmpMode && <CSP {...this.props} />}</Head>
         <body>
           <Main />
           <div id="portal" />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

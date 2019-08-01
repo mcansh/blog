@@ -22,24 +22,23 @@ if (typeof window !== 'undefined') {
 interface Props {
   children: React.ReactNode;
 }
-
-const serviceWorker = async () => {
-  if (process.env.NODE_ENV === 'production') {
-    if ('serviceWorker' in window.navigator) {
-      try {
-        await window.navigator.serviceWorker.register('/sw.js');
-        // eslint-disable-next-line no-console
-        console.log(`successfully registered serviceWorker`);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(`failed to register serviceWorker`);
-      }
-    }
-  }
-};
-
 const Document = ({ children }: Props) => {
   useEffect(() => {
+    const serviceWorker = async () => {
+      if (process.env.NODE_ENV === 'production') {
+        if ('serviceWorker' in window.navigator) {
+          try {
+            await window.navigator.serviceWorker.register('/sw.js');
+            // eslint-disable-next-line no-console
+            console.log(`successfully registered serviceWorker`);
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.log(`failed to register serviceWorker`);
+          }
+        }
+      }
+    };
+
     serviceWorker();
   }, []);
 

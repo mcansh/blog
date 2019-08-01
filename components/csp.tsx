@@ -16,7 +16,6 @@ const CSP = (props: DocumentProps) => {
       "'unsafe-eval'",
       "'unsafe-inline'",
       'www.google-analytics.com',
-      'https://cdn.ampproject.org',
     ],
     'connect-src': ["'self'", 'ws://localhost:*', 'https://sentry.io/'],
     'style-src': ["'self'", "'unsafe-inline'"],

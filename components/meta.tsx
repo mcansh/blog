@@ -56,10 +56,12 @@ const Meta = ({ title, date, image }: Props) => {
         <meta property="article:published_time" content={iso8601(date)} />
       )}
       {title && <meta property="article:author" content={name} />}
-      <meta
-        name="viewport"
-        content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
-      />
+      {!isAmp && (
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
+        />
+      )}
       <link rel="manifest" key="manifest" href={manifest} />
       <link
         rel="mask-icon"
