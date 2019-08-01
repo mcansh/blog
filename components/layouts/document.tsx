@@ -19,8 +19,6 @@ if (typeof window !== 'undefined') {
   info.forEach(message => console.log(message));
 }
 
-export const config = { amp: 'hybrid' };
-
 interface Props {
   children: React.ReactNode;
 }
