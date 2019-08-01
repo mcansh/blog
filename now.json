@@ -11,10 +11,7 @@
   "builds": [
     {
       "src": "next.config.js",
-      "use": "@now/next@canary",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
+      "use": "@now/next@canary"
     }
   ],
   "routes": [
@@ -34,14 +31,14 @@
       }
     },
     {
-      "src": "/manifest.amp.webmanifest",
+      "src": "/(manifest.amp.webmanifest|manifest.amp.json)",
       "headers": {
         "content-type": "application/manifest+json",
         "cache-control": "public, max-age=43200, immutable"
       }
     },
     {
-      "src": "^/(favicon.ico|logo.png|feed.json|sitemap.xml)$",
+      "src": "^/(favicon.ico|feed.json|sitemap.xml)$",
       "headers": {
         "cache-control": "public, max-age=43200, immutable"
       }
