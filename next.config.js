@@ -10,7 +10,6 @@ generateStaticFiles();
 const nextConfig = {
   target: 'serverless',
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
-  exportTrailingSlash: true,
   experimental: {
     modern: true,
     publicDirectory: true,
