@@ -99,14 +99,19 @@ const Navigation = () => {
         const isExternal = isAbsoluteUrl(link.slug);
         return (
           <li key={link.name}>
-            <Link href={link.slug} prefetch={isExternal ? false : undefined}>
+            {isExternal ? (
               <a
-                rel={isExternal ? 'noopener external nofollow' : undefined}
-                target={isExternal ? '_blank' : undefined}
+                href={link.slug}
+                rel="noopener noreferrer external nofollow"
+                target="_blank"
               >
                 {link.name}
               </a>
-            </Link>
+            ) : (
+              <Link href={link.slug}>
+                <a>{link.name}</a>
+              </Link>
+            )}
           </li>
         );
       })}
