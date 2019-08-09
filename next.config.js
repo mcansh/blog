@@ -13,6 +13,7 @@ const nextConfig = {
   experimental: {
     modern: true,
     publicDirectory: true,
+    granularChunks: true,
   },
   dontAutoRegisterSw: true,
   workboxOpts: {
