@@ -1,10 +1,6 @@
 {
   "project": "blog",
   "version": 2,
-  "alias": [
-    "www.mcansh.blog",
-    "mcansh.blog"
-  ],
   "regions": [
     "all"
   ],
