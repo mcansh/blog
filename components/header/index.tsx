@@ -61,7 +61,9 @@ interface Props {
 
 const Header = ({ title, url, image, date }: Props) => {
   const isAmp = useAmp();
-  const { query } = useRouter();
+  const {
+    query: { amp, ...query },
+  } = useRouter();
   const props = useSpring({
     from: {
       opacity: isAmp ? 1 : 0,
@@ -75,7 +77,15 @@ const Header = ({ title, url, image, date }: Props) => {
       <HeaderContent>
         <Title style={props}>{title}</Title>
         {date && <DateHeading date={date} />}
-        {url && <Button text="Read More" link={{ pathname: url, query }} />}
+        {url && (
+          <Button
+            text="Read More"
+            link={{
+              pathname: url,
+              query: isAmp ? { ...query, amp: 1 } : query,
+            }}
+          />
+        )}
       </HeaderContent>
       <Image image={image} />
       <figure>

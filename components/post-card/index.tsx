@@ -26,14 +26,20 @@ export interface PostWithMeta {
 
 const PostCard = ({ url, image, date, title }: Post) => {
   const isAmp = useAmp();
-  const { query } = useRouter();
+  const {
+    query: { amp, ...query },
+  } = useRouter();
+
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   return (
-    <Link href={{ pathname: url, query }} passHref>
+    <Link
+      href={{ pathname: url, query: isAmp ? { ...query, amp: 1 } : query }}
+      passHref
+    >
       <Post>
         <div className="post-card__img-wrapper">
           {isAmp ? (

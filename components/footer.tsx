@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -19,11 +20,18 @@ const StyledLink = styled.a`
 `;
 
 const FooterWrap = () => {
-  const router = useRouter();
-  const isHome = router.pathname === '/';
+  const isAmp = useAmp();
+  const {
+    query: { amp, ...query },
+    pathname,
+  } = useRouter();
+  const isHome = pathname === '/';
   return (
     <Footer>
-      <Link href={{ pathname: '/', query: router.query }} passHref>
+      <Link
+        href={{ pathname: '/', query: isAmp ? { ...query, amp: 1 } : query }}
+        passHref
+      >
         <StyledLink
           rel="home"
           aria-label="go home"

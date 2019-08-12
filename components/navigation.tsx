@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useAmp } from 'next/amp';
 import styled from 'styled-components';
@@ -33,6 +33,10 @@ const Nav = styled.nav<{ navOpen: boolean }>`
 
 const Navigation = () => {
   const isAmp = useAmp();
+  const {
+    query: { amp, ...query },
+  } = useRouter();
+
   const [navOpen, setNavOpen] = React.useState(false);
   const closeNav = () => {
     setNavOpen(false);
@@ -108,7 +112,12 @@ const Navigation = () => {
                 {link.name}
               </a>
             ) : (
-              <Link href={link.slug}>
+              <Link
+                href={{
+                  pathname: link.slug,
+                  query: isAmp ? { ...query, amp: 1 } : query,
+                }}
+              >
                 <a>{link.name}</a>
               </Link>
             )}
