@@ -15,17 +15,31 @@ const CSP = (props: DocumentProps) => {
       'https://polyfill.io/v3/polyfill.min.js',
       "'unsafe-eval'",
       "'unsafe-inline'",
+      'www.googletagmanager.com',
       'www.google-analytics.com',
     ],
-    'connect-src': ["'self'", 'ws://localhost:*', 'https://sentry.io/'],
+    'connect-src': [
+      "'self'",
+      'ws://localhost:*',
+      'https://sentry.io/',
+      'www.google-analytics.com',
+    ],
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': [
       "'self'",
       'https://res.cloudinary.com/dof0zryca/',
       'data:',
+      'www.googletagmanager.com',
       'www.google-analytics.com',
     ],
   };
+
+  if (process.env.NODE_ENV === 'production') {
+    // @ts-ignore
+    cspSettings['upgrade-insecure-requests'] = [];
+    // @ts-ignore
+    cspSettings['block-all-mixed-content'] = [];
+  }
 
   const csp = `${Object.entries(cspSettings)
     .map(item => `${item[0]} ${item[1].join(' ')}`)
