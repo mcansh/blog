@@ -5,5 +5,5 @@ workflow "diff" {
 
 action "nextdiff" {
   uses = "zeit/nextdiff@master"
-  secrets = ["GITHUB_TOKEN","ZEIT_TOKEN"]
+  secrets = ["GITHUB_TOKEN", "ZEIT_TOKEN"]
 }
