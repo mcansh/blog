@@ -8,7 +8,7 @@
     {
       "src": "(.*)",
       "headers": {
-        "Content-Security-Policy": "default-src 'none';script-src 'self' https://polyfill.io/v3/polyfill.min.js www.googletagmanager.com www.google-analytics.com 'unsafe-eval' 'unsafe-inline';connect-src 'self' ws://localhost:* https://sentry.io/ www.google-analytics.com;style-src 'self' 'unsafe-inline';img-src 'self' https://res.cloudinary.com/dof0zryca/ data: www.googletagmanager.com www.google-analytics.com;report-uri https://sentry.io/api/197817/security/?sentry_key=07a54d3b59bb4bf5ad1c6ddf050d51c1 'sha256-lADGQ6ptiiVRQk+Yo7dgwqk4Ge3652QqT+7cIhQefRg='"
+        "Content-Security-Policy": "default-src 'none';script-src 'self' https://polyfill.io/v3/polyfill.min.js www.googletagmanager.com www.google-analytics.com;connect-src 'self' ws://localhost:* https://sentry.io/ www.google-analytics.com;style-src 'self' 'unsafe-inline';img-src 'self' https://res.cloudinary.com/dof0zryca/ data: www.googletagmanager.com www.google-analytics.com; report-uri https://sentry.io/api/197817/security/?sentry_key=07a54d3b59bb4bf5ad1c6ddf050d51c1; manifest-src 'self'"
       },
       "continue": true
     },
