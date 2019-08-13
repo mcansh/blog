@@ -9,12 +9,10 @@ const cspHashOf = (text: string) => {
 
 const CSP = (props: DocumentProps) => {
   const cspSettings = {
-    'default-src': ["'self'"],
+    'default-src': ["'none'"],
     'script-src': [
       "'self'",
       'https://polyfill.io/v3/polyfill.min.js',
-      "'unsafe-eval'",
-      "'unsafe-inline'",
       'www.googletagmanager.com',
       'www.google-analytics.com',
     ],
@@ -34,11 +32,8 @@ const CSP = (props: DocumentProps) => {
     ],
   };
 
-  if (process.env.NODE_ENV === 'production') {
-    // @ts-ignore
-    cspSettings['upgrade-insecure-requests'] = [];
-    // @ts-ignore
-    cspSettings['block-all-mixed-content'] = [];
+  if (process.env.NODE_ENV !== 'production') {
+    cspSettings['script-src'].push("'unsafe-eval'", "'unsafe-inline'");
   }
 
   const csp = `${Object.entries(cspSettings)
