@@ -16,7 +16,7 @@ const CodeStyles = styled.code<CoodeStyleProps>`
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-overflow-scrolling: touch;
-  font-family: 'Operator Mono', 'SF Mono', menlo, monospace;
+  font-family: 'Dank Mono', 'Operator Mono', 'SF Mono', menlo, monospace;
   overflow: scroll;
   display: block;
 `;
@@ -57,7 +57,7 @@ const InlineCode = styled.code`
   color: #df0050;
   box-shadow: 0 0 0 0.1rem rgba(85, 85, 86, 0.2);
   border-radius: 0.2rem;
-  font-family: 'Operator Mono', 'SF Mono', menlo, monospace;
+  font-family: 'Dank Mono', 'Operator Mono', 'SF Mono', menlo, monospace;
   hyphens: none;
 `;
 
