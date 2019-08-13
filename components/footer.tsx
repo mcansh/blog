@@ -12,11 +12,11 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
 
-const StyledLink = styled.a`
-  color: currentColor;
-  text-decoration: none;
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
 `;
 
 const FooterWrap = () => {
@@ -30,9 +30,8 @@ const FooterWrap = () => {
     <Footer>
       <Link
         href={{ pathname: '/', query: isAmp ? { ...query, amp: 1 } : query }}
-        passHref
       >
-        <StyledLink
+        <a
           rel="home"
           aria-label="go home"
           onClick={event => {
@@ -43,7 +42,7 @@ const FooterWrap = () => {
           }}
         >
           &copy; {new Date().getFullYear()} {name}
-        </StyledLink>
+        </a>
       </Link>
     </Footer>
   );
