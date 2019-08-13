@@ -1808,13 +1808,14 @@
     pretty-format "^24.0.0"
     redent "^3.0.0"
 
-"@testing-library/react@9.1.0":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-9.1.0.tgz#c00c4ff90c5f9015365f63b7759a57c428b6ab56"
-  integrity sha512-XMtU8AmGX472c7+qXaaVZ2QpDKPA56vRaVEjlFBPDL8im2erM6DF0KJlwzLcc2wrvfYkcMDbreFyL0vdalubrQ==
+"@testing-library/react@9.1.1":
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-9.1.1.tgz#ee5b15c02b64cfbd14cdcad87fee2ed5f28fc2d1"
+  integrity sha512-mjX9l/onA5eVe8/4/obe7ZAw05U8s+kinXVglySVOMJo/oCSam9D9Dcg+aYVGsuBEuYV2W9m2LTP4KbNZh8BOw==
   dependencies:
     "@babel/runtime" "^7.5.5"
     "@testing-library/dom" "^6.0.0"
+    "@types/react-dom" "^16.8.5"
 
 "@types/babel__core@^7.1.0":
   version "7.1.0"
@@ -1982,7 +1983,7 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.5.9.tgz#f2d14df87b0739041bc53a7d75e3d77d726a3ec0"
   integrity sha512-Nha5b+jmBI271jdTMwrHiNXM+DvThjHOfyZtMX9kj/c/LUj2xiLHsG/1L3tJ8DjAoQN48cHwUwtqBotjyXaSdQ==
 
-"@types/react-dom@16.8.5":
+"@types/react-dom@16.8.5", "@types/react-dom@^16.8.5":
   version "16.8.5"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.8.5.tgz#3e3f4d99199391a7fb40aa3a155c8dd99b899cbd"
   integrity sha512-idCEjROZ2cqh29+trmTmZhsBAUNQuYrF92JHKzZ5+aiFM1mlSk3bb23CK7HhYuOY75Apgap5y2jTyHzaM2AJGA==
@@ -5374,10 +5375,10 @@ eslint-plugin-import@^2.18.0:
     read-pkg-up "^2.0.0"
     resolve "^1.11.0"
 
-eslint-plugin-jest@22.15.0:
-  version "22.15.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.15.0.tgz#fe70bfff7eeb47ca0ab229588a867f82bb8592c5"
-  integrity sha512-hgnPbSqAIcLLS9ePb12hNHTRkXnkVaCfOwCt2pzQ8KpOKPWGA4HhLMaFN38NBa/0uvLfrZpcIRjT+6tMAfr58Q==
+eslint-plugin-jest@22.15.1:
+  version "22.15.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.15.1.tgz#54c4a752a44c4bc5a564ecc22b32e1cd16a2961a"
+  integrity sha512-CWq/RR/3tLaKFB+FZcCJwU9hH5q/bKeO3rFP8G07+q7hcDCFNqpvdphVbEbGE6o6qo1UbciEev4ejUWv7brUhw==
   dependencies:
     "@typescript-eslint/experimental-utils" "^1.13.0"
 
@@ -9381,10 +9382,10 @@ next-server@8.1.1-canary.40:
     send "0.16.1"
     url "0.11.0"
 
-next-server@9.0.4-canary.2:
-  version "9.0.4-canary.2"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-9.0.4-canary.2.tgz#835f0994125c6f1fb95099d9860ce383588b1e2d"
-  integrity sha512-fgTtt9fcNteIbRZ6p6Y27R+VkxrOrXR4b00ef0KZ6vNyYwRdthtUM8dFPibo9KtTKWC0w+S45oqXW7MDZFFg9g==
+next-server@9.0.4-canary.3:
+  version "9.0.4-canary.3"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-9.0.4-canary.3.tgz#c4fc12b5e80fb1ed2badea9283600a5c2a82fb17"
+  integrity sha512-Ey5rTfaF5Upi5lQ1v6nC/3+QTUQmu3l6OBpXaGsVZ6rRmxznnV5P+AxdVjDC650FpB+qVrkHUozRoOeNGKY4Jw==
   dependencies:
     "@ampproject/toolbox-optimizer" "1.0.1"
     content-type "1.0.4"
@@ -9453,10 +9454,10 @@ next@8.1.1-canary.40:
     webpack-sources "1.3.0"
     worker-farm "1.7.0"
 
-next@9.0.4-canary.2:
-  version "9.0.4-canary.2"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.0.4-canary.2.tgz#6102492d35ef50a0ded5058411baf25d3cea6641"
-  integrity sha512-vl39q61++IDqKvjAWjBEBKY5M0VohQjvrPSoKFjaPCM/1tHy0HpSFwDLGfICvh95grLwljMxsmvoj1Z6hlA7yQ==
+next@9.0.4-canary.3:
+  version "9.0.4-canary.3"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.0.4-canary.3.tgz#85d9a33378347743ed5427f44eff9e2ce46ce311"
+  integrity sha512-+lZuuOCFqhY07hEGgMqFlQa2+O8Lt3ily76/1hRfAR8mm4h6fLDxm1ezd3Jt7dupxvGtyPOH4b5x+Tspp5si7g==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -9485,7 +9486,7 @@ next@9.0.4-canary.2:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "9.0.4-canary.2"
+    next-server "9.0.4-canary.3"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.6"
