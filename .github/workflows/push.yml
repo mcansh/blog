@@ -1,6 +1,14 @@
 on: push
 name: Send coverage to codecov
 jobs:
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: ESLint checks
+        uses: gimenete/eslint-action@1.0
+
   codecov:
     name: Codecov
     runs-on: ubuntu-latest
