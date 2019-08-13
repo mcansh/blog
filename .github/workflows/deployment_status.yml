@@ -1,0 +1,12 @@
+on: deployment_status
+name: Generate screenshot diff
+jobs:
+  nextdiff:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: nextdiff
+      uses: zeit/nextdiff@0.1.2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
