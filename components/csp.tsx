@@ -24,6 +24,7 @@ const CSP = (props: DocumentProps) => {
       'https://sentry.io/',
       'www.google-analytics.com',
       'https://res.cloudinary.com/dof0zryca',
+      'data:',
     ],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
