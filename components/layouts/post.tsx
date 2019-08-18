@@ -34,10 +34,10 @@ const ScrollProgress = styled.progress.attrs({ max: 100, min: 0 })`
 `;
 
 const PostWrap = styled.div`
-  margin: 3rem auto 0 auto;
+  margin: 3rem auto;
   max-width: 90rem;
   width: 95%;
-  min-height: calc(100vh - 50rem);
+  min-height: calc(100vh - 64rem);
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
   padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
 `;
