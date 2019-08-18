@@ -18,7 +18,7 @@
     "start": "next start",
     "test": "TZ=America/New_York NODE_ENV=test jest",
     "lint:css": "stylelint './**/*.js' './**/*.jsx' './**/*.tsx' './**/*.ts'",
-    "lint": "eslint ./ --ext .js,.ts,.tsx --fix",
+    "lint": "eslint ./ --ext js,ts,tsx,mdx --fix",
     "analyze:server": "BUNDLE_ANALYZE=server yarn build",
     "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
     "analyze:both": "BUNDLE_ANALYZE=both yarn build",
