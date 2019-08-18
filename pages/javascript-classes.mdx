@@ -1,5 +1,4 @@
 import Post from '~/components/layouts/post';
-import { Code } from '~/components/code';
 
 export const meta = {
   url: '/javascript-classes',
@@ -9,7 +8,7 @@ export const meta = {
     imageUrl: 'mia-baker-322594.jpg',
     photographer: 'Mia Baker',
     url: 'https://unsplash.com/photos/klRB1BB9pV8',
-  }
+  },
 };
 
 export const config = { amp: 'hybrid' };
@@ -34,4 +33,4 @@ class myClass {}
 
 It should be known that the content of a class declaration is executed in strict mode.
 
-export default ({ children }) => <Post meta={meta}>{children}</Post>
+export default ({ children }) => <Post meta={meta}>{children}</Post>;

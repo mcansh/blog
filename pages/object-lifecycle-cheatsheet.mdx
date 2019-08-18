@@ -22,7 +22,7 @@ You define a propterty by defining it a value, for example:
 
 ```javascript
 const myCar = new Object();
-myCar.make = "Ford";
+myCar.make = 'Ford';
 ```
 
 If you define a property but {"don't"} give it a value it becomes undefined, not null. e.g: myCar.color; would return undefined.
@@ -32,31 +32,31 @@ To get an item out of an object you can test to see if it has that property, for
 ```javascript
 // The Rule itself
 const rule = {
-  "active": true,
-  "conditions": [
+  active: true,
+  conditions: [
     {
-      "time": {
-        "day": [1,2,3,4],
-        "at": "17:30"
-      }
-    }
+      time: {
+        day: [1, 2, 3, 4],
+        at: '17:30',
+      },
+    },
   ],
-  "uuid": "some-rule-uuid",
-  "consequences": {
-    "devices": {
-      "66d5e0ed-5e88-4353-9dd9-318cad3676f9": {
-        "thermostat_setpoint.heat.set": {
-          "value": 77
+  uuid: 'some-rule-uuid',
+  consequences: {
+    devices: {
+      '66d5e0ed-5e88-4353-9dd9-318cad3676f9': {
+        'thermostat_setpoint.heat.set': {
+          value: 77,
         },
-        "thermostat_setpoint.cool.set": {
-          "value": 80
-        }
-      }
-    }
+        'thermostat_setpoint.cool.set': {
+          value: 80,
+        },
+      },
+    },
   },
-  "type":"rule",
-  "priority":1,
-  "name":"test rule"
+  type: 'rule',
+  priority: 1,
+  name: 'test rule',
 };
 ```
 
@@ -70,12 +70,12 @@ You can even have an object inside another object:
 
 ```javascript
 const myCar = {
-  color: "red",
+  color: 'red',
   wheels: 4,
   engine: {
     cylinders: 4,
-    size: 2.2
-  }
+    size: 2.2,
+  },
 };
 ```
 
@@ -88,7 +88,7 @@ function Car(make, model, year) {
   this.year = year;
 }
 
-const myCar = new Car("Volvo", "S40", 2005);
+const myCar = new Car('Volvo', 'S40', 2005);
 ```
 
-export default ({ children }) => <Post meta={meta}>{children}</Post>
+export default ({ children }) => <Post meta={meta}>{children}</Post>;

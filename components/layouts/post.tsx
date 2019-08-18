@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAmp } from 'next/amp';
-// @ts-ignore
 import { MDXProvider } from '@mdx-js/react';
 import Meta from '~/components/meta';
 import Header from '~/components/header/index';

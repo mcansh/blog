@@ -1,15 +1,14 @@
 import Post from '~/components/layouts/post';
-import { Code } from '~/components/code';
 
 export const meta = {
-  url: "/rack-key-concepts",
-  title: "Rack key concepts",
+  url: '/rack-key-concepts',
+  title: 'Rack key concepts',
   date: 1481068800000,
   image: {
-    imageUrl: "derek-liang-239062.jpg",
-    photographer: "Derek Liang",
-    url: "https://unsplash.com/photos/2h_i_BB_X2E"
-  }
+    imageUrl: 'derek-liang-239062.jpg',
+    photographer: 'Derek Liang',
+    url: 'https://unsplash.com/photos/2h_i_BB_X2E',
+  },
 };
 
 export const config = { amp: 'hybrid' };
@@ -23,7 +22,6 @@ You can see what type of requests a website is using by looking in the network t
 Now onto Rack itself. Rack is a Ruby gem that provides a minimal interface that goes between a server that supports Ruby and Ruby Frameworks.
 
 To use Rack you must first make a call to a class #call. All this needs to do is return a response that contains status codes, headers, and the body. That can be done with a Rack::Response object:
-
 
 ```ruby
 # call.rb

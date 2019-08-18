@@ -1,14 +1,14 @@
 import Post from '~/components/layouts/post';
 
 export const meta = {
-  url: "/ruby-project",
-  title: "Ruby project",
+  url: '/ruby-project',
+  title: 'Ruby project',
   date: 1512795600000,
   image: {
-    imageUrl: "stacy-wyss-702.jpg",
-    photographer: "Stacy Wyss",
-    url: "https://unsplash.com/photos/-aDl1z8_nGY"
-  }
+    imageUrl: 'stacy-wyss-702.jpg',
+    photographer: 'Stacy Wyss',
+    url: 'https://unsplash.com/photos/-aDl1z8_nGY',
+  },
 };
 
 export const config = { amp: 'hybrid' };
@@ -17,6 +17,6 @@ Ruby. There's times I absolutely hate it, and there's times I'm cool with it. Th
 
 Check it out on [github](https://github.com/mcansh/ruby-reddit-cli-app) or on [rubygems](https://rubygems.org/gems/reddit-ruby)
 
-__Update:__ as of <a href="https://github.com/mcansh/ruby-reddit-cli-app/releases/tag/1.0.8" target="_blank" rel="noopener external nofollow">1.0.8</a>, it supports any public subreddit.
+**Update:** as of <a href="https://github.com/mcansh/ruby-reddit-cli-app/releases/tag/1.0.8" target="_blank" rel="noopener external nofollow noreferrer">1.0.8</a>, it supports any public subreddit.
 
-export default ({ children }) => <Post meta={meta}>{children}</Post>
+export default ({ children }) => <Post meta={meta}>{children}</Post>;

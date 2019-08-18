@@ -9,8 +9,9 @@ import {
 } from 'date-fns';
 import { formatPostDate } from '~/utils/dates';
 
-// @ts-ignore
-const formatRelative = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+const formatRelative = new (Intl as any).RelativeTimeFormat('en', {
+  numeric: 'auto',
+});
 
 const H2 = styled.h2`
   font-size: 2.5rem;

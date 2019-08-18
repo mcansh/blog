@@ -1,5 +1,4 @@
 import Post from '~/components/layouts/post';
-import { colors } from '~/config';
 
 export const meta = {
   url: '/html5-progress-element',
@@ -33,11 +32,11 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+  background-image: linear-gradient(135deg, #52e5e7 0%, #130cb7 100%);
 }
 
 progress::-moz-progress-bar {
-  background-image: linear-gradient(135deg, #52E5E7 0%, #130CB7 100%);
+  background-image: linear-gradient(135deg, #52e5e7 0%, #130cb7 100%);
 }
 
 progress {
@@ -195,4 +194,4 @@ const Layout = ({ children }) => {
 };
 ```
 
-export default ({ children }) => <Post meta={meta}>{children}</Post>
+export default ({ children }) => <Post meta={meta}>{children}</Post>;
