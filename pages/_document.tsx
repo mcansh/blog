@@ -22,10 +22,8 @@ interface Props {
   styles: string;
   locale: string;
   localeDataScript: string;
-  amphtml: boolean;
 }
 
-// @ts-ignore
 class MyDocument extends Document<Props> {
   public static async getInitialProps(context: DocumentContext) {
     const sheet = new ServerStyleSheet();

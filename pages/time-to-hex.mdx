@@ -1,15 +1,14 @@
 import Post from '~/components/layouts/post';
-import { Code } from '~/components/code';
 
 export const meta = {
-  url: "/time-to-hex",
-  title: "How to convert the current time to a hexadecimal",
+  url: '/time-to-hex',
+  title: 'How to convert the current time to a hexadecimal',
   date: 1484006400000,
   image: {
-    imageUrl: "team-ui8-199275.jpg",
-    photographer: "Team UI8",
-    url: "https://unsplash.com/photos/z8lfwpQVXJo"
-  }
+    imageUrl: 'team-ui8-199275.jpg',
+    photographer: 'Team UI8',
+    url: 'https://unsplash.com/photos/z8lfwpQVXJo',
+  },
 };
 
 export const config = { amp: 'hybrid' };
@@ -51,11 +50,13 @@ const setDate = () => {
   // get the datetime
   const now = new Date();
   // get hours from our "now" variable
-  const hours = (now.getHours() < 10) ? '0' + now.getHours() : now.getHours();
+  const hours = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
   // get minutes from our "now" variable
-  const minutes = (now.getMinutes() < 10) ? '0' + now.getMinutes() : now.getMinutes();
+  const minutes =
+    now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
   // get seconds from our "now" variable
-  const seconds = (now.getSeconds() < 10) ? '0' + now.getSeconds() : now.getSeconds();
+  const seconds =
+    now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
 
   // or thanks to string.padStart in es2017, we can shorten this to:
   const hours = String(now.getHours()).padStart(2, '0');
@@ -83,7 +84,7 @@ Now what that’s doing is running a ternary to see if the time is less than 10 
 Woohoo! You now have a clock that shows you hexadecimal colors. You can even change the android chrome theme color every second:
 
 ```javascript
-  document.querySelector('meta[name="theme-color"]').content = hexTime;
+document.querySelector('meta[name="theme-color"]').content = hexTime;
 ```
 
-export default ({ children }) => <Post meta={meta}>{children}</Post>
+export default ({ children }) => <Post meta={meta}>{children}</Post>;

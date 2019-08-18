@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';

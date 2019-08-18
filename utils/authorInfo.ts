@@ -1,4 +1,3 @@
-// @ts-ignore
 import * as somebody from 'somebody';
 import { author } from '~/package.json';
 
