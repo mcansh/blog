@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import React from 'react';
 import { NextScript, DocumentProps } from 'next/document';
 
 const cspHashOf = (text: string) => {
@@ -24,6 +25,7 @@ const CSP = (props: DocumentProps) => {
       'https://sentry.io/',
       'www.google-analytics.com',
       'https://res.cloudinary.com/dof0zryca',
+      'data:',
     ],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
