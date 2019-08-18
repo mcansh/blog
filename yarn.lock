@@ -4153,10 +4153,10 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@2.0.0-beta.4:
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-beta.4.tgz#3e1bf33a15da69481f81972c4a50aad762a81f2c"
-  integrity sha512-xekjYm7ZDBuzePM/GBodhi3hW3P8dd2RbuIOLBjet2E6EGFR82wHTTXCSGuDEoapqlDvsx88ymRsq85lbM7dDw==
+date-fns@2.0.0-beta.5:
+  version "2.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-beta.5.tgz#90885db3772802d55519cd12acd49de56aca1059"
+  integrity sha512-GS5yi964NDFNoja9yOdWFj9T97T67yLrUeJZgddHaVfc/6tHWtX7RXocuubmZkNzrZUZ9BqBOW7jTR5OoWjJ1w==
 
 date-fns@^1.27.2:
   version "1.30.1"
@@ -8281,10 +8281,10 @@ next-server@9.0.3:
     styled-jsx "3.2.1"
     url "0.11.0"
 
-next-server@9.0.4-canary.5:
-  version "9.0.4-canary.5"
-  resolved "https://registry.yarnpkg.com/next-server/-/next-server-9.0.4-canary.5.tgz#8a31f80c72df58ff9a47b9968a81dc23b1891ecf"
-  integrity sha512-falX3bF3pocTaWdZUg6TYC+oUx4SEd9GPa+3qhkBK2PP1ewglGBfISEfT6lXHoYZUp66HKV2gYMmq4XaHTXX/A==
+next-server@9.0.4-canary.7:
+  version "9.0.4-canary.7"
+  resolved "https://registry.yarnpkg.com/next-server/-/next-server-9.0.4-canary.7.tgz#aa2e03231e6af833d1751500bbdf23ae8dcb2048"
+  integrity sha512-d8DFWR1PrExm+zc5Okoe8iF2q1xJFppkJXFykAhweyAtf/xhtvq0L9yhzM/MZ8rbMv4nC9tdDc4kdkD6tIHPQQ==
   dependencies:
     "@ampproject/toolbox-optimizer" "1.0.1"
     compression "1.7.4"
@@ -8354,10 +8354,10 @@ next@9.0.3:
     webpack-sources "1.3.0"
     worker-farm "1.7.0"
 
-next@9.0.4-canary.5:
-  version "9.0.4-canary.5"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.0.4-canary.5.tgz#a49ce1202cb43e11832124c313e284e3fc94ca37"
-  integrity sha512-pZ2KmEIvrOA5ygs+QPF7oQwVzelFQNpd9t/+U4271l4Ym52ZG+CytaYsFI5Bicy7it1qOiwfIbfjnIezVSZviQ==
+next@9.0.4-canary.7:
+  version "9.0.4-canary.7"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.0.4-canary.7.tgz#5fc60f8e4abf4121d1f854dfd54616ea536b54d5"
+  integrity sha512-UoM0lXqN4CaYC7O7KhGDzyXz80FAfG3YokdX2rSQX1Hkpus1FD1BMKVRtqfe+sg2znmXCDtfDyCf4N5LqSB9qg==
   dependencies:
     "@babel/core" "7.4.5"
     "@babel/plugin-proposal-class-properties" "7.4.4"
@@ -8375,7 +8375,6 @@ next@9.0.4-canary.5:
     autodll-webpack-plugin "0.4.2"
     babel-core "7.0.0-bridge.0"
     babel-loader "8.0.6"
-    babel-plugin-react-require "3.0.0"
     babel-plugin-transform-define "1.3.1"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
     chalk "2.4.2"
@@ -8385,7 +8384,7 @@ next@9.0.4-canary.5:
     launch-editor "2.2.1"
     loader-utils "1.2.3"
     mkdirp "0.5.1"
-    next-server "9.0.4-canary.5"
+    next-server "9.0.4-canary.7"
     prop-types "15.7.2"
     prop-types-exact "1.2.0"
     react-error-overlay "5.1.6"
