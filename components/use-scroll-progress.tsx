@@ -4,10 +4,10 @@ const useScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = React.useState(0);
 
   const handleScroll = React.useCallback(() => {
-    const scroll = window.pageYOffset; // window.scrollY is less supported
+    const scroll = window.pageYOffset;
     const bodyHeight = document.body.offsetHeight;
     const windowHeight = window.innerHeight;
-    const scrollPercent = (scroll / (bodyHeight - windowHeight)) * 100;
+    const scrollPercent = scroll / bodyHeight - windowHeight * 100;
     const maxMinscroll = Math.min(100, Math.max(0, scrollPercent));
     setScrollProgress(maxMinscroll);
   }, []);
