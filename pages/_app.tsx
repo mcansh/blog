@@ -34,14 +34,12 @@ class MyApp extends App<Props> {
   }
 
   public componentDidMount() {
-    if (!window.GA_INITIALIZED) {
-      initGA();
-      window.GA_INITIALIZED = true;
-    }
+    initGA();
+    logPageView();
+    Router.events.on('routeChangeComplete', logPageView);
   }
 
   public render() {
-    Router.events.on('routeChangeComplete', (url: string) => logPageView(url));
     const { Component, pageProps } = this.props;
 
     return (

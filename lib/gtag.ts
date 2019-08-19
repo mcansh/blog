@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 export const initGA = () => {
   ReactGA.initialize(String(process.env.ANALYTICS));
 };
-export const logPageView = (page: string) => {
+export const logPageView = (page: string = window.location.pathname) => {
   ReactGA.set({ page });
   ReactGA.pageview(page);
 };
