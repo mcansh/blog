@@ -10,8 +10,7 @@ interface Meta {
 }
 
 declare module '*.mdx' {
-  const MDXComponent: (props) => JSX.Element;
-  const meta: Meta;
+  const MDXComponent: (props) => JSX.Element, meta: Meta;
   export { meta };
   export default MDXComponent;
 }

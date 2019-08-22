@@ -1,9 +1,7 @@
 {
   "project": "blog",
   "version": 2,
-  "regions": [
-    "all"
-  ],
+  "regions": ["all"],
   "routes": [
     {
       "src": "(.*)",

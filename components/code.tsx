@@ -38,9 +38,9 @@ const Code = ({ children, className }: CodeProps) => {
       {highlight => (
         <CodeStyles className={className} style={{ ...highlight.style }}>
           {highlight.tokens.map((line, index) => (
-            <div {...highlight.getLineProps({ line, key: index })}>
+            <div key={index} {...highlight.getLineProps({ line, key: index })}>
               {line.map((token, key) => (
-                <span {...highlight.getTokenProps({ token, key })} />
+                <span key={key} {...highlight.getTokenProps({ token, key })} />
               ))}
             </div>
           ))}

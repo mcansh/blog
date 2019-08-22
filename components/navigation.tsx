@@ -38,9 +38,7 @@ const Navigation = () => {
   } = useRouter();
 
   const [navOpen, setNavOpen] = React.useState(false);
-  const closeNav = () => {
-    setNavOpen(false);
-  };
+  const closeNav = () => setNavOpen(false);
 
   React.useEffect(() => {
     Router.events.on('routeChangeComplete', () => {

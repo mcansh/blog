@@ -15,7 +15,9 @@ export const config = { amp: 'hybrid' };
 
 It’s actually really easy, [Demo](https://whatcolorisit.loganmcansh.com/).
 
-This is a pretty basic one function website, the function runs every second and takes the time in military time and then outputs that as a hex, while changing the background color to it.
+This is a pretty basic one function website, the function runs every second and
+takes the time in military time and then outputs that as a hex, while changing
+the background color to it.
 
 ```javascript
 const setDate = () => {
@@ -43,7 +45,9 @@ const setDate = () => {
 };
 ```
 
-Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any time that's less than 10, the hex is only then 3 numbers, which is fine, until you get 4 or 5 digits. So to resolve this you can adjust the function like so:
+Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any time
+that's less than 10, the hex is only then 3 numbers, which is fine, until you
+get 4 or 5 digits. So to resolve this you can adjust the function like so:
 
 ```javascript
 const setDate = () => {
@@ -79,9 +83,11 @@ const setDate = () => {
 };
 ```
 
-Now what that’s doing is running a ternary to see if the time is less than 10 or not if it is, then it prepends a 0 to the variable.
+Now what that’s doing is running a ternary to see if the time is less than 10 or
+not if it is, then it prepends a 0 to the variable.
 
-Woohoo! You now have a clock that shows you hexadecimal colors. You can even change the android chrome theme color every second:
+Woohoo! You now have a clock that shows you hexadecimal colors. You can even
+change the android chrome theme color every second:
 
 ```javascript
 document.querySelector('meta[name="theme-color"]').content = hexTime;

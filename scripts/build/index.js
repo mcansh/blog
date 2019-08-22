@@ -4,7 +4,7 @@ const sitemap = require('./sitemap');
 const jsonfeed = require('./jsonfeed');
 const atom = require('./atom');
 
-module.exports = async () => {
+module.exports = () => {
   manifest();
   sitemap();
   jsonfeed();

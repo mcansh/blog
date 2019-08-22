@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 const args = require('args');
 const { version: PKGVersion } = require('../package.json');
 
-async function sentryRelease() {
+function sentryRelease() {
   args
     .examples([
       {

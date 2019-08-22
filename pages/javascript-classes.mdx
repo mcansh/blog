@@ -13,7 +13,9 @@ export const meta = {
 
 export const config = { amp: 'hybrid' };
 
-The key concept in class variables and methods is how to define them. Classes are realistically just “special functions”. To define a class, you use the keyword class followed by the name you want to give it.
+The key concept in class variables and methods is how to define them. Classes
+are realistically just “special functions”. To define a class, you use the
+keyword class followed by the name you want to give it.
 
 ```javascript
 class myClass {
@@ -24,13 +26,15 @@ class myClass {
 }
 ```
 
-When you’re defining classes make sure they are hoisted or your code will throw errors like
+When you’re defining classes make sure they are hoisted or your code will throw
+errors like
 
 ```javascript
 var p = new myClass(); // ReferenceError
 class myClass {}
 ```
 
-It should be known that the content of a class declaration is executed in strict mode.
+It should be known that the content of a class declaration is executed in strict
+mode.
 
 export default ({ children }) => <Post meta={meta}>{children}</Post>;
