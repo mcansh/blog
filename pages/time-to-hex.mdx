@@ -49,7 +49,7 @@ Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any time
 that's less than 10, the hex is only then 3 numbers, which is fine, until you
 get 4 or 5 digits. So to resolve this you can adjust the function like so:
 
-```javascript
+```javascript {14-16}
 const setDate = () => {
   // get the datetime
   const now = new Date();
