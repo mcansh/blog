@@ -131,7 +131,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,mdx}": [
       "eslint --fix",
       "sh scripts/ts-precommit.bash",
       "yarn lint:css",
