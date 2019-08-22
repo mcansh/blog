@@ -11,26 +11,24 @@ const post: Post = {
   },
 };
 
-describe('PostCard Component', () => {
-  it.skip('renders a post card', () => {
-    const { getByTestId } = render(<PostCard {...post} />);
+it('renders a post card', () => {
+  const { getByTestId } = render(<PostCard {...post} />);
 
-    expect(getByTestId('post-title')).toHaveTextContent('React hoooooooooks!');
-    expect(getByTestId('post-date')).toHaveTextContent('February 2, 2019');
-    expect(getByTestId('post-link')).toHaveAttribute(
-      'href',
-      '/react-hooks-are-amazing'
-    );
-  });
+  expect(getByTestId('post-title')).toHaveTextContent('React hoooooooooks!');
+  expect(getByTestId('post-date')).toHaveTextContent('February 2, 2019');
+  expect(getByTestId('post-link')).toHaveAttribute(
+    'href',
+    '/react-hooks-are-amazing'
+  );
 });
 
-it.skip('doesnt have a data-photo attribute', () => {
+it('doesnt have a data-photo attribute', () => {
   const { getByTestId } = render(<PostCard {...post} />);
   expect(getByTestId('post-image')).not.toHaveAttribute('data-photo');
   expect(getByTestId('post-image')).not.toHaveAttribute('data-source-url');
 });
 
-it.skip('does have a data-photo attribute', () => {
+it('does have a data-photo attribute', () => {
   const { getByTestId } = render(
     <PostCard
       {...post}

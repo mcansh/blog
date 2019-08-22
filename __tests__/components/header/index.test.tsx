@@ -4,7 +4,7 @@ import { render } from '~/utils/render-with-intl';
 import Header from '~/components/header/index';
 
 describe('Header Component', () => {
-  it.skip('shows custom text and image', () => {
+  it('shows custom text and image', () => {
     const { getByTestId } = render(
       <Header
         title="BLOG"
