@@ -18,12 +18,13 @@
     "start": "next start",
     "test": "TZ=America/New_York NODE_ENV=test jest",
     "lint:css": "stylelint './**/*.js' './**/*.jsx' './**/*.tsx' './**/*.ts'",
-    "lint": "eslint ./ --ext js,ts,tsx,mdx --fix",
+    "lint": "eslint ./ --ext js,ts,tsx --fix",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
     "analyze:server": "BUNDLE_ANALYZE=server yarn build",
     "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
     "analyze:both": "BUNDLE_ANALYZE=both yarn build",
     "type-check": "tsc",
-    "validate": "yarn type-check && yarn lint && yarn lint:css && yarn test"
+    "validate": "yarn lint && yarn format && yarn lint:css && yarn type-check && yarn test"
   },
   "dependencies": {
     "@formatjs/intl-relativetimeformat": "2.7.0",
@@ -56,6 +57,7 @@
     "styled-components": "4.3.2"
   },
   "devDependencies": {
+    "@mcansh/prettier-config": "1.0.1",
     "@sindresorhus/slugify": "0.9.1",
     "@testing-library/jest-dom": "4.0.0",
     "@testing-library/react": "9.1.3",
@@ -83,17 +85,13 @@
     "eslint": "6.1.0",
     "eslint-config-airbnb": "18.0.1",
     "eslint-config-kentcdodds": "14.3.4",
-    "eslint-config-mcansh": "1.1.3",
+    "eslint-config-mcansh": "2.0.0-canary.7",
     "eslint-config-prettier": "6.0.0",
     "eslint-import-resolver-babel-plugin-root-import": "1.1.1",
     "eslint-import-resolver-typescript": "1.1.1",
-    "eslint-plugin-compat": "3.3.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jest": "22.15.1",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-mdx": "1.0.2-beta.2",
-    "eslint-plugin-prettier": "3.1.0",
-    "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-react-hooks": "1.7.0",
     "glob": "7.1.4",
@@ -131,11 +129,14 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,mdx}": [
+    "*.+(js|jsx|ts|tsx)": [
       "eslint --fix",
-      "sh scripts/ts-precommit.bash",
       "yarn lint:css",
-      "yarn test --bail --findRelatedTests",
+      "sh scripts/ts-precommit.bash",
+      "yarn test --bail --findRelatedTests"
+    ],
+    "*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
+      "prettier --write",
       "git add"
     ]
   }

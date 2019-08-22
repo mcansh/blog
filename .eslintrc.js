@@ -1,35 +1,11 @@
-const { configs } = require('eslint-plugin-mdx');
-
 module.exports = {
-  extends: ['mcansh/typescript', 'plugin:mdx/recommended'],
+  extends: ['mcansh/typescript'],
   settings: {
     'import/resolver': {
       'babel-plugin-root-import': {},
       typescript: {},
     },
   },
-  overrides: [
-    {
-      files: ['*.js', '.*.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
-    {
-      files: ['*.d.ts'],
-      rules: {
-        'spaced-comment': ['error', 'always', { markers: ['/ <reference'] }],
-      },
-    },
-    {
-      files: ['*.mdx'],
-      ...configs.overrides,
-      rules: {
-        ...configs.overrides.rules,
-        'react/prop-types': 'off',
-      },
-    },
-  ],
   rules: {
     'react/jsx-filename-extension': [
       'warn',
@@ -49,6 +25,7 @@ module.exports = {
           'next.config.js',
           'types/jest-dom.d.ts',
           '.eslintrc.js',
+          'prettier.config.js',
         ],
       },
     ],
