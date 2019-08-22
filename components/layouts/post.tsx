@@ -7,7 +7,7 @@ import Header from '~/components/header/index';
 import Paragraph from '~/components/paragraph';
 import { Post as PostType } from '~/components/post-card/index';
 import useScrollProgress from '~/components/use-scroll-progress';
-import { Code, InlineCode } from '~/components/code';
+import { Pre, InlineCode } from '~/components/code';
 import Link from '~/components/link';
 
 const ScrollProgress = styled.progress.attrs({ max: 100, min: 0 })`
@@ -49,10 +49,10 @@ interface Props {
 }
 
 const components = {
-  code: Code,
   inlineCode: InlineCode,
   p: Paragraph,
   a: Link,
+  pre: Pre,
 };
 
 const Post = ({ children, meta: { url, ...meta } }: Props) => {
