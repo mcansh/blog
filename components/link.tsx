@@ -1,6 +1,15 @@
-import { format, parse } from 'url';
+import { format, parse, UrlObject } from 'url';
 import React from 'react';
 import Link, { LinkProps } from 'next/link';
+
+function checkSameOrigin(url: UrlObject | string) {
+  const href = typeof url === 'string' ? parse(url) : url;
+  if (!href.protocol || !href.hostname) return true;
+  if (!/^https?/.test(href.protocol)) return false;
+  const domain =
+    process.env.NODE_ENV === 'development' ? 'localhost:3000' : 'mcansh.blog';
+  return href.hostname === domain;
+}
 
 type MyLinkProps = React.PropsWithChildren<LinkProps>;
 
@@ -15,10 +24,7 @@ const MyLink = ({
   prefetch,
   ...props
 }: MyLinkProps) => {
-  const parsedHref = typeof href === 'string' ? parse(href) : href;
-
-  const isSameOrigin =
-    !parsedHref.hostname || parsedHref.hostname === 'mcansh.blog';
+  const isSameOrigin = checkSameOrigin(href);
 
   const nextLinkProps = {
     href,
@@ -30,7 +36,7 @@ const MyLink = ({
     prefetch,
   };
 
-  if (isSameOrigin) {
+  if (!isSameOrigin) {
     const formatted = typeof href === 'string' ? href : format(href);
     return (
       <a
@@ -52,3 +58,4 @@ const MyLink = ({
 };
 
 export default MyLink;
+export { checkSameOrigin };
