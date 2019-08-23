@@ -1,6 +1,7 @@
 import React from 'react';
-import 'intl-pluralrules';
-import '@formatjs/intl-relativetimeformat/polyfill';
+import IntlRelativeTimeFormat, {
+  FormattableUnit,
+} from '@formatjs/intl-relativetimeformat';
 import styled from 'styled-components';
 import {
   differenceInDays,
@@ -9,9 +10,11 @@ import {
 } from 'date-fns';
 import { formatPostDate } from '~/utils/dates';
 
-const formatRelative = new (Intl as any).RelativeTimeFormat('en', {
-  numeric: 'auto',
-});
+if (!Intl.PluralRules) {
+  require('intl-pluralrules');
+}
+
+const formatRelative = new IntlRelativeTimeFormat('en', { numeric: 'auto' });
 
 const H2 = styled.h2`
   font-size: 2.5rem;
@@ -46,7 +49,9 @@ const DateHeading = ({ date }: Props) => {
   }
 
   return (
-    <H2 title={formatted}>Posted {formatRelative.format(-value, unit)}</H2>
+    <H2 title={formatted}>
+      Posted {formatRelative.format(-value, unit as FormattableUnit)}
+    </H2>
   );
 };
 
