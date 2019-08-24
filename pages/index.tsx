@@ -7,11 +7,10 @@ import posts from '~/data/posts';
 export const config = { amp: 'hybrid' };
 
 const [latest] = posts;
-const { date, ...latestPost } = latest;
 
 const Index = () => (
   <>
-    <Header {...latestPost} />
+    <Header url={latest.path} image={latest.image} title={latest.title} />
     <PostsWrapper>
       {posts.map((post: Post) => (
         <PostCard key={post.path} {...post} />
