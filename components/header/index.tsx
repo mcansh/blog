@@ -64,6 +64,7 @@ const Header = ({ title, url, image, date }: Props) => {
   const {
     query: { amp, ...query },
   } = useRouter();
+
   const props = useSpring({
     from: {
       opacity: isAmp ? 1 : 0,
@@ -76,6 +77,9 @@ const Header = ({ title, url, image, date }: Props) => {
     <HeaderStyles>
       <HeaderContent>
         <Title style={props}>{title}</Title>
+        <noscript>
+          <Title>{title}</Title>
+        </noscript>
         {date && <DateHeading date={date} />}
         {url && (
           <Button
