@@ -55,7 +55,7 @@ const components = {
   pre: Pre,
 };
 
-const Post = ({ children, meta: { url, ...meta } }: Props) => {
+const Post = ({ children, meta: { path, ...meta } }: Props) => {
   const isAmp = useAmp();
   const scrollProgress = useScrollProgress();
   return (

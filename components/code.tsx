@@ -30,6 +30,7 @@ const CodeStyles = styled.pre`
   overflow-x: auto;
   line-height: 1.5;
   float: left;
+  width: 100%;
 
   ::-webkit-scrollbar {
     width: 100%;

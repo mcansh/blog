@@ -1,5 +1,5 @@
-import React, { StrictMode } from 'react';
-import App, { Container } from 'next/app';
+import React from 'react';
+import App from 'next/app';
 import * as Sentry from '@sentry/browser';
 import Router from 'next/router';
 import { ThemeProvider } from 'styled-components';
@@ -43,23 +43,21 @@ class MyApp extends App<Props> {
     const { Component, pageProps } = this.props;
 
     return (
-      <StrictMode>
-        <Container>
-          <ThemeProvider theme={colors}>
-            <>
-              <NProgress
-                color={colors.primary}
-                options={{ trickleSpeed: 50 }}
-                spinner={false}
-              />
-              <GlobalStyle />
-              <Document>
-                <Component {...pageProps} />
-              </Document>
-            </>
-          </ThemeProvider>
-        </Container>
-      </StrictMode>
+      <React.StrictMode>
+        <ThemeProvider theme={colors}>
+          <>
+            <NProgress
+              color={colors.primary}
+              options={{ trickleSpeed: 50 }}
+              spinner={false}
+            />
+            <GlobalStyle />
+            <Document>
+              <Component {...pageProps} />
+            </Document>
+          </>
+        </ThemeProvider>
+      </React.StrictMode>
     );
   }
 }

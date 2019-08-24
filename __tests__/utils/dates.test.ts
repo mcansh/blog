@@ -32,13 +32,14 @@ cases(
   },
   [
     {
-      name: 'string',
       input: '2019-01-15T00:00:00',
       output: 'January 15, 2019',
     },
-    { name: 'number', input: 1547528400000, output: 'January 15, 2019' },
     {
-      name: 'date',
+      input: 1547528400000,
+      output: 'January 15, 2019',
+    },
+    {
       input: new Date('2019-01-15T00:00:00'),
       output: 'January 15, 2019',
     },

@@ -4,6 +4,7 @@ import IntlRelativeTimeFormat, {
 } from '@formatjs/intl-relativetimeformat';
 import styled from 'styled-components';
 import {
+  parseISO,
   differenceInDays,
   differenceInMonths,
   differenceInWeeks,
@@ -24,24 +25,25 @@ const H2 = styled.h2`
 `;
 
 interface Props {
-  date: number;
+  date: string;
 }
 
 const DateHeading = ({ date }: Props) => {
   const now = Date.now();
   const formatted = formatPostDate(date);
+  const parsed = parseISO(date);
 
   let unit = 'day';
-  let value = differenceInDays(now, date);
+  let value = differenceInDays(now, parsed);
 
   if (value >= 7) {
     unit = 'week';
-    value = differenceInWeeks(now, date);
+    value = differenceInWeeks(now, parsed);
   }
 
   if (value >= 4) {
     unit = 'month';
-    value = differenceInMonths(now, date);
+    value = differenceInMonths(now, parsed);
   }
 
   if (value >= 4) {

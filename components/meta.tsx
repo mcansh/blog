@@ -11,7 +11,7 @@ import { colors, iconSizes } from '~/config';
 
 interface Props {
   title?: string;
-  date?: number;
+  date?: string;
   image?: ImageType;
 }
 

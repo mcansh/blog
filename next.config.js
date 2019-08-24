@@ -3,7 +3,7 @@ const withSourceMaps = require('@zeit/next-source-maps')();
 const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
 
-const generateStaticFiles = require('./scripts/build');
+const generateStaticFiles = require('./data');
 const { version, repository } = require('./package.json');
 
 generateStaticFiles();

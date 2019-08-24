@@ -44,19 +44,19 @@ const HeaderContent = styled.div`
   max-width: 80vw;
 `;
 
-export const Title = animated(styled.h1`
+export const Title = styled(animated.h1)`
   margin-bottom: 2rem;
   font-size: 3rem;
   @media (min-width: 400px) {
     font-size: 4rem;
   }
-`);
+`;
 
 interface Props {
   title: string;
   url?: string;
   image: ImageType;
-  date?: number;
+  date?: string;
 }
 
 const Header = ({ title, url, image, date }: Props) => {

@@ -11,20 +11,13 @@ import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 export interface Post {
   image: ImageType;
-  url: string;
-  date: number;
+  path: string;
+  date: string;
   title: string;
+  lastModified?: string;
 }
 
-export interface PostWithMeta {
-  image: ImageType;
-  url: string;
-  date: number;
-  title: string;
-  meta: Meta;
-}
-
-const PostCard = ({ url, image, date, title }: Post) => {
+const PostCard = ({ path, image, date, title }: Post) => {
   const isAmp = useAmp();
   const {
     query: { amp, ...query },
@@ -37,7 +30,7 @@ const PostCard = ({ url, image, date, title }: Post) => {
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   return (
     <Link
-      href={{ pathname: url, query: isAmp ? { ...query, amp: 1 } : query }}
+      href={{ pathname: path, query: isAmp ? { ...query, amp: 1 } : query }}
       passHref
     >
       <Post>
