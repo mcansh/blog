@@ -5,6 +5,7 @@ module.exports = api => {
     'styled-components',
     'root-import',
     ['inline-react-svg', { svgo: false }],
+    'macros',
   ];
 
   return { presets, plugins };

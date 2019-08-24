@@ -3,9 +3,9 @@ import PostCard, { Post } from '~/components/post-card/index';
 import { render } from '~/utils/render-with-intl';
 
 const post: Post = {
-  date: '2019-02-02',
+  date: '2019-02-02T00:00:00',
   title: 'React hoooooooooks!',
-  url: '/react-hooks-are-amazing',
+  path: '/react-hooks-are-amazing',
   image: {
     imageUrl: '/static/images/posts/1_Wmv8hfi_bTHuHyV5CawnCw.jpg',
   },
