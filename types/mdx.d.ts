@@ -1,16 +1,6 @@
-interface Meta {
-  url: string;
-  title: string;
-  date: number;
-  image: {
-    imageUrl: string;
-    photographer: string;
-    url: string;
-  };
-}
-
 declare module '*.mdx' {
-  const MDXComponent: (props) => JSX.Element, meta: Meta;
+  import { Post } from '~/components/post-card';
+  const MDXComponent: (props) => JSX.Element, meta: Post;
   export { meta };
   export default MDXComponent;
 }

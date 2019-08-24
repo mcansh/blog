@@ -11,8 +11,7 @@ import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 export interface Post {
   image: ImageType;
-  url: string;
-  date: number;
+  date: string;
   title: string;
 }
 

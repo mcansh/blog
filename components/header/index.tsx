@@ -56,7 +56,7 @@ interface Props {
   title: string;
   url?: string;
   image: ImageType;
-  date?: number;
+  date?: string;
 }
 
 const Header = ({ title, url, image, date }: Props) => {

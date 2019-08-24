@@ -3,7 +3,7 @@ import PostCard, { Post } from '~/components/post-card/index';
 import { render } from '~/utils/render-with-intl';
 
 const post: Post = {
-  date: 1549144492819,
+  date: '2019-02-02',
   title: 'React hoooooooooks!',
   url: '/react-hooks-are-amazing',
   image: {
