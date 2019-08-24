@@ -8,7 +8,7 @@ import Document, {
 } from 'next/document';
 import * as Sentry from '@sentry/browser';
 import { ServerStyleSheet } from 'styled-components';
-import CSP from '~/components/csp';
+import getCSP from '~/components/csp';
 
 process.on('unhandledRejection', err => {
   Sentry.captureException(err);
@@ -47,13 +47,19 @@ class MyDocument extends Document<Props> {
   public render() {
     const { locale, inAmpMode } = this.props;
 
+    const { csp, hash } = getCSP(this.props);
+
     return (
       <Html lang={locale}>
-        <Head>{!inAmpMode && <CSP {...this.props} />}</Head>
+        <Head>
+          {!inAmpMode && (
+            <meta httpEquiv="Content-Security-Policy" content={csp} />
+          )}
+        </Head>
         <body>
           <Main />
           <div id="portal" />
-          <NextScript />
+          <NextScript nonce={hash} />
         </body>
       </Html>
     );

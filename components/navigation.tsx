@@ -1,6 +1,5 @@
 import React from 'react';
 import Router, { useRouter } from 'next/router';
-import Link from 'next/link';
 import { useAmp } from 'next/amp';
 import styled from 'styled-components';
 import {
@@ -8,8 +7,8 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
-import isAbsoluteUrl from 'is-absolute-url';
 
+import Link from '~/components/link';
 import NavList, { NavLinks } from '~/components/nav-list';
 import Hamburger from '~/components/hamburger';
 import Portal from '~/components/portal';
@@ -27,7 +26,6 @@ const Nav = styled.nav<{ navOpen: boolean }>`
     visibility: ${props => (props.navOpen ? 'visible' : 'hidden')};
     opacity: ${props => (props.navOpen ? 1 : 0)};
     transition: 500ms all ease-in-out;
-    will-change: opacity;
   }
 `;
 
@@ -41,16 +39,15 @@ const Navigation = () => {
   const closeNav = () => setNavOpen(false);
 
   React.useEffect(() => {
-    Router.events.on('routeChangeComplete', () => {
+    const closeNavAndEnableScroll = () => {
       clearAllBodyScrollLocks();
       closeNav();
-    });
+    };
+
+    Router.events.on('routeChangeComplete', closeNavAndEnableScroll);
 
     return () => {
-      Router.events.off('routeChangeComplete', () => {
-        clearAllBodyScrollLocks();
-        closeNav();
-      });
+      Router.events.off('routeChangeComplete', closeNavAndEnableScroll);
     };
   });
 
@@ -98,27 +95,16 @@ const Navigation = () => {
       `}
     >
       {NavLinks.map(link => {
-        const isExternal = isAbsoluteUrl(link.slug);
         return (
           <li key={link.name}>
-            {isExternal ? (
-              <a
-                href={link.slug}
-                rel="noopener noreferrer external nofollow"
-                target="_blank"
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link
-                href={{
-                  pathname: link.slug,
-                  query: isAmp ? { ...query, amp: 1 } : query,
-                }}
-              >
-                <a>{link.name}</a>
-              </Link>
-            )}
+            <Link
+              href={{
+                pathname: link.slug,
+                query: isAmp ? { ...query, amp: 1 } : query,
+              }}
+            >
+              {link.name}
+            </Link>
           </li>
         );
       })}

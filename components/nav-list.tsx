@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import isAbsoluteUrl from 'is-absolute-url';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import Link from '~/components/link';
 
 const NavLinks = [
   {
@@ -82,17 +81,9 @@ const NavList = ({ navOpen }: NavListProps) => {
           transition={{ duration: 0.3 }}
         >
           {NavLinks.map(({ name, slug }) => {
-            const isExternal = isAbsoluteUrl(slug);
             return (
               <li key={name}>
-                <Link href={slug} prefetch={isExternal ? false : undefined}>
-                  <a
-                    rel={isExternal ? 'noopener external nofollow' : undefined}
-                    target={isExternal ? '_blank' : undefined}
-                  >
-                    {name}
-                  </a>
-                </Link>
+                <Link href={slug}>{name}</Link>
               </li>
             );
           })}
