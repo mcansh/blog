@@ -11,6 +11,10 @@
       }
     },
     {
+      "src": "/.well-known/brave-rewards-verification.txt",
+      "dest": "/brave-rewards-verification.txt"
+    },
+    {
       "src": "^/(manifest.webmanifest|manifest.json)$",
       "dest": "/manifest.webmanifest",
       "headers": {
