@@ -24,7 +24,7 @@
     "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
     "analyze:both": "BUNDLE_ANALYZE=both yarn build",
     "type-check": "tsc",
-    "validate": "yarn lint && yarn format && yarn lint:css && yarn type-check && yarn test"
+    "validate": "npm-run-all --parallel lint format lint:css type-check test"
   },
   "dependencies": {
     "@formatjs/intl-relativetimeformat": "2.8.2",
@@ -106,6 +106,7 @@
     "lint-staged": "9.2.4",
     "next-offline": "4.0.5",
     "nodemon": "1.19.1",
+    "npm-run-all": "4.1.5",
     "prettier": "1.18.2",
     "stylelint": "10.1.0",
     "stylelint-config-recommended": "2.2.0",
