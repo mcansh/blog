@@ -1259,11 +1259,6 @@
     react-dom "16.9.0"
     styled-components "4.3.2"
 
-"@mcansh/prettier-config@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@mcansh/prettier-config/-/prettier-config-1.0.1.tgz#2e8dc3b7fae952d1d0be1213716a749221ed0847"
-  integrity sha512-oGpCimCh0BhlIBHYOuHL5aPgfO1POuZQFvFx/PMYr+0qzFeD+LlRJ9eXmECmA72w0r0TBSwXUBWspiuBvG8Pqg==
-
 "@mdx-js/loader@1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-1.3.2.tgz#a7514bd7320e2166670d6929128fef72c4de276a"
