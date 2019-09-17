@@ -20,7 +20,12 @@ const CSP = (props: DocumentProps) => {
       'storage.googleapis.com',
       'cdn.ampproject.org/v0.js',
     ],
-    'connect-src': ["'self'"],
+    'connect-src': [
+      "'self'",
+      'sentry.io',
+      'www.googletagmanager.com',
+      'www.google-analytics.com',
+    ],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': [
