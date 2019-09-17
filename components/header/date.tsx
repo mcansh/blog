@@ -9,10 +9,12 @@ import {
   differenceInMonths,
   differenceInWeeks,
 } from 'date-fns';
+import '@formatjs/intl-relativetimeformat/polyfill-locales';
+
 import { formatPostDate } from '~/utils/dates';
 
 if (!Intl.PluralRules) {
-  require('intl-pluralrules');
+  require('@formatjs/intl-pluralrules');
 }
 
 const formatRelative = new IntlRelativeTimeFormat('en', { numeric: 'auto' });
