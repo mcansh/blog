@@ -44,7 +44,6 @@ const PostWrap = styled.div`
 `;
 
 interface Props {
-  children: React.ReactNode;
   meta: PostType;
 }
 
@@ -55,7 +54,7 @@ const components = {
   pre: Pre,
 };
 
-const Post = ({ children, meta: { path, ...meta } }: Props) => {
+const Post: React.FC<Props> = ({ children, meta: { path, ...meta } }) => {
   const isAmp = useAmp();
   const scrollProgress = useScrollProgress();
   return (

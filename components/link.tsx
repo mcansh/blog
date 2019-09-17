@@ -11,9 +11,7 @@ function checkSameOrigin(url: UrlObject | string) {
   return href.hostname === domain;
 }
 
-type MyLinkProps = React.PropsWithChildren<LinkProps>;
-
-const MyLink = ({
+const MyLink: React.FC<LinkProps> = ({
   children,
   href,
   as,
@@ -23,7 +21,7 @@ const MyLink = ({
   passHref,
   prefetch,
   ...props
-}: MyLinkProps) => {
+}) => {
   const isSameOrigin = checkSameOrigin(href);
 
   const nextLinkProps = {

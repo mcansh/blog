@@ -44,7 +44,7 @@ interface Props {
   image: ImageType;
 }
 
-const HeaderImage = ({ image }: Props) => {
+const HeaderImage: React.FC<Props> = ({ image }) => {
   const imgUrl = getCloudinaryURL(image.imageUrl);
   const isAmp = useAmp();
 

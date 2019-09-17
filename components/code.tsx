@@ -68,7 +68,7 @@ interface CodeProps {
   metastring?: string;
 }
 
-const Code = ({ codeString, language, metastring }: CodeProps) => {
+const Code: React.FC<CodeProps> = ({ codeString, language, metastring }) => {
   const shouldHighlightLine = metastring
     ? calculateLinesToHighlight(metastring)
     : false;
@@ -141,7 +141,7 @@ function preToCodeBlock(preProps: any) {
   return null;
 }
 
-const Pre = (preProps: any) => {
+const Pre: React.FC = (preProps: any) => {
   const props = preToCodeBlock(preProps);
   // if there's a codeString and some props, we passed the test
   if (props) {

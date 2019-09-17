@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const Portal = ({ children }: Props) => {
+const Portal: React.FC = ({ children }) => {
   const element = React.useRef<HTMLElement | null>(null);
   React.useEffect(() => {
     element.current = document.getElementById('portal');

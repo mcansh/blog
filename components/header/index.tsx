@@ -59,7 +59,7 @@ interface Props {
   date?: string;
 }
 
-const Header = ({ title, url, image, date }: Props) => {
+const Header: React.FC<Props> = ({ title, url, image, date }) => {
   const isAmp = useAmp();
   const {
     query: { amp, ...query },
@@ -107,12 +107,6 @@ const Header = ({ title, url, image, date }: Props) => {
       </figure>
     </HeaderStyles>
   );
-};
-
-Header.defaultProps = {
-  url: null,
-  image: null,
-  date: null,
 };
 
 export default Header;

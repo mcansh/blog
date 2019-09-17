@@ -30,7 +30,7 @@ interface Props {
   date: string;
 }
 
-const DateHeading = ({ date }: Props) => {
+const DateHeading: React.FC<Props> = ({ date }) => {
   const now = Date.now();
   const formatted = formatPostDate(date);
   const parsed = parseISO(date);

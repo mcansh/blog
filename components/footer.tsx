@@ -20,7 +20,7 @@ const Footer = styled.footer`
   }
 `;
 
-const FooterWrap = () => {
+const FooterWrap: React.FC = () => {
   const isAmp = useAmp();
   const {
     query: { amp, ...query },

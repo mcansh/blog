@@ -52,7 +52,7 @@ const StyledLink = styled.a`
   }
 `;
 
-const Button = ({ children, ...nextProps }: Props) => {
+const Button: React.FC<Props> = ({ children, ...nextProps }) => {
   const isAmp = useAmp();
   return (
     <Link {...nextProps} passHref>

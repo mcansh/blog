@@ -70,7 +70,7 @@ interface NavListProps {
   navOpen: boolean;
 }
 
-const NavList = ({ navOpen }: NavListProps) => {
+const NavList: React.FC<NavListProps> = ({ navOpen }) => {
   return (
     <AnimatePresence>
       {navOpen && (

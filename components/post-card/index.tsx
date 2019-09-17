@@ -17,7 +17,7 @@ export interface Post {
   lastModified?: string;
 }
 
-const PostCard = ({ path, image, date, title }: Post) => {
+const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
   const isAmp = useAmp();
   const {
     query: { amp, ...query },

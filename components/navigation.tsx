@@ -29,7 +29,7 @@ const Nav = styled.nav<{ navOpen: boolean }>`
   }
 `;
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const isAmp = useAmp();
   const {
     query: { amp, ...query },

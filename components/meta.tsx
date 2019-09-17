@@ -15,7 +15,7 @@ interface Props {
   image?: ImageType;
 }
 
-const Meta = ({ title, date, image }: Props) => {
+const Meta: React.FC<Props> = ({ title, date, image }) => {
   const router = useRouter();
   const isAmp = useAmp();
   const pageTitle = title ? `${title} — ${name}` : name;
@@ -100,12 +100,6 @@ const Meta = ({ title, date, image }: Props) => {
       />
     </Head>
   );
-};
-
-Meta.defaultProps = {
-  title: null,
-  date: null,
-  image: null,
 };
 
 export default Meta;

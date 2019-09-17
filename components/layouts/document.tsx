@@ -19,10 +19,7 @@ if (typeof window !== 'undefined') {
   info.forEach(message => console.log(message));
 }
 
-interface Props {
-  children: React.ReactNode;
-}
-const Document = ({ children }: Props) => {
+const Document: React.FC = ({ children }) => {
   React.useEffect(() => {
     const serviceWorker = async () => {
       if (process.env.NODE_ENV === 'production') {
