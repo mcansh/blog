@@ -11,6 +11,7 @@ module.exports = {
       'warn',
       { extensions: ['.js', '.jsx', '.tsx', '.mdx'] },
     ],
+    'react/prop-types': 'off',
     'no-underscore-dangle': ['error', { allow: ['__NEXT_DATA__'] }],
     'no-console': ['error', { allow: ['warn', 'error'] }],
     '@typescript-eslint/explicit-member-accessibility': 'error',

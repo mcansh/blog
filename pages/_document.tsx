@@ -18,13 +18,7 @@ process.on('uncaughtException', err => {
   Sentry.captureException(err);
 });
 
-interface Props {
-  styles: string;
-  locale: string;
-  localeDataScript: string;
-}
-
-class MyDocument extends Document<Props> {
+class MyDocument extends Document {
   public static async getInitialProps(context: DocumentContext) {
     const sheet = new ServerStyleSheet();
 
@@ -45,12 +39,11 @@ class MyDocument extends Document<Props> {
   }
 
   public render() {
-    const { locale, inAmpMode } = this.props;
-
+    const { inAmpMode } = this.props;
     const { csp, hash } = getCSP(this.props);
 
     return (
-      <Html lang={locale}>
+      <Html lang="en">
         <Head>
           {!inAmpMode && (
             <meta httpEquiv="Content-Security-Policy" content={csp} />

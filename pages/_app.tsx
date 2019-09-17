@@ -16,22 +16,10 @@ Sentry.init({
 });
 
 interface Props {
-  Component: React.Component;
-  pageProps: Record<string, any>;
-  locale: string;
-  initialNow: number;
+  err?: Error;
 }
 
 class MyApp extends App<Props> {
-  public componentDidCatch(error: Error, errorInfo: any) {
-    Sentry.withScope(scope => {
-      scope.setExtras(errorInfo);
-      Sentry.captureException(error);
-    });
-
-    super.componentDidCatch(error, errorInfo);
-  }
-
   public componentDidMount() {
     initGA();
     logPageView();
@@ -41,13 +29,17 @@ class MyApp extends App<Props> {
   public render() {
     const { Component, pageProps } = this.props;
 
+    // https://github.com/zeit/next.js/pull/8684/files?file-filters%5B%5D=.js&file-filters%5B%5D=.json#diff-3418d602a84e69f78132b489a2062cc0R14
+    const { err } = this.props;
+    const modifiedPageProps = { ...pageProps, err };
+
     return (
       <React.StrictMode>
         <ThemeProvider theme={colors}>
           <>
             <GlobalStyle />
             <Document>
-              <Component {...pageProps} />
+              <Component {...modifiedPageProps} />
             </Document>
           </>
         </ThemeProvider>
