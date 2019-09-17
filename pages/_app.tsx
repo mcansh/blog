@@ -3,7 +3,6 @@ import App from 'next/app';
 import * as Sentry from '@sentry/browser';
 import Router from 'next/router';
 import { ThemeProvider } from 'styled-components';
-import { NProgress } from '@mcansh/next-nprogress';
 
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
@@ -46,11 +45,6 @@ class MyApp extends App<Props> {
       <React.StrictMode>
         <ThemeProvider theme={colors}>
           <>
-            <NProgress
-              color={colors.primary}
-              options={{ trickleSpeed: 50 }}
-              spinner={false}
-            />
             <GlobalStyle />
             <Document>
               <Component {...pageProps} />
