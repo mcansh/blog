@@ -45,8 +45,6 @@ const nextConfig = {
   webpack: (config, { isServer, buildId }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
-      config.resolve.alias['react-spring/renderprops.cjs'] =
-        'react-spring/renderprops';
     }
 
     config.plugins.push(

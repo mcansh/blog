@@ -2,7 +2,7 @@ import React from 'react';
 import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
+import { motion, AnimatePresence } from 'framer-motion';
 import Button from '~/components/button';
 import DateHeading from '~/components/header/date';
 import Image, { ImageType } from '~/components/header/image';
@@ -44,7 +44,7 @@ const HeaderContent = styled.div`
   max-width: 80vw;
 `;
 
-export const Title = styled(animated.h1)`
+export const Title = styled(motion.h1)`
   margin-bottom: 2rem;
   font-size: 3rem;
   @media (min-width: 400px) {
@@ -65,18 +65,27 @@ const Header = ({ title, url, image, date }: Props) => {
     query: { amp, ...query },
   } = useRouter();
 
-  const props = useSpring({
-    from: {
-      opacity: isAmp ? 1 : 0,
-      transform: isAmp ? 'translateY(0px)' : 'translateY(-50px)',
-    },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-  });
-
   return (
     <HeaderStyles>
       <HeaderContent>
-        <Title style={props}>{title}</Title>
+        <AnimatePresence exitBeforeEnter>
+          <Title
+            initial={{
+              opacity: isAmp ? 1 : 0,
+              translateY: isAmp ? 0 : -50,
+            }}
+            animate={{
+              opacity: 1,
+              translateY: 0,
+            }}
+            exit={{
+              opacity: 0,
+              translateY: 50,
+            }}
+          >
+            {title}
+          </Title>
+        </AnimatePresence>
         <noscript>
           <Title>{title}</Title>
         </noscript>
@@ -85,7 +94,7 @@ const Header = ({ title, url, image, date }: Props) => {
           <Button
             href={{
               pathname: url,
-              query: isAmp ? { ...query, amp: 1 } : query,
+              query: isAmp ? { ...query, amp: '1' } : query,
             }}
           >
             Read More
