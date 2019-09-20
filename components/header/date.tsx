@@ -3,7 +3,7 @@ import '@formatjs/intl-relativetimeformat/polyfill';
 import styled from 'styled-components';
 import { parseISO } from 'date-fns';
 import { selectUnit } from '@formatjs/intl-utils';
-
+import '@formatjs/intl-relativetimeformat/polyfill-locales';
 import { formatPostDate } from '~/utils/dates';
 
 if (!Intl.PluralRules) {
