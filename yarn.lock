@@ -9172,10 +9172,10 @@ react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 
-react-simple-img@2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/react-simple-img/-/react-simple-img-2.3.3.tgz#f9590e0c40f324622b4c9d8783e81dda41d9990e"
-  integrity sha512-OWdTpmf19WiUdtV0J/kvGjbRcVGaGTxrxXsbzgPtLIGRpKxTBcsCmcWCDnUj0sL5XJ0cx408Hk2CpUTATfxYEA==
+react-simple-img@2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/react-simple-img/-/react-simple-img-2.3.6.tgz#7bfb6407563a4e0401b16a2901cde8f8c7f1dcc1"
+  integrity sha512-yPE5g4+93HtOp2z21LYpNtC7T0v0dOxhTOc3JgzQJDqtwB2/723J/1siiRWf0T58QV5z7rQpL6W+kjoLCZIgxg==
   dependencies:
     intersection-observer "^0.5.1"
 
