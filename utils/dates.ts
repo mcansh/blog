@@ -8,7 +8,7 @@ const formatPostDate = (
     month: 'long',
     day: 'numeric',
     year: 'numeric',
-    timeZone: 'America/New_York',
+    timeZone: 'utc',
   }).format(new Date(inputDate));
 
 const iso8601 = (date: PossibleDates) =>
