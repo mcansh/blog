@@ -13,9 +13,7 @@ it('shows x time ago if < 4 months ago', () => {
 });
 
 it('shows date when >= 4 months ago', () => {
-  const { container } = render(
-    <DateHeading date={new Date(1484006400000).toISOString()} />
-  );
+  const { container } = render(<DateHeading date="2017-01-09" />);
 
   expect(container).toHaveTextContent('Posted January 9, 2017');
 });

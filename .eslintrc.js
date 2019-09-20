@@ -20,13 +20,13 @@ module.exports = {
       {
         devDependencies: [
           '__tests__/**/*',
-          'jest.config.js',
           'utils/render-with-intl.tsx',
           'scripts/**/*',
-          'next.config.js',
           'types/jest-dom.d.ts',
+          'next.config.js',
           '.eslintrc.js',
           'prettier.config.js',
+          'jest.setup.js',
         ],
       },
     ],

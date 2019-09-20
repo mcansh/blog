@@ -8,5 +8,11 @@ module.exports = api => {
     'macros',
   ];
 
-  return { presets, plugins };
+  const env = {
+    test: {
+      plugins: ['transform-dynamic-import'],
+    },
+  };
+
+  return { presets, plugins, env };
 };
