@@ -1053,24 +1053,24 @@
   resolved "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.3.tgz#6310a047f12d21a1036fb031317219892440416f"
   integrity sha512-4zAPlpDEh2VwXswwr/t8xGNDGg8RQiPxtxZ3qQEXyQsBV39ptTdESCjuBvGze1nLMVrxmTIKmnO/nAV8Tqjjzg==
 
-"@formatjs/intl-pluralrules@1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-pluralrules/-/intl-pluralrules-1.1.5.tgz#3129445da6ba9b63b20756869869f61f985ff566"
-  integrity sha512-5hO4aDLl4ejREh27EGFvhjOMAJrbKnJ9OfJbU74KApq95a09V2PhjmtqcJ5InopE1K+v7lQTGPenSL7XscE4qQ==
+"@formatjs/intl-pluralrules@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-pluralrules/-/intl-pluralrules-1.2.0.tgz#093905d01c0a75e3d18f78cd75d9262305a9eb47"
+  integrity sha512-2uNqlSY8WQYUQBc4PFs2ru6JV7/VqJIFZKHEp0v7pByNOajcIMyUVlStvHI7x6dVnUjRaOMi7Dm93TmK5mMp1g==
   dependencies:
-    "@formatjs/intl-utils" "^1.1.1"
+    "@formatjs/intl-utils" "^1.2.0"
 
-"@formatjs/intl-relativetimeformat@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-4.0.1.tgz#c9e5797dc43dc0bc26efd225b380f2de0c4ebe25"
-  integrity sha512-/3RPP/VSiLd9li9t1Q9FiMVQadl1kJOlVYw4xj5jUAzGO24Vj+0ssM+O/ukGfFvfqF4SuT7SPD0/UxlYos3jPw==
+"@formatjs/intl-relativetimeformat@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-relativetimeformat/-/intl-relativetimeformat-4.1.0.tgz#98fa5b0c16d0b972e9cea1ad3c5f85a33cf41759"
+  integrity sha512-kqCcLST2teB8ghcGTmFqdf/hD3CnfYSr0j72eD1ukQJAwr8ukc2RfgRj0WGFcSnL5fa0YmlbohstPuKY1jymrw==
   dependencies:
-    "@formatjs/intl-utils" "^1.1.1"
+    "@formatjs/intl-utils" "^1.2.0"
 
-"@formatjs/intl-utils@1.1.1", "@formatjs/intl-utils@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.1.1.tgz#53dcae233b53c505e4abe68f7ed6abb506c6d6a5"
-  integrity sha512-80pdaKuGILzALSRNtVwwAcxkrh31cYWzPH/QBfUS/FLilIxr4NtCf8t5h2clFhxk+pLbtgqAY5WrT0X14A5Dsg==
+"@formatjs/intl-utils@1.2.0", "@formatjs/intl-utils@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.2.0.tgz#a336a882602f37cdd2dbec50163ed8fcf176e35f"
+  integrity sha512-YHvfHRaiKfUxqnNhU9xOweK+iKA4R6uNRdvJeYeY9vENeKOYSAULtrxhLo86wUZHkR2KNqn4Y1xVDzihN3Y28w==
 
 "@hapi/address@2.x.x":
   version "2.0.0"
