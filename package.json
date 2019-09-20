@@ -29,6 +29,7 @@
   "dependencies": {
     "@formatjs/intl-pluralrules": "1.1.5",
     "@formatjs/intl-relativetimeformat": "4.0.1",
+    "@formatjs/intl-utils": "1.1.1",
     "@mdx-js/loader": "1.4.5",
     "@mdx-js/react": "1.4.5",
     "@next/bundle-analyzer": "9.0.6",
