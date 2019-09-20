@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const withSourceMaps = require('@zeit/next-source-maps')();
 const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const generateStaticFiles = require('./data');
 const { version, repository } = require('./package.json');
@@ -57,4 +60,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withSourceMaps(withMDX(withOffline(nextConfig)));
+module.exports = withBundleAnalyzer(
+  withSourceMaps(withMDX(withOffline(nextConfig)))
+);

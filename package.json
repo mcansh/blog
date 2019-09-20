@@ -20,9 +20,7 @@
     "lint:css": "stylelint './**/*.js' './**/*.jsx' './**/*.tsx' './**/*.ts'",
     "lint": "eslint ./ --ext js,ts,tsx --fix",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
-    "analyze:server": "BUNDLE_ANALYZE=server yarn build",
-    "analyze:browser": "BUNDLE_ANALYZE=browser yarn build",
-    "analyze:both": "BUNDLE_ANALYZE=both yarn build",
+    "analyze": "ANALYZE=true yarn build",
     "type-check": "tsc",
     "validate": "npm-run-all --parallel lint format lint:css type-check test"
   },
@@ -36,7 +34,6 @@
     "@next/mdx": "9.0.6",
     "@sentry/browser": "5.6.3",
     "@sentry/node": "5.6.2",
-    "@zeit/next-bundle-analyzer": "0.1.2",
     "@zeit/next-source-maps": "0.0.4-canary.1",
     "@zeit/next-typescript": "1.1.1",
     "babel-plugin-macros": "2.6.1",
@@ -139,5 +136,9 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "resolutions": {
+    "**/**/set-value": ">=2.0.1",
+    "**/**/js-yaml": ">=3.13.1"
   }
 }
