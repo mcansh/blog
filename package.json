@@ -52,7 +52,7 @@
     "react-ink": "6.4.0",
     "react-simple-img": "2.3.6",
     "somebody": "2.0.0",
-    "styled-components": "4.3.2"
+    "styled-components": "4.4.0"
   },
   "devDependencies": {
     "@sindresorhus/slugify": "0.9.1",
