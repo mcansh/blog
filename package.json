@@ -30,7 +30,7 @@
     "@formatjs/intl-utils": "1.2.0",
     "@mdx-js/loader": "1.4.5",
     "@mdx-js/react": "1.4.5",
-    "@next/bundle-analyzer": "9.0.6",
+    "@next/bundle-analyzer": "9.0.7",
     "@next/mdx": "9.0.6",
     "@sentry/browser": "5.6.3",
     "@sentry/node": "5.6.2",
