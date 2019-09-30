@@ -57,7 +57,7 @@
   "devDependencies": {
     "@sindresorhus/slugify": "0.9.1",
     "@testing-library/jest-dom": "4.1.0",
-    "@testing-library/react": "9.1.4",
+    "@testing-library/react": "9.2.0",
     "@types/body-scroll-lock": "2.6.1",
     "@types/common-tags": "1.8.0",
     "@types/glob": "7.1.1",
