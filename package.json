@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@formatjs/intl-pluralrules": "1.2.1",
-    "@formatjs/intl-relativetimeformat": "4.1.0",
+    "@formatjs/intl-relativetimeformat": "4.1.1",
     "@formatjs/intl-utils": "1.2.0",
     "@mdx-js/loader": "1.4.5",
     "@mdx-js/react": "1.4.5",
