@@ -1266,10 +1266,10 @@
   dependencies:
     webpack-bundle-analyzer "3.3.2"
 
-"@next/mdx@9.0.6":
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.0.6.tgz#b1ce8cbc1b3af0e5a247ce43d5dbb444dbfce187"
-  integrity sha512-Xt6hC0lppUZ60nIMYCgxy0p0Ftn9302axqBwvmw3Gptn33SF8YDq4kvQk2M1cBi008Dufyk6FPEws7h083rI2g==
+"@next/mdx@9.0.7":
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.0.7.tgz#3b2e3afe384bda9fbd7eac8c605befa856cc174c"
+  integrity sha512-Wce6sb8UgOU1hAsY/3rY98GrZ5HIbK8K/kUzocgO+GXIaI4HKyVnus/rqOmFV0UmdpKDokjYEpo2Ap2iLn18xA==
 
 "@nodelib/fs.scandir@2.1.1":
   version "2.1.1"
