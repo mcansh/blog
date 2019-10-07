@@ -1037,10 +1037,10 @@
   dependencies:
     "@formatjs/intl-utils" "^1.3.0"
 
-"@formatjs/intl-utils@1.3.0", "@formatjs/intl-utils@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.3.0.tgz#4db3793f5aa25ef7d207bbd8a19a390a1ee36e07"
-  integrity sha512-86/alWvUC+6doouKTt8n7fQr2b9XzLigdUgYdTLRa+0RC5cI1cMjQJV/I1qzlKAk/9dCuYBxOJsytXCUzmrAVA==
+"@formatjs/intl-utils@1.4.0", "@formatjs/intl-utils@^1.3.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.4.0.tgz#b59fdf78bbae9f99c500a298bf73b1945f5991f1"
+  integrity sha512-z5HyJumGzORM+5SpvkAlp/hu0AHDeZcUNKSmj9NjS7kWxOGZMuAdS3X1K5XiE0j5I8r8s8SIaz0IQOdMA1WFeA==
 
 "@hapi/address@2.x.x":
   version "2.0.0"
