@@ -34,6 +34,7 @@ const CSP = (props: DocumentProps) => {
       'data:',
       'www.googletagmanager.com',
       'www.google-analytics.com',
+      'www.google.com/ads',
     ],
   };
 
