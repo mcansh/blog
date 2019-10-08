@@ -79,6 +79,7 @@ interface Props {
 const Hamburger: React.FC<Props> = ({ navOpen, onClick }) => (
   <MenuButton
     aria-label={`${navOpen ? 'Close' : 'Open'} Side Nav`}
+    data-testid="hammy-menu"
     onClick={onClick}
     open={navOpen}
   >

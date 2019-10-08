@@ -23,7 +23,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"]
-    }
+    },
+    "types": ["cypress", "@types/testing-library__cypress"]
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]

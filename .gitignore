@@ -9,3 +9,5 @@ next-env.d.ts
 public/feed.json
 public/sitemap.xml
 public/atom.xml
+cypress/videos
+cypress/screenshots

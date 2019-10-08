@@ -27,6 +27,7 @@ module.exports = {
           '.eslintrc.js',
           'prettier.config.js',
           'jest.setup.js',
+          'cypress/support/index.js',
         ],
       },
     ],
