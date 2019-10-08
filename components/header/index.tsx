@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Button from '~/components/button';
 import DateHeading from '~/components/header/date';
 import Image, { ImageType } from '~/components/header/image';
-import Curve from '~/static/images/curve.svg';
+import Curve from '~/public/static/images/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;

@@ -16,7 +16,6 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   experimental: {
     modern: true,
-    publicDirectory: true,
     granularChunks: true,
   },
   dontAutoRegisterSw: true,
