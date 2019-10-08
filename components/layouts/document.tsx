@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
@@ -40,12 +41,18 @@ const Document: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <>
+    <div
+      css={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <Meta />
       <Navigation />
-      {children}
+      <div css={{ flex: '1 1 auto' }}>{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };
 
