@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 const { execSync } = require('child_process');
+
 const args = require('args');
+
 const { version: PKGVersion } = require('../package.json');
 
 function sentryRelease() {
@@ -12,7 +14,7 @@ function sentryRelease() {
       },
       {
         usage: `node ./scripts/sentry-release.js ${PKGVersion} ac8264c 474721f`,
-        description: 'Explictly tell Sentry the commits for the release',
+        description: 'Explicitly tell Sentry the commits for the release',
       },
     ])
     .parse(process.argv, {
