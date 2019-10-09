@@ -1,6 +1,6 @@
 module.exports = api => {
   api.cache(true);
-  const presets = ['next/babel', '@zeit/next-typescript/babel'];
+  const presets = ['next/babel'];
   const plugins = [
     'styled-components',
     'root-import',
@@ -10,7 +10,7 @@ module.exports = api => {
 
   const env = {
     test: {
-      plugins: ['transform-dynamic-import'],
+      plugins: ['dynamic-import-node'],
     },
   };
 
