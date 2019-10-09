@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import React from 'react';
 import { subMonths } from 'date-fns';
 import { render } from '~/utils/render-with-intl';
