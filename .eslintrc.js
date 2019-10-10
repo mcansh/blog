@@ -26,6 +26,7 @@ module.exports = {
           'next.config.js',
           '.eslintrc.js',
           'prettier.config.js',
+          'stylelint.config.js',
           'jest.setup.js',
         ],
       },
