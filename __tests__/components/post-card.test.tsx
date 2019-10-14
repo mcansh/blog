@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PostCard, { Post } from '~/components/post-card/index';
 import { render } from '~/utils/render-with-intl';
 

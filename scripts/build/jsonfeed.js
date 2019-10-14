@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+
 const posts = require('../get-blog-posts');
 const { description, homepage } = require('../../package.json');
 

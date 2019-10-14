@@ -1,4 +1,5 @@
 import preval from 'babel-plugin-preval/macro';
+
 import { Post } from '~/components/post-card';
 
 const posts: Post[] = preval`

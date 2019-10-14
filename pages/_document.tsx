@@ -8,6 +8,7 @@ import Document, {
 } from 'next/document';
 import * as Sentry from '@sentry/browser';
 import { ServerStyleSheet } from 'styled-components';
+
 import getCSP from '~/components/csp';
 
 process.on('unhandledRejection', err => {

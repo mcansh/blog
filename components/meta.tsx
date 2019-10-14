@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
+
 import { description, homepage } from '~/package.json';
 import { name } from '~/utils/authorInfo';
 import { iso8601 } from '~/utils/dates';

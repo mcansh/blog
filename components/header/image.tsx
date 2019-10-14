@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAmp } from 'next/amp';
 import styled from 'styled-components';
+
 import unsplashParams from '~/utils/unsplash-params';
 import getCloudinaryURL from '~/utils/get-cloudinary-url';
 

@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+
 const { description, homepage } = require('../package.json');
+
 const posts = require('./get-posts');
 
 const OUT_DIR = path.join(process.cwd(), 'public');

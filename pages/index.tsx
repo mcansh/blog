@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PostsWrapper from '~/components/posts-wrapper';
 import PostCard, { Post } from '~/components/post-card/index';
 import Header from '~/components/header/index';

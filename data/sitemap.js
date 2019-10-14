@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+
 const posts = require('./get-posts');
 
 // Wrap all pages in <urlset> tags

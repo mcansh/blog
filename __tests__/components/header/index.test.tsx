@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { render } from '~/utils/render-with-intl';
 import Header from '~/components/header/index';
 

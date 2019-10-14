@@ -3,6 +3,7 @@ import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { SimpleImg } from 'react-simple-img';
+
 import unsplashParams from '~/utils/unsplash-params';
 import Post, { imageHeight } from '~/components/post-card/styles';
 import { ImageType } from '~/components/header/image';

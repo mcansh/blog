@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+
 import { NextScript, DocumentProps } from 'next/document';
 
 const cspHashOf = (text: string) => {

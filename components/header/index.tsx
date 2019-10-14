@@ -3,6 +3,7 @@ import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import Button from '~/components/button';
 import DateHeading from '~/components/header/date';
 import Image, { ImageType } from '~/components/header/image';
