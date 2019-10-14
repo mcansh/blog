@@ -89,12 +89,12 @@
     "eslint-import-resolver-babel-plugin-root-import": "1.1.1",
     "eslint-import-resolver-typescript": "2.0.0",
     "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jest": "22.17.0",
+    "eslint-plugin-jest": "22.19.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.16.0",
     "eslint-plugin-react-hooks": "2.1.2",
     "glob": "7.1.4",
-    "husky": "3.0.8",
+    "husky": "3.0.9",
     "jest": "24.9.0",
     "jest-in-case": "1.0.2",
     "jest-next-dynamic": "1.0.0",
@@ -112,8 +112,7 @@
     "stylelint-prettier": "1.1.1",
     "stylelint-processor-styled-components": "1.8.0",
     "ts-node": "8.4.1",
-    "typescript": "3.6.4",
-    "webpack": "4.41.0"
+    "typescript": "3.6.4"
   },
   "greenkeeper": {
     "commitMessages": {

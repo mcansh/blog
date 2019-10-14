@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const withSourceMaps = require('@zeit/next-source-maps')();
 const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
@@ -44,7 +43,7 @@ const nextConfig = {
     VERSION: version,
   },
 
-  webpack: (config, { isServer, buildId }) => {
+  webpack: (config, { isServer, buildId, webpack }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
