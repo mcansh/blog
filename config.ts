@@ -1,9 +1,7 @@
 const iconSizes = [228, 195, 152, 144, 128, 120, 96, 72, 57, 32];
-/* istanbul ignore next */
-const staticFilePrefix = process.env.NOW ? '' : '/static';
 
-const colors = {
-  primary: '#6c16c7',
+const theme = {
+  primary: '#0448f8',
   dark: {
     background: '#1a1e21',
     text: '#cecfd0',
@@ -14,5 +12,4 @@ const colors = {
   },
 };
 
-export { colors, iconSizes, staticFilePrefix };
-export default colors;
+export { theme, iconSizes };

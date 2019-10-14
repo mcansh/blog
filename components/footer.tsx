@@ -1,40 +1,39 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useAmp } from 'next/amp';
-// @ts-ignore
-import { useRouter, RouterProps } from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { name } from '~/utils/authorInfo';
 
 const Footer = styled.footer`
   height: 8rem;
-  background: ${props => props.theme.light.background};
+  background: var(--background);
   font-size: 1.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (prefers-color-scheme: dark) {
-    background: ${props => props.theme.dark.background};
+
+  a {
+    color: currentColor;
+    text-decoration: none;
   }
 `;
 
-const StyledLink = styled.a`
-  color: currentColor;
-  text-decoration: none;
-`;
-
-const FooterWrap = () => {
+const FooterWrap: React.FC = () => {
   const isAmp = useAmp();
-  const router: RouterProps = useRouter();
-  const isHome = router.pathname === '/';
+  const {
+    query: { amp, ...query },
+    pathname,
+  } = useRouter();
+  const isHome = pathname === '/';
   return (
     <Footer>
       <Link
-        href={{ pathname: '/', query: isAmp && { amp: 1 } }}
-        prefetch
-        passHref
+        href={{ pathname: '/', query: isAmp ? { ...query, amp: 1 } : query }}
       >
-        <StyledLink
+        <a
           rel="home"
           aria-label="go home"
           onClick={event => {
@@ -45,7 +44,7 @@ const FooterWrap = () => {
           }}
         >
           &copy; {new Date().getFullYear()} {name}
-        </StyledLink>
+        </a>
       </Link>
     </Footer>
   );

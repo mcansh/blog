@@ -1,41 +1,64 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+const webpack = require('webpack');
+const withSourceMaps = require('@zeit/next-source-maps')();
 const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
-const withTypescript = require('@zeit/next-typescript');
-const generateStaticFiles = require('./scripts/build');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+const generateStaticFiles = require('./data');
+const { version, repository } = require('./package.json');
 
 generateStaticFiles();
 
 const nextConfig = {
   target: 'serverless',
-  experimental: {
-    amp: true,
-  },
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
+  experimental: {
+    modern: true,
+    granularChunks: true,
+  },
   dontAutoRegisterSw: true,
   workboxOpts: {
     swDest: 'static/sw.js',
     runtimeCaching: [
       {
-        handler: 'staleWhileRevalidate',
-        urlPattern: /[.](webp|png|jpg|svg|css)/,
+        handler: 'StaleWhileRevalidate',
+        urlPattern: /[.](webp|png|jpg|svg|css|woff|woff2)/,
       },
       {
-        handler: 'networkFirst',
+        handler: 'NetworkFirst',
         urlPattern: /^https?.*/,
       },
     ],
   },
 
-  webpack: (config, { isServer }) => {
+  env: {
+    TWITTER: 'loganmcansh',
+    INSTAGRAM: 'loganmcansh',
+    GITHUB: 'mcansh',
+    EMAIL: 'logan+website@mcan.sh',
+    SENTRY: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
+    ANALYTICS: 'UA-87731356-4',
+    GITHUB_URL: `https://github.com/${repository}`,
+    VERSION: version,
+  },
+
+  webpack: (config, { isServer, buildId }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
-      config.resolve.alias['react-spring/renderprops.cjs'] =
-        'react-spring/renderprops';
     }
+
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.BUILD_ID': JSON.stringify(buildId),
+      })
+    );
 
     return config;
   },
 };
 
-module.exports = withMDX(withOffline(withTypescript(nextConfig)));
+module.exports = withBundleAnalyzer(
+  withSourceMaps(withMDX(withOffline(nextConfig)))
+);

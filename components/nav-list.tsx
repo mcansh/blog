@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import isAbsoluteUrl from 'is-absolute-url';
-import { useTransition, animated } from 'react-spring';
-import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+
+import Link from '~/components/link';
 
 const NavLinks = [
   {
@@ -11,19 +11,19 @@ const NavLinks = [
   },
   {
     name: 'GitHub',
-    slug: 'https://github.com/mcansh',
+    slug: `https://github.com/${process.env.GITHUB}`,
   },
   {
     name: 'Twitter',
-    slug: 'https://twitter.com/loganmcansh',
+    slug: `https://twitter.com/${process.env.TWITTER}`,
   },
   {
     name: 'Instagram',
-    slug: 'https://instagram.com/loganmcansh',
+    slug: `https://instagram.com/${process.env.INSTAGRAM}`,
   },
   {
     name: 'Email',
-    slug: 'mailto:logan@mcan.sh',
+    slug: `mailto:${process.env.EMAIL}`,
   },
   {
     name: 'Changelog',
@@ -31,7 +31,7 @@ const NavLinks = [
   },
 ];
 
-const NavStyles = styled.ul`
+const NavStyles = styled(motion.ul)`
   height: 100vh;
   max-width: 40rem;
   width: 95%;
@@ -67,40 +67,28 @@ const NavStyles = styled.ul`
   }
 `;
 
-const AnimatedNavStyles = animated(NavStyles);
+interface NavListProps {
+  navOpen: boolean;
+}
 
-const NavList = ({ navOpen }: { navOpen: boolean }) => {
-  const tranitions = useTransition(navOpen, null, {
-    from: { transform: 'translate3d(-100%, 0, 0)' },
-    enter: { transform: 'translate3d(0, 0, 0)' },
-    leave: { transform: 'translate3d(-100%, 0, 0)' },
-    reset: true,
-    unique: true,
-  });
-
-  return tranitions.map(({ item, key, props }) => {
-    return (
-      item && (
-        <AnimatedNavStyles key={key} style={props}>
-          {NavLinks.map(({ name, slug }) => {
-            const isExternal = isAbsoluteUrl(slug);
-            return (
-              <li key={name}>
-                <Link href={slug} prefetch={!isExternal}>
-                  <a
-                    rel={isExternal ? 'noopener external nofollow' : ''}
-                    target={isExternal ? '_blank' : ''}
-                  >
-                    {name}
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
-        </AnimatedNavStyles>
-      )
-    );
-  });
-};
+const NavList: React.FC<NavListProps> = ({ navOpen }) => (
+  <AnimatePresence>
+    {navOpen && (
+      <NavStyles
+        initial={{ transform: 'translateX(-100%)' }}
+        animate={{ transform: 'translateX(0%)' }}
+        exit={{ transform: 'translateX(-100%)' }}
+        transition={{ duration: 0.3 }}
+      >
+        {NavLinks.map(({ name, slug }) => (
+          <li key={name}>
+            <Link href={slug}>{name}</Link>
+          </li>
+        ))}
+      </NavStyles>
+    )}
+  </AnimatePresence>
+);
 
 export default NavList;
+export { NavLinks };

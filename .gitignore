@@ -5,3 +5,7 @@ node_modules
 .env
 bundles
 coverage
+next-env.d.ts
+public/feed.json
+public/sitemap.xml
+public/atom.xml

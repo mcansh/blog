@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: mcansh.blog
+Token: a1a2b0fd0dd609fbda2f7980d4bc1a1b34db800d1f122b930eb3b519ad5cc9fa

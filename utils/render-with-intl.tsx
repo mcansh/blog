@@ -1,23 +1,18 @@
-/* eslint-env jest */
+/* eslint-disable react/jsx-no-useless-fragment */
 import React from 'react';
-import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
-import { render } from 'react-testing-library';
-import theme from '~/config';
+import { render } from '@testing-library/react';
 
-const renderWithIntl = (
-  children: React.ReactNode,
-  intlProps = { locale: 'en' }
-) =>
+import { theme } from '~/config';
+
+const renderWithIntl = (children: React.ReactNode) =>
   render(
-    <IntlProvider {...intlProps}>
-      <ThemeProvider theme={theme}>
-        <>{children}</>
-      </ThemeProvider>
-    </IntlProvider>
+    <ThemeProvider theme={theme}>
+      <>{children}</>
+    </ThemeProvider>
   );
 
-export * from 'react-testing-library';
+export * from '@testing-library/react';
 export { renderWithIntl as render };
 
 export default renderWithIntl;

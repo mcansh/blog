@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
-import { withRouter, RouterProps } from 'next/router';
+import Meta from '~/components/meta';
 
-// @ts-ignore
-if (global.document) {
+if (!global.Intl) {
+  global.Intl = require('intl');
+}
+
+if (typeof window !== 'undefined') {
   const info = [
     `Version: ${process.env.VERSION}`,
+    `Next.js Build: ${process.env.BUILD_ID}`,
     `You can find the code here: ${process.env.GITHUB_URL}`,
     `Thanks for stopping by ${randomEmoji()}`,
   ];
@@ -15,37 +20,40 @@ if (global.document) {
   info.forEach(message => console.log(message));
 }
 
-interface Props {
-  children: React.ReactNode;
-  router: RouterProps;
-}
+const Document: React.FC = ({ children }) => {
+  React.useEffect(() => {
+    const serviceWorker = async () => {
+      if (process.env.NODE_ENV === 'production') {
+        if ('serviceWorker' in window.navigator) {
+          try {
+            await window.navigator.serviceWorker.register('/sw.js');
+            // eslint-disable-next-line no-console
+            console.log(`successfully registered serviceWorker`);
+          } catch (error) {
+            // eslint-disable-next-line no-console
+            console.log(`failed to register serviceWorker`);
+          }
+        }
+      }
+    };
 
-const serviceWorker = async () => {
-  if (
-    'serviceWorker' in window.navigator &&
-    process.env.NODE_ENV === 'production'
-  ) {
-    try {
-      await window.navigator.serviceWorker.register('/sw.js');
-      console.log(`successfully registered serviceWorker`);
-    } catch (error) {
-      console.log(`failed to register serviceWorker`);
-    }
-  }
-};
-
-const Document = ({ children }: Props) => {
-  useEffect(() => {
     serviceWorker();
   }, []);
 
   return (
-    <>
+    <div
+      css={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+      <Meta />
       <Navigation />
-      {children}
+      <div css={{ flex: '1 1 auto' }}>{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };
 
-export default withRouter(Document);
+export default Document;

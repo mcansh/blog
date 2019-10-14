@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import Router from 'next/router';
+import React from 'react';
+import Router, { useRouter } from 'next/router';
+import { useAmp } from 'next/amp';
 import styled from 'styled-components';
-import dynamic from 'next/dynamic';
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
+
+import Link from '~/components/link';
+import NavList, { NavLinks } from '~/components/nav-list';
 import Hamburger from '~/components/hamburger';
 import Portal from '~/components/portal';
-
-// @ts-ignore
-const NavList = dynamic({
-  loader: () => import('~/components/nav-list'),
-  loading: () => null,
-});
 
 const Nav = styled.nav<{ navOpen: boolean }>`
   &::after {
@@ -29,41 +26,88 @@ const Nav = styled.nav<{ navOpen: boolean }>`
     visibility: ${props => (props.navOpen ? 'visible' : 'hidden')};
     opacity: ${props => (props.navOpen ? 1 : 0)};
     transition: 500ms all ease-in-out;
-    will-change: opacity;
   }
 `;
 
-const Navigation = () => {
-  const [navOpen, setNavOpen] = useState(false);
-  const closeNav = () => {
-    setNavOpen(false);
-  };
+const Navigation: React.FC = () => {
+  const isAmp = useAmp();
+  const {
+    query: { amp, ...query },
+  } = useRouter();
 
-  useEffect(() => {
-    Router.events.on('routeChangeComplete', () => {
+  const [navOpen, setNavOpen] = React.useState(false);
+  const closeNav = () => setNavOpen(false);
+
+  React.useEffect(() => {
+    const closeNavAndEnableScroll = () => {
       clearAllBodyScrollLocks();
       closeNav();
-    });
+    };
+
+    Router.events.on('routeChangeComplete', closeNavAndEnableScroll);
 
     return () => {
-      Router.events.off('routeChangeComplete', () => {
-        clearAllBodyScrollLocks();
-        closeNav();
-      });
+      Router.events.off('routeChangeComplete', closeNavAndEnableScroll);
     };
   });
 
   const onClick = () => {
-    const nextNavOpen = !navOpen;
-    setNavOpen(nextNavOpen);
-    if (nextNavOpen) {
-      disableBodyScroll(document.querySelector('body'));
-    } else {
-      enableBodyScroll(document.querySelector('body'));
-    }
+    setNavOpen(old => {
+      if (old) {
+        enableBodyScroll(document.body);
+      } else {
+        disableBodyScroll(document.body);
+      }
+      return !old;
+    });
   };
 
-  return (
+  return isAmp ? (
+    <ul
+      css={`
+        display: flex;
+        flex-flow: row wrap;
+        list-style: none;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        justify-content: center;
+        width: 100%;
+        @media (max-width: 403px) {
+          width: 75%;
+          margin: 0 12.5%;
+        }
+
+        li {
+          margin: 1rem;
+        }
+
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 1.4rem;
+          &:hover {
+            color: var(--primary);
+          }
+        }
+      `}
+    >
+      {NavLinks.map(link => (
+        <li key={link.name}>
+          <Link
+            href={{
+              pathname: link.slug,
+              query: isAmp ? { ...query, amp: 1 } : query,
+            }}
+          >
+            {link.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  ) : (
     <Nav
       navOpen={navOpen}
       onKeyDown={(event: React.KeyboardEvent) => {

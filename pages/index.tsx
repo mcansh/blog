@@ -1,18 +1,20 @@
 import React from 'react';
+
 import PostsWrapper from '~/components/posts-wrapper';
 import PostCard, { Post } from '~/components/post-card/index';
 import Header from '~/components/header/index';
-import * as posts from '~/posts';
+import posts from '~/data/posts';
 
-const [latest] = posts.sortedByDate;
-const { date, ...latestPost } = latest;
+export const config = { amp: 'hybrid' };
+
+const [latest] = posts;
 
 const Index = () => (
   <>
-    <Header {...latestPost} />
+    <Header url={latest.path} image={latest.image} title={latest.title} />
     <PostsWrapper>
-      {posts.sortedByDate.map((post: Post) => (
-        <PostCard key={post.url} {...post} />
+      {posts.map((post: Post) => (
+        <PostCard key={post.path} {...post} />
       ))}
     </PostsWrapper>
   </>

@@ -1,11 +1,13 @@
 import React from 'react';
 import { useAmp } from 'next/amp';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import { useSpring, animated } from 'react-spring';
+import { motion, AnimatePresence } from 'framer-motion';
+
 import Button from '~/components/button';
 import DateHeading from '~/components/header/date';
 import Image, { ImageType } from '~/components/header/image';
-import Curve from '~/static/images/curve.svg';
+import Curve from '~/public/static/images/curve.svg';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
@@ -30,12 +32,9 @@ const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
     width: 100%;
     height: 3.2rem;
     svg {
-      fill: ${props => props.theme.light.background};
+      fill: var(--background);
       width: 100%;
       height: 100%;
-      @media (prefers-color-scheme: dark) {
-        fill: ${props => props.theme.dark.background};
-      }
     }
   }
 `;
@@ -46,55 +45,69 @@ const HeaderContent = styled.div`
   max-width: 80vw;
 `;
 
-export const Title = animated(styled.h1`
+export const Title = styled(motion.h1)`
   margin-bottom: 2rem;
   font-size: 3rem;
   @media (min-width: 400px) {
     font-size: 4rem;
   }
-`);
+`;
 
 interface Props {
   title: string;
   url?: string;
-  image?: ImageType;
-  date?: number;
+  image: ImageType;
+  date?: string;
 }
 
-const Header = ({ title, url, image, date }: Props) => {
+const Header: React.FC<Props> = ({ title, url, image, date }) => {
   const isAmp = useAmp();
-  const props = useSpring({
-    from: {
-      opacity: isAmp ? 1 : 0,
-      transform: isAmp ? 'translateY(0px)' : 'translateY(-50px)',
-    },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-  });
+  const {
+    query: { amp, ...query },
+  } = useRouter();
 
   return (
     <HeaderStyles>
       <HeaderContent>
-        <Title style={props}>{title}</Title>
+        <AnimatePresence exitBeforeEnter>
+          <Title
+            initial={{
+              opacity: isAmp ? 1 : 0,
+              translateY: isAmp ? 0 : -50,
+            }}
+            animate={{
+              opacity: 1,
+              translateY: 0,
+            }}
+            exit={{
+              opacity: 0,
+              translateY: 50,
+            }}
+          >
+            {title}
+          </Title>
+        </AnimatePresence>
+        <noscript>
+          <Title>{title}</Title>
+        </noscript>
         {date && <DateHeading date={date} />}
         {url && (
           <Button
-            text="Read More"
-            link={{ pathname: url, query: isAmp && { amp: 1 } }}
-          />
+            href={{
+              pathname: url,
+              query: isAmp ? { ...query, amp: '1' } : query,
+            }}
+          >
+            Read More
+          </Button>
         )}
       </HeaderContent>
       <Image image={image} />
       <figure>
-        <Curve />
+        <Curve role="presentation" />
       </figure>
     </HeaderStyles>
   );
-};
-
-Header.defaultProps = {
-  url: null,
-  image: null,
-  date: null,
 };
 
 export default Header;

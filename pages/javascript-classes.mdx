@@ -1,35 +1,39 @@
 import Post from '~/components/layouts/post';
-import { Code } from '~/components/code';
 
 export const meta = {
-  url: '/javascript-classes',
   title: 'JavaScript classes key concepts',
-  date: 1479686400000,
+  date: '2016-11-20T00:00:00',
   image: {
     imageUrl: 'mia-baker-322594.jpg',
     photographer: 'Mia Baker',
     url: 'https://unsplash.com/photos/klRB1BB9pV8',
-  }
+  },
 };
 
-The key concept in class variables and methods is how to define them. Classes are realistically just “special functions”. To define a class, you use the keyword class followed by the name you want to give it.
+export const config = { amp: 'hybrid' };
 
-<Code language="javascript">{`
+The key concept in class variables and methods is how to define them. Classes
+are realistically just “special functions”. To define a class, you use the
+keyword class followed by the name you want to give it.
+
+```javascript
 class myClass {
   constructor(height, width) {
     this.height = height;
     this.width = width;
   }
 }
-`}</Code>
+```
 
-When you’re defining classes make sure they are hoisted or your code will throw errors like
+When you’re defining classes make sure they are hoisted or your code will throw
+errors like
 
-<Code language="javascript">{`
+```javascript
 var p = new myClass(); // ReferenceError
 class myClass {}
-`}</Code>
+```
 
-It should be known that the content of a class declaration is executed in strict mode.
+It should be known that the content of a class declaration is executed in strict
+mode.
 
-export default ({ children }) => <Post meta={meta}>{children}</Post>
+export default ({ children }) => <Post meta={meta}>{children}</Post>;

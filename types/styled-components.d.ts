@@ -1,20 +1,18 @@
-import 'styled-components';
-// eslint-disable-next-line import/no-unresolved
-import {} from 'styled-components/cssprop';
-import theme from '../config';
+/* eslint-disable @typescript-eslint/no-empty-interface, no-duplicate-imports, import/no-duplicates */
 
-type ThemeInterface = typeof theme;
+// Strongly type the styled-components theme
+import {} from 'styled-components';
+import { CSSProp } from 'styled-components';
+
+import { theme } from '~/config';
+
+declare module 'react' {
+  interface Attributes {
+    css?: CSSProp | CSSObject;
+  }
+}
 
 declare module 'styled-components' {
-  interface DefaultTheme extends ThemeInterface {
-    primary: string;
-    light: {
-      background: string;
-      text: string;
-    };
-    dark: {
-      background: string;
-      text: string;
-    };
-  }
+  type Theme = typeof theme;
+  export interface DefaultTheme extends Theme {}
 }

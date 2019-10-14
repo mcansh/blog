@@ -2,9 +2,8 @@ import Post from '~/components/layouts/post';
 import { Code } from '~/components/code';
 
 export const meta = {
-  url: '/object-lifecycle-cheatsheet',
   title: 'Object lifecycle cheatsheet',
-  date: 1478217600000,
+  date: '2016-11-03T00:00:00',
   image: {
     imageUrl: 'matthew-henry-49707.jpg',
     photographer: 'Matthew Henry',
@@ -12,80 +11,89 @@ export const meta = {
   },
 };
 
-Firstly, I’d like to apolagize for the lack and timing of these posts. I’ve been busy at work and unfortunately haven’t had the time to write them 😭.
+export const config = { amp: 'hybrid' };
 
-A Javascript object is a standalone entity, with properties and types associated with it. Object properties are basically the same as javascript variables except for they’re attached to objects.
+Firstly, I’d like to apolagize for the lack and timing of these posts. I’ve been
+busy at work and unfortunately haven’t had the time to write them 😭.
+
+A Javascript object is a standalone entity, with properties and types associated
+with it. Object properties are basically the same as javascript variables except
+for they’re attached to objects.
 
 You define a propterty by defining it a value, for example:
 
-<Code language="javascript">{`
+```javascript
 const myCar = new Object();
-myCar.make = "Ford";
-`}</Code>
+myCar.make = 'Ford';
+```
 
-If you define a property but {"don't"} give it a value it becomes undefined, not null. e.g: myCar.color; would return undefined.
+If you define a property but {"don't"} give it a value it becomes undefined, not
+null. e.g: myCar.color; would return undefined.
 
-To get an item out of an object you can test to see if it has that property, for example, on a project at work, we used this to get a rule's name out of the object
+To get an item out of an object you can test to see if it has that property, for
+example, on a project at work, we used this to get a rule's name out of the
+object
 
-<Code language="javascript">{`
+```javascript
 // The Rule itself
 const rule = {
-  "active": true,
-  "conditions": [
+  active: true,
+  conditions: [
     {
-      "time": {
-        "day": [1,2,3,4],
-        "at": "17:30"
-      }
-    }
+      time: {
+        day: [1, 2, 3, 4],
+        at: '17:30',
+      },
+    },
   ],
-  "uuid": "some-rule-uuid",
-  "consequences": {
-    "devices": {
-      "66d5e0ed-5e88-4353-9dd9-318cad3676f9": {
-        "thermostat_setpoint.heat.set": {
-          "value": 77
+  uuid: 'some-rule-uuid',
+  consequences: {
+    devices: {
+      '66d5e0ed-5e88-4353-9dd9-318cad3676f9': {
+        'thermostat_setpoint.heat.set': {
+          value: 77,
         },
-        "thermostat_setpoint.cool.set": {
-          "value": 80
-        }
-      }
-    }
+        'thermostat_setpoint.cool.set': {
+          value: 80,
+        },
+      },
+    },
   },
-  "type":"rule",
-  "priority":1,
-  "name":"test rule"
+  type: 'rule',
+  priority: 1,
+  name: 'test rule',
 };
-`}</Code>
+```
 
 You can also do if else statements with objects:
 
-<Code language="javascript">{`
+```javascript
 if (cond) var x = { greeting: 'howdy' };
-`}</Code>
+```
 
 You can even have an object inside another object:
 
-<Code language="javascript">{`
+```javascript
 const myCar = {
-  color: "red",
+  color: 'red',
   wheels: 4,
   engine: {
     cylinders: 4,
-    size: 2.2
-  }
+    size: 2.2,
+  },
 };
-`}</Code>
+```
 
 Alternatively you can make an object with a constructor function:
 
-<Code language="javascript">{`
+```javascript
 function Car(make, model, year) {
   this.make = make;
   this.model = model;
   this.year = year;
-}\n
-const myCar = new Car("Volvo", "S40", 2005);
-`}</Code>
+}
 
-export default ({ children }) => <Post meta={meta}>{children}</Post>
+const myCar = new Car('Volvo', 'S40', 2005);
+```
+
+export default ({ children }) => <Post meta={meta}>{children}</Post>;

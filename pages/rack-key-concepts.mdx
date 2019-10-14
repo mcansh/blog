@@ -1,30 +1,41 @@
 import Post from '~/components/layouts/post';
-import { Code } from '~/components/code';
 
 export const meta = {
-  url: "/rack-key-concepts",
-  title: "Rack key concepts",
-  date: 1481068800000,
+  title: 'Rack key concepts',
+  date: '2016-12-06T00:00:00',
   image: {
-    imageUrl: "derek-liang-239062.jpg",
-    photographer: "Derek Liang",
-    url: "https://unsplash.com/photos/2h_i_BB_X2E"
-  }
-}
+    imageUrl: 'derek-liang-239062.jpg',
+    photographer: 'Derek Liang',
+    url: 'https://unsplash.com/photos/2h_i_BB_X2E',
+  },
+};
 
-The most important thing to know about Rack and the internet is knowing how the internet works. First you have HEAD, GET, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, and PATCH requests. 🤔 huh? Let’s run through them.
+export const config = { amp: 'hybrid' };
 
-A GET request will get a resource. A HEAD requests is a GET request without the body of a GET request. A POST request will submit data. A PUT will upload data. A DELETE will, well, delete a resource. A TRACE request will return the recieved request. OPTIONS will return the HTTP methods that your server supports. CONNECT converts the request to a TCP/IP tunnel, ususally used for SSL. A PATCH request will update do a partial modifications to an already existing resource.
+The most important thing to know about Rack and the internet is knowing how the
+internet works. First you have HEAD, GET, POST, PUT, DELETE, TRACE, OPTIONS,
+CONNECT, and PATCH requests. 🤔 huh? Let’s run through them.
 
-You can see what type of requests a website is using by looking in the network tab in Dev Tools.
+A GET request will get a resource. A HEAD requests is a GET request without the
+body of a GET request. A POST request will submit data. A PUT will upload data.
+A DELETE will, well, delete a resource. A TRACE request will return the recieved
+request. OPTIONS will return the HTTP methods that your server supports. CONNECT
+converts the request to a TCP/IP tunnel, ususally used for SSL. A PATCH request
+will update do a partial modifications to an already existing resource.
 
-Now onto Rack itself. Rack is a Ruby gem that provides a minimal interface that goes between a server that supports Ruby and Ruby Frameworks.
+You can see what type of requests a website is using by looking in the network
+tab in Dev Tools.
 
-To use Rack you must first make a call to a class #call. All this needs to do is return a response that contains status codes, headers, and the body. That can be done with a Rack::Response object:
+Now onto Rack itself. Rack is a Ruby gem that provides a minimal interface that
+goes between a server that supports Ruby and Ruby Frameworks.
 
+To use Rack you must first make a call to a class #call. All this needs to do is
+return a response that contains status codes, headers, and the body. That can be
+done with a Rack::Response object:
 
-<Code language="ruby">{`
-# call.rb\n
+```ruby
+# call.rb
+
 class Application
   def call(env)
     resp = Rack::Response.new
@@ -32,15 +43,17 @@ class Application
     resp.finish
   end
 end
-`}</Code>
+```
 
-That will run whenever a request is received but you still need to set up a HTTP serve to receive that request. Using config.ru
+That will run whenever a request is received but you still need to set up a HTTP
+serve to receive that request. Using config.ru
 
-<Code language="ruby">{`
-# config.ru\n
+```ruby
+# config.ru
+
 require_relative "./application.rb"
 run Application.new
-`}</Code>
+```
 
 Now running rackup config.ru will start up your application.
 

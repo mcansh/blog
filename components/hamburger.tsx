@@ -76,7 +76,7 @@ interface Props {
   onClick: () => void;
 }
 
-const Hamburger = ({ navOpen, onClick }: Props) => (
+const Hamburger: React.FC<Props> = ({ navOpen, onClick }) => (
   <MenuButton
     aria-label={`${navOpen ? 'Close' : 'Open'} Side Nav`}
     onClick={onClick}

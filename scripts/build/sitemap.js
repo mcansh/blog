@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
+
 const posts = require('../get-blog-posts');
 
 // Wrap all pages in <urlset> tags
@@ -24,7 +24,7 @@ const xmlUrlNode = (domain, page) => {
 
 const domain = 'https://mcansh.blog';
 const fileName = 'sitemap.xml';
-const OUT_DIR = path.join(__dirname, '..', '..', 'static');
+const OUT_DIR = path.join(__dirname, '..', '..', 'public');
 
 const xml = `${xmlUrlWrapper(
   posts

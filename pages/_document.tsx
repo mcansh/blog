@@ -1,73 +1,59 @@
 import React from 'react';
 import Document, {
+  Html,
   Head,
   Main,
   NextScript,
-  NextDocumentContext,
-  Html,
+  DocumentContext,
 } from 'next/document';
+import * as Sentry from '@sentry/browser';
 import { ServerStyleSheet } from 'styled-components';
-import CSP from '~/components/csp';
 
-interface Props {
-  styles: string;
-  locale: string;
-  localeDataScript: string;
-  amphtml: boolean;
-}
+import getCSP from '~/components/csp';
 
-class MyDocument extends Document<Props> {
-  static async getInitialProps(context: NextDocumentContext) {
-    // styled-components
+process.on('unhandledRejection', err => {
+  Sentry.captureException(err);
+});
+
+process.on('uncaughtException', err => {
+  Sentry.captureException(err);
+});
+
+class MyDocument extends Document {
+  public static async getInitialProps(context: DocumentContext) {
     const sheet = new ServerStyleSheet();
 
     const originalRenderPage = context.renderPage;
     context.renderPage = () =>
       originalRenderPage({
-        // @ts-ignore
         enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
       });
 
     const initialProps = await Document.getInitialProps(context);
-    // react-intl
-
-    const {
-      // @ts-ignore
-      req: { locale, localeDataScript },
-    } = context;
-
     return {
       ...initialProps,
-      locale,
-      localeDataScript,
-      // @ts-ignore
-      styles: [...initialProps.styles, ...sheet.getStyleElement()],
+      styles: [
+        ...(Array.isArray(initialProps.styles) ? initialProps.styles : []),
+        ...sheet.getStyleElement(),
+      ],
     };
   }
 
-  render() {
-    const { locale, styles, localeDataScript, amphtml } = this.props;
-    const features = ['default', 'Intl', `Intl.~locale.${locale}`].join();
-    const encodedFeatures = encodeURIComponent(features);
-    const polyfill = `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=${encodedFeatures}`;
+  public render() {
+    const { inAmpMode } = this.props;
+    const { csp, hash } = getCSP(this.props);
 
     return (
-      <Html lang={locale}>
+      <Html lang="en">
         <Head>
-          {!amphtml && <CSP {...this.props} />}
-          {styles}
+          {!inAmpMode && (
+            <meta httpEquiv="Content-Security-Policy" content={csp} />
+          )}
         </Head>
         <body>
           <Main />
           <div id="portal" />
-          <script src={polyfill} />
-          <script
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: localeDataScript,
-            }}
-          />
-          <NextScript />
+          <NextScript nonce={hash} />
         </body>
       </Html>
     );

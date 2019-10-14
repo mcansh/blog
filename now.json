@@ -1,22 +1,7 @@
 {
   "project": "blog",
   "version": 2,
-  "alias": [
-    "www.mcansh.blog",
-    "mcansh.blog"
-  ],
-  "regions": [
-    "all"
-  ],
-  "builds": [
-    {
-      "src": "next.config.js",
-      "use": "@now/next@canary",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
-    }
-  ],
+  "regions": ["all"],
   "routes": [
     {
       "src": "/changelog",
@@ -26,44 +11,33 @@
       }
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/static/images/logo/logo.ico",
-      "headers": {
-        "cache-control": "public, max-age=43200, immutable"
-      }
+      "src": "/.well-known/brave-rewards-verification.txt",
+      "dest": "/brave-rewards-verification.txt"
     },
     {
-      "src": "/manifest.webmanifest",
-      "dest": "/static/manifest.webmanifest",
+      "src": "^/(manifest.webmanifest|manifest.json)$",
+      "dest": "/manifest.webmanifest",
       "headers": {
         "content-type": "application/manifest+json",
         "cache-control": "public, max-age=43200, immutable"
       }
     },
     {
-      "src": "/manifest.json",
-      "dest": "/static/manifest.webmanifest",
+      "src": "/(manifest.amp.webmanifest|manifest.amp.json)",
       "headers": {
+        "content-type": "application/manifest+json",
         "cache-control": "public, max-age=43200, immutable"
       }
     },
     {
-      "src": "/feed.json",
-      "dest": "/static/feed.json",
-      "headers": {
-        "cache-control": "public, max-age=43200, immutable"
-      }
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "/static/sitemap.xml",
+      "src": "^/(favicon.ico|feed.json|sitemap.xml)$",
       "headers": {
         "cache-control": "public, max-age=43200, immutable"
       }
     },
     {
       "src": "/atom",
-      "dest": "/static/atom.xml",
+      "dest": "/atom.xml",
       "headers": {
         "cache-control": "public, max-age=43200, immutable"
       }
@@ -77,20 +51,13 @@
       }
     },
     {
-      "src": "/google2b07cf64e0755399.html",
-      "dest": "/static/google2b07cf64e0755399.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "src": "/_next(/static/(?:[^/]+/pages|chunks|runtime)/.+)",
+      "headers": {
+        "cache-control": "immutable,max-age=31536000"
+      }
     }
   ],
-  "env": {
-    "TWITTER": "loganmcansh",
-    "INSTAGRAM": "loganmcansh",
-    "GITHUB": "mcansh",
-    "EMAIL": "logan@mcan.sh",
-    "SENTRY": "https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817",
-    "ANALYTICS": "UA-87731356-4"
+  "github": {
+    "silent": true
   }
 }

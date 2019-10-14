@@ -1,5 +1,5 @@
-/* eslint-env jest */
-import Router from 'next/router';
+import preloadAll from 'jest-next-dynamic';
 
-const mockedRouter = { push: () => {}, prefetch: () => {} };
-Router.router = mockedRouter;
+beforeAll(async () => {
+  await preloadAll();
+});

@@ -49,7 +49,7 @@ const PostCard = styled.a.attrs({
     color: #262626;
 
     @media (prefers-color-scheme: dark) {
-      color: ${props => props.theme.dark.text};
+      color: var(--text);
     }
   }
 

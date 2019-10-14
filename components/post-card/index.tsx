@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useAmp } from 'next/amp';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Router from 'next/router';
 import { SimpleImg } from 'react-simple-img';
+
 import unsplashParams from '~/utils/unsplash-params';
 import Post, { imageHeight } from '~/components/post-card/styles';
 import { ImageType } from '~/components/header/image';
@@ -11,33 +12,31 @@ import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 export interface Post {
   image: ImageType;
-  url: string;
-  date: number;
+  path: string;
+  date: string;
   title: string;
+  lastModified?: string;
 }
 
-const PostCard = ({ url, image, date, title }: Post) => {
+const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
   const isAmp = useAmp();
+  const {
+    query: { amp, ...query },
+  } = useRouter();
+
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
-  const [prefetched, setPrefetched] = useState(false);
   return (
-    <Link href={{ pathname: url, query: isAmp && { amp: 1 } }} passHref>
-      <Post
-        onMouseEnter={() => {
-          /* istanbul ignore next */
-          if (!prefetched) {
-            Router.prefetch(url);
-            setPrefetched(true);
-          }
-        }}
-      >
+    <Link
+      href={{ pathname: path, query: isAmp ? { ...query, amp: 1 } : query }}
+      passHref
+    >
+      <Post>
         <div className="post-card__img-wrapper">
           {isAmp ? (
-            // @ts-ignore
             <amp-img
               data-testid="post-image"
               height={200}

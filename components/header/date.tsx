@@ -1,8 +1,15 @@
 import React from 'react';
-import { FormattedRelative } from 'react-intl';
+import '@formatjs/intl-relativetimeformat/polyfill';
 import styled from 'styled-components';
-import { differenceInMonths } from 'date-fns';
+import { parseISO } from 'date-fns';
+import { selectUnit } from '@formatjs/intl-utils';
+
+import '@formatjs/intl-relativetimeformat/polyfill-locales';
 import { formatPostDate } from '~/utils/dates';
+
+if (!Intl.PluralRules) {
+  require('@formatjs/intl-pluralrules');
+}
 
 const H2 = styled.h2`
   font-size: 2.5rem;
@@ -12,22 +19,24 @@ const H2 = styled.h2`
 `;
 
 interface Props {
-  date: number;
+  date: string;
 }
 
-const DateHeading = ({ date }: Props) => {
-  /* istanbul ignore next */
-  const monthDiff = differenceInMonths(Date.now(), date);
-  return (
-    <H2 title={formatPostDate(date)}>
-      Posted{' '}
-      {monthDiff > 4 ? (
-        formatPostDate(date)
-      ) : (
-        <FormattedRelative value={date} />
-      )}
-    </H2>
-  );
+const DateHeading: React.FC<Props> = ({ date }) => {
+  const now = Date.now();
+  const formatted = formatPostDate(date);
+  const parsed = parseISO(date);
+  const { unit, value } = selectUnit(parsed, now);
+
+  const formatRelative = new (Intl as any).RelativeTimeFormat('en', {
+    numeric: 'auto',
+  });
+
+  if ((unit === 'month' && value <= -4) || ['quarter', 'year'].includes(unit)) {
+    return <H2 title={formatted}>Posted {formatted}</H2>;
+  }
+
+  return <H2 title={formatted}>Posted {formatRelative.format(value, unit)}</H2>;
 };
 
 export default DateHeading;
