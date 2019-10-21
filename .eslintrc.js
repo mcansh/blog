@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['mcansh/typescript'],
+  extends: ['@mcansh/eslint-config/typescript'],
   settings: {
     'import/resolver': {
       'babel-plugin-root-import': {},
