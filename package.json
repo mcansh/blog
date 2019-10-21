@@ -84,7 +84,7 @@
     "eslint": "6.5.1",
     "eslint-config-airbnb": "18.0.1",
     "eslint-config-kentcdodds": "14.5.0",
-    "eslint-config-mcansh": "2.2.1",
+    "eslint-config-mcansh": "2.2.2",
     "eslint-config-prettier": "6.4.0",
     "eslint-import-resolver-babel-plugin-root-import": "1.1.1",
     "eslint-import-resolver-typescript": "2.0.0",

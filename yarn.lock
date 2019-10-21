@@ -4531,10 +4531,10 @@ eslint-config-kentcdodds@14.5.0:
     semver "^6.3.0"
     webpack "^4.41.0"
 
-eslint-config-mcansh@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-mcansh/-/eslint-config-mcansh-2.2.1.tgz#e7072cf2cf8597a65217452eb9821e93149e25df"
-  integrity sha512-g8L+MJUHZdufJxV0GyTYCPpS4yEaMUrhvqFGRBNrP6DSdXL+qmEKQWLggEdiUSvMoG723QYIFcuXvV2ibKr1uQ==
+eslint-config-mcansh@2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-mcansh/-/eslint-config-mcansh-2.2.2.tgz#2bba20f077ebe09dc519b9f4dfa767a72178b706"
+  integrity sha512-/KQ3ihbUpxQ3eqapXHIPWTzFZnBt3hSutCKVbnA+TlUECADZ3itgI8gWbpueYM5Oi+C8+xsfoCI6dJEDtplewA==
 
 eslint-config-prettier@6.4.0, eslint-config-prettier@^6.3.0:
   version "6.4.0"
