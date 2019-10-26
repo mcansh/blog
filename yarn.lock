@@ -1275,13 +1275,13 @@
 
 "@mcansh/eslint-config@2.2.4":
   version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@mcansh/eslint-config/-/eslint-config-2.2.4.tgz#c7e47d824ce93b957273829f9d85dbaaeb7ca98f"
+  resolved "https://npm.pkg.github.com/download/@mcansh/eslint-config/2.2.4/e9f8a7dafa5b5af025904e5bb9d43913dc749674b22647bf5ee4cc9188f4e267#c7e47d824ce93b957273829f9d85dbaaeb7ca98f"
   integrity sha512-wlOLPhZ89Mxrjvsl85cVxxO7bT25VzvWn51T3hOvxVDaF0R9+nU0LGxmgyT6WWthoOXAwaP6gr/8rCZuupvnuw==
 
 "@mcansh/next-nprogress@1.1.2":
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@mcansh/next-nprogress/-/next-nprogress-1.1.2.tgz#1d330469751fca4d62a5e85332268b4d0aef2a7b"
-  integrity sha512-QnaZnur8KC54BdJDVdULTHhveCORnOxwCZgsx+X9NyKkHD6j9p6U7N3b5+feHzQAyJ7xLPSPLGCIQO+rqEKUHA==
+  resolved "https://npm.pkg.github.com/download/@mcansh/next-nprogress/1.1.2/8bfd4ea69a097c286e2b95c03bec4a571e2af92f51da67ed2e3bec5b9c52802a#f7e4a82f9c19d4142234359d407ac0e968bcdf0e"
+  integrity sha1-9+SoL5wZ1BQiNDWdQHrA6Wi83w4=
   dependencies:
     next "9.0.5"
     next-server "9.0.5"

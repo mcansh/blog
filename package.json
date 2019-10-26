@@ -113,17 +113,6 @@
     "ts-node": "8.4.1",
     "typescript": "3.6.4"
   },
-  "greenkeeper": {
-    "commitMessages": {
-      "initialBadge": ":memo: Docs: add Greenkeeper badge",
-      "initialDependencies": ":gem: chore(deps): bump to latest",
-      "initialBranches": ":tada: build: whitelist greenkeeper branches",
-      "dependencyUpdate": ":gem: chore(deps): update ${dependency} to version ${version}",
-      "devDependencyUpdate": ":gem: chore(deps): update ${dependency} to version ${version}",
-      "dependencyPin": ":bug: chore(deps): pin ${dependency} to ${oldVersion}",
-      "devDependencyPin": ":bug: chore(deps): pin ${dependency} to ${oldVersion}"
-    }
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
