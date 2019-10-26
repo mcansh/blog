@@ -1,4 +1,4 @@
-name: npm install, build, test, coverage
+name: yarn install, build, test, coverage
 
 on: [push]
 
@@ -11,11 +11,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           version: 10.x
-      - name: npm install, build, and test
+      - name: yarn install, build, and test
         run: |
-          npm install
-          npm run build --if-present
-          npm test
+          yarn install
+          yarn build
+          yarn test
       - name: upload coverage to codecov
         uses: codecov/codecov-action@master
         with:
