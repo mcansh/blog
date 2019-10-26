@@ -14,8 +14,9 @@ const nextConfig = {
   target: 'serverless',
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   experimental: {
-    modern: true,
+    deferScripts: true,
     granularChunks: true,
+    modern: true,
   },
   dontAutoRegisterSw: true,
   workboxOpts: {
