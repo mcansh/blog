@@ -131,10 +131,7 @@ function preToCodeBlock(preProps: any) {
     return {
       codeString: codeString.trim(),
       className,
-      language:
-        matches && matches.groups && matches.groups.lang
-          ? matches.groups.lang
-          : '',
+      language: matches?.groups?.lang ?? '',
       ...props,
     };
   }
