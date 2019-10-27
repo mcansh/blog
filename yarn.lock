@@ -1378,10 +1378,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@mcansh/eslint-config@2.2.4":
-  version "2.2.4"
-  resolved "https://npm.pkg.github.com/download/@mcansh/eslint-config/2.2.4/e9f8a7dafa5b5af025904e5bb9d43913dc749674b22647bf5ee4cc9188f4e267#c7e47d824ce93b957273829f9d85dbaaeb7ca98f"
-  integrity sha512-wlOLPhZ89Mxrjvsl85cVxxO7bT25VzvWn51T3hOvxVDaF0R9+nU0LGxmgyT6WWthoOXAwaP6gr/8rCZuupvnuw==
+"@mcansh/eslint-config@2.2.6":
+  version "2.2.6"
+  resolved "https://npm.pkg.github.com/download/@mcansh/eslint-config/2.2.6/169a9dbc1f14cea937001514080082171116acaa8aff5a8fd02900b52a21458e#f871e685a3355608a0021cba989a02ff86badeee"
+  integrity sha512-Oi5+PdsACGxwen2/SVg9AtkZ07KU7Ufb5O16fa7hUTFJPLznvGl5UonISc2Vq5LM7ZRt7Pu8Y9E1+QPmTOAsTA==
 
 "@mcansh/next-nprogress@1.1.2":
   version "1.1.2"
@@ -2825,6 +2825,13 @@ babel-plugin-apply-mdx-type-prop@^1.5.1:
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0"
     "@mdx-js/util" "^1.5.1"
+
+babel-plugin-dynamic-import-node@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.0.tgz#f00f507bdaa3c3e3ff6e7e5e98d90a7acab96f7f"
+  integrity sha512-o6qFkpeQEBxcqt0XYlWzAVxNCSCZdUgcR8IRlhD/8DylxjjO4foPcvTW0GGKa/cVt3rvxZ7o5ippJ+/0nvLhlQ==
+  dependencies:
+    object.assign "^4.1.0"
 
 babel-plugin-extract-import-names@^1.5.1:
   version "1.5.1"
@@ -4709,10 +4716,10 @@ eslint-plugin-import@2.18.2, eslint-plugin-import@^2.18.2:
     read-pkg-up "^2.0.0"
     resolve "^1.11.0"
 
-eslint-plugin-jest@22.20.1:
-  version "22.20.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.20.1.tgz#183688ec8bd65dec043552fcd2fa63b7e54f326f"
-  integrity sha512-bNkII1QUmb7P9KHXqRoDWwFrY1hkxI2bAXCvuZbKuzywcxjPNrCzRqsOEUe9T4fHVfhat2zRN7dS5n61C8rhoA==
+eslint-plugin-jest@22.21.0:
+  version "22.21.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.21.0.tgz#8137294645866636160487d9764224b9a43e2eb1"
+  integrity sha512-OaqnSS7uBgcGiqXUiEnjoqxPNKvR4JWG5mSRkzVoR6+vDwlqqp11beeql1hYs0HTbdhiwrxWLxbX0Vx7roG3Ew==
   dependencies:
     "@typescript-eslint/experimental-utils" "^1.13.0"
 
