@@ -16,6 +16,8 @@ jobs:
           yarn install
           yarn build
           yarn test
+        env: 
+          NPM_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: upload coverage to codecov
         uses: codecov/codecov-action@master
         with:
