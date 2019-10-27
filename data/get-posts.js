@@ -5,7 +5,7 @@ const META = /export\s+const\s+meta\s+=\s+(\{(\n|.)*?\n\})/;
 const DIR = path.join(process.cwd(), './pages/');
 const files = fs.readdirSync(DIR).filter(file => file.endsWith('.mdx'));
 
-module.exports = files
+const posts = files
   .map(file => {
     const name = path.join(DIR, file);
     const contents = fs.readFileSync(name, 'utf8');
@@ -24,5 +24,7 @@ module.exports = files
       lastModified: fileStat.mtime,
     };
   })
-  .filter(post => post.published)
+  .filter(post => post.published !== false)
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+module.exports = posts;
