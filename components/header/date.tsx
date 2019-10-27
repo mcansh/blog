@@ -28,7 +28,7 @@ const DateHeading: React.FC<Props> = ({ date }) => {
   const parsed = parseISO(date);
   const { unit, value } = selectUnit(parsed, now);
 
-  const formatRelative = new (Intl as any).RelativeTimeFormat('en', {
+  const formatRelative = new Intl.RelativeTimeFormat('en', {
     numeric: 'auto',
   });
 
