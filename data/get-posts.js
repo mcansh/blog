@@ -24,5 +24,4 @@ module.exports = files
       lastModified: fileStat.mtime,
     };
   })
-  .filter(post => post.published)
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
