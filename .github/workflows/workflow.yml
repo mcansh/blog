@@ -13,11 +13,11 @@ jobs:
           node-version: 10.x
       - name: yarn install, build, and test
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+          echo "@mcansh:registry=https://npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
           yarn install
           yarn build
           yarn test
-        env: 
+        env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: upload coverage to codecov
         uses: codecov/codecov-action@master
