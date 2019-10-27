@@ -16,6 +16,7 @@ export interface Post {
   date: string;
   title: string;
   lastModified?: string;
+  published?: boolean;
 }
 
 const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
