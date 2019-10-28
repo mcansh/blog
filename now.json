@@ -2,6 +2,11 @@
   "project": "blog",
   "version": 2,
   "regions": ["all"],
+  "build": {
+    "env": {
+      "NPM_TOKEN": "@blog_github_token"
+    }
+  },
   "routes": [
     {
       "src": "/changelog",
