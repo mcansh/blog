@@ -21,6 +21,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: upload coverage to codecov
-        uses: codecov/codecov-action@master
+        uses: coverallsapp/github-action@master
         with:
-          token: ${{secrets.CODECOV_TOKEN}}
+          github-token: ${{ secrets.github_token }}
