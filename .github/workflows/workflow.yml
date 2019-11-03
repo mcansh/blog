@@ -20,7 +20,7 @@ jobs:
           yarn test
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: upload coverage to codecov
+      - name: upload coverage to coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
