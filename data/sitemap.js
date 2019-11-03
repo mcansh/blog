@@ -12,11 +12,11 @@ const xmlUrlWrapper = nodes => `<?xml version="1.0" encoding="UTF-8"?>
 
 // Determine and return the nodes for every page
 const xmlUrlNode = (domain, page) => {
-  const loc = `${domain}${page.url}`;
+  const loc = `${domain}${page.path}`;
   return `
     <url>
       <loc>${loc}</loc>
-      <lastmod>${page.lastmod}</lastmod>
+      <lastmod>${page.lastModified}</lastmod>
       <changefreq>hourly</changefreq>
     </url>
   `;
