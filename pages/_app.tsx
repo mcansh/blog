@@ -12,7 +12,7 @@ import { initGA, logPageView } from '~/lib/gtag';
 
 Sentry.init({
   dsn: process.env.SENTRY,
-  release: `blog@${process.env.VERSION}_${process.env.BUILD_ID}`,
+  release: process.env.SENTRY_RELEASE,
   environment: process.env.NODE_ENV,
 });
 

@@ -52,6 +52,9 @@ const nextConfig = {
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env.BUILD_ID': JSON.stringify(buildId),
+        'process.env.SENTRY_RELEASE': JSON.stringify(
+          `blog@${version}_${buildId}`
+        ),
       })
     );
 
