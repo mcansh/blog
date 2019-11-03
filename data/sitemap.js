@@ -16,8 +16,9 @@ const xmlUrlNode = (domain, page) => {
   return `
     <url>
       <loc>${loc}</loc>
-      <lastmod>${page.lastModified}</lastmod>
-      <changefreq>hourly</changefreq>
+      <lastmod>${new Date(page.lastModified)
+        .toISOString()
+        .slice(0, 10)}</lastmod>
     </url>
   `;
 };
