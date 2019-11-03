@@ -24,3 +24,9 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
+          
+      - name: Lighthouse Check
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          urls: 'https://mcansh.blog,https://mcansh.blog/ruby-project,https://mcansh.blog/rails-project,https://mcansh.blog/sinatra-project,https://mcansh.blog/time-to-hex,https://mcansh.blog/similarities-between-life-and-code,https://mcansh.blog/rack-key-concepts,https://mcansh.blog/javascript-classes,https://mcansh.blog/object-lifecycle-cheatsheet,https://mcansh.blog/html5-progress-element,https://mcansh.blog/why-im-learning-software-development'
+
