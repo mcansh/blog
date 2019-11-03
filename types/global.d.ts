@@ -18,5 +18,6 @@ declare namespace NodeJS {
     VERSION: string;
     ANALYZE: 'true' | 'false' | undefined;
     BUILD_ID: string;
+    SENTRY_RELEASE: string;
   }
 }
