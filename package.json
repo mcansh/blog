@@ -34,7 +34,7 @@
     "@next/bundle-analyzer": "9.1.3",
     "@next/mdx": "9.1.3",
     "@sentry/browser": "5.7.1",
-    "@sentry/node": "5.7.1",
+    "@sentry/node": "5.8.0",
     "babel-plugin-macros": "2.6.1",
     "babel-plugin-preval": "3.0.1",
     "body-scroll-lock": "2.6.4",
