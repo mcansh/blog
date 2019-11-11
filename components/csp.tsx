@@ -26,6 +26,7 @@ const CSP = (props: DocumentProps) => {
       'sentry.io',
       'www.googletagmanager.com',
       'www.google-analytics.com',
+      'https://stats.g.doubleclick.net',
     ],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
