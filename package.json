@@ -112,7 +112,7 @@
     "*.+(js|jsx|ts|tsx)": [
       "eslint --fix",
       "yarn lint:css",
-      "sh scripts/ts-precommit.bash",
+      "./scripts/ts-precommit.sh",
       "yarn test --bail --findRelatedTests"
     ],
     "*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
