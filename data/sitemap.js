@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
 const posts = require('./get-posts');
+
+const writeFile = promisify(fs.writeFile);
 
 // Wrap all pages in <urlset> tags
 const xmlUrlWrapper = nodes => `<?xml version="1.0" encoding="UTF-8"?>
@@ -34,6 +37,6 @@ const xml = `${xmlUrlWrapper(
     .join('')
 )}`;
 
-module.exports = () => {
-  fs.writeFileSync(path.join(OUT_DIR, fileName), xml);
+module.exports = async () => {
+  await writeFile(path.join(OUT_DIR, fileName), xml);
 };

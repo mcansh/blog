@@ -1,11 +1,14 @@
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
 const {
   description,
   productName,
   productShortName,
 } = require('../package.json');
+
+const writeFile = promisify(fs.writeFile);
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -32,12 +35,12 @@ const ampJSON = {
   start_url: '/?amp=1&homescreen=1',
 };
 
-module.exports = () => {
-  fs.writeFileSync(
+module.exports = async () => {
+  await writeFile(
     path.join(OUT_DIR, 'manifest.webmanifest'),
     JSON.stringify(json, null, 2)
   );
-  fs.writeFileSync(
+  await writeFile(
     path.join(OUT_DIR, 'manifest.amp.webmanifest'),
     JSON.stringify(ampJSON, null, 2)
   );
