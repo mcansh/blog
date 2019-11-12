@@ -17,6 +17,7 @@ const nextConfig = {
     deferScripts: true,
     granularChunks: true,
     modern: true,
+    plugins: true,
   },
   dontAutoRegisterSw: true,
   workboxOpts: {
@@ -37,26 +38,18 @@ const nextConfig = {
     TWITTER: 'loganmcansh',
     INSTAGRAM: 'loganmcansh',
     GITHUB: 'mcansh',
-    EMAIL: 'logan+website@mcan.sh',
-    SENTRY: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
+    EMAIL: 'logan+blog@mcan.sh',
+    SENTRY_DSN: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
+    SENTRY_RELEASE: `blog@${version}`,
     ANALYTICS: 'UA-87731356-4',
     GITHUB_URL: `https://github.com/${repository}`,
     VERSION: version,
   },
 
-  webpack: (config, { isServer, buildId, webpack }) => {
+  webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
-
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env.BUILD_ID': JSON.stringify(buildId),
-        'process.env.SENTRY_RELEASE': JSON.stringify(
-          `blog@${version}_${buildId}`
-        ),
-      })
-    );
 
     return config;
   },

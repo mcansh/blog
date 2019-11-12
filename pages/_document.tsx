@@ -6,18 +6,9 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
-import * as Sentry from '@sentry/browser';
 import { ServerStyleSheet } from 'styled-components';
 
 import getCSP from '~/components/csp';
-
-process.on('unhandledRejection', err => {
-  Sentry.captureException(err);
-});
-
-process.on('uncaughtException', err => {
-  Sentry.captureException(err);
-});
 
 class MyDocument extends Document {
   public static async getInitialProps(context: DocumentContext) {

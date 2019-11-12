@@ -8,16 +8,15 @@ interface Window {
 // Extend the NodeJS namespace with variables in next.config.js
 declare namespace NodeJS {
   interface ProcessEnv {
-    TWITTER: string;
-    INSTAGRAM: string;
-    GITHUB: string;
-    EMAIL: string;
-    SENTRY: string;
-    ANALYTICS: string;
-    GITHUB_URL: string;
-    VERSION: string;
-    ANALYZE: 'true' | 'false' | undefined;
-    BUILD_ID: string;
-    SENTRY_RELEASE: string;
+    readonly TWITTER: string;
+    readonly INSTAGRAM: string;
+    readonly GITHUB: string;
+    readonly EMAIL: string;
+    readonly SENTRY_DSN: string;
+    readonly ANALYTICS: string;
+    readonly GITHUB_URL: string;
+    readonly VERSION: string;
+    readonly ANALYZE: 'true' | 'false' | undefined;
+    readonly SENTRY_RELEASE: string;
   }
 }

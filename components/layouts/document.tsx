@@ -12,7 +12,6 @@ if (!global.Intl) {
 if (typeof window !== 'undefined') {
   const info = [
     `Version: ${process.env.VERSION}`,
-    `Next.js Build: ${process.env.BUILD_ID}`,
     `You can find the code here: ${process.env.GITHUB_URL}`,
     `Thanks for stopping by ${randomEmoji()}`,
   ];
