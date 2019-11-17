@@ -1,12 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { promisify } = require('util');
 
 const { description, homepage } = require('../package.json');
-
-const posts = require('./get-posts');
-
-const writeFile = promisify(fs.writeFile);
+const posts = require('../data/posts.json');
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -42,9 +38,11 @@ const feed = {
   })),
 };
 
-module.exports = async () => {
-  await writeFile(
+const jsonFeed = () => {
+  fs.writeFileSync(
     path.join(OUT_DIR, 'feed.json'),
     JSON.stringify(feed, null, 2)
   );
 };
+
+jsonFeed();
