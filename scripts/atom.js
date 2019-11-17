@@ -1,12 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { promisify } = require('util');
 
 const { description, homepage } = require('../package.json');
-
-const posts = require('./get-posts');
-
-const writeFile = promisify(fs.writeFile);
+const posts = require('../data/posts.json');
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -37,6 +33,8 @@ const atom = `<feed xmlns="http://www.w3.org/2005/Atom">
     .join('')}
 </feed>`;
 
-module.exports = async () => {
-  await writeFile(path.join(OUT_DIR, 'atom.xml'), atom);
+const generateAtom = () => {
+  fs.writeFileSync(path.join(OUT_DIR, 'atom.xml'), atom);
 };
+
+generateAtom();

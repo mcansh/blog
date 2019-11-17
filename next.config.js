@@ -5,10 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const generateStaticFiles = require('./data');
 const { version, repository } = require('./package.json');
-
-generateStaticFiles();
 
 const nextConfig = {
   target: 'serverless',
@@ -49,6 +46,13 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
+    }
+
+    if (isServer) {
+      require('./scripts/atom');
+      require('./scripts/jsonfeed');
+      require('./scripts/manifest');
+      require('./scripts/sitemap');
     }
 
     return config;

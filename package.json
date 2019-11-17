@@ -22,6 +22,7 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
     "analyze": "ANALYZE=true yarn build",
     "type-check": "tsc",
+    "update-mdx-meta": "node scripts/update-mdx-meta",
     "validate": "npm-run-all --parallel lint format lint:css type-check test"
   },
   "dependencies": {
@@ -40,7 +41,7 @@
     "date-fns": "2.7.0",
     "framer-motion": "1.6.15",
     "intl": "1.2.5",
-    "next": "9.1.4-canary.3",
+    "next": "9.1.4-canary.7",
     "nprogress": "0.2.0",
     "polished": "3.4.2",
     "prism-react-renderer": "1.0.2",
@@ -86,6 +87,8 @@
     "eslint-plugin-react": "7.16.0",
     "eslint-plugin-react-hooks": "2.2.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "6.8.0",
+    "git-jiggy": "1.1.1",
+    "globby": "10.0.1",
     "husky": "3.0.9",
     "jest": "24.9.0",
     "jest-in-case": "1.0.2",
@@ -94,17 +97,23 @@
     "next-offline": "4.0.6",
     "npm-run-all": "4.1.5",
     "prettier": "1.19.1",
+    "remark": "11.0.2",
+    "remark-mdx": "1.5.1",
+    "remark-mdx-metadata": "1.0.1",
+    "remark-stringify": "7.0.4",
     "stylelint": "11.1.1",
     "stylelint-config-prettier": "6.0.0",
     "stylelint-config-recommended": "3.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-prettier": "1.1.1",
     "stylelint-processor-styled-components": "1.8.0",
+    "to-vfile": "6.0.0",
     "typescript": "3.7.2"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "node scripts/sitemap.js && git add data/posts.json && lint-staged",
+      "post-commit": "yarn run update-mdx-meta post-commit"
     }
   },
   "lint-staged": {

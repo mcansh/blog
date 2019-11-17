@@ -11,11 +11,12 @@ import { formatPostDate, iso8601 } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 export interface Post {
-  image: ImageType;
-  path: string;
-  date: string;
   title: string;
-  lastModified?: string;
+  date: string;
+  image: ImageType;
+  editUrl: string;
+  path: string;
+  lastEdited?: string;
 }
 
 const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
