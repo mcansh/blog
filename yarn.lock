@@ -7511,10 +7511,10 @@ next@9.0.5:
     webpack-sources "1.3.0"
     worker-farm "1.7.0"
 
-next@9.1.4-canary.7:
-  version "9.1.4-canary.7"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.1.4-canary.7.tgz#64a1c7e3938889e0f521c83eca14ab2763fde381"
-  integrity sha512-jVPCuysu++tmDRHpXoo+OX/g6+5T4AJIwBYRU3e2vVKLQ8ZcoNaJYIFFKpPgKAJeS24KljcWvXuTT7gZujKpng==
+next@9.1.4-canary.8:
+  version "9.1.4-canary.8"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.1.4-canary.8.tgz#a16c0f5e6659407f5900e7198680f0f9a7d88862"
+  integrity sha512-zyAm+XX/6s9vA3PcdSNw4O5x3kY2QMO+8zGShz0cOBO+AgWF4K8wNJ6W7QqUUwALT0dYahKE130J/hL5X1XvKQ==
   dependencies:
     "@ampproject/toolbox-optimizer" "1.1.1"
     "@babel/core" "7.6.4"
