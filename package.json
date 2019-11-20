@@ -10,7 +10,7 @@
   "repository": "mcansh/blog",
   "homepage": "https://mcansh.blog",
   "engines": {
-    "node": ">=10.x"
+    "node": ">=12.x"
   },
   "scripts": {
     "dev": "next",
