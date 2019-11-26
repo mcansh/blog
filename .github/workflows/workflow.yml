@@ -32,6 +32,7 @@ jobs:
           yarn test
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI: 'true'
       - name: upload coverage to coveralls
         uses: coverallsapp/github-action@master
         with:
