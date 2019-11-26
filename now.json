@@ -7,6 +7,12 @@
       "NPM_TOKEN": "@blog_github_token"
     }
   },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next@canary"
+    }
+  ],
   "routes": [
     {
       "src": "/changelog",
