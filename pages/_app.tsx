@@ -9,11 +9,7 @@ import { colors } from '~/config';
 import Document from '~/components/layouts/document';
 import { initGA, logPageView } from '~/lib/gtag';
 
-interface Props {
-  err?: Error;
-}
-
-class MyApp extends App<Props> {
+class MyApp extends App {
   public componentDidMount() {
     initGA();
     logPageView();
@@ -22,6 +18,8 @@ class MyApp extends App<Props> {
 
   public render() {
     const { Component, pageProps } = this.props;
+
+    const statusCode = pageProps?.statusCode ?? 200;
 
     return (
       <React.StrictMode>
@@ -33,9 +31,13 @@ class MyApp extends App<Props> {
               spinner={false}
             />
             <GlobalStyle />
-            <Document>
+            {statusCode !== 200 ? (
               <Component {...pageProps} />
-            </Document>
+            ) : (
+              <Document>
+                <Component {...pageProps} />
+              </Document>
+            )}
           </>
         </ThemeProvider>
       </React.StrictMode>
