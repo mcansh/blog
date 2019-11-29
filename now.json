@@ -7,6 +7,12 @@
       "NPM_RC": "@npmrc"
     }
   },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next@canary"
+    }
+  ],
   "routes": [
     {
       "src": "/changelog",
