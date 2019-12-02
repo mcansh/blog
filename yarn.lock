@@ -1136,10 +1136,10 @@
   dependencies:
     "@formatjs/intl-utils" "^1.4.3"
 
-"@formatjs/intl-utils@1.4.3", "@formatjs/intl-utils@^1.4.0", "@formatjs/intl-utils@^1.4.3":
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.4.3.tgz#97e8d79ec6ab8173b95bd285ce4b1ef9be6c4c24"
-  integrity sha512-9zemPM/4+KgW14J8BJJFv0KEhdaPYgcYk5CUVWbwjl6VqOR/pATpQzac97VdIgkXODxMtCQ8tYEPz+LpmD+6Xw==
+"@formatjs/intl-utils@1.5.0", "@formatjs/intl-utils@^1.4.0", "@formatjs/intl-utils@^1.4.3":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.5.0.tgz#885f5ef7d11dae3ed65fffbae9c04c9c51830370"
+  integrity sha512-yUYVbqR0GX1ROUT67UzChIS3Q3Y8M3l9zGVbW4av4aZsWtnFc7p6qBO+jwhf0jElkPPi3tmICVKu/9ABuzwl+w==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
