@@ -1136,7 +1136,8 @@
   dependencies:
     "@formatjs/intl-utils" "^1.6.0"
 
-"@formatjs/intl-utils@1.6.0", "@formatjs/intl-utils@^1.5.0", "@formatjs/intl-utils@^1.6.0":
+
+"@formatjs/intl-utils@1.5.0", "@formatjs/intl-utils@^1.4.0", "@formatjs/intl-utils@^1.4.3":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-1.5.0.tgz#885f5ef7d11dae3ed65fffbae9c04c9c51830370"
   integrity sha512-yUYVbqR0GX1ROUT67UzChIS3Q3Y8M3l9zGVbW4av4aZsWtnFc7p6qBO+jwhf0jElkPPi3tmICVKu/9ABuzwl+w==
