@@ -94,20 +94,18 @@ const Navigation: React.FC = () => {
         }
       `}
     >
-      {NavLinks.map(link => {
-        return (
-          <li key={link.name}>
-            <Link
-              href={{
-                pathname: link.slug,
-                query: isAmp ? { ...query, amp: 1 } : query,
-              }}
-            >
-              {link.name}
-            </Link>
-          </li>
-        );
-      })}
+      {NavLinks.map(link => (
+        <li key={link.name}>
+          <Link
+            href={{
+              pathname: link.slug,
+              query: isAmp ? { ...query, amp: 1 } : query,
+            }}
+          >
+            {link.name}
+          </Link>
+        </li>
+      ))}
     </ul>
   ) : (
     <Nav

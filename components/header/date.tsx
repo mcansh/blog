@@ -3,6 +3,7 @@ import '@formatjs/intl-relativetimeformat/polyfill';
 import styled from 'styled-components';
 import { parseISO } from 'date-fns';
 import { selectUnit } from '@formatjs/intl-utils';
+
 import '@formatjs/intl-relativetimeformat/polyfill-locales';
 import { formatPostDate } from '~/utils/dates';
 
@@ -27,7 +28,7 @@ const DateHeading: React.FC<Props> = ({ date }) => {
   const parsed = parseISO(date);
   const { unit, value } = selectUnit(parsed, now);
 
-  const formatRelative = new (Intl as any).RelativeTimeFormat('en', {
+  const formatRelative = new Intl.RelativeTimeFormat('en', {
     numeric: 'auto',
   });
 

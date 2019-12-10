@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
@@ -11,7 +12,6 @@ if (!global.Intl) {
 if (typeof window !== 'undefined') {
   const info = [
     `Version: ${process.env.VERSION}`,
-    `Next.js Build: ${process.env.BUILD_ID}`,
     `You can find the code here: ${process.env.GITHUB_URL}`,
     `Thanks for stopping by ${randomEmoji()}`,
   ];
@@ -40,12 +40,18 @@ const Document: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <>
+    <div
+      css={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <Meta />
       <Navigation />
-      {children}
+      <div css={{ flex: '1 1 auto' }}>{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };
 

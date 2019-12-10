@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
+
 import { description, homepage } from '~/package.json';
 import { name } from '~/utils/authorInfo';
 import { iso8601 } from '~/utils/dates';
@@ -19,10 +20,9 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
   const router = useRouter();
   const isAmp = useAmp();
   const pageTitle = title ? `${title} — ${name}` : name;
-  const fullImageUrl =
-    image && image.imageUrl
-      ? getCloudinaryURL(image.imageUrl)
-      : `${homepage}/static/images/me.jpg`;
+  const fullImageUrl = image?.imageUrl
+    ? getCloudinaryURL(image.imageUrl)
+    : `${homepage}/static/images/me.jpg`;
 
   const manifest = isAmp
     ? '/manifest.amp.webmanifest'

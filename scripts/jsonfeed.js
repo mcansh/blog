@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
-const posts = require('../get-blog-posts');
-const { description, homepage } = require('../../package.json');
+
+const { description, homepage } = require('../package.json');
+const posts = require('../data/posts.json');
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -38,9 +38,11 @@ const feed = {
   })),
 };
 
-module.exports = () => {
+const jsonFeed = () => {
   fs.writeFileSync(
     path.join(OUT_DIR, 'feed.json'),
     JSON.stringify(feed, null, 2)
   );
 };
+
+jsonFeed();

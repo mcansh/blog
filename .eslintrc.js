@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['mcansh/typescript'],
+  extends: ['@mcansh/eslint-config/typescript'],
   settings: {
     'import/resolver': {
       'babel-plugin-root-import': {},
@@ -26,6 +26,7 @@ module.exports = {
           'next.config.js',
           '.eslintrc.js',
           'prettier.config.js',
+          'stylelint.config.js',
           'jest.setup.js',
           'cypress/support/index.js',
         ],

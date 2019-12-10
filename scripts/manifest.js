@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
+
 const {
   description,
   productName,
   productShortName,
-} = require('../../package.json');
+} = require('../package.json');
 
-const OUT_DIR = path.join(__dirname, '..', '..', 'public');
+const OUT_DIR = path.join(process.cwd(), 'public');
 
 const iconSizes = [72, 96, 128, 144, 256, 512];
 
@@ -32,13 +32,16 @@ const ampJSON = {
   start_url: '/?amp=1&homescreen=1',
 };
 
-module.exports = () => {
+const manifest = () => {
   fs.writeFileSync(
     path.join(OUT_DIR, 'manifest.webmanifest'),
     JSON.stringify(json, null, 2)
   );
+
   fs.writeFileSync(
     path.join(OUT_DIR, 'manifest.amp.webmanifest'),
     JSON.stringify(ampJSON, null, 2)
   );
 };
+
+manifest();

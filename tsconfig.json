@@ -1,14 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "esnext.intl",
-      "es2017.intl",
-      "es2018.intl"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -24,8 +17,8 @@
     "paths": {
       "~/*": ["./*"]
     },
-    "types": ["cypress", "@types/testing-library__cypress"]
+    "types": ["cypress", "@testing-library/cypress"]
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "cypress"],
   "include": ["**/*.ts", "**/*.tsx"]
 }

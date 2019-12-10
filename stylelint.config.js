@@ -1,9 +1,5 @@
 module.exports = {
-  processors: ['stylelint-processor-styled-components'],
-  extends: [
-    'stylelint-config-recommended',
-    'stylelint-config-styled-components',
-  ],
+  extends: ['@mcansh/eslint-config/stylelint.config'],
   rules: {
     'selector-type-no-unknown': [true, { ignoreTypes: ['/^amp-/'] }],
     'selector-max-type': [0, { ignoreTypes: '/^((?!^i-amp-).)*$/' }],

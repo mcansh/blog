@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useAmp } from 'next/amp';
 import { MDXProvider } from '@mdx-js/react';
+
 import Meta from '~/components/meta';
 import Header from '~/components/header/index';
 import Paragraph from '~/components/paragraph';
@@ -35,10 +36,9 @@ const ScrollProgress = styled.progress.attrs({ max: 100, min: 0 })`
 `;
 
 const PostWrap = styled.div`
-  margin: 3rem auto;
+  margin: 3rem auto 0;
   max-width: 90rem;
   width: 95%;
-  min-height: calc(100vh - 64rem);
   padding: 0 env(safe-area-inset-right) 0 env(safe-area-inset-left);
   padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
 `;
@@ -60,8 +60,8 @@ const Post: React.FC<Props> = ({ children, meta: { path, ...meta } }) => {
   return (
     <MDXProvider components={components}>
       <Meta {...meta} />
-      <Header {...meta} />
       {!isAmp && <ScrollProgress value={scrollProgress} />}
+      <Header {...meta} />
       <PostWrap>{children}</PostWrap>
     </MDXProvider>
   );

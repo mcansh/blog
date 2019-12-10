@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+
 import { NextScript, DocumentProps } from 'next/document';
 
 const cspHashOf = (text: string) => {
@@ -25,6 +26,7 @@ const CSP = (props: DocumentProps) => {
       'sentry.io',
       'www.googletagmanager.com',
       'www.google-analytics.com',
+      'https://stats.g.doubleclick.net',
     ],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
@@ -34,6 +36,7 @@ const CSP = (props: DocumentProps) => {
       'data:',
       'www.googletagmanager.com',
       'www.google-analytics.com',
+      'www.google.com/ads',
     ],
   };
 

@@ -1,4 +1,5 @@
 import { CSSProp } from 'styled-components';
+
 import theme from '../config';
 
 type ThemeInterface = typeof theme;

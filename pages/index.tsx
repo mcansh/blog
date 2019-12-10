@@ -1,8 +1,9 @@
 import React from 'react';
+
 import PostsWrapper from '~/components/posts-wrapper';
 import PostCard, { Post } from '~/components/post-card/index';
 import Header from '~/components/header/index';
-import posts from '~/data/posts';
+import posts from '~/data/posts.json';
 
 export const config = { amp: 'hybrid' };
 

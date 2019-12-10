@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const withSourceMaps = require('@zeit/next-source-maps')();
 const withMDX = require('@next/mdx')();
 const withOffline = require('next-offline');
@@ -6,17 +5,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const generateStaticFiles = require('./data');
 const { version, repository } = require('./package.json');
-
-generateStaticFiles();
 
 const nextConfig = {
   target: 'serverless',
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   experimental: {
-    modern: true,
+    deferScripts: true,
     granularChunks: true,
+    modern: true,
+    plugins: true,
   },
   dontAutoRegisterSw: true,
   workboxOpts: {
@@ -37,23 +35,25 @@ const nextConfig = {
     TWITTER: 'loganmcansh',
     INSTAGRAM: 'loganmcansh',
     GITHUB: 'mcansh',
-    EMAIL: 'logan+website@mcan.sh',
-    SENTRY: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
+    EMAIL: 'logan+blog@mcan.sh',
+    SENTRY_DSN: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
+    SENTRY_RELEASE: `blog@${version}`,
     ANALYTICS: 'UA-87731356-4',
     GITHUB_URL: `https://github.com/${repository}`,
     VERSION: version,
   },
 
-  webpack: (config, { isServer, buildId }) => {
+  webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
 
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env.BUILD_ID': JSON.stringify(buildId),
-      })
-    );
+    if (isServer) {
+      require('./scripts/atom');
+      require('./scripts/jsonfeed');
+      require('./scripts/manifest');
+      require('./scripts/sitemap');
+    }
 
     return config;
   },

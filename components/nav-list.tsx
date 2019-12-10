@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import Link from '~/components/link';
 
 const NavLinks = [
@@ -70,28 +71,24 @@ interface NavListProps {
   navOpen: boolean;
 }
 
-const NavList: React.FC<NavListProps> = ({ navOpen }) => {
-  return (
-    <AnimatePresence>
-      {navOpen && (
-        <NavStyles
-          initial={{ transform: 'translateX(-100%)' }}
-          animate={{ transform: 'translateX(0%)' }}
-          exit={{ transform: 'translateX(-100%)' }}
-          transition={{ duration: 0.3 }}
-        >
-          {NavLinks.map(({ name, slug }) => {
-            return (
-              <li key={name}>
-                <Link href={slug}>{name}</Link>
-              </li>
-            );
-          })}
-        </NavStyles>
-      )}
-    </AnimatePresence>
-  );
-};
+const NavList: React.FC<NavListProps> = ({ navOpen }) => (
+  <AnimatePresence>
+    {navOpen && (
+      <NavStyles
+        initial={{ transform: 'translateX(-100%)' }}
+        animate={{ transform: 'translateX(0%)' }}
+        exit={{ transform: 'translateX(-100%)' }}
+        transition={{ duration: 0.3 }}
+      >
+        {NavLinks.map(({ name, slug }) => (
+          <li key={name}>
+            <Link href={slug}>{name}</Link>
+          </li>
+        ))}
+      </NavStyles>
+    )}
+  </AnimatePresence>
+);
 
 export default NavList;
 export { NavLinks };

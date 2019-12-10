@@ -2,6 +2,17 @@
   "project": "blog",
   "version": 2,
   "regions": ["all"],
+  "build": {
+    "env": {
+      "NPM_RC": "@npmrc"
+    }
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next@canary"
+    }
+  ],
   "routes": [
     {
       "src": "/changelog",

@@ -1,4 +1,5 @@
 import { format, parse, UrlObject } from 'url';
+
 import React from 'react';
 import Link, { LinkProps } from 'next/link';
 

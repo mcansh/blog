@@ -1,4 +1,5 @@
 import React from 'react';
+
 import PostCard, { Post } from '~/components/post-card/index';
 import { render } from '~/utils/render-with-intl';
 
@@ -9,6 +10,7 @@ const post: Post = {
   image: {
     imageUrl: '/static/images/posts/1_Wmv8hfi_bTHuHyV5CawnCw.jpg',
   },
+  editUrl: '/pages/react-hooks-are-amazing',
 };
 
 it('renders a post card', () => {

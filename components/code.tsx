@@ -113,11 +113,9 @@ const Code: React.FC<CodeProps> = ({ codeString, language, metastring }) => {
 function preToCodeBlock(preProps: any) {
   if (
     // children is code element
-    preProps.children &&
     // code props
-    preProps.children.props &&
     // if children is actually a <code>
-    preProps.children.props.mdxType === 'code'
+    preProps.children?.props?.mdxType === 'code'
   ) {
     // we have a <pre><code> situation
     const {
@@ -131,10 +129,7 @@ function preToCodeBlock(preProps: any) {
     return {
       codeString: codeString.trim(),
       className,
-      language:
-        matches && matches.groups && matches.groups.lang
-          ? matches.groups.lang
-          : '',
+      language: matches?.groups?.lang ?? '',
       ...props,
     };
   }

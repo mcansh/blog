@@ -1,1 +1,1 @@
-module.exports = require('eslint-config-mcansh/prettier.config');
+module.exports = require('@mcansh/eslint-config/prettier.config');

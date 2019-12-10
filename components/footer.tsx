@@ -4,6 +4,7 @@ import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { name } from '~/utils/authorInfo';
 
 const Footer = styled.footer`
