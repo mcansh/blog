@@ -1648,10 +1648,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@mcansh/eslint-config@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@mcansh/eslint-config/-/eslint-config-2.3.1.tgz#dd09a8c7c31beda580a0ca2bf6f7936c40eb1bb6"
-  integrity sha512-MGFdNqyNAht6xQFQqOsKG1pq3GY3+aglSclMo8AdtMHB0c59AXPjQWvKCGh6lu6bEcnHrrv5ZjMhfiqSoFWpcg==
+"@mcansh/eslint-config@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@mcansh/eslint-config/-/eslint-config-2.4.0.tgz#9de9d2f362da745b519b53e4c4a6ab118fc8dd95"
+  integrity sha512-m1vgz2vS7qg+XzCNWhfnzmLgmHpDALoq3CbFNge9ijh0uQvVM/nxipbfKZV2VrlZM4lSEDXroAYAw8SUfFGNew==
 
 "@mcansh/next-nprogress@1.1.2":
   version "1.1.2"
