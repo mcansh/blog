@@ -39,7 +39,7 @@
     "babel-plugin-preval": "4.0.0",
     "body-scroll-lock": "2.6.4",
     "date-fns": "2.8.1",
-    "framer-motion": "1.6.17",
+    "framer-motion": "1.7.0",
     "intl": "1.2.5",
     "next": "9.1.5",
     "nprogress": "0.2.0",
