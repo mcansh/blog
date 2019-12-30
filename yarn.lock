@@ -1679,10 +1679,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@mcansh/eslint-config@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@mcansh/eslint-config/-/eslint-config-2.4.0.tgz#9de9d2f362da745b519b53e4c4a6ab118fc8dd95"
-  integrity sha512-m1vgz2vS7qg+XzCNWhfnzmLgmHpDALoq3CbFNge9ijh0uQvVM/nxipbfKZV2VrlZM4lSEDXroAYAw8SUfFGNew==
+"@mcansh/eslint-config@2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@mcansh/eslint-config/-/eslint-config-2.4.1.tgz#0eae7a435df9130b832ac9acce038964d050498c"
+  integrity sha512-zcLvzi5eEKDqlnVTRGdYaeXtfvGm+E+qSRCOkMjRtaL3DsOci+TRlzHwZ8334YTSY8LxLz8xmtpOfldnn2N6NA==
 
 "@mcansh/next-nprogress@1.1.2":
   version "1.1.2"
@@ -2227,6 +2227,19 @@
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.13.0.tgz#a2e746867da772c857c13853219fced10d2566bc"
   integrity sha512-t21Mg5cc8T3ADEUGwDisHLIubgXKjuNRbkpzDMLb7/JMmgCe/gHM9FaaujokLey+gwTuLF5ndSQ7/EfQqrQx4g==
+  dependencies:
+    debug "^4.1.1"
+    eslint-visitor-keys "^1.1.0"
+    glob "^7.1.6"
+    is-glob "^4.0.1"
+    lodash.unescape "4.0.1"
+    semver "^6.3.0"
+    tsutils "^3.17.1"
+
+"@typescript-eslint/typescript-estree@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.8.0.tgz#fcc3fe6532840085d29b75432c8a59895876aeca"
+  integrity sha512-ksvjBDTdbAQ04cR5JyFSDX113k66FxH1tAXmi+dj6hufsl/G0eMc/f1GgLjEVPkYClDbRKv+rnBFuE5EusomUw==
   dependencies:
     debug "^4.1.1"
     eslint-visitor-keys "^1.1.0"
