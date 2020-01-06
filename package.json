@@ -34,7 +34,7 @@
     "@mdx-js/react": "1.5.3",
     "@next/bundle-analyzer": "9.1.6",
     "@next/mdx": "9.1.6",
-    "@next/plugin-sentry": "9.1.6",
+    "@next/plugin-sentry": "9.1.7",
     "babel-plugin-macros": "2.8.0",
     "babel-plugin-preval": "4.0.0",
     "body-scroll-lock": "2.6.4",

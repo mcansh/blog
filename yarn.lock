@@ -1759,10 +1759,10 @@
   resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.1.6.tgz#34c40a60811b6ec5f13613e31e8fd5622d82b938"
   integrity sha512-0wsmd1JOri51uZwpKDC0m7i4w/4DHlMveyxCJUBaP3dV3Qc3/FIHbfcOwFXTIy58rLzD1gI8PmYMZaefr7+O2Q==
 
-"@next/plugin-sentry@9.1.6":
-  version "9.1.6"
-  resolved "https://registry.yarnpkg.com/@next/plugin-sentry/-/plugin-sentry-9.1.6.tgz#2e89a241e73e6659bab56e76cbbf82f54c481a59"
-  integrity sha512-T4FVXnsAYNXZxiCDo90fMql7HG+bJ0whhD3rZ8dZp/SaB+55z2zFD2x9PeJQW/UWapGYKyaqyeDAm+Uwlll3cA==
+"@next/plugin-sentry@9.1.7":
+  version "9.1.7"
+  resolved "https://registry.yarnpkg.com/@next/plugin-sentry/-/plugin-sentry-9.1.7.tgz#fe911b77773ccd1e20661a60b7f7759725e22175"
+  integrity sha512-A2M/EoJ/JrSw8hCvdGwYRU+qmL5W3bkrI8Xc/Q4Xn3UdfibxrWOx1MULOguZQrCN38TeI9aGk9xrDiixAsip/A==
   dependencies:
     "@sentry/browser" "5.7.1"
     "@sentry/node" "5.7.1"
@@ -2227,6 +2227,19 @@
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.13.0.tgz#a2e746867da772c857c13853219fced10d2566bc"
   integrity sha512-t21Mg5cc8T3ADEUGwDisHLIubgXKjuNRbkpzDMLb7/JMmgCe/gHM9FaaujokLey+gwTuLF5ndSQ7/EfQqrQx4g==
+  dependencies:
+    debug "^4.1.1"
+    eslint-visitor-keys "^1.1.0"
+    glob "^7.1.6"
+    is-glob "^4.0.1"
+    lodash.unescape "4.0.1"
+    semver "^6.3.0"
+    tsutils "^3.17.1"
+
+"@typescript-eslint/typescript-estree@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.8.0.tgz#fcc3fe6532840085d29b75432c8a59895876aeca"
+  integrity sha512-ksvjBDTdbAQ04cR5JyFSDX113k66FxH1tAXmi+dj6hufsl/G0eMc/f1GgLjEVPkYClDbRKv+rnBFuE5EusomUw==
   dependencies:
     debug "^4.1.1"
     eslint-visitor-keys "^1.1.0"
