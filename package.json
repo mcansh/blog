@@ -32,7 +32,7 @@
     "@mcansh/next-nprogress": "1.1.2",
     "@mdx-js/loader": "1.5.3",
     "@mdx-js/react": "1.5.3",
-    "@next/bundle-analyzer": "9.1.6",
+    "@next/bundle-analyzer": "9.1.7",
     "@next/mdx": "9.1.6",
     "@next/plugin-sentry": "9.1.6",
     "babel-plugin-macros": "2.8.0",
