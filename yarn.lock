@@ -1494,10 +1494,10 @@
   dependencies:
     "@formatjs/intl-utils" "^2.0.1"
 
-"@formatjs/intl-utils@2.0.1", "@formatjs/intl-utils@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-2.0.1.tgz#6d310808e34b60184564cf3800526f012eb9d622"
-  integrity sha512-g5C+Pfka3lJyQhkB1dvC0g6g3y0uUNYxNyFKjFk7VhVt4m/+wXT1FLK1TDuOgpsrGWstZ/Pt4g5tpgPgTR4s6w==
+"@formatjs/intl-utils@2.0.4", "@formatjs/intl-utils@^2.0.1":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-2.0.4.tgz#936961b7eade01f6d331d31cc9fb512d1fb3981a"
+  integrity sha512-zd92HkqxeEprsyM3JLGr+jhhMkmY0NCYQ+Jyw/DC6qZHiFejdO19doYcH5/iMUUPEYLI2h/k7TETqAEez8Btog==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -2227,6 +2227,19 @@
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.13.0.tgz#a2e746867da772c857c13853219fced10d2566bc"
   integrity sha512-t21Mg5cc8T3ADEUGwDisHLIubgXKjuNRbkpzDMLb7/JMmgCe/gHM9FaaujokLey+gwTuLF5ndSQ7/EfQqrQx4g==
+  dependencies:
+    debug "^4.1.1"
+    eslint-visitor-keys "^1.1.0"
+    glob "^7.1.6"
+    is-glob "^4.0.1"
+    lodash.unescape "4.0.1"
+    semver "^6.3.0"
+    tsutils "^3.17.1"
+
+"@typescript-eslint/typescript-estree@2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.8.0.tgz#fcc3fe6532840085d29b75432c8a59895876aeca"
+  integrity sha512-ksvjBDTdbAQ04cR5JyFSDX113k66FxH1tAXmi+dj6hufsl/G0eMc/f1GgLjEVPkYClDbRKv+rnBFuE5EusomUw==
   dependencies:
     debug "^4.1.1"
     eslint-visitor-keys "^1.1.0"
