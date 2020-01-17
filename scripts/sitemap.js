@@ -20,7 +20,7 @@ ${nodes}
 </urlset>`;
 
 function recursiveReadDirSync(dir, arr = [], rootDir = dir) {
-  const result = fs.readdirSync(dir);
+  const result = fs.readdirSync(dir).filter(file => !file.startsWith('_'));
 
   result.forEach(part => {
     const absolutePath = path.join(dir, part);
