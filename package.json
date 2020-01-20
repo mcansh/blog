@@ -96,7 +96,7 @@
     "npm-run-all": "4.1.5",
     "prettier": "1.19.1",
     "remark": "11.0.2",
-    "remark-mdx": "1.5.3",
+    "remark-mdx": "1.5.5",
     "remark-mdx-metadata": "1.0.1",
     "remark-stringify": "7.0.4",
     "stylelint": "12.0.1",
