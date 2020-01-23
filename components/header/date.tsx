@@ -2,10 +2,10 @@ import React from 'react';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import styled from 'styled-components';
 import { parseISO } from 'date-fns';
-import { selectUnit } from '@formatjs/intl-utils';
-
 import '@formatjs/intl-relativetimeformat/polyfill-locales';
+
 import { formatPostDate } from '~/utils/dates';
+import { selectUnit } from '~/utils/select-unit';
 
 if (!Intl.PluralRules) {
   require('@formatjs/intl-pluralrules');
@@ -23,16 +23,16 @@ interface Props {
 }
 
 const DateHeading: React.FC<Props> = ({ date }) => {
-  const now = Date.now();
+  const now = new Date();
   const formatted = formatPostDate(date);
   const parsed = parseISO(date);
-  const { unit, value } = selectUnit(parsed, now);
+  const { unit, value } = selectUnit(now, parsed);
 
   const formatRelative = new Intl.RelativeTimeFormat('en', {
     numeric: 'auto',
   });
 
-  if ((unit === 'month' && value <= -4) || ['quarter', 'year'].includes(unit)) {
+  if (unit === 'month' && value <= -4) {
     return <H2 title={formatted}>Posted {formatted}</H2>;
   }
 
