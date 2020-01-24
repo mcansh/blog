@@ -1,7 +1,7 @@
 import React from 'react';
 import Router, { useRouter } from 'next/router';
 import { useAmp } from 'next/amp';
-import styled from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -89,7 +89,7 @@ const Navigation: React.FC = () => {
           text-decoration: none;
           font-size: 1.4rem;
           &:hover {
-            color: ${(props: any) => props.theme.primary};
+            color: ${(props: { theme: DefaultTheme }) => props.theme.primary};
           }
         }
       `}

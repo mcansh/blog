@@ -1,10 +1,5 @@
 /// <reference types="node" />
 
-interface Window {
-  GA_INITIALIZED: boolean;
-  __NEXT_DATA__: any;
-}
-
 // Extend the NodeJS namespace with variables in next.config.js
 declare namespace NodeJS {
   interface ProcessEnv {
