@@ -104,18 +104,6 @@ const Header: React.FC<Props> = ({ title, url, image, date }) => {
       </HeaderContent>
       <Image image={image} />
       <figure>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1024"
-          height="1024"
-          viewBox="0 0 1024 1024"
-          style={{ background: '#6c16c7' }}
-        >
-          <polygon
-            fill="#FFF"
-            points="669.293 681.754 443.023 681.754 443.023 265.787 354.84 265.787 354.84 759 669.293 759"
-          />
-        </svg>
         <Curve role="presentation" />
       </figure>
     </HeaderStyles>
