@@ -118,13 +118,13 @@
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
       "eslint --fix",
+      "prettier --write",
       "yarn lint:css",
       "./scripts/ts-precommit.sh",
       "yarn test --bail --findRelatedTests"
     ],
-    "*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
-      "prettier --write",
-      "git add"
+    "*.+(json|yml|yaml|css|less|scss|md|graphql|mdx)": [
+      "prettier --write"
     ]
   }
 }
