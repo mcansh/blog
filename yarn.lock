@@ -1691,12 +1691,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
-"@formatjs/intl-pluralrules@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-pluralrules/-/intl-pluralrules-1.5.1.tgz#224af78a757342295986e06a84ad47025142e6cf"
-  integrity sha512-9CIU2W/rjn4WB5T34gc5oA3CgKwF+L3AFSbygBV3R3N1nuOkFgJ+qYxG16qstAVU6+S/RJQeSDkvdjDH5RxIMA==
+"@formatjs/intl-pluralrules@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-pluralrules/-/intl-pluralrules-1.5.2.tgz#3e37f38e21b6a30c484e9138187d0a1a4b0d1f76"
+  integrity sha512-kxCufLRBOaj9x4PP2QrYmYSmr2WfJnBmUx/6eaajuaHlXTfXvLD1Dz/s1YBXHipOlorh51ehHQPoRgrOCNNpkA==
   dependencies:
-    "@formatjs/intl-utils" "^2.1.0"
+    "@formatjs/intl-utils" "^2.2.0"
 
 "@formatjs/intl-relativetimeformat@4.5.8":
   version "4.5.8"
@@ -1705,10 +1705,10 @@
   dependencies:
     "@formatjs/intl-utils" "^2.1.0"
 
-"@formatjs/intl-utils@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-2.1.0.tgz#170259c20aeacd263b9189351b01cebc97062315"
-  integrity sha512-6i9JHVioZ9uHkkTYUsZk8ha8FRMb5ZMjPr2cVH1vfNAwJy7AlJnLzH2OeB7WE3WnAgvYpWV797K6p3g/q/JTOg==
+"@formatjs/intl-utils@^2.1.0", "@formatjs/intl-utils@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-2.2.0.tgz#ba6e12fe64ff7fd160be392007c47d24b7ae5c75"
+  integrity sha512-+Az7tR1av1DHZu9668D8uh9atT6vp+FFmEF8BrEssv0OqzpVjpVBGVmcgPzQP8k2PQjVlm/h2w8cTt0knn132w==
 
 "@hapi/address@2.x.x":
   version "2.1.4"
