@@ -58,7 +58,7 @@
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.0",
     "@types/body-scroll-lock": "2.6.1",
-    "@types/jest": "25.1.0",
+    "@types/jest": "25.1.1",
     "@types/jest-in-case": "1.0.1",
     "@types/node": "13.7.0",
     "@types/nprogress": "0.2.0",
