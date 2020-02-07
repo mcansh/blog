@@ -1,6 +1,6 @@
 const unsplashParams = (url?: string | null): string => {
   if (url == null) return '';
-  return url.includes('unsplash.com')
+  return url.startsWith('https://unsplash.com')
     ? `${url}?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog`
     : url;
 };
