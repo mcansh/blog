@@ -8,7 +8,7 @@ const OUT_DIR = path.join(process.cwd(), 'public');
 
 const getCloudinaryURL = (image, settings = []) => {
   const base = 'https://res.cloudinary.com/dof0zryca/image/upload';
-  const id = 'v1541889199/blog';
+  const id = 'v1581285181/blog';
   const settingsString = ['f_auto', ...settings].join(',');
 
   return `${base}/${settingsString}/${id}/${image}`;

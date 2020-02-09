@@ -18,7 +18,7 @@ describe('Header Component', () => {
 
     expect(getByTestId('header_img')).toHaveAttribute(
       'src',
-      'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1541889199/blog/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
+      'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1581285181/blog/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
     );
   });
 });
