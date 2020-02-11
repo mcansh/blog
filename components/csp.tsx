@@ -20,6 +20,8 @@ const CSP = (props: DocumentProps) => {
       'www.google-analytics.com',
       'storage.googleapis.com',
       'cdn.ampproject.org/v0.js',
+      "'unsafe-eval'",
+      "'unsafe-inline'",
     ],
     'connect-src': [
       "'self'",
@@ -39,10 +41,6 @@ const CSP = (props: DocumentProps) => {
       'www.google.com/ads',
     ],
   };
-
-  if (process.env.NODE_ENV === 'development') {
-    cspSettings['script-src'].push("'unsafe-eval'", "'unsafe-inline'");
-  }
 
   const csp = `${Object.entries(cspSettings)
     .map(item => `${item[0]} ${item[1].join(' ')}`)
