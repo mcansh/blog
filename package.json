@@ -65,7 +65,7 @@
     "@types/prettier": "1.19.0",
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
-    "@types/styled-components": "4.4.2",
+    "@types/styled-components": "4.4.3",
     "@typescript-eslint/eslint-plugin": "2.19.2",
     "@typescript-eslint/parser": "2.19.1",
     "@zeit/next-source-maps": "0.0.4-canary.1",
