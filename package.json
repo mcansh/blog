@@ -32,7 +32,7 @@
     "@mdx-js/loader": "1.5.5",
     "@mdx-js/react": "1.5.5",
     "@next/bundle-analyzer": "9.2.1",
-    "@next/mdx": "9.2.1",
+    "@next/mdx": "9.2.2",
     "@next/plugin-sentry": "9.2.2",
     "babel-plugin-macros": "2.8.0",
     "babel-plugin-preval": "4.0.0",
