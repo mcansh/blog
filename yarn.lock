@@ -1868,10 +1868,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@mcansh/eslint-config@2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@mcansh/eslint-config/-/eslint-config-2.4.1.tgz#0eae7a435df9130b832ac9acce038964d050498c"
-  integrity sha512-zcLvzi5eEKDqlnVTRGdYaeXtfvGm+E+qSRCOkMjRtaL3DsOci+TRlzHwZ8334YTSY8LxLz8xmtpOfldnn2N6NA==
+"@mcansh/eslint-config@2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@mcansh/eslint-config/-/eslint-config-2.5.2.tgz#f068cee39fa212a0047cbbc3c271f20fe107d733"
+  integrity sha512-quWBsXTMDNnLdWDA+TpNqUqXDmKI2xMZYPq4fnhALYHStC0LTEW57A4iAPkYDhn1oGHWzjeAWhknAfn+j3eXUQ==
 
 "@mcansh/next-nprogress@1.1.2":
   version "1.1.2"

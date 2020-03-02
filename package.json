@@ -54,7 +54,7 @@
     "styled-components": "5.0.1"
   },
   "devDependencies": {
-    "@mcansh/eslint-config": "2.4.1",
+    "@mcansh/eslint-config": "2.5.2",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.1",
     "@types/body-scroll-lock": "2.6.1",
