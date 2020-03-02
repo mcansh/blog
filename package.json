@@ -37,7 +37,7 @@
     "babel-plugin-macros": "2.8.0",
     "babel-plugin-preval": "4.0.0",
     "body-scroll-lock": "2.6.4",
-    "date-fns": "2.9.0",
+    "date-fns": "2.10.0",
     "framer-motion": "1.8.4",
     "intl": "1.2.5",
     "mdx-utils": "0.2.0",
