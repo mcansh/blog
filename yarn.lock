@@ -11896,10 +11896,10 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
-to-vfile@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/to-vfile/-/to-vfile-6.0.1.tgz#fed8abca8e813a7cc233a588a863caa8b759eb93"
-  integrity sha512-zCZbD/dW55c2clOPyQ1lrQ14ejnB4MfiZlgJP+e9YWLW3aASNd1z2SrzG8fa6E174q5LY2gRHmGp5GWE4i21gw==
+to-vfile@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/to-vfile/-/to-vfile-6.1.0.tgz#5f7a3f65813c2c4e34ee1f7643a5646344627699"
+  integrity sha512-BxX8EkCxOAZe+D/ToHdDsJcVI4HqQfmw0tCkp31zf3dNP/XWIAjU4CmeuSwsSoOzOTqHPOL0KUzyZqJplkD0Qw==
   dependencies:
     is-buffer "^2.0.0"
     vfile "^4.0.0"
