@@ -1860,10 +1860,10 @@
   dependencies:
     webpack-bundle-analyzer "3.3.2"
 
-"@next/mdx@9.2.2":
-  version "9.2.2"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.2.2.tgz#ee49199691f6c74dd28e9968f127b33edc1dbfdd"
-  integrity sha512-TB7YJhYIu8DnpWYIkp4N7yaYTh92MGQ3tfeMOB/wLgB5y+W3ozgg5rA2y1RUTK4MQfUk4Ll7cm+4xhVpvrXMlA==
+"@next/mdx@9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.3.0.tgz#fc04bd605bd42db8be1164bda38d0a66fff14389"
+  integrity sha512-CcdOswxSYTneXV2lA1JBZZLmipJyW9DM8Yvu2bi3qaudEDDOvhLtZzGOkQMcNg5gydFO6tIJ3s+IP4JtTbFiZw==
 
 "@next/plugin-sentry@9.3.0":
   version "9.3.0"
