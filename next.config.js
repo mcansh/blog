@@ -18,6 +18,7 @@ const nextConfig = {
   },
   dontAutoRegisterSw: true,
   workboxOpts: {
+    importWorkboxFrom: 'local',
     swDest: 'static/sw.js',
     runtimeCaching: [
       {
