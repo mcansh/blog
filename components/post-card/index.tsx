@@ -1,6 +1,4 @@
 import React from 'react';
-import { useAmp } from 'next/amp';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { SimpleImg } from 'react-simple-img';
 
@@ -20,53 +18,29 @@ export interface Post {
 }
 
 const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
-  const isAmp = useAmp();
-  const {
-    query: { amp, ...query },
-  } = useRouter();
-
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   return (
-    <Link
-      href={{ pathname: path, query: isAmp ? { ...query, amp: 1 } : query }}
-      passHref
-    >
+    <Link href={path} passHref>
       <Post>
         <div className="post-card__img-wrapper">
-          {isAmp ? (
-            <amp-img
-              data-testid="post-image"
-              height={200}
-              src={image1x}
-              alt={title}
-              srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
-              data-photo={
-                hasImageAuthor ? `Taken by ${image.photographer}` : undefined
-              }
-              data-source-url={
-                hasImageSrc ? unsplashParams(image.url) : undefined
-              }
-            />
-          ) : (
-            <SimpleImg
-              data-testid="post-image"
-              placeholder={false}
-              height={200}
-              src={image1x}
-              alt={title}
-              srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
-              data-photo={
-                hasImageAuthor ? `Taken by ${image.photographer}` : undefined
-              }
-              data-source-url={
-                hasImageSrc ? unsplashParams(image.url) : undefined
-              }
-            />
-          )}
+          <SimpleImg
+            data-testid="post-image"
+            placeholder={false}
+            height={200}
+            src={image1x}
+            alt={title}
+            srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
+            data-photo={
+              hasImageAuthor ? `Taken by ${image.photographer}` : undefined
+            }
+            data-source-url={
+              hasImageSrc ? unsplashParams(image.url) : undefined
+            }
+          />
         </div>
         <div className="post-card__meta">
           <h2 className="post-card__title" data-testid="post-title">

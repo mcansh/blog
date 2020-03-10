@@ -1,10 +1,7 @@
 import React from 'react';
 import Link, { LinkProps } from 'next/link';
-import { useAmp } from 'next/amp';
 import styled from 'styled-components';
-import dynamic from 'next/dynamic';
-
-const Ink = dynamic(() => import('react-ink'));
+import Ink from 'react-ink';
 
 interface Props extends LinkProps {
   children: React.ReactNode;
@@ -52,16 +49,13 @@ const StyledLink = styled.a`
   }
 `;
 
-const Button: React.FC<Props> = ({ children, ...nextProps }) => {
-  const isAmp = useAmp();
-  return (
-    <Link {...nextProps} passHref>
-      <StyledLink>
-        <span>{children}</span>
-        {!isAmp && <Ink />}
-      </StyledLink>
-    </Link>
-  );
-};
+const Button: React.FC<Props> = ({ children, ...nextProps }) => (
+  <Link {...nextProps} passHref>
+    <StyledLink>
+      <span>{children}</span>
+      <Ink />
+    </StyledLink>
+  </Link>
+);
 
 export default Button;

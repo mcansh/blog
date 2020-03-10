@@ -1,15 +1,13 @@
 import React from 'react';
-import Router, { useRouter } from 'next/router';
-import { useAmp } from 'next/amp';
-import styled, { DefaultTheme } from 'styled-components';
+import Router from 'next/router';
+import styled from 'styled-components';
 import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
 
-import Link from '~/components/link';
-import NavList, { NavLinks } from '~/components/nav-list';
+import NavList from '~/components/nav-list';
 import Hamburger from '~/components/hamburger';
 import Portal from '~/components/portal';
 
@@ -30,11 +28,6 @@ const Nav = styled.nav<{ navOpen: boolean }>`
 `;
 
 const Navigation: React.FC = () => {
-  const isAmp = useAmp();
-  const {
-    query: { amp, ...query },
-  } = useRouter();
-
   const [navOpen, setNavOpen] = React.useState(false);
   const closeNav = () => setNavOpen(false);
 
@@ -62,52 +55,7 @@ const Navigation: React.FC = () => {
     });
   };
 
-  return isAmp ? (
-    <ul
-      css={`
-        display: flex;
-        flex-flow: row wrap;
-        list-style: none;
-        padding: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        justify-content: center;
-        width: 100%;
-        @media (max-width: 403px) {
-          width: 75%;
-          margin: 0 12.5%;
-        }
-
-        li {
-          margin: 1rem;
-        }
-
-        a {
-          color: white;
-          text-decoration: none;
-          font-size: 1.4rem;
-          &:hover {
-            color: ${(props: { theme: DefaultTheme }) => props.theme.primary};
-          }
-        }
-      `}
-    >
-      {NavLinks.map(link => (
-        <li key={link.name}>
-          <Link
-            href={{
-              pathname: link.slug,
-              query: isAmp ? { ...query, amp: 1 } : query,
-            }}
-          >
-            {link.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  ) : (
+  return (
     <Nav
       navOpen={navOpen}
       onKeyDown={(event: React.KeyboardEvent) => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 
 import { description, homepage } from '~/package.json';
@@ -18,15 +17,10 @@ interface Props {
 
 const Meta: React.FC<Props> = ({ title, date, image }) => {
   const router = useRouter();
-  const isAmp = useAmp();
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl = image?.imageUrl
     ? getCloudinaryURL(image.imageUrl)
     : `${homepage}/static/images/me.jpg`;
-
-  const manifest = isAmp
-    ? '/manifest.amp.webmanifest'
-    : '/manifest.webmanifest';
 
   return (
     <Head>
@@ -56,13 +50,11 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
         <meta property="article:published_time" content={iso8601(date)} />
       )}
       {title && <meta property="article:author" content={name} />}
-      {!isAmp && (
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
-        />
-      )}
-      <link rel="manifest" key="manifest" href={manifest} />
+      <meta
+        name="viewport"
+        content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
+      />
+      <link rel="manifest" key="manifest" href="/manifest.webmanifest" />
       <link
         rel="mask-icon"
         href="/static/images/logo/safari.svg"

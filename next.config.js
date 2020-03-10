@@ -41,6 +41,7 @@ const nextConfig = {
     ANALYTICS: 'UA-87731356-4',
     GITHUB_URL: `https://github.com/${repository}`,
     VERSION: version,
+    FATHOM_SITE_ID: 'ROTOLYJX',
   },
 
   webpack: (config, { isServer }) => {

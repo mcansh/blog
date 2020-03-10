@@ -34,13 +34,6 @@
       }
     },
     {
-      "src": "/(manifest.amp.webmanifest|manifest.amp.json)",
-      "headers": {
-        "content-type": "application/manifest+json",
-        "cache-control": "public, max-age=43200, immutable"
-      }
-    },
-    {
       "src": "^/(favicon.ico|feed.json|sitemap.xml)$",
       "headers": {
         "cache-control": "public, max-age=43200, immutable"

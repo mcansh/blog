@@ -13,5 +13,6 @@ declare namespace NodeJS {
     readonly VERSION: string;
     readonly ANALYZE: 'true' | 'false' | undefined;
     readonly SENTRY_RELEASE: string;
+    readonly FATHOM_SITE_ID: string;
   }
 }

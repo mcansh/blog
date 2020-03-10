@@ -27,20 +27,10 @@ const json = {
   icons,
 };
 
-const ampJSON = {
-  ...json,
-  start_url: '/?amp=1&homescreen=1',
-};
-
 const manifest = () => {
   fs.writeFileSync(
     path.join(OUT_DIR, 'manifest.webmanifest'),
     JSON.stringify(json, null, 2)
-  );
-
-  fs.writeFileSync(
-    path.join(OUT_DIR, 'manifest.amp.webmanifest'),
-    JSON.stringify(ampJSON, null, 2)
   );
 };
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import { useAmp } from 'next/amp';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -60,54 +58,38 @@ interface Props {
   date?: string;
 }
 
-const Header: React.FC<Props> = ({ title, url, image, date }) => {
-  const isAmp = useAmp();
-  const {
-    query: { amp, ...query },
-  } = useRouter();
-
-  return (
-    <HeaderStyles>
-      <HeaderContent>
-        <AnimatePresence exitBeforeEnter>
-          <Title
-            initial={{
-              opacity: isAmp ? 1 : 0,
-              translateY: isAmp ? 0 : -50,
-            }}
-            animate={{
-              opacity: 1,
-              translateY: 0,
-            }}
-            exit={{
-              opacity: 0,
-              translateY: 50,
-            }}
-          >
-            {title}
-          </Title>
-        </AnimatePresence>
-        <noscript>
-          <Title>{title}</Title>
-        </noscript>
-        {date && <DateHeading date={date} />}
-        {url && (
-          <Button
-            href={{
-              pathname: url,
-              query: isAmp ? { ...query, amp: '1' } : query,
-            }}
-          >
-            Read More
-          </Button>
-        )}
-      </HeaderContent>
-      <Image image={image} />
-      <figure>
-        <Curve role="presentation" />
-      </figure>
-    </HeaderStyles>
-  );
-};
+const Header: React.FC<Props> = ({ title, url, image, date }) => (
+  <HeaderStyles>
+    <HeaderContent>
+      <AnimatePresence exitBeforeEnter>
+        <Title
+          initial={{
+            opacity: 0,
+            translateY: -50,
+          }}
+          animate={{
+            opacity: 1,
+            translateY: 0,
+          }}
+          exit={{
+            opacity: 0,
+            translateY: 50,
+          }}
+        >
+          {title}
+        </Title>
+      </AnimatePresence>
+      <noscript>
+        <Title>{title}</Title>
+      </noscript>
+      {date && <DateHeading date={date} />}
+      {url && <Button href={url}>Read More</Button>}
+    </HeaderContent>
+    <Image image={image} />
+    <figure>
+      <Curve role="presentation" />
+    </figure>
+  </HeaderStyles>
+);
 
 export default Header;
