@@ -12,14 +12,14 @@ const CSP = (props: DocumentProps) => {
   const hash = cspHashOf(NextScript.getInlineScriptSource(props));
 
   const cspSettings = {
-    'default-src': ["'none'"],
+    'default-src': ["'self'"],
     'script-src': [
       "'self'",
       'data:',
       'www.googletagmanager.com',
       'www.google-analytics.com',
       'storage.googleapis.com',
-      'cdn.ampproject.org/v0.js',
+      props.inAmpMode && 'cdn.ampproject.org/v0.js',
       "'unsafe-eval'",
       "'unsafe-inline'",
     ],
@@ -43,7 +43,7 @@ const CSP = (props: DocumentProps) => {
   };
 
   const csp = `${Object.entries(cspSettings)
-    .map(item => `${item[0]} ${item[1].join(' ')}`)
+    .map(item => `${item[0]} ${item[1].filter(Boolean).join(' ')}`)
     .join(';')}`;
 
   return { csp, hash };
