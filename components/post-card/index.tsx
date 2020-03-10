@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { SimpleImg } from 'react-simple-img';
 
@@ -19,15 +18,13 @@ export interface Post {
 }
 
 const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
-  const { query } = useRouter();
-
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   return (
-    <Link href={{ pathname: path, query }} passHref>
+    <Link href={path} passHref>
       <Post>
         <div className="post-card__img-wrapper">
           <SimpleImg

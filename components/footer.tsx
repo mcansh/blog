@@ -21,11 +21,11 @@ const Footer = styled.footer`
 `;
 
 const FooterWrap: React.FC = () => {
-  const { query, pathname } = useRouter();
+  const { pathname } = useRouter();
   const isHome = pathname === '/';
   return (
     <Footer>
-      <Link href={{ pathname: '/', query }}>
+      <Link href={{ pathname: '/' }}>
         <a
           rel="home"
           aria-label="go home"

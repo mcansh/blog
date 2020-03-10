@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -59,42 +58,38 @@ interface Props {
   date?: string;
 }
 
-const Header: React.FC<Props> = ({ title, url, image, date }) => {
-  const { query } = useRouter();
-
-  return (
-    <HeaderStyles>
-      <HeaderContent>
-        <AnimatePresence exitBeforeEnter>
-          <Title
-            initial={{
-              opacity: 0,
-              translateY: -50,
-            }}
-            animate={{
-              opacity: 1,
-              translateY: 0,
-            }}
-            exit={{
-              opacity: 0,
-              translateY: 50,
-            }}
-          >
-            {title}
-          </Title>
-        </AnimatePresence>
-        <noscript>
-          <Title>{title}</Title>
-        </noscript>
-        {date && <DateHeading date={date} />}
-        {url && <Button href={{ pathname: url, query }}>Read More</Button>}
-      </HeaderContent>
-      <Image image={image} />
-      <figure>
-        <Curve role="presentation" />
-      </figure>
-    </HeaderStyles>
-  );
-};
+const Header: React.FC<Props> = ({ title, url, image, date }) => (
+  <HeaderStyles>
+    <HeaderContent>
+      <AnimatePresence exitBeforeEnter>
+        <Title
+          initial={{
+            opacity: 0,
+            translateY: -50,
+          }}
+          animate={{
+            opacity: 1,
+            translateY: 0,
+          }}
+          exit={{
+            opacity: 0,
+            translateY: 50,
+          }}
+        >
+          {title}
+        </Title>
+      </AnimatePresence>
+      <noscript>
+        <Title>{title}</Title>
+      </noscript>
+      {date && <DateHeading date={date} />}
+      {url && <Button href={url}>Read More</Button>}
+    </HeaderContent>
+    <Image image={image} />
+    <figure>
+      <Curve role="presentation" />
+    </figure>
+  </HeaderStyles>
+);
 
 export default Header;
