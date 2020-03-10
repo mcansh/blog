@@ -5424,11 +5424,6 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.0"
 
-fathom-client@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/fathom-client/-/fathom-client-2.0.2.tgz#83c66b9c0111478ff75004563ea58f8dcf692c2d"
-  integrity sha512-2OvYKIuuSKwx658rSPwTMDXmRLUdNh4N2KzQCUHJUTVaCdK1Tv49zeJd3ovgIeont/r+1wk/7Ri/sMzoHY5MXw==
-
 fb-watchman@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-2.0.0.tgz#54e9abf7dfa2f26cd9b1636c588c1afc05de5d58"
