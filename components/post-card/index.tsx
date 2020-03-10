@@ -19,9 +19,7 @@ export interface Post {
 }
 
 const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
-  const {
-    query: { amp, ...query },
-  } = useRouter();
+  const { query } = useRouter();
 
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
@@ -29,10 +27,7 @@ const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
   const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
   const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
   return (
-    <Link
-      href={{ pathname: path, query: isAmp ? { ...query, amp: 1 } : query }}
-      passHref
-    >
+    <Link href={{ pathname: path, query }} passHref>
       <Post>
         <div className="post-card__img-wrapper">
           <SimpleImg

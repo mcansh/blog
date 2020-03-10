@@ -28,15 +28,10 @@ const ImageWrap = styled.div`
     background: rgba(0, 0, 0, 0.6);
   }
 
-  img,
-  amp-img {
+  img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-  }
-
-  amp-img {
-    z-index: -1;
   }
 `;
 
