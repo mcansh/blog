@@ -25,23 +25,21 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   return (
-    <React.StrictMode>
-      <ThemeProvider theme={colors}>
-        <NProgress
-          color={colors.primary}
-          options={{ trickleSpeed: 50 }}
-          spinner={false}
-        />
-        <GlobalStyle />
-        {statusCode !== 200 ? (
+    <ThemeProvider theme={colors}>
+      <NProgress
+        color={colors.primary}
+        options={{ trickleSpeed: 50 }}
+        spinner={false}
+      />
+      <GlobalStyle />
+      {statusCode !== 200 ? (
+        <Component {...pageProps} />
+      ) : (
+        <Document>
           <Component {...pageProps} />
-        ) : (
-          <Document>
-            <Component {...pageProps} />
-          </Document>
-        )}
-      </ThemeProvider>
-    </React.StrictMode>
+        </Document>
+      )}
+    </ThemeProvider>
   );
 };
 
