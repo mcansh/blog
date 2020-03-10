@@ -31,15 +31,12 @@ class MyDocument extends Document {
   }
 
   public render() {
-    const { inAmpMode } = this.props;
     const { csp, hash } = getCSP(this.props);
 
     return (
       <Html lang="en">
         <Head>
-          {!inAmpMode && (
-            <meta httpEquiv="Content-Security-Policy" content={csp} />
-          )}
+          <meta httpEquiv="Content-Security-Policy" content={csp} />
 
           {process.env.NODE_ENV === 'production' && (
             <script

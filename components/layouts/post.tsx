@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useAmp } from 'next/amp';
 import { MDXProvider } from '@mdx-js/react';
 
 import Meta from '~/components/meta';
@@ -55,12 +54,11 @@ const components = {
 };
 
 const Post: React.FC<Props> = ({ children, meta: { path, ...meta } }) => {
-  const isAmp = useAmp();
   const scrollProgress = useScrollProgress();
   return (
     <MDXProvider components={components}>
       <Meta {...meta} />
-      {!isAmp && <ScrollProgress value={scrollProgress} />}
+      <ScrollProgress value={scrollProgress} />
       <Header {...meta} />
       <PostWrap>{children}</PostWrap>
     </MDXProvider>

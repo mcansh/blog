@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAmp } from 'next/amp';
 import styled from 'styled-components';
 
 import unsplashParams from '~/utils/unsplash-params';
@@ -7,8 +6,8 @@ import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 export interface ImageType {
   imageUrl: string;
-  photographer?: string | null;
-  url?: string | null;
+  photographer?: string | undefined;
+  url?: string | undefined;
 }
 
 const ImageWrap = styled.div`
@@ -47,31 +46,15 @@ interface Props {
 
 const HeaderImage: React.FC<Props> = ({ image }) => {
   const imgUrl = getCloudinaryURL(image.imageUrl);
-  const isAmp = useAmp();
 
   return (
     <ImageWrap>
-      {isAmp ? (
-        <amp-img
-          src={imgUrl}
-          alt={
-            image.photographer ? `Taken by ${image.photographer}` : undefined
-          }
-          data-source-url={image.url && unsplashParams(image.url)}
-          data-testid="header_img"
-          height="500"
-          layout="fill"
-        />
-      ) : (
-        <img
-          src={imgUrl}
-          alt={
-            image.photographer ? `Taken by ${image.photographer}` : undefined
-          }
-          data-source-url={image.url && unsplashParams(image.url)}
-          data-testid="header_img"
-        />
-      )}
+      <img
+        src={imgUrl}
+        alt={image.photographer ? `Taken by ${image.photographer}` : undefined}
+        data-source-url={image.url && unsplashParams(image.url)}
+        data-testid="header_img"
+      />
     </ImageWrap>
   );
 };

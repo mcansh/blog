@@ -16,7 +16,6 @@ const CSP = (props: DocumentProps) => {
     'script-src': [
       "'self'",
       'data:',
-      props.inAmpMode && 'cdn.ampproject.org/v0.js',
       'http://cdn.usefathom.com/tracker.js',
       "'unsafe-eval'",
       "'unsafe-inline'",

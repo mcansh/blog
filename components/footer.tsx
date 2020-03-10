@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -22,17 +21,11 @@ const Footer = styled.footer`
 `;
 
 const FooterWrap: React.FC = () => {
-  const isAmp = useAmp();
-  const {
-    query: { amp, ...query },
-    pathname,
-  } = useRouter();
+  const { query, pathname } = useRouter();
   const isHome = pathname === '/';
   return (
     <Footer>
-      <Link
-        href={{ pathname: '/', query: isAmp ? { ...query, amp: 1 } : query }}
-      >
+      <Link href={{ pathname: '/', query }}>
         <a
           rel="home"
           aria-label="go home"

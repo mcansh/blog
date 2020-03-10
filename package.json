@@ -51,7 +51,8 @@
     "react-ink": "6.4.0",
     "react-simple-img": "2.3.9",
     "somebody": "2.0.0",
-    "styled-components": "5.0.1"
+    "styled-components": "5.0.1",
+    "type-fest": "0.12.0"
   },
   "devDependencies": {
     "@mcansh/eslint-config": "2.5.2",

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -61,10 +60,7 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ title, url, image, date }) => {
-  const isAmp = useAmp();
-  const {
-    query: { amp, ...query },
-  } = useRouter();
+  const { query } = useRouter();
 
   return (
     <HeaderStyles>
@@ -72,8 +68,8 @@ const Header: React.FC<Props> = ({ title, url, image, date }) => {
         <AnimatePresence exitBeforeEnter>
           <Title
             initial={{
-              opacity: isAmp ? 1 : 0,
-              translateY: isAmp ? 0 : -50,
+              opacity: 0,
+              translateY: -50,
             }}
             animate={{
               opacity: 1,
@@ -91,16 +87,7 @@ const Header: React.FC<Props> = ({ title, url, image, date }) => {
           <Title>{title}</Title>
         </noscript>
         {date && <DateHeading date={date} />}
-        {url && (
-          <Button
-            href={{
-              pathname: url,
-              query: isAmp ? { ...query, amp: '1' } : query,
-            }}
-          >
-            Read More
-          </Button>
-        )}
+        {url && <Button href={{ pathname: url, query }}>Read More</Button>}
       </HeaderContent>
       <Image image={image} />
       <figure>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAmp } from 'next/amp';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { SimpleImg } from 'react-simple-img';
@@ -20,7 +19,6 @@ export interface Post {
 }
 
 const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
-  const isAmp = useAmp();
   const {
     query: { amp, ...query },
   } = useRouter();
@@ -37,36 +35,20 @@ const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
     >
       <Post>
         <div className="post-card__img-wrapper">
-          {isAmp ? (
-            <amp-img
-              data-testid="post-image"
-              height={200}
-              src={image1x}
-              alt={title}
-              srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
-              data-photo={
-                hasImageAuthor ? `Taken by ${image.photographer}` : undefined
-              }
-              data-source-url={
-                hasImageSrc ? unsplashParams(image.url) : undefined
-              }
-            />
-          ) : (
-            <SimpleImg
-              data-testid="post-image"
-              placeholder={false}
-              height={200}
-              src={image1x}
-              alt={title}
-              srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
-              data-photo={
-                hasImageAuthor ? `Taken by ${image.photographer}` : undefined
-              }
-              data-source-url={
-                hasImageSrc ? unsplashParams(image.url) : undefined
-              }
-            />
-          )}
+          <SimpleImg
+            data-testid="post-image"
+            placeholder={false}
+            height={200}
+            src={image1x}
+            alt={title}
+            srcSet={`${image1x} 1x, ${image2x} 2x, ${image3x} 3x`}
+            data-photo={
+              hasImageAuthor ? `Taken by ${image.photographer}` : undefined
+            }
+            data-source-url={
+              hasImageSrc ? unsplashParams(image.url) : undefined
+            }
+          />
         </div>
         <div className="post-card__meta">
           <h2 className="post-card__title" data-testid="post-title">
