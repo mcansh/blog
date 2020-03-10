@@ -17,6 +17,7 @@ const CSP = (props: DocumentProps) => {
       "'self'",
       'data:',
       'http://cdn.usefathom.com/tracker.js',
+      'https://storage.googleapis.com',
       "'unsafe-eval'",
       "'unsafe-inline'",
     ],
