@@ -56,7 +56,7 @@
     "type-fest": "0.12.0"
   },
   "devDependencies": {
-    "@mcansh/eslint-config": "2.5.2",
+    "@mcansh/eslint-config": "2.6.1",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.5.0",
     "@types/body-scroll-lock": "2.6.1",
