@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PostCard, { Post } from '~/components/post-card/index';
-import { render } from '~/utils/render-with-intl';
+import { render } from '~/test-utils';
 
 const post: Post = {
   date: '2019-02-02T00:00:00',

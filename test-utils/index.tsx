@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 
 import theme from '~/config';
 
-const renderWithIntl = (children: React.ReactNode) =>
+const renderWithTheme = (children: React.ReactNode) =>
   render(
     <ThemeProvider theme={theme}>
       <>{children}</>
@@ -13,6 +13,4 @@ const renderWithIntl = (children: React.ReactNode) =>
   );
 
 export * from '@testing-library/react';
-export { renderWithIntl as render };
-
-export default renderWithIntl;
+export { renderWithTheme as render };

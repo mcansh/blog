@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '~/utils/render-with-intl';
+import { render } from '~/test-utils';
 import Header from '~/components/header';
 
 describe('Header Component', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { subMonths } from 'date-fns';
 
-import { render } from '~/utils/render-with-intl';
+import { render } from '~/test-utils';
 import DateHeading from '~/components/header/date';
 
 it('shows x time ago if < 4 months ago', () => {

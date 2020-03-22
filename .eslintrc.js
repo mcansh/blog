@@ -20,7 +20,7 @@ module.exports = {
       {
         devDependencies: [
           '__tests__/**/*',
-          'utils/render-with-intl.tsx',
+          'test-utils/index.tsx',
           'scripts/**/*',
           'types/jest-dom.d.ts',
           'next.config.js',
