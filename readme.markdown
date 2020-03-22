@@ -1,4 +1,4 @@
-# Blog
+# Blog [![Coverage Status](https://coveralls.io/repos/github/mcansh/blog/badge.svg)](https://coveralls.io/github/mcansh/blog)
 
 ## Set up locally
 
