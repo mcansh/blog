@@ -32,7 +32,7 @@ const DateHeading: React.FC<Props> = ({ date }) => {
     numeric: 'auto',
   });
 
-  if (unit === 'month' && value <= -4) {
+  if (unit === 'month' && value < -4) {
     return <H2 title={formatted}>Posted {formatted}</H2>;
   }
 
