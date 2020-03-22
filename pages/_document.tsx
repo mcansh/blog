@@ -40,7 +40,6 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
-          <div id="portal" />
           <NextScript nonce={hash} />
         </body>
       </Html>

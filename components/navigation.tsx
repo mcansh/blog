@@ -6,10 +6,10 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock';
+import Portal from '@reach/portal';
 
 import NavList from '~/components/nav-list';
 import Hamburger from '~/components/hamburger';
-import Portal from '~/components/portal';
 
 const Nav = styled.nav<{ navOpen: boolean }>`
   &::after {
