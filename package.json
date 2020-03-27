@@ -16,7 +16,7 @@
     "dev": "next",
     "build:next": "next build",
     "build:files": "node ./.next/serverless/scripts/build-files.js",
-    "build": "npm-run-all --parallel build:*",
+    "build": "npm-run-all build:*",
     "start": "next start",
     "test": "TZ=utc NODE_ENV=test jest",
     "lint:css": "stylelint './**/*.js' './**/*.jsx' './**/*.tsx' './**/*.ts'",
