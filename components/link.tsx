@@ -1,15 +1,11 @@
-import { format, parse, UrlObject } from 'url';
+import { format, UrlObject } from 'url';
 
 import React from 'react';
 import Link, { LinkProps } from 'next/link';
 
 function checkSameOrigin(url: UrlObject | string) {
-  const href = typeof url === 'string' ? parse(url) : url;
-  if (!href.protocol || !href.hostname) return true;
-  if (!/^https?/.test(href.protocol)) return false;
-  const domain =
-    process.env.NODE_ENV === 'development' ? 'localhost:3000' : 'mcansh.blog';
-  return href.hostname === domain;
+  const href = typeof url === 'string' ? url : format(url);
+  return href && (href.startsWith('/') || href.startsWith('#'));
 }
 
 const MyLink: React.FC<LinkProps> = ({
