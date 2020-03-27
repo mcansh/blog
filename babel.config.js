@@ -1,7 +1,7 @@
 module.exports = api => {
   api.cache(true);
   const presets = ['next/babel'];
-  const plugins = ['styled-components', 'macros', 'preval'];
+  const plugins = ['styled-components'];
 
   return { presets, plugins };
 };
