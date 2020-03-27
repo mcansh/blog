@@ -4,6 +4,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'components/**/*.{js,jsx,ts,tsx}',
+    '!components/styles/*',
     'pages/**/*.{js,jsx,ts,tsx}',
     'utils/**/*.{js,jsx,ts,tsx}',
   ],
@@ -14,6 +15,7 @@ module.exports = {
   ],
   testPathIgnorePatterns: ['/.next/', '/node_modules/', '/types/'],
   moduleNameMapper: {
+    '\\.svg': '<rootDir>/__mocks__/@svgr/webpack.js',
     '~/(.*)': '<rootDir>/$1',
   },
 };
