@@ -38,11 +38,13 @@ const CodeStyles = styled.pre`
     height: 0.5rem;
     border-radius: 0 0 0.5rem 0.5rem;
   }
+
   ::-webkit-scrollbar-track {
     background: #061526;
     border-radius: 0 0 0.4rem 0.4rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
   }
+
   ::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 0.5rem;
