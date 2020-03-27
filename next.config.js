@@ -75,7 +75,7 @@ const nextConfig = {
         const entries = { ...(await originalEntry()) };
 
         // These scripts can import components from the app and use ES modules
-        entries['./scripts/build-files.ts'] = './scripts/build-files.ts';
+        entries['./scripts/build-files.ts'] = './scripts/build-files.js';
 
         return entries;
       };
