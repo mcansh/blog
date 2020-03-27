@@ -1,16 +1,13 @@
-import Post from '~/components/layouts/post';
-
-export const meta = {
-  title: 'JavaScript classes key concepts',
-  date: '2016-11-20T00:00:00',
-  image: {
-    imageUrl: 'mia-baker-322594.jpg',
-    photographer: 'Mia Baker',
-    url: 'https://unsplash.com/photos/klRB1BB9pV8',
-  },
-  editUrl: 'pages/javascript-classes.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: JavaScript classes key concepts
+date: '2016-11-20T00:00:00'
+image:
+  imageUrl: mia-baker-322594.jpg
+  photographer: Mia Baker
+  url: 'https://unsplash.com/photos/klRB1BB9pV8'
+editUrl: pages/javascript-classes.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 The key concept in class variables and methods is how to define them. Classes
 are realistically just “special functions”. To define a class, you use the
@@ -35,5 +32,3 @@ class myClass {}
 
 It should be known that the content of a class declaration is executed in strict
 mode.
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;

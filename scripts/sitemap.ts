@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
-// This is a development script executed in the build step of pages
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const prettier = require('prettier');
+import prettier from 'prettier';
 
 const DOMAIN = 'https://mcansh.blog';
 const META = /export\s+const\s+meta\s+=\s+({[\s\S]*?\n})/;
@@ -15,11 +14,11 @@ const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`;
 
 // Wrap all pages in <urlset> tags
-const xmlUrlWrapper = nodes => `${xmlHeader}
+const xmlUrlWrapper = (nodes: any) => `${xmlHeader}
 ${nodes}
 </urlset>`;
 
-function recursiveReadDirSync(dir, arr = [], rootDir = dir) {
+function recursiveReadDirSync(dir: any, arr: any[] = [], rootDir = dir) {
   const result = fs.readdirSync(dir).filter(file => !file.startsWith('_'));
 
   result.forEach(part => {
@@ -36,7 +35,7 @@ function recursiveReadDirSync(dir, arr = [], rootDir = dir) {
   return arr;
 }
 
-function xmlUrlNode(pagePath) {
+function xmlUrlNode(pagePath: string) {
   const page = path.basename(pagePath);
   const pageName = path.basename(pagePath, path.extname(page));
   const relativeUrl = pagePath.replace(
@@ -74,7 +73,7 @@ function xmlUrlNode(pagePath) {
 
 function generateSiteMap() {
   const posts = recursiveReadDirSync('pages', [], 'pages');
-  const postsMeta = [];
+  const postsMeta: any[] = [];
 
   const nodes = posts
     .reduce((carry, filePath) => {
@@ -109,7 +108,7 @@ function generateSiteMap() {
   );
 
   const sortedPosts = postsMeta.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
   const postsJson = JSON.stringify(sortedPosts, null, 2);
 

@@ -1,17 +1,13 @@
-import Post from '~/components/layouts/post';
-import { Code } from '~/components/code';
-
-export const meta = {
-  title: 'Object lifecycle cheatsheet',
-  date: '2016-11-03T00:00:00',
-  image: {
-    imageUrl: 'matthew-henry-49707.jpg',
-    photographer: 'Matthew Henry',
-    url: 'https://unsplash.com/photos/VviFtDJakYk',
-  },
-  editUrl: 'pages/object-lifecycle-cheatsheet.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: Object lifecycle cheatsheet
+date: '2016-11-03T00:00:00'
+image:
+  imageUrl: matthew-henry-49707.jpg
+  photographer: Matthew Henry
+  url: 'https://unsplash.com/photos/VviFtDJakYk'
+editUrl: pages/object-lifecycle-cheatsheet.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 Firstly, I’d like to apolagize for the lack and timing of these posts. I’ve been
 busy at work and unfortunately haven’t had the time to write them 😭.
@@ -95,5 +91,3 @@ function Car(make, model, year) {
 
 const myCar = new Car('Volvo', 'S40', 2005);
 ```
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;

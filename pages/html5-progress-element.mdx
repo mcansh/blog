@@ -1,16 +1,13 @@
-import Post from '~/components/layouts/post';
-
-export const meta = {
-  title: 'The HTML5 progress element',
-  date: '2016-10-14T00:00:00',
-  image: {
-    imageUrl: 'matthew-kane-146076.jpg',
-    photographer: 'Matthew Kane',
-    url: 'https://unsplash.com/photos/9EM7s13H2I0',
-  },
-  editUrl: 'pages/html5-progress-element.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: The HTML5 progress element
+date: '2016-10-14T00:00:00'
+image:
+  imageUrl: matthew-kane-146076.jpg
+  photographer: Matthew Kane
+  url: 'https://unsplash.com/photos/9EM7s13H2I0'
+editUrl: pages/html5-progress-element.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 Something I’ve learned that wasn’t included in the Learn curriculum was the
 `progress` element. Now what that does is show the progress of a task. In the
@@ -196,5 +193,3 @@ const Layout = ({ children }) => {
   );
 };
 ```
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;

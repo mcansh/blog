@@ -1,16 +1,13 @@
-import Post from '~/components/layouts/post';
-
-export const meta = {
-  title: "Why I'm learning software development",
-  date: '2016-10-02T00:00:00',
-  image: {
-    imageUrl: 'luke-pamer-5951.jpg',
-    photographer: 'Luke Pamer',
-    url: 'https://unsplash.com/photos/oUhr-qMTJoc',
-  },
-  editUrl: 'pages/why-im-learning-software-development.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: Why I'm learning software development
+date: '2016-10-02T00:00:00'
+image:
+  imageUrl: luke-pamer-5951.jpg
+  photographer: Luke Pamer
+  url: 'https://unsplash.com/photos/oUhr-qMTJoc'
+editUrl: pages/why-im-learning-software-development.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 This is my first attempt at blogging, so I am sorry that this is ~7 days late.
 To be 100% honest with you, I don’t know my true reason for wanting to learn
@@ -29,5 +26,3 @@ you back.
 This was a short one I know, hopefully the next one will make up for it.
 
 — Logan
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;

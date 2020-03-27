@@ -53,16 +53,20 @@ const components = {
   pre: Pre,
 };
 
-const Post: React.FC<Props> = ({ children, meta: { path, ...meta } }) => {
-  const scrollProgress = useScrollProgress();
-  return (
-    <MDXProvider components={components}>
-      <Meta {...meta} />
-      <ScrollProgress value={scrollProgress} />
-      <Header {...meta} />
-      <PostWrap>{children}</PostWrap>
-    </MDXProvider>
-  );
+const MDXPost = (props: PostType) => {
+  const Post: React.FC = ({ children }) => {
+    const scrollProgress = useScrollProgress();
+    return (
+      <MDXProvider components={components}>
+        <Meta {...props} />
+        <ScrollProgress value={scrollProgress} />
+        <Header {...props} />
+        <PostWrap>{children}</PostWrap>
+      </MDXProvider>
+    );
+  };
+
+  return Post;
 };
 
-export default Post;
+export default MDXPost;

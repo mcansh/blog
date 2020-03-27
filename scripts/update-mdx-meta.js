@@ -1,12 +1,8 @@
 const { parse } = require('path');
+const { promises: fs } = require('fs');
 
 const globby = require('globby');
 const prettier = require('prettier');
-const remark = require('remark');
-const mdx = require('remark-mdx');
-const mdxMetadata = require('remark-mdx-metadata');
-const stringify = require('remark-stringify');
-const { read, write } = require('to-vfile');
 const {
   add,
   amendCommit,
@@ -14,6 +10,7 @@ const {
   getLastModifiedDate,
   getStagedFiles,
 } = require('git-jiggy');
+const matter = require('gray-matter');
 
 const isPostCommit = process.argv.slice(2).includes('post-commit');
 
@@ -35,28 +32,22 @@ const formatWithPrettier = async content => {
 const updateMeta = async paths => {
   await Promise.all(
     paths.map(async path => {
-      const file = await read(path);
+      const mdxFile = await fs.readFile(path);
       const editUrl = path.startsWith('./') ? path.slice(2) : path;
       const lastEdited = await getLastModifiedDate(path);
-      const result = await remark()
-        .use(mdx)
-        .use(mdxMetadata, {
-          meta: {
-            editUrl,
-            lastEdited,
-          },
-        })
-        .use(stringify, {
-          fences: true,
-          listItemIndent: '1',
-        })
-        .process(file);
-      const contents = await formatWithPrettier(result.toString());
+      const { data, ...file } = matter(mdxFile);
 
-      await write({
-        path,
-        contents,
-      });
+      const result = {
+        ...data,
+        editUrl,
+        lastEdited,
+      };
+
+      const contents = await formatWithPrettier(
+        matter.stringify({ data, ...file }, result)
+      );
+
+      await fs.writeFile(path, contents);
     })
   );
 };

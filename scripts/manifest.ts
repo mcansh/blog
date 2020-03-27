@@ -1,11 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const {
-  description,
-  productName,
-  productShortName,
-} = require('../package.json');
+import { description, productName, productShortName } from '~/package.json';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 

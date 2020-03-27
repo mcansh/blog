@@ -1,16 +1,13 @@
-import Post from '~/components/layouts/post';
-
-export const meta = {
-  title: 'Ruby project',
-  date: '2017-12-09T00:00:00',
-  image: {
-    imageUrl: 'stacy-wyss-702.jpg',
-    photographer: 'Stacy Wyss',
-    url: 'https://unsplash.com/photos/-aDl1z8_nGY',
-  },
-  editUrl: 'pages/ruby-project.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: Ruby project
+date: '2017-12-09T00:00:00'
+image:
+  imageUrl: stacy-wyss-702.jpg
+  photographer: Stacy Wyss
+  url: 'https://unsplash.com/photos/-aDl1z8_nGY'
+editUrl: pages/ruby-project.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 Ruby. There's times I absolutely hate it, and there's times I'm cool with it.
 This was actualy one of the times I enjoyed it. For my
@@ -27,5 +24,3 @@ Check it out on [github](https://github.com/mcansh/ruby-reddit-cli-app) or on
 **Update:** as of
 [1.0.8](https://github.com/mcansh/ruby-reddit-cli-app/releases/tag/1.0.8), it
 supports any public subreddit.
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;

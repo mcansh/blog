@@ -1,16 +1,13 @@
-import Post from '~/components/layouts/post';
-
-export const meta = {
-  title: 'How to convert the current time to a hexadecimal',
-  date: '2017-01-09T00:00:00',
-  image: {
-    imageUrl: 'team-ui8-199275.jpg',
-    photographer: 'Team UI8',
-    url: 'https://unsplash.com/photos/z8lfwpQVXJo',
-  },
-  editUrl: 'pages/time-to-hex.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: How to convert the current time to a hexadecimal
+date: '2017-01-09T00:00:00'
+image:
+  imageUrl: team-ui8-199275.jpg
+  photographer: Team UI8
+  url: 'https://unsplash.com/photos/z8lfwpQVXJo'
+editUrl: pages/time-to-hex.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 It’s actually really easy, [Demo](https://whatcolorisit.loganmcansh.com/).
 
@@ -91,5 +88,3 @@ change the android chrome theme color every second:
 ```javascript
 document.querySelector('meta[name="theme-color"]').content = hexTime;
 ```
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;
