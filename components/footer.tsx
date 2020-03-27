@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { name } from '~/utils/authorInfo';
+import { name } from '~/utils/author-info';
 
 const Footer = styled.footer`
   height: 8rem;

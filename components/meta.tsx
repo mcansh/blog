@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { description, homepage } from '~/package.json';
-import { name } from '~/utils/authorInfo';
+import { name } from '~/utils/author-info';
 import { iso8601 } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/get-cloudinary-url';
 import { ImageType } from '~/components/header/image';
