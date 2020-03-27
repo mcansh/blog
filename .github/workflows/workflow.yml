@@ -1,4 +1,4 @@
-name: yarn install, build, test, coverage
+name: CI
 
 on: [push]
 
