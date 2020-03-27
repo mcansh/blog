@@ -2,12 +2,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import prettier from 'prettier';
-
 const DOMAIN = 'https://mcansh.blog';
 const META = /export\s+const\s+meta\s+=\s+({[\s\S]*?\n})/;
 const SITEMAP_PATH = 'public/sitemap.xml';
-const POSTS_PATH = 'data/posts.json';
 
 // Set the header
 const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
@@ -105,14 +102,6 @@ function generateSiteMap() {
 
   console.log(
     `sitemap.xml with ${nodes.length} entries was written to ${SITEMAP_PATH}`
-  );
-
-  const postsJson = JSON.stringify(postsMeta, null, 2);
-
-  fs.writeFileSync(POSTS_PATH, prettier.format(postsJson, { parser: 'json' }));
-
-  console.log(
-    `posts.json with ${postsMeta.length} entries was written to ${POSTS_PATH}`
   );
 }
 
