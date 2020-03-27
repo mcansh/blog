@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const { description, homepage } = require('../package.json');
-const posts = require('../src/data/posts.json');
+const posts = require('../data/posts.json');
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
