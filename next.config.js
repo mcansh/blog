@@ -1,7 +1,6 @@
 const path = require('path');
 
 const withSourceMaps = require('@zeit/next-source-maps')();
-const mdxPrism = require('mdx-prism');
 const withMdxEnhanced = require('next-mdx-enhanced');
 const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -13,7 +12,6 @@ const { version, repository } = require('./package.json');
 const withMDX = withMdxEnhanced({
   layoutPath: 'components/layouts/post',
   defaultLayout: true,
-  rehypePlugins: [mdxPrism],
   extendFrontMatter: {
     process: (_mdxContent, frontMatter) => ({
       // eslint-disable-next-line no-underscore-dangle
