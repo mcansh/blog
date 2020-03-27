@@ -11,8 +11,7 @@ const nextConfig = {
   target: 'serverless',
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   experimental: {
-    deferScripts: true,
-    granularChunks: true,
+    jsconfigPaths: true,
     modern: true,
     plugins: true,
   },

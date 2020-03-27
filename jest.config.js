@@ -13,4 +13,7 @@ module.exports = {
     '<rootDir>/jest.setup.js',
   ],
   testPathIgnorePatterns: ['/.next/', '/node_modules/', '/types/'],
+  moduleNameMapper: {
+    '~/(.*)': '<rootDir>/$1',
+  },
 };

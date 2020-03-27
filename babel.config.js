@@ -3,7 +3,6 @@ module.exports = api => {
   const presets = ['next/babel'];
   const plugins = [
     'styled-components',
-    'root-import',
     ['inline-react-svg', { svgo: false }],
     'macros',
     'preval',
