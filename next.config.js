@@ -5,7 +5,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const { version, repository } = require('./package.json');
+const {
+  version,
+  repository,
+  description,
+  homepage,
+  author,
+} = require('./package.json');
 
 const nextConfig = {
   target: 'serverless',
@@ -15,6 +21,7 @@ const nextConfig = {
     granularChunks: true,
     modern: true,
     plugins: true,
+    jsconfigPaths: true,
   },
   dontAutoRegisterSw: true,
   workboxOpts: {
@@ -32,6 +39,9 @@ const nextConfig = {
   },
 
   env: {
+    DESCRIPTION: description,
+    HOME: homepage,
+    AUTHOR: author,
     TWITTER: 'loganmcansh',
     INSTAGRAM: 'loganmcansh',
     GITHUB: 'mcansh',

@@ -2,7 +2,6 @@ module.exports = {
   extends: ['@mcansh/eslint-config/typescript'],
   settings: {
     'import/resolver': {
-      'babel-plugin-root-import': {},
       typescript: {},
     },
   },
@@ -19,10 +18,10 @@ module.exports = {
       'error',
       {
         devDependencies: [
-          '__tests__/**/*',
-          'test-utils/index.tsx',
+          'src/__tests__/**/*',
+          'src/test-utils/index.tsx',
           'scripts/**/*',
-          'types/jest-dom.d.ts',
+          'src/types/jest-dom.d.ts',
           'next.config.js',
           '.eslintrc.js',
           'prettier.config.js',

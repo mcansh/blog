@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { description, homepage } from '~/package.json';
 import { name } from '~/utils/authorInfo';
 import { iso8601 } from '~/utils/dates';
 import getCloudinaryURL from '~/utils/get-cloudinary-url';
@@ -20,21 +19,25 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl = image?.imageUrl
     ? getCloudinaryURL(image.imageUrl)
-    : `${homepage}/static/images/me.jpg`;
+    : `${process.env.HOME}/static/images/me.jpg`;
 
   return (
     <Head>
       <title key="title">{pageTitle}</title>
       <meta charSet="utf-8" />
-      <meta key="description" name="description" content={description} />
+      <meta
+        key="description"
+        name="description"
+        content={process.env.DESCRIPTION}
+      />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="loganmcansh" />
       <meta key="twitter:title" name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={process.env.DESCRIPTION} />
       <meta key="twitter:image" name="twitter:image" content={fullImageUrl} />
 
       <meta key="og:title" property="og:title" content={pageTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={process.env.DESCRIPTION} />
       <meta
         key="og:type"
         property="og:type"
@@ -43,7 +46,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
       <meta
         key="og:url"
         property="og:url"
-        content={`${homepage}/${router.pathname}`}
+        content={`${process.env.HOME}/${router.pathname}`}
       />
       <meta key="og:image" property="og:image" content={fullImageUrl} />
       {date && (

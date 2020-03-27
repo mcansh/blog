@@ -14,5 +14,8 @@ declare namespace NodeJS {
     readonly ANALYZE: 'true' | 'false' | undefined;
     readonly SENTRY_RELEASE: string;
     readonly FATHOM_SITE_ID: string;
+    readonly DESCRIPTION: string;
+    readonly HOME: string;
+    readonly AUTHOR: string;
   }
 }

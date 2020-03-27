@@ -8,7 +8,7 @@ const prettier = require('prettier');
 const DOMAIN = 'https://mcansh.blog';
 const META = /export\s+const\s+meta\s+=\s+({[\s\S]*?\n})/;
 const SITEMAP_PATH = 'public/sitemap.xml';
-const POSTS_PATH = 'data/posts.json';
+const POSTS_PATH = 'src/data/posts.json';
 
 // Set the header
 const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
@@ -43,7 +43,7 @@ function xmlUrlNode(pagePath) {
     page,
     pageName === 'index' ? '' : `${pageName}/`
   );
-  const content = fs.readFileSync(path.join('pages', pagePath), 'utf-8');
+  const content = fs.readFileSync(path.join('src/pages', pagePath), 'utf-8');
   const match = content.match(META);
   const loc = DOMAIN + relativeUrl;
 
@@ -73,7 +73,7 @@ function xmlUrlNode(pagePath) {
 }
 
 function generateSiteMap() {
-  const posts = recursiveReadDirSync('pages', [], 'pages');
+  const posts = recursiveReadDirSync('src/pages', [], 'src/pages');
   const postsMeta = [];
 
   const nodes = posts
