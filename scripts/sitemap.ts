@@ -107,10 +107,7 @@ function generateSiteMap() {
     `sitemap.xml with ${nodes.length} entries was written to ${SITEMAP_PATH}`
   );
 
-  const sortedPosts = postsMeta.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-  const postsJson = JSON.stringify(sortedPosts, null, 2);
+  const postsJson = JSON.stringify(postsMeta, null, 2);
 
   fs.writeFileSync(POSTS_PATH, prettier.format(postsJson, { parser: 'json' }));
 
