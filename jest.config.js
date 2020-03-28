@@ -11,7 +11,6 @@ module.exports = {
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
     'jest-styled-components',
-    '<rootDir>/jest.setup.js',
   ],
   testPathIgnorePatterns: ['/.next/', '/node_modules/', '/types/'],
   moduleNameMapper: {

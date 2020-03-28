@@ -92,7 +92,6 @@
     "husky": "4.2.5",
     "jest": "25.4.0",
     "jest-in-case": "1.0.2",
-    "jest-next-dynamic": "1.0.1",
     "jest-styled-components": "7.0.2",
     "lint-staged": "10.1.6",
     "next-offline": "5.0.0",
