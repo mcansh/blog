@@ -34,7 +34,7 @@
     "@next/bundle-analyzer": "9.3.2",
     "@next/mdx": "9.3.4",
     "@next/plugin-sentry": "9.3.4",
-    "@reach/portal": "0.9.0",
+    "@reach/portal": "0.10.0",
     "body-scroll-lock": "3.0.1",
     "date-fns": "2.11.1",
     "fathom-client": "2.0.3",
