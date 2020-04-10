@@ -1,7 +1,5 @@
 {
-  "project": "blog",
   "version": 2,
-  "regions": ["all"],
   "build": {
     "env": {
       "NPM_RC": "@npmrc"
