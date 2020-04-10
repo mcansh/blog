@@ -39,6 +39,13 @@ const FooterWrap: React.FC = () => {
           &copy; {new Date().getFullYear()} {name}
         </a>
       </Link>
+      <a
+        target="_blank"
+        rel="noopener external noreferrer"
+        href="https://usefathom.com/ref/QFHYEN"
+      >
+        Website stats by Fathom Analytics
+      </a>
     </Footer>
   );
 };
