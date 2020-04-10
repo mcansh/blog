@@ -13,6 +13,8 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 0.8rem;
 
   a {
     color: currentColor;
