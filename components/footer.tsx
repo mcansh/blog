@@ -13,10 +13,22 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 420px) {
+    flex-direction: row;
+  }
 
   a {
     color: currentColor;
     text-decoration: none;
+    :not(:last-of-type) {
+      margin-bottom: 0.8rem;
+      @media (min-width: 420px) {
+        margin-bottom: 0;
+        margin-right: 0.8rem;
+      }
+    }
   }
 `;
 
@@ -39,6 +51,13 @@ const FooterWrap: React.FC = () => {
           &copy; {new Date().getFullYear()} {name}
         </a>
       </Link>
+      <a
+        target="_blank"
+        rel="noopener external noreferrer"
+        href="https://usefathom.com/ref/QFHYEN"
+      >
+        Website stats by Fathom Analytics
+      </a>
     </Footer>
   );
 };
