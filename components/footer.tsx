@@ -14,11 +14,21 @@ const Footer = styled.footer`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 0.8rem;
+
+  @media (min-width: 420px) {
+    flex-direction: row;
+  }
 
   a {
     color: currentColor;
     text-decoration: none;
+    :not(:last-of-type) {
+      margin-bottom: 0.8rem;
+      @media (min-width: 420px) {
+        margin-bottom: 0;
+        margin-right: 0.8rem;
+      }
+    }
   }
 `;
 
