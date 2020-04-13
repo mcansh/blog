@@ -51,7 +51,7 @@
     "react-ink": "6.4.0",
     "react-simple-img": "2.3.9",
     "somebody": "2.0.0",
-    "styled-components": "5.0.1",
+    "styled-components": "5.1.0",
     "type-fest": "0.13.0"
   },
   "devDependencies": {
