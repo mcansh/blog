@@ -101,7 +101,7 @@
     "remark-mdx": "1.5.8",
     "remark-mdx-metadata": "1.0.1",
     "remark-stringify": "8.0.0",
-    "stylelint": "13.2.1",
+    "stylelint": "13.3.2",
     "stylelint-config-prettier": "8.0.1",
     "stylelint-config-recommended": "3.0.0",
     "stylelint-config-styled-components": "0.1.1",
