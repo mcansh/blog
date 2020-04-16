@@ -37,7 +37,6 @@ const nextConfig = {
     EMAIL: 'logan+blog@mcan.sh',
     SENTRY_DSN: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
     SENTRY_RELEASE: `blog@${version}`,
-    ANALYTICS: 'UA-87731356-4',
     GITHUB_URL: `https://github.com/${repository}`,
     VERSION: version,
     FATHOM_SITE_ID: 'ROTOLYJX',
