@@ -16,7 +16,7 @@ const CSP = (props: DocumentProps) => {
     'script-src': [
       "'self'",
       'data:',
-      'http://cdn.usefathom.com/tracker.js',
+      'https://tz8sxj4sit.mcansh.blog/tracker.js',
       'https://storage.googleapis.com',
       "'unsafe-eval'",
       "'unsafe-inline'",
@@ -28,7 +28,7 @@ const CSP = (props: DocumentProps) => {
       "'self'",
       'res.cloudinary.com/dof0zryca/',
       'data:',
-      'https://collect.usefathom.com',
+      'https://tz8sxj4sit.mcansh.blog',
     ],
   };
 
