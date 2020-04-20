@@ -2585,10 +2585,10 @@
   resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.3.5.tgz#9343b77c5b92da7bdaa022969977562cd523df6a"
   integrity sha512-LYzwx+oZ9iPHPzAvf2RPsPpmulmVMdmZ0IrB/eRWTC+RrW6wD0QHEYuS68qm5TWkwi9bLpNru3GANxX6Cniq2A==
 
-"@next/plugin-sentry@9.3.4":
-  version "9.3.4"
-  resolved "https://registry.yarnpkg.com/@next/plugin-sentry/-/plugin-sentry-9.3.4.tgz#37eba7de6447f89429a12779633ed2fc4ba0fa33"
-  integrity sha512-ecr+Y8NlEDfpVqAkJFee447TqpWFvnls3xhGTrJ+trwLVdM9JELuZo/ZFTyy5diEaadDKfMmAgbtpRmUsAy5sg==
+"@next/plugin-sentry@9.3.5":
+  version "9.3.5"
+  resolved "https://registry.yarnpkg.com/@next/plugin-sentry/-/plugin-sentry-9.3.5.tgz#386ebf8c8647bfee9ae151bd6d902b3d17d96f53"
+  integrity sha512-3SeiWm3CLsuMCrtsLn0Y4PClx7NYfy1EAFgzg4roBLj5EstxFsr198/vlvne+ksXvPeXMXvkimRQDfNCWYAP3A==
   dependencies:
     "@sentry/browser" "5.7.1"
     "@sentry/node" "5.7.1"
