@@ -1,7 +1,7 @@
 import { NextRouter } from 'next/router';
 
-function noop(..._args: any[]) {
-  return undefined;
+function noop() {
+  return {};
 }
 
 const router: NextRouter = {
@@ -21,6 +21,7 @@ const router: NextRouter = {
   reload: noop,
   replace: () => new Promise(resolve => resolve(true)),
   route: '/',
+  basePath: '',
 };
 
 export function useRouter() {

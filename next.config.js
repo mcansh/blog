@@ -1,5 +1,3 @@
-const path = require('path');
-
 const withSourceMaps = require('@zeit/next-source-maps')();
 const withMdxEnhanced = require('next-mdx-enhanced');
 const withOffline = require('next-offline');
@@ -40,7 +38,7 @@ const nextConfig = {
   target: 'serverless',
   pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
   experimental: {
-    // jsconfigPaths: true,
+    jsconfigPaths: true,
     modern: true,
     plugins: true,
   },
@@ -57,8 +55,6 @@ const nextConfig = {
     FATHOM_SITE_ID: 'ROTOLYJX',
   },
   webpack: (config, { isServer }) => {
-    config.resolve.alias['~'] = path.resolve('./');
-
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
