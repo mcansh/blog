@@ -2580,10 +2580,10 @@
   dependencies:
     webpack-bundle-analyzer "3.6.1"
 
-"@next/mdx@9.3.4":
-  version "9.3.4"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.3.4.tgz#2d6a7c6c98a2d0b0e65dada4687d7ab10b232f22"
-  integrity sha512-FUDkumSQYGq6p2DiKe51RMwQnDYCvee+fkyCwUfBfvLAhk2+V8feXGIrJAcdthVeQPh22joInfrfLePGF3oyLA==
+"@next/mdx@9.3.5":
+  version "9.3.5"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.3.5.tgz#9343b77c5b92da7bdaa022969977562cd523df6a"
+  integrity sha512-LYzwx+oZ9iPHPzAvf2RPsPpmulmVMdmZ0IrB/eRWTC+RrW6wD0QHEYuS68qm5TWkwi9bLpNru3GANxX6Cniq2A==
 
 "@next/plugin-sentry@9.3.4":
   version "9.3.4"
