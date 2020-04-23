@@ -29,6 +29,7 @@ const CSP = (props: DocumentProps) => {
       'res.cloudinary.com/dof0zryca/',
       'data:',
       'https://collect.usefathom.com',
+      'https://img3.usefathom.com',
     ],
   };
 
