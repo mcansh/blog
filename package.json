@@ -35,7 +35,7 @@
     "@next/mdx": "9.3.5",
     "@next/plugin-sentry": "9.3.5",
     "@reach/portal": "0.10.0",
-    "body-scroll-lock": "3.0.1",
+    "body-scroll-lock": "3.0.2",
     "date-fns": "2.12.0",
     "fathom-client": "2.0.3",
     "framer-motion": "1.10.3",
