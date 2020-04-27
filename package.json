@@ -30,7 +30,7 @@
     "@formatjs/intl-relativetimeformat": "4.5.11",
     "@mcansh/next-nprogress": "1.1.2",
     "@mdx-js/loader": "1.5.8",
-    "@mdx-js/react": "1.5.8",
+    "@mdx-js/react": "1.5.9",
     "@next/bundle-analyzer": "9.3.5",
     "@next/mdx": "9.3.5",
     "@next/plugin-sentry": "9.3.5",
