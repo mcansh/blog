@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@mcansh/eslint-config": "2.6.1",
-    "@svgr/webpack": "5.3.1",
+    "@svgr/webpack": "5.4.0",
     "@testing-library/jest-dom": "5.5.0",
     "@testing-library/react": "10.0.3",
     "@types/body-scroll-lock": "2.6.1",
