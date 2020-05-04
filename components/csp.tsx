@@ -20,14 +20,17 @@ const CSP = (props: DocumentProps) => {
       'https://storage.googleapis.com',
       "'unsafe-eval'",
       "'unsafe-inline'",
+      'https://cdn.usefathom.com',
+      'http://tz8sxj4sit.mcansh.blog',
     ],
-    'connect-src': ["'self'", 'sentry.io'],
+    'connect-src': ["'self'", 'sentry.io', 'https://tz8sxj4sit.mcansh.blog'],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': [
       "'self'",
       'res.cloudinary.com/dof0zryca/',
       'data:',
+      'https://collect.usefathom.com',
       'https://tz8sxj4sit.mcansh.blog',
     ],
   };

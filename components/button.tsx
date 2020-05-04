@@ -7,6 +7,7 @@ interface Props extends LinkProps {
   children: React.ReactNode;
   target?: string;
   rel?: string;
+  onClick?: VoidFunction;
 }
 
 const StyledLink = styled.a`
@@ -49,9 +50,9 @@ const StyledLink = styled.a`
   }
 `;
 
-const Button: React.FC<Props> = ({ children, ...nextProps }) => (
+const Button: React.FC<Props> = ({ children, onClick, ...nextProps }) => (
   <Link {...nextProps} passHref>
-    <StyledLink>
+    <StyledLink onClick={onClick}>
       <span>{children}</span>
       <Ink />
     </StyledLink>

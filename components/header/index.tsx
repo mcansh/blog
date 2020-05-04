@@ -6,6 +6,7 @@ import Button from '~/components/button';
 import DateHeading from '~/components/header/date';
 import Image, { ImageType } from '~/components/header/image';
 import Curve from '~/public/static/images/curve.svg';
+import { trackGoal } from '~/lib/fathom';
 
 const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
   height: 50vh;
@@ -83,7 +84,16 @@ const Header: React.FC<Props> = ({ title, url, image, date }) => (
         <Title>{title}</Title>
       </noscript>
       {date && <DateHeading date={date} />}
-      {url && <Button href={url}>Read More</Button>}
+      {url && (
+        <Button
+          onClick={() => {
+            trackGoal('MUX9XASV', 0);
+          }}
+          href={url}
+        >
+          Read More
+        </Button>
+      )}
     </HeaderContent>
     <Image image={image} />
     <figure>
