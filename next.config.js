@@ -41,6 +41,7 @@ const nextConfig = {
     GITHUB_URL: `https://github.com/${repository}`,
     VERSION: version,
     FATHOM_SITE_ID: 'ROTOLYJX',
+    FATHOM_SUBDOMAIN: 'https://tz8sxj4sit.mcansh.blog',
   },
 
   webpack: (config, { isServer }) => {

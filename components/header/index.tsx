@@ -38,7 +38,6 @@ const HeaderStyles = styled.header.attrs({ 'data-testid': 'header' })`
 `;
 
 const HeaderContent = styled.div`
-  z-index: 1;
   text-align: center;
   max-width: 80vw;
 `;
