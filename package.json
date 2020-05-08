@@ -36,7 +36,6 @@
     "@reach/portal": "0.10.1",
     "body-scroll-lock": "3.0.2",
     "date-fns": "2.13.0",
-    "fathom-client": "2.0.3",
     "framer-motion": "1.10.3",
     "intl": "1.2.5",
     "mdx-utils": "0.2.0",

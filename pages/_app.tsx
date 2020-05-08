@@ -2,26 +2,22 @@ import React from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import { NProgress } from '@mcansh/next-nprogress';
-import * as Fathom from 'fathom-client';
-import Router from 'next/router';
 
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
 import Document from '~/components/layouts/document';
 
-Router.events.on('routeChangeComplete', () => {
-  Fathom.trackPageview();
-});
-
 const App = ({ Component, pageProps }: AppProps) => {
   const statusCode = pageProps?.statusCode ?? 200;
 
   React.useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      Fathom.load();
-      Fathom.setSiteId(process.env.FATHOM_SITE_ID);
-      Fathom.trackPageview();
-    }
+    const tracker = window.document.createElement('script');
+    const firstScript = window.document.getElementsByTagName('script')[0];
+    tracker.defer = true;
+    tracker.setAttribute('site', process.env.FATHOM_SITE_ID);
+    tracker.setAttribute('spa', 'auto');
+    tracker.src = `${process.env.FATHOM_SUBDOMAIN}/script.js`;
+    firstScript.parentNode?.insertBefore(tracker, firstScript);
   }, []);
 
   return (

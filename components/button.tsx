@@ -43,7 +43,6 @@ const StyledLink = styled.a`
   }
 
   span {
-    z-index: 1;
     position: relative;
     line-height: 1.5;
   }
