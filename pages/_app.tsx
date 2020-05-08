@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     tracker.defer = true;
     tracker.setAttribute('site', process.env.FATHOM_SITE_ID);
     tracker.setAttribute('spa', 'auto');
-    tracker.src = 'https://tz8sxj4sit.mcansh.blog/script.js';
+    tracker.src = `${process.env.FATHOM_SUBDOMAIN}/script.js`;
     firstScript.parentNode?.insertBefore(tracker, firstScript);
   }, []);
 

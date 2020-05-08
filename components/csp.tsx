@@ -16,10 +16,10 @@ const CSP = (props: DocumentProps) => {
     'script-src': [
       "'self'",
       'data:',
-      'http://cdn.usefathom.com/tracker.js',
       'https://storage.googleapis.com',
       "'unsafe-eval'",
       "'unsafe-inline'",
+      `${process.env.FATHOM_SUBDOMAIN}/script.js`,
     ],
     'connect-src': ["'self'", 'sentry.io'],
     'manifest-src': ["'self'"],
@@ -28,8 +28,7 @@ const CSP = (props: DocumentProps) => {
       "'self'",
       'res.cloudinary.com/dof0zryca/',
       'data:',
-      'https://collect.usefathom.com',
-      'https://img3.usefathom.com',
+      process.env.FATHOM_SUBDOMAIN,
     ],
   };
 
