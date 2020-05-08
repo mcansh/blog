@@ -8,5 +8,5 @@ coverage
 public/feed.json
 public/sitemap.xml
 public/atom.xml
-
+.mdx-data
 .now

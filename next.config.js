@@ -1,5 +1,5 @@
 const withSourceMaps = require('@zeit/next-source-maps')();
-const withMDX = require('@next/mdx')();
+const withMdxEnhanced = require('next-mdx-enhanced');
 const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -7,14 +7,19 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const { version, repository } = require('./package.json');
 
-const nextConfig = {
-  target: 'serverless',
-  pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
-  experimental: {
-    jsconfigPaths: true,
-    modern: true,
-    plugins: true,
+const withMDX = withMdxEnhanced({
+  layoutPath: 'components/layouts/post',
+  defaultLayout: true,
+  extendFrontMatter: {
+    process: (_mdxContent, frontMatter) => ({
+      // eslint-disable-next-line no-underscore-dangle
+      path: `/${frontMatter.__resourcePath.split('.mdx')[0]}`,
+    }),
   },
+});
+
+const nextConfig = {
+  // third party
   dontAutoRegisterSw: true,
   workboxOpts: {
     swDest: 'static/sw.js',
@@ -30,6 +35,13 @@ const nextConfig = {
     ],
   },
 
+  target: 'serverless',
+  pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
+  experimental: {
+    jsconfigPaths: true,
+    modern: true,
+    plugins: true,
+  },
   env: {
     TWITTER: 'loganmcansh',
     INSTAGRAM: 'loganmcansh',
@@ -43,17 +55,25 @@ const nextConfig = {
     FATHOM_SITE_ID: 'ROTOLYJX',
     FATHOM_SUBDOMAIN: 'https://tz8sxj4sit.mcansh.blog',
   },
-
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }
 
     if (isServer) {
-      require('./scripts/atom');
-      require('./scripts/jsonfeed');
-      require('./scripts/manifest');
-      require('./scripts/sitemap');
+      // we're in build mode so enable shared caching for the GitHub API
+      process.env.USE_CACHE = 'true';
+
+      const originalEntry = config.entry;
+
+      config.entry = async () => {
+        const entries = { ...(await originalEntry()) };
+
+        // These scripts can import components from the app and use ES modules
+        entries['./scripts/build-files.js'] = './scripts/build-files.ts';
+
+        return entries;
+      };
     }
 
     config.module.rules.push({

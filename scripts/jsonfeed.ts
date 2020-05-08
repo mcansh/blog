@@ -1,18 +1,11 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const { description, homepage } = require('../package.json');
-const posts = require('../data/posts.json');
+import { description, homepage } from '~/package.json';
+import { posts } from '~/posts';
+import getCloudinaryURL from '~/utils/get-cloudinary-url';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
-
-const getCloudinaryURL = (image, settings = []) => {
-  const base = 'https://res.cloudinary.com/dof0zryca/image/upload';
-  const id = 'v1581285181/blog';
-  const settingsString = ['f_auto', ...settings].join(',');
-
-  return `${base}/${settingsString}/${id}/${image}`;
-};
 
 const feed = {
   version: 'https://jsonfeed.org/version/1',
@@ -34,7 +27,7 @@ const feed = {
     content_text: `${post.title}. See ${homepage}${post.path}!`,
     summary: post.title,
     image: getCloudinaryURL(post.image.imageUrl),
-    date_published: post.publishedAt,
+    date_published: post.date,
   })),
 };
 

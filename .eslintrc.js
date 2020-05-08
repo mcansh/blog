@@ -21,7 +21,7 @@ module.exports = {
           '__tests__/**/*',
           'test-utils/index.tsx',
           'scripts/**/*',
-          'types/jest-dom.d.ts',
+          '@types/jest-dom.d.ts',
           'next.config.js',
           '.eslintrc.js',
           'prettier.config.js',

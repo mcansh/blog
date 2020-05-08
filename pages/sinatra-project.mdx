@@ -1,16 +1,13 @@
-import Post from '~/components/layouts/post';
-
-export const meta = {
-  title: 'Sinatra project',
-  date: '2017-04-24T00:00:00',
-  image: {
-    imageUrl: 'brevite-434280.jpg',
-    photographer: 'Brevitē',
-    url: 'https://unsplash.com/photos/4qAxSfftA5I',
-  },
-  editUrl: 'pages/sinatra-project.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: Sinatra project
+date: '2017-04-24T00:00:00'
+image:
+  imageUrl: brevite-434280.jpg
+  photographer: Brevitē
+  url: 'https://unsplash.com/photos/4qAxSfftA5I'
+editUrl: pages/sinatra-project.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 Long time no see! It’s time to talk about my
 [sinatra portfolio project](https://github.com/mcansh/sinatra-project 'mcansh/sinatra-project')
@@ -32,5 +29,3 @@ created one. If you mark it as complete, the task will be crossed out on your
 list. Deleting the task will delete it and take you back to your homepage.
 
 That’s all for now 👋
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;

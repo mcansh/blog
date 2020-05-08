@@ -11,9 +11,8 @@ module.exports = {
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
     'jest-styled-components',
-    '<rootDir>/jest.setup.js',
   ],
-  testPathIgnorePatterns: ['/.next/', '/node_modules/', '/types/'],
+  testPathIgnorePatterns: ['/.next/', '/node_modules/', '/@types/'],
   moduleNameMapper: {
     '\\.svg': '<rootDir>/__mocks__/@svgr/webpack.js',
     '~/(.*)': '<rootDir>/$1',

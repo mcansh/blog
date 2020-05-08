@@ -1,32 +1,37 @@
-name: CI
+name: Node.js CI
 
-on: [push]
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 13.x, 14.x]
+
     steps:
-      - uses: actions/checkout@master
-      - name: Use Node.js 12.x
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: ${{ matrix.node-version }}
 
       - uses: actions/cache@v1
         with:
           path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
 
-      - name: yarn install, build, and test
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
-          echo "@mcansh:registry=https://npm.pkg.github.com" >> .npmrc
-          yarn install
-          yarn build
-          yarn test
+      - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI: 'true'
+      - run: npm run build
+      - run: npm run test
+
       - name: upload coverage to coveralls
         uses: coverallsapp/github-action@master
         with:

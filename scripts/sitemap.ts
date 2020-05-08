@@ -1,25 +1,28 @@
 /* eslint-disable no-console */
-// This is a development script executed in the build step of pages
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const prettier = require('prettier');
+import matter from 'gray-matter';
+
+import { Post } from '~/components/post-card';
 
 const DOMAIN = 'https://mcansh.blog';
-const META = /export\s+const\s+meta\s+=\s+({[\s\S]*?\n})/;
 const SITEMAP_PATH = 'public/sitemap.xml';
-const POSTS_PATH = 'data/posts.json';
 
 // Set the header
 const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`;
 
 // Wrap all pages in <urlset> tags
-const xmlUrlWrapper = nodes => `${xmlHeader}
+const xmlUrlWrapper = (nodes: string) => `${xmlHeader}
 ${nodes}
 </urlset>`;
 
-function recursiveReadDirSync(dir, arr = [], rootDir = dir) {
+function recursiveReadDirSync(
+  dir: string,
+  arr: any[] = [],
+  rootDir = dir
+): string[] {
   const result = fs.readdirSync(dir).filter(file => !file.startsWith('_'));
 
   result.forEach(part => {
@@ -36,7 +39,7 @@ function recursiveReadDirSync(dir, arr = [], rootDir = dir) {
   return arr;
 }
 
-function xmlUrlNode(pagePath) {
+function xmlUrlNode(pagePath: string) {
   const page = path.basename(pagePath);
   const pageName = path.basename(pagePath, path.extname(page));
   const relativeUrl = pagePath.replace(
@@ -44,19 +47,18 @@ function xmlUrlNode(pagePath) {
     pageName === 'index' ? '' : `${pageName}/`
   );
   const content = fs.readFileSync(path.join('pages', pagePath), 'utf-8');
-  const match = content.match(META);
+  const frontMatter = matter(content);
   const loc = DOMAIN + relativeUrl;
 
-  let meta;
   let lastmod;
+  let meta;
 
-  if (match && typeof match[1] === 'string') {
-    // eslint-disable-next-line no-eval
-    meta = eval(`(${match[1]})`);
+  if (frontMatter?.data) {
+    meta = frontMatter.data as Post;
+  }
 
-    if (meta.lastEdited) {
-      lastmod = meta.lastEdited;
-    }
+  if (frontMatter?.data?.lastEdited) {
+    lastmod = frontMatter.data.lastEdited;
   }
 
   const node = `  <url>
@@ -73,19 +75,18 @@ function xmlUrlNode(pagePath) {
 }
 
 function generateSiteMap() {
-  const posts = recursiveReadDirSync('pages', [], 'pages');
-  const postsMeta = [];
+  const posts: string[] = recursiveReadDirSync('pages');
+
+  const postsMeta: Post[] = [];
 
   const nodes = posts
-    .reduce((carry, filePath) => {
+    .reduce((acc: string[], filePath) => {
       const pagePath = filePath.replace(/\\/g, '/');
-
-      // Only v2 pages are included in sitemap.xml
       if (!pagePath.startsWith('.')) {
         const { node } = xmlUrlNode(pagePath);
-        carry.push(node);
+        return [...acc, node];
       }
-      return carry;
+      return acc;
     }, [])
     .concat(
       posts.map(filePath => {
@@ -106,17 +107,6 @@ function generateSiteMap() {
 
   console.log(
     `sitemap.xml with ${nodes.length} entries was written to ${SITEMAP_PATH}`
-  );
-
-  const sortedPosts = postsMeta.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
-  const postsJson = JSON.stringify(sortedPosts, null, 2);
-
-  fs.writeFileSync(POSTS_PATH, prettier.format(postsJson, { parser: 'json' }));
-
-  console.log(
-    `posts.json with ${postsMeta.length} entries was written to ${POSTS_PATH}`
   );
 }
 

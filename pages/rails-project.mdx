@@ -1,14 +1,11 @@
-import Post from '~/components/layouts/post';
-
-export const meta = {
-  title: 'Rails project',
-  date: '2017-08-24T00:00:00',
-  image: {
-    imageUrl: '1_Wmv8hfi_bTHuHyV5CawnCw.jpg',
-  },
-  editUrl: 'pages/rails-project.mdx',
-  lastEdited: '2020-03-10T22:44:42.000Z',
-};
+---
+title: Rails project
+date: '2017-08-24T00:00:00'
+image:
+  imageUrl: 1_Wmv8hfi_bTHuHyV5CawnCw.jpg
+editUrl: pages/rails-project.mdx
+lastEdited: '2020-03-27T20:16:24.000Z'
+---
 
 You're Probably wondering where that Rails project is eh?
 
@@ -21,5 +18,3 @@ account. After signing up, you can make a new list, make new tasks, edit your
 list, delete your list, and delete your tasks. If you try accessing a list which
 you haven't made, you'll be redirected back to the previous page and see an
 error.
-
-export default ({ children }) => <Post meta={meta}>{children}</Post>;
