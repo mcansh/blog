@@ -31,7 +31,7 @@
     "@formatjs/intl-pluralrules": "1.5.8",
     "@formatjs/intl-relativetimeformat": "4.5.15",
     "@mcansh/next-nprogress": "1.1.2",
-    "@next/bundle-analyzer": "9.3.6",
+    "@next/bundle-analyzer": "9.4.0",
     "@next/plugin-sentry": "9.3.6",
     "@reach/portal": "0.10.1",
     "body-scroll-lock": "3.0.2",
