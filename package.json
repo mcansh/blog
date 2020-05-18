@@ -35,7 +35,7 @@
     "@next/plugin-sentry": "9.4.0",
     "@reach/portal": "0.10.2",
     "body-scroll-lock": "3.0.2",
-    "date-fns": "2.13.0",
+    "date-fns": "2.14.0",
     "framer-motion": "1.10.3",
     "intl": "1.2.5",
     "mdx-utils": "0.2.0",
