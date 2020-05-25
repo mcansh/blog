@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@formatjs/intl-pluralrules": "1.5.8",
-    "@formatjs/intl-relativetimeformat": "4.5.15",
+    "@formatjs/intl-relativetimeformat": "5.1.0",
     "@mcansh/next-nprogress": "1.1.2",
     "@next/bundle-analyzer": "9.4.0",
     "@next/plugin-sentry": "9.4.1",
