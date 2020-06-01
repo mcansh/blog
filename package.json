@@ -28,7 +28,7 @@
     "validate": "npm-run-all --parallel lint format lint:css type-check test"
   },
   "dependencies": {
-    "@formatjs/intl-pluralrules": "1.5.8",
+    "@formatjs/intl-pluralrules": "2.2.1",
     "@formatjs/intl-relativetimeformat": "5.2.1",
     "@mcansh/next-nprogress": "1.1.2",
     "@next/bundle-analyzer": "9.4.2",
