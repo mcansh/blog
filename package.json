@@ -43,7 +43,7 @@
     "next-mdx-enhanced": "3.0.0",
     "nprogress": "0.2.0",
     "polished": "3.6.4",
-    "prism-react-renderer": "1.1.0",
+    "prism-react-renderer": "1.1.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-ink": "6.4.0",
