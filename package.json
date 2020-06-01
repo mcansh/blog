@@ -71,7 +71,7 @@
     "@zeit/next-source-maps": "0.0.4-canary.1",
     "babel-plugin-import-glob-array": "0.2.0",
     "babel-plugin-styled-components": "1.10.7",
-    "eslint": "7.0.0",
+    "eslint": "7.1.0",
     "eslint-config-airbnb": "18.1.0",
     "eslint-config-kentcdodds": "14.13.0",
     "eslint-config-prettier": "6.11.0",
