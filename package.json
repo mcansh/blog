@@ -33,7 +33,7 @@
     "@mcansh/next-nprogress": "1.1.2",
     "@next/bundle-analyzer": "9.4.2",
     "@next/plugin-sentry": "9.4.1",
-    "@reach/portal": "0.10.2",
+    "@reach/portal": "0.10.3",
     "body-scroll-lock": "3.0.2",
     "date-fns": "2.14.0",
     "framer-motion": "1.11.0",
