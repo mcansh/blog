@@ -28,8 +28,6 @@
     "validate": "npm-run-all --parallel lint format lint:css type-check test"
   },
   "dependencies": {
-    "@formatjs/intl-pluralrules": "2.2.6",
-    "@formatjs/intl-relativetimeformat": "5.2.6",
     "@mcansh/next-nprogress": "1.1.2",
     "@next/bundle-analyzer": "9.4.4",
     "@next/plugin-sentry": "9.4.4",
@@ -37,7 +35,6 @@
     "body-scroll-lock": "3.0.3",
     "date-fns": "2.14.0",
     "framer-motion": "1.11.0",
-    "intl": "1.2.5",
     "mdx-utils": "0.2.0",
     "next": "9.4.4",
     "next-mdx-enhanced": "3.0.0",

@@ -1,17 +1,15 @@
+import { formatISO, parseISO, format } from 'date-fns';
+
 type PossibleDates = string | number | Date;
 
-const formatPostDate = (
-  inputDate: PossibleDates,
-  lang: string | string[] = 'en'
-) =>
-  new Intl.DateTimeFormat(lang, {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'utc',
-  }).format(new Date(inputDate));
+function parseDate(input: PossibleDates) {
+  return typeof input === 'string' ? parseISO(input) : input;
+}
+
+const formatPostDate = (inputDate: PossibleDates) =>
+  format(parseDate(inputDate), 'MMMM d, yyyy');
 
 const iso8601 = (date: PossibleDates) =>
-  new Date(date).toISOString().slice(0, 10);
+  formatISO(parseDate(date), { representation: 'date' });
 
 export { iso8601, formatPostDate };

@@ -5,10 +5,6 @@ import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
 import Meta from '~/components/meta';
 
-if (!global.Intl) {
-  global.Intl = require('intl');
-}
-
 if (typeof window !== 'undefined') {
   const info = [
     `Version: ${process.env.VERSION}`,
