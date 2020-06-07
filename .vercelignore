@@ -11,7 +11,7 @@ static/images/posts/
 *.env
 *.log
 .vscode/
-__tests__/
+__tests__
 .next/
 coverage/
 node_modules/
