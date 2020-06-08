@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@mcansh/next-nprogress": "1.1.2",
+    "@mdx-js/react": "1.6.5",
     "@next/bundle-analyzer": "9.4.4",
     "@next/plugin-sentry": "9.4.4",
     "@reach/portal": "0.10.3",
