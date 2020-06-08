@@ -10,3 +10,5 @@ public/sitemap.xml
 public/atom.xml
 .mdx-data
 .now
+.vercel
+.eslintcache
