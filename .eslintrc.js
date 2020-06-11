@@ -1,5 +1,8 @@
 module.exports = {
-  extends: ['@mcansh/eslint-config/typescript'],
+  extends: [
+    '@mcansh/eslint-config/typescript',
+    'plugin:@next/eslint-plugin-next/recommended',
+  ],
   rules: {
     'react/jsx-filename-extension': [
       'warn',
