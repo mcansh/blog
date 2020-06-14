@@ -14,6 +14,7 @@ jobs:
         id: waitForVercelPreviewDeployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 60
   test_lighthouse:
     name: Lighthouse Check
     needs: test_setup
