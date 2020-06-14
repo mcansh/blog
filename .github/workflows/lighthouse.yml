@@ -3,11 +3,25 @@ name: Lighthouse Check
 on: [push]
 
 jobs:
-  run:
+  test_setup:
+    name: Test setup
+    runs-on: ubuntu-latest
+    outputs:
+      preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
+    steps:
+      - name: Wait for Vercel preview deployment to be ready
+        uses: patrickedqvist/wait-for-vercel-preview@master
+        id: waitForVercelPreviewDeployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+  test_lighthouse:
+    name: Lighthouse Check
+    needs: test_setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Lighthouse Check
         uses: foo-software/lighthouse-check-action@master
         with:
-          urls: 'https://mcansh.blog,https://mcansh.blog/ruby-project,https://mcansh.blog/rails-project,https://mcansh.blog/sinatra-project,https://mcansh.blog/time-to-hex,https://mcansh.blog/similarities-between-life-and-code,https://mcansh.blog/rack-key-concepts,https://mcansh.blog/javascript-classes,https://mcansh.blog/object-lifecycle-cheatsheet,https://mcansh.blog/html5-progress-element,https://mcansh.blog/why-im-learning-software-development'
+          urls: |
+            ${{ needs.test_setup.outputs.preview_url }}
