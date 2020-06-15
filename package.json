@@ -33,7 +33,7 @@
     "@mdx-js/react": "1.6.5",
     "@next/bundle-analyzer": "9.4.4",
     "@next/plugin-sentry": "9.4.4",
-    "@reach/portal": "0.10.3",
+    "@reach/portal": "0.10.4",
     "body-scroll-lock": "3.0.3",
     "date-fns": "2.14.0",
     "framer-motion": "1.11.0",
