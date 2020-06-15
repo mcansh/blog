@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@mcansh/eslint-config": "2.7.2",
-    "@next/eslint-plugin-next": "9.4.5-canary.11",
+    "@next/eslint-plugin-next": "9.4.5-canary.12",
     "@svgr/webpack": "5.4.0",
     "@testing-library/jest-dom": "5.10.1",
     "@testing-library/react": "10.2.1",
