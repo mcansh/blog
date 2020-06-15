@@ -55,7 +55,7 @@
     "@mcansh/eslint-config": "2.7.2",
     "@next/eslint-plugin-next": "9.4.5-canary.11",
     "@svgr/webpack": "5.4.0",
-    "@testing-library/jest-dom": "5.10.0",
+    "@testing-library/jest-dom": "5.10.1",
     "@testing-library/react": "10.2.1",
     "@types/body-scroll-lock": "2.6.1",
     "@types/jest": "26.0.0",
