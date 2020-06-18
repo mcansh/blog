@@ -1,11 +1,11 @@
 import React from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
-import { NProgress } from '@mcansh/next-nprogress';
 
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
 import Document from '~/components/layouts/document';
+import { NProgress } from '~/components/nprogress';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const statusCode = pageProps?.statusCode ?? 200;
