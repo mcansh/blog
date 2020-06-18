@@ -4,6 +4,7 @@ const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
+const withSVG = require('@mcansh/next-svgr')();
 
 const { version, repository } = require('./package.json');
 
@@ -144,34 +145,10 @@ const nextConfig = {
       };
     }
 
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: [
-                { removeViewBox: false },
-                { removeDimensions: true },
-                {
-                  prefixIds: {
-                    delim: '_',
-                    prefixIds: true,
-                    prefixClassNames: false,
-                  },
-                },
-              ],
-            },
-          },
-        },
-      ],
-    });
-
     return config;
   },
 };
 
 module.exports = withBundleAnalyzer(
-  withSourceMaps(withMDX(withOffline(nextConfig)))
+  withSourceMaps(withMDX(withOffline(withSVG(nextConfig))))
 );
