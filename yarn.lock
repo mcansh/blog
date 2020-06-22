@@ -1543,10 +1543,10 @@
   resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-9.4.4.tgz#8c57794bc8eba849505b08dedc5a718ef7b41458"
   integrity sha512-KiornUfi6dS5nEkORbS9HJQGl/BxWwvnuPM7q5MaC5tVp3dEF7k1i7dyi9srNpuIC8R0TK7LHVS7KfwbJkpHhg==
 
-"@next/eslint-plugin-next@9.4.5-canary.12":
-  version "9.4.5-canary.12"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-9.4.5-canary.12.tgz#3b77b35f92a8f4064e47ba92ac7309cb570e37f5"
-  integrity sha512-0TrMQ+4iWxJsFxxnKsaRsXFegwf0c/u9wbP/1j74A6VZ/3iFTy9qUFK7ZxhhvQgf6XYpkksYRhkjsNh9NEZ9YA==
+"@next/eslint-plugin-next@9.4.5-canary.15":
+  version "9.4.5-canary.15"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-9.4.5-canary.15.tgz#f49bf459cd464d684678a9a1938031968d4773bd"
+  integrity sha512-0gCQYZpdcf6aK+fuRj0R2WZgrDQ9T/283QiHcub2bALQO+rgt6KVLyu42rufqUpOvzJP5CNoGT5kzJZJWwruGQ==
 
 "@next/plugin-sentry@9.4.4":
   version "9.4.4"
