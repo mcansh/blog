@@ -73,7 +73,7 @@
     "babel-plugin-import-glob-array": "0.2.0",
     "babel-plugin-styled-components": "1.10.7",
     "eslint": "7.3.0",
-    "eslint-config-airbnb": "18.1.0",
+    "eslint-config-airbnb": "18.2.0",
     "eslint-config-kentcdodds": "14.13.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-import-resolver-typescript": "2.0.0",
