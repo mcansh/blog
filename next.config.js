@@ -46,31 +46,25 @@ const nextConfig = {
         source: '/manifest.webmanifest',
         headers: [
           { key: 'content-type', value: 'application/manifest+json' },
-          { key: 'cache-control', value: 'public, max-age=43200, immutable' },
-        ],
-      },
-      {
-        source: '/sitemap.xml',
-        headers: [
-          { key: 'cache-control', value: 'public, max-age=43200, immutable' },
+          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
         ],
       },
       {
         source: '/feed.json',
         headers: [
-          { key: 'cache-control', value: 'public, max-age=43200, immutable' },
+          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
         ],
       },
       {
         source: '/favicon.ico',
         headers: [
-          { key: 'cache-control', value: 'public, max-age=43200, immutable' },
+          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
         ],
       },
       {
         source: '/atom',
         headers: [
-          { key: 'cache-control', value: 'public, max-age=43200, immutable' },
+          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
         ],
       },
       {
