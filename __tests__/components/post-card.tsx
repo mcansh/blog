@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PostCard, { Post } from '~/components/post-card/index';
-import { render } from '~/test-utils';
+import { render, screen } from '~/test-utils';
 
 const post: Post = {
   date: '2019-02-02T00:00:00',
@@ -14,24 +14,28 @@ const post: Post = {
 };
 
 it('renders a post card', () => {
-  const { getByTestId } = render(<PostCard {...post} />);
+  render(<PostCard {...post} />);
 
-  expect(getByTestId('post-title')).toHaveTextContent('React hoooooooooks!');
-  expect(getByTestId('post-date')).toHaveTextContent('February 2, 2019');
-  expect(getByTestId('post-link')).toHaveAttribute(
+  expect(screen.getByTestId('post-title')).toHaveTextContent(
+    'React hoooooooooks!'
+  );
+  expect(screen.getByTestId('post-date')).toHaveTextContent('February 2, 2019');
+  expect(screen.getByTestId('post-link')).toHaveAttribute(
     'href',
     '/react-hooks-are-amazing'
   );
 });
 
 it('doesnt have a data-photo attribute', () => {
-  const { getByTestId } = render(<PostCard {...post} />);
-  expect(getByTestId('post-image')).not.toHaveAttribute('data-photo');
-  expect(getByTestId('post-image')).not.toHaveAttribute('data-source-url');
+  render(<PostCard {...post} />);
+  expect(screen.getByTestId('post-image')).not.toHaveAttribute('data-photo');
+  expect(screen.getByTestId('post-image')).not.toHaveAttribute(
+    'data-source-url'
+  );
 });
 
 it('does have a data-photo attribute', () => {
-  const { getByTestId } = render(
+  render(
     <PostCard
       {...post}
       image={{
@@ -41,11 +45,11 @@ it('does have a data-photo attribute', () => {
       }}
     />
   );
-  expect(getByTestId('post-image')).toHaveAttribute(
+  expect(screen.getByTestId('post-image')).toHaveAttribute(
     'data-photo',
     'Taken by Matthew Kane'
   );
-  expect(getByTestId('post-image')).toHaveAttribute(
+  expect(screen.getByTestId('post-image')).toHaveAttribute(
     'data-source-url',
     'https://unsplash.com/photos/9EM7s13H2I0?utm_source=unsplash&utm_medium=referral&utm_content=mcansh_blog'
   );

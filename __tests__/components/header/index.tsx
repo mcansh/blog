@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { render } from '~/test-utils';
+import { render, screen } from '~/test-utils';
 import Header from '~/components/header';
 
 describe('Header Component', () => {
   it('shows custom text and image', () => {
-    const { getByTestId } = render(
+    render(
       <Header
         title="BLOG"
         image={{
@@ -14,9 +14,8 @@ describe('Header Component', () => {
       />
     );
 
-    expect(getByTestId('header')).toHaveTextContent('BLOG');
-
-    expect(getByTestId('header_img')).toHaveAttribute(
+    expect(screen.getByTestId('header')).toHaveTextContent('BLOG');
+    expect(screen.getByTestId('header_img')).toHaveAttribute(
       'src',
       'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1581285181/blog/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
     );
