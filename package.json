@@ -51,7 +51,7 @@
     "react-simple-img": "2.3.9",
     "somebody": "2.0.0",
     "styled-components": "5.1.1",
-    "type-fest": "0.15.1"
+    "type-fest": "0.16.0"
   },
   "devDependencies": {
     "@mcansh/eslint-config": "2.7.3",
