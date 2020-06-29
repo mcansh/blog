@@ -1780,18 +1780,18 @@
     style-value-types "^3.1.7"
     tslib "^1.10.0"
 
-"@reach/portal@0.10.4":
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.10.4.tgz#388b16c1285bf4ad357285dfcbb02b73bf6efe39"
-  integrity sha512-7qkG+l6yvFlafbKW36lG5PzJnRJHEj/KZa9DyNNibojmWd6Z1wUzy34LsMldlvY7v2OMl35SR0iLooiyrtQIww==
+"@reach/portal@0.10.5":
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@reach/portal/-/portal-0.10.5.tgz#532ce8472fc99d6c556520f6c8d53333d89e49a4"
+  integrity sha512-K5K8gW99yqDPDCWQjEfSNZAbGOQWSx5AN2lpuR1gDVoz4xyWpTJ0k0LbetYJTDVvLP/InEcR7AU42JaDYDCXQw==
   dependencies:
-    "@reach/utils" "0.10.4"
+    "@reach/utils" "0.10.5"
     tslib "^2.0.0"
 
-"@reach/utils@0.10.4":
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.10.4.tgz#164ea50910db2d1015505a10fac6a48e7b3c54e7"
-  integrity sha512-eQ7T/5yPE5VMThBOst+7bDQvsa+4z8IH+CMBnT06jUithLCed70pxS0YJVV/4rqV7/PmYwUgSrQOKQLmW6CMcg==
+"@reach/utils@0.10.5":
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.10.5.tgz#fbac944d29565f6dd7abd0e1b13950e99b1e470b"
+  integrity sha512-5E/xxQnUbmpI/LrufBAOXjunl96DnqX6B4zC2MO2KH/dRzLug5gM5VuOwV26egsp0jvsSPxojwciOhS43px3qw==
   dependencies:
     "@types/warning" "^3.0.0"
     tslib "^2.0.0"
