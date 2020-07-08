@@ -9,7 +9,7 @@ describe('Header Component', () => {
       <Header
         title="BLOG"
         image={{
-          imageUrl: '1*Wmv8hfi_bTHuHyV5CawnCw.jpg',
+          imageUrl: '/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg',
         }}
       />
     );
