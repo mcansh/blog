@@ -24,12 +24,7 @@ const CSP = (props: DocumentProps) => {
     'connect-src': ["'self'", 'sentry.io'],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
-    'img-src': [
-      "'self'",
-      'res.cloudinary.com/dof0zryca/',
-      'data:',
-      process.env.FATHOM_SUBDOMAIN,
-    ],
+    'img-src': ["'self'", 'data:', process.env.FATHOM_SUBDOMAIN],
   };
 
   const csp = `${Object.entries(cspSettings)
