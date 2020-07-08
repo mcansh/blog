@@ -17,6 +17,8 @@ function getParams(
   );
 }
 
+const denylist = ['heic', 'heif'];
+
 const handler: NextApiHandler = async (req, res) => {
   const supportsWebP = req.headers.accept?.includes('image/webp');
   const {
@@ -32,6 +34,12 @@ const handler: NextApiHandler = async (req, res) => {
     : supportsWebP
     ? 'webp'
     : (filename as string).split('.')[1];
+
+  if (denylist.includes(format)) {
+    return res
+      .status(400)
+      .end(`requested format ${format} is not supported at this time`);
+  }
 
   const base = getBaseURL(req);
 

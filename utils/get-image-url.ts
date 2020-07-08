@@ -1,5 +1,3 @@
-import {} from 'sharp';
-
 interface Options {
   /**
    @description desired width of image
@@ -15,7 +13,7 @@ interface Options {
    @description desired format of image
    @default jpg or whatever the original image extension is
   */
-  fm?: 'heic' | 'heif' | 'jpeg' | 'jpg' | 'png' | 'raw' | 'tiff' | 'webp';
+  fm?: 'jpeg' | 'jpg' | 'png' | 'raw' | 'tiff' | 'webp';
 }
 
 const getImageUrl = (imagePath: string, options?: Options) => {
