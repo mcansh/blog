@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { description, homepage } from '~/package.json';
 import { name } from '~/utils/author-info';
 import { iso8601 } from '~/utils/dates';
-import getCloudinaryURL from '~/utils/get-cloudinary-url';
+import { getImageUrl } from '~/utils/get-image-url';
 import { ImageType } from '~/components/header/image';
 import { colors, iconSizes } from '~/config';
 
@@ -19,7 +19,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
   const router = useRouter();
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl = image?.imageUrl
-    ? getCloudinaryURL(image.imageUrl)
+    ? getImageUrl(image.imageUrl)
     : `${homepage}/static/images/me.jpg`;
 
   return (

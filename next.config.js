@@ -37,7 +37,7 @@ const nextConfig = {
   },
 
   target: 'serverless',
-  pageExtensions: ['js', 'jsx', 'tsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   experimental: {
     modern: true,
     plugins: true,
