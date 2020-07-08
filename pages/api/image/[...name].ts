@@ -27,10 +27,11 @@ const handler: NextApiHandler = async (req, res) => {
   } = getParams(req.query);
 
   const filename = (req.query.name as string[]).join('/');
-  const format =
-    explicitlyRequestedFormat ?? supportsWebP
-      ? 'webp'
-      : (filename as string).split('.')[1];
+  const format = explicitlyRequestedFormat
+    ? explicitlyRequestedFormat
+    : supportsWebP
+    ? 'webp'
+    : (filename as string).split('.')[1];
 
   const base = getBaseURL(req);
 
@@ -47,14 +48,9 @@ const handler: NextApiHandler = async (req, res) => {
     width: width ? Number(width) : undefined,
   };
 
-  const sharped: sharp.Sharp =
-    format === 'webp'
-      ? sharp(imageBuffer).webp(defaultOptions).resize(defaultResizeOptions)
-      : /jpe?g/.test(format)
-      ? sharp(imageBuffer).jpeg(defaultOptions).resize(defaultResizeOptions)
-      : format === 'tiff'
-      ? sharp(imageBuffer).tiff(defaultOptions).resize(defaultResizeOptions)
-      : sharp(imageBuffer).png(defaultOptions).resize(defaultResizeOptions);
+  const sharped: sharp.Sharp = sharp(imageBuffer)
+    .toFormat(format, defaultOptions)
+    .resize(defaultResizeOptions);
 
   const result = await sharped.toFormat(format.toString()).toBuffer();
 
