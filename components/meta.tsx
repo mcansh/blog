@@ -90,6 +90,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
         type="application/json"
         title="JSON Feed"
       />
+      <link rel="preconnect" href={process.env.FATHOM_SUBDOMAIN} />
     </Head>
   );
 };
