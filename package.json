@@ -29,7 +29,6 @@
     "find:unused": "next-unused"
   },
   "dependencies": {
-    "@mcansh/next-now-base-url": "1.2.0",
     "@mcansh/next-svgr": "1.1.1",
     "@mdx-js/loader": "1.6.6",
     "@mdx-js/react": "1.6.6",

@@ -1,21 +1,10 @@
-import { ParsedUrlQuery } from 'querystring';
+import { promises as fs } from 'fs';
+import path from 'path';
 
 import { NextApiHandler } from 'next';
 import sharp from 'sharp';
-import { getBaseURL } from '@mcansh/next-now-base-url';
 
-function getParam<T = string>(param: T | T[] | undefined) {
-  return Array.isArray(param) ? param[0] : param;
-}
-
-function getParams(
-  params: ParsedUrlQuery
-): { [key: string]: string | undefined } {
-  return Object.entries(params).reduce(
-    (acc, [key, value]) => ({ ...acc, [key]: getParam(value) }),
-    {}
-  );
-}
+import { getParams } from '~/utils/params';
 
 const denylist = ['heic', 'heif'];
 
@@ -41,12 +30,9 @@ const handler: NextApiHandler = async (req, res) => {
       .end(`requested format ${format} is not supported at this time`);
   }
 
-  const base = getBaseURL(req);
+  const image = await fs.readFile(path.join(process.cwd(), 'public', filename));
 
-  const image = await fetch(`${base}/${filename}`).then(d => d.blob());
-
-  const imageAsArrayBuffer = await image.arrayBuffer();
-  const imageBuffer = Buffer.from(imageAsArrayBuffer);
+  const imageBuffer = Buffer.from(image);
 
   const defaultOptions = {
     quality: quality ? Number(quality) : undefined,
@@ -56,11 +42,11 @@ const handler: NextApiHandler = async (req, res) => {
     width: width ? Number(width) : undefined,
   };
 
-  const sharped: sharp.Sharp = sharp(imageBuffer)
+  const sharped = sharp(imageBuffer)
     .toFormat(format, defaultOptions)
     .resize(defaultResizeOptions);
 
-  const result = await sharped.toFormat(format.toString()).toBuffer();
+  const result = await sharped.toBuffer();
 
   res.setHeader('Content-Type', `image/${format}`);
   res.setHeader('Content-Length', result.byteLength);
