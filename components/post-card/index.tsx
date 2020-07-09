@@ -7,6 +7,7 @@ import Post, { imageHeight } from '~/components/post-card/styles';
 import { ImageType } from '~/components/header/image';
 import { formatPostDate, iso8601 } from '~/utils/dates';
 import { getImageUrl } from '~/utils/get-image-url';
+import { widont } from '~/utils/widont';
 
 export interface Post {
   title: string;
@@ -44,7 +45,7 @@ const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
         </div>
         <div className="post-card__meta">
           <h2 className="post-card__title" data-testid="post-title">
-            {title}
+            {widont(title)}
           </h2>
           <time
             className="post-card__date"
