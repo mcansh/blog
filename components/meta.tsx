@@ -20,7 +20,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl = image?.imageUrl
     ? getImageUrl(image.imageUrl)
-    : `${homepage}/static/images/me.jpg`;
+    : `${homepage}/static/images/headshot.jpg`;
 
   return (
     <Head>
@@ -43,7 +43,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
       <meta
         key="og:url"
         property="og:url"
-        content={`${homepage}/${router.pathname}`}
+        content={`${homepage}${router.pathname}`}
       />
       <meta key="og:image" property="og:image" content={fullImageUrl} />
       {date && (
