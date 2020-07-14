@@ -6,7 +6,8 @@ import unsplashParams from '~/utils/unsplash-params';
 import Post, { imageHeight } from '~/components/post-card/styles';
 import { ImageType } from '~/components/header/image';
 import { formatPostDate, iso8601 } from '~/utils/dates';
-import getCloudinaryURL from '~/utils/get-cloudinary-url';
+import { getImageUrl } from '~/utils/get-image-url';
+import { widont } from '~/utils/widont';
 
 export interface Post {
   title: string;
@@ -20,9 +21,9 @@ export interface Post {
 const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
-  const image1x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight}`]);
-  const image2x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 2}`]);
-  const image3x = getCloudinaryURL(image.imageUrl, [`h_${imageHeight * 3}`]);
+  const image1x = getImageUrl(image.imageUrl, { h: imageHeight });
+  const image2x = getImageUrl(image.imageUrl, { h: imageHeight * 2 });
+  const image3x = getImageUrl(image.imageUrl, { h: imageHeight * 3 });
   return (
     <Link href={path} passHref>
       <Post>
@@ -44,7 +45,7 @@ const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
         </div>
         <div className="post-card__meta">
           <h2 className="post-card__title" data-testid="post-title">
-            {title}
+            {widont(title)}
           </h2>
           <time
             className="post-card__date"

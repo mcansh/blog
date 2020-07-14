@@ -8,7 +8,7 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-import getCSP from '~/components/csp';
+import { getCSP } from '~/components/csp';
 
 class MyDocument extends Document {
   public static async getInitialProps(context: DocumentContext) {

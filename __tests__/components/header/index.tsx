@@ -9,7 +9,7 @@ describe('Header Component', () => {
       <Header
         title="BLOG"
         image={{
-          imageUrl: '1*Wmv8hfi_bTHuHyV5CawnCw.jpg',
+          imageUrl: '/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg',
         }}
       />
     );
@@ -17,7 +17,7 @@ describe('Header Component', () => {
     expect(screen.getByTestId('header')).toHaveTextContent('BLOG');
     expect(screen.getByTestId('header_img')).toHaveAttribute(
       'src',
-      'https://res.cloudinary.com/dof0zryca/image/upload/f_auto/v1581285181/blog/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
+      '/api/image/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
     );
   });
 });

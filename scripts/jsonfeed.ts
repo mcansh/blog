@@ -3,7 +3,7 @@ import path from 'path';
 
 import { description, homepage } from '~/package.json';
 import { posts } from '~/posts';
-import getCloudinaryURL from '~/utils/get-cloudinary-url';
+import { getImageUrl } from '~/utils/get-image-url';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -26,7 +26,7 @@ const feed = {
     title: post.title,
     content_text: `${post.title}. See ${homepage}${post.path}!`,
     summary: post.title,
-    image: getCloudinaryURL(post.image.imageUrl),
+    image: getImageUrl(post.image.imageUrl),
     date_published: post.date,
   })),
 };

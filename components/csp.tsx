@@ -8,7 +8,7 @@ const cspHashOf = (text: string) => {
   return `sha256-${hash.digest('base64')}`;
 };
 
-const CSP = (props: DocumentProps) => {
+const getCSP = (props: DocumentProps) => {
   const hash = cspHashOf(NextScript.getInlineScriptSource(props));
 
   const cspSettings = {
@@ -21,15 +21,10 @@ const CSP = (props: DocumentProps) => {
       "'unsafe-inline'",
       `${process.env.FATHOM_SUBDOMAIN}/script.js`,
     ],
-    'connect-src': ["'self'", 'sentry.io'],
+    'connect-src': ["'self'", 'https://sentry.io'],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
-    'img-src': [
-      "'self'",
-      'res.cloudinary.com/dof0zryca/',
-      'data:',
-      process.env.FATHOM_SUBDOMAIN,
-    ],
+    'img-src': ["'self'", 'data:', process.env.FATHOM_SUBDOMAIN],
   };
 
   const csp = `${Object.entries(cspSettings)
@@ -39,4 +34,4 @@ const CSP = (props: DocumentProps) => {
   return { csp, hash };
 };
 
-export default CSP;
+export { getCSP };

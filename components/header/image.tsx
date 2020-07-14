@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import unsplashParams from '~/utils/unsplash-params';
-import getCloudinaryURL from '~/utils/get-cloudinary-url';
+import { getImageUrl } from '~/utils/get-image-url';
 
 export interface ImageType {
   imageUrl: string;
@@ -41,7 +41,7 @@ interface Props {
 }
 
 const HeaderImage: React.FC<Props> = ({ image }) => {
-  const imgUrl = getCloudinaryURL(image.imageUrl);
+  const imgUrl = getImageUrl(image.imageUrl);
 
   return (
     <ImageWrap>

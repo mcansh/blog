@@ -39,7 +39,7 @@ it('does have a data-photo attribute', () => {
     <PostCard
       {...post}
       image={{
-        imageUrl: 'matthew-kane-146076.jpg',
+        imageUrl: '/static/images/posts/matthew-kane-146076.jpg',
         photographer: 'Matthew Kane',
         url: 'https://unsplash.com/photos/9EM7s13H2I0',
       }}
