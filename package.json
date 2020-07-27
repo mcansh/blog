@@ -108,7 +108,7 @@
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-prettier": "1.1.2",
     "stylelint-processor-styled-components": "1.10.0",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "husky": {
     "hooks": {
