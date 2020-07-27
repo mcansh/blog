@@ -41,70 +41,70 @@ const nextConfig = {
   experimental: {
     modern: true,
     plugins: true,
-    headers: () => [
-      {
-        source: '/manifest.webmanifest',
-        headers: [
-          { key: 'content-type', value: 'application/manifest+json' },
-          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
-        ],
-      },
-      {
-        source: '/feed.json',
-        headers: [
-          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
-        ],
-      },
-      {
-        source: '/favicon.ico',
-        headers: [
-          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
-        ],
-      },
-      {
-        source: '/atom',
-        headers: [
-          { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
-        ],
-      },
-      {
-        source: '/sw.js',
-        headers: [
-          { key: 'cache-control', value: 'max-age=0' },
-          { key: 'Service-Worker-Allowed', value: '/' },
-        ],
-      },
-    ],
-    rewrites: () => [
-      {
-        source: '/sw.js',
-        destination: '/_next/static/sw.js',
-      },
-      {
-        source: '/atom',
-        destination: '/atom.xml',
-      },
-      {
-        source: '/.well-known/brave-rewards-verification.txt',
-        destination: '/brave-rewards-verification.txt',
-      },
-      {
-        source: '/manifest.webmanifest',
-        destination: '/manifest.webmanifest',
-      },
-      {
-        source: '/manifest.json',
-        destination: '/manifest.webmanifest',
-      },
-    ],
-    redirects: () => [
-      {
-        source: '/changelog',
-        statusCode: 301,
-        destination: 'https://github.com/mcansh/blog/releases',
-      },
-    ],
   },
+  headers: () => [
+    {
+      source: '/manifest.webmanifest',
+      headers: [
+        { key: 'content-type', value: 'application/manifest+json' },
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
+      source: '/feed.json',
+      headers: [
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
+      source: '/favicon.ico',
+      headers: [
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
+      source: '/atom',
+      headers: [
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
+      source: '/sw.js',
+      headers: [
+        { key: 'cache-control', value: 'max-age=0' },
+        { key: 'Service-Worker-Allowed', value: '/' },
+      ],
+    },
+  ],
+  rewrites: () => [
+    {
+      source: '/sw.js',
+      destination: '/_next/static/sw.js',
+    },
+    {
+      source: '/atom',
+      destination: '/atom.xml',
+    },
+    {
+      source: '/.well-known/brave-rewards-verification.txt',
+      destination: '/brave-rewards-verification.txt',
+    },
+    {
+      source: '/manifest.webmanifest',
+      destination: '/manifest.webmanifest',
+    },
+    {
+      source: '/manifest.json',
+      destination: '/manifest.webmanifest',
+    },
+  ],
+  redirects: () => [
+    {
+      source: '/changelog',
+      statusCode: 301,
+      destination: 'https://github.com/mcansh/blog/releases',
+    },
+  ],
   env: {
     TWITTER: 'loganmcansh',
     INSTAGRAM: 'loganmcansh',
