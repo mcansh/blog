@@ -37,7 +37,7 @@
     "@reach/portal": "0.10.5",
     "@svgr/webpack": "5.4.0",
     "body-scroll-lock": "3.0.3",
-    "date-fns": "2.14.0",
+    "date-fns": "2.15.0",
     "fathom-client": "3.0.0",
     "file-type": "14.6.2",
     "framer-motion": "1.11.1",
