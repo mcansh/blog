@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { description, productName, productShortName } from '~/package.json';
+import pkgJSON from '~/package.json';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -13,9 +13,9 @@ const icons = iconSizes.map(icon => ({
 }));
 
 const json = {
-  name: productName,
-  short_name: productShortName,
-  description,
+  name: pkgJSON.productName,
+  short_name: pkgJSON.productShortName,
+  description: pkgJSON.description,
   start_url: '/?homescreen=1',
   background_color: '#6c16c7',
   theme_color: '#6c16c7',

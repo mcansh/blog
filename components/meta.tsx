@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { description, homepage } from '~/package.json';
+import pkgJSON from '~/package.json';
 import { name } from '~/utils/author-info';
 import { iso8601 } from '~/utils/dates';
 import { getImageUrl } from '~/utils/get-image-url';
@@ -20,21 +20,25 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl = image?.imageUrl
     ? getImageUrl(image.imageUrl)
-    : `${homepage}/static/images/headshot.jpg`;
+    : `${pkgJSON.homepage}/static/images/headshot.jpg`;
 
   return (
     <Head>
       <title key="title">{pageTitle}</title>
       <meta charSet="utf-8" />
-      <meta key="description" name="description" content={description} />
+      <meta
+        key="description"
+        name="description"
+        content={pkgJSON.description}
+      />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="loganmcansh" />
       <meta key="twitter:title" name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={pkgJSON.description} />
       <meta key="twitter:image" name="twitter:image" content={fullImageUrl} />
 
       <meta key="og:title" property="og:title" content={pageTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={pkgJSON.description} />
       <meta
         key="og:type"
         property="og:type"
@@ -43,7 +47,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
       <meta
         key="og:url"
         property="og:url"
-        content={`${homepage}${router.pathname}`}
+        content={`${pkgJSON.homepage}${router.pathname}`}
       />
       <meta key="og:image" property="og:image" content={fullImageUrl} />
       {date && (

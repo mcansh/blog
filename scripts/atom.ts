@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { description, homepage } from '../package.json';
+import pkgJSON from '../package.json';
 
 import { posts } from '~/posts';
 
@@ -11,11 +11,11 @@ const [latest] = posts;
 
 const atom = `<feed xmlns="http://www.w3.org/2005/Atom">
   <title>Logan McAnsh (@loganmcansh)</title>
-  <subtitle>${description}</subtitle>
-  <link href="${homepage}/atom" rel="self"/>
-  <link href="${homepage}"/>
+  <subtitle>${pkgJSON.description}</subtitle>
+  <link href="${pkgJSON.homepage}/atom" rel="self"/>
+  <link href="${pkgJSON.homepage}"/>
   <updated>${latest.date}</updated>
-  <id>${homepage}</id>
+  <id>${pkgJSON.homepage}</id>
   <author>
     <name>Logan McAnsh</name>
     <email>logan@mcan.sh</email>
@@ -26,7 +26,7 @@ const atom = `<feed xmlns="http://www.w3.org/2005/Atom">
     <entry>
       <id>${post.path.slice(1)}</id>
       <title>${post.title}</title>
-      <link href="${homepage}${post.path}"/>
+      <link href="${pkgJSON.homepage}${post.path}"/>
       <updated>${post.date}</updated>
     </entry>
   `
