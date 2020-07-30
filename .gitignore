@@ -17,3 +17,6 @@ public/atom.xml
 /out_publish/
 /out_functions/
 /404.html
+
+# Local Netlify folder
+.netlify
