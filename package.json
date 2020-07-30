@@ -26,7 +26,8 @@
     "type-check": "tsc",
     "update-mdx-meta": "node scripts/update-mdx-meta",
     "validate": "npm-run-all --parallel lint format lint:css type-check test",
-    "find:unused": "next-unused"
+    "find:unused": "next-unused",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "@mcansh/next-svgr": "1.2.0",
@@ -44,6 +45,7 @@
     "mdx-utils": "0.2.0",
     "next": "9.5.0",
     "next-mdx-enhanced": "3.1.0",
+    "next-on-netlify": "2.3.1",
     "nprogress": "0.2.0",
     "polished": "3.6.5",
     "prism-react-renderer": "1.1.1",
