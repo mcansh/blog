@@ -117,13 +117,13 @@
     }
   },
   "lint-staged": {
-    "*.+(js,jsx,ts,tsx)": [
+    "*.+(js|jsx|ts|tsx)": [
       "eslint --fix",
       "prettier --write",
       "yarn lint:css",
       "yarn test --bail --findRelatedTests"
     ],
-    "*.+(json,yml,yaml,css,less,scss,md,graphql,mdx)": [
+    "*.+(json|yml|yaml|css|less|scss|md|graphql|mdx)": [
       "prettier --write"
     ]
   },
