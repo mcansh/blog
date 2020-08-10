@@ -32,7 +32,7 @@
     "@mcansh/next-svgr": "1.2.0",
     "@mdx-js/loader": "1.6.14",
     "@mdx-js/react": "1.6.14",
-    "@next/bundle-analyzer": "9.5.0",
+    "@next/bundle-analyzer": "9.5.1",
     "@next/plugin-sentry": "9.5.0",
     "@reach/portal": "0.10.5",
     "@svgr/webpack": "5.4.0",
