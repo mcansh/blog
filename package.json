@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@mcansh/next-svgr": "1.2.0",
-    "@mdx-js/loader": "1.6.14",
+    "@mdx-js/loader": "1.6.16",
     "@mdx-js/react": "1.6.16",
     "@next/bundle-analyzer": "9.5.1",
     "@next/plugin-sentry": "9.5.0",
