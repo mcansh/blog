@@ -96,7 +96,7 @@
     "husky": "4.2.5",
     "jest": "26.4.0",
     "jest-in-case": "1.0.2",
-    "jest-styled-components": "7.0.2",
+    "jest-styled-components": "7.0.3",
     "lint-staged": "10.2.11",
     "next-offline": "5.0.2",
     "next-unused": "0.0.2",
