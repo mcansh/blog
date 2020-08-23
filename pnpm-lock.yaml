@@ -13271,7 +13271,7 @@ specifiers:
   lint-staged: 10.2.11
   mdx-utils: 0.2.0
   next: 9.5.2
-  next-mdx-enhanced: 3.1.0
+  next-mdx-enhanced: 'github:jemjam/next-mdx-enhanced#fix-for-next-9.5.2'
   next-offline: 5.0.2
   next-unused: 0.0.2
   npm-run-all: 4.1.5
