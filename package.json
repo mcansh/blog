@@ -60,7 +60,7 @@
     "@mcansh/eslint-config": "2.7.3",
     "@next/eslint-plugin-next": "9.5.2",
     "@testing-library/jest-dom": "5.11.3",
-    "@testing-library/react": "10.4.8",
+    "@testing-library/react": "10.4.9",
     "@types/body-scroll-lock": "2.6.1",
     "@types/file-type": "10.9.1",
     "@types/jest": "26.0.10",
