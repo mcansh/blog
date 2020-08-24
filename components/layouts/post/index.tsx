@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react';
 import Meta from '~/components/meta';
 import Header from '~/components/header/index';
 import Paragraph from '~/components/paragraph';
-import { Post, Post as PostType } from '~/components/post-card/index';
+import { Post as PostType } from '~/components/post-card/index';
 import useScrollProgress from '~/components/use-scroll-progress';
 import { Pre, InlineCode } from '~/components/code';
 import Link from '~/components/link';
@@ -54,8 +54,7 @@ const components = {
 };
 
 interface MDXPostProps {
-  post: PostType;
-  frontMatter: Post;
+  frontMatter: PostType;
 }
 
 const MDXPost: React.FC<MDXPostProps> = ({ children, frontMatter }) => {
