@@ -43,7 +43,7 @@
     "framer-motion": "2.6.0",
     "mdx-utils": "0.2.0",
     "next": "9.5.2",
-    "next-mdx-enhanced": "3.1.0",
+    "next-mdx-enhanced": "github:jemjam/next-mdx-enhanced#fix-for-next-9.5.2",
     "nprogress": "0.2.0",
     "polished": "3.6.5",
     "prism-react-renderer": "1.1.1",
