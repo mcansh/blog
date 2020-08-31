@@ -94,7 +94,7 @@ function generateSiteMap() {
         const { node, meta } = xmlUrlNode(pagePath);
 
         if (meta) {
-          postsMeta.push({ ...meta, path: pagePath.replace(/\.mdx$/, '') });
+          postsMeta.push({ ...meta, filePath: pagePath.replace(/\.mdx$/, '') });
         }
 
         return node;

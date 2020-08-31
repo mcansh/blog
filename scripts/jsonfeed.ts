@@ -6,6 +6,7 @@ import matter from 'gray-matter';
 import { description, homepage } from '~/package.json';
 import { getImageUrl } from '~/utils/get-image-url';
 import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
+import { Post } from '~/components/post-card';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -19,7 +20,7 @@ const jsonFeed = async () => {
         content,
         data,
         filePath: filePath.replace(/\.mdx?$/, ''),
-      };
+      } as { content: string; data: Post; filePath: string };
     })
   );
 
@@ -44,7 +45,7 @@ const jsonFeed = async () => {
       id: `${homepage}${post.filePath}`,
       url: `${homepage}${post.filePath}`,
       title: post.data.title,
-      content_text: `${post.data.title}. See ${homepage}${post.data.path}!`,
+      content_text: `${post.data.title}. See ${homepage}${post.data.filePath}!`,
       summary: post.data.title,
       image: getImageUrl(post.data.image.imageUrl),
       date_published: post.data.date,
