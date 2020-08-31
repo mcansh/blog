@@ -6,23 +6,19 @@ import { GetStaticProps, NextPage } from 'next';
 import matter from 'gray-matter';
 
 import PostsWrapper from '~/components/posts-wrapper';
-import PostCard from '~/components/post-card/index';
+import PostCard, { Post } from '~/components/post-card/index';
 import Header from '~/components/header/index';
 import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
 
 interface Props {
   posts: {
     content: string;
-    data: {
-      [key: string]: any;
-    };
+    data: Post;
     filePath: string;
   }[];
   latest: {
     content: string;
-    data: {
-      [key: string]: any;
-    };
+    data: Post;
     filePath: string;
   };
 }
@@ -61,7 +57,7 @@ const Index: NextPage<Props> = ({ latest, posts }) => (
           key={post.filePath}
           date={post.data.date}
           image={post.data.image}
-          path={post.filePath}
+          filePath={post.filePath}
           title={post.data.title}
           editUrl={post.data.editUrl}
         />

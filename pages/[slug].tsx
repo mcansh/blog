@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   return {
     props: {
       source: mdxSource,
-      frontMatter: data,
+      frontMatter: data as Post,
     },
   };
 };
