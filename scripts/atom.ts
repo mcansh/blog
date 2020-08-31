@@ -44,10 +44,11 @@ const generateAtom = async () => {
       .map(
         post => `
       <entry>
-        <id>${post.filePath.slice(1)}</id>
+        <id>${post.filePath}</id>
         <title>${post.data.title}</title>
-        <link href="${homepage}${post.filePath}"/>
-        <updated>${post.data.date}</updated>
+        <link href="${homepage}/${post.filePath}"/>
+        <updated>${post.data.lastEdited}</updated>
+        <published>${post.data.date}</published>
       </entry>
     `
       )
