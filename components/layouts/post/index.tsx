@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MDXProvider } from '@mdx-js/react';
 
 import Meta from '~/components/meta';
 import Header from '~/components/header/index';
@@ -42,10 +41,6 @@ const PostWrap = styled.div`
   padding: 0 constant(safe-area-inset-right) 0 constant(safe-area-inset-left);
 `;
 
-interface Props {
-  meta: PostType;
-}
-
 const components = {
   inlineCode: InlineCode,
   p: Paragraph,
@@ -60,13 +55,13 @@ interface MDXPostProps {
 const MDXPost: React.FC<MDXPostProps> = ({ children, frontMatter }) => {
   const scrollProgress = useScrollProgress();
   return (
-    <MDXProvider components={components}>
+    <>
       <Meta {...frontMatter} />
       <ScrollProgress value={scrollProgress} />
       <Header {...frontMatter} />
       <PostWrap>{children}</PostWrap>
-    </MDXProvider>
+    </>
   );
 };
 
-export default MDXPost;
+export { MDXPost, components };
