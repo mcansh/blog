@@ -98,7 +98,7 @@
     "jest": "26.4.2",
     "jest-in-case": "1.0.2",
     "jest-styled-components": "7.0.3",
-    "lint-staged": "10.2.13",
+    "lint-staged": "10.3.0",
     "next-offline": "5.0.2",
     "next-remote-watch": "0.2.0",
     "next-unused": "0.0.2",
