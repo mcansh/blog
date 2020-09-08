@@ -15,7 +15,8 @@ async function getFileTypeWithFallback(fileBuffer: Buffer, fallback: string) {
 }
 
 const handler: NextApiHandler = async (req, res) => {
-  const supportsWebP = req.headers.accept?.includes('image/webp');
+  const supportsWEBP = req.headers.accept?.includes('image/webp');
+
   const {
     h: height,
     w: width,
@@ -31,14 +32,16 @@ const handler: NextApiHandler = async (req, res) => {
         mime: `image/${explicitlyRequestedFormat}`,
         ext: explicitlyRequestedFormat,
       }
-    : supportsWebP
+    : supportsWEBP
     ? { ext: 'webp', mime: `image/webp` }
     : await getFileTypeWithFallback(image, (filename as string).split('.')[1]);
 
   if (denylist.includes(format.ext)) {
     return res
       .status(400)
-      .end(`requested format ${format.ext} is not supported at this time`);
+      .end(
+        `requested format "${format.ext}" is not supported by sharp at this time`
+      );
   }
 
   const defaultOptions = {
