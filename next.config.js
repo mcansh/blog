@@ -1,5 +1,4 @@
 const withSourceMaps = require('@zeit/next-source-maps')();
-const withMdxEnhanced = require('next-mdx-enhanced');
 const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -7,17 +6,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const withSVG = require('@mcansh/next-svgr')();
 
 const { version, repository } = require('./package.json');
-
-const withMDX = withMdxEnhanced({
-  layoutPath: 'components/layouts/post',
-  defaultLayout: true,
-  extendFrontMatter: {
-    process: (_mdxContent, frontMatter) => ({
-      // eslint-disable-next-line no-underscore-dangle
-      path: `/${frontMatter.__resourcePath.split('.mdx')[0]}`,
-    }),
-  },
-});
 
 const nextConfig = {
   // third party
@@ -144,5 +132,5 @@ const nextConfig = {
 };
 
 module.exports = withBundleAnalyzer(
-  withSourceMaps(withMDX(withOffline(withSVG(nextConfig))))
+  withSourceMaps(withOffline(withSVG(nextConfig)))
 );

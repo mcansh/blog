@@ -68,7 +68,7 @@ const updateModifiedFiles = async () => {
 };
 
 const updateAllFiles = async () => {
-  const paths = await globby(['./pages/**/*.mdx']);
+  const paths = await globby(['./_posts/**/*']);
 
   await updateMeta(paths);
 };
