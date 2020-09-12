@@ -1,14 +1,10 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
-import matter from 'gray-matter';
 
 import PostsWrapper from '~/components/posts-wrapper';
 import PostCard, { Post } from '~/components/post-card/index';
 import Header from '~/components/header/index';
-import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
+import { getPosts } from '~/lib/get-post';
 
 interface Props {
   posts: {
@@ -24,24 +20,9 @@ interface Props {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await Promise.all(
-    postFilePaths.map(async filePath => {
-      const source = await fs.readFile(path.join(POSTS_PATH, filePath));
-      const { content, data } = matter(source);
+  const posts = await getPosts();
 
-      return {
-        content,
-        data,
-        filePath: filePath.replace(/\.mdx?$/, ''),
-      };
-    })
-  );
-
-  const sortedPosts = posts.sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  );
-
-  return { props: { posts: sortedPosts, latest: sortedPosts[0] } };
+  return { props: { posts, latest: posts[0] } };
 };
 
 const Index: NextPage<Props> = ({ latest, posts }) => (

@@ -1,47 +1,26 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-import matter from 'gray-matter';
-import renderToString from 'next-mdx-remote/render-to-string';
-
 import { description } from '~/package.json';
 import { getImageUrl } from '~/utils/get-image-url';
-import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
-import { components } from '~/components/layouts/post';
-import { Props } from '~/pages/[slug]';
-import { Post } from '~/components/post-card';
 import { getDeploymentURL } from '~/utils/get-deployment-url';
+import { getPosts, renderPostToString } from '~/lib/get-post';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
-interface PostData {
-  content: string;
-  filePath: string;
-  source: Props['source'];
-  data: Post;
-}
-
 const jsonFeed = async () => {
-  const posts: PostData[] = await Promise.all(
-    postFilePaths.map(async filePath => {
-      const source = await fs.readFile(path.join(POSTS_PATH, filePath));
-      const { content, data } = matter(source);
-      const mdxSource = (await renderToString(content, {
-        components,
-        scope: data,
-      })) as Props['source'];
+  const posts = await getPosts();
 
+  const postsWithMDX = await Promise.all(
+    posts.map(async post => {
+      const mdxSource = await renderPostToString(post.content, post.data);
       return {
-        content,
-        filePath: filePath.replace(/\.mdx?$/, ''),
+        content: post.content,
+        data: post.data,
         source: mdxSource,
-        data: data as Post,
+        filePath: post.filePath,
       };
     })
-  );
-
-  const sortedPosts = posts.sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   );
 
   const deployment = getDeploymentURL();
@@ -63,7 +42,7 @@ const jsonFeed = async () => {
       url: 'https://mcan.sh',
       avatar,
     },
-    items: sortedPosts.map(post => {
+    items: postsWithMDX.map(post => {
       const postUrl = getDeploymentURL(post.filePath);
       return {
         id: post.filePath,

@@ -1,34 +1,17 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-import matter from 'gray-matter';
-
 import { description } from '../package.json';
 
-import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
 import { getDeploymentURL } from '~/utils/get-deployment-url';
+import { getPosts } from '~/lib/get-post';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
 const generateAtom = async () => {
-  const posts = await Promise.all(
-    postFilePaths.map(async filePath => {
-      const source = await fs.readFile(path.join(POSTS_PATH, filePath));
-      const { content, data } = matter(source);
+  const posts = await getPosts();
 
-      return {
-        content,
-        data,
-        filePath: filePath.replace(/\.mdx?$/, ''),
-      };
-    })
-  );
-
-  const sortedPosts = posts.sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  );
-
-  const [latest] = sortedPosts;
+  const [latest] = posts;
 
   const deployment = getDeploymentURL();
   const atomFeed = getDeploymentURL('/atom');
