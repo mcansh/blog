@@ -28,7 +28,7 @@ const getCSP = (props: DocumentProps) => {
       "'self'",
       'data:',
       process.env.FATHOM_SUBDOMAIN,
-      process.env.VERCEL_URL,
+      process.env.ENV !== 'production' && process.env.VERCEL_URL,
     ],
   };
 

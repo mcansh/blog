@@ -1,13 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 
-import Meta from '~/components/meta';
 import Header from '~/components/header/index';
 import Paragraph from '~/components/paragraph';
 import { Post as PostType } from '~/components/post-card/index';
 import useScrollProgress from '~/components/use-scroll-progress';
 import { Pre, InlineCode } from '~/components/code';
 import Link from '~/components/link';
+import { generateOpenGraph } from '~/next-seo.config';
+import { getDeploymentURL } from '~/utils/get-deployment-url';
+import { name } from '~/utils/author-info';
+import { getImageUrl } from '~/utils/get-image-url';
 
 const ScrollProgress = styled.progress.attrs({ max: 100, min: 0 })`
   position: fixed;
@@ -50,13 +54,34 @@ const components = {
 
 interface MDXPostProps {
   frontMatter: PostType;
+  slug: string;
 }
 
-const MDXPost: React.FC<MDXPostProps> = ({ children, frontMatter }) => {
+const MDXPost: React.FC<MDXPostProps> = ({ children, frontMatter, slug }) => {
   const scrollProgress = useScrollProgress();
+  const seo = React.useMemo(() => generateOpenGraph(frontMatter), [
+    frontMatter,
+  ]);
+
+  const headshot = React.useMemo(
+    () => getImageUrl('/static/images/headhsot.jpg'),
+    []
+  );
+
   return (
     <>
-      <Meta {...frontMatter} />
+      <NextSeo {...seo} />
+      <ArticleJsonLd
+        url={getDeploymentURL(slug)}
+        title={frontMatter.title}
+        authorName={name}
+        datePublished={frontMatter.date}
+        dateModified={frontMatter.lastEdited}
+        images={[frontMatter.image.imageUrl]}
+        description={frontMatter.title}
+        publisherLogo={headshot}
+        publisherName={name}
+      />
       <ScrollProgress value={scrollProgress} />
       <Header {...frontMatter} />
       <PostWrap>{children}</PostWrap>
