@@ -45,10 +45,11 @@ const jsonFeed = async () => {
       id: post.filePath,
       url: `${process.env.VERCEL_URL}/${post.filePath}`,
       title: post.data.title,
-      content_text: `${post.data.title}. See ${process.env.VERCEL_URL}/${post.filePath}!`,
+      content_text: `${post.data.title}. See ${process.env.VERCEL_URL}/${post.filePath}`,
       summary: post.data.title,
       image: getImageUrl(post.data.image.imageUrl),
       date_published: post.data.date,
+      date_modified: post.data.lastEdited,
     })),
   };
 
