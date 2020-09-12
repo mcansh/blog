@@ -8,6 +8,7 @@ import { iso8601 } from '~/utils/dates';
 import { getImageUrl } from '~/utils/get-image-url';
 import { ImageType } from '~/components/header/image';
 import { colors, iconSizes } from '~/config';
+import { getDeploymentURL } from '~/utils/get-deployment-url';
 
 interface Props {
   title?: string;
@@ -17,10 +18,11 @@ interface Props {
 
 const Meta: React.FC<Props> = ({ title, date, image }) => {
   const router = useRouter();
+  const root = getDeploymentURL();
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl = image?.imageUrl
     ? getImageUrl(image.imageUrl)
-    : `${process.env.VERCEL_URL}/static/images/headshot.jpg`;
+    : `${root}/static/images/headshot.jpg`;
 
   return (
     <Head>
@@ -52,7 +54,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
       <meta
         key="og:url"
         property="og:url"
-        content={`${process.env.VERCEL_URL}${router.asPath}`}
+        content={`${homepage}${router.asPath}`}
       />
       <meta key="og:image" property="og:image" content={fullImageUrl} />
       {date && (

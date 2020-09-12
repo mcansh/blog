@@ -24,7 +24,12 @@ const getCSP = (props: DocumentProps) => {
     'connect-src': ["'self'", 'https://sentry.io'],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
-    'img-src': ["'self'", 'data:', process.env.FATHOM_SUBDOMAIN],
+    'img-src': [
+      "'self'",
+      'data:',
+      process.env.FATHOM_SUBDOMAIN,
+      process.env.VERCEL_URL,
+    ],
   };
 
   const csp = `${Object.entries(cspSettings)
