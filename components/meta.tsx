@@ -91,7 +91,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
       })}
       <link
         rel="alternate"
-        href={`/atom${process.env.NOW ? '' : '.xml'}`}
+        href="/atom"
         type="application/atom+xml"
         title="RSS Feed"
       />
