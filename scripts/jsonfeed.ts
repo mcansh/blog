@@ -42,8 +42,8 @@ const jsonFeed = async () => {
       avatar: `${homepage}/static/images/headshot.jpeg`,
     },
     items: sortedPosts.map(post => ({
-      id: `${homepage}${post.filePath}`,
-      url: `${homepage}${post.filePath}`,
+      id: `${homepage}/${post.filePath}`,
+      url: `${homepage}/${post.filePath}`,
       title: post.data.title,
       content_text: `${post.data.title}. See ${homepage}${post.data.filePath}!`,
       summary: post.data.title,
