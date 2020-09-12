@@ -54,26 +54,32 @@ const components = {
 
 interface MDXPostProps {
   frontMatter: PostType;
+  slug: string;
 }
 
-const MDXPost: React.FC<MDXPostProps> = ({ children, frontMatter }) => {
+const MDXPost: React.FC<MDXPostProps> = ({ children, frontMatter, slug }) => {
   const scrollProgress = useScrollProgress();
   const seo = React.useMemo(() => generateOpenGraph(frontMatter), [
     frontMatter,
   ]);
 
+  const headshot = React.useMemo(
+    () => getImageUrl('/static/images/headhsot.jpg'),
+    []
+  );
+
   return (
     <>
       <NextSeo {...seo} />
       <ArticleJsonLd
-        url={getDeploymentURL(`/${frontMatter.filePath}`)}
+        url={getDeploymentURL(slug)}
         title={frontMatter.title}
         authorName={name}
         datePublished={frontMatter.date}
         dateModified={frontMatter.lastEdited}
         images={[frontMatter.image.imageUrl]}
         description={frontMatter.title}
-        publisherLogo={getImageUrl('/static/images/headhsot.jpg')}
+        publisherLogo={headshot}
         publisherName={name}
       />
       <ScrollProgress value={scrollProgress} />

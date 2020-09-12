@@ -11,17 +11,17 @@ import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
 import { MDXPost, components } from '~/components/layouts/post';
 import { Post } from '~/components/post-card';
 
-export interface Props {
+type Params = {
+  slug: string;
+};
+
+export type Props = Params & {
   source: {
     compiledSource: string;
     renderedOutput: string;
     scope: { [key: string]: any };
   };
   frontMatter: Post;
-}
-
-type Params = {
-  slug: string;
 };
 
 export const getStaticPaths: GetStaticPaths<Params> = () => {
@@ -53,14 +53,18 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
     props: {
       source: mdxSource,
       frontMatter: data as Post,
+      slug: params.slug,
     },
   };
 };
 
-const BlogPostPage: NextPage<Props> = ({ frontMatter, source }) => {
+const BlogPostPage: NextPage<Props> = ({ frontMatter, source, slug }) => {
   const content = hydrate(source, { components });
-
-  return <MDXPost frontMatter={frontMatter}>{content}</MDXPost>;
+  return (
+    <MDXPost slug={slug} frontMatter={frontMatter}>
+      {content}
+    </MDXPost>
+  );
 };
 
 export default BlogPostPage;
