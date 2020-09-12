@@ -6,6 +6,7 @@ import matter from 'gray-matter';
 import { description } from '../package.json';
 
 import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
+import { getDeploymentURL } from '~/utils/get-deployment-url';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -29,13 +30,16 @@ const generateAtom = async () => {
 
   const [latest] = sortedPosts;
 
+  const deployment = getDeploymentURL();
+  const atomFeed = getDeploymentURL('/atom');
+
   const atom = `<feed xmlns="http://www.w3.org/2005/Atom">
     <title>Logan McAnsh (@loganmcansh)</title>
     <subtitle>${description}</subtitle>
-    <link href="${process.env.VERCEL_URL}/atom" rel="self"/>
-    <link href="${process.env.VERCEL_URL}"/>
+    <link href="${atomFeed}" rel="self"/>
+    <link href="${deployment}"/>
     <updated>${latest.data.date}</updated>
-    <id>${process.env.VERCEL_URL}</id>
+    <id>${deployment}</id>
     <author>
       <name>Logan McAnsh</name>
       <email>logan@mcan.sh</email>
@@ -46,7 +50,7 @@ const generateAtom = async () => {
       <entry>
         <id>${post.filePath}</id>
         <title>${post.data.title}</title>
-        <link href="${process.env.VERCEL_URL}/${post.filePath}"/>
+        <link href="${deployment}/${post.filePath}"/>
         <updated>${post.data.lastEdited}</updated>
         <published>${post.data.date}</published>
       </entry>

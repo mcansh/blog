@@ -10,6 +10,7 @@ import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
 import { components } from '~/components/layouts/post';
 import { Props } from '~/pages/[slug]';
 import { Post } from '~/components/post-card';
+import { getDeploymentURL } from '~/utils/get-deployment-url';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
@@ -43,30 +44,39 @@ const jsonFeed = async () => {
     (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   );
 
+  const deployment = getDeploymentURL();
+  const feedUrl = getDeploymentURL('/feed.json');
+  const logo = getDeploymentURL('/static/images/logo/logo.png');
+  const favicon = getDeploymentURL('/favicon.ico');
+  const avatar = getDeploymentURL('/static/images/headshot.jpeg');
+
   const feed = {
     version: 'https://jsonfeed.org/version/1',
     title: 'Logan McAnsh (@loganmcansh)',
     description,
-    home_page_url: process.env.VERCEL_URL,
-    feed_url: `${process.env.VERCEL_URL}/feed.json`,
-    icon: `${process.env.VERCEL_URL}/static/images/logo/logo.png`,
-    favicon: `${process.env.VERCEL_URL}/static/images/logo/logo.png`,
+    home_page_url: deployment,
+    feed_url: feedUrl,
+    icon: logo,
+    favicon,
     author: {
       name: 'Logan McAnsh (@loganmcansh)',
       url: 'https://mcan.sh',
-      avatar: `${process.env.VERCEL_URL}/static/images/headshot.jpeg`,
+      avatar,
     },
-    items: sortedPosts.map(post => ({
-      id: post.filePath,
-      url: `${process.env.VERCEL_URL}/${post.filePath}`,
-      title: post.data.title,
-      content_text: post.content,
-      content_html: post.source.renderedOutput,
-      summary: post.data.title,
-      image: getImageUrl(post.data.image.imageUrl),
-      date_published: post.data.date,
-      date_modified: post.data.lastEdited,
-    })),
+    items: sortedPosts.map(post => {
+      const postUrl = getDeploymentURL(post.filePath);
+      return {
+        id: post.filePath,
+        url: postUrl,
+        title: post.data.title,
+        content_text: post.content,
+        content_html: post.source.renderedOutput,
+        summary: post.data.title,
+        image: getImageUrl(post.data.image.imageUrl),
+        date_published: post.data.date,
+        date_modified: post.data.lastEdited,
+      };
+    }),
   };
 
   return fs.writeFile(
