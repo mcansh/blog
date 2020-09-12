@@ -17,7 +17,7 @@ describe('Header Component', () => {
     expect(screen.getByTestId('header')).toHaveTextContent('BLOG');
     expect(screen.getByTestId('header_img')).toHaveAttribute(
       'src',
-      '/api/image/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
+      'https://mcansh.blog/api/image/static/images/posts/1*Wmv8hfi_bTHuHyV5CawnCw.jpg'
     );
   });
 });

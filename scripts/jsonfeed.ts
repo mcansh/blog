@@ -3,7 +3,7 @@ import path from 'path';
 
 import matter from 'gray-matter';
 
-import { description, homepage } from '~/package.json';
+import { description } from '~/package.json';
 import { getImageUrl } from '~/utils/get-image-url';
 import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
 import { Post } from '~/components/post-card';
@@ -32,20 +32,20 @@ const jsonFeed = async () => {
     version: 'https://jsonfeed.org/version/1',
     title: 'Logan McAnsh (@loganmcansh)',
     description,
-    home_page_url: homepage,
-    feed_url: `${homepage}/feed.json`,
-    icon: `${homepage}/static/images/logo/logo.png`,
-    favicon: `${homepage}/static/images/logo/logo.png`,
+    home_page_url: process.env.VERCEL_URL,
+    feed_url: `${process.env.VERCEL_URL}/feed.json`,
+    icon: `${process.env.VERCEL_URL}/static/images/logo/logo.png`,
+    favicon: `${process.env.VERCEL_URL}/static/images/logo/logo.png`,
     author: {
       name: 'Logan McAnsh (@loganmcansh)',
       url: 'https://mcan.sh',
-      avatar: `${homepage}/static/images/headshot.jpeg`,
+      avatar: `${process.env.VERCEL_URL}/static/images/headshot.jpeg`,
     },
     items: sortedPosts.map(post => ({
-      id: `${homepage}/${post.filePath}`,
-      url: `${homepage}/${post.filePath}`,
+      id: post.filePath,
+      url: `${process.env.VERCEL_URL}/${post.filePath}`,
       title: post.data.title,
-      content_text: `${post.data.title}. See ${homepage}${post.data.filePath}!`,
+      content_text: `${post.data.title}. See ${process.env.VERCEL_URL}/${post.data.filePath}!`,
       summary: post.data.title,
       image: getImageUrl(post.data.image.imageUrl),
       date_published: post.data.date,

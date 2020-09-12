@@ -18,7 +18,7 @@ interface Options {
 
 const getImageUrl = (imagePath: string, options?: Options) => {
   const path = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
-  const base = `/api/image${path}`;
+  const base = `${process.env.VERCEL_URL}/api/image${path}`;
   const query = new URLSearchParams();
 
   if (options) {

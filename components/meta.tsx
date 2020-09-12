@@ -20,18 +20,27 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
   const pageTitle = title ? `${title} — ${name}` : name;
   const fullImageUrl = image?.imageUrl
     ? getImageUrl(image.imageUrl)
-    : `${homepage}/static/images/headshot.jpg`;
+    : `${process.env.VERCEL_URL}/static/images/headshot.jpg`;
 
   return (
     <Head>
       <title key="title">{pageTitle}</title>
       <meta charSet="utf-8" />
-      <meta key="description" name="description" content={description} />
+      <meta name="description" content={description} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="loganmcansh" />
       <meta key="twitter:title" name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta
+        key="twitter:description"
+        name="twitter:description"
+        content={description}
+      />
       <meta key="twitter:image" name="twitter:image" content={fullImageUrl} />
+      <link
+        key="canonical"
+        rel="canonical"
+        href={`${homepage}/${router.asPath}`}
+      />
 
       <meta key="og:title" property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
@@ -43,7 +52,7 @@ const Meta: React.FC<Props> = ({ title, date, image }) => {
       <meta
         key="og:url"
         property="og:url"
-        content={`${homepage}${router.pathname}`}
+        content={`${process.env.VERCEL_URL}${router.asPath}`}
       />
       <meta key="og:image" property="og:image" content={fullImageUrl} />
       {date && (

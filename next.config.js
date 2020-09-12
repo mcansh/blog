@@ -7,6 +7,8 @@ const withSVG = require('@mcansh/next-svgr')();
 
 const { version, repository } = require('./package.json');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   // third party
   dontAutoRegisterSw: true,
@@ -89,8 +91,8 @@ const nextConfig = {
   redirects: () => [
     {
       source: '/changelog',
-      statusCode: 301,
       destination: 'https://github.com/mcansh/blog/releases',
+      permanent: isProd,
     },
   ],
   env: {
@@ -105,6 +107,7 @@ const nextConfig = {
     VERSION: version,
     FATHOM_SITE_ID: 'ROTOLYJX',
     FATHOM_SUBDOMAIN: 'https://tz8sxj4sit.mcansh.blog',
+    VERCEL_URL: `http${isProd ? 's' : ''}://${process.env.VERCEL_URL}`,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

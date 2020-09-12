@@ -3,7 +3,7 @@ import path from 'path';
 
 import matter from 'gray-matter';
 
-import { description, homepage } from '../package.json';
+import { description } from '../package.json';
 
 import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
 
@@ -32,10 +32,10 @@ const generateAtom = async () => {
   const atom = `<feed xmlns="http://www.w3.org/2005/Atom">
     <title>Logan McAnsh (@loganmcansh)</title>
     <subtitle>${description}</subtitle>
-    <link href="${homepage}/atom" rel="self"/>
-    <link href="${homepage}"/>
+    <link href="${process.env.VERCEL_URL}/atom" rel="self"/>
+    <link href="${process.env.VERCEL_URL}"/>
     <updated>${latest.data.date}</updated>
-    <id>${homepage}</id>
+    <id>${process.env.VERCEL_URL}</id>
     <author>
       <name>Logan McAnsh</name>
       <email>logan@mcan.sh</email>
@@ -46,7 +46,7 @@ const generateAtom = async () => {
       <entry>
         <id>${post.filePath}</id>
         <title>${post.data.title}</title>
-        <link href="${homepage}/${post.filePath}"/>
+        <link href="${process.env.VERCEL_URL}/${post.filePath}"/>
         <updated>${post.data.lastEdited}</updated>
         <published>${post.data.date}</published>
       </entry>

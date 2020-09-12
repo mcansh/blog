@@ -4,6 +4,8 @@ module.exports = {
     'plugin:@next/eslint-plugin-next/recommended',
   ],
   rules: {
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': 'error',
     'react/jsx-filename-extension': [
       'warn',
       { extensions: ['.js', '.jsx', '.tsx', '.mdx'] },
