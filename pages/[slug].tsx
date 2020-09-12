@@ -38,8 +38,13 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
 };
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
-  params = {},
+  params,
 }) => {
+  if (!params) {
+    throw new Error(
+      "This is _impossible_ due to returning params in `getStaticPaths`, but somehow we didn't get them"
+    );
+  }
   const filePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
   const source = await fs.readFile(filePath, 'utf-8');
   const { data, content } = matter(source);
