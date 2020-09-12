@@ -2,25 +2,40 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 import matter from 'gray-matter';
+import renderToString from 'next-mdx-remote/render-to-string';
 
 import { description } from '~/package.json';
 import { getImageUrl } from '~/utils/get-image-url';
 import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
+import { components } from '~/components/layouts/post';
+import { Props } from '~/pages/[slug]';
 import { Post } from '~/components/post-card';
 
 const OUT_DIR = path.join(process.cwd(), 'public');
 
+interface PostData {
+  content: string;
+  filePath: string;
+  source: Props['source'];
+  data: Post;
+}
+
 const jsonFeed = async () => {
-  const posts = await Promise.all(
+  const posts: PostData[] = await Promise.all(
     postFilePaths.map(async filePath => {
       const source = await fs.readFile(path.join(POSTS_PATH, filePath));
       const { content, data } = matter(source);
+      const mdxSource = (await renderToString(content, {
+        components,
+        scope: data,
+      })) as Props['source'];
 
       return {
         content,
-        data,
         filePath: filePath.replace(/\.mdx?$/, ''),
-      } as { content: string; data: Post; filePath: string };
+        source: mdxSource,
+        data: data as Post,
+      };
     })
   );
 
@@ -45,7 +60,8 @@ const jsonFeed = async () => {
       id: post.filePath,
       url: `${process.env.VERCEL_URL}/${post.filePath}`,
       title: post.data.title,
-      content_text: `${post.data.title}. See ${process.env.VERCEL_URL}/${post.filePath}`,
+      content_text: post.content,
+      content_html: post.source.renderedOutput,
       summary: post.data.title,
       image: getImageUrl(post.data.image.imageUrl),
       date_published: post.data.date,

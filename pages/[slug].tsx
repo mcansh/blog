@@ -11,8 +11,12 @@ import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
 import { MDXPost, components } from '~/components/layouts/post';
 import { Post } from '~/components/post-card';
 
-interface Props {
-  source: any;
+export interface Props {
+  source: {
+    compiledSource: string;
+    renderedOutput: string;
+    scope: { [key: string]: any };
+  };
   frontMatter: Post;
 }
 
