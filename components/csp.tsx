@@ -2,6 +2,8 @@ import crypto from 'crypto';
 
 import { NextScript, DocumentProps } from 'next/document';
 
+import { getDeploymentURL } from '~/utils/get-deployment-url';
+
 const cspHashOf = (text: string) => {
   const hash = crypto.createHash('sha256');
   hash.update(text);
@@ -28,7 +30,7 @@ const getCSP = (props: DocumentProps) => {
       "'self'",
       'data:',
       process.env.FATHOM_SUBDOMAIN,
-      process.env.ENV !== 'production' && process.env.VERCEL_URL,
+      getDeploymentURL(),
     ],
   };
 

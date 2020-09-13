@@ -8,6 +8,7 @@ coverage
 public/feed.json
 public/sitemap.xml
 public/atom.xml
+public/rss.xml
 .mdx-data
 .now
 .vercel
