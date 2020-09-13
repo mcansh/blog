@@ -41,6 +41,7 @@ const Index: NextPage<Props> = ({ latest, posts }) => (
           filePath={post.filePath}
           title={post.data.title}
           editUrl={post.data.editUrl}
+          lastEdited={post.data.lastEdited}
         />
       ))}
     </PostsWrapper>

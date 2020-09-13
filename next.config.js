@@ -41,19 +41,25 @@ const nextConfig = {
       ],
     },
     {
-      source: '/feed.json',
-      headers: [
-        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
-      ],
-    },
-    {
       source: '/favicon.ico',
       headers: [
         { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
       ],
     },
     {
+      source: '/feed.json',
+      headers: [
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
       source: '/atom',
+      headers: [
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
+      source: '/rss',
       headers: [
         { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
       ],
@@ -70,6 +76,14 @@ const nextConfig = {
     {
       source: '/sw.js',
       destination: '/_next/static/sw.js',
+    },
+    {
+      source: '/feed',
+      destination: '/feed.json',
+    },
+    {
+      source: '/rss',
+      destination: '/rss.xml',
     },
     {
       source: '/atom',

@@ -15,7 +15,7 @@ export interface Post {
   image: ImageType;
   editUrl: string;
   filePath: string;
-  lastEdited?: string;
+  lastEdited: string;
 }
 
 const PostCard: React.FC<Post> = ({ filePath, image, date, title }) => {
