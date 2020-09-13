@@ -78,17 +78,27 @@ const Document: React.FC = ({ children }) => {
           );
         })}
         <link
+          key="application/atom+xml"
           rel="alternate"
           href="/atom"
           type="application/atom+xml"
-          title="RSS Feed"
+          title="Atom Feed"
         />
         <link
+          key="application/json"
           rel="alternate"
-          href="/feed.json"
+          href="/feed"
           type="application/json"
           title="JSON Feed"
         />
+        <link
+          key="application/rss+xml"
+          rel="alternate"
+          href="/rss"
+          type="application/rss+xml"
+          title="RSS Feed"
+        />
+
         <link rel="preconnect" href={process.env.FATHOM_SUBDOMAIN} />
       </Head>
       <Navigation />
