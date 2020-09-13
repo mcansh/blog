@@ -90,6 +90,10 @@ const nextConfig = {
       destination: '/atom.xml',
     },
     {
+      source: '/sitemap',
+      destination: '/sitemap.xml',
+    },
+    {
       source: '/.well-known/brave-rewards-verification.txt',
       destination: '/brave-rewards-verification.txt',
     },
