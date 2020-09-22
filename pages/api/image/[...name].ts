@@ -60,6 +60,10 @@ const handler: NextApiHandler = async (req, res) => {
 
   res.setHeader('Content-Type', format.mime);
   res.setHeader('Content-Length', result.byteLength);
+  res.setHeader(
+    'Cache-Control',
+    'max-age=604800, s-maxage=10, stale-while-revalidate'
+  );
   return res.status(200).end(result, 'binary');
 };
 
