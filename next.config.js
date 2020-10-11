@@ -1,5 +1,4 @@
 const withSourceMaps = require('@zeit/next-source-maps')();
-const withMdxEnhanced = require('next-mdx-enhanced');
 const withOffline = require('next-offline');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -8,16 +7,7 @@ const withSVG = require('@mcansh/next-svgr')();
 
 const { version, repository } = require('./package.json');
 
-const withMDX = withMdxEnhanced({
-  layoutPath: 'components/layouts/post',
-  defaultLayout: true,
-  extendFrontMatter: {
-    process: (_mdxContent, frontMatter) => ({
-      // eslint-disable-next-line no-underscore-dangle
-      path: `/${frontMatter.__resourcePath.split('.mdx')[0]}`,
-    }),
-  },
-});
+const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   // third party
@@ -51,19 +41,25 @@ const nextConfig = {
       ],
     },
     {
-      source: '/feed.json',
-      headers: [
-        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
-      ],
-    },
-    {
       source: '/favicon.ico',
       headers: [
         { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
       ],
     },
     {
+      source: '/feed.json',
+      headers: [
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
       source: '/atom',
+      headers: [
+        { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
+      ],
+    },
+    {
+      source: '/rss',
       headers: [
         { key: 'cache-control', value: 'public, s-max-age=43200, immutable' },
       ],
@@ -82,8 +78,20 @@ const nextConfig = {
       destination: '/_next/static/sw.js',
     },
     {
+      source: '/feed',
+      destination: '/feed.json',
+    },
+    {
+      source: '/rss',
+      destination: '/rss.xml',
+    },
+    {
       source: '/atom',
       destination: '/atom.xml',
+    },
+    {
+      source: '/sitemap',
+      destination: '/sitemap.xml',
     },
     {
       source: '/.well-known/brave-rewards-verification.txt',
@@ -101,8 +109,8 @@ const nextConfig = {
   redirects: () => [
     {
       source: '/changelog',
-      statusCode: 301,
       destination: 'https://github.com/mcansh/blog/releases',
+      permanent: isProd,
     },
   ],
   env: {
@@ -117,6 +125,7 @@ const nextConfig = {
     VERSION: version,
     FATHOM_SITE_ID: 'ROTOLYJX',
     FATHOM_SUBDOMAIN: 'https://tz8sxj4sit.mcansh.blog',
+    VERCEL_URL: `http${isProd ? 's' : ''}://${process.env.VERCEL_URL}`,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
@@ -144,5 +153,5 @@ const nextConfig = {
 };
 
 module.exports = withBundleAnalyzer(
-  withSourceMaps(withMDX(withOffline(withSVG(nextConfig))))
+  withSourceMaps(withOffline(withSVG(nextConfig)))
 );

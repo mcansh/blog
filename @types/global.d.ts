@@ -15,5 +15,12 @@ declare namespace NodeJS {
     readonly SENTRY_RELEASE: string;
     readonly FATHOM_SITE_ID: string;
     readonly FATHOM_SUBDOMAIN: string;
+    readonly VERCEL_URL: string;
+    readonly ENV: 'production' | 'preview' | 'development';
+    readonly VERCEL_GITHUB_COMMIT_SHA: string;
+    readonly SENTRY_AUTH_TOKEN?: string;
+    readonly NEXT_PUBLIC_SENTRY_DSN?: string;
+    readonly SENTRY_PROJECT?: string;
+    readonly SENTRY_ORG?: string;
   }
 }

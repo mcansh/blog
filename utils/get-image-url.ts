@@ -1,3 +1,5 @@
+import { getDeploymentURL } from './get-deployment-url';
+
 interface Options {
   /**
    @description desired width of image
@@ -18,7 +20,8 @@ interface Options {
 
 const getImageUrl = (imagePath: string, options?: Options) => {
   const path = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
-  const base = `/api/image${path}`;
+  const root = getDeploymentURL();
+  const base = `${root}/api/image${path}`;
   const query = new URLSearchParams();
 
   if (options) {

@@ -2,6 +2,8 @@ import crypto from 'crypto';
 
 import { NextScript, DocumentProps } from 'next/document';
 
+import { getDeploymentURL } from '~/utils/get-deployment-url';
+
 const cspHashOf = (text: string) => {
   const hash = crypto.createHash('sha256');
   hash.update(text);
@@ -24,7 +26,12 @@ const getCSP = (props: DocumentProps) => {
     'connect-src': ["'self'", 'https://sentry.io'],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
-    'img-src': ["'self'", 'data:', process.env.FATHOM_SUBDOMAIN],
+    'img-src': [
+      "'self'",
+      'data:',
+      process.env.FATHOM_SUBDOMAIN,
+      getDeploymentURL(),
+    ],
   };
 
   const csp = `${Object.entries(cspSettings)

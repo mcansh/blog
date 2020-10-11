@@ -6,11 +6,12 @@ import { render, screen } from '~/test-utils';
 const post: Post = {
   date: '2019-02-02T00:00:00',
   title: 'React hoooooooooks!',
-  path: '/react-hooks-are-amazing',
+  filePath: '/react-hooks-are-amazing',
   image: {
     imageUrl: '/static/images/posts/1_Wmv8hfi_bTHuHyV5CawnCw.jpg',
   },
   editUrl: '/pages/react-hooks-are-amazing',
+  lastEdited: '2019-02-02T00:00:00',
 };
 
 it('renders a post card', () => {

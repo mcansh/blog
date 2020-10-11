@@ -1,4 +1,2 @@
-import './atom';
-import './jsonfeed';
+import './generate-feeds';
 import './manifest';
-import './sitemap';

@@ -14,18 +14,18 @@ export interface Post {
   date: string;
   image: ImageType;
   editUrl: string;
-  path: string;
-  lastEdited?: string;
+  filePath: string;
+  lastEdited: string;
 }
 
-const PostCard: React.FC<Post> = ({ path, image, date, title }) => {
+const PostCard: React.FC<Post> = ({ filePath, image, date, title }) => {
   const hasImageAuthor = image.photographer != null;
   const hasImageSrc = image.url != null;
   const image1x = getImageUrl(image.imageUrl, { h: imageHeight });
   const image2x = getImageUrl(image.imageUrl, { h: imageHeight * 2 });
   const image3x = getImageUrl(image.imageUrl, { h: imageHeight * 3 });
   return (
-    <Link href={path} passHref>
+    <Link href="/[slug]" as={filePath} passHref>
       <Post>
         <div className="post-card__img-wrapper">
           <SimpleImg
