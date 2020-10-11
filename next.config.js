@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 const withSVG = require('@mcansh/next-svgr')();
 
-const { version, repository } = require('./package.json');
+const pkgJSON = require('./package.json');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -119,13 +119,15 @@ const nextConfig = {
     GITHUB: 'mcansh',
     EMAIL: 'logan+blog@mcan.sh',
     SENTRY_DSN: 'https://07a54d3b59bb4bf5ad1c6ddf050d51c1@sentry.io/197817',
-    SENTRY_RELEASE: `blog@${version}`,
+    SENTRY_RELEASE: `blog@${pkgJSON.version}`,
     ANALYTICS: 'UA-87731356-4',
-    GITHUB_URL: `https://github.com/${repository}`,
-    VERSION: version,
+    GITHUB_URL: `https://github.com/${pkgJSON.repository}`,
+    VERSION: pkgJSON.version,
     FATHOM_SITE_ID: 'ROTOLYJX',
     FATHOM_SUBDOMAIN: 'https://tz8sxj4sit.mcansh.blog',
-    VERCEL_URL: `http${isProd ? 's' : ''}://${process.env.VERCEL_URL}`,
+    VERCEL_URL: `http${isProd ? 's' : ''}://${
+      process.env.VERCEL_URL ?? 'localhost:3000'
+    }`,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
