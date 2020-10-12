@@ -1,7 +1,5 @@
 {
   "name": "blog",
-  "productName": "Logan McAnsh",
-  "productShortName": "Blog",
   "version": "3.24.0",
   "private": false,
   "description": "My blog for learn.co, but mostly it's a playground for things I want to build with React 🤷‍♂️",
@@ -11,22 +9,20 @@
   "author": "Logan McAnsh <logan@mcan.sh> (https://mcan.sh)",
   "scripts": {
     "analyze": "ANALYZE=true yarn build",
-    "build": "npm-run-all build:*",
-    "postbuild": "next-sitemap",
-    "build:files": "node ./.next/serverless/scripts/build-files.js",
-    "build:next": "next build",
+    "build": "next build",
+    "postbuild": "next-sitemap && node ./.next/serverless/scripts/build-files.js",
     "dev": "next",
     "dev:watch": "next-remote-watch ./_posts",
     "find:unused": "next-unused",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
+    "preinstall": "npx npm-force-resolutions",
     "lint": "eslint --ignore-path .gitignore --fix --cache --ext js,ts,tsx .",
     "lint:css": "stylelint './**/*.js' './**/*.jsx' './**/*.tsx' './**/*.ts'",
     "start": "next start",
     "test": "TZ=utc NODE_ENV=test jest",
     "type-check": "tsc",
     "update-mdx-meta": "node scripts/update-mdx-meta",
-    "validate": "npm-run-all --parallel lint format lint:css type-check test",
-    "preinstall": "npx npm-force-resolutions"
+    "validate": "npm-run-all --parallel lint format lint:css type-check test"
   },
   "husky": {
     "hooks": {

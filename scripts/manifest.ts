@@ -13,8 +13,8 @@ const icons = iconSizes.map(icon => ({
 }));
 
 const json = {
-  name: pkgJSON.productName,
-  short_name: pkgJSON.productShortName,
+  name: 'Logan McAnsh',
+  short_name: 'Blog',
   description: pkgJSON.description,
   start_url: '/?homescreen=1',
   background_color: '#6c16c7',
