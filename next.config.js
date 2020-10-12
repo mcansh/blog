@@ -126,7 +126,7 @@ const nextConfig = {
     FATHOM_SITE_ID: 'ROTOLYJX',
     FATHOM_SUBDOMAIN: 'https://tz8sxj4sit.mcansh.blog',
     VERCEL_URL: `http${isProd ? 's' : ''}://${
-      process.env.VERCEL_URL ?? 'localhost:3000'
+      process.env.VERCEL_URL || 'localhost:3000'
     }`,
   },
   webpack: (config, { isServer }) => {
