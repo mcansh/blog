@@ -99,7 +99,10 @@ const Document: React.FC = ({ children }) => {
           title="RSS Feed"
         />
 
-        <link rel="preconnect" href={process.env.FATHOM_SUBDOMAIN} />
+        <link
+          rel="preconnect"
+          href={process.env.NEXT_PUBLIC_FATHOM_SUBDOMAIN}
+        />
       </Head>
       <Navigation />
       <div css={{ flex: '1 1 auto' }}>{children}</div>

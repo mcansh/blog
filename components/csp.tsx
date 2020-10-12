@@ -21,7 +21,7 @@ const getCSP = (props: DocumentProps) => {
       'https://storage.googleapis.com',
       "'unsafe-eval'",
       "'unsafe-inline'",
-      `${process.env.FATHOM_SUBDOMAIN}/script.js`,
+      `${process.env.NEXT_PUBLIC_FATHOM_SUBDOMAIN}/script.js`,
     ],
     'connect-src': ["'self'", 'https://sentry.io'],
     'manifest-src': ["'self'"],
@@ -29,7 +29,7 @@ const getCSP = (props: DocumentProps) => {
     'img-src': [
       "'self'",
       'data:',
-      process.env.FATHOM_SUBDOMAIN,
+      process.env.NEXT_PUBLIC_FATHOM_SUBDOMAIN,
       getDeploymentURL(),
     ],
   };

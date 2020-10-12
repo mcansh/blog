@@ -11,19 +11,19 @@ const NavLinks = [
   },
   {
     name: 'GitHub',
-    slug: `https://github.com/${process.env.GITHUB}`,
+    slug: `https://github.com/${process.env.NEXT_PUBLIC_GITHUB}`,
   },
   {
     name: 'Twitter',
-    slug: `https://twitter.com/${process.env.TWITTER}`,
+    slug: `https://twitter.com/${process.env.NEXT_PUBLIC_TWITTER}`,
   },
   {
     name: 'Instagram',
-    slug: `https://instagram.com/${process.env.INSTAGRAM}`,
+    slug: `https://instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAM}`,
   },
   {
     name: 'Email',
-    slug: `mailto:${process.env.EMAIL}`,
+    slug: `mailto:${process.env.NEXT_PUBLIC_EMAIL}`,
   },
   {
     name: 'Changelog',

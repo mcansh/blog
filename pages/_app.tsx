@@ -17,9 +17,9 @@ const App = ({ Component, pageProps }: AppProps) => {
   const statusCode = pageProps?.statusCode ?? 200;
 
   React.useEffect(() => {
-    Fathom.load(process.env.FATHOM_SITE_ID, {
+    Fathom.load(process.env.NEXT_PUBLIC_FATHOM_SITE_ID, {
       excludedDomains: ['localhost'],
-      url: `${process.env.FATHOM_SUBDOMAIN}/script.js`,
+      url: `${process.env.NEXT_PUBLIC_FATHOM_SUBDOMAIN}/script.js`,
     });
   }, []);
 

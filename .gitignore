@@ -3,6 +3,7 @@ node_modules
 *.log
 .DS_Store
 .env*
+!.env.sample
 bundles
 coverage
 public/feed.json
