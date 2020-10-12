@@ -26,7 +26,7 @@
     "type-check": "tsc",
     "update-mdx-meta": "node scripts/update-mdx-meta",
     "validate": "npm-run-all --parallel lint format lint:css type-check test",
-    "preinstall": "npm-force-resolutions"
+    "preinstall": "npx npm-force-resolutions"
   },
   "husky": {
     "hooks": {
@@ -122,7 +122,6 @@
     "next-offline": "5.0.2",
     "next-remote-watch": "0.2.0",
     "next-unused": "0.0.3",
-    "npm-force-resolutions": "0.0.3",
     "npm-run-all": "4.1.5",
     "prettier": "2.1.2",
     "stylelint": "13.7.2",
