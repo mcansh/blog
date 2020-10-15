@@ -1,11 +1,15 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import { createHash } from 'crypto';
 
 import { NextApiHandler } from 'next';
 import sharp from 'sharp';
 import { fromBuffer } from 'file-type';
 
 import { getParams } from '~/utils/params';
+
+const md5 = (str: string | Buffer) =>
+  createHash('md5').update(str).digest('hex');
 
 const denylist = ['heic', 'heif'];
 
@@ -58,6 +62,13 @@ const handler: NextApiHandler = async (req, res) => {
 
   const result = await sharped.toBuffer();
 
+  const etag = md5(result);
+
+  if (req.headers['if-none-match'] === etag) {
+    return res.status(304).end();
+  }
+
+  res.setHeader('etag', etag);
   res.setHeader('Content-Type', format.mime);
   res.setHeader('Content-Length', result.byteLength);
   res.setHeader(
