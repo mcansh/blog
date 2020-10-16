@@ -54,6 +54,10 @@ const PostCard = styled.a.attrs({
   .post-card__img-wrapper {
     overflow: hidden;
     height: 200px;
+    > div {
+      height: 100%;
+    }
+
     img {
       height: 100%;
       width: 100%;

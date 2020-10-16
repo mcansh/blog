@@ -21,7 +21,10 @@ interface Options {
 const getImageUrl = (imagePath: string, options?: Options) => {
   const path = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
   const root = getDeploymentURL();
-  const base = `${root}/api/image${path}`;
+
+  const encodedImagePath = encodeURIComponent(root + path);
+
+  const base = `${root}/_next/image?url=${encodedImagePath}`;
   const query = new URLSearchParams();
 
   if (options) {
