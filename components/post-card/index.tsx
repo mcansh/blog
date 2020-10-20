@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import unsplashParams from '~/utils/unsplash-params';
-import Post from '~/components/post-card/styles';
+import Post, { imageHeight } from '~/components/post-card/styles';
 import { ImageType } from '~/components/header/image';
 import { formatPostDate, iso8601 } from '~/utils/dates';
 import { widont } from '~/utils/widont';
@@ -26,7 +26,7 @@ const PostCard: React.FC<Post> = ({ filePath, image, date, title }) => {
         <div className="post-card__img-wrapper">
           <Image
             data-testid="post-image"
-            height={200}
+            height={imageHeight}
             src={image.imageUrl}
             alt={title}
             data-photo={
@@ -35,6 +35,7 @@ const PostCard: React.FC<Post> = ({ filePath, image, date, title }) => {
             data-source-url={
               hasImageSrc ? unsplashParams(image.url) : undefined
             }
+            lazy
           />
         </div>
         <div className="post-card__meta">
