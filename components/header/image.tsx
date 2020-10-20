@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 import unsplashParams from '~/utils/unsplash-params';
-import { getImageUrl } from '~/utils/get-image-url';
 
 export interface ImageType {
   imageUrl: string;
@@ -29,6 +29,10 @@ const ImageWrap = styled.div`
     background: rgba(0, 0, 0, 0.6);
   }
 
+  > div {
+    height: 100%;
+  }
+
   img {
     height: 100%;
     width: 100%;
@@ -40,19 +44,16 @@ interface Props {
   image: ImageType;
 }
 
-const HeaderImage: React.FC<Props> = ({ image }) => {
-  const imgUrl = getImageUrl(image.imageUrl);
-
-  return (
-    <ImageWrap>
-      <img
-        src={imgUrl}
-        alt={image.photographer ? `Taken by ${image.photographer}` : undefined}
-        data-source-url={image.url && unsplashParams(image.url)}
-        data-testid="header_img"
-      />
-    </ImageWrap>
-  );
-};
+const HeaderImage: React.FC<Props> = ({ image }) => (
+  <ImageWrap>
+    <Image
+      src={image.imageUrl}
+      alt={image.photographer ? `Taken by ${image.photographer}` : undefined}
+      data-source-url={image.url && unsplashParams(image.url)}
+      data-testid="header_img"
+      lazy
+    />
+  </ImageWrap>
+);
 
 export default HeaderImage;
