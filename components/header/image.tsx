@@ -52,6 +52,7 @@ const HeaderImage: React.FC<Props> = ({ image }) => (
       data-source-url={image.url && unsplashParams(image.url)}
       data-testid="header_img"
       lazy
+      unsized
     />
   </ImageWrap>
 );

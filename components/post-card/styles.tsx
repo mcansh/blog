@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const imageHeight = 200;
-
 const PostCard = styled.a.attrs({
   className: 'post-card',
   'data-testid': 'post-link',
@@ -74,5 +72,4 @@ const PostCard = styled.a.attrs({
   }
 `;
 
-export { imageHeight };
 export default PostCard;
