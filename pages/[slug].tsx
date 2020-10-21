@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
+import { NextSeo, ArticleJsonLd } from 'next-seo';
 
 import { MDXPost, components } from '~/components/layouts/post';
 import { Post } from '~/components/post-card';
@@ -10,6 +11,10 @@ import {
   renderPostToString,
   RenderToStringOutput,
 } from '~/lib/get-post';
+import { name } from '~/utils/author-info';
+import { generateOpenGraph } from '~/next-seo.config';
+import { getDeploymentURL } from '~/utils/get-deployment-url';
+import { getImageUrl } from '~/utils/get-image-url';
 
 type Params = {
   slug: string;
@@ -48,7 +53,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   return {
     props: {
       source: mdxSource,
-      frontMatter: data as Post,
+      frontMatter: { ...data, filePath: params.slug } as Post,
       slug: params.slug,
     },
   };
@@ -56,8 +61,22 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 
 const BlogPostPage: NextPage<Props> = ({ frontMatter, source, slug }) => {
   const content = hydrate(source, { components });
+  const openGraph = generateOpenGraph(frontMatter);
+  const headshot = getImageUrl('/static/images/headshot.jpg');
   return (
-    <MDXPost slug={slug} frontMatter={frontMatter}>
+    <MDXPost frontMatter={frontMatter}>
+      <NextSeo openGraph={openGraph} title={frontMatter.title} />
+      <ArticleJsonLd
+        url={getDeploymentURL(slug)}
+        title={frontMatter.title}
+        authorName={name}
+        datePublished={frontMatter.date}
+        dateModified={frontMatter.lastEdited}
+        images={[frontMatter.image.imageUrl]}
+        description={frontMatter.title}
+        publisherLogo={headshot}
+        publisherName={name}
+      />
       {content}
     </MDXPost>
   );

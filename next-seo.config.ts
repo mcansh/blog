@@ -54,7 +54,7 @@ const defaultSEO: DefaultSeoProps = {
   openGraph: {
     images: [
       {
-        url: getImageUrl('/static/images/headhsot.jpg'),
+        url: getImageUrl('/static/images/headshot.jpg'),
       },
     ],
   },
