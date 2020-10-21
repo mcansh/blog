@@ -1,25 +1,21 @@
 import { NextRouter } from 'next/router';
 
-function noop() {
-  return {};
-}
-
 const router: NextRouter = {
   asPath: '/',
-  back: noop,
-  beforePopState: noop,
+  back: jest.fn(),
+  beforePopState: jest.fn(),
   events: {
-    emit: noop,
-    off: noop,
-    on: noop,
+    emit: jest.fn(),
+    off: jest.fn(),
+    on: jest.fn(),
   },
   isFallback: false,
   pathname: '/',
-  prefetch: () => new Promise(resolve => resolve(undefined)),
-  push: () => new Promise(resolve => resolve(true)),
+  prefetch: jest.fn(),
+  push: jest.fn(),
   query: {},
-  reload: noop,
-  replace: () => new Promise(resolve => resolve(true)),
+  reload: jest.fn(),
+  replace: jest.fn(),
   route: '/',
   basePath: '',
 };

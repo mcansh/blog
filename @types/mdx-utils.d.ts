@@ -9,7 +9,7 @@ declare module 'mdx-utils' {
     };
   }
 
-  export const preToCodeBlock = (preProps: PreProps) => ({
+  export const preToCodeBlock = (_preProps: PreProps) => ({
     codeString: string,
     className: string,
     language: string,
