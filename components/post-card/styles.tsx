@@ -52,14 +52,19 @@ const PostCard = styled.a.attrs({
   .post-card__img-wrapper {
     overflow: hidden;
     height: 200px;
-    > div {
+
+    /**
+      * next/image wraps the image in a number of divs
+      * more info: https://github.com/vercel/next.js/blob/7a1bd3d29f84b90ed7f27205ab314ffd844e9ee1/packages/next/client/image.tsx#L271-L272
+    */
+    div {
       height: 100%;
+      width: 100%;
     }
 
     img {
       height: 100%;
       width: 100%;
-      transition: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
       object-fit: cover;
     }
   }

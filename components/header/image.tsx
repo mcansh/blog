@@ -29,8 +29,13 @@ const ImageWrap = styled.div`
     background: rgba(0, 0, 0, 0.6);
   }
 
-  > div {
+  /**
+    * next/image wraps the image in a number of divs
+    * more info: https://github.com/vercel/next.js/blob/7a1bd3d29f84b90ed7f27205ab314ffd844e9ee1/packages/next/client/image.tsx#L271-L272
+  */
+  div {
     height: 100%;
+    width: 100%;
   }
 
   img {
@@ -51,7 +56,6 @@ const HeaderImage: React.FC<Props> = ({ image }) => (
       alt={image.photographer ? `Taken by ${image.photographer}` : undefined}
       data-source-url={image.url && unsplashParams(image.url)}
       data-testid="header_img"
-      lazy
       unsized
     />
   </ImageWrap>
