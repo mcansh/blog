@@ -3,39 +3,38 @@ import { getDeploymentURL } from './get-deployment-url';
 interface Options {
   /**
    @description desired width of image
-   @default undefined - image original size
   */
-  w?: number;
+  w: number;
   /**
   @description desired height of image
   @default undefined - image original size
  */
   h?: number;
   /**
-   @description desired format of image
-   @default jpg or whatever the original image extension is
-  */
-  fm?: 'jpeg' | 'jpg' | 'png' | 'raw' | 'tiff' | 'webp';
+   @description quality
+   @default 100
+   */
+  q?: number;
 }
 
-const getImageUrl = (imagePath: string, options?: Options) => {
+const defaultOptions: Options = { w: 1200, q: 100 };
+
+const getImageUrl = (imagePath: string, options: Options = defaultOptions) => {
   const path = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
   const root = getDeploymentURL();
 
-  const encodedImagePath = encodeURIComponent(root + path);
+  const encodedImagePath = encodeURIComponent(path);
 
-  const base = `${root}/_next/image?url=${encodedImagePath}`;
-  const query = new URLSearchParams();
+  const base = `${root}/_next/image`;
+  const query = new URLSearchParams(`url=${encodedImagePath}`);
 
-  if (options) {
-    Object.entries(options).forEach(item => {
-      query.append(...item);
-    });
+  Object.entries({ ...defaultOptions, ...options }).forEach(([key, val]) => {
+    if (val) {
+      query.append(key, val.toString());
+    }
+  });
 
-    return `${base}?${query.toString()}`;
-  }
-
-  return base;
+  return `${base}?${query.toString()}`;
 };
 
 export { getImageUrl };

@@ -17,10 +17,10 @@ function generateOpenGraph(post: Post): OpenGraph {
     },
     images: [
       {
-        url: getImageUrl(post.image.imageUrl),
+        url: getImageUrl(post.image.imageUrl, { w: 1200 }),
         alt: post.title,
-        height: 650,
-        width: 850,
+        height: 630,
+        width: 1200,
       },
     ],
     url: `${getDeploymentURL()}/${post.filePath}`,

@@ -61,7 +61,7 @@ async function generateFeeds() {
       content: post.source.renderedOutput,
       date: new Date(post.data.lastEdited),
       published: new Date(post.data.date),
-      image: getImageUrl(post.data.image.imageUrl),
+      image: getImageUrl(post.data.image.imageUrl, { w: 1200 }),
     });
   });
 
