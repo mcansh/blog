@@ -1,75 +1,46 @@
 import React from 'react';
-import Router from 'next/router';
-import styled from 'styled-components';
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
-} from 'body-scroll-lock';
-import Portal from '@reach/portal';
 
-import NavList from '~/components/nav-list';
-import Hamburger from '~/components/hamburger';
+import Link from '~/components/link';
 
-const Nav = styled.nav<{ navOpen: boolean }>`
-  &::after {
-    content: '';
-    background: rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    visibility: ${props => (props.navOpen ? 'visible' : 'hidden')};
-    opacity: ${props => (props.navOpen ? 1 : 0)};
-    transition: 500ms all ease-in-out;
-  }
-`;
+const links = [
+  {
+    name: 'Home',
+    slug: '/',
+  },
+  {
+    name: 'GitHub',
+    slug: `https://github.com/${process.env.GITHUB}`,
+  },
+  {
+    name: 'Twitter',
+    slug: `https://twitter.com/${process.env.TWITTER}`,
+  },
+  {
+    name: 'Instagram',
+    slug: `https://instagram.com/${process.env.INSTAGRAM}`,
+  },
+  {
+    name: 'Email',
+    slug: `mailto:${process.env.EMAIL}`,
+  },
+  {
+    name: 'Changelog',
+    slug: `${process.env.GITHUB_URL}/releases`,
+  },
+];
 
-const Navigation: React.FC = () => {
-  const [navOpen, setNavOpen] = React.useState(false);
-  const closeNav = () => setNavOpen(false);
-
-  React.useEffect(() => {
-    const closeNavAndEnableScroll = () => {
-      clearAllBodyScrollLocks();
-      closeNav();
-    };
-
-    Router.events.on('routeChangeComplete', closeNavAndEnableScroll);
-
-    return () => {
-      Router.events.off('routeChangeComplete', closeNavAndEnableScroll);
-    };
-  });
-
-  const onClick = () => {
-    setNavOpen(old => {
-      if (old) {
-        enableBodyScroll(document.body);
-      } else {
-        disableBodyScroll(document.body);
-      }
-      return !old;
-    });
-  };
-
-  return (
-    <Nav
-      navOpen={navOpen}
-      onKeyDown={(event: React.KeyboardEvent) => {
-        if (event.key.toLowerCase() === 'escape') {
-          closeNav();
-        }
-      }}
-    >
-      <Hamburger onClick={onClick} navOpen={navOpen} />
-      <Portal>
-        <NavList navOpen={navOpen} />
-      </Portal>
-    </Nav>
-  );
-};
+const Navigation: React.VFC = () => (
+  <nav>
+    <ul className="flex items-center justify-center py-6 space-x-3 text-xl font-medium">
+      {links.map(link => (
+        <li key={link.name}>
+          <Link href={link.slug}>
+            <a>{link.name}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </nav>
+);
 
 export default Navigation;

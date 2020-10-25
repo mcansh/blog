@@ -1,51 +1,35 @@
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
 
-import PostsWrapper from '~/components/posts-wrapper';
-import PostCard, { Post } from '~/components/post-card/index';
-import Header from '~/components/header/index';
-import { getPosts } from '~/lib/get-post';
+import PostCard from '~/components/post-card/index';
+import { getPosts, Post } from '~/lib/get-post';
 
 interface Props {
   posts: {
-    content: string;
-    data: Post;
     filePath: string;
+    data: Post;
+    content: string;
   }[];
-  latest: {
-    content: string;
-    data: Post;
-    filePath: string;
-  };
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const posts = await getPosts();
 
-  return { props: { posts, latest: posts[0] } };
+  return { props: { posts } };
 };
 
-const Index: NextPage<Props> = ({ latest, posts }) => (
-  <>
-    <Header
-      url={latest.filePath}
-      image={latest.data.image}
-      title={latest.data.title}
-    />
-    <PostsWrapper>
-      {posts.map(post => (
-        <PostCard
-          key={post.filePath}
-          date={post.data.date}
-          image={post.data.image}
-          filePath={post.filePath}
-          title={post.data.title}
-          editUrl={post.data.editUrl}
-          lastEdited={post.data.lastEdited}
-        />
-      ))}
-    </PostsWrapper>
-  </>
+const Index: NextPage<Props> = ({ posts }) => (
+  <div className="grid max-w-screen-lg grid-cols-2 px-2 mx-auto gap-x-6 gap-y-10">
+    {posts.map((post, index) => (
+      <PostCard
+        key={post.filePath}
+        post={post.data}
+        featured={index === 0}
+        content={post.content}
+        filePath={post.filePath}
+      />
+    ))}
+  </div>
 );
 
 export default Index;

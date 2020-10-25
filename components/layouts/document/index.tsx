@@ -7,7 +7,7 @@ import pkgJSON from '~/package.json';
 import Navigation from '~/components/navigation';
 import Footer from '~/components/footer';
 import randomEmoji from '~/utils/emojis';
-import { colors, iconSizes } from '~/config';
+import { iconSizes } from '~/config';
 import { defaultSEO } from '~/next-seo.config';
 
 if (typeof window !== 'undefined') {
@@ -43,13 +43,7 @@ const Document: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <div
-      css={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
-    >
+    <div className="flex flex-col min-h-screen">
       <DefaultSeo {...defaultSEO} />
       <Head>
         <meta key="charset" charSet="utf-8" />
@@ -62,7 +56,7 @@ const Document: React.FC = ({ children }) => {
         <link
           rel="mask-icon"
           href="/static/images/logo/safari.svg"
-          color={colors.primary}
+          color="#0448f8"
         />
         <link rel="shortcut icon" href="/static/images/logo/logo.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -102,7 +96,7 @@ const Document: React.FC = ({ children }) => {
         <link rel="preconnect" href={process.env.FATHOM_SUBDOMAIN} />
       </Head>
       <Navigation />
-      <div css={{ flex: '1 1 auto' }}>{children}</div>
+      <div className="flex-auto">{children}</div>
       <Footer />
     </div>
   );

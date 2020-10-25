@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    text-size-adjust: 100%;
+    @apply antialiased;
+  }
+
+  html,
+  body {
+    @apply h-full;
+  }
+
+  body {
+    background: #f7f7f7;
+  }
+
+  ::selection {
+    background: #0448f8;
+    color: #fff;
+  }
+}
+
+/* @layer components {} */
+
+/* @layer utilities {} */
+
+/*
+  * this is outside the `base` layer due to the #__next selector being injected by next.js
+  * essentially this is ignored by postcss purge
+*/
+#__next {
+  /** This doesn't work for `height` in Firefox */
+  min-height: -moz-available;
+  /*
+    * This does work for `height` in Chrome and Safari,
+    * but Safari has some weird redraw issue
+    * (open and close devtools and you will see).
+  */
+  min-height: -webkit-fill-available;
+  @apply h-full;
+}

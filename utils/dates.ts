@@ -12,4 +12,4 @@ const formatPostDate = (inputDate: PossibleDates) =>
 const iso8601 = (date: PossibleDates) =>
   formatISO(parseDate(date), { representation: 'date' });
 
-export { iso8601, formatPostDate };
+export { iso8601, formatPostDate, parseDate };

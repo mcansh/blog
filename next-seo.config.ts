@@ -3,7 +3,6 @@ import { OpenGraph } from 'next-seo/lib/types';
 
 import { Post } from './components/post-card';
 import { getImageUrl } from './utils/get-image-url';
-import { colors } from './config';
 
 import pkgJSON from '~/package.json';
 import { name } from '~/utils/author-info';
@@ -44,7 +43,7 @@ const defaultSEO: DefaultSeoProps = {
     },
     {
       name: 'theme-color',
-      content: colors.primary,
+      content: '#0448f8',
     },
     {
       name: 'apple-mobile-web-app-status-bar-style',
