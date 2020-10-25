@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 const BlogPostPage: NextPage<Props> = ({ frontMatter, source, slug }) => {
   const content = hydrate(source, { components });
   const openGraph = generateOpenGraph(frontMatter);
-  const headshot = getImageUrl('/static/images/headshot.jpg');
+  const headshot = getImageUrl('/static/images/headshot.jpeg', { w: 1200 });
   return (
     <MDXPost frontMatter={frontMatter}>
       <NextSeo openGraph={openGraph} title={frontMatter.title} />
