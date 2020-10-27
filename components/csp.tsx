@@ -23,7 +23,11 @@ const getCSP = (props: DocumentProps) => {
       "'unsafe-inline'",
       `${process.env.FATHOM_SUBDOMAIN}/script.js`,
     ],
-    'connect-src': ["'self'", 'https://sentry.io'],
+    'connect-src': [
+      "'self'",
+      'https://sentry.io',
+      'https://vitals.vercel-analytics.com',
+    ],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
     'img-src': [
