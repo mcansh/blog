@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { BlurhashCanvas } from 'react-blurhash';
 
 import unsplashParams from '~/utils/unsplash-params';
 import Post from '~/components/post-card/styles';
@@ -24,6 +25,21 @@ const PostCard: React.FC<Post> = ({ filePath, image, date, title }) => {
     <Link href="/[slug]" as={filePath} passHref>
       <Post>
         <div className="post-card__img-wrapper">
+          <BlurhashCanvas
+            hash={image.blurHash}
+            width={32}
+            height={32}
+            punch={1}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              width: '100%',
+              height: '100%',
+            }}
+          />
           <Image
             data-testid="post-image"
             src={image.imageUrl}
