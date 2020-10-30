@@ -1,5 +1,6 @@
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next';
+import { getBlurhash } from 'next-blurhash';
 
 import PostsWrapper from '~/components/posts-wrapper';
 import PostCard, { Post } from '~/components/post-card/index';
@@ -22,7 +23,23 @@ interface Props {
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getPosts();
 
-  return { props: { posts, latest: posts[0] } };
+  const postsWithBlurHash = await Promise.all(
+    posts.map(async post => {
+      const blurHash = await getBlurhash(post.data.image.imageUrl);
+      return {
+        ...post,
+        data: {
+          ...post.data,
+          image: {
+            ...post.data.image,
+            blurHash,
+          },
+        },
+      };
+    })
+  );
+
+  return { props: { posts: postsWithBlurHash, latest: postsWithBlurHash[0] } };
 };
 
 const Index: NextPage<Props> = ({ latest, posts }) => (
