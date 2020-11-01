@@ -77,7 +77,7 @@ const HeaderImage: React.FC<Props> = ({ image }) => (
       alt={image.photographer ? `Taken by ${image.photographer}` : undefined}
       data-source-url={image.url && unsplashParams(image.url)}
       data-testid="header_img"
-      unsized
+      layout="fill"
     />
   </ImageWrap>
 );

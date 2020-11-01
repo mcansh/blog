@@ -43,7 +43,7 @@
     "framer-motion": "2.9.4",
     "gray-matter": "4.0.2",
     "mdx-utils": "0.2.0",
-    "next": "10.0.0",
+    "next": "10.0.1-canary.3",
     "next-blurhash": "0.2.0",
     "next-mdx-remote": "1.0.0",
     "next-seo": "4.14.0",

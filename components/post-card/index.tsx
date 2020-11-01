@@ -50,7 +50,7 @@ const PostCard: React.FC<Post> = ({ filePath, image, date, title }) => {
             data-source-url={
               hasImageSrc ? unsplashParams(image.url) : undefined
             }
-            unsized
+            layout="fill"
           />
         </div>
         <div className="post-card__meta">
