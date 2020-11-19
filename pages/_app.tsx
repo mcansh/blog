@@ -3,14 +3,24 @@ import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import * as Fathom from 'fathom-client';
 import Router from 'next/router';
+import ProgressBar from '@badrap/bar-of-progress';
 
 import GlobalStyle from '~/components/styles/global-style';
 import { colors } from '~/config';
 import Document from '~/components/layouts/document';
-import { NProgress } from '~/components/nprogress';
 
+const progress = new ProgressBar({
+  size: 2,
+  color: '#0448f8',
+  className: 'bar-of-progress',
+  delay: 1000,
+});
+
+Router.events.on('routeChangeStart', progress.start);
+Router.events.on('routeChangeError', progress.finish);
 Router.events.on('routeChangeComplete', () => {
   Fathom.trackPageview();
+  progress.finish();
 });
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -25,11 +35,6 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <ThemeProvider theme={colors}>
-      <NProgress
-        color={colors.primary}
-        options={{ trickleSpeed: 50 }}
-        spinner={false}
-      />
       <GlobalStyle />
       {statusCode !== 200 ? (
         <Component {...pageProps} />
