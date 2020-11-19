@@ -8,7 +8,7 @@ const useScrollProgress = () => {
       const scroll = window.pageYOffset;
       const bodyHeight = document.body.offsetHeight;
       const windowHeight = window.innerHeight;
-      const scrollPercent = (scroll / (bodyHeight - windowHeight)) * 100;
+      const scrollPercent = (scroll / (bodyHeight - windowHeight)) * 100 || 0;
       const minMaxScroll = Math.min(100, Math.max(0, scrollPercent));
       setScrollProgress(minMaxScroll);
     };
