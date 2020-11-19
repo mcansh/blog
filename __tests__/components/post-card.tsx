@@ -1,6 +1,7 @@
 import React from 'react';
 
-import PostCard, { Post } from '~/components/post-card/index';
+import type { Post } from '~/components/post-card/index';
+import PostCard from '~/components/post-card/index';
 import { render, screen } from '~/test-utils';
 
 const post: Post = {
@@ -8,6 +9,7 @@ const post: Post = {
   title: 'React hoooooooooks!',
   filePath: '/react-hooks-are-amazing',
   image: {
+    blurHash: 'UVKKZs.As6tSxFxutSj]tS%0EMxYS1NHV?s:',
     imageUrl: '/static/images/posts/1_Wmv8hfi_bTHuHyV5CawnCw.jpg',
   },
   editUrl: '/pages/react-hooks-are-amazing',
@@ -40,6 +42,7 @@ it('does have a data-photo attribute', () => {
     <PostCard
       {...post}
       image={{
+        blurHash: 'UQD^Jw00~DWAxuRjoLj[aej[bHj[t7WBoLj[',
         imageUrl: '/static/images/posts/matthew-kane-146076.jpg',
         photographer: 'Matthew Kane',
         url: 'https://unsplash.com/photos/9EM7s13H2I0',

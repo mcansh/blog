@@ -1,7 +1,9 @@
-import { format, UrlObject } from 'url';
+import type { UrlObject } from 'url';
+import { format } from 'url';
 
 import React from 'react';
-import Link, { LinkProps } from 'next/link';
+import type { LinkProps } from 'next/link';
+import Link from 'next/link';
 
 function checkSameOrigin(url: UrlObject | string) {
   const href = typeof url === 'string' ? url : format(url);

@@ -1,17 +1,13 @@
 import React from 'react';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
 import { getBlurhash } from 'next-blurhash';
 
 import { MDXPost, components } from '~/components/layouts/post';
-import { Post } from '~/components/post-card';
-import {
-  getPost,
-  getPostSlugs,
-  renderPostToString,
-  RenderToStringOutput,
-} from '~/lib/get-post';
+import type { Post } from '~/components/post-card';
+import type { RenderToStringOutput } from '~/lib/get-post';
+import { getPost, getPostSlugs, renderPostToString } from '~/lib/get-post';
 import { name } from '~/utils/author-info';
 import { generateOpenGraph } from '~/next-seo.config';
 import { getDeploymentURL } from '~/utils/get-deployment-url';

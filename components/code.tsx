@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import type { Language } from 'prism-react-renderer';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
-import { preToCodeBlock, PreProps } from 'mdx-utils';
+import type { PreProps } from 'mdx-utils';
+import { preToCodeBlock } from 'mdx-utils';
 
 const RE = /{([\d,-]+)}/;
 

@@ -1,4 +1,4 @@
-import { ParsedUrlQuery } from 'querystring';
+import type { ParsedUrlQuery } from 'querystring';
 
 function getParam<T = string>(param: T | T[] | undefined) {
   return Array.isArray(param) ? param[0] : param;

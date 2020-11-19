@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Header from '~/components/header/index';
 import Paragraph from '~/components/paragraph';
-import { Post as PostType } from '~/components/post-card/index';
+import type { Post as PostType } from '~/components/post-card/index';
 import useScrollProgress from '~/components/use-scroll-progress';
 import { Pre, InlineCode } from '~/components/code';
 import Link from '~/components/link';

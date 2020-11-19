@@ -1,9 +1,10 @@
 import React from 'react';
-import { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { getBlurhash } from 'next-blurhash';
 
 import PostsWrapper from '~/components/posts-wrapper';
-import PostCard, { Post } from '~/components/post-card/index';
+import type { Post } from '~/components/post-card/index';
+import PostCard from '~/components/post-card/index';
 import Header from '~/components/header/index';
 import { getPosts } from '~/lib/get-post';
 

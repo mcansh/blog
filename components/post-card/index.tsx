@@ -5,7 +5,7 @@ import { BlurhashCanvas } from 'react-blurhash';
 
 import unsplashParams from '~/utils/unsplash-params';
 import Post from '~/components/post-card/styles';
-import { ImageType } from '~/components/header/image';
+import type { ImageType } from '~/components/header/image';
 import { formatPostDate, iso8601 } from '~/utils/dates';
 import { widont } from '~/utils/widont';
 

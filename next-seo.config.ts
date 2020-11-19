@@ -1,7 +1,7 @@
-import { DefaultSeoProps } from 'next-seo';
-import { OpenGraph } from 'next-seo/lib/types';
+import type { DefaultSeoProps } from 'next-seo';
+import type { OpenGraph } from 'next-seo/lib/types';
 
-import { Post } from './components/post-card';
+import type { Post } from './components/post-card';
 import { getImageUrl } from './utils/get-image-url';
 import { colors } from './config';
 

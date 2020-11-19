@@ -1,7 +1,7 @@
 // Strongly type the styled-components theme
-import { CSSProp } from 'styled-components';
+import type { CSSProp } from 'styled-components';
 
-import theme from '../config';
+import type theme from '../config';
 
 // Enable css prop support globally
 declare module 'react' {

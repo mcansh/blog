@@ -1,5 +1,6 @@
 import React from 'react';
-import nProgress, { NProgressOptions } from 'nprogress';
+import type { NProgressOptions } from 'nprogress';
+import nProgress from 'nprogress';
 import Router from 'next/router';
 
 import { ProgressContainer } from './style';

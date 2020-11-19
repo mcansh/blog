@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 
-import { NextScript, DocumentProps } from 'next/document';
+import type { DocumentProps } from 'next/document';
+import { NextScript } from 'next/document';
 
 import { getDeploymentURL } from '~/utils/get-deployment-url';
 

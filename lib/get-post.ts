@@ -6,7 +6,7 @@ import { compareDesc } from 'date-fns';
 import renderToString from 'next-mdx-remote/render-to-string';
 
 import { postFilePaths, POSTS_PATH } from '~/utils/mdx';
-import { Post } from '~/components/post-card';
+import type { Post } from '~/components/post-card';
 import { components } from '~/components/layouts/post';
 
 async function getPost(
