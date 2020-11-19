@@ -16,7 +16,8 @@ async function getPost(
   data: Post;
   content: string;
 }> {
-  const filePath = slug.endsWith('.mdx') ? slug : `${slug}.mdx`;
+  const fileName = slug.endsWith('.mdx') ? slug : `${slug}.mdx`;
+  const filePath = fileName.startsWith('/') ? fileName : `/${fileName}`;
 
   const source = await fs.readFile(path.join(POSTS_PATH, filePath), 'utf-8');
   const { content, data } = matter(source);
