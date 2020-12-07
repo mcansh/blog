@@ -2,7 +2,8 @@ import React from 'react';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
-import { getBlurhash } from 'next-blurhash';
+import { getImage } from '@plaiceholder/next';
+import { getBlurhash } from '@plaiceholder/blurhash';
 
 import { MDXPost, components } from '~/components/layouts/post';
 import type { Post } from '~/components/post-card';
@@ -44,17 +45,18 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   }
 
   const { content, data } = await getPost(params.slug);
-
-  const mdxSource = await renderPostToString(content, data);
-
-  const blurHash = await getBlurhash(data.image.imageUrl);
+  const imageBuffer = await getImage(data.image.imageUrl);
+  const [blurHash, mdxSource] = await Promise.all([
+    getBlurhash(imageBuffer),
+    renderPostToString(content, data),
+  ]);
 
   return {
     props: {
       source: mdxSource,
       frontMatter: {
         ...data,
-        image: { ...data.image, blurHash },
+        image: { ...data.image, blurHash: blurHash.hash },
         filePath: params.slug,
       } as Post,
       slug: params.slug,

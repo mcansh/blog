@@ -4,6 +4,8 @@ import type { Post } from '~/components/post-card/index';
 import PostCard from '~/components/post-card/index';
 import { render, screen } from '~/test-utils';
 
+jest.mock('react-blurhash');
+
 const post: Post = {
   date: '2019-02-02T00:00:00',
   title: 'React hoooooooooks!',
