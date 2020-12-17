@@ -27,7 +27,7 @@ const getCSP = (props: DocumentProps) => {
     'connect-src': [
       "'self'",
       'https://sentry.io',
-      'https://vitals.vercel-analytics.com',
+      'https://vitals.vercel-insights.com',
     ],
     'manifest-src': ["'self'"],
     'style-src': ["'self'", "'unsafe-inline'"],
