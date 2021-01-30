@@ -32,6 +32,7 @@ const nextConfig = {
     modern: true,
     plugins: true,
   },
+  future: { webpack5: true },
   headers: () => [
     {
       source: '/manifest.webmanifest',
