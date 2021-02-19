@@ -15,7 +15,7 @@ case of this page. It shows how far down the page a user has scrolled. This can
 be beneficial to a long webpage such as a blog post. Another reason one could
 use the progress element is to show a loading bar for something.
 
-# The HTML is pretty simple in itself, just set a max value and you're done
+## The HTML is pretty simple in itself, just set a max value and you're done
 
 ```html
 <body>
@@ -24,7 +24,7 @@ use the progress element is to show a loading bar for something.
 </body>
 ```
 
-# The CSS is straight forward as well but you have to remember to also clear out some vendor prefixed psuedo elements on the progress bar
+## The CSS is straight forward as well but you have to remember to also clear out some vendor prefixed psuedo elements on the progress bar
 
 ```css
 progress::-webkit-progress-bar {
@@ -52,7 +52,7 @@ progress {
 }
 ```
 
-# And now the fun part, setting the value based on your scroll distance
+## And now the fun part, setting the value based on your scroll distance
 
 ```javascript
 function youReadThisMuch() {
@@ -66,7 +66,7 @@ function youReadThisMuch() {
 window.addEventListener('scroll', youReadThisMuch);
 ```
 
-# Setting this up in React is also super simple
+## Setting this up in React is also super simple
 
 ```javascript
 class Progress extends React.Component {
@@ -129,7 +129,7 @@ class Progress extends React.Component {
 export default Progress;
 ```
 
-# React Hooks!!!!
+## React Hooks!!!!
 
 ```javascript
 // useScrollProgress.js
