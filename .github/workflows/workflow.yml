@@ -1,45 +1,52 @@
-name: Node.js CI
+name: CI
 
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+on: [push]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 13.x, 14.x, 15.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.7.0
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: https://npm.pkg.github.com
-          scope: '@mcansh'
+          access_token: ${{ github.token }}
 
-      - name: Cache node_modules
-        uses: actions/cache@v2
+      - name: Install and cache dependencies
+        uses: actions/checkout@v2
+      - uses: actions/cache@v1
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
-      - run: npm ci
+            ${{ runner.os }}-node-
+      - name: Build Remix App
+        run: |
+          npm ci
+          npm run test
+          npm run build
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm run build
-      - run: npm run test
+          REMIX_REGISTRY_TOKEN: ${{ secrets.REMIX_REGISTRY_TOKEN }}
 
-      - name: upload coverage to coveralls
-        uses: coverallsapp/github-action@master
+      - name: Deploy Preview
+        uses: amondnet/vercel-action@v20
+        id: vercel-deploy-preview
+        if: github.event_name == 'push' && github.ref != 'refs/heads/main'
         with:
-          github-token: ${{ secrets.github_token }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: .
+
+      - name: Deploy Production
+        uses: amondnet/vercel-action@v20
+        id: vercel-deploy-production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: .
+          vercel-args: '--prod'
+          alias-domains: ${{ secrets.VERCEL_DOMAIN }}
