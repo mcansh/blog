@@ -7,7 +7,7 @@ import { compareDesc, parseISO } from 'date-fns';
 export interface FrontMatter {
   title: string;
   date: string;
-  image: {
+  image?: {
     imageUrl: string;
     photographer?: string;
     url?: string;
@@ -24,6 +24,11 @@ export interface PostFrontMatter {
 interface Post {
   name: string;
   contents: string;
+}
+
+export interface BlogPost {
+  code: string;
+  frontmatter: FrontMatter;
 }
 
 async function getPostsFromFS(): Promise<Array<Post>> {
