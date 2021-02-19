@@ -9,7 +9,7 @@ type ParagraphProps = React.DetailedHTMLProps<
 type Props = Except<ParagraphProps, 'className'>;
 
 const Text: React.FC<Props> = ({ children, ...props }) => (
-  <p className="" {...props}>
+  <p className="mb-2 text-base" {...props}>
     {children}
   </p>
 );
