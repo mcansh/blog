@@ -7,4 +7,7 @@ module.exports = {
     '@testing-library/jest-dom/extend-expect',
     '<rootDir>/jest.setup.js',
   ],
+  transform: {
+    '\\.[jt]sx?$': 'esjest-transform',
+  },
 };

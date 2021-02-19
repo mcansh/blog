@@ -1,4 +1,4 @@
-import unsplashParams from '~/utils/unsplash-params';
+import unsplashParams from '../../utils/unsplash-params';
 
 it('returns nothing if no url is passed', () => {
   expect(unsplashParams()).toBe('');

@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import { range } from '~/utils/range';
+import { range } from '../../utils/range';
 
 cases(
   'get a range of numbers',

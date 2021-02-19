@@ -1,6 +1,6 @@
 import cases from 'jest-in-case';
 
-import { iso8601, formatPostDate } from '~/utils/dates';
+import { iso8601, formatPostDate } from '../../utils/dates';
 
 cases(
   'returns an iso8601 date string',

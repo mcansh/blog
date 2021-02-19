@@ -1,4 +1,4 @@
-import randomEmoji from '~/utils/emojis';
+import randomEmoji from '../../utils/emojis';
 
 let originalMath: Math;
 
