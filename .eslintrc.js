@@ -14,8 +14,8 @@ module.exports = {
       'error',
       {
         devDependencies: [
-          '.eslintrc.js',
           '**/__tests__/**/*',
+          '.eslintrc.js',
           'jest.setup.js',
           'postcss.config.js',
           'prettier.config.js',
