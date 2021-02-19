@@ -9,26 +9,40 @@ import { format, parseISO } from 'date-fns';
 
 import { getPost } from '../lib/get-post';
 
+import FourOhFour from './404';
+
 interface RouteData {
-  post: PromiseValue<ReturnType<typeof bundleMDX>>;
+  post?: PromiseValue<ReturnType<typeof bundleMDX>>;
 }
 
-const meta: MetaFunction = () => ({
-  title: 'Logan McAnsh',
+const meta: MetaFunction = ({ data }: { data: RouteData }) => ({
+  title: data.post ? data.post.frontmatter.title : 'Logan McAnsh',
   description: 'My blog!',
 });
 
-const loader: LoaderFunction = async () => {
-  const { contents } = await getPost('html5-progress-element');
+const loader: LoaderFunction = async ({ params }) => {
+  const { slug } = params;
 
-  const result = await bundleMDX(contents);
+  try {
+    const { contents } = await getPost(slug);
 
-  return new Response(JSON.stringify({ post: result }), {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+    const result = await bundleMDX(contents);
+
+    return new Response(JSON.stringify({ post: result }), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({}), {
+      status: error.code === 'ENOENT' ? 404 : 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
 };
 
 const Heading: React.FC = ({ children, ...props }) => (
@@ -41,9 +55,14 @@ function IndexPage() {
   const data = useRouteData<RouteData>();
   // it's generally a good idea to memoize this function call to
   // avoid re-creating the component every render.
-  const Component = React.useMemo(() => getMDXComponent(data.post.code), [
-    data.post.code,
-  ]);
+  const Component = React.useMemo(() => {
+    if (data.post) return getMDXComponent(data.post.code);
+    return null;
+  }, [data.post]);
+
+  if (!data.post) {
+    return <FourOhFour />;
+  }
 
   return (
     <MDXProvider
