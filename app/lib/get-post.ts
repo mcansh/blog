@@ -1,8 +1,11 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-import parseFrontMatter from 'front-matter';
+import matter from 'gray-matter';
 import { compareDesc, parseISO } from 'date-fns';
+import remark from 'remark';
+import html from 'remark-html';
+import gatsbyPrism from 'gatsby-remark-prismjs';
 
 export interface FrontMatter {
   title: string;
@@ -27,7 +30,8 @@ interface Post {
 }
 
 export interface BlogPost {
-  code: string;
+  name: string;
+  html: string;
   frontmatter: FrontMatter;
 }
 
@@ -92,10 +96,11 @@ async function getPosts(): Promise<Array<PostFrontMatter>> {
       : await getPostsFromFS();
 
   const posts = files.map(file => {
-    const { attributes: frontmatter } = parseFrontMatter<FrontMatter>(
-      file.contents
-    );
-    return { name: file.name.replace(/\.mdx$/, ''), frontmatter };
+    const { data } = matter(file.contents);
+    return {
+      name: file.name.replace(/\.mdx$/, ''),
+      frontmatter: data as FrontMatter,
+    };
   });
 
   return posts.sort((a, b) =>
@@ -103,15 +108,26 @@ async function getPosts(): Promise<Array<PostFrontMatter>> {
   );
 }
 
-async function getPost(name: string): Promise<Post> {
+async function getPost(name: string): Promise<BlogPost> {
   const contents =
     process.env.NODE_ENV === 'production'
       ? await getPostFromGitHub(name)
       : await getPostFromFS(name);
 
+  const { content, data: frontmatter } = matter(contents);
+
+  const result = await remark()
+    .use(() => markdownAST => {
+      gatsbyPrism({ markdownAST }, { showLineNumbers: true });
+      return markdownAST;
+    })
+    .use(html)
+    .process(content);
+
   return {
     name,
-    contents,
+    html: result.contents.toString(),
+    frontmatter: frontmatter as FrontMatter,
   };
 }
 

@@ -1,10 +1,14 @@
 import * as React from 'react';
-import type { LoaderFunction, MetaFunction } from '@remix-run/react';
+import type {
+  LinksFunction,
+  LoaderFunction,
+  MetaFunction,
+} from '@remix-run/react';
 import { Link, useRouteData } from '@remix-run/react';
-import { bundleMDX } from 'mdx-bundler';
 import { MDXProvider } from '@mdx-js/react';
-import { getMDXComponent } from 'mdx-bundler/client';
 import { format, parseISO } from 'date-fns';
+// eslint-disable-next-line import/extensions, import/no-unresolved
+import codeStyles from 'url:../styles/light-owl.css';
 
 import type { BlogPost } from '../lib/get-post';
 import { getPost } from '../lib/get-post';
@@ -15,6 +19,8 @@ import FourOhFour from './404';
 interface RouteData {
   post?: BlogPost;
 }
+
+const links: LinksFunction = () => [{ rel: 'stylesheet', href: codeStyles }];
 
 const meta: MetaFunction = ({ data }: { data: RouteData }) => ({
   title: data.post
@@ -27,13 +33,30 @@ const loader: LoaderFunction = async ({ params }) => {
   const { slug } = params;
 
   try {
-    const { contents } = await getPost(slug);
+    const post = await getPost(slug);
 
-    const result = await bundleMDX(contents);
+    const oneDay = 86400;
+    const secondsSincePublished =
+      (Date.now() - parseISO(post.frontmatter.date).getTime()) / 1000;
+    const barelyPublished = secondsSincePublished < oneDay;
 
-    return new Response(JSON.stringify({ post: result }), {
+    // If this was barely published then only cache it for one minute, giving you
+    // a chance to make edits and have them show up within a minute for visitors.
+    // But after the first day, then cache for a week, then if you make edits
+    // they'll show up eventually, but you don't have to rebuild and redeploy to
+    // get them there.
+    const maxAge = barelyPublished ? 60 : oneDay * 7;
+
+    // If the max-age has expired, we'll still send the current cached version of
+    // the post to visitors until the CDN has cached the new one. If it's been
+    // expired for more than one month though (meaning nobody has visited this
+    // page for a month) we'll make them wait to see the newest version.
+    const swr = oneDay * 30;
+
+    return new Response(JSON.stringify({ post }), {
       status: 200,
       headers: {
+        'Cache-Control': `public, max-age=${maxAge}, stale-while-revalidate=${swr}`,
         'Content-Type': 'application/json',
       },
     });
@@ -50,12 +73,6 @@ const loader: LoaderFunction = async ({ params }) => {
 
 const PostPage: React.VFC = () => {
   const data = useRouteData<RouteData>();
-  // it's generally a good idea to memoize this function call to
-  // avoid re-creating the component every render.
-  const Component = React.useMemo(() => {
-    if (data.post) return getMDXComponent(data.post.code);
-    return (null as unknown) as React.FunctionComponent;
-  }, [data.post]);
 
   if (!data.post) {
     return <FourOhFour />;
@@ -96,9 +113,7 @@ const PostPage: React.VFC = () => {
               </span>
             </div>
           </header>
-          <div>
-            <Component />
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: data.post.html }} />
         </article>
       </MDXProvider>
     </>
@@ -106,4 +121,4 @@ const PostPage: React.VFC = () => {
 };
 
 export default PostPage;
-export { loader, meta };
+export { loader, meta, links };
