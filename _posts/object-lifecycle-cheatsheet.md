@@ -5,7 +5,7 @@ image:
   imageUrl: /static/images/posts/matthew-henry-49707.jpg
   photographer: Matthew Henry
   url: 'https://unsplash.com/photos/VviFtDJakYk'
-editUrl: _posts/object-lifecycle-cheatsheet.mdx
+editUrl: _posts/object-lifecycle-cheatsheet.md
 lastEdited: '2020-07-08T16:26:33.000Z'
 ---
 

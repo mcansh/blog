@@ -5,7 +5,7 @@ image:
   imageUrl: /static/images/posts/derek-liang-239062.jpg
   photographer: Derek Liang
   url: 'https://unsplash.com/photos/2h_i_BB_X2E'
-editUrl: _posts/rack-key-concepts.mdx
+editUrl: _posts/rack-key-concepts.md
 lastEdited: '2020-07-08T16:26:33.000Z'
 ---
 

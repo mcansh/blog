@@ -5,7 +5,7 @@ image:
   imageUrl: /static/images/posts/matthew-kane-146076.jpg
   photographer: Matthew Kane
   url: 'https://unsplash.com/photos/9EM7s13H2I0'
-editUrl: _posts/html5-progress-element.mdx
+editUrl: _posts/html5-progress-element.md
 lastEdited: '2020-07-08T16:26:33.000Z'
 ---
 

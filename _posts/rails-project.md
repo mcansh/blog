@@ -3,7 +3,7 @@ title: Rails project
 date: '2017-08-24T00:00:00'
 image:
   imageUrl: /static/images/posts/1_Wmv8hfi_bTHuHyV5CawnCw.jpg
-editUrl: _posts/rails-project.mdx
+editUrl: _posts/rails-project.md
 lastEdited: '2020-07-08T16:26:33.000Z'
 ---
 

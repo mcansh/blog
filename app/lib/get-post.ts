@@ -79,12 +79,12 @@ async function getPostsFromGitHub(): Promise<Array<Post>> {
 
 async function getPostFromFS(name: string): Promise<string> {
   const dir = path.join(process.cwd(), '_posts');
-  const file = await fs.readFile(path.join(dir, `${name}.mdx`), 'utf-8');
+  const file = await fs.readFile(path.join(dir, `${name}.md`), 'utf-8');
   return file.toString();
 }
 
 async function getPostFromGitHub(name: string): Promise<string> {
-  const url = `https://raw.githubusercontent.com/mcansh/blog/feat/remix/_posts/${name}.mdx`;
+  const url = `https://raw.githubusercontent.com/mcansh/blog/feat/remix/_posts/${name}.md`;
   const res = await fetch(url);
   return res.text();
 }
@@ -98,7 +98,7 @@ async function getPosts(): Promise<Array<PostFrontMatter>> {
   const posts = files.map(file => {
     const { data } = matter(file.contents);
     return {
-      name: file.name.replace(/\.mdx$/, ''),
+      name: file.name.replace(/\.md$/, ''),
       frontmatter: data as FrontMatter,
     };
   });

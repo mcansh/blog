@@ -5,7 +5,7 @@ image:
   imageUrl: /static/images/posts/joshua-sortino-228788.jpg
   photographer: Joshua Sortino
   url: 'https://unsplash.com/photos/71vAb1FXB6g'
-editUrl: _posts/similarities-between-life-and-code.mdx
+editUrl: _posts/similarities-between-life-and-code.md
 lastEdited: '2020-07-08T16:26:33.000Z'
 ---
 

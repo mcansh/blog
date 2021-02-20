@@ -5,7 +5,7 @@ image:
   imageUrl: /static/images/posts/brevite-434280.jpg
   photographer: Brevitē
   url: 'https://unsplash.com/photos/4qAxSfftA5I'
-editUrl: _posts/sinatra-project.mdx
+editUrl: _posts/sinatra-project.md
 lastEdited: '2020-07-08T16:26:33.000Z'
 ---
 
