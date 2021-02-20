@@ -8,7 +8,7 @@ import { Link, useRouteData } from '@remix-run/react';
 import { MDXProvider } from '@mdx-js/react';
 import { format, parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
-import codeStyles from 'url:../styles/light-owl.css';
+import codeStyles from 'css:../styles/light-owl.css';
 
 import type { BlogPost } from '../lib/get-post';
 import { getPost } from '../lib/get-post';

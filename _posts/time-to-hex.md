@@ -16,7 +16,7 @@ takes the time in military time and then outputs that as a hex, while changing
 the background color to it.
 
 ```javascript
-const setDate = () => {
+function setDate() {
   // get the datetime
   const now = new Date();
   // get hours from our "now" variable
@@ -36,31 +36,24 @@ const setDate = () => {
 
   // style the body background color to be the hex color
   document.body.style.background = hexTime;
-
-  setInterval(setDate, 1000);
-};
+}
+setInterval(setDate, 1000);
 ```
 
-Not so fast, you’re not done yet! Notice when the time is 9:03:03 or any time
-that's less than 10, the hex is only then 3 numbers, which is fine, until you
-get 4 or 5 digits. So to resolve this you can adjust the function like so:
+Not so fast, you’re not done yet! Notice when the time is `9:03:03` or any time
+that's less than 10, the hex is only then 3 numbers. To resolve this you can pad
+each variable to add a leading 0, like so:
 
-```javascript {14-16}
-const setDate = () => {
+```javascript
+function setDate() {
   // get the datetime
   const now = new Date();
-  // get hours from our "now" variable
-  const hours = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
-  // get minutes from our "now" variable
-  const minutes =
-    now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
-  // get seconds from our "now" variable
-  const seconds =
-    now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
 
-  // or thanks to string.padStart in es2017, we can shorten this to:
+  // get hours from our "now" variable
   const hours = String(now.getHours()).padStart(2, '0');
+  // get minutes from our "now" variable
   const minutes = String(now.getMinutes()).padStart(2, '0');
+  // get seconds from our "now" variable
   const seconds = String(now.getSeconds()).padStart(2, '0');
 
   // select our h1 element
@@ -70,20 +63,17 @@ const setDate = () => {
   const hexTime = `#${hours}${minutes}${seconds}`;
 
   // make the text of the text variable the content of hexTime variable above
+
   text.textContent = hexTime;
 
   // style the body background color to be the hex color
   document.body.style.background = hexTime;
-
-  setInterval(setDate, 1000);
-};
+}
+setInterval(setDate, 1000);
 ```
 
-Now what that’s doing is running a ternary to see if the time is less than 10 or
-not if it is, then it prepends a 0 to the variable.
-
 Woohoo! You now have a clock that shows you hexadecimal colors. You can even
-change the android chrome theme color every second:
+change the android chrome theme color along with it:
 
 ```javascript
 document.querySelector('meta[name="theme-color"]').content = hexTime;

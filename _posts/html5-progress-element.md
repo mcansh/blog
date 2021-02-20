@@ -133,9 +133,9 @@ export default Progress;
 
 ```javascript
 // useScrollProgress.js
-import { useState, useEffect } from 'react';
+import * as React from 'react';
 const useScrollProgress = () => {
-  const [scrollProgress, setScrollProgress] = useState(0); // initialize the value
+  const [scrollProgress, setScrollProgress] = React.useState(0); // initialize the value
   const handleScroll = () => {
     const scroll = window.pageYOffset;
     const bodyHeight = document.body.offsetHeight;
@@ -145,9 +145,9 @@ const useScrollProgress = () => {
     setScrollProgress(maxMinscroll);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // call it right away so the scroll position is set on page refresh
+    handleScroll(); // call it right away so the scroll position is set on page load when you're scrolled down a bit
     return () => {
       window.removeEventListener('scroll', handleScroll); // make sure to remove the listener on umount
     };
