@@ -14,8 +14,8 @@ const headers: HeadersFunction = () => ({
 });
 
 const meta: MetaFunction = () => ({
-  title: 'Blog Template',
-  description: 'This is a blog template, enjoy!',
+  title: 'Logan McAnsh',
+  description: '',
 });
 
 interface RouteData {
@@ -38,14 +38,18 @@ function Index() {
   return (
     <div>
       <header>
-        <h1>My Neglected Blog</h1>
+        <h1>Logan McAnsh</h1>
       </header>
       <main>
-        {data.posts.map(post => (
-          <p key={post.name}>
-            <Link to={post.name}>{post.frontmatter.title}</Link>
-          </p>
-        ))}
+        <ul>
+          {data.posts.map(post => (
+            <li key={post.name}>
+              <div>
+                <Link to={`/blog/${post.name}`}>{post.frontmatter.title}</Link>
+              </div>
+            </li>
+          ))}
+        </ul>
       </main>
     </div>
   );
