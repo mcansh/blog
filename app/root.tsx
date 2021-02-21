@@ -2,13 +2,13 @@ import type { LinksFunction } from '@remix-run/react';
 import { Meta, Links, Scripts } from '@remix-run/react';
 import { Outlet } from 'react-router-dom';
 // eslint-disable-next-line import/extensions, import/no-unresolved
-import styles from 'css:./styles/global.css';
+import tailwind from 'css:./styles/tailwind.css';
 
 export const links: LinksFunction = () => {
   const iconSizes = [228, 195, 152, 144, 128, 120, 96, 72, 57, 32];
 
   return [
-    { rel: 'stylesheet', href: styles },
+    { rel: 'stylesheet', href: tailwind },
     ...iconSizes.map(icon => ({
       rel: 'apple-touch-icon-precomposed',
       sizes: icon.toString(),

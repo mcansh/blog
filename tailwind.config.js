@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ['./app/**/*.{js,ts,tsx,md,mdx}', './remix.config.js'],
+  purge: ['./app/{components,routes}/**/*.{js,ts,tsx,md,mdx}'],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
