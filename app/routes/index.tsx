@@ -8,6 +8,7 @@ import { useRouteData, Link } from '@remix-run/react';
 
 import type { PostFrontMatter } from '../lib/get-posts';
 import { getPosts } from '../lib/get-posts';
+import { formatPostDate, iso8601 } from '../utils/dates';
 
 const headers: HeadersFunction = () => ({
   'cache-control': 'public, max-age=10',
@@ -36,16 +37,22 @@ const loader: LoaderFunction = async () => {
 function Index() {
   const data = useRouteData<RouteData>();
   return (
-    <div>
-      <header>
-        <h1>Logan McAnsh</h1>
+    <div className="h-full py-4 mx-auto max-w-prose">
+      <header className="text-center">
+        <h1 className="text-4xl font-semibold">Logan McAnsh</h1>
       </header>
       <main>
-        <ul>
+        <ul className="space-y-4">
           {data.posts.map(post => (
             <li key={post.name}>
-              <div>
+              <div className="flex flex-col">
                 <Link to={`/blog/${post.name}`}>{post.frontmatter.title}</Link>
+                <span>
+                  Posted on{' '}
+                  <time dateTime={iso8601(post.frontmatter.date)}>
+                    {formatPostDate(post.frontmatter.date)}
+                  </time>
+                </span>
               </div>
             </li>
           ))}
