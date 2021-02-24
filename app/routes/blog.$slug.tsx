@@ -4,7 +4,7 @@ import type {
   LoaderFunction,
   MetaFunction,
 } from '@remix-run/react';
-import { Link, useRouteData } from '@remix-run/react';
+import { useRouteData } from '@remix-run/react';
 import { parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import codeStyles from 'css:../styles/light-owl.css';
@@ -84,24 +84,14 @@ const PostPage: React.VFC = () => {
 
   return (
     <>
-      {data.post.frontmatter.image ? (
-        <div>
-          <img
-            src={data.post.frontmatter.image.imageUrl}
-            alt={data.post.frontmatter.title}
-            className="object-cover w-full h-80"
-          />
-        </div>
-      ) : (
-        <header className="w-11/12 pt-6 mx-auto space-y-4 max-w-prose sm:w-full">
-          <Link to="/" className="space-x-2 text-4xl font-medium">
-            <span role="img" aria-label="waving hand">
-              👋
-            </span>
-            <span>I&apos;m Logan</span>
-          </Link>
-        </header>
-      )}
+      <div>
+        <img
+          src={data.post.frontmatter.image.imageUrl}
+          alt={data.post.frontmatter.title}
+          className="object-cover w-full h-80"
+        />
+      </div>
+
       <article className="w-11/12 pt-6 mx-auto space-y-4 max-w-prose sm:w-full">
         <header>
           <div>

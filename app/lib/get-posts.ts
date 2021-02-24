@@ -10,7 +10,7 @@ import gatsbyPrism from 'gatsby-remark-prismjs';
 export interface FrontMatter {
   title: string;
   date: string;
-  image?: {
+  image: {
     imageUrl: string;
     photographer?: string;
     url?: string;

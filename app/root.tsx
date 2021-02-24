@@ -41,7 +41,7 @@ export const links: LinksFunction = () => {
 
 export default function App() {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="min-h-full">
       <head>
         <meta charSet="utf-8" />
         <meta

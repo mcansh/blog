@@ -1,10 +1,10 @@
 ---
 title: Ruby project
 date: '2017-12-09T00:00:00'
-# image:
-#   imageUrl: /static/images/posts/stacy-wyss-702.jpg
-#   photographer: Stacy Wyss
-#   url: 'https://unsplash.com/photos/-aDl1z8_nGY'
+image:
+  imageUrl: /static/images/posts/stacy-wyss-702.jpg
+  photographer: Stacy Wyss
+  url: 'https://unsplash.com/photos/-aDl1z8_nGY'
 editUrl: _posts/ruby-project.md
 lastEdited: '2020-07-08T16:26:33.000Z'
 ---
