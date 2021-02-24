@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "pm2-dev pm2.config.js",
-    "build": "remix build",
+    "build": "NODE_ENV=production remix build",
     "test": "TZ=utc NODE_ENV=test jest",
     "lint": "eslint --ignore-path .gitignore --fix --cache --ext js,ts,tsx,mdx,md .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
@@ -23,12 +23,11 @@
   "dependencies": {
     "@badrap/bar-of-progress": "0.1.2",
     "@mdx-js/react": "1.6.22",
-    "@remix-run/cli": "0.13.1",
-    "@remix-run/core": "0.13.1",
-    "@remix-run/data": "0.13.1",
-    "@remix-run/express": "0.13.1",
-    "@remix-run/react": "0.13.1",
-    "@remix-run/vercel": "0.13.1",
+    "@remix-run/cli": "0.13.2",
+    "@remix-run/core": "0.13.2",
+    "@remix-run/data": "0.13.2",
+    "@remix-run/react": "0.13.2",
+    "@remix-run/vercel": "0.13.2",
     "body-scroll-lock": "3.1.5",
     "date-fns": "2.17.0",
     "fathom-client": "3.0.0",
@@ -42,10 +41,12 @@
     "react-router-dom": "6.0.0-beta.0",
     "remark": "13.0.0",
     "remark-html": "13.0.1",
-    "type-fest": "0.21.1"
+    "type-fest": "0.21.2"
   },
   "devDependencies": {
     "@mcansh/eslint-config": "3.0.1",
+    "@tailwindcss/aspect-ratio": "0.2.0",
+    "@tailwindcss/forms": "0.2.1",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
     "@types/body-scroll-lock": "2.6.1",
@@ -56,14 +57,14 @@
     "@types/prettier": "2.2.1",
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.1",
-    "@typescript-eslint/eslint-plugin": "4.15.1",
-    "@typescript-eslint/parser": "4.15.1",
+    "@typescript-eslint/eslint-plugin": "4.15.2",
+    "@typescript-eslint/parser": "4.15.2",
     "autoprefixer": "10.2.4",
     "cssnano": "4.1.10",
     "del-cli": "3.0.1",
     "esjest-transform": "0.0.4",
     "eslint": "7.20.0",
-    "husky": "5.0.9",
+    "husky": "5.1.1",
     "jest": "26.6.3",
     "jest-in-case": "1.0.2",
     "lint-staged": "10.5.4",
@@ -71,7 +72,7 @@
     "pm2": "4.5.4",
     "prettier": "2.2.1",
     "tailwindcss": "2.0.3",
-    "typescript": "4.1.5"
+    "typescript": "4.2.2"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
