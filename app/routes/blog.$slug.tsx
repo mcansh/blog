@@ -6,13 +6,14 @@ import type {
 } from '@remix-run/react';
 import { Link, useRouteData } from '@remix-run/react';
 import { MDXProvider } from '@mdx-js/react';
-import { format, parseISO } from 'date-fns';
+import { parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import codeStyles from 'css:../styles/light-owl.css';
 
 import type { BlogPost } from '../lib/get-post';
 import { getPost } from '../lib/get-post';
 import { components } from '../components/post';
+import { formatPostDate } from '../utils/dates';
 
 import FourOhFour from './404';
 
@@ -108,7 +109,7 @@ const PostPage: React.VFC = () => {
               <span className="text-gray-600">
                 Posted on{' '}
                 <time dateTime={data.post.frontmatter.date}>
-                  {format(parseISO(data.post.frontmatter.date), 'MMMM d, yyyy')}
+                  {formatPostDate(data.post.frontmatter.date)}
                 </time>
               </span>
             </div>
