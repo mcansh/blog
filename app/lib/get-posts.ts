@@ -118,7 +118,10 @@ async function getPost(name: string): Promise<BlogPost> {
 
   const result = await remark()
     .use(() => markdownAST => {
-      gatsbyPrism({ markdownAST }, { showLineNumbers: true });
+      gatsbyPrism(
+        { markdownAST },
+        { showLineNumbers: true, inlineCodeMarker: '.' }
+      );
       return markdownAST;
     })
     .use(html)

@@ -40,9 +40,9 @@ function setDate() {
 setInterval(setDate, 1000);
 ```
 
-Not so fast, you’re not done yet! Notice when the time is `9:03:03` or any time
-that's less than 10, the hex is only then 3 numbers. To resolve this you can pad
-each variable to add a leading 0, like so:
+Not so fast, you’re not done yet! Notice when the time is `js. 9:03:03` or any
+time that's less than 10, the hex is only then 3 numbers. To resolve this you
+can pad each variable to add a leading 0, like so:
 
 ```javascript
 function setDate() {
