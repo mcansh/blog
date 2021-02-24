@@ -1,0 +1,9 @@
+.article p {
+  @apply mb-2 text-base;
+}
+
+.article {
+  a {
+    @apply mb-2 text-indigo-600 underline transition-colors duration-75 ease-in-out hover:text-indigo-400;
+  }
+}

@@ -5,14 +5,14 @@ import type {
   MetaFunction,
 } from '@remix-run/react';
 import { Link, useRouteData } from '@remix-run/react';
-import { MDXProvider } from '@mdx-js/react';
 import { parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import codeStyles from 'css:../styles/light-owl.css';
+// eslint-disable-next-line import/extensions, import/no-unresolved
+import blogPostStyles from 'css:../styles/post.css';
 
 import type { BlogPost } from '../lib/get-posts';
 import { getPost } from '../lib/get-posts';
-import { components } from '../components/post';
 import { formatPostDate } from '../utils/dates';
 
 import FourOhFour from './404';
@@ -21,7 +21,10 @@ interface RouteData {
   post?: BlogPost;
 }
 
-const links: LinksFunction = () => [{ rel: 'stylesheet', href: codeStyles }];
+const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: codeStyles },
+  { rel: 'stylesheet', href: blogPostStyles },
+];
 
 const meta: MetaFunction = ({ data }: { data: RouteData }) => ({
   title: data.post
@@ -99,24 +102,25 @@ const PostPage: React.VFC = () => {
           </Link>
         </header>
       )}
-      <MDXProvider components={components}>
-        <article className="w-11/12 pt-6 mx-auto space-y-4 max-w-prose sm:w-full">
-          <header>
-            <div>
-              <h1 className="text-3xl font-semibold">
-                {data.post.frontmatter.title}
-              </h1>
-              <span className="text-gray-600">
-                Posted on{' '}
-                <time dateTime={data.post.frontmatter.date}>
-                  {formatPostDate(data.post.frontmatter.date)}
-                </time>
-              </span>
-            </div>
-          </header>
-          <div dangerouslySetInnerHTML={{ __html: data.post.html }} />
-        </article>
-      </MDXProvider>
+      <article className="w-11/12 pt-6 mx-auto space-y-4 max-w-prose sm:w-full">
+        <header>
+          <div>
+            <h1 className="text-3xl font-semibold">
+              {data.post.frontmatter.title}
+            </h1>
+            <span className="text-gray-600">
+              Posted on{' '}
+              <time dateTime={data.post.frontmatter.date}>
+                {formatPostDate(data.post.frontmatter.date)}
+              </time>
+            </span>
+          </div>
+        </header>
+        <div
+          className="article"
+          dangerouslySetInnerHTML={{ __html: data.post.html }}
+        />
+      </article>
     </>
   );
 };
