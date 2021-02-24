@@ -5,7 +5,7 @@ import type {
   MetaFunction,
 } from '@remix-run/react';
 import { useRouteData } from '@remix-run/react';
-import { parseISO } from 'date-fns';
+import { differenceInSeconds, parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import codeStyles from 'css:../styles/light-owl.css';
 // eslint-disable-next-line import/extensions, import/no-unresolved
@@ -40,8 +40,11 @@ const loader: LoaderFunction = async ({ params }) => {
     const post = await getPost(slug);
 
     const oneDay = 86400;
-    const secondsSincePublished =
-      (Date.now() - parseISO(post.frontmatter.date).getTime()) / 1000;
+    const secondsSincePublished = differenceInSeconds(
+      new Date(),
+      parseISO(post.frontmatter.date)
+    );
+
     const barelyPublished = secondsSincePublished < oneDay;
 
     // If this was barely published then only cache it for one minute, giving you
