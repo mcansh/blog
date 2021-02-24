@@ -41,7 +41,7 @@ export const links: LinksFunction = () => {
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <head>
         <meta charSet="utf-8" />
         <meta
@@ -55,7 +55,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="h-full">
         <Outlet />
         <Scripts />
       </body>
@@ -65,12 +65,12 @@ export default function App() {
 
 export function ErrorBoundary({ error }: { error: Error }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <head>
         <meta charSet="utf-8" />
         <title>Oops!</title>
       </head>
-      <body>
+      <body className="h-full">
         <div>
           <h1>App Error</h1>
           <pre>{error.message}</pre>

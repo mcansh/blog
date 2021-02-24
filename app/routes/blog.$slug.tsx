@@ -10,8 +10,8 @@ import { parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import codeStyles from 'css:../styles/light-owl.css';
 
-import type { BlogPost } from '../lib/get-post';
-import { getPost } from '../lib/get-post';
+import type { BlogPost } from '../lib/get-posts';
+import { getPost } from '../lib/get-posts';
 import { components } from '../components/post';
 import { formatPostDate } from '../utils/dates';
 

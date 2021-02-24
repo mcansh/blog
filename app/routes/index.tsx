@@ -6,8 +6,8 @@ import type {
 } from '@remix-run/react';
 import { useRouteData, Link } from '@remix-run/react';
 
-import type { PostFrontMatter } from '../lib/get-post';
-import { getPosts } from '../lib/get-post';
+import type { PostFrontMatter } from '../lib/get-posts';
+import { getPosts } from '../lib/get-posts';
 
 const headers: HeadersFunction = () => ({
   'cache-control': 'public, max-age=10',

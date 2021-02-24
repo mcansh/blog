@@ -49,7 +49,7 @@ async function getPostsFromFS(): Promise<Array<Post>> {
 }
 
 async function getPostsFromGitHub(): Promise<Array<Post>> {
-  const url = `https://api.github.com/repos/mcansh/blog/contents/_posts?ref=feat/remix`;
+  const url = `https://api.github.com/repos/${process.env.REPO}/contents/_posts?ref=${process.env.BRANCH}`;
   const res = await fetch(url);
   const files = (await res.json()) as Array<{
     name: string;
@@ -84,7 +84,7 @@ async function getPostFromFS(name: string): Promise<string> {
 }
 
 async function getPostFromGitHub(name: string): Promise<string> {
-  const url = `https://raw.githubusercontent.com/mcansh/blog/feat/remix/_posts/${name}.md`;
+  const url = `https://raw.githubusercontent.com/${process.env.REPO}/${process.env.BRANCH}/_posts/${name}.md`;
   const res = await fetch(url);
   return res.text();
 }
@@ -95,17 +95,17 @@ async function getPosts(): Promise<Array<PostFrontMatter>> {
       ? await getPostsFromGitHub()
       : await getPostsFromFS();
 
-  const posts = files.map(file => {
-    const { data } = matter(file.contents);
-    return {
-      name: file.name.replace(/\.md$/, ''),
-      frontmatter: data as FrontMatter,
-    };
-  });
-
-  return posts.sort((a, b) =>
-    compareDesc(parseISO(a.frontmatter.date), parseISO(b.frontmatter.date))
-  );
+  return files
+    .map(file => {
+      const { data } = matter(file.contents);
+      return {
+        name: file.name.replace(/\.md$/, ''),
+        frontmatter: data as FrontMatter,
+      };
+    })
+    .sort((a, b) =>
+      compareDesc(parseISO(a.frontmatter.date), parseISO(b.frontmatter.date))
+    );
 }
 
 async function getPost(name: string): Promise<BlogPost> {
