@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {
+  HeadersFunction,
   LinksFunction,
   LoaderFunction,
   MetaFunction,
@@ -78,6 +79,10 @@ const loader: LoaderFunction = async ({ params }) => {
   }
 };
 
+const headers: HeadersFunction = ({ loaderHeaders }) => ({
+  'cache-control': loaderHeaders.get('cache-control'),
+});
+
 const PostPage: React.VFC = () => {
   const data = useRouteData<RouteData>();
 
@@ -119,4 +124,4 @@ const PostPage: React.VFC = () => {
 };
 
 export default PostPage;
-export { loader, meta, links };
+export { loader, meta, links, headers };
