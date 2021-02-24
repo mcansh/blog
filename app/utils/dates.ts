@@ -2,14 +2,18 @@ import { formatISO, parseISO, format } from 'date-fns';
 
 type PossibleDates = string | number | Date;
 
-function parseDate(input: PossibleDates) {
-  return typeof input === 'string' ? parseISO(input) : input;
+function parseDate(input: PossibleDates): Date {
+  if (typeof input === 'string') return parseISO(input);
+  if (typeof input === 'number') return new Date(input);
+  return input;
 }
 
-const formatPostDate = (inputDate: PossibleDates) =>
-  format(parseDate(inputDate), 'MMMM d, yyyy');
+function formatPostDate(input: PossibleDates): string {
+  return format(parseDate(input), 'MMMM d, yyyy');
+}
 
-const iso8601 = (date: PossibleDates) =>
-  formatISO(parseDate(date), { representation: 'date' });
+function iso8601(input: PossibleDates): string {
+  return formatISO(parseDate(input), { representation: 'date' });
+}
 
 export { iso8601, formatPostDate };

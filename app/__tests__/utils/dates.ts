@@ -2,7 +2,13 @@ import cases from 'jest-in-case';
 
 import { iso8601, formatPostDate } from '../../utils/dates';
 
-cases(
+interface Options {
+  input: string | number | Date;
+  output: string;
+  name?: string;
+}
+
+cases<Options>(
   'returns an iso8601 date string',
   opts => {
     expect(iso8601(opts.input)).toBe(opts.output);
