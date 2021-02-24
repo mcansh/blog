@@ -9,8 +9,6 @@ import { useRouteData } from '@remix-run/react';
 import { differenceInSeconds, parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import codeStyles from 'css:../styles/light-owl.css';
-// eslint-disable-next-line import/extensions, import/no-unresolved
-import blogPostStyles from 'css:../styles/post.css';
 
 import type { BlogPost } from '../lib/get-posts';
 import { getPost } from '../lib/get-posts';
@@ -22,10 +20,7 @@ interface RouteData {
   post?: BlogPost;
 }
 
-const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: codeStyles },
-  { rel: 'stylesheet', href: blogPostStyles },
-];
+const links: LinksFunction = () => [{ rel: 'stylesheet', href: codeStyles }];
 
 const meta: MetaFunction = ({ data }: { data: RouteData }) => ({
   title: data.post
@@ -115,7 +110,7 @@ const PostPage: React.VFC = () => {
           </div>
         </header>
         <div
-          className="article"
+          className="prose lg:prose-xl prose-indigo"
           dangerouslySetInnerHTML={{ __html: data.post.html }}
         />
       </article>
