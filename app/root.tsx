@@ -1,10 +1,12 @@
-import type { LinksFunction } from '@remix-run/react';
-import { Meta, Links, Scripts } from '@remix-run/react';
+import type { LinksFunction, LoaderFunction } from '@remix-run/react';
+import { useRouteData, Meta, Links, Scripts } from '@remix-run/react';
 import { Outlet } from 'react-router-dom';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import tailwind from 'css:./styles/tailwind.css';
 
-export const links: LinksFunction = () => {
+import { useFathom } from './utils/fathom';
+
+const links: LinksFunction = () => {
   const iconSizes = [228, 195, 152, 144, 128, 120, 96, 72, 57, 32];
 
   return [
@@ -39,7 +41,24 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export default function App() {
+interface RouteData {
+  env: {
+    FATHOM_SITE_ID: string;
+    FATHOM_SUBDOMAIN: string;
+  };
+}
+
+const loader: LoaderFunction = () => ({
+  env: {
+    FATHOM_SITE_ID: process.env.FATHOM_SITE_ID,
+    FATHOM_SUBDOMAIN: process.env.FATHOM_SUBDOMAIN,
+  },
+});
+
+const App: React.VFC = () => {
+  const data = useRouteData<RouteData>();
+  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_SUBDOMAIN);
+
   return (
     <html lang="en" className="min-h-full">
       <head>
@@ -57,13 +76,27 @@ export default function App() {
       </head>
       <body className="h-full">
         <Outlet />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.ENV = ${JSON.stringify(data.env)};
+            `,
+          }}
+        />
         <Scripts />
       </body>
     </html>
   );
+};
+
+interface ErrorBoundaryProps {
+  error: Error;
 }
 
-export function ErrorBoundary({ error }: { error: Error }) {
+const ErrorBoundary: React.VFC<ErrorBoundaryProps> = ({ error }) => {
+  const data = useRouteData<RouteData>();
+  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_SUBDOMAIN);
+
   return (
     <html lang="en" className="h-full">
       <head>
@@ -84,4 +117,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
       </body>
     </html>
   );
-}
+};
+
+export default App;
+export { ErrorBoundary, links, loader };
