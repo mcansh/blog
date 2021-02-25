@@ -10,13 +10,13 @@ import type { PostFrontMatter } from '../lib/get-posts';
 import { getPosts } from '../lib/get-posts';
 import { formatPostDate, iso8601 } from '../utils/dates';
 
-const headers: HeadersFunction = () => ({
-  'cache-control': 'public, max-age=10',
+const headers: HeadersFunction = ({ loaderHeaders }) => ({
+  'cache-control': loaderHeaders.get('cache-control'),
 });
 
 const meta: MetaFunction = () => ({
   title: 'Logan McAnsh',
-  description: '',
+  description: 'My neglected blog',
 });
 
 interface RouteData {
