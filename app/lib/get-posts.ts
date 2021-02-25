@@ -16,7 +16,7 @@ export interface FrontMatter {
     url?: string;
   };
   editUrl: string;
-  lastEdited: string;
+  lastEdited?: string;
 }
 
 export interface PostNameAndFrontMatter {

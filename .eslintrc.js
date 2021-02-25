@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@mcansh/eslint-config/typescript'],
   parserOptions: {
-    project: ['./app/tsconfig.json'],
+    project: ['./api/tsconfig.json', './app/tsconfig.json'],
   },
   rules: {
     'no-use-before-define': 'off',
