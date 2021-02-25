@@ -12,7 +12,7 @@ export const links: LinksFunction = () => {
     ...iconSizes.map(icon => ({
       rel: 'apple-touch-icon-precomposed',
       sizes: icon.toString(),
-      href: `/static/images/logo/logo-${icon}x${icon}.png`,
+      href: `/static/images/logo/logo-${icon}.png`,
     })),
     { rel: 'manifest', href: '/manifest.webmanifest' },
     { rel: 'mask-icon', href: '/static/images/logo/safari.svg', color: '#000' },
