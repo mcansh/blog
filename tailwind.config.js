@@ -8,6 +8,15 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            code: null,
+            pre: null,
+            'pre code': null,
+          },
+        },
+      },
     },
   },
   variants: {
