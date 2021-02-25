@@ -110,7 +110,7 @@ const PostPage: React.VFC = () => {
           </div>
         </header>
         <div
-          className="prose lg:prose-xl prose-indigo"
+          className="prose prose-indigo"
           dangerouslySetInnerHTML={{ __html: data.post.html }}
         />
       </article>
