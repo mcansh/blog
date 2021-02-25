@@ -8,7 +8,7 @@ declare namespace NodeJS {
     readonly REPO: string;
     readonly BRANCH: string;
     readonly FATHOM_SITE_ID: string;
-    readonly FATHOM_SUBDOMAIN: string;
+    readonly FATHOM_URL?: string;
     readonly SENTRY_DSN: string;
   }
 }

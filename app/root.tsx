@@ -44,20 +44,20 @@ const links: LinksFunction = () => {
 interface RouteData {
   env: {
     FATHOM_SITE_ID: string;
-    FATHOM_SUBDOMAIN: string;
+    FATHOM_URL: string;
   };
 }
 
 const loader: LoaderFunction = () => ({
   env: {
     FATHOM_SITE_ID: process.env.FATHOM_SITE_ID,
-    FATHOM_SUBDOMAIN: process.env.FATHOM_SUBDOMAIN,
+    FATHOM_URL: process.env.FATHOM_URL,
   },
 });
 
 const App: React.VFC = () => {
   const data = useRouteData<RouteData>();
-  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_SUBDOMAIN);
+  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_URL);
 
   return (
     <html lang="en" className="min-h-full">
@@ -95,7 +95,7 @@ interface ErrorBoundaryProps {
 
 const ErrorBoundary: React.VFC<ErrorBoundaryProps> = ({ error }) => {
   const data = useRouteData<RouteData>();
-  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_SUBDOMAIN);
+  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_URL);
 
   return (
     <html lang="en" className="h-full">
