@@ -59,6 +59,7 @@ function Index() {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-black bg-opacity-60" />
           <img
+            className="object-cover w-full h-full"
             src={data.lastPost.frontmatter.image.imageUrl}
             alt={data.lastPost.frontmatter.title}
           />
