@@ -10,14 +10,14 @@ import { differenceInSeconds, parseISO } from 'date-fns';
 // eslint-disable-next-line import/extensions, import/no-unresolved
 import codeStyles from 'css:../styles/light-owl.css';
 
-import type { BlogPost } from '../lib/get-posts';
+import type { BlogPostAndContent } from '../lib/get-posts';
 import { getPost } from '../lib/get-posts';
 import { formatPostDate } from '../utils/dates';
 
 import FourOhFour from './404';
 
 interface RouteData {
-  post?: BlogPost;
+  post?: BlogPostAndContent;
 }
 
 const links: LinksFunction = () => [{ rel: 'stylesheet', href: codeStyles }];

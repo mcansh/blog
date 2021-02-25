@@ -19,7 +19,7 @@ export interface FrontMatter {
   lastEdited: string;
 }
 
-export interface PostFrontMatter {
+export interface PostNameAndFrontMatter {
   name: string;
   frontmatter: FrontMatter;
 }
@@ -29,7 +29,7 @@ interface Post {
   contents: string;
 }
 
-export interface BlogPost {
+export interface BlogPostAndContent {
   name: string;
   html: string;
   frontmatter: FrontMatter;
@@ -89,7 +89,7 @@ async function getPostFromGitHub(name: string): Promise<string> {
   return res.text();
 }
 
-async function getPosts(): Promise<Array<PostFrontMatter>> {
+async function getPosts(): Promise<Array<PostNameAndFrontMatter>> {
   const files =
     process.env.NODE_ENV === 'production'
       ? await getPostsFromGitHub()
@@ -108,7 +108,7 @@ async function getPosts(): Promise<Array<PostFrontMatter>> {
     );
 }
 
-async function getPost(name: string): Promise<BlogPost> {
+async function getPost(name: string): Promise<BlogPostAndContent> {
   const contents =
     process.env.NODE_ENV === 'production'
       ? await getPostFromGitHub(name)

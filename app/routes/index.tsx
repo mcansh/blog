@@ -6,7 +6,7 @@ import type {
 } from '@remix-run/react';
 import { useRouteData, Link } from '@remix-run/react';
 
-import type { PostFrontMatter } from '../lib/get-posts';
+import type { PostNameAndFrontMatter } from '../lib/get-posts';
 import { getPosts } from '../lib/get-posts';
 import { formatPostDate, iso8601 } from '../utils/dates';
 
@@ -20,13 +20,19 @@ const meta: MetaFunction = () => ({
 });
 
 interface RouteData {
-  posts: Array<PostFrontMatter>;
+  posts: Array<PostNameAndFrontMatter>;
+  lastPost: PostNameAndFrontMatter;
 }
 
 const loader: LoaderFunction = async () => {
   const posts = await getPosts();
 
-  return new Response(JSON.stringify({ posts }), {
+  const body = JSON.stringify({
+    posts,
+    lastPost: posts[0],
+  });
+
+  return new Response(body, {
     headers: {
       'cache-control': 'public, max-age=300, stale-while-revalidate=86400',
       'content-type': 'application/json',
@@ -37,11 +43,28 @@ const loader: LoaderFunction = async () => {
 function Index() {
   const data = useRouteData<RouteData>();
   return (
-    <div className="container h-full py-4 mx-auto">
-      <header className="text-center">
-        <h1 className="text-4xl font-semibold">Logan McAnsh</h1>
+    <div className="h-full">
+      <header className="relative flex items-center justify-center overflow-hidden text-center h-96">
+        <div className="relative z-10 space-y-4">
+          <h1 className="text-4xl font-semibold text-white">
+            {data.lastPost.frontmatter.title}
+          </h1>
+          <Link
+            className="inline-block px-6 py-2 text-base text-white capitalize transition-colors duration-200 ease-in-out bg-indigo-600 border border-gray-500 rounded-lg shadow-lg hover:bg-indigo-400 hover:shadow-sm"
+            to={`/blog/${data.lastPost.name}`}
+          >
+            Read more
+          </Link>
+        </div>
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-black bg-opacity-60" />
+          <img
+            src={data.lastPost.frontmatter.image.imageUrl}
+            alt={data.lastPost.frontmatter.title}
+          />
+        </div>
       </header>
-      <main>
+      <main className="container py-4 mx-auto">
         <ul className="grid gap-4 px-4 mt-4 sm:px-0 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
           {data.posts.map(post => (
             <li key={post.name}>
