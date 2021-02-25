@@ -5,6 +5,7 @@ import { getPosts } from '../app/lib/get-posts';
 
 async function getFeed() {
   const posts = await getPosts();
+  const latestPost = posts[0];
 
   const feed = new Feed({
     title: 'Logan McAnsh',
@@ -13,6 +14,9 @@ async function getFeed() {
     language: 'en',
     favicon: 'https://mcansh.blog/favicon.ico',
     copyright: `${new Date().getFullYear()} Logan McAnsh`,
+    updated: parseISO(
+      latestPost.frontmatter.lastEdited ?? latestPost.frontmatter.date
+    ),
     author: {
       email: 'logan@mcan.sh',
       link: 'https://mcan.sh',
