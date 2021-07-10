@@ -4,12 +4,12 @@ import type {
   LinksFunction,
   LoaderFunction,
   MetaFunction,
-} from '@remix-run/react';
+} from '@remix-run/node';
 import { useRouteData } from '@remix-run/react';
 import { differenceInSeconds, parseISO } from 'date-fns';
-// eslint-disable-next-line import/extensions, import/no-unresolved
-import codeStyles from 'css:../styles/light-owl.css';
+import { json } from 'remix-utils';
 
+import codeStyles from '../styles/code.css';
 import type { BlogPostAndContent } from '../lib/get-posts';
 import { getPost } from '../lib/get-posts';
 import { formatPostDate } from '../utils/dates';
@@ -18,6 +18,14 @@ import FourOhFour from './404';
 
 interface RouteData {
   post?: BlogPostAndContent;
+}
+
+interface ErrorWithCode extends Error {
+  errno?: number;
+  code?: string;
+  path?: string;
+  syscall?: string;
+  stack?: string;
 }
 
 const links: LinksFunction = () => [{ rel: 'stylesheet', href: codeStyles }];
@@ -56,26 +64,36 @@ const loader: LoaderFunction = async ({ params }) => {
     // page for a month) we'll make them wait to see the newest version.
     const swr = oneDay * 30;
 
-    return new Response(JSON.stringify({ post }), {
-      status: 200,
-      headers: {
-        'Cache-Control': `public, max-age=${maxAge}, stale-while-revalidate=${swr}`,
-        'Content-Type': 'application/json',
-      },
-    });
-  } catch (error) {
-    console.error(error);
-    return new Response(JSON.stringify({}), {
-      status: error.code === 'ENOENT' ? 404 : 500,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    return json<RouteData>(
+      { post },
+      {
+        headers: {
+          'Cache-Control': `public, max-age=${maxAge}, stale-while-revalidate=${swr}`,
+        },
+      }
+    );
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return json(
+        {},
+        {
+          status: (error as ErrorWithCode).code === 'ENOENT' ? 404 : 500,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    } else {
+      console.error(error);
+    }
+
+    return json(
+      {},
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
   }
 };
 
 const headers: HeadersFunction = ({ loaderHeaders }) => ({
-  'cache-control': loaderHeaders.get('cache-control'),
+  'cache-control': loaderHeaders.get('cache-control') ?? '',
 });
 
 const PostPage: React.VFC = () => {

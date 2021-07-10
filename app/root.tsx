@@ -1,10 +1,9 @@
-import type { LinksFunction, LoaderFunction } from '@remix-run/react';
-import { useRouteData, Meta, Links, Scripts } from '@remix-run/react';
+import * as React from 'react';
+import type { LinksFunction } from 'remix';
+import { Links, Meta, Scripts, LiveReload } from 'remix';
 import { Outlet } from 'react-router-dom';
-// eslint-disable-next-line import/extensions, import/no-unresolved
-import tailwind from 'css:./styles/tailwind.css';
 
-import { useFathom } from './utils/fathom';
+import tailwind from './styles/tailwind.css';
 
 const links: LinksFunction = () => {
   const iconSizes = [228, 195, 152, 144, 128, 120, 96, 72, 57, 32];
@@ -41,83 +40,52 @@ const links: LinksFunction = () => {
   ];
 };
 
-interface RouteData {
-  env: {
-    FATHOM_SITE_ID: string;
-    FATHOM_URL: string;
-  };
-}
-
-const loader: LoaderFunction = () => ({
-  env: {
-    FATHOM_SITE_ID: process.env.FATHOM_SITE_ID,
-    FATHOM_URL: process.env.FATHOM_URL,
-  },
-});
-
-const App: React.VFC = () => {
-  const data = useRouteData<RouteData>();
-  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_URL);
-
-  return (
-    <html lang="en" className="min-h-full">
-      <head>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
-        />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-        <Meta />
-        <Links />
-      </head>
-      <body className="h-full">
-        <Outlet />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.ENV = ${JSON.stringify(data.env)};
-            `,
-          }}
-        />
-        <Scripts />
-      </body>
-    </html>
-  );
-};
+const App: React.VFC = () => (
+  <html lang="en" className="min-h-full">
+    <head>
+      <meta charSet="utf-8" />
+      <meta
+        name="viewport"
+        content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
+      />
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+      />
+      <Meta />
+      <Links />
+    </head>
+    <body className="h-full">
+      <Outlet />
+      <Scripts />
+      <LiveReload />
+    </body>
+  </html>
+);
 
 interface ErrorBoundaryProps {
   error: Error;
 }
 
-const ErrorBoundary: React.VFC<ErrorBoundaryProps> = ({ error }) => {
-  const data = useRouteData<RouteData>();
-  useFathom(data.env.FATHOM_SITE_ID, data.env.FATHOM_URL);
+const ErrorBoundary: React.VFC<ErrorBoundaryProps> = ({ error }) => (
+  <html lang="en" className="h-full">
+    <head>
+      <meta charSet="utf-8" />
+      <title>Oops!</title>
+    </head>
+    <body className="h-full">
+      <div>
+        <h1>App Error</h1>
+        <pre>{error.message}</pre>
+        <p>
+          Replace this UI with what you want users to see when your app throws
+          uncaught errors. The file is at <code>app/App.tsx</code>.
+        </p>
+      </div>
 
-  return (
-    <html lang="en" className="h-full">
-      <head>
-        <meta charSet="utf-8" />
-        <title>Oops!</title>
-      </head>
-      <body className="h-full">
-        <div>
-          <h1>App Error</h1>
-          <pre>{error.message}</pre>
-          <p>
-            Replace this UI with what you want users to see when your app throws
-            uncaught errors. The file is at <code>app/App.tsx</code>.
-          </p>
-        </div>
-
-        <Scripts />
-      </body>
-    </html>
-  );
-};
-
+      <Scripts />
+    </body>
+  </html>
+);
 export default App;
-export { ErrorBoundary, links, loader };
+export { ErrorBoundary, links };

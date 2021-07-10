@@ -1,11 +1,12 @@
-export function meta() {
-  return { title: "Ain't nothing here" };
-}
+import type { MetaFunction, RouteComponent } from 'remix';
 
-export default function FourOhFour() {
-  return (
-    <div>
-      <h1>404</h1>
-    </div>
-  );
-}
+const meta: MetaFunction = () => ({ title: "Ain't nothing here" });
+
+const FourOhFour: RouteComponent = () => (
+  <div>
+    <h1>404</h1>
+  </div>
+);
+
+export default FourOhFour;
+export { meta };

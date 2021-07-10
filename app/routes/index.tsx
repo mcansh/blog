@@ -1,17 +1,14 @@
 import * as React from 'react';
-import type {
-  HeadersFunction,
-  LoaderFunction,
-  MetaFunction,
-} from '@remix-run/react';
-import { useRouteData, Link } from '@remix-run/react';
+import type { HeadersFunction, LoaderFunction, MetaFunction } from 'remix';
+import { useRouteData, Link } from 'remix';
+import { json } from 'remix-utils';
 
 import type { PostNameAndFrontMatter } from '../lib/get-posts';
 import { getPosts } from '../lib/get-posts';
 import { formatPostDate, iso8601 } from '../utils/dates';
 
 const headers: HeadersFunction = ({ loaderHeaders }) => ({
-  'cache-control': loaderHeaders.get('cache-control'),
+  'cache-control': loaderHeaders.get('cache-control') ?? '',
 });
 
 const meta: MetaFunction = () => ({
@@ -27,21 +24,19 @@ interface RouteData {
 const loader: LoaderFunction = async () => {
   const posts = await getPosts();
 
-  const body = JSON.stringify({
-    posts,
-    lastPost: posts[0],
-  });
-
-  return new Response(body, {
-    headers: {
-      'cache-control': 'public, max-age=300, stale-while-revalidate=86400',
-      'content-type': 'application/json',
-    },
-  });
+  return json<RouteData>(
+    { posts, lastPost: posts[0] },
+    {
+      headers: {
+        'cache-control': 'public, max-age=300, stale-while-revalidate=86400',
+      },
+    }
+  );
 };
 
 function Index() {
   const data = useRouteData<RouteData>();
+
   return (
     <div className="h-full">
       <header className="relative flex items-center justify-center overflow-hidden text-center h-96">
@@ -99,4 +94,4 @@ function Index() {
 }
 
 export default Index;
-export { loader, meta, headers };
+export { headers, meta, loader };

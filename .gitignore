@@ -11,7 +11,8 @@ node_modules
 # build artifacts
 build
 public/build
-app-build
+app/styles
+.cache
 
 # vercel
 .vercel

@@ -1,11 +1,8 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-
 import matter from 'gray-matter';
 import { compareDesc, parseISO } from 'date-fns';
-import remark from 'remark';
-import html from 'remark-html';
-import gatsbyPrism from 'gatsby-remark-prismjs';
+import { processMarkdown } from '@ryanflorence/md';
+
+import { fs, path } from './node.server';
 
 export interface FrontMatter {
   title: string;
@@ -116,20 +113,11 @@ async function getPost(name: string): Promise<BlogPostAndContent> {
 
   const { content, data: frontmatter } = matter(contents);
 
-  const result = await remark()
-    .use(() => markdownAST => {
-      gatsbyPrism(
-        { markdownAST },
-        { showLineNumbers: true, inlineCodeMarker: '.' }
-      );
-      return markdownAST;
-    })
-    .use(html)
-    .process(content);
+  const html = await processMarkdown(content);
 
   return {
     name,
-    html: result.contents.toString(),
+    html: html.toString(),
     frontmatter: frontmatter as FrontMatter,
   };
 }
