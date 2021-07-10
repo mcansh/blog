@@ -22,7 +22,7 @@
     "type-check": "tsc --project app",
     "validate": "npm-run-all --parallel lint format type-check test",
     "postinstall": "husky install .config/husky",
-    "clean": "del app/styles build public/build"
+    "clean": "del .cache app/styles server/build public/build"
   },
   "dependencies": {
     "@badrap/bar-of-progress": "0.1.2",

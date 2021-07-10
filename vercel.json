@@ -12,11 +12,8 @@
       "use": "@vercel/static"
     },
     {
-      "src": "index.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["remix.config.js", "app-build/**/*"]
-      }
+      "src": "server/index.js",
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
@@ -38,7 +35,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/"
+      "destination": "/server"
     }
   ],
   "headers": [
