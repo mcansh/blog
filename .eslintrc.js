@@ -1,11 +1,6 @@
 module.exports = {
   extends: ['@mcansh/eslint-config/typescript'],
-  parserOptions: {
-    project: ['./api/tsconfig.json', './app/tsconfig.json'],
-  },
   rules: {
-    'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': 'error',
     'import/no-extraneous-dependencies': [
       'error',
       {

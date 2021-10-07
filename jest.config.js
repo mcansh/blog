@@ -11,5 +11,4 @@ module.exports = {
       tsconfig: './app/tsconfig.json',
     },
   },
-  // transform: { '\\.[jt]sx?$': 'esjest-transform' },
 };

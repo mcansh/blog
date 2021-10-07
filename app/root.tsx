@@ -1,5 +1,9 @@
-import * as React from 'react';
-import type { LinksFunction } from 'remix';
+import type {
+  ErrorBoundaryComponent,
+  LinksFunction,
+  MetaFunction,
+  RouteComponent,
+} from 'remix';
 import { Links, Meta, Scripts, LiveReload } from 'remix';
 import { Outlet } from 'react-router-dom';
 
@@ -19,43 +23,23 @@ const links: LinksFunction = () => {
     { rel: 'mask-icon', href: '/static/images/logo/safari.svg', color: '#000' },
     { rel: 'shortcut icon', href: '/static/images/logo/logo.png' },
     { rel: 'shortcut icon', href: '/favicon.ico' },
-    {
-      rel: 'alternate',
-      href: '/atom',
-      type: 'application/atom+xml',
-      title: 'Atom Feed',
-    },
-    {
-      rel: 'alternate',
-      href: '/feed',
-      type: 'application/json',
-      title: 'JSON Feed',
-    },
-    {
-      rel: 'alternate',
-      href: '/rss',
-      type: 'application/rss+xml',
-      title: 'RSS Feed',
-    },
   ];
 };
 
-const App: React.VFC = () => (
-  <html lang="en" className="min-h-full">
+const meta: MetaFunction = () => ({
+  viewport:
+    'initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover',
+  'apple-mobile-web-app-status-bar-style': 'black-translucent',
+});
+
+const App: RouteComponent = () => (
+  <html lang="en">
     <head>
       <meta charSet="utf-8" />
-      <meta
-        name="viewport"
-        content="initial-scale=1.0, width=device-width, minimum-scale=1, viewport-fit=cover"
-      />
-      <meta
-        name="apple-mobile-web-app-status-bar-style"
-        content="black-translucent"
-      />
       <Meta />
       <Links />
     </head>
-    <body className="h-full">
+    <body>
       <Outlet />
       <Scripts />
       <LiveReload />
@@ -63,11 +47,7 @@ const App: React.VFC = () => (
   </html>
 );
 
-interface ErrorBoundaryProps {
-  error: Error;
-}
-
-const ErrorBoundary: React.VFC<ErrorBoundaryProps> = ({ error }) => (
+const ErrorBoundary: ErrorBoundaryComponent = ({ error }) => (
   <html lang="en" className="h-full">
     <head>
       <meta charSet="utf-8" />
@@ -87,5 +67,6 @@ const ErrorBoundary: React.VFC<ErrorBoundaryProps> = ({ error }) => (
     </body>
   </html>
 );
+
 export default App;
-export { ErrorBoundary, links };
+export { meta, ErrorBoundary, links };
