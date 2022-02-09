@@ -4,8 +4,7 @@ import type {
   MetaFunction,
   RouteComponent,
 } from 'remix';
-import { Links, Meta, Scripts, LiveReload } from 'remix';
-import { Outlet } from 'react-router-dom';
+import { Links, Meta, Scripts, LiveReload, Outlet } from 'remix';
 
 import tailwind from './styles/tailwind.css';
 
