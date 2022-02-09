@@ -1,10 +1,10 @@
 {
   "name": "Logan McAnsh",
   "short_name": "Blog",
-  "description": "My blog for learn.co, but mostly it's a playground for things I want to build with React 🤷‍♂️",
+  "description": "My neglected blog",
   "start_url": "/?homescreen=1",
-  "background_color": "#6c16c7",
-  "theme_color": "#6c16c7",
+  "background_color": "#fff",
+  "theme_color": "#fff",
   "display": "standalone",
   "icons": [
     {
