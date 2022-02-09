@@ -1,31 +1,16 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./app/**/*.{js,ts,tsx,md,mdx}'],
-  darkMode: 'media', // or 'media' or 'class'
+  content: ['./app/**/*.{js,ts,tsx,md,mdx}'],
   theme: {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            code: null,
-            pre: null,
-            'pre code': null,
-          },
-        },
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [],
 };
