@@ -12,10 +12,10 @@
   "sideEffects": false,
   "scripts": {
     "dev:remix": "remix dev",
-    "dev:css": "tailwindcss -o ./app/styles/tailwind.css --watch",
+    "dev:css": "tailwindcss -o ./app/styles/tailwind.css --watch --postcss",
     "dev": "run-p dev:*",
     "prebuild": "npm run clean",
-    "build:css": "tailwindcss -o ./app/styles/tailwind.css --minify",
+    "build:css": "tailwindcss -o ./app/styles/tailwind.css --minify --postcss",
     "build:remix": "remix build",
     "build": "run-s build:*",
     "lint": "eslint --ignore-path .gitignore --fix --cache --ext js,ts,tsx,mdx,md .",
