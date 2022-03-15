@@ -9,10 +9,12 @@ coverage
 node_modules
 
 # build artifacts
-api/_build
-public/build
+/build
+/dist
+/public/build
 app/styles
 .cache
+/.mf
 
 # vercel
 .vercel
@@ -28,3 +30,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+
+
+
