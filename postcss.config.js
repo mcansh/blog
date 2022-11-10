@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [require('postcss-100vh-fix')],
+  plugins: [require("postcss-100vh-fix")],
 };
