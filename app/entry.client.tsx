@@ -1,9 +1,9 @@
-import ReactDOM from 'react-dom';
-import { RemixBrowser } from '@remix-run/react';
-import * as Fathom from 'fathom-client';
+import ReactDOM from "react-dom";
+import { RemixBrowser } from "@remix-run/react";
+import * as Fathom from "fathom-client";
 
-Fathom.load('ROTOLYJX', {
-  excludedDomains: ['localhost'],
+Fathom.load("ROTOLYJX", {
+  excludedDomains: ["localhost"],
   url: `https://kind-thirtyeight.mcansh.blog/script.js`,
 });
 
